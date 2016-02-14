@@ -1,0 +1,91 @@
+﻿/*
+ADV_fnc_tfarSettings by Belbo
+contains all the variables that are important for tfar
+*/
+
+if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
+	//TFAR:
+	//für zusätzliche variablen/functions: https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Variables
+	compile preprocessFileLineNumbers "\task_force_radio\functions\common.sqf";
+
+	//tfar serious mode
+
+	ADV_par_seriousMode = ["param_SeriousMode",0] call BIS_fnc_getParamValue;
+	if (ADV_par_seriousMode > 0) then {
+		tf_radio_channel_name = "Arma3-TFAR";
+		tf_radio_channel_password = "123";
+		if (isServer) then {
+			{ publicVariable _x } forEach ["tf_radio_channel_name","tf_radio_channel_password"];
+		};
+	};
+
+	tf_no_auto_long_range_radio = true;
+	tf_give_personal_radio_to_regular_soldier = false;
+	tf_give_microdagr_to_soldier = false;
+	tf_same_sw_frequencies_for_side = true;
+	tf_same_lr_frequencies_for_side = true;
+	tf_terrain_interception_coefficient = 3.0;
+	TF_speakerDistance = 20;
+
+	//radios
+	TF_defaultWestPersonalRadio = "tf_anprc148jem";
+	TF_defaultEastPersonalRadio = "tf_fadak";
+	TF_defaultGuerPersonalRadio = "tf_anprc148jem";
+	
+	TF_defaultWestRiflemanRadio = "tf_anprc154";
+	TF_defaultEastRiflemanRadio = "tf_pnr1000a";
+	TF_defaultGuerRiflemanRadio = "tf_anprc154";
+
+	//frequencies
+	//blufor
+	_settingsSwWest = [false] call TFAR_fnc_generateSwSettings;
+	_settingsSwEast = [false] call TFAR_fnc_generateSwSettings;
+	_settingsSwGuer = [false] call TFAR_fnc_generateSwSettings;
+	
+	_settingsLrWest = [false] call TFAR_fnc_generateLrSettings;
+	_settingsLrEast = [false] call TFAR_fnc_generateLrSettings;
+	_settingsLrGuer = [false] call TFAR_fnc_generateLrSettings;
+	
+	if ( ADV_par_Radios == 3 ) then {
+		_settingsSwWest set [2, ["80","80","80","80","80","80","80","80"]];
+		_settingsLrWest set [2, ["80","80","80","80","80","80","80","80","80"]];
+		
+		_settingsSwEast set [2, ["70","70","70","70","70","70","70","70"]];
+		_settingsLrEast set [2, ["70","70","70","70","70","70","70","70","70"]];
+
+		_settingsSwGuer set [2, ["60","60","60","60","60","60","60","60"]];
+		_settingsLrGuer set [2, ["60","60","60","60","60","60","60","60","60"]];
+	} else {
+		_settingsSwWest set [2, ["80","80.4","80.8","81.2","81.6","82","82.4","82.8"]];
+		_settingsLrWest set [2, ["80.2","80.6","81","81.4","81.8","82.2","82.6","83","83.4"]];
+
+		_settingsSwEast set [2, ["50","50.4","50.8","51.2","51.6","52","52.4","52.8"]];
+		_settingsLrEast set [2, ["50.2","50.6","51","51.4","51.8","52.2","52.6","53","53.4"]];
+
+		_settingsSwGuer set [2, ["40","40.4","40.8","41.2","41.6","42","42.4","42.8"]];
+		_settingsLrGuer set [2, ["40.2","40.6","41","41.4","41.8","42.2","42.6","43","43.4"]];
+	};
+	
+	_settingsSwWest set [4, "_bluefor"];
+	_settingsLrWest set [4, "_bluefor"];
+	tf_freq_west = _settingsSwWest;
+	tf_freq_west_lr = _settingsLrWest;
+	
+	_settingsSwEast set [4, "_opfor"];
+	_settingsLrEast set [4, "_opfor"];
+	tf_freq_east = _settingsSwEast;
+	tf_freq_east_lr = _settingsLrEast;
+
+	if ((independent getFriend west)>0.6) then {_settingsSWGuer set [4, "_bluefor"];} else {
+		if ((independent getFriend east)>0.6) then {_settingsSWGuer set [4, "_opfor"];} else {
+			_settingsSWGuer set [4, "_indfor"];
+		};
+	};
+	if ((independent getFriend west)>0.6) then {_settingsLrGuer set [4, "_bluefor"];} else {
+		if ((independent getFriend east)>0.6) then {_settingsLrGuer set [4, "_opfor"];} else {
+			_settingsLrGuer set [4, "_indfor"];
+		};
+	};
+	tf_freq_guer = _settingsSwGuer;
+	tf_freq_guer_lr = _settingsLrGuer;
+};
