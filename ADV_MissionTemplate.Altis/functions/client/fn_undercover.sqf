@@ -16,7 +16,7 @@ params [
 ADV_var_undercover = true;
 
 while {ADV_var_undercover} do {
-	waitUntil { sleep 1; currentWeapon _unit == "" && (_unit findNearestEnemy _unit) distance player > _range };
+	waitUntil { sleep 1; currentWeapon _unit == "" && (_unit findNearestEnemy _unit) distance player > _range && (_unit findNearestEnemy _unit) knowsAbout player < 2.5 };
 	_unit setCaptive true;
 	waitUntil { sleep 1; !(currentWeapon _unit == "") && !(currentWeapon _unit == binocular _unit) };
 	_unit setCaptive false;
