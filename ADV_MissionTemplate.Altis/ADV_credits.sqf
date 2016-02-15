@@ -19,16 +19,17 @@ publicVariable "ADV_missionAuthor";
 		["Credits",
 			"Verwendete Scripts", 
 				"In dieser Mission wurden folgende Scripts verwendet:<br/><br/>
-				copygear-script von NeoArmageddon,<br/>
 				FAR_Revive von Farooq (modifiziert durch Professor Cupcake),<br/>
 				FHQ TaskTracker von Varanon,<br/>
 				Get-/set-loadout-script von Aeroson,<br/>
 				IgiLoad von Igi_PL,<br/>
-				[R3F] Artillery and Logistic von R3F,<br/>
 				RandomWeather von Meatball,<br/>
-				Repetitive CleanUp von Aeroson, <br/>
+				Repetitive CleanUp von Aeroson,<br/>
 				TAW View Distance von Tonic,<br/>
-				UPSMON von Monsada,<br/><br/>
+				TPW CIVS von tpw,<br/>
+				UPSMON von Monsada,<br/>
+				Werthles' Headless Script von Werthles,<br/>
+				ZBE Caching Script von zorrobyte.<br/><br/>
 				Vielen Dank an die Autoren!"
 		]
 ] call FHQ_TT_addBriefing;
