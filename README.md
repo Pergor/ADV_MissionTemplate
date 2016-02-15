@@ -10,11 +10,11 @@ mission\ADV_defines.hpp: Edit to your liking, especially MISSIONAUTHOR, MISSIONN
 
 If you want to execute code from init.sqf or initPlayerLocal.sqf add your code to the mission\init_custom.sqf or mission\initPlayerLocal_custom.sqf.
 
-adv_dramaturgy.sqf will be executed on server only or on HC if HC is present and the HC-parameter is selected in MP lobby.
+mission\adv_dramaturgy.sqf will be executed on server only or on HC if HC is present and the HC-parameter is selected in MP lobby.
 
 Most settings for this template can be altered in the MP lobby.
 
-The following functions might proove helpfull while creating a mission:
+The following functions might proove helpful while creating a mission:
 
 [["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"],east,50,["LIMITED","CARELESS","STAG COLUMN"],[spawnLogic_1]] call ADV_fnc_spawnPatrol;
 Will spawn a group of OPFOR-soldiers with the side east at the position of spawnLogic_1. The units will patrol within a 50 meter radius around the spawn location
