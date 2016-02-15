@@ -9,11 +9,9 @@ tawvd_foot = viewDistance;
 tawvd_car = viewDistance;
 tawvd_air = viewDistance;
 tawvd_addon_disable = true;
-if ( (getPlayerUID player) in ["76561197985568467"] ) then {
-	tawvd_foot = 5000;
-	tawvd_car = 5000;
-	tawvd_air = 5000;
-};
+tawvd_foot = 5000;
+tawvd_car = 5000;
+tawvd_air = 5000;
 if (!isMultiplayer) exitWith {};
 //The hacky method... Apparently if you stall (sleep or waitUntil) with CfgFunctions you stall the mission initialization process... Good job BIS, why wouldn't you spawn it via preInit or postInit?
 [] spawn
