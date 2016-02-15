@@ -102,4 +102,4 @@ if ( ADV_par_indCarAssets == 99 ) then {
 } forEach vehicles;
 
 
-if (true) exitWith {};
+if (true) exitWith { missionNamespace setVariable ["ADV_var_manageVeh_ind",true,true]; };

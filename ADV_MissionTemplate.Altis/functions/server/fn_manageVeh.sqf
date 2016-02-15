@@ -224,4 +224,4 @@ if (ADV_par_TIEquipment == 2 && ADV_par_TIEquipment == 4) then {
 	};
 };
 
-if (true) exitWith { ADV_var_manageVeh=true; };
+if (true) exitWith { missionNamespace setVariable ["ADV_var_manageVeh",true,true]; };

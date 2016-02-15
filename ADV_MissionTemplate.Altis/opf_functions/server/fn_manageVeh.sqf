@@ -162,4 +162,4 @@ if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || ADV_par
 	};
 } forEach Vehicles;
 
-if (true) exitWith {};
+if (true) exitWith { missionNamespace setVariable ["ADV_var_manageVeh_opf",true,true]; };
