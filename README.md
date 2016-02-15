@@ -58,11 +58,14 @@ Will spawn a big fire at position of fireLogic_1. Possible parameters are: "FIRE
 if (!isNil "ADV_respawn_EVH") then {player removeEventhandler ["Respawn",ADV_respawn_EVH]};
 aeroson_loadout = [player] call aeroson_fnc_getLoadout;
 ADV_respawn_EVH = player addEventhandler ["Respawn",{[player, aeroson_loadout] spawn aeroson_fnc_setLoadout;}];
-This code will exchange the players saved loadout if any changes have been made to it's gear (in mission\initPlayerLocal_custom.sqf!)
+This code will exchange the players saved loadout if any changes have been made to it's gear (in mission\initPlayerLocal_custom.sqf only!)
 
 Addaction functions:
 
-ADV_handle_paraJumpAction = OBJECT addAction [("<t color=""#33FFFF"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJump},nil,3,false,true,"","player distance cursortarget <5"];
+OBJECT addAction [("<t color=""#00FF00"">" + ("Loadout-Menü") + "</t>"), {createDialog "adv_1_loadoutDialog";},nil,6,false,true,"","player distance cursortarget <5"];
+Adds an action to OBJECT that gives player option to choose loadout. (Execution on CLIENT only!)
+
+OBJECT addAction [("<t color=""#33FFFF"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJump},nil,3,false,true,"","player distance cursortarget <5"];
 Adds an action to OBJECT that gives player option to choose location for a parajump (parachute will be added to back, but backpack will be readded after landing).
 (Execution on CLIENT only!)
 
@@ -73,7 +76,7 @@ Adds action to each object provided that gives player option to teleport to his 
 Will add action to VEHICLE to make it a radio relay that boosts radio range with TFAR for each unit of side west, as long as vehicle is not in motion
 and at least 90 meter above sea level. (Execution on SERVER AND CLIENT!)
 
-ADV_handle_logisticAction = OBJECT addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_2_loadoutDialog";},nil,3,false,true,"","player distance cursortarget <5"];
+OBJECT addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_2_loadoutDialog";},nil,3,false,true,"","player distance cursortarget <5"];
 Adds an action to OBJECT that opens logistic menu to spawn crates with gear (according to weapons selected in MP lobby). (Execution on CLIENT only!)
 
 Important variables:
