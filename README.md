@@ -84,4 +84,4 @@ VEHICLE getVariable ["adv_var_vehicleIsChanged",false];
 Returns true as soon as a vehicle has been changed, if it's being changed.
 
 missionNamespace getVariable ["ADV_var_manageVeh",false];
-Returns true as soon as vehicle management has been completed. (Does not include change of vehicles according to parameters in MP lobby).
+Returns true as soon as vehicle management has been completed. (Does not include change of vehicles according to parameters in MP lobby). Variables for other sides OPFOR and INDEPENDENT are ADV_var_manageVeh_opf and ADV_var_manageVeh_ind.
