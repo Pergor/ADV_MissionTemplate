@@ -19,7 +19,6 @@ publicVariable "ADV_missionAuthor";
 		["Credits",
 			"Verwendete Scripts", 
 				"In dieser Mission wurden folgende Scripts verwendet:<br/><br/>
-				FAR_Revive von Farooq (modifiziert durch Professor Cupcake),<br/>
 				FHQ TaskTracker von Varanon,<br/>
 				Get-/set-loadout-script von Aeroson,<br/>
 				IgiLoad von Igi_PL,<br/>
