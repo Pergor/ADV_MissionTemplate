@@ -10,11 +10,11 @@ mission\ADV_defines.hpp: Edit to your liking, especially MISSIONAUTHOR, MISSIONN
 
 If you want to execute code from init.sqf or initPlayerLocal.sqf add your code to the mission\init_custom.sqf or mission\initPlayerLocal_custom.sqf.
 
-adv_dramaturgy.sqf will be executed on server only or on HC if HC is present and the HC-parameter is selected in MP lobby.
+mission\adv_dramaturgy.sqf will be executed on server only or on HC if HC is present and the HC-parameter is selected in MP lobby.
 
 Most settings for this template can be altered in the MP lobby.
 
-The following functions might proove helpfull while creating a mission:
+The following functions might proove helpful while creating a mission:
 
 [["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"],east,50,["LIMITED","CARELESS","STAG COLUMN"],[spawnLogic_1]] call ADV_fnc_spawnPatrol;
 Will spawn a group of OPFOR-soldiers with the side east at the position of spawnLogic_1. The units will patrol within a 50 meter radius around the spawn location
@@ -58,11 +58,14 @@ Will spawn a big fire at position of fireLogic_1. Possible parameters are: "FIRE
 if (!isNil "ADV_respawn_EVH") then {player removeEventhandler ["Respawn",ADV_respawn_EVH]};
 aeroson_loadout = [player] call aeroson_fnc_getLoadout;
 ADV_respawn_EVH = player addEventhandler ["Respawn",{[player, aeroson_loadout] spawn aeroson_fnc_setLoadout;}];
-This code will exchange the players saved loadout if any changes have been made to it's gear (in mission\initPlayerLocal_custom.sqf!)
+This code will exchange the players saved loadout if any changes have been made to it's gear (in mission\initPlayerLocal_custom.sqf only!)
 
 Addaction functions:
 
-ADV_handle_paraJumpAction = OBJECT addAction [("<t color=""#33FFFF"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJump},nil,3,false,true,"","player distance cursortarget <5"];
+OBJECT addAction [("<t color=""#00FF00"">" + ("Loadout-Menü") + "</t>"), {createDialog "adv_1_loadoutDialog";},nil,6,false,true,"","player distance cursortarget <5"];
+Adds an action to OBJECT that gives player option to choose loadout. (Execution on CLIENT only!)
+
+OBJECT addAction [("<t color=""#33FFFF"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJump},nil,3,false,true,"","player distance cursortarget <5"];
 Adds an action to OBJECT that gives player option to choose location for a parajump (parachute will be added to back, but backpack will be readded after landing).
 (Execution on CLIENT only!)
 
@@ -73,7 +76,7 @@ Adds action to each object provided that gives player option to teleport to his 
 Will add action to VEHICLE to make it a radio relay that boosts radio range with TFAR for each unit of side west, as long as vehicle is not in motion
 and at least 90 meter above sea level. (Execution on SERVER AND CLIENT!)
 
-ADV_handle_logisticAction = OBJECT addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_2_loadoutDialog";},nil,3,false,true,"","player distance cursortarget <5"];
+OBJECT addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_2_loadoutDialog";},nil,3,false,true,"","player distance cursortarget <5"];
 Adds an action to OBJECT that opens logistic menu to spawn crates with gear (according to weapons selected in MP lobby). (Execution on CLIENT only!)
 
 Important variables:
