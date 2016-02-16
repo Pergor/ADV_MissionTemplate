@@ -107,3 +107,55 @@ Turns true as soon as a vehicle has been changed, if it's being changed.
 missionNamespace getVariable ["ADV_var_manageVeh",false];
 
 Turns true as soon as vehicle management has been completed. (Does not include change of vehicles according to parameters in MP lobby). Variables for other sides OPFOR and INDEPENDENT are ADV_var_manageVeh_opf and ADV_var_manageVeh_ind.
+
+Useful other commands:
+
+removeFromRemainsCollector [this];
+
+Put in init-line of unit to have it removed from garbage collection.
+
+UNIT setVariable ["ACE_medical_medicClass", 2];
+
+Put in init-line of unit or vehicle to define it as ace_medical-doctor.
+
+OBJECT setVariable ["ACE_medical_isMedicalFacility", true];
+
+Put in init-line of building to define it as ace_medical-medical-facility.
+
+VEHICLE setVariable ["ACE_isRepairVehicle", 1];
+
+Put in init-line of vehicle to define it as ace_repair-repair-vehicle.
+
+OBJECT setVariable ["ACE_isRepairFacility", 1];
+
+Put in init-line of vehicle to define it as ace_repair-repair-facility.
+
+Hints for using mission\adv_dramaturgy.sqf:
+
+If you want to create a mission flow that fully utilizes the adv_dramaturgy.sqf you should work like this:
+
+For every position you want enemies to spawn put down a game logic and name it.
+For every new "chapter" of the mission (ie. if you want enemies to spawn or something to happen only if players move to a certain area) you place a trigger with your conditions or, if you just want to check if
+players are inside use this:
+
+Activation: Anybody
+Once/Repeatedly: Once
+Condition: (vehicle player) in thisList && ( (getPosATL (vehicle player)) select 2 < 5 )
+On Activation: ADV_taskVar = 1; publicVariable "ADV_taskVar";
+
+Now put this in mission\adv_dramaturgy.sqf:
+
+waitUntil { sleep 1; ADV_taskVar==1 };
+
+Now everything after this waitUntil will only be executed if players walk into your trigger.
+
+Rinse and repeat.
+
+To have nested execution you need to put your code and the waitUntil inside a spawn, like this:
+
+[] spawn {
+	waitUntil { sleep 1; ADV_taskVar==2 };
+	{... code ...};
+};
+
+Have Fun!
