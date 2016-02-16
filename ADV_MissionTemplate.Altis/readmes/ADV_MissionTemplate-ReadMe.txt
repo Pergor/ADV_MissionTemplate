@@ -12,6 +12,12 @@ If you want to execute code from init.sqf or initPlayerLocal.sqf add your code t
 
 mission\adv_dramaturgy.sqf will be executed on server only or on HC if HC is present and the HC-parameter is selected in MP lobby.
 
+Units named according to readmes\loadoutNames.txt will receive their loadouts automatically depending on selected uniform- and weapons-parameter in MP lobby.
+Vehicles named according to readmes\vehicleNames.txt will be handled by vehicle exchange and respawn system (according to paramter in MP lobby) and have gear and variables fitting to side of players and their selected weapon sets.
+If you don't use these names, I don't furnish a guarantee that your mission will be a success.
+
+Don't EVER place playable units that aren't included in the base game (ie. vanilla units).
+
 Most settings for this template can be altered in the MP lobby.
 
 /////////////////////
