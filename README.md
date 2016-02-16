@@ -8,7 +8,7 @@ If you want to build a mission on the base of the ADV-Mission Template, you'll h
 ADV_credits.sqf: Put your name in ADV_missionAuthor = "[SeL] Belbo // Adrian";
 mission\ADV_defines.hpp: Edit to your liking, especially MISSIONAUTHOR, MISSIONNAME and MISSIONPLAYERS
 
-If you want to execute code from init.sqf or initPlayerLocal.sqf add your code to the mission\init_custom.sqf or mission\initPlayerLocal_custom.sqf.
+If you want to execute code from init.sqf or initPlayerLocal.sqf add your code to the files mission\init_custom.sqf or mission\initPlayerLocal_custom.sqf.
 
 mission\adv_dramaturgy.sqf will be executed on server only or on HC if HC is present and the HC-parameter is selected in MP lobby.
 
