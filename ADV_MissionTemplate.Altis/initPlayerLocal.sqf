@@ -167,7 +167,7 @@ titleFadeOut 3;
 
 //igi-load
 if !(isClass(configFile >> "CfgPatches" >> "ace_cargo")) then {
-	ADV_handle_igiLoad = [] execVM "IgiLoad\IgiLoadInit.sqf";
+	ADV_handle_igiLoad = [] execVM "scripts\IgiLoad\IgiLoadInit.sqf";
 };
 
 sleep 8;
