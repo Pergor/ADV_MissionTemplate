@@ -14,6 +14,7 @@ mission\adv_dramaturgy.sqf will be executed on server only or on HC if HC is pre
 
 Most settings for this template can be altered in the MP lobby.
 
+/////////////////////////////////////////////////////////////////////
 The following functions might proove helpful while creating a mission:
 
 [["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"],east,50,["LIMITED","CARELESS","STAG COLUMN"],[spawnLogic_1]] call ADV_fnc_spawnPatrol;
@@ -70,6 +71,7 @@ ADV_respawn_EVH = player addEventhandler ["Respawn",{[player, aeroson_loadout] s
 
 This code will exchange the players saved loadout if any changes have been made to it's gear (in mission\initPlayerLocal_custom.sqf only!)
 
+/////////////////////////////////////////////////////////////////////
 Addaction functions:
 
 OBJECT addAction [("<t color=""#00FF00"">" + ("Loadout-Menü") + "</t>"), {createDialog "adv_1_loadoutDialog";},nil,6,false,true,"","player distance cursortarget <5"];
@@ -94,6 +96,7 @@ OBJECT addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {crea
 
 Adds an action to OBJECT that opens logistic menu to spawn crates with gear (according to weapons selected in MP lobby). (Execution on CLIENT only!)
 
+/////////////////////////////////////////////////////////////////////
 Important variables:
 
 player getVariable ["ADV_var_hasLoadout",false];
@@ -108,6 +111,7 @@ missionNamespace getVariable ["ADV_var_manageVeh",false];
 
 Turns true as soon as vehicle management has been completed. (Does not include change of vehicles according to parameters in MP lobby). Variables for other sides OPFOR and INDEPENDENT are ADV_var_manageVeh_opf and ADV_var_manageVeh_ind.
 
+/////////////////////////////////////////////////////////////////////
 Useful other commands:
 
 removeFromRemainsCollector [this];
@@ -130,6 +134,7 @@ OBJECT setVariable ["ACE_isRepairFacility", 1];
 
 Put in init-line of vehicle to define it as ace_repair-repair-facility.
 
+/////////////////////////////////////////////////////////////////////
 Hints for using mission\adv_dramaturgy.sqf:
 
 If you want to create a mission flow that fully utilizes the adv_dramaturgy.sqf you should work like this:
