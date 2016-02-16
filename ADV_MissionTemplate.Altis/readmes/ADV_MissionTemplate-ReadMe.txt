@@ -144,8 +144,11 @@ For every new "chapter" of the mission (ie. if you want enemies to spawn or some
 players are inside use this:
 
 Activation: Anybody
+
 Once/Repeatedly: Once
+
 Condition: (vehicle player) in thisList && ( (getPosATL (vehicle player)) select 2 < 5 )
+
 On Activation: ADV_taskVar = 1; publicVariable "ADV_taskVar";
 
 Now put this in mission\adv_dramaturgy.sqf:
