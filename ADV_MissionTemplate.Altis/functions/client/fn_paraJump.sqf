@@ -25,15 +25,8 @@ ADV_scriptfnc_paraJump = {
 	//has the unit had a backpack?
 	_hadBackpack = if !(backpack _unit == "") then {true} else {false};
 	if (_hadBackpack) then {
-		if (!isNil "aeroson_fnc_getLoadout") then {
-			aeroson_loadout = [_unit] call aeroson_fnc_getLoadout;
-			if !(isNil "ADV_respawn_EVH") then {
-				_unit removeEventHandler ["Respawn", ADV_respawn_EVH]
-			};
-			ADV_respawn_EVH = _unit addEventhandler ["Respawn",{[(_this select 0), aeroson_loadout] spawn aeroson_fnc_setLoadout;deleteVehicle (_this select 1);systemChat "saved loadout applied.";}];
-		} else {
-			[_unit,[_unit,"inv"]] call BIS_fnc_saveInventory;
-		};
+		adv_var_parajump_backpack = backpack _unit;
+		adv_var_parajump_backpackItems = backpackItems _unit;
 		removeBackpack _unit;
 	};
 	
@@ -64,11 +57,8 @@ ADV_scriptfnc_paraJump = {
 	//and readding the old one:
 	if (_hadBackpack) then {
 		sleep 1;
-		if (!isNil "aeroson_fnc_getLoadout") then {
-			[_unit, aeroson_loadout] spawn aeroson_fnc_setLoadout;
-		} else {
-			[_unit,[_unit,"inv"]] call BIS_fnc_loadInventory;
-		};
+		_unit addBackpack adv_var_parajump_backpack;
+		{ (backpackContainer _unit) addItemCargoGlobal [_x,1] } forEach adv_var_parajump_backpackItems;
 		systemChat "backpack readded.";
 	};
 };
