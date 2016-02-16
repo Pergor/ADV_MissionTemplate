@@ -96,7 +96,7 @@ OBJECT addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {crea
 
 Adds an action to OBJECT that opens logistic menu to spawn crates with gear (according to weapons selected in MP lobby). (Execution on CLIENT only!)
 
-/////////////////////////////////////////////////////////////////////
+/////////////////////
 Important variables:
 
 player getVariable ["ADV_var_hasLoadout",false];
