@@ -211,7 +211,7 @@ switch (ADV_par_customWeap) do {
 		//if (isClass(configFile >> "CfgPatches" >> "iansky_opt")) then {_optic append [""];};
 		if ( ADV_par_NVGs > 0 ) then { _attachments = ["rhsusf_acc_anpeq15"]; };
 		_silencer = "rhsusf_acc_rotex5_grey";		//if silencer is added
-		_primaryweaponAmmo set [1,8];
+		_primaryweaponAmmo set [1,9];
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
