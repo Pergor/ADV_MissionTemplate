@@ -33,6 +33,14 @@ private ["_target"];
 	if ( ADV_par_Tablets == 1 && isClass (configFile >> "CfgPatches" >> "cTab") ) then {
 		_target addItemCargoGlobal ["ItemAndroid",1];
 	};
+	
+	if ( ADV_par_NVGs == 2 ) then {
+		if ( isClass (configFile >> "CfgPatches" >> "ACE_nightvision") ) then {
+			_target addItemCargoGlobal ["ACE_NVG_Wide",2];
+		} else {
+			_target addItemCargoGlobal ["NVGoggles_OPFOR",2];
+		};
+	};
 
 	_ACE_fieldDressing = 2;
 	_ACE_packingBandage = 2;
