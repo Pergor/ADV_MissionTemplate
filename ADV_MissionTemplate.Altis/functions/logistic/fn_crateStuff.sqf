@@ -52,6 +52,7 @@ private ["_target"];
 	};
 	//medical stuff
 	if (isClass (configFile >> "CfgPatches" >> "ACE_common")) then {
+		_target addItemCargoGlobal ["ACE_Banana",10];
 		_ACE_EarPlugs = 0;
 
 		_ACE_SpareBarrel = 0;
