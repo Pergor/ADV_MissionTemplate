@@ -109,6 +109,16 @@ if ( isServer ) then {
 		if (!isNil "crate_empty") then {[crate_empty] call ADV_fnc_clearCargo;};
 		if (!isNil "opf_crate_empty") then {[opf_crate_empty] call ADV_fnc_clearCargo;};
 	};
+	
+	if (!isNil "flag_1") then {
+		flag_1 setFlagTexture "img\flag.paa";
+	};
+	if (!isNil "opf_flag_1") then {
+		opf_flag_1 setFlagTexture "img\flag.paa";
+	};
+	if (!isNil "ind_flag_1") then {
+		ind_flag_1 setFlagTexture "img\flag.paa";
+	};
 };
 
 if ( hasInterface ) then {
