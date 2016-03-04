@@ -123,7 +123,8 @@ _ACE_fieldDressing = 12;
 _ACE_packingBandage = 24;
 _ACE_elasticBandage = 24;
 _ACE_quikclot = 24;
-_ACE_atropine = 6;
+_ACE_atropine = 0;
+_ACE_adenosine = 6;
 _ACE_epinephrine = 8;
 _ACE_morphine = 8;
 _ACE_tourniquet = 3;
@@ -150,6 +151,8 @@ _ACE_DefusalKit = 0;
 _ACE_Cellphone = 0;
 _ACE_MapTools = 1;
 _ACE_CableTie = 2;
+_ACE_EntrenchingTool = 0;
+_ACE_sprayPaintColor = "NONE";
 
 _ACE_key = 0;	//0 = no key, 1 = side dependant key, 2 = master key, 3 = lockpick
 _ACE_flashlight = 1;

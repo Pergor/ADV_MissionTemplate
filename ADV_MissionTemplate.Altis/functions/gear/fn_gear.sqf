@@ -323,6 +323,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_common") ) then {
 					
 					_mediBack addItemCargoGlobal ["ACE_morphine", _ACE_morphine];
 					_mediBack addItemCargoGlobal ["ACE_epinephrine", _ACE_epinephrine];
+					_mediBack addItemCargoGlobal ["ACE_adenosine", _ACE_adenosine];
 					_mediBack addItemCargoGlobal ["ACE_atropine", _ACE_atropine];
 					_mediBack addItemCargoGlobal ["ACE_tourniquet", _ACE_tourniquet];
 					
@@ -349,6 +350,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_common") ) then {
 					
 					for "_i" from 1 to _ACE_epinephrine do { _unit addItem "ACE_epinephrine"; };
 					for "_i" from 1 to _ACE_atropine do { _unit addItem "ACE_atropine"; };
+					for "_i" from 1 to _ACE_adenosine do { _unit addItem "ACE_adenosine"; };
 					
 					for "_i" from 1 to _ACE_bloodIV do { _unit addItem "ACE_bloodIV"; };
 					for "_i" from 1 to _ACE_bloodIV_500 do { _unit addItem "ACE_bloodIV_500"; };
@@ -389,6 +391,17 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_common") ) then {
 				};
 			};
 		};
+	};
+	if ( isClass(configFile >> "CfgPatches" >> "ACE_tagging") && !isNil "_ACE_sprayPaintColor" ) then {
+		_ACE_sprayPaint_type = switch ( toUpper (_ACE_sprayPaintColor) ) do {
+			case "BLACK": {"ACE_sprayPaintBlack"};
+			case "BLUE": {"ACE_sprayPaintBlue"};
+			case "GREEN": {"ACE_sprayPaintGreen"};
+			case "RED": {"ACE_sprayPaintRed"};
+			case "RANDOM": { ["ACE_sprayPaintBlack","ACE_sprayPaintBlue","ACE_sprayPaintGreen","ACE_sprayPaintRed"] call BIS_fnc_selectRandom };
+			default {""};
+		};
+		if !(_ACE_sprayPaint_type == "") then { _unit addItem _ACE_sprayPaint_type; };
 	};
 	if ( isClass(configFile >> "CfgPatches" >> "ACE_captives") ) then {
 		for "_i" from 1 to _ACE_CableTie do { _unit addItem "ACE_CableTie"; };
@@ -488,6 +501,9 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_common") ) then {
 			_flashlight = ["ACE_Flashlight_MX991","ACE_Flashlight_KSF1","ACE_Flashlight_XL50"] call BIS_fnc_selectRandom;
 			_unit addItem _flashlight;
 		};
+	};
+	if ( isClass(configFile >> "CfgPatches" >> "ACE_trenches") ) then {
+		if (!isNil "_ACE_EntrenchingTool") then { if ( _ACE_EntrenchingTool > 0 ) then { _unit addItem "ACE_EntrenchingTool"; }; };
 	};
 	//ACE variables:
 	if (  str _unit in ["z1","z2","z3","z4","z5","opf_z1","opf_z2","opf_z3","opf_z4","opf_z5","ind_z1","ind_z2","ind_z3","ind_z4","ind_z5"] ) then { _ACE_isMedic = 2; _ACE_isEnginer = true; _ACE_isEOD = true; _ACE_isPilot = true; };

@@ -121,6 +121,7 @@ _ACE_packingBandage = 6;
 _ACE_elasticBandage = 6;
 _ACE_quikclot = 6;
 _ACE_atropine = 0;
+_ACE_adenosine = 0;
 _ACE_epinephrine = 0;
 _ACE_morphine = 2;
 _ACE_tourniquet = 2;
@@ -136,6 +137,8 @@ _ACE_salineIV_250 = 0;
 _ACE_bodyBag = 0;
 _ACE_personalAidKit = 0;
 _ACE_surgicalKit = 0;
+_ACE_EntrenchingTool = 0;
+_ACE_sprayPaintColor = "NONE";
 
 _ACE_SpareBarrel = 0;
 _ACE_UAVBattery = 0;

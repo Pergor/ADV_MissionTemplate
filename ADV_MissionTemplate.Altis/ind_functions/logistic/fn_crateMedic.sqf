@@ -29,6 +29,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	_ACE_packingBandage = 32;
 	_ACE_elasticBandage = 32;
 	_ACE_quikclot = 32;
+	_ACE_adenosine = 5;
 	_ACE_atropine = 5;
 	_ACE_epinephrine = 8;
 	_ACE_morphine = 12;

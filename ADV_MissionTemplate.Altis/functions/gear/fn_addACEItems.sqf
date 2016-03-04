@@ -22,6 +22,7 @@ if !(isServer && (isClass(configFile >> "CfgPatches" >> "ACE_common"))) exitWith
 			if (!isNil "_ACE_morphine") then { _target addItemCargoGlobal ["ACE_morphine", _ACE_morphine]; };
 			if (!isNil "_ACE_epinephrine") then { _target addItemCargoGlobal ["ACE_epinephrine", _ACE_epinephrine]; };
 			if (!isNil "_ACE_atropine") then { _target addItemCargoGlobal ["ACE_atropine", _ACE_atropine]; };
+			if (!isNil "_ACE_adenosine") then { _target addItemCargoGlobal ["ACE_adenosine", _ACE_adenosine]; };
 			if (!isNil "_ACE_tourniquet") then { _target addItemCargoGlobal ["ACE_tourniquet", _ACE_tourniquet]; };
 			if (!isNil "_ACE_bloodIV") then { _target addItemCargoGlobal ["ACE_bloodIV", _ACE_bloodIV]; };
 			if (!isNil "_ACE_bloodIV_500") then { _target addItemCargoGlobal ["ACE_bloodIV_500", _ACE_bloodIV_500]; };
@@ -135,6 +136,15 @@ if !(isServer && (isClass(configFile >> "CfgPatches" >> "ACE_common"))) exitWith
 	};
 	if (isClass(configFile >> "CfgPatches" >> "ACE_tacticalladder") && !isNil "_ACE_tacticalLadder") then {
 		_target addBackpackCargoGlobal ["ACE_TacticalLadder_Pack",_ACE_tacticalLadder];
+	};
+	if ( isClass(configFile >> "CfgPatches" >> "ACE_trenches") && !isNil "_ACE_EntrenchingTool" ) then {
+		_target addItemCargoGlobal ["ACE_EntrenchingTool", _ACE_EntrenchingTool];
+	};
+	if (isClass(configFile >> "CfgPatches" >> "ACE_tagging")) then {
+		if (!isNil "_ACE_sprayPaintBlack") then { _target addItemCargoGlobal ["ACE_sprayPaintBlack", _ACE_sprayPaintBlack]; };
+		if (!isNil "_ACE_sprayPaintBlue") then { _target addItemCargoGlobal ["ACE_sprayPaintBlue", _ACE_sprayPaintBlue]; };
+		if (!isNil "_ACE_sprayPaintGreen") then { _target addItemCargoGlobal ["ACE_sprayPaintGreen", _ACE_sprayPaintGreen]; };
+		if (!isNil "_ACE_sprayPaintRed") then { _target addItemCargoGlobal ["ACE_sprayPaintRed", _ACE_sprayPaintRed]; };
 	};
 } forEach _this;
 

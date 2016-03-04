@@ -123,6 +123,7 @@ _ACE_packingBandage = 6;
 _ACE_elasticBandage = 6;
 _ACE_quikclot = 6;
 _ACE_atropine = 0;
+_ACE_adenosine = 0;
 _ACE_epinephrine = 0;
 _ACE_morphine = 2;
 _ACE_tourniquet = 2;
@@ -140,6 +141,7 @@ _ACE_personalAidKit = 0;
 _ACE_surgicalKit = 0;
 
 _ACE_SpareBarrel = 0;
+_ACE_EntrenchingTool = 0;
 _ACE_UAVBattery = 0;
 _ACE_wirecutter = 0;
 _ACE_Clacker = 0;
@@ -149,6 +151,7 @@ _ACE_DefusalKit = 0;
 _ACE_Cellphone = 0;
 _ACE_MapTools = 1;
 _ACE_CableTie = 2;
+_ACE_sprayPaintColor = "RANDOM";
 
 _ACE_key = 0;	//0 = no key, 1 = side dependant key, 2 = master key, 3 = lockpick
 _ACE_flashlight = 1;

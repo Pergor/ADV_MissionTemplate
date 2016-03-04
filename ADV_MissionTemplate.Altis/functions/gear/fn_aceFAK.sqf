@@ -21,7 +21,7 @@ params [
 	"_ACE_bloodIV","_ACE_bloodIV_500","_ACE_bloodIV_250"
 ];
 
-_ACE_Items = ["ACE_atropine","ACE_fieldDressing","ACE_elasticBandage","ACE_quikclot","ACE_bloodIV","ACE_bloodIV_500","ACE_bloodIV_250","ACE_bodyBag","ACE_epinephrine","ACE_morphine","ACE_packingBandage","ACE_personalAidKit","ACE_plasmaIV","ACE_plasmaIV_500","ACE_plasmaIV_250","ACE_salineIV","ACE_salineIV_500","ACE_salineIV_250","ACE_surgicalKit","ACE_tourniquet"];
+_ACE_Items = ["ACE_atropine","ACE_adenosine","ACE_fieldDressing","ACE_elasticBandage","ACE_quikclot","ACE_bloodIV","ACE_bloodIV_500","ACE_bloodIV_250","ACE_bodyBag","ACE_epinephrine","ACE_morphine","ACE_packingBandage","ACE_personalAidKit","ACE_plasmaIV","ACE_plasmaIV_500","ACE_plasmaIV_250","ACE_salineIV","ACE_salineIV_500","ACE_salineIV_250","ACE_surgicalKit","ACE_tourniquet"];
 { _unit removeItems _x } forEach _ACE_Items;
 
 switch _FAKtype do {
@@ -56,7 +56,8 @@ switch _FAKtype do {
 			_ACE_elasticBandage = 32;
 			_ACE_packingBandage = 32;
 			_ACE_quikclot = 44;
-			_ACE_atropine = 10;
+			_ACE_atropine = 0;
+			_ACE_adenosine = 10;
 			_ACE_epinephrine = 12;
 			_ACE_morphine = 12;
 			_ACE_tourniquet = 6;
@@ -75,6 +76,7 @@ switch _FAKtype do {
 				
 				_mediBack addItemCargoGlobal ["ACE_morphine", _ACE_morphine];
 				_mediBack addItemCargoGlobal ["ACE_epinephrine", _ACE_epinephrine];
+				_mediBack addItemCargoGlobal ["ACE_adenosine", _ACE_adenosine];
 				_mediBack addItemCargoGlobal ["ACE_atropine", _ACE_atropine];
 				_mediBack addItemCargoGlobal ["ACE_tourniquet", _ACE_tourniquet];
 				
@@ -92,6 +94,7 @@ switch _FAKtype do {
 				
 				for "_i" from 1 to _ACE_morphine do { _unit addItem "ACE_morphine";};
 				for "_i" from 1 to _ACE_epinephrine do { _unit addItem "ACE_epinephrine"; };
+				for "_i" from 1 to _ACE_adenosine do { _unit addItem "ACE_adenosine"; };
 				for "_i" from 1 to _ACE_atropine do { _unit addItem "ACE_atropine"; };
 				
 				for "_i" from 1 to _ACE_tourniquet do { _unit addItem "ACE_tourniquet"; };

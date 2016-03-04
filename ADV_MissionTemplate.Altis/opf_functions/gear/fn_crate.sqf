@@ -191,6 +191,7 @@ if (!isServer) exitWith {};
 		_ACE_EarPlugs = 1;
 
 		_ACE_atropine = 30;
+		_ACE_adenosine = 30;
 		_ACE_fieldDressing = 50;
 		_ACE_elasticBandage = 50;
 		_ACE_quikclot = 50;
@@ -224,6 +225,12 @@ if (!isServer) exitWith {};
 		_ACE_MapTools = 0;
 		_ACE_CableTie = 20;
 		_ACE_NonSteerableParachute = 0;
+		_ACE_EntrenchingTool = 5;
+		
+		_ACE_sprayPaintBlack = 5;
+		_ACE_sprayPaintBlue = 5;
+		_ACE_sprayPaintGreen = 5;
+		_ACE_sprayPaintRed = 5;
 
 		_ACE_key_west = 0;
 		_ACE_key_east = 0;
