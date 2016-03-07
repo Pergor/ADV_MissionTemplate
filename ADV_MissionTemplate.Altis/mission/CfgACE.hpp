@@ -444,7 +444,7 @@ class ace_refuel_rate {
     force = 0;
 };
 class ace_repair_engineerSetting_Repair {
-    value = 0;
+    value = 1;
     typeName = "SCALAR";
     force = 0;
 };
