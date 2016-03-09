@@ -1,16 +1,16 @@
 ﻿if (!isServer) exitWith {};
 
-private ["_car","_weapons","_ammo","_ammoCount","_grenades","_grenadeCount","_items""_isMedic"];
+private ["_target","_weapons","_ammo","_ammoCount","_grenades","_grenadeCount","_items""_isMedic"];
 
 /*
-_car = _this select 0;
+_target = _this select 0;
 _isMedic = [_this, 1, false, [true]] call BIS_fnc_param;
 _withWeapons = [_this, 2, false, [true]] call BIS_fnc_param;
 _amountOfSpareParts = [_this, 3, 1, [0]] call BIS_fnc_param;
 _isRepairVehicle = [_this, 4, false, [0,true]] call BIS_fnc_param;
 */
 params [
-	["_car", objNull, [objNull]], 
+	["_target", objNull, [objNull]], 
 	["_isMedic", false, [true]], 
 	["_withWeapons", false, [true]], 
 	["_amountOfSpareParts", 1, [0]],
@@ -23,99 +23,99 @@ _backpacks = [];
 if (_withWeapons) then {
 	switch (true) do {
 		case (ADV_par_indWeap == 2): {
-			_car addWeaponCargoGlobal ["rhs_weap_mk18",1];
-			_car addWeaponCargoGlobal ["rhs_weap_M136",2];
+			_target addWeaponCargoGlobal ["rhs_weap_mk18",1];
+			_target addWeaponCargoGlobal ["rhs_weap_M136",2];
 			
-			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _car addMagazineCargoGlobal ["rhs_m136_mag",2]; };
-			_car addMagazineCargoGlobal ["30Rnd_556x45_Stanag",20];
-			_car addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_red",10];
-			_car addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",2];
-			_car addMagazineCargoGlobal ["rhsusf_100Rnd_762x51",2];
+			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["rhs_m136_mag",2]; };
+			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag",20];
+			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_red",10];
+			_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",2];
+			_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51",2];
 			
-			_car addMagazineCargoGlobal ["rhs_mag_m67",5];
-			_car addMagazineCargoGlobal ["rhs_mag_an_m8hc",10];
-			_car addMagazineCargoGlobal ["rhs_mag_m18_red",5];
-			_car addMagazineCargoGlobal ["rhs_mag_m18_green",5];
+			_target addMagazineCargoGlobal ["rhs_mag_m67",5];
+			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",10];
+			_target addMagazineCargoGlobal ["rhs_mag_m18_red",5];
+			_target addMagazineCargoGlobal ["rhs_mag_m18_green",5];
 		};
 		case (ADV_par_indWeap == 3): {
-			_car addWeaponCargoGlobal ["hlc_smg_mp5a2",1];
+			_target addWeaponCargoGlobal ["hlc_smg_mp5a2",1];
 			
 			if (isClass(configFile >> "CfgPatches" >> "rhsusf_main")) then {
-				_car addWeaponCargoGlobal ["rhs_weap_M136",2];
-				if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _car addMagazineCargoGlobal ["rhs_m136_mag",2]; };
+				_target addWeaponCargoGlobal ["rhs_weap_M136",2];
+				if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["rhs_m136_mag",2]; };
 			} else {
 				if (isClass(configFile >> "CfgPatches" >> "ace_disposable")) then {  
-					_car addWeaponCargoGlobal ["launch_NLAW_F",2];
+					_target addWeaponCargoGlobal ["launch_NLAW_F",2];
 				} else {
-					_car addWeaponCargoGlobal ["launch_NLAW_F",1];
-					_car addMagazineCargoGlobal ["NLAW_F",2];
+					_target addWeaponCargoGlobal ["launch_NLAW_F",1];
+					_target addMagazineCargoGlobal ["NLAW_F",2];
 				};
 			};
 
-			_car addMagazineCargoGlobal ["hlc_20rnd_762x51_b_G3",15];
-			_car addMagazineCargoGlobal ["hlc_20Rnd_762x51_B_fal",15];
-			_car addMagazineCargoGlobal ["hlc_20rnd_762x51_T_G3",5];
-			_car addMagazineCargoGlobal ["hlc_20Rnd_762x51_T_fal",5];
-			_car addMagazineCargoGlobal ["hlc_100Rnd_762x51_M_M60E4",2];
-			_car addMagazineCargoGlobal ["hlc_50rnd_762x51_M_FAL",2];
+			_target addMagazineCargoGlobal ["hlc_20rnd_762x51_b_G3",15];
+			_target addMagazineCargoGlobal ["hlc_20Rnd_762x51_B_fal",15];
+			_target addMagazineCargoGlobal ["hlc_20rnd_762x51_T_G3",5];
+			_target addMagazineCargoGlobal ["hlc_20Rnd_762x51_T_fal",5];
+			_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_M_M60E4",2];
+			_target addMagazineCargoGlobal ["hlc_50rnd_762x51_M_FAL",2];
 			
-			_car addMagazineCargoGlobal ["HandGrenade",5];
-			_car addMagazineCargoGlobal ["SmokeShell",10];
-			_car addMagazineCargoGlobal ["SmokeShellRed",5];
-			_car addMagazineCargoGlobal ["SmokeShellBlue",5];
+			_target addMagazineCargoGlobal ["HandGrenade",5];
+			_target addMagazineCargoGlobal ["SmokeShell",10];
+			_target addMagazineCargoGlobal ["SmokeShellRed",5];
+			_target addMagazineCargoGlobal ["SmokeShellBlue",5];
 		};
 		default {
 			if (isClass(configFile >> "CfgPatches" >> "ace_disposable")) then {  
-				_car addWeaponCargoGlobal ["launch_NLAW_F",2];
+				_target addWeaponCargoGlobal ["launch_NLAW_F",2];
 			} else {
-				_car addWeaponCargoGlobal ["launch_NLAW_F",1];
-				_car addMagazineCargoGlobal ["NLAW_F",2];
+				_target addWeaponCargoGlobal ["launch_NLAW_F",1];
+				_target addMagazineCargoGlobal ["NLAW_F",2];
 			};
 			if (ADV_par_indWeap == 1) then {
-				_car addWeaponCargoGlobal ["arifle_Mk20C_plain_F",1];
-				_car addMagazineCargoGlobal ["30Rnd_556x45_Stanag",20];
-				_car addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_yellow",10];
+				_target addWeaponCargoGlobal ["arifle_Mk20C_plain_F",1];
+				_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag",20];
+				_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_yellow",10];
 			} else {
-				_car addWeaponCargoGlobal ["arifle_MXC_F",1];
-				_car addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",20];
-				_car addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag_Tracer",10];
+				_target addWeaponCargoGlobal ["arifle_MXC_F",1];
+				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",20];
+				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag_Tracer",10];
 			};
-			_car addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",2];
-			_car addMagazineCargoGlobal ["130Rnd_338_Mag",2];
-			_car addMagazineCargoGlobal ["150Rnd_762x54_Box",1];
-			_car addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",1];
+			_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",2];
+			_target addMagazineCargoGlobal ["130Rnd_338_Mag",2];
+			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",1];
+			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",1];
 			
-			_car addMagazineCargoGlobal ["HandGrenade",5];
-			_car addMagazineCargoGlobal ["SmokeShell",10];
-			_car addMagazineCargoGlobal ["SmokeShellRed",5];
-			_car addMagazineCargoGlobal ["SmokeShellBlue",5];
+			_target addMagazineCargoGlobal ["HandGrenade",5];
+			_target addMagazineCargoGlobal ["SmokeShell",10];
+			_target addMagazineCargoGlobal ["SmokeShellRed",5];
+			_target addMagazineCargoGlobal ["SmokeShellBlue",5];
 		};
 	};
-	_car addMagazineCargoGlobal ["1Rnd_HE_Grenade_shell",5];
-	_car addMagazineCargoGlobal ["1Rnd_SmokeRed_Grenade_shell",10];
+	_target addMagazineCargoGlobal ["1Rnd_HE_Grenade_shell",5];
+	_target addMagazineCargoGlobal ["1Rnd_SmokeRed_Grenade_shell",10];
 };
 
 //helmets and vests
 switch (true) do {
 	case (ADV_par_indUni == 1): {
-		_car addItemCargoGlobal ["H_HelmetIA",1];
-		_car addItemCargoGlobal ["V_PlateCarrierIA1_dgtl",1];
-		_car addBackpackCargoGlobal ["B_AssaultPack_dgtl",1];
+		_target addItemCargoGlobal ["H_HelmetIA",1];
+		_target addItemCargoGlobal ["V_PlateCarrierIA1_dgtl",1];
+		_target addBackpackCargoGlobal ["B_AssaultPack_dgtl",1];
 	};
 	default {
-		_car addItemCargoGlobal ["H_HelmetB_sand",1];
-		_car addItemCargoGlobal ["V_TacVest_blk",1];
-		_car addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
+		_target addItemCargoGlobal ["H_HelmetB_sand",1];
+		_target addItemCargoGlobal ["V_TacVest_blk",1];
+		_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
 	};
 };
 		
-_car addMagazineCargoGlobal ["Chemlight_red",5];
-_car addItemCargoGlobal ["ToolKit",1];
-if (_isRepairVehicle) then { (firstBackpack _car) addItemCargoGlobal ["Toolkit",1] ; };
+_target addMagazineCargoGlobal ["Chemlight_red",5];
+_target addItemCargoGlobal ["ToolKit",1];
+if (_isRepairVehicle) then { (firstBackpack _target) addItemCargoGlobal ["Toolkit",1] ; };
 
 //radios
 if (ADV_par_Radios == 1 || ADV_par_Radios == 3) then {
-	_car addItemCargoGlobal ["ItemRadio",2];
+	_target addItemCargoGlobal ["ItemRadio",2];
 };
 
 _ACE_fieldDressing = 10;
@@ -184,12 +184,12 @@ if (_isMedic) then {
 	_FAKs = 30;
 	_mediKit = 2;
 	
-	_car setVariable ["ACE_medical_medicClass", 2, true];
+	_target setVariable ["ACE_medical_medicClass", 2, true];
 };
 
 if !(isClass (configFile >> "CfgPatches" >> "ACE_medical")) then {
-	_car addItemCargoGlobal ["FirstAidKit",_FAKs];
-	_car addItemCargoGlobal ["MediKit",_mediKit];
+	_target addItemCargoGlobal ["FirstAidKit",_FAKs];
+	_target addItemCargoGlobal ["MediKit",_mediKit];
 };
 
 //ACE items (if ACE is running on the server) - (integers)
@@ -231,10 +231,10 @@ if (isClass (configFile >> "CfgPatches" >> "ACE_common")) then {
 	_ACE_HandFlare_Red = 4;
 	_ACE_HandFlare_White = 0;
 	_ACE_HandFlare_Yellow = 0;
-	[_car] call ADV_fnc_addACEItems;
-	if ( isClass (configFile >> "CfgPatches" >> "ACE_repair") && isClass (configFile >> "CfgPatches" >> "ACE_cargo")) then {
-		if (_isRepairVehicle) then { _car setVariable ["ACE_isRepairVehicle", 1, true]; };
-		[_car,_amountOfSpareParts-1,"",true] call ACE_repair_fnc_addSpareParts;
+	[_target] call ADV_fnc_addACEItems;
+	if ( isClass (configFile >> "CfgPatches" >> "ACE_repair") && isClass (configFile >> "CfgPatches" >> "ACE_targetgo")) then {
+		if (_isRepairVehicle) then { _target setVariable ["ACE_isRepairVehicle", 1, true]; };
+		[_target,_amountOfSpareParts-1,"",true] call ACE_repair_fnc_addSpareParts;
 	};
 	if ( (_target isKindOf "Helicopter") && isClass (configFile >> "CfgPatches" >> "ACE_fastroping") ) then {
 		[_target] call ace_fastroping_fnc_equipFRIES;
@@ -242,15 +242,15 @@ if (isClass (configFile >> "CfgPatches" >> "ACE_common")) then {
 };
 
 //backpacks & parachutes
-if (_car isKindOf "Air") then {
+if (_target isKindOf "Air") then {
 	_parachutes = ["B_Parachute"];
-	_freeSpaces = _car emptyPositions "cargo";
-	_freeSpaces = _freeSpaces + (_car emptyPositions "Gunner");
-	_freeSpaces = _freeSpaces + (_car emptyPositions "Driver");
-	_freeSpaces = _freeSpaces + (_car emptyPositions "Commander");
+	_freeSpaces = _target emptyPositions "cargo";
+	_freeSpaces = _freeSpaces + (_target emptyPositions "Gunner");
+	_freeSpaces = _freeSpaces + (_target emptyPositions "Driver");
+	_freeSpaces = _freeSpaces + (_target emptyPositions "Commander");
 	if (_freeSpaces > 8) then {_freespaces = 8};
-	{_car addBackpackCargoGlobal [_x, _freeSpaces];} forEach _parachutes;
+	{_target addBackpackCargoGlobal [_x, _freeSpaces];} forEach _parachutes;
 };
-{_car addBackpackCargoGlobal [_x, 1];} forEach _backpacks;
+{_target addBackpackCargoGlobal [_x, 1];} forEach _backpacks;
 
 if (true) exitWith {true;};
