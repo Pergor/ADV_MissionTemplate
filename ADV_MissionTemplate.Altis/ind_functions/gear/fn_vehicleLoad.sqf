@@ -236,6 +236,9 @@ if (isClass (configFile >> "CfgPatches" >> "ACE_common")) then {
 		if (_isRepairVehicle) then { _car setVariable ["ACE_isRepairVehicle", 1, true]; };
 		[_car,_amountOfSpareParts-1,"",true] call ACE_repair_fnc_addSpareParts;
 	};
+	if ( (_target isKindOf "Helicopter") && isClass (configFile >> "CfgPatches" >> "ACE_fastroping") ) then {
+		[_target] call ace_fastroping_fnc_equipFRIES;
+	};
 };
 
 //backpacks & parachutes
