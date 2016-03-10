@@ -412,32 +412,32 @@ SA_Put_Away_Tow_Ropes_Action = {
 
 if(hasInterface) then {
 
-	player addAction ["Deploy Tow Ropes", { 
+	player addAction [("<t color=""#FFFF00"">" + ("Deploy Tow Ropes") + "</t>"), { 
 		[] call SA_Take_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Take_Tow_Ropes_Action_Check"];
 
 	player addEventHandler ["Respawn", {
-		player addAction ["Deploy Tow Ropes", { 
+		player addAction [("<t color=""#FFFF00"">" + ("Deploy Tow Ropes") + "</t>"), { 
 			[] call SA_Take_Tow_Ropes_Action;
 		}, nil, 0, false, true, "", "call SA_Take_Tow_Ropes_Action_Check"];
 	}];
 	
-	player addAction ["Put Away Tow Ropes", { 
+	player addAction [("<t color=""#FFFF00"">" + ("Put Away Tow Ropes") + "</t>"), { 
 		[] call SA_Put_Away_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Put_Away_Tow_Ropes_Action_Check"];
 
 	player addEventHandler ["Respawn", {
-		player addAction ["Put Away Tow Ropes", { 
+		player addAction [("<t color=""#FFFF00"">" + ("Put Away Tow Ropes") + "</t>"), { 
 			[] call SA_Put_Away_Tow_Ropes_Action;
 		}, nil, 0, false, true, "", "call SA_Put_Away_Tow_Ropes_Action_Check"];
 	}];
 
-	player addAction ["Attach To Tow Ropes", { 
+	player addAction [("<t color=""#FFFF00"">" + ("Attach Tow Ropes") + "</t>"), { 
 		[] call SA_Attach_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Attach_Tow_Ropes_Action_Check"];
 
 	player addEventHandler ["Respawn", {
-		player addAction ["Attach To Tow Ropes", { 
+		player addAction [("<t color=""#FFFF00"">" + ("Attach Tow Ropes") + "</t>"), { 
 			[] call SA_Attach_Tow_Ropes_Action;
 		}, nil, 0, false, true, "", "call SA_Attach_Tow_Ropes_Action_Check"];
 	}];
@@ -452,22 +452,22 @@ if(hasInterface) then {
 		}, nil, 0, false, true, "", "call SA_Attach_Tow_Ropes_Action_Disabled_Check"];
 	}];
 
-	player addAction ["Drop Tow Ropes", { 
+	player addAction [("<t color=""#FFFF00"">" + ("Drop Tow Ropes") + "</t>"), { 
 		[] call SA_Drop_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Drop_Tow_Ropes_Action_Check"];
 
 	player addEventHandler ["Respawn", {
-		player addAction ["Drop Tow Ropes", { 
+		player addAction [("<t color=""#FFFF00"">" + ("Drop Tow Ropes") + "</t>"), { 
 			[] call SA_Drop_Tow_Ropes_Action;
 		}, nil, 0, false, true, "", "call SA_Drop_Tow_Ropes_Action_Check"];
 	}];
 
-	player addAction ["Pickup Tow Ropes", { 
+	player addAction [("<t color=""#FFFF00"">" + ("Pickup Tow Ropes") + "</t>"), { 
 		[] call SA_Pickup_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Pickup_Tow_Ropes_Action_Check"];
 
 	player addEventHandler ["Respawn", {
-		player addAction ["Pickup Tow Ropes", { 
+		player addAction [("<t color=""#FFFF00"">" + ("Pickup Tow Ropes") + "</t>"), { 
 			[] call SA_Pickup_Tow_Ropes_Action;
 		}, nil, 0, false, true, "", "call SA_Pickup_Tow_Ropes_Action_Check"];
 	}];
