@@ -163,3 +163,11 @@ class MtB
 		class randomWeather {file = "scripts\randomWeather.sqf";};
 	};
 };
+class SA
+{
+	tag = "SA";
+	class advancedTowing
+	{
+		class advancedTowingInit {file = "scripts\fn_advancedTowingInit.sqf"; postInit = 1;};
+	};
+};
