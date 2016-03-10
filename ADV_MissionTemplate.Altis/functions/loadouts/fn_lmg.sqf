@@ -209,9 +209,10 @@ switch (ADV_par_customWeap) do {
 		if (ADV_par_customUni == 10 || ADV_par_customUni == 11) then {
 			_primaryWeapon = ["rhs_weap_m249_pip_S","rhs_weap_m27iar","rhs_weap_m27iar"] call BIS_fnc_selectRandom;
 			if ( _primaryWeapon == "rhs_weap_m27iar" ) then {
+				_primaryweaponAmmo = [21,9];
+				//_additionalAmmo = [14,9,true];
 				_optic = ["rhsusf_acc_ACOG","rhsusf_acc_ACOG3"];
 				if (isClass(configFile >> "CfgPatches" >> "iansky_opt")) then { _optic append ["iansky_specterdr","iansky_specterdr_t","iansky_specterdr_fde"]; };
-				_primaryweaponAmmo = [21,9];
 			};
 		};
 		if ( ADV_par_NVGs > 0 ) then { _attachments = ["rhsusf_acc_anpeq15side"]; };
@@ -415,7 +416,6 @@ switch (ADV_par_customUni) do {
 };
 
 ///// No editing necessary below this line /////
-
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
 
