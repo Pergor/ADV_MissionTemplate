@@ -26,8 +26,7 @@ params [
 _weapon = switch _weaponSlot do {
 	case 1: {handgunWeapon _unit;};
 	case 2: {secondaryWeapon _unit;};
-	default {primaryWeapon _unit;
-	};
+	default {primaryWeapon _unit;};
 };
 _magazine = switch _weaponSlot do {
 	case 1: {handgunMagazine _unit};
@@ -36,10 +35,14 @@ _magazine = switch _weaponSlot do {
 };
 
 if (typeName (_magazineClassType) == "STRING") then {
-	_unit addMagazines [_magazineClassType,_magazineCount];
+	if (_addToBackpack && !(backpack _unit == "")) then {
+		(unitBackpack _unit) addItemCargoGlobal [_magazineClassType,_magazineCount];
+	} else {
+		_unit addMagazines [_magazineClassType,_magazineCount];
+	};
 } else {
 	if (_weapon in weapons _unit) then {
-			_magazines = getArray (configFile / "CfgWeapons" / _weapon / "magazines");
+		_magazines = getArray (configFile / "CfgWeapons" / _weapon / "magazines");
 		if (count _magazines > 0) then {
 			_magazineClass = _magazines select (_magazineClassType min (count _magazines - 1));
 		} else {
