@@ -87,6 +87,7 @@ class ADV
 	class loadouts
 	{
 		class AA {};
+		class ABearer {};
 		class AR {};
 		class AT {};
 		class assAA {};

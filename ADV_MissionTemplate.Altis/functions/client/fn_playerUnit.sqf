@@ -40,6 +40,7 @@ if (side _target == west) then {
 		case "PIL": {"ADV_fnc_pilot"};
 		case "SNI": {"ADV_fnc_sniper"};
 		case "SPO": {"ADV_fnc_spotter"};
+		case "ABE": {"ADV_fnc_ABearer"};
 		case "CSW": {"ADV_fnc_soldier"};	//crew served weapon
 		case "MOR": {"ADV_fnc_soldier"};	//mortar gunner
 		case "TOW": {"ADV_fnc_soldier"};	//TOW Gunner
@@ -89,6 +90,7 @@ if (side _target == east) then {
 		case "OPF_PIL": {"ADV_opf_fnc_pilot"};
 		case "OPF_SNI": {"ADV_opf_fnc_sniper"};
 		case "OPF_SPO": {"ADV_opf_fnc_spotter"};
+		case "OPF_ABE": {"ADV_opf_fnc_ABearer"};
 		case "OPF_CSW": {"ADV_opf_fnc_soldier"};	//crew served weapon
 		case "OPF_ACS": {"ADV_opf_fnc_soldier"};	//asst. crew served weapon
 		case "OPF_MOR": {"ADV_opf_fnc_soldier"};	//mortar gunner
@@ -138,6 +140,7 @@ if (side _target == independent) then {
 		case "IND_PIL": {"ADV_ind_fnc_pilot"};
 		case "IND_SNI": {"ADV_ind_fnc_sniper"};
 		case "IND_SPO": {"ADV_ind_fnc_spotter"};
+		case "IND_ABE": {"ADV_ind_fnc_ABearer"};
 		case "IND_CSW": {"ADV_ind_fnc_soldier"};	//crew served weapon
 		case "IND_ACS": {"ADV_ind_fnc_soldier"};	//asst. crew served weapon
 		case "IND_MOR": {"ADV_ind_fnc_soldier"};	//mortar gunner
