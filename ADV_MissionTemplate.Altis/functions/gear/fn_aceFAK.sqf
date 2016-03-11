@@ -27,8 +27,8 @@ _ACE_Items = ["ACE_atropine","ACE_adenosine","ACE_fieldDressing","ACE_elasticBan
 switch _FAKtype do {
 	default {
 		if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 ) then {
-			_ACE_fieldDressing = 2;
-			_ACE_elasticBandage = 4;
+			_ACE_fieldDressing = 4;
+			_ACE_elasticBandage = 6;
 			_ACE_packingBandage = 6;
 			_ACE_quikclot = 6;
 			_ACE_morphine = 2;
@@ -52,7 +52,7 @@ switch _FAKtype do {
 	};
 	case 2: {
 		if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 || (missionnamespace getVariable ["ace_medical_medicSetting",2]) > 1 ) then {
-			_ACE_fieldDressing = 6;
+			_ACE_fieldDressing = 24;
 			_ACE_elasticBandage = 32;
 			_ACE_packingBandage = 32;
 			_ACE_quikclot = 44;
