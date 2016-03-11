@@ -3,16 +3,6 @@ Based on the Artillery-Script by Nyaan (edited by Belbo)
 [[target_1,target_2],"Sh_155mm_AMOS",[3,7],300,5,50] spawn ADV_fnc_artillery;
 */
 
-/*
-_ammotype = [_this, 0, "Sh_155mm_AMOS"] call BIS_fnc_param;		//"Sh_155mm_AMOS": type of ammo to be used ("Sh_155mm_AMOS", "Sh_82mm_AMOS")
-_targetArray = [_this, 1, [""]] call BIS_fnc_param;				//[""]: target of artillery fire
-_delay = [_this, 2, [3,7]] call BIS_fnc_param;					//4 seconds: delay between each shell
-_height = [_this, 3, 300] call BIS_fnc_param;					//300 meter: height shells will fall from
-_amount = [_this, 4, 5] call BIS_fnc_param;						//4: total shells fired
-_spread = [_this, 5, 50] call BIS_fnc_param;					//50 meter: how close they will be to the target
-_playSounds = [_this,6,true] call BIS_fnc_param;				//true: If sounds should be played for dropping projectile
-*/
-
 params [
 	["_targetArray", [], [[]]],
 	["_ammoType", "Sh_155mm_AMOS", [""]],
