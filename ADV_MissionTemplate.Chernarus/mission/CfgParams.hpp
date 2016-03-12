@@ -21,9 +21,9 @@ class param_minute
 class param_day
 {
 	title="Mondphase";
-	values[] = {17,25,1,9};
+	values[] = {14,23,28,7};
 	texts[] = {"Neumond","zunehmender Halbmond (sichtbar in der ersten Hälfte der Nacht)","Vollmond","abnehmender Halbmond (sichtbar in der zweiten Hälfte der Nacht)"};
-	default = 25;
+	default = 23;
 };
 class param_Weather
 {
@@ -248,7 +248,7 @@ class param_customWeap
 {
 	title="Welche Waffen-Sets sollen an Einheiten ausgegeben werden?";
 	values[] = {7,6,5,4,3,2,1,0};
-	texts[] = {"FAL, G3 und M60 - größtenteils ohne Optiken, keine Schalldämpfer (benötigt HLC_FAL, HLC_G3, HLC_MP5, HLC_M60)","BAF (benötigt UK3CB-Equipment und -Weapons)","BAF (benötigt CUP)","CUP Arma 2 (benötigt CUP)","CUP Operation Arrowhead (benötigt CUP)","SeL-Mods (benötigt RHSUSF, optional hlc_mp5, IanSky-Scopes und RH-Pistols)","BWmod (benötigt BWmod)","Keine"};
+	texts[] = {"FAL, G3 und M60 - größtenteils ohne Optiken, keine Schalldämpfer (benötigt HLC_FAL, HLC_G3, HLC_MP5, HLC_M60)","BAF (benötigt UK3CB-Equipment und -Weapons)","BAF (benötigt CUP)","CUP Arma 2 (benötigt CUP)","CUP Operation Arrowhead (benötigt CUP)","SeL-Mods (benötigt RHSUSF, optional hlc_mp5, IanSky-Scopes und RH-Pistols)","BWmod (benötigt BWmod, optional hlc_g36)","Keine"};
 	default = 0;
 };
 class dummy_7 {

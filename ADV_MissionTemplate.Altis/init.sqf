@@ -22,7 +22,7 @@ waitUntil {!isNil "ADV_params_defined"};
 
 if ( isServer ) then {
 	//time and date:
-	setDate [2015, 8, ADV_par_day, ADV_par_hour, ADV_par_minute];
+	setDate [2016, 8, ADV_par_day, ADV_par_hour, ADV_par_minute];
 
 	//randomweather:
 	if (ADV_par_weather != 99) then {
