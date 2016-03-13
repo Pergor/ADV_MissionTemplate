@@ -709,7 +709,7 @@ class ace_hearing_EnableCombatDeafness {
     force = 0;
 };
 class ace_hearing_EarplugsVolume {
-    value = 0.9;
+    value = 1.0;
     typeName = "SCALAR";
     force = 0;
 };
