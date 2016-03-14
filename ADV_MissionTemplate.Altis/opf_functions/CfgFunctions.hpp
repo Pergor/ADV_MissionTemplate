@@ -21,6 +21,7 @@ class ADV_opf
 	{
 		file = "opf_functions\loadouts";
 		class AA {};
+		class ABearer {};
 		class AR {};
 		class AT {};
 		class assAA {};

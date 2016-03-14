@@ -50,10 +50,9 @@ if (side (group player) == east) then {
 	_loadoutList set [0,"Sektionsführer"];
 	_loadoutList set [11,"Soldat (RPG)"];
 	_loadoutList set [12,"Soldat"];
-	_loadoutList deleteAt 26;
 };
 if (side (group player) == independent) then {
-	_loadoutList deleteAt 26;
+
 };
 if ( ADV_par_customWeap == 1 && (side (group player) == west) ) then {
 	_loadoutList set [6,"Schütze (Pzf3)"];
@@ -123,6 +122,7 @@ if (side (group player) == independent) then {
 	lbSetData [7377, 23, "ADV_ind_fnc_diver_medic"];
 	lbSetData [7377, 24, "ADV_ind_fnc_diver_spec"];
 	lbSetData [7377, 25, "ADV_ind_fnc_pilot"];
+	lbSetData [7377, 26, "ADV_ind_fnc_ABearer"];
 };
 if (side (group player) == east) then {
 	//Loadouts:
@@ -152,6 +152,7 @@ if (side (group player) == east) then {
 	lbSetData [7377, 23, "ADV_opf_fnc_diver_medic"];
 	lbSetData [7377, 24, "ADV_opf_fnc_diver_spec"];
 	lbSetData [7377, 25, "ADV_opf_fnc_pilot"];
+	lbSetData [7377, 26, "ADV_opf_fnc_ABearer"];
 };
 
 if (true) exitWith {};

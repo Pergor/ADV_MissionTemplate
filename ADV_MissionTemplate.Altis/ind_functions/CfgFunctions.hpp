@@ -19,6 +19,7 @@ class ADV_ind
 	{
 		file = "ind_functions\loadouts";
 		class AA {};
+		class ABearer {};
 		class AR {};
 		class assAA {};
 		class assAR {};
