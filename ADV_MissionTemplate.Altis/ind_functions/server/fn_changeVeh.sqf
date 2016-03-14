@@ -46,24 +46,29 @@ params [
 		_newType = typeOf _veh;
 		
 		//disables the vehicle if necessary
-		[_veh] call ADV_fnc_disableVehSelector;
-		[_veh] call ADV_fnc_clearCargo;
-		[_veh] call ADV_ind_fnc_addVehicleLoad;
-		if (_name in ADV_veh_artys) then {
-			[_veh] call ADV_fnc_showArtiSetting;
-		};
-		if (ADV_par_TIEquipment > 0) then {
-			_veh disableTIEquipment true;
-			if (ADV_par_TIEquipment > 2) then {
-				_veh disableNVGEquipment true;
+		[_veh,_name] spawn {
+			sleep 1;
+			_veh = _this select 0;
+			_name = _this select 1;
+			_newType = typeOf _veh;
+			[_veh] call ADV_fnc_disableVehSelector;
+			if (ADV_par_TIEquipment > 0) then {
+				_veh disableTIEquipment true;
+				if (ADV_par_TIEquipment > 2) then {
+					_veh disableNVGEquipment true;
+				};
 			};
+			[_veh,ADV_par_vehicleRespawn,_newType] spawn ADV_ind_fnc_respawnVeh;
+			_newVehicle = _veh;
+			{_veh addCuratorEditableObjects [[_veh],false];} forEach allCurators;
+			if ( ADV_par_Radios > 0 && (_veh isKindOf "CAR" || _veh isKindOf "TANK" || _veh isKindOf "AIR") ) then {
+				_veh setVariable ["tf_hasRadio", true, true];
+			};
+			[_veh] call ADV_fnc_clearCargo;
+			sleep 1;
+			[_veh] call ADV_ind_fnc_addVehicleLoad;
+			_veh setVariable ["adv_var_vehicleIsChanged",true,true];
 		};
-		[_veh,ADV_par_vehicleRespawn,_newType] spawn ADV_ind_fnc_respawnVeh;
-		{_veh addCuratorEditableObjects [[_veh],false];} forEach allCurators;
-		if ( ADV_par_Radios > 0 && (_veh isKindOf "CAR" || _veh isKindOf "TANK" || _veh isKindOf "AIR") ) then {
-			_veh setVariable ["tf_hasRadio", true, true];
-		};
-		_veh setVariable ["adv_var_vehicleIsChanged",true,true];
 	};
 } forEach vehicles;
 	

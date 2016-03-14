@@ -322,8 +322,8 @@ class param_indUni
 class param_indCarAssets
 {
 	title="Sollen die INDFOR-Fahrzeuge ersetzt/entfernt werden?";
-	values[] = {99,0};
-	texts[] = {"Keine Fahrzeuge","Nein"};
+	values[] = {99,1,0};
+	texts[] = {"Keine Fahrzeuge","AAF-Fahrzeuge","Nein"};
 	default = 0;
 };
 class dummy_opf_1 {

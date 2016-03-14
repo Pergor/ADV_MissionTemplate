@@ -14,7 +14,6 @@ class ADV_opf
 		file = "opf_functions\gear";
 		class addVehicleLoad {};
 		class crate {};
-		class mgCrate {};
 		class vehicleLoad {};
 	};
 	class opf_loadouts
