@@ -32,7 +32,7 @@ if ( ADV_par_indUni == 1 ) then {
 _additionalAmmo = [3,0,false];
 
 //40mm Grenades - (integer)
-_40mmHeGrenadesAmmo = 0;
+_40mmHeGrenadesAmmo = 3;
 _40mmSmokeGrenadesWhite = 0;
 _40mmSmokeGrenadesYellow = 1;
 _40mmSmokeGrenadesOrange = 1;

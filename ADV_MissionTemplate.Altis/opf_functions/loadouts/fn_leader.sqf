@@ -9,6 +9,7 @@ _uniform = ["U_O_CombatUniform_ocamo"];
 _vest = ["V_HarnessOSpec_brn"];
 _headgear = ["H_HelmetSpecB_blk"];
 _backpack = [""];
+if ( ADV_par_opfNVGs == 1 ) then { _backpack = ["B_AssaultPack_ocamo","B_AssaultPack_cbr"]; };
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
@@ -28,7 +29,7 @@ _primaryweaponAmmo = [4,1];
 _additionalAmmo = [3,0,false];
 
 //40mm Grenades - (integer)
-_40mmHeGrenadesAmmo = 0;
+_40mmHeGrenadesAmmo = 3;
 _40mmSmokeGrenadesWhite = 0;
 _40mmSmokeGrenadesYellow = 1;
 _40mmSmokeGrenadesOrange = 1;
