@@ -20,6 +20,8 @@ _primaryweapon = "arifle_MXC_Black_F";
 //primary weapon items - (array)
 _optic = [""];
 _attachments = [""];
+if ( ADV_par_NVGs == 1 ) then { _attachments pushback "acc_flashlight"; };
+if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
