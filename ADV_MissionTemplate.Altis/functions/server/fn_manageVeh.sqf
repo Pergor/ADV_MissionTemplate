@@ -15,29 +15,63 @@ _veh_heavyMarkers = ["garage_heavy_1","garage_heavy_2","garage_heavy_3","garage_
 _veh_heliMarkers = ["garage_air_1"];
 _veh_fixedMarkers = ["garage_air_2"];
 
+
 //unique vehicles placed in the editor:
-ADV_veh_airTransport = ["air_transport_1","air_transport_2","air_transport_3","air_transport_4","air_transport_5","air_transport_6","air_transport_7","air_transport_8","air_transport_9","air_transport_10"];
-ADV_veh_airLogistic = ["air_logistic_1","air_logistic_2","air_logistic_3","air_logistic_4","air_logistic_5","air_logistic_6","air_logistic_7","air_logistic_8","air_logistic_9","air_logistic_10"];
-ADV_veh_airRecon = ["air_recon_1","air_recon_2","air_recon_3","air_recon_4","air_recon_5","air_recon_6","air_recon_7","air_recon_8","air_recon_9","air_recon_10"];
-ADV_veh_airCAS = ["air_a164_1","air_a164_2","air_a164_3","air_a164_4","air_a164_5","air_a164_6","air_a164_7","air_a164_8","air_a164_9","air_a164_10"];
-ADV_veh_airC130 = ["air_c130_1","air_c130_2","air_c130_3","air_c130_4","air_c130_5","air_c130_6","air_c130_7","air_c130_8","air_c130_9","air_c130_10"];
-ADV_veh_fixedWing = ADV_veh_airCAS+ADV_veh_airC130;
+ADV_veh_airTransport = [];
+ADV_veh_airRecon = [];
+ADV_veh_airLogistic = [];
+
+ADV_veh_airCAS = [];
+ADV_veh_airC130 = [];
+
+ADV_veh_MRAPs = [];
+ADV_veh_MRAPsHMG = [];
+ADV_veh_MRAPsGMG = [];
+ADV_veh_transport = [];
+ADV_veh_logistic_fuel = [];
+ADV_veh_logistic_ammo = [];
+ADV_veh_logistic_repair = [];
+ADV_veh_logistic_medic = [];
+ADV_veh_ATVs = [];
+
+ADV_veh_heavys = [];
+ADV_veh_tanks = [];
+ADV_veh_artys = [];
+{
+	_vehicleName = str _x;
+	switch ( true ) do {
+		//helicopters
+		case ( [_vehicleName,0,12] call BIS_fnc_trimString == "air_transport" ): { ADV_veh_airTransport pushBack _vehicleName; };
+		case ( [_vehicleName,0,8] call BIS_fnc_trimString == "air_recon" ): { ADV_veh_airRecon pushBack _vehicleName; };
+		case ( [_vehicleName,0,11] call BIS_fnc_trimString == "air_logistic" ): { ADV_veh_airLogistic pushBack _vehicleName; };
+		//fixed wing planes
+		case ( [_vehicleName,0,9] call BIS_fnc_trimString == "air_a164" ): { ADV_veh_airCAS pushBack _vehicleName; };
+		case ( [_vehicleName,0,7] call BIS_fnc_trimString == "air_c130" ): { ADV_veh_airC130 pushBack _vehicleName; };
+		//MRAPs
+		case ( [_vehicleName,0,7] call BIS_fnc_trimString == "MRAP_hmg" ): { ADV_veh_MRAPsHMG pushBack _vehicleName; };
+		case ( [_vehicleName,0,7] call BIS_fnc_trimString == "MRAP_gmg" ): { ADV_veh_MRAPsGMG pushBack _vehicleName; };
+		case ( [_vehicleName,0,3] call BIS_fnc_trimString == "MRAP" ): { ADV_veh_MRAPs pushBack _vehicleName; };
+		//logistics
+		case ( [_vehicleName,0,2] call BIS_fnc_trimString == "ATV" ): { ADV_veh_ATVs pushBack _vehicleName; };
+		case ( [_vehicleName,0,8] call BIS_fnc_trimString == "transport" ): { ADV_veh_transport pushBack _vehicleName; };
+		case ( [_vehicleName,0,12] call BIS_fnc_trimString == "logistic_fuel" ): { ADV_veh_logistic_fuel pushBack _vehicleName; };
+		case ( [_vehicleName,0,12] call BIS_fnc_trimString == "logistic_ammo" ): { ADV_veh_logistic_ammo pushBack _vehicleName; };
+		case ( [_vehicleName,0,14] call BIS_fnc_trimString == "logistic_repair" ): { ADV_veh_logistic_repair pushBack _vehicleName; };
+		case ( [_vehicleName,0,13] call BIS_fnc_trimString == "logistic_medic" ): { ADV_veh_logistic_medic pushBack _vehicleName; };
+		//armored
+		case ( [_vehicleName,0,4] call BIS_fnc_trimString == "heavy" ): { ADV_veh_heavys pushBack _vehicleName; };
+		case ( [_vehicleName,0,3] call BIS_fnc_trimString == "tank" ): { ADV_veh_tanks pushBack _vehicleName; };
+		case ( [_vehicleName,0,3] call BIS_fnc_trimString == "arty" ): { ADV_veh_artys pushBack _vehicleName; };
+		default {};
+	};
+} forEach vehicles;
 ADV_veh_helis = ADV_veh_airLogistic+ADV_veh_airTransport+ADV_veh_airRecon;
+ADV_veh_fixedWing = ADV_veh_airCAS+ADV_veh_airC130;
 ADV_veh_air = ADV_veh_helis+ADV_veh_fixedWing;
-ADV_veh_heavys = ["heavy_1","heavy_2","heavy_3","heavy_4","heavy_5","heavy_6","heavy_7","heavy_8","heavy_9","heavy_10"];
-ADV_veh_tanks = ["tank_1","tank_2","tank_3","tank_4","tank_5","tank_6","tank_7","tank_8","tank_9","tank_10"];
-ADV_veh_artys = ["arty_1","arty_2","arty_3","arty_4","arty_5","arty_6","arty_7","arty_8","arty_9","arty_10"];
 ADV_veh_armored = ADV_veh_heavys+ADV_veh_tanks+ADV_veh_artys;
-ADV_veh_transport = ["transport_1","transport_2","transport_3","transport_4","transport_5","transport_6","transport_7","transport_8","transport_9","transport_10"];
-ADV_veh_logistic_fuel = ["logistic_fuel_1","logistic_fuel_2","logistic_fuel_3","logistic_fuel_4","logistic_fuel_5","logistic_fuel_6","logistic_fuel_7","logistic_fuel_8","logistic_fuel_9","logistic_fuel_10"];
-ADV_veh_logistic_ammo = ["logistic_ammo_1","logistic_ammo_2","logistic_ammo_3","logistic_ammo_4","logistic_ammo_5","logistic_ammo_6","logistic_ammo_7","logistic_ammo_8","logistic_ammo_9","logistic_ammo_10"];
-ADV_veh_logistic_repair = ["logistic_repair_1","logistic_repair_2","logistic_repair_3","logistic_repair_4","logistic_repair_5","logistic_repair_6","logistic_repair_7","logistic_repair_8","logistic_repair_9","logistic_repair_10"];
-ADV_veh_logistic_medic = ["logistic_medic_1","logistic_medic_2","logistic_medic_3","logistic_medic_4","logistic_medic_5","logistic_medic_6","logistic_medic_7","logistic_medic_8","logistic_medic_9","logistic_medic_10"];
-ADV_veh_MRAPs = ["MRAP_1","MRAP_2","MRAP_3","MRAP_4","MRAP_5","MRAP_6","MRAP_7","MRAP_8","MRAP_9","MRAP_10"];
-ADV_veh_MRAPsHMG = ["MRAP_hmg_1","MRAP_hmg_2","MRAP_hmg_3","MRAP_hmg_4","MRAP_hmg_5","MRAP_hmg_6","MRAP_hmg_7","MRAP_hmg_8","MRAP_hmg_9","MRAP_hmg_10"];
-ADV_veh_MRAPsGMG = ["MRAP_gmg_1","MRAP_gmg_2","MRAP_gmg_3","MRAP_gmg_4","MRAP_gmg_5","MRAP_gmg_6","MRAP_gmg_7","MRAP_gmg_8","MRAP_gmg_9","MRAP_gmg_10"];
-ADV_veh_ATVs = ["ATV_1","ATV_2","ATV_3","ATV_4","ATV_5","ATV_6","ATV_7","ATV_8","ATV_9","ATV_10","ATV_11","ATV_12","ATV_13","ATV_14","ATV_15","ATV_16","ATV_17","ATV_18","ATV_19","ATV_20"];
-ADV_veh_light = ADV_veh_transport+ADV_veh_MRAPS+ADV_veh_MRAPsHMG+ADV_veh_MRAPsGMG+ADV_veh_ATVs+ADV_veh_logistic_fuel+ADV_veh_logistic_ammo+ADV_veh_logistic_repair+ADV_veh_logistic_medic;
+ADV_veh_car = ADV_veh_MRAPS+ADV_veh_MRAPsHMG+ADV_veh_MRAPsGMG;
+ADV_veh_light = ADV_veh_ATVs+ADV_veh_car+ADV_veh_transport+ADV_veh_logistic_fuel+ADV_veh_logistic_ammo+ADV_veh_logistic_repair+ADV_veh_logistic_medic;
+
 ADV_veh_all = ADV_veh_light+ADV_veh_armored+ADV_veh_air;
 
 ///// No editing necessary below this line /////

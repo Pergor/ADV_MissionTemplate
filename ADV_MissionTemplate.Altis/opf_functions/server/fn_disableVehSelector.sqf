@@ -31,7 +31,7 @@ if (ADV_par_Assets_air_helis == 0) then {
 	};
 };
 if (ADV_par_Assets_air_fixed == 0) then {
-	if (str _vehicle in ADV_opf_veh_airCAS) then {
+	if (str _vehicle in ADV_opf_veh_fixedWing) then {
 		[_vehicle] call ADV_fnc_disableVeh;
 	};
 };

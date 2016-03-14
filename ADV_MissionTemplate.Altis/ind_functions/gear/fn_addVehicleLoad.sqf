@@ -1,28 +1,42 @@
-﻿if (!isServer) exitWith {};
+﻿/*
+ADV_fnc_addVehicleLoad by Belbo:
 
-	//readds the loadout
+Adds vehicle loadouts to preplaced vehicles in ADV_MissionTemplate.
+*/
+
+if (!isServer) exitWith {};
+
 {
 	switch (true) do {
-		case (str _x in ADV_ind_veh_transport+ADV_ind_veh_fuel+ADV_ind_veh_ammo): {
+		case (str _x in ADV_ind_veh_transport): {
+			[_x,false,true,2] call ADV_ind_fnc_vehicleLoad;
+		};
+		case (str _x in ADV_ind_veh_logistic_fuel+ADV_ind_veh_logistic_ammo): {
 			[_x,false,false,2] call ADV_ind_fnc_vehicleLoad;
 		};
-		case (str _x in ADV_ind_veh_SUV+ADV_ind_veh_Offroad+ADV_ind_veh_OffroadHMG): {
-			[_x,false,true,2] call ADV_ind_fnc_vehicleLoad;
-		};
-		case (str _x in ADV_ind_veh_repair): {
+		case (str _x in ADV_ind_veh_logistic_repair): {
 			[_x,false,false,2,true] call ADV_ind_fnc_vehicleLoad;
 		};		
-		case (str _x in ADV_ind_veh_medic): {
+		case (str _x in ADV_ind_veh_logistic_medic): {
 			[_x,true,false,2] call ADV_ind_fnc_vehicleLoad;
-		};		
-		case (str _x in ADV_ind_veh_armored): {
-			[_x,false,true,2] call ADV_ind_fnc_vehicleLoad;
 		};
-		case (str _x in ADV_ind_veh_AirRecon): {
+		case (str _x in ADV_ind_veh_air && !(str _x in ADV_ind_veh_airLogistic)): {
 			[_x,false,false,0] call ADV_ind_fnc_vehicleLoad;
 		};
-		case (str _x in ADV_ind_veh_AirTransport): {
+		case (str _x in ADV_ind_veh_airLogistic): {
 			[_x,true,false,0] call ADV_ind_fnc_vehicleLoad;
+		};
+		case (str _x in ADV_ind_veh_car): {
+			[_x,false,true,2] call ADV_ind_fnc_vehicleLoad;
+		};
+		case (str _x in ADV_ind_veh_heavys): {
+			[_x,false,true,2] call ADV_ind_fnc_vehicleLoad;
+		};
+		case (str _x in ADV_ind_veh_tanks+ADV_ind_veh_artys): {
+			[_x,false,true,2] call ADV_ind_fnc_vehicleLoad;
+		};
+		case (str _x in ADV_ind_veh_ATVs): {
+			[_x,false,false,0] call ADV_ind_fnc_vehicleLoad;
 		};
 	};
 } forEach _this;

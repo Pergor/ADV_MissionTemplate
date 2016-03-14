@@ -6,7 +6,6 @@ Adds vehicle loadouts to preplaced vehicles in ADV_MissionTemplate.
 
 if (!isServer) exitWith {};
 
-	//readds the loadout
 {
 	switch (true) do {
 		case (str _x in ADV_veh_transport): {
@@ -27,7 +26,7 @@ if (!isServer) exitWith {};
 		case (str _x in ADV_veh_airLogistic): {
 			[_x,true,false,0] call ADV_fnc_vehicleLoad;
 		};
-		case (str _x in ADV_veh_MRAPs+ADV_veh_MRAPsHMG+ADV_veh_MRAPsGMG): {
+		case (str _x in ADV_veh_car): {
 			[_x,false,true,2] call ADV_fnc_vehicleLoad;
 		};
 		case (str _x in ADV_veh_heavys): {
