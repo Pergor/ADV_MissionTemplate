@@ -4,10 +4,8 @@ class ADV_opf
 	class server
 	{
 		file = "opf_functions\server";
-		class changeVeh {};
 		class disableVehSelector {};
 		class manageVeh {postInit = 1;};
-		class respawnVeh {};
 	};
 	class gear
 	{

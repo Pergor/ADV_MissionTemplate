@@ -77,14 +77,14 @@ ADV_ind_veh_armored = ADV_ind_veh_heavys+ADV_ind_veh_tanks+ADV_ind_veh_artys;
 ADV_ind_veh_car = ADV_ind_veh_MRAPs+ADV_ind_veh_MRAPsHMG+ADV_ind_veh_MRAPsGMG+ADV_ind_veh_SUV+ADV_ind_veh_Offroad+ADV_ind_veh_OffroadHMG;
 ADV_ind_veh_light = ADV_ind_veh_ATVs+ADV_ind_veh_car+ADV_ind_veh_transport+ADV_ind_veh_logistic_repair+ADV_ind_veh_logistic_fuel+ADV_ind_veh_logistic_ammo+ADV_ind_veh_logistic_medic;
 
-ADV_ind_veh_allVeh = ADV_ind_veh_light+ADV_ind_veh_armored+ADV_ind_veh_air;
+ADV_ind_veh_all = ADV_ind_veh_light+ADV_ind_veh_armored+ADV_ind_veh_air;
 
 ///// No editing necessary below this line /////
 
 //replaces MRAPS with mod cars:
 switch (ADV_par_indCarAssets) do {
-	case 1: {[ADV_ind_veh_SUV,["I_MRAP_03_F"]] spawn ADV_ind_fnc_changeVeh;[ADV_ind_veh_Offroad+ADV_ind_veh_OffroadHMG,["I_MRAP_03_hmg_F"]] spawn ADV_ind_fnc_changeVeh;[ADV_ind_veh_airRecon,["I_Heli_light_03_F"]] spawn ADV_ind_fnc_changeVeh;};
-	case 99: {[ADV_ind_veh_allVeh,[""]] spawn ADV_ind_fnc_changeVeh;};
+	case 1: {[ADV_ind_veh_SUV,["I_MRAP_03_F"],independent] spawn ADV_fnc_changeVeh;[ADV_ind_veh_Offroad+ADV_ind_veh_OffroadHMG,["I_MRAP_03_hmg_F"],independent] spawn ADV_fnc_changeVeh;[ADV_ind_veh_airRecon,["I_Heli_light_03_F"],independent] spawn ADV_fnc_changeVeh;};
+	case 99: {[ADV_ind_veh_all,[""],independent] spawn ADV_fnc_changeVeh;};
 	default {};
 };
 
@@ -92,31 +92,31 @@ switch (ADV_par_indCarAssets) do {
 //replaces trucks with mod trucks:
 switch (ADV_par_modTruckAssets) do {
 	//DAR MTVR
-	//case 1: {[ADV_veh_transport,["DAR_MK27","DAR_MK27T"]] spawn ADV_fnc_changeVeh;[ADV_veh_logistic_fuel,["DAR_LHS_8"]] spawn ADV_ind_fnc_changeVeh;[ADV_veh_logistic_repair+ADV_veh_logistic_ammo,["DAR_LHS_16"]] spawn ADV_ind_fnc_changeVeh;};
+	//case 1: {[ADV_veh_transport,["DAR_MK27","DAR_MK27T"]] spawn ADV_fnc_changeVeh;[ADV_veh_logistic_fuel,["DAR_LHS_8"],independent] spawn ADV_fnc_changeVeh;[ADV_veh_logistic_repair+ADV_veh_logistic_ammo,["DAR_LHS_16"],independent] spawn ADV_fnc_changeVeh;};
 	default {};
 };
 //replaces heavy vehicles with mod vehicles:
 switch (ADV_par_modHeavyAssets) do {
 	//BWmod Puma sand
-	//case 1: {[ADV_veh_heavys,["BWA3_Puma_Tropen"]] spawn ADV_ind_fnc_changeVeh;};
+	//case 1: {[ADV_veh_heavys,["BWA3_Puma_Tropen"],independent] spawn ADV_fnc_changeVeh;};
 	default {};
 };
 //replaces tanks with mod tanks:
 switch (ADV_par_modTankAssets) do {
 	//BWmod Leopard sand
-	//case 1: {[ADV_veh_tanks,["BWA3_Leopard2A6M_Tropen"]] spawn ADV_ind_fnc_changeVeh;};
+	//case 1: {[ADV_veh_tanks,["BWA3_Leopard2A6M_Tropen"],independent] spawn ADV_fnc_changeVeh;};
 	default {};
 };
 //replaces helis with mod helis:
 switch (ADV_par_modHeliAssets) do {
 	//BAFHelis
-	//case 1: {[ADV_veh_airTransport,["UK3CB_BAF_Wildcat_Transport_RN_ZZ396"]] spawn ADV_ind_fnc_changeVeh;[ADV_veh_airRecon,["UK3CB_BAF_Wildcat_Armed_Army_ZZ400"]] spawn ADV_ind_fnc_changeVeh;[ADV_veh_airLogistic,["UK3CB_BAF_Vehicles_Merlin_RAF_ZJ124"]] spawn ADV_ind_fnc_changeVeh;};
+	//case 1: {[ADV_veh_airTransport,["UK3CB_BAF_Wildcat_Transport_RN_ZZ396"],independent] spawn ADV_fnc_changeVeh;[ADV_veh_airRecon,["UK3CB_BAF_Wildcat_Armed_Army_ZZ400"],independent] spawn ADV_fnc_changeVeh;[ADV_veh_airLogistic,["UK3CB_BAF_Vehicles_Merlin_RAF_ZJ124"],independent] spawn ADV_fnc_changeVeh;};
 	default {};
 };
 //replaces planes with mod planes:
 switch (ADV_par_modAirAssets) do {
 	//FA18E
-	//case 1: {[ADV_veh_airCAS,["JS_JC_FA18E"]] spawn ADV_ind_fnc_changeVeh;};
+	//case 1: {[ADV_veh_airCAS,["JS_JC_FA18E"],independent] spawn ADV_fnc_changeVeh;};
 	default {};
 };
 */
@@ -137,11 +137,11 @@ if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_pa
 
 //manages disablement and load.
 {
-	if (str _x in ADV_ind_veh_allVeh) then {
+	if (str _x in ADV_ind_veh_all) then {
 		[_x] call ADV_fnc_clearCargo;
 		[_x] call ADV_ind_fnc_addVehicleLoad;
 		[_x] call ADV_ind_fnc_disableVehSelector;
-		[_x,ADV_par_vehicleRespawn, (typeOf _x)] spawn ADV_ind_fnc_respawnVeh;
+		[_x,ADV_par_vehicleRespawn, independent, (typeOf _x)] spawn ADV_fnc_respawnVeh;
 		if (ADV_par_TIEquipment > 0) then {
 			_x disableTIEquipment true;
 			if (ADV_par_TIEquipment > 2) then {
