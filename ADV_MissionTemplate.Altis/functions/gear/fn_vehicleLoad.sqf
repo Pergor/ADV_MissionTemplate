@@ -291,7 +291,7 @@ if (isClass (configFile >> "CfgPatches" >> "ACE_common")) then {
 	_ACE_HandFlare_White = 0;
 	_ACE_HandFlare_Yellow = 0;
 	[_target] call ADV_fnc_addACEItems;
-	if ( isClass (configFile >> "CfgPatches" >> "ACE_repair") && isClass (configFile >> "CfgPatches" >> "ACE_cargo")) then {
+	if ( isClass (configFile >> "CfgPatches" >> "ACE_repair") && isClass (configFile >> "CfgPatches" >> "ACE_cargo") ) then {
 		if (_isRepairVehicle) then {
 			_target setVariable ["ACE_isRepairVehicle", 1, true];
 			[_target,_amountOfSpareParts-1,"ACE_Track",true] call ACE_repair_fnc_addSpareParts;
