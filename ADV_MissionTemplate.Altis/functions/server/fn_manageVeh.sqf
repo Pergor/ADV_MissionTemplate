@@ -225,9 +225,9 @@ if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_pa
 //manages disablement and load.
 {
 	if (str _x in ADV_veh_all) then {
-		[_x] call ADV_fnc_disableVehSelector;
 		[_x] call ADV_fnc_clearCargo;
 		[_x] call ADV_fnc_addVehicleLoad;
+		[_x] call ADV_fnc_disableVehSelector;
 		if (ADV_par_engineArtillery == 1 && str _x in ADV_veh_artys) then {
 			[_x] call ADV_fnc_showArtiSetting;
 		};

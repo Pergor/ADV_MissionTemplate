@@ -50,7 +50,6 @@ params [
 			_veh = _this select 0;
 			_name = _this select 1;
 			_newType = typeOf _veh;
-			[_veh] call ADV_fnc_disableVehSelector;
 			if (_name in ADV_veh_artys) then {
 				[_veh] call ADV_fnc_showArtiSetting;
 			};
@@ -69,6 +68,7 @@ params [
 			[_veh] call ADV_fnc_clearCargo;
 			sleep 1;
 			[_veh] call ADV_fnc_addVehicleLoad;
+			[_veh] call ADV_fnc_disableVehSelector;
 			_veh setVariable ["adv_var_vehicleIsChanged",true,true];
 		};
 	};

@@ -51,7 +51,6 @@ params [
 			_veh = _this select 0;
 			_name = _this select 1;
 			_newType = typeOf _veh;
-			[_veh] call ADV_fnc_disableVehSelector;
 			if (ADV_par_TIEquipment > 0) then {
 				_veh disableTIEquipment true;
 				if (ADV_par_TIEquipment > 2) then {
@@ -67,6 +66,7 @@ params [
 			[_veh] call ADV_fnc_clearCargo;
 			sleep 1;
 			[_veh] call ADV_ind_fnc_addVehicleLoad;
+			[_veh] call ADV_ind_fnc_disableVehSelector;
 			_veh setVariable ["adv_var_vehicleIsChanged",true,true];
 		};
 	};

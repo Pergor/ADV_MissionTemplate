@@ -63,7 +63,6 @@ while {true} do {
 	_veh setVehicleVarName _name;
 	sleep 2;
 	{_x addCuratorEditableObjects [[_veh],false];} forEach allCurators;
-	[_veh] call ADV_fnc_disableVehSelector;
 	[_veh] call ADV_fnc_clearCargo;
 	if ((str _veh) in ADV_ind_veh_all) then {
 		[_veh] call ADV_ind_fnc_addVehicleLoad;
@@ -84,11 +83,14 @@ while {true} do {
 		_veh setVariable ["tf_hasRadio", true, true];
 		//_veh setVariable ["tf_side", independent, true];
 	};
-	if (_name in ADV_veh_indAllVeh && ADV_par_indUni != 0) then {
+	if (_name in ADV_ind_veh_allVeh && ADV_par_indUni != 0) then {
 		sleep 2;
-		_veh setObjectTextureGlobal [0,'#(rgb,8,8,3)color(0,0,0,1)'];
-		_veh setObjectTextureGlobal [1,'#(rgb,8,8,3)color(0,0,0,1)'];
+		_x setObjectTextureGlobal [0,'#(rgb,8,8,3)color(1,1,1,0.004)'];
+		if (str _x in ADV_ind_veh_transport) then {
+			_x setObjectTextureGlobal [1,'#(rgb,8,8,3)color(1,1,1,0.004)'];
+		};
 	};
+	[_veh] call ADV_ind_fnc_disableVehSelector;
 };
 	
 if (true) exitWith{};

@@ -56,7 +56,6 @@ while {true} do {
 	_veh setVehicleVarName _name;
 	sleep 2;
 	{_x addCuratorEditableObjects [[_veh],false];} forEach allCurators;
-	[_veh] call ADV_opf_fnc_disableVehSelector;
 	[_veh] call ADV_fnc_clearCargo;
 	if ((str _veh) in ADV_opf_veh_all) then {
 		[_veh] call ADV_opf_fnc_addVehicleLoad;
@@ -82,6 +81,7 @@ while {true} do {
 			[_veh] call ADV_fnc_showArtiSetting;
 		};
 	};
+	[_veh] call ADV_opf_fnc_disableVehSelector;
 };
 	
 if (true) exitWith{};

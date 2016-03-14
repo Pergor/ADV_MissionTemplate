@@ -1,7 +1,7 @@
 class ADV_opf
 {
 	tag = "ADV_opf";
-	class opf_server
+	class server
 	{
 		file = "opf_functions\server";
 		class changeVeh {};
@@ -9,14 +9,14 @@ class ADV_opf
 		class manageVeh {postInit = 1;};
 		class respawnVeh {};
 	};
-	class opf_gear
+	class gear
 	{
 		file = "opf_functions\gear";
 		class addVehicleLoad {};
 		class crate {};
 		class vehicleLoad {};
 	};
-	class opf_loadouts
+	class loadouts
 	{
 		file = "opf_functions\loadouts";
 		class AA {};
@@ -47,7 +47,7 @@ class ADV_opf
 		class spotter {};
 		class uavOp {};
 	};
-	class opf_logistic
+	class logistic
 	{
 		file = "opf_functions\logistic";
 		class crateAT {};

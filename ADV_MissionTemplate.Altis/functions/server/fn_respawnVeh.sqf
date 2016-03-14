@@ -63,7 +63,6 @@ while {true} do {
 	_veh setVehicleVarName _name;
 	sleep 2;
 	{_x addCuratorEditableObjects [[_veh],false];} forEach allCurators;
-	[_veh] call ADV_fnc_disableVehSelector;
 	[_veh] call ADV_fnc_clearCargo;
 	if ((str _veh) in ADV_veh_all) then {
 		[_veh] call ADV_fnc_addVehicleLoad;
@@ -89,13 +88,7 @@ while {true} do {
 			[_veh] call ADV_fnc_showArtiSetting;
 		};
 	};
-	if (!isNil "ADV_veh_indAllVeh") then {
-		if (_name in ADV_veh_indAllVeh) then {
-			sleep 2;
-			_veh setObjectTextureGlobal [0,'#(rgb,8,8,3)color(0,0,0,1)'];
-			_veh setObjectTextureGlobal [1,'#(rgb,8,8,3)color(0,0,0,1)'];
-		};
-	};
+	[_veh] call ADV_fnc_disableVehSelector;
 };
 	
 if (true) exitWith{};

@@ -4,8 +4,9 @@ class ADV_ind
 	class server
 	{
 		file = "ind_functions\server";
-		class manageVeh {postInit = 1;};
 		class changeVeh {};
+		class disableVehSelector {};
+		class manageVeh {postInit = 1;};
 		class respawnVeh {};
 	};
 	class gear
@@ -21,12 +22,12 @@ class ADV_ind
 		class AA {};
 		class ABearer {};
 		class AR {};
+		class AT {};
 		class assAA {};
 		class assAR {};
 		class assAT {};
-		class AT {};
-		class command {};
 		class cls {};
+		class command {};
 		class diver {};
 		class diver_medic {};
 		class diver_spec {};
@@ -46,7 +47,7 @@ class ADV_ind
 		class spotter {};
 		class uavOp {};
 	};
-	class ind_logistic
+	class logistic
 	{
 		file = "ind_functions\logistic";
 		class crateAT {};

@@ -162,26 +162,25 @@ switch (ADV_par_opfAirAssets) do {
 };
 
 //removes the markers according to the lobby params
-//disables the vehicles
-if (ADV_par_Assets_cars == 0 || ADV_par_opfCarAssets == 99) then {
+if (ADV_par_Assets_cars == 0 || ADV_par_Assets_cars == 99 || ADV_par_opfCarAssets == 99) then {
 	{_x setMarkerAlpha 0;} forEach _veh_lightMarkers
 };
-if (ADV_par_Assets_tanks == 0 || ADV_par_opftankAssets == 99) then {
+if (ADV_par_Assets_tanks == 0 || ADV_par_Assets_tanks == 99 ||ADV_par_opfTankAssets == 99) then {
 	{_x setMarkerAlpha 0;} forEach _veh_heavyMarkers;
 };
-if (ADV_par_Assets_air_helis == 0 || ADV_par_opfheliAssets == 99) then {
+if (ADV_par_Assets_air_helis == 0 || ADV_par_Assets_air_helis == 99 || ADV_par_opfHeliAssets == 99) then {
 	{_x setMarkerAlpha 0;} forEach _veh_heliMarkers;
 };
-if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || ADV_par_opfAirAssets == 99) then {
+if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_par_Assets_air_fixed == 99 && ADV_par_Assets_air_helis == 99) || ADV_par_opfAirAssets == 99) then {
 	{_x setMarkerAlpha 0;} forEach _veh_fixedMarkers;
 };
 
 //disables vehicles at start
 {
 	if (str _x in ADV_opf_veh_all) then {
-		[_x] call ADV_opf_fnc_disableVehSelector;
 		[_x] call ADV_fnc_clearCargo;
 		[_x] call ADV_opf_fnc_addVehicleLoad;
+		[_x] call ADV_opf_fnc_disableVehSelector;
 		if (str _x in ADV_opf_veh_artys) then {
 			[_x] call ADV_fnc_showArtiSetting;
 		};

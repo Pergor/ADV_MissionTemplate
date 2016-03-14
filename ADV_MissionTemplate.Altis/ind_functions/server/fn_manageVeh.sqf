@@ -8,6 +8,12 @@ Call from init.sqf (as early as possible) via:
 
 if (!isServer) exitWith {};
 
+//markers for the vehicle garages:
+_veh_lightMarkers = ["ind_garage_1","ind_garage_2","ind_garage_3","ind_garage_4","ind_garage_5"];
+_veh_heavyMarkers = ["ind_garage_heavy_1","ind_garage_heavy_2","ind_garage_heavy_3","ind_garage_heavy_4","ind_garage_heavy_5"];
+_veh_heliMarkers = ["ind_garage_air_1"];
+_veh_fixedMarkers = ["ind_garage_air_2"];
+
 ADV_ind_veh_airTransport = [];
 ADV_ind_veh_airRecon = [];
 ADV_ind_veh_airLogistic = [];
@@ -115,11 +121,26 @@ switch (ADV_par_modAirAssets) do {
 };
 */
 
+//removes the markers according to the lobby params
+if (ADV_par_Assets_cars == 0 || ADV_par_Assets_cars == 99 || ADV_par_indCarAssets == 99) then {
+	{_x setMarkerAlpha 0;} forEach _veh_lightMarkers
+};
+if (ADV_par_Assets_tanks == 0 || ADV_par_Assets_tanks == 99) then {
+	{_x setMarkerAlpha 0;} forEach _veh_heavyMarkers;
+};
+if (ADV_par_Assets_air_helis == 0 || ADV_par_Assets_air_helis == 99) then {
+	{_x setMarkerAlpha 0;} forEach _veh_heliMarkers;
+};
+if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_par_Assets_air_fixed == 99 && ADV_par_Assets_air_helis == 99)) then {
+	{_x setMarkerAlpha 0;} forEach _veh_fixedMarkers;
+};
+
 //manages disablement and load.
 {
 	if (str _x in ADV_ind_veh_allVeh) then {
 		[_x] call ADV_fnc_clearCargo;
 		[_x] call ADV_ind_fnc_addVehicleLoad;
+		[_x] call ADV_ind_fnc_disableVehSelector;
 		[_x,ADV_par_vehicleRespawn, (typeOf _x)] spawn ADV_ind_fnc_respawnVeh;
 		if (ADV_par_TIEquipment > 0) then {
 			_x disableTIEquipment true;
