@@ -15,7 +15,6 @@ _veh_heavyMarkers = ["garage_heavy_1","garage_heavy_2","garage_heavy_3","garage_
 _veh_heliMarkers = ["garage_air_1"];
 _veh_fixedMarkers = ["garage_air_2"];
 
-
 //unique vehicles placed in the editor:
 ADV_veh_airTransport = [];
 ADV_veh_airRecon = [];
@@ -37,6 +36,7 @@ ADV_veh_ATVs = [];
 ADV_veh_heavys = [];
 ADV_veh_tanks = [];
 ADV_veh_artys = [];
+
 {
 	_vehicleName = str _x;
 	switch ( true ) do {
@@ -65,6 +65,7 @@ ADV_veh_artys = [];
 		default {};
 	};
 } forEach vehicles;
+
 ADV_veh_helis = ADV_veh_airLogistic+ADV_veh_airTransport+ADV_veh_airRecon;
 ADV_veh_fixedWing = ADV_veh_airCAS+ADV_veh_airC130;
 ADV_veh_air = ADV_veh_helis+ADV_veh_fixedWing;

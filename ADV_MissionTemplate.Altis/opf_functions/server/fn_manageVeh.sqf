@@ -38,6 +38,7 @@ ADV_opf_veh_ATVs = [];
 ADV_opf_veh_heavys = [];
 ADV_opf_veh_tanks = [];
 ADV_opf_veh_artys = [];
+
 {
 	_vehicleName = str _x;
 	switch ( true ) do {
@@ -66,6 +67,7 @@ ADV_opf_veh_artys = [];
 		default {};
 	};
 } forEach vehicles;
+
 ADV_opf_veh_helis = ADV_opf_veh_airLogistic+ADV_opf_veh_airTransport+ADV_opf_veh_airRecon+ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport;
 ADV_opf_veh_fixedWing = ADV_opf_veh_airCAS+ADV_opf_veh_airC130;
 ADV_opf_veh_air = ADV_opf_veh_helis+ADV_opf_veh_fixedWing;

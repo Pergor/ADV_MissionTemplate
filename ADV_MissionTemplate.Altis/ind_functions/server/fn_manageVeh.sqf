@@ -8,7 +8,6 @@ Call from init.sqf (as early as possible) via:
 
 if (!isServer) exitWith {};
 
-
 ADV_ind_veh_airTransport = [];
 ADV_ind_veh_airRecon = [];
 ADV_ind_veh_airLogistic = [];
