@@ -1,89 +1,61 @@
-﻿If you want to have vehicle respawn and predefined items for your vehicles, name them according to this scheme:
+﻿If you want to have vehicle respawn and predefined items for your vehicles, name them according to this scheme, wherein _n is any number (eg. MRAP_1 or MRAP_1234):
 
 ////////////////////////
-Vehicles for side west (add opf_ in front of vehicle name to have it geared up with gear for side east):
+Vehicles for side west (add opf_ or ind_ in front of vehicle name to have it geared up with gear for side east or independent, eg. ind_air_transport_1 or opf_tank_1):
 
 ////////////////////////
 Regular vehicles (will have weapons):
 
-MRAP_1, MRAP_2, ..., MRAP_10
-MRAP_hmg_1, MRAP_hmg_2, ..., MRAP_hmg_10
-MRAP_gmg_1, MRAP_gmg_2, ..., MRAP_gmg_10
+MRAP_n
+MRAP_hmg_n
+MRAP_gmg_n
 
 ////////////////////////
 Trucks (will have weapons):
 
-transport_1, transport_2, ..., transport_10
+transport_n
 
 logistic vehicles (will not have weapons but will be defined as repair-/medical-/rearm-/refuel-vehicles):
 
-logistic_fuel_1, logistic_fuel_2, ... logistic_fuel_10
-logistic_ammo_1, logistic_ammo_2, ... logistic_ammo_10
-logistic_repair_1, logistic_repair_2, ... logistic_repair_10
-logistic_medic_1, logistic_medic_2, ... logistic_medic_10
+logistic_fuel_n
+logistic_ammo_n
+logistic_repair_n
+logistic_medic_n
 
 ////////////////////////
 Mechanized vehicles (will have weapons):
 
-heavy_1, heavy_2, ... , heavy_10
+heavy_n
 
 ////////////////////////
 Tanks (will have weapons):
 
-tank_1, tank_2, ..., tank_10
+tank_n
 
 ////////////////////////
 Self propelled artillery (will have weapons):
 
-arty_1, arty_2, ..., arty_10
+arty_n
 
 ////////////////////////
 Transport helicopters:
 
-air_transport_1, air_transport_2, ... air_transport_10
+air_transport_n
 
 Logistical helicopters (will be defined as medical-vehicles):
 
-air_logistic_1, air_logistic_2, ... air_logistic_10
+air_logistic_n
 
 Small helicopters:
 
-air_recon_1, air_recon_2, ..., air_recon_10
+air_recon_n
 
 ////////////////////////
 fixed wing fighters:
 
-air_a164_1, air_a164_2, ..., air_a164_10
+air_a164_n
 
 ////////////////////////
 C130 (will only be available if RHSUSF is present and MP lobby param is selected; will be removed otherwise):
 
-air_c130_1, air_c130_2, ..., air_c130_10
-
-////////////////////////
-Vehicles for side independent:
-
-////////////////////////
-Regular vehicles (will have weapons):
-
-ind_SUV_1, ind_SUV_2, ..., ind_SUV_10
-
-ind_Offroad_1, ind_Offroad_2, ..., ind_Offroad_10
-
-ind_Offroad_hmg_1, ind_Offroad_hmg_2, ..., ind_Offroad_hmg_10
-
-////////////////////////
-Trucks (will have weapons):
-
-ind_transport_1, ind_transport_2, ..., ind_transport_10
-
-logistic vehicles (will not have weapons but will be defined as repair-/rearm-/refuel-vehicles):
-
-ind_fuel_1, ind_fuel_2, ..., ind_fuel_10
-ind_ammo_1, ind_ammo_2, ..., ind_ammo_10
-ind_repair_1, ind_repair_2, ..., ind_repair_10
-
-////////////////////////
-Small helicopters (will be defined as medical vehicles):
-
-ind_air_recon_1, ind_air_recon_2, ..., ind_air_recon_10
+air_c130_n
