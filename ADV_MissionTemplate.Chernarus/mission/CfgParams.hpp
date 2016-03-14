@@ -21,7 +21,7 @@ class param_minute
 class param_day
 {
 	title="Mondphase";
-	values[] = {14,23,28,7};
+	values[] = {14,23,29,7};
 	texts[] = {"Neumond","zunehmender Halbmond (sichtbar in der ersten Hälfte der Nacht)","Vollmond","abnehmender Halbmond (sichtbar in der zweiten Hälfte der Nacht)"};
 	default = 23;
 };
@@ -322,8 +322,8 @@ class param_indUni
 class param_indCarAssets
 {
 	title="Sollen die INDFOR-Fahrzeuge ersetzt/entfernt werden?";
-	values[] = {99,0};
-	texts[] = {"Keine Fahrzeuge","Nein"};
+	values[] = {99,1,0};
+	texts[] = {"Keine Fahrzeuge","AAF-Fahrzeuge","Nein"};
 	default = 0;
 };
 class dummy_opf_1 {
