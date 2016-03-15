@@ -131,7 +131,7 @@ private ["_target"];
 	};
 	_target addMagazineCargoGlobal ["1Rnd_HE_Grenade_shell",12];
 
-	_ACE_fieldDressing = 8;
+	_ACE_fieldDressing = 16;
 	_ACE_packingBandage = 24;
 	_ACE_elasticBandage = 24;
 	_ACE_quikclot = 32;

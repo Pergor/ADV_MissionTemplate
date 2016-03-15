@@ -81,7 +81,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 		_target addMagazineCargoGlobal ["O_IR_Grenade",4];
 	};
 
-	_ACE_fieldDressing = 8;
+	_ACE_fieldDressing = 12;
 	_ACE_packingBandage = 24;
 	_ACE_elasticBandage = 24;
 	_ACE_quikclot = 32;
