@@ -174,6 +174,20 @@ if (side _target == independent) then {
 	};
 };
 
+if (side _target == civilian) then {
+	_zeus = ["civ_z1","civ_z2","civ_z3","civ_z4","civ_z5"];
+	
+	_prefix = [_object,0,-2] call BIS_fnc_trimString;
+	_playerUnit = switch true do {
+		case ( toUpper ([_object,0,8] call BIS_fnc_trimString) == "CIV_PILOT" ): {"ADV_fnc_civPilot"};
+		case ( toUpper ([_object,0,2] call BIS_fnc_trimString) == "CIV" ): {"ADV_fnc_civ"};
+		case ( toUpper ([_object,0,6] call BIS_fnc_trimString) == "CIV_DOC" ): {"ADV_fnc_doc"};
+		case ( toUpper ([_object,0,6] call BIS_fnc_trimString) == "CIV_POL" ): {"ADV_fnc_police"};
+		case ( toUpper ([_object,0,8] call BIS_fnc_trimString) == "CIV_PRESS" ): {"ADV_fnc_press"};
+		default {"ADV_fnc_nil"};
+	};
+};
+
 _target setVariable ["ADV_var_playerUnit",_playerUnit];
 _playerUnit;
 
