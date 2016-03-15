@@ -1,5 +1,8 @@
 If you want to add side and weapon specific gear to a crate, use the following functions:
 
+To clear the cargo of a crate just use
+[cursorTarget] call ADV_fnc_clearCargo;
+
 //regular ammunition:
 [cursorTarget] call ADV_fnc_crateNormal;
 [cursorTarget] call ADV_opf_fnc_crateNormal;
