@@ -105,7 +105,8 @@ _items = [];
 if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 };
 
-//CustomMod items//
+	//CustomMod items//
+	
 //ACRE radios
 _ACREradios = ["ACRE_PRC343"];		//_this select 0=shortrange radio;_this select 1=leader radio;_this select 2=backpackRadio;
 //TFAR items
@@ -153,7 +154,7 @@ _ACE_EntrenchingTool = 0;
 _ACE_sprayPaintColor = "NONE";
 
 _ACE_key = 0;	//0 = no key, 1 = side dependant key, 2 = master key, 3 = lockpick
-_ACE_flashlight = 0;
+_ACE_flashlight = 1;
 _ACE_kestrel = 0;
 _ACE_altimeter = 0;
 _ACE_ATragMX = 0;
