@@ -32,7 +32,7 @@ titleText ["", "BLACK FADED"];
 titleText [format ["%1 \n\n\nThis mission was built by %2 \n\n\n Have Fun! :)", briefingName, missionNamespace getVariable "ADV_missionAuthor"], "BLACK FADED"];
 
 //fuck mcc
-if (!isNil "mcc_actionInedx" && !serverCommandAvailable "#logout") then { player removeAction mcc_actionInedx; };
+if (!isNil "mcc_actionInedx") then { player removeAction mcc_actionInedx; };
 
 //stupid goggles are removed:
 if ( goggles player in ["Mask_M40_OD","Mask_M40","Mask_M50","G_Balaclava_blk","G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_oli","G_Bandanna_aviator","G_Bandanna_beast","G_Bandanna_blk",
