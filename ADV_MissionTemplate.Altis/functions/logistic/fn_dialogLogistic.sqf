@@ -2,7 +2,10 @@
 // in Anlehnung an Maeh, Feldhobel
 //hint str(_this);
 
-_crateSelection = _this select 0; //String zur Datei
+params [
+	["_crateSelection", "", [""]],
+	["_forcePlacement", false, [true]]
+];
 
 if (_crateSelection == "") exitWith { hint "Keine Aktion ausgewählt"; };
 
@@ -75,92 +78,96 @@ switch ( side (group player) ) do {
 };
 ADV_logistic_locationCrateLarge = format ["ADV_%1locationCrateLarge",ADV_logistic_var_sidePrefix];
 
-switch ( toUpper (_crateSelection) ) do {
-	//can grenade boxes be generated?
-	case "ADV_LOGISTIC_CRATEGRENADES": {
-		_crateVariable = format ["ADV_logistic_amount_%1_crateGrenades",ADV_logistic_var_sidePrefix];
-		_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateGrenades];
-		if ( _crateAmount > 0 ) then {
-			hint format ["%1 weitere Granatenkisten stehen zur Verfügung.", _crateAmount - 1];
-			missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
-		} else {
-			hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+if !(_forcePlacement) then {
+	switch ( toUpper (_crateSelection) ) do {
+		//can grenade boxes be generated?
+		case "ADV_LOGISTIC_CRATEGRENADES": {
+			_crateVariable = format ["ADV_logistic_amount_%1_crateGrenades",ADV_logistic_var_sidePrefix];
+			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateGrenades];
+			if ( _crateAmount > 0 ) then {
+				hint format ["%1 weitere Granatenkisten stehen zur Verfügung.", _crateAmount - 1];
+				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
+			} else {
+				hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+			};
+			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
 		};
-		ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
-	};
-	//can eod boxes be generated?
-	case "ADV_LOGISTIC_CRATEEOD": {
-		_crateVariable = format ["ADV_logistic_amount_%1_crateEOD",ADV_logistic_var_sidePrefix];
-		_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateEOD];
-		if ( _crateAmount > 0 ) then {
-			hint format ["%1 weitere EOD-Kisten stehen zur Verfügung.", _crateAmount - 1];
-			missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
-		} else {
-			hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+		//can eod boxes be generated?
+		case "ADV_LOGISTIC_CRATEEOD": {
+			_crateVariable = format ["ADV_logistic_amount_%1_crateEOD",ADV_logistic_var_sidePrefix];
+			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateEOD];
+			if ( _crateAmount > 0 ) then {
+				hint format ["%1 weitere EOD-Kisten stehen zur Verfügung.", _crateAmount - 1];
+				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
+			} else {
+				hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+			};
+			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
 		};
-		ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
-	};
-	//can regular ammunition boxes be generated?
-	case "ADV_LOGISTIC_CRATENORMAL": {
-		_crateVariable = format ["ADV_logistic_amount_%1_crateNormal",ADV_logistic_var_sidePrefix];
-		_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateNormal];
-		if ( _crateAmount > 0 ) then {
-			hint format ["%1 weitere Munitionskisten stehen zur Verfügung.", _crateAmount - 1];
-			missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
-		} else {
-			hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+		//can regular ammunition boxes be generated?
+		case "ADV_LOGISTIC_CRATENORMAL": {
+			_crateVariable = format ["ADV_logistic_amount_%1_crateNormal",ADV_logistic_var_sidePrefix];
+			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateNormal];
+			if ( _crateAmount > 0 ) then {
+				hint format ["%1 weitere Munitionskisten stehen zur Verfügung.", _crateAmount - 1];
+				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
+			} else {
+				hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+			};
+			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };	
 		};
-		ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };	
-	};
-	//can mg boxes be generated?
-	case "ADV_LOGISTIC_CRATEMG": {
-		_crateVariable = format ["ADV_logistic_amount_%1_crateMG",ADV_logistic_var_sidePrefix];
-		_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateMG];
-		if ( _crateAmount > 0 ) then {
-			hint format ["%1 weitere MG-Munitionskisten stehen zur Verfügung.", _crateAmount - 1];
-			missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
-		} else {
-			hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+		//can mg boxes be generated?
+		case "ADV_LOGISTIC_CRATEMG": {
+			_crateVariable = format ["ADV_logistic_amount_%1_crateMG",ADV_logistic_var_sidePrefix];
+			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateMG];
+			if ( _crateAmount > 0 ) then {
+				hint format ["%1 weitere MG-Munitionskisten stehen zur Verfügung.", _crateAmount - 1];
+				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
+			} else {
+				hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+			};
+			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
 		};
-		ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
-	};
-	//can at boxes be generated?
-	case "ADV_LOGISTIC_CRATEAT": {
-		_crateVariable = format ["ADV_logistic_amount_%1_crateAT",ADV_logistic_var_sidePrefix];
-		_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateAT];
-		if ( _crateAmount > 0 ) then {
-			hint format ["%1 weitere AT-Kisten stehen zur Verfügung.", _crateAmount - 1];
-			missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
-		} else {
-			hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+		//can at boxes be generated?
+		case "ADV_LOGISTIC_CRATEAT": {
+			_crateVariable = format ["ADV_logistic_amount_%1_crateAT",ADV_logistic_var_sidePrefix];
+			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateAT];
+			if ( _crateAmount > 0 ) then {
+				hint format ["%1 weitere AT-Kisten stehen zur Verfügung.", _crateAmount - 1];
+				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
+			} else {
+				hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+			};
+			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
 		};
-		ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
-	};
-	//can medic boxes be generated?
-	case "ADV_LOGISTIC_CRATEMEDIC": {
-		_crateVariable = format ["ADV_logistic_amount_%1_crateMedic",ADV_logistic_var_sidePrefix];
-		_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateMedic];
-		if ( _crateAmount > 0 ) then {
-			hint format ["%1 weitere Medic-Kisten stehen zur Verfügung.", _crateAmount - 1];
-			missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
-		} else {
-			hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+		//can medic boxes be generated?
+		case "ADV_LOGISTIC_CRATEMEDIC": {
+			_crateVariable = format ["ADV_logistic_amount_%1_crateMedic",ADV_logistic_var_sidePrefix];
+			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateMedic];
+			if ( _crateAmount > 0 ) then {
+				hint format ["%1 weitere Medic-Kisten stehen zur Verfügung.", _crateAmount - 1];
+				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
+			} else {
+				hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+			};
+			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
 		};
-		ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
-	};
-	//can support boxes be generated?
-	case "ADV_LOGISTIC_CRATESUPPORT": {
-		_crateVariable = format ["ADV_logistic_amount_%1_crateSupport",ADV_logistic_var_sidePrefix];
-		_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateSupport];
-		if ( _crateAmount > 0 ) then {
-			hint format ["%1 weitere Supportkisten stehen zur Verfügung.", _crateAmount - 1];
-			missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
-		} else {
-			hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+		//can support boxes be generated?
+		case "ADV_LOGISTIC_CRATESUPPORT": {
+			_crateVariable = format ["ADV_logistic_amount_%1_crateSupport",ADV_logistic_var_sidePrefix];
+			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateSupport];
+			if ( _crateAmount > 0 ) then {
+				hint format ["%1 weitere Supportkisten stehen zur Verfügung.", _crateAmount - 1];
+				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
+			} else {
+				hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+			};
+			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
 		};
-		ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
+		default { ADV_var_logistic_isBoxAvailable = 1; };
 	};
-	default { ADV_var_logistic_isBoxAvailable = 1; };
+} else {
+	ADV_var_logistic_isBoxAvailable = 1;
 };
 
 if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
