@@ -60,6 +60,7 @@ class ADV
 		class paraJump {};
 		class playerUnit {};
 		class radioHeadset {};
+		class rollDice {};
 		class showArtiSetting {};
 		class spawnFire {};
 		class undercover {};
