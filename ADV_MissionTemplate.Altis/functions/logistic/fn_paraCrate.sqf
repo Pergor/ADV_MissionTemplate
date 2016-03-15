@@ -19,16 +19,6 @@ _this select 6 = Classname of parachute (string - optional);
 
 if (!isServer && hasInterface) exitWith {};
 
-/*
-private ["_target","_height","_smokeColor","_code","_crateType","_chuteType","_targetType","_codeType","_targetPos","_chute","_crate"];
-_target = [_this, 0, objNull, [objNull,""]] call BIS_fnc_param;
-_height = [_this, 1, 800, [0]] call BIS_fnc_param;
-_smokeColor = [_this, 2, "ORANGE", [""]] call BIS_fnc_param;
-_code = [_this, 3, [],[[],""]] call BIS_fnc_param;
-_crateType = [_this, 4, "B_CargoNet_01_ammo_F",[""]] call BIS_fnc_param;
-_chuteType = [_this, 5, "B_Parachute_02_F",[""]] call BIS_fnc_param;
-*/
-
 params [
 	["_target", objNull, [objNull,""]],
 	["_height", 800, [0]],
