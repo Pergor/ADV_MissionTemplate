@@ -27,9 +27,9 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 		};
 		case (ADV_par_opfWeap == 4): {};
 		default {
-			_target addMagazineCargoGlobal ["150Rnd_93x64_Mag",10];
-			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",5];
-			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",5];
+			_target addMagazineCargoGlobal ["150Rnd_93x64_Mag",8];
+			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",4];
+			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",4];
 			_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",4];
 		};
 	};
