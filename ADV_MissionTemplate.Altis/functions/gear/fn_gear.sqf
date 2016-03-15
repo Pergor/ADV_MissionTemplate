@@ -516,8 +516,17 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_common") ) then {
 		_unit setVariable ["ACE_GForceCoef", 0.7];
 	};
 };
-
 //radios
+if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) then {
+	_linkedRadios = _unit call TFAR_fnc_radiosList;
+	_actualRadio = [];
+	{
+		if ( _x in _linkedRadios ) then {
+			_actualRadio pushBack _x
+		};
+	} forEach (assignedItems _unit);
+	{_unit unlinkItem _x; _unit removeItems _x;} forEach _actualRadio;
+};
 if ( ADV_par_Radios > 0 ) then {
 	switch ( true ) do {
 		case ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ): {
