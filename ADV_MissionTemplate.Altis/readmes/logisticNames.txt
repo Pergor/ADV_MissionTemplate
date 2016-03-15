@@ -1,0 +1,49 @@
+If you want to add side and weapon specific gear to a crate, use the following functions:
+
+//regular ammunition:
+[cursorTarget] call ADV_fnc_crateNormal;
+[cursorTarget] call ADV_opf_fnc_crateNormal;
+[cursorTarget] call ADV_ind_fnc_crateNormal;
+
+//medical supplies:
+[cursorTarget] call ADV_fnc_crateMedic;
+[cursorTarget] call ADV_opf_fnc_crateMedic;
+[cursorTarget] call ADV_ind_fnc_crateMedic;
+
+//MMG ammunition:
+[cursorTarget] call ADV_fnc_crateMG;
+[cursorTarget] call ADV_opf_fnc_crateMG;
+[cursorTarget] call ADV_ind_fnc_crateMG;
+
+//Grenades:
+[cursorTarget] call ADV_fnc_crateGrenades;
+[cursorTarget] call ADV_opf_fnc_crateGrenades;
+[cursorTarget] call ADV_ind_fnc_crateGrenades;
+
+//AT rockets and disposable launchers:
+[cursorTarget] call ADV_fnc_crateAT;
+[cursorTarget] call ADV_opf_fnc_crateAT;
+[cursorTarget] call ADV_ind_fnc_crateAT;
+
+//ammunition and equipment for one fire team:
+[cursorTarget] call ADV_fnc_crateTeam;
+[cursorTarget] call ADV_opf_fnc_crateTeam;
+[cursorTarget] call ADV_ind_fnc_crateTeam;
+
+//ammunition and equipment for one squad:
+[cursorTarget] call ADV_fnc_crateLarge;
+[cursorTarget] call ADV_opf_fnc_crateLarge;
+[cursorTarget] call ADV_ind_fnc_crateLarge;
+
+//eod equipment and supplies:
+[cursorTarget] call ADV_fnc_crateEOD;
+[cursorTarget] call ADV_opf_fnc_crateEOD;
+[cursorTarget] call ADV_ind_fnc_crateEOD;
+
+//support equipment and supplies (mainly tools, sandbags etc.):
+[cursorTarget] call ADV_fnc_crateSupport;
+[cursorTarget] call ADV_opf_fnc_crateSupport;
+[cursorTarget] call ADV_ind_fnc_crateSupport;
+
+//food (only if scorch_invitems is present):
+[cursorTarget] call ADV_fnc_crateStuff;
