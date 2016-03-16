@@ -35,11 +35,11 @@ ADV_scriptfnc_paraJump = {
 	sleep 1;
 	//unit is moved to height 1500 on given position
 	_targetPos = [_targetPos select 0, _targetPos select 1, 1500];
-	_unit setPosATL _targetPos;
+	_unit setPos _targetPos;
 	
 	//safety:
-	waitUntil {((getPosATL _unit) select 2) > 900};
-	waitUntil {((getPosATL _unit) select 2) < 110};
+	waitUntil {((getPos _unit) select 2) > 900};
+	waitUntil {((getPos _unit) select 2) < 110};
 	if (isClass(configFile >> "CfgPatches" >> "ace_parachute")) then {
 		if !(backpack _unit == "ACE_ReserveParachute") then {
 			_unit action ["openParachute", _unit];
@@ -68,7 +68,12 @@ if (_unit == leader group _unit) then {
 	openmap true;
 	[_unit] onMapSingleClick "openmap false; [_this select 0,_pos] spawn ADV_scriptfnc_paraJump; onmapsingleclick '';";
 } else {
-	[_unit,getPosATL (leader group _unit)] spawn ADV_scriptfnc_paraJump;
+	[_unit] spawn {
+		_unit = _this select 0;
+		_leader = (leader group _unit);
+		sleep 4;
+		[_unit,[ (getPos _leader select 0) + (random 5) + 5, (getPos _leader select 1) + (random 5) + 5, getPos _leader select 2]] spawn ADV_scriptfnc_paraJump;
+	};
 };
 
 if (true) exitWith {};
