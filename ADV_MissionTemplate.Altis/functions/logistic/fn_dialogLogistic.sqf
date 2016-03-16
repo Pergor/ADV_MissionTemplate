@@ -275,7 +275,4 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 	};
 };
 
-closeDialog 1; // OK
-
-//sleep 4;
-//hint "";
+closeDialog 1;
