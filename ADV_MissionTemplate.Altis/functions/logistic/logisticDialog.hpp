@@ -112,7 +112,8 @@ class adv_2_LoadoutDialog {
 		y = 8.5 * GUI_GRID_H + GUI_GRID_Y;
 		w = 9 * GUI_GRID_W;
 		h = 1.5 * GUI_GRID_H;
-		action = "[lbData [7377, lbCurSel 7377], lbData[7977, lbCurSel 7977]] call ADV_fnc_dialogLogistic;";
+		//action = "[lbData [7377, lbCurSel 7377], lbData[7977, lbCurSel 7977]] call ADV_fnc_dialogLogistic;";
+		action = "[lbData [7377, lbCurSel 7377]] call ADV_fnc_dialogLogistic;";
 	};
 
 	class RscButton_1601: adv_2_RscButton
