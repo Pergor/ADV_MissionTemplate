@@ -35,16 +35,24 @@ while {true} do {
 		//spawns mileage counter function:
 		ADV_handle_mileage = [] spawn ADV_fn_mileage;
 		//action for resetting the mileage counter:
-		ADV_action_reachZero = player addAction [("<t color=""#33FFFF"">" + ("Streckenzähler zurücksetzen") + "</t>"), {ADV_reach = 0},nil,3,false,true];
+		ADV_action_reachZero = player addAction [
+			("<t color=""#33FFFF"">" + ("Streckenzähler zurücksetzen") + "</t>"),
+			{
+				ADV_reach = 0;
+			},nil,3,false,true
+		];
 		//action for disabling the mileage counter and readding the activation action:
-		ADV_action_disableMileage = player addAction [("<t color=""#33FFFF"">" + ("Streckenzähler deaktivieren") + "</t>"), {
-			//exits the ADV_fn_mileage loop:
-			ADV_var_mileage = 0;
-			//removes the remaining actions:
-			{(_this select 1) removeAction _x} forEach [ADV_action_reachZero,(_this select 2)];
-			//and readds the activation action:
-			ADV_var_mileageActions = 1;
-		},nil,3,false,true];
+		ADV_action_disableMileage = player addAction [
+			("<t color=""#33FFFF"">" + ("Streckenzähler deaktivieren") + "</t>"),
+			{
+				//exits the ADV_fn_mileage loop:
+				ADV_var_mileage = 0;
+				//removes the remaining actions:
+				{(_this select 1) removeAction _x} forEach [ADV_action_reachZero,(_this select 2)];
+				//and readds the activation action:
+				ADV_var_mileageActions = 1;
+			},nil,3,false,true
+		];
 		//removes the enable action:
 		(_this select 1) removeAction (_this select 2);
 	},nil,3,false,true];

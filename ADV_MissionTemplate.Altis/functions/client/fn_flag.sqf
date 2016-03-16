@@ -11,8 +11,7 @@ _this = objects the action should be attached to.
 if (count _this == 0) exitWith {};
 
 {
-	_x addAction 
-	[
+	_x addAction [
 		"<t color='#00FF00'>Teleport zum Gruppenführer</t>",
 		{
 			_unit = _this select 1;

@@ -22,26 +22,14 @@ _this = artillery vehicles or mortars the notification should be applied to.
 			};
 			hint "";
 			ADV_artiVar = 0;
-		},
-		nil,
-		6,
-		false,
-		true,
-		"",
-		"gunner _target == _this"
+		},nil,6,false,true,"","gunner _target == _this"
 	];
 	_arti addAction [
 		"<t color='#00cc00'>Artillerie-Einstellung ausblenden</t>",
 		{
 			hint "";
 			ADV_artiVar = 0;
-		},
-		nil,
-		6,
-		false,
-		true,
-		"",
-		"gunner _target == _this"
+		},nil,6,false,true,"","gunner _target == _this"
 	];
 } forEach _this;
 

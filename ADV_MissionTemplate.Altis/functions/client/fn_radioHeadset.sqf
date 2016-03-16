@@ -69,20 +69,22 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
 
 while { true } do {
 
-	adv_handle_headsetActionOff = _unit addAction [("<t color=""#FF0000"">" + ("Lower Headset") + "</t>"), {
-	
-		call adv_script_fnc_headsetOff;
-
-	},nil,-999,false,true,"","(call TFAR_fnc_haveSWRadio || call TFAR_fnc_haveLRRadio)"];
+	adv_handle_headsetActionOff = _unit addAction [
+		("<t color=""#FF0000"">" + ("Lower Headset") + "</t>"),
+		{
+			call adv_script_fnc_headsetOff;
+		},nil,-999,false,true,"","(call TFAR_fnc_haveSWRadio || call TFAR_fnc_haveLRRadio)"
+	];
 	
 	waitUntil { sleep 1; !adv_var_headsetOn};
 	_unit removeAction adv_handle_headsetActionOff;
 	
-	adv_handle_headsetActionOn = _unit addAction [("<t color=""#00FF00"">" + ("Raise Headset") + "</t>"), {
-
-		call adv_script_fnc_headsetOn;
-	
-	},nil,-999,false,true,"","(call TFAR_fnc_haveSWRadio || call TFAR_fnc_haveLRRadio)"];
+	adv_handle_headsetActionOn = _unit addAction [
+		("<t color=""#00FF00"">" + ("Raise Headset") + "</t>"), 
+		{
+			call adv_script_fnc_headsetOn;
+		},nil,-999,false,true,"","(call TFAR_fnc_haveSWRadio || call TFAR_fnc_haveLRRadio)"
+	];
 	
 	waitUntil { sleep 1; adv_var_headsetOn};
 	_unit removeAction adv_handle_headsetActionOn;

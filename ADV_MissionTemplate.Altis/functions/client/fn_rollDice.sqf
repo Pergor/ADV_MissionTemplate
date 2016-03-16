@@ -10,7 +10,7 @@ ADV_scriptfnc_rollDice = {
 	//[1,[(format ["%1 rolled a %2 with a %3 sided dice.",_name,_value,_dice]),"PLAIN",2]] remoteExec ["cutText",0];
 	(format ["%1 rolled a %2 with a %3 sided dice.",_name,_value,_dice])remoteExec ["hint",0];
 	(format ["%1 rolled a %2 with a %3 sided dice.",_name,_value,_dice]) remoteExec ["systemChat",0];
-	[player,["Diary",["Dice Log",(format ["%1 rolled a %2 with a %3 sided dice.",_name,_value,_dice])]]] remoteExec ["createDiaryRecord",0];
+	[player,["Dice Log",["Dice Log",(format ["%1 rolled a %2 with a %3 sided dice.",_name,_value,_dice])]]] remoteExec ["createDiaryRecord",0];
 };
 
 {
