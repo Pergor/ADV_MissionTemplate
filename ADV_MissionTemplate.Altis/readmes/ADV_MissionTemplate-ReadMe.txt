@@ -77,6 +77,10 @@ ADV_respawn_EVH = player addEventhandler ["Respawn",{[player, aeroson_loadout] s
 
 This code will exchange the players saved loadout if any changes have been made to it's gear (in mission\initPlayerLocal_custom.sqf only!)
 
+[OBJECT] call ADV_fnc_rollDice;
+
+Adds action to an object (not player) that allows dice rolls. The rolled value will be displayed and a diary entry created that logs the dice rolls. (Execution on CLIENT only!)
+
 /////////////////////
 Addaction functions:
 
