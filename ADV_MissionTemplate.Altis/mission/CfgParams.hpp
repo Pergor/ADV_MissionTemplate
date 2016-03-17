@@ -260,8 +260,8 @@ class dummy_7 {
 class param_modCarAssets
 {
 	title="Sollen leichte Fahrzeuge durch AddOn-Fahrzeuge ersetzt werden?";
-	values[] = {99,8,7,6,5,4,3,2,1,0};
-	texts[] = {"Keine leichten Fahrzeuge","RHS Marines - Woodland","RHS Marines - Sand","RHS Army - Woodland","RHS Army - Sand","UK3CB BAF vehicles - Woodland","UK3CB BAF vehicles - Sand","BW-Fahrzeuge - Woodland","BW-Fahrzeuge - Sand","Nein"};
+	values[] = {99,8,7,9,6,5,4,3,2,1,0};
+	texts[] = {"Keine leichten Fahrzeuge","RHS Marines - Woodland","RHS Marines - Sand","RHS Army - Plain Green","RHS Army - Woodland","RHS Army - Sand","UK3CB BAF vehicles - Woodland","UK3CB BAF vehicles - Sand","BW-Fahrzeuge - Woodland","BW-Fahrzeuge - Sand","Nein"};
 	default = 0;
 };
 class param_modTruckAssets

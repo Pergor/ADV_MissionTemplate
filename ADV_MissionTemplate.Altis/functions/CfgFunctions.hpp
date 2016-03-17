@@ -36,6 +36,7 @@ class ADV
 		class nil {};
 		class radioRelay {};
 		class respawnVeh {};
+		class rhsDecals {};
 		class paraBomb {};
 		class zeusObjects {};
 	};

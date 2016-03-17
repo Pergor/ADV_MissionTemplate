@@ -91,6 +91,8 @@ switch (ADV_par_modCarAssets) do {
 	case 5: {[ADV_veh_MRAPs,["rhsusf_m1025_d","rhsusf_m1025_d","rhsusf_m998_d_4dr"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["rhsusf_m1025_d_m2"],west] spawn ADV_fnc_changeVeh;};
 	//RHS ARMY woodland
 	case 6: {[ADV_veh_MRAPs,["rhsusf_m1025_w","rhsusf_m1025_w","rhsusf_m998_w_4dr"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["rhsusf_m1025_w_m2"],west] spawn ADV_fnc_changeVeh;};
+	//RHS ARMY plain green
+	case 9: {[ADV_veh_MRAPs,["rhsusf_m1025_w","rhsusf_m1025_w","rhsusf_m998_w_4dr"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["rhsusf_m1025_w_m2"],west] spawn ADV_fnc_changeVeh;};
 	//RHS Marines desert
 	case 7: {[ADV_veh_MRAPs,["rhsusf_m1025_d_s","rhsusf_m1025_d_s","rhsusf_m998_d_s_4dr"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["rhsusf_m1025_d_s_m2"],west] spawn ADV_fnc_changeVeh;};
 	//RHS Marines woodland
@@ -107,7 +109,7 @@ switch (ADV_par_modTruckAssets) do {
 	//RHS sand
 	case 2: {[ADV_veh_transport,["rhsusf_M1083A1P2_d_fmtv_usarmy","rhsusf_M1083A1P2_B_d_fmtv_usarmy"],west] spawn ADV_fnc_changeVeh;};
 	//RHS woodland
-	case 3: {[ADV_veh_transport,["rhsusf_M1083A1P2_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_wd_fmtv_usarmy"],west] spawn ADV_fnc_changeVeh;[ADV_veh_logistic_fuel,["rhsusf_M978A2_usarmy_wd"],west] spawn ADV_fnc_changeVeh;};
+	case 3: {[ADV_veh_transport,["rhsusf_M1083A1P2_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_wd_fmtv_usarmy"],west] spawn ADV_fnc_changeVeh;};
 	//BAF desert
 	case 4: {[ADV_veh_transport,["UK3CB_BAF_Coyote_Logistics_L111A1_D"],west] spawn ADV_fnc_changeVeh;};
 	//BAF woodland

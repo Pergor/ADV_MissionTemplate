@@ -80,6 +80,9 @@ params [
 			if (isClass(configFile >> "CfgPatches" >> "rhs_main")) then {
 				[_veh] call ADV_opf_fnc_rhsDecals;
 			};
+			if (isClass(configFile >> "CfgPatches" >> "rhsusf_main")) then {
+				[_veh] call ADV_fnc_rhsDecals;
+			};
 			_veh setVariable ["adv_var_vehicleIsChanged",true,true];
 		};
 	};

@@ -100,6 +100,12 @@ while {true} do {
 			_x setObjectTextureGlobal [1,'#(rgb,8,8,3)color(1,1,1,0.004)'];
 		};
 	};
+	if (isClass(configFile >> "CfgPatches" >> "rhs_main")) then {
+		[_veh] call ADV_opf_fnc_rhsDecals;
+	};
+	if (isClass(configFile >> "CfgPatches" >> "rhsusf_main")) then {
+		[_veh] call ADV_fnc_rhsDecals;
+	};
 	call compile format ["[%1] call adv_%2%3",_veh,_sidePrefix,"fnc_disableVehSelector"];
 };
 	
