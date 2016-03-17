@@ -105,7 +105,7 @@ switch (ADV_par_modTruckAssets) do {
 	//DAR MTVR
 	case 1: {[ADV_veh_transport,["DAR_MK27","DAR_MK27T"],west] spawn ADV_fnc_changeVeh;[ADV_veh_logistic_fuel,["DAR_LHS_8"],west] spawn ADV_fnc_changeVeh;[ADV_veh_logistic_repair+ADV_veh_logistic_ammo,["DAR_LHS_16"],west] spawn ADV_fnc_changeVeh;[ADV_veh_logistic_medic,["DAR_MK23"],west] spawn ADV_fnc_changeVeh;};
 	//RHS sand
-	case 2: {[ADV_veh_transport,["rhsusf_M1083A1P2_d_fmtv_usarmy","rhsusf_M1083A1P2_B_d_fmtv_usarmy"],west] spawn ADV_fnc_changeVeh;[ADV_veh_logistic_fuel,["rhsusf_M978A2_CPK_usarmy_wd"],west] spawn ADV_fnc_changeVeh;};
+	case 2: {[ADV_veh_transport,["rhsusf_M1083A1P2_d_fmtv_usarmy","rhsusf_M1083A1P2_B_d_fmtv_usarmy"],west] spawn ADV_fnc_changeVeh;};
 	//RHS woodland
 	case 3: {[ADV_veh_transport,["rhsusf_M1083A1P2_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_wd_fmtv_usarmy"],west] spawn ADV_fnc_changeVeh;[ADV_veh_logistic_fuel,["rhsusf_M978A2_usarmy_wd"],west] spawn ADV_fnc_changeVeh;};
 	//BAF desert

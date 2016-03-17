@@ -117,7 +117,7 @@ switch (ADV_par_opfHeavyAssets) do {
 //replaces tanks with mod tanks:
 switch (ADV_par_opfTankAssets) do {
 	//RHS T72
-	case 1: {[ADV_opf_veh_tanks,["rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv"],east] spawn ADV_fnc_changeVeh;[ADV_opf_veh_artys,["RDS_D30_CSAT"],east] spawn ADV_fnc_changeVeh;};
+	case 1: {[ADV_opf_veh_tanks,["rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv"],east] spawn ADV_fnc_changeVeh;[ADV_opf_veh_artys,["rhs_d30_msv"],east] spawn ADV_fnc_changeVeh;};
 	//RHS T80
 	case 2: {[ADV_opf_veh_tanks,["rhs_t80a","rhs_t80b","rhs_t80bk","rhs_t80bv","rhs_t80bvk","rhs_t80u"],east] spawn ADV_fnc_changeVeh;[ADV_opf_veh_artys,["rhs_2s3_tv"],east] spawn ADV_fnc_changeVeh;};	
 	//RHS T90
