@@ -6,6 +6,7 @@ class ADV_opf
 		file = "opf_functions\server";
 		class disableVehSelector {};
 		class manageVeh {postInit = 1;};
+		class rhsDecals {};
 	};
 	class gear
 	{
