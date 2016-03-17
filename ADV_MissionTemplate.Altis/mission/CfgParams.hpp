@@ -384,7 +384,7 @@ class param_opfTruckAssets
 {
 	title="Sollen Trucks durch AddOn-Fahrzeuge ersetzt werden?";
 	values[] = {99,2,1,0};
-	texts[] = {"Keine Trucks","RDS Zivil-Trucks","RHS","Nein"};
+	texts[] = {"Keine Trucks","RHS Zivil-Trucks","RHS","Nein"};
 	default = 0;
 };
 class param_opfHeavyAssets
