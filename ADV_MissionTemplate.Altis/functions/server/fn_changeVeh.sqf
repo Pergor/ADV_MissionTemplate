@@ -40,6 +40,7 @@ params [
 		sleep 1;
 		if (_newVehType == "") exitWith {}; 
 		_veh = createVehicle [_newVehType, _pos, [], 0, "NONE"];
+		if ( isNull _veh ) exitWith { diag_log format ["The vehicle class %1 doesn't exist anymore. adv_fnc_changeVeh can't work.",_newVehType]; };
 		_veh setDir _dir;
 		_veh setPos [_pos select 0, _pos select 1,0];
 		[_veh,_name] remoteExec ["setVehicleVarName",0];
@@ -68,7 +69,6 @@ params [
 				};
 			};
 			[_veh,ADV_par_vehicleRespawn, _side, (typeOf _veh)] spawn ADV_fnc_respawnVeh;
-			_newVehicle = _veh;
 			{_veh addCuratorEditableObjects [[_veh],false];} forEach allCurators;
 			if ( ADV_par_Radios > 0 && (_veh isKindOf "CAR" || _veh isKindOf "TANK" || _veh isKindOf "AIR") ) then {
 				_veh setVariable ["tf_hasRadio", true, true];
@@ -77,6 +77,9 @@ params [
 			sleep 1;
 			call compile format ["[%1] call adv_%2%3",_veh,_sidePrefix,"fnc_addVehicleLoad"];
 			call compile format ["[%1] call adv_%2%3",_veh,_sidePrefix,"fnc_disableVehSelector"];
+			if (isClass(configFile >> "CfgPatches" >> "rhs_main")) then {
+				[_veh] call ADV_opf_fnc_rhsDecals;
+			};
 			_veh setVariable ["adv_var_vehicleIsChanged",true,true];
 		};
 	};
