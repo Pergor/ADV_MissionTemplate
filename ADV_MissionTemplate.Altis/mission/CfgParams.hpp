@@ -47,10 +47,10 @@ class param_remRespWest
 };
 class param_moveMarker
 {
-	title="Soll ein mobiler Respawn-Marker in einem 20m Radius um jeden group leader herum alle 120 secs nachgeführt werden?";
-	values[] = {1,0};
-	texts[] = {"Ja","Nein"};
-	default = 0;
+	title="Wie soll mit respawnenden Spielern umgegangen werden?";
+	values[] = {99,4,3,2,1,0};
+	texts[] = {"Kein Respawn","Fester Respawn (Nachführung durch Fallschirmabwurf oder Teleport)","Fester Respawn (Nachführung durch Fallschirmabwurf)","Fester Respawn (Nachführung durch Teleport)","Beweglicher Respawn (wird alle 120 sek. nachgezogen)","Fester Respawn"};
+	default = 2;
 };
 class param_vehicleRespawn
 {

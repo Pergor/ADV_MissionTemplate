@@ -45,26 +45,16 @@ sleep 1;
 
 //gearsaving
 ADV_objects_gearSaving = [];
-if (!isNil "flag_1") then {
-	//ADV_objects_gearSaving pushBack flag_1;
-	if ( ADV_par_logisticAmount > 0 ) then {
+if ( ADV_par_logisticAmount > 0 ) then {
+	if (!isNil "flag_1") then {
 		ADV_handle_logisticAction = flag_1 addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_2_loadoutDialog";},nil,3,false,true,"","side player == west && player distance cursortarget <5"];
 	};
-	[flag_1] call ADV_fnc_flag;
-};
-if (!isNil "opf_flag_1") then {
-	//ADV_objects_gearSaving pushBack opf_flag_1;
-	if ( ADV_par_logisticAmount > 0 ) then {
+	if (!isNil "opf_flag_1") then {
 		ADV_handle_opfLogisticAction_opf = opf_flag_1 addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_2_loadoutDialog";},nil,3,false,true,"","side player == east && player distance cursortarget <5"];
 	};
-	[opf_flag_1] call ADV_fnc_flag;
-};
-if (!isNil "ind_flag_1") then {
-	//ADV_objects_gearSaving pushBack ind_flag_1;
-	if ( ADV_par_logisticAmount > 0 ) then {
+	if (!isNil "ind_flag_1") then {
 		ADV_handle_indLogisticAction_ind = ind_flag_1 addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_2_loadoutDialog";},nil,3,false,true,"","side player == independent && player distance cursortarget <5"];
 	};
-	[ind_flag_1] call ADV_fnc_flag;
 };
 if (!isNil "crate_2") then {ADV_objects_gearSaving pushBack crate_2};
 if (!isNil "crate_3") then {ADV_objects_gearSaving pushBack crate_3};
@@ -108,9 +98,33 @@ if (!isClass(configFile >> "CfgPatches" >> "adv_aimcoeff")) then {
 */
 
 //move/remove respawn marker:
-//[120 = Time until the respawn marker is moved again, 30 = radius around the group leader to place the marker]
-if (ADV_par_moveMarker == 1) then {
-	ADV_handle_moveRespMarker = [120,20,ADV_par_remRespWest] spawn ADV_fnc_moveRespMarker;
+//[120 = Time until the respawn marker is moved again, 20 = radius around the group leader to place the marker]
+ADV_scriptVar_initMoveMarker_jump = {
+	(_this select 0) addAction [("<t color=""#33FFFF"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJump},nil,3,false,true,"","player distance cursortarget <5"];
+};
+switch ( ADV_par_moveMarker ) do {
+	case 1: {
+		ADV_handle_moveRespMarker = [120,20,ADV_par_remRespWest] spawn ADV_fnc_moveRespMarker;
+	};
+	default {
+		if (!isNil "flag_1") then { [flag_1] call ADV_fnc_flag; };
+		if (!isNil "opf_flag_1") then { [opf_flag_1] call ADV_fnc_flag; };
+		if (!isNil "ind_flag_1") then {	[ind_flag_1] call ADV_fnc_flag;	};
+	};
+	case 3: {
+		if (!isNil "flag_1") then { [flag_1] call ADV_scriptVar_initMoveMarker_jump; };
+		if (!isNil "opf_flag_1") then { [opf_flag_1] call ADV_scriptVar_initMoveMarker_jump; };
+		if (!isNil "ind_flag_1") then {	[ind_flag_1] call ADV_scriptVar_initMoveMarker_jump;	};
+	};
+	case 4: {
+		if (!isNil "flag_1") then { [flag_1] call ADV_fnc_flag; [flag_1] call ADV_scriptVar_initMoveMarker_jump; };
+		if (!isNil "opf_flag_1") then { [opf_flag_1] call ADV_fnc_flag; [opf_flag_1] call ADV_scriptVar_initMoveMarker_jump; };
+		if (!isNil "ind_flag_1") then {	[ind_flag_1] call ADV_fnc_flag;	[ind_flag_1] call ADV_scriptVar_initMoveMarker_jump; };
+	};
+	case 99: {
+		setPlayerRespawnTime 9999;
+	};
+	case 0: {};
 };
 
 //adds briefing pictures (00.jpg-05.jpg in \img\) to the specified object:
@@ -139,9 +153,7 @@ if (ADV_par_ChooseLoad == 1) then {
 if !(isClass (configFile >> "CfgPatches" >> "adv_dropLauncher")) then { ADV_handle_dispLaunch = [] spawn ADV_fnc_dispLaunch; };
 
 if (isClass (configFile >> "CfgWeapons" >> "H_Cap_capPatch_SeL")) then {
-	_playerName = str player;
-	_zeusUnits = ["z1","z2","opf_z1","opf_z2","ind_z1","ind_z2"];
-	if (_playerName in _zeusUnits) then {
+	if ( (str player) in ["z1","z2","opf_z1","opf_z2","ind_z1","ind_z2"] ) then {
 		player addHeadgear "H_Cap_capPatch_SeL";
 	};
 };
