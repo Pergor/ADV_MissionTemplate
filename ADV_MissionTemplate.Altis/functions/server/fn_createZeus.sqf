@@ -3,10 +3,10 @@ create zeus script by Belbo
 
 Creates a zeus module for a player with a specified UID
 
-_this select 0 = playerUID - (scalar)
+_this select 0 = string of player's unit - (string)
 
 call like this:
-[123456789] remoteExecCall ["adv_fnc_createZeus",2];
+["zeus_1"] remoteExecCall ["adv_fnc_createZeus",2];
 */
 
 if (!isServer) exitWith {};
