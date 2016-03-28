@@ -72,7 +72,7 @@ if (_unit == leader group _unit) then {
 		_unit = _this select 0;
 		_leader = (leader group _unit);
 		sleep 4;
-		[_unit,[ (getPos _leader select 0) + (random 5) + 5, (getPos _leader select 1) + (random 5) + 5, getPos _leader select 2]] spawn ADV_scriptfnc_paraJump;
+		[_unit,[ (getPos _leader select 0) + (random 5) + 5, (getPos _leader select 1) + (random 5) + 5, 1500 ]] spawn ADV_scriptfnc_paraJump;
 	};
 };
 
