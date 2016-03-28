@@ -152,8 +152,9 @@ if (ADV_par_ChooseLoad == 1) then {
 //adds action to throw it away if a disposable launcher is shot.
 if !(isClass (configFile >> "CfgPatches" >> "adv_dropLauncher")) then { ADV_handle_dispLaunch = [] spawn ADV_fnc_dispLaunch; };
 
-if (isClass (configFile >> "CfgWeapons" >> "H_Cap_capPatch_SeL")) then {
-	if ( (str player) in ["z1","z2","opf_z1","opf_z2","ind_z1","ind_z2"] ) then {
+if ( (str player) in ["z1","z2","opf_z1","opf_z2","ind_z1","ind_z2"] ) then {
+	if ( isNull (getAssignedCuratorLogic player) ) then { [str player] remoteExecCall ["adv_fnc_createZeus",2]; };
+	if (isClass (configFile >> "CfgWeapons" >> "H_Cap_capPatch_SeL")) then {
 		player addHeadgear "H_Cap_capPatch_SeL";
 	};
 };
