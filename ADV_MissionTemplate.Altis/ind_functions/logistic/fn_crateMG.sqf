@@ -16,18 +16,18 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	switch (true) do {
 		//SeL RHS
 		case (ADV_par_indWeap == 2): {
-			_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51",12];
+			_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51",10];
 			//_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",4];
 		};		
 		case (ADV_par_indWeap == 3): {
 			//ammo
-			_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_M_M60E4",12];
-			_target addMagazineCargoGlobal ["hlc_50rnd_762x51_M_FAL",4];
+			_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_M_M60E4",10];
+			_target addMagazineCargoGlobal ["hlc_50rnd_762x51_M_FAL",5];
 		};
 		default {
-			_target addMagazineCargoGlobal ["130Rnd_338_Mag",8];
-			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",4];
-			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",4];
+			_target addMagazineCargoGlobal ["130Rnd_338_Mag",10];
+			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",5];
+			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",5];
 			//_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",4];
 		};
 	};

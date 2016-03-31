@@ -16,20 +16,20 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	switch (true) do {
 		//RHS
 		case (ADV_par_opfWeap == 1 && ADV_par_opfWeap == 2): {
-			_target addMagazineCargoGlobal ["rhs_100Rnd_762x54mmR",6];
-			_target addMagazineCargoGlobal ["rhs_100Rnd_762x54mmR_green",6];
+			_target addMagazineCargoGlobal ["rhs_100Rnd_762x54mmR",5];
+			_target addMagazineCargoGlobal ["rhs_100Rnd_762x54mmR_green",5];
 			//_target addMagazineCargoGlobal ["rhs_45Rnd_545X39_AK",4];
 		};
 		//CUP
 		case (ADV_par_opfWeap == 3): {
-			_target addMagazineCargoGlobal ["CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Green_M",12];
+			_target addMagazineCargoGlobal ["CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Green_M",10];
 			//_target addMagazineCargoGlobal ["CUP_75Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M",4];
 		};
 		case (ADV_par_opfWeap == 4): {};
 		default {
-			_target addMagazineCargoGlobal ["150Rnd_93x64_Mag",8];
-			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",4];
-			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",4];
+			_target addMagazineCargoGlobal ["150Rnd_93x64_Mag",10];
+			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",5];
+			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",5];
 			//_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",4];
 		};
 	};
