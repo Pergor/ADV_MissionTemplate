@@ -54,27 +54,38 @@ switch ( side (group player) ) do {
 	case west: {
 		ADV_logistic_crateTypeLarge="B_CargoNet_01_ammo_F";
 		ADV_logistic_crateTypeNormal="Box_NATO_Ammo_F";ADV_logistic_crateTypeAT="Box_NATO_WpsLaunch_F";
+		ADV_logistic_crateTypeMG="Box_NATO_WpsSpecial_F";
 		ADV_logistic_crateTypeSupport="Box_NATO_Support_F";ADV_logistic_crateTypeEOD="Box_NATO_AmmoOrd_F";
+		ADV_logistic_crateTypeMedic="Box_NATO_Support_F";
 		ADV_logistic_var_sidePrefix = "";
 	};
 	case east: {
 		ADV_logistic_crateTypeLarge="O_CargoNet_01_ammo_F";
 		ADV_logistic_crateTypeNormal="Box_East_Ammo_F";ADV_logistic_crateTypeAT="Box_East_WpsLaunch_F";
+		ADV_logistic_crateTypeMG="Box_EAST_WpsSpecial_F";
 		ADV_logistic_crateTypeSupport="Box_East_Support_F";ADV_logistic_crateTypeEOD="Box_East_AmmoOrd_F";
+		ADV_logistic_crateTypeMedic="Box_East_Support_F";
 		ADV_logistic_var_sidePrefix = "opf_";
 	};
 	case independent: {
 		if ( ADV_par_indUni > 0) then {
 			ADV_logistic_crateTypeLarge="I_CargoNet_01_ammo_F";
 			ADV_logistic_crateTypeNormal="Box_IND_Ammo_F";ADV_logistic_crateTypeAT="Box_IND_WpsLaunch_F";
+			ADV_logistic_crateTypeMG="Box_IND_WpsSpecial_F";
 			ADV_logistic_crateTypeSupport="Box_IND_Support_F";ADV_logistic_crateTypeEOD="Box_IND_AmmoOrd_F";
+			ADV_logistic_crateTypeMedic="Box_IND_Support_F";
 		} else {
 			ADV_logistic_crateTypeLarge="B_CargoNet_01_ammo_F";
 			ADV_logistic_crateTypeNormal="Box_NATO_Ammo_F";ADV_logistic_crateTypeAT="Box_NATO_WpsLaunch_F";
+			ADV_logistic_crateTypeMG="Box_NATO_WpsSpecial_F";
 			ADV_logistic_crateTypeSupport="Box_NATO_Support_F";ADV_logistic_crateTypeEOD="Box_NATO_AmmoOrd_F";
+			ADV_logistic_crateTypeMedic="Box_NATO_Support_F";
 		};
 		ADV_logistic_var_sidePrefix = "ind_";
 	};
+};
+if (isClass(configFile >> "CfgPatches" >> "ace_medical")) then {
+	ADV_logistic_crateTypeMedic="ACE_medicalSupplyCrate_advanced";
 };
 ADV_logistic_locationCrateLarge = format ["ADV_%1locationCrateLarge",ADV_logistic_var_sidePrefix];
 
@@ -227,7 +238,7 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 			[_box] remoteExecCall [_function,2];
 		};
 		case "ADV_LOGISTIC_CRATEMG": {
-			_box = createVehicle [ADV_logistic_crateTypeNormal,getPos player,[],0,"CAN_COLLIDE"];
+			_box = createVehicle [ADV_logistic_crateTypeMG,getPos player,[],0,"CAN_COLLIDE"];
 			[_box] call _functionForAll;
 			_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateMG"];
 			[_box] remoteExecCall [_function,2];
@@ -239,7 +250,7 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 			[_box] remoteExecCall [_function,2];
 		};
 		case "ADV_LOGISTIC_CRATEMEDIC": {
-			_box = createVehicle [ADV_logistic_crateTypeSupport,getPos player,[],0,"CAN_COLLIDE"];
+			_box = createVehicle [ADV_logistic_crateTypeMedic,getPos player,[],0,"CAN_COLLIDE"];
 			[_box] call _functionForAll;
 			_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateMedic"];
 			[_box] remoteExecCall [_function,2];
