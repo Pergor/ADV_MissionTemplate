@@ -96,7 +96,7 @@ _itemsLink = [
 		"ItemGPS",
 		"ItemMap",
 		"NVGoggles_OPFOR"
-		];
+	];
 		
 //items added to any container - (array)
 _items = [];
