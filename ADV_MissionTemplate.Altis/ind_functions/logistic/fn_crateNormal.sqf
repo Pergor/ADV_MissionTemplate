@@ -19,7 +19,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",20];
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
 			_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",5];
-			_target addMagazineCargoGlobal ["rhsusf_20Rnd_762x51_m118_special_Mag",5];
+			//_target addMagazineCargoGlobal ["rhsusf_20Rnd_762x51_m118_special_Mag",5];
 			if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
 				_target addMagazineCargoGlobal ["RH_12Rnd_45cal_usp",5];
 			} else {
@@ -41,7 +41,7 @@ private ["_target"];
 		};
 		default {
 			_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",5];
-			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",5];
+			//_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",5];
 			if ( ADV_par_indWeap == 1 ) then {
 				_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",20];
 				_target addMagazineCargoGlobal ["30rnd_556x45_STANAG_Tracer_Yellow",10];
@@ -75,14 +75,14 @@ private ["_target"];
 		_target addMagazineCargoGlobal ["I_IR_Grenade",1];
 	};
 
-	_ACE_fieldDressing = 2;
-	_ACE_packingBandage = 2;
-	_ACE_elasticBandage = 2;
-	_ACE_quikclot = 2;
+	_ACE_fieldDressing = 0;
+	_ACE_packingBandage = 0;
+	_ACE_elasticBandage = 0;
+	_ACE_quikclot = 0;
 	_ACE_atropine = 0;
 	_ACE_epinephrine = 0;
 	_ACE_morphine = 0;
-	_ACE_tourniquet = 1;
+	_ACE_tourniquet = 0;
 	_ACE_bloodIV = 0;
 	_ACE_bloodIV_500 = 0;
 	_ACE_bloodIV_250 = 0;

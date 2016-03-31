@@ -23,7 +23,7 @@ private ["_target"];
 				_target addMagazineCargoGlobal ["BWA3_30Rnd_556x45_G36_Tracer",10];
 			};
 			_target addMagazineCargoGlobal ["BWA3_200Rnd_556x45",5];
-			_target addMagazineCargoGlobal ["BWA3_10Rnd_762x51_G28_LR",10];
+			//_target addMagazineCargoGlobal ["BWA3_10Rnd_762x51_G28_LR",10];
 			_target addMagazineCargoGlobal ["BWA3_15Rnd_9x19_P8",5];
 		};
 		//SeL RHS
@@ -32,7 +32,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",20];
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
 			_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",5];
-			_target addMagazineCargoGlobal ["rhsusf_20Rnd_762x51_m118_special_Mag",5];
+			//_target addMagazineCargoGlobal ["rhsusf_20Rnd_762x51_m118_special_Mag",5];
 			if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
 				_target addMagazineCargoGlobal ["RH_12Rnd_45cal_usp",5];
 			} else {
@@ -45,6 +45,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",20];
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
 			_target addMagazineCargoGlobal ["CUP_200Rnd_TE4_Red_Tracer_556x45_L110A1",5];
+			/*
 			if !(ADV_par_customWeap == 3 || ADV_par_customWeap == 6) then {
 				_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",40];
 				_target addMagazineCargoGlobal ["CUP_15Rnd_9x19_M9",5];
@@ -56,13 +57,14 @@ private ["_target"];
 					_target addMagazineCargoGlobal ["CUP_17Rnd_9x19_glock17",5];
 				};
 			};
+			*/
 		};
 		case (ADV_par_customWeap == 6): {
 			//ammo
 			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",20];
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
 			_target addMagazineCargoGlobal ["UK3CB_BAF_200Rnd_T",5];
-			_target addMagazineCargoGlobal ["UK3CB_BAF_20Rnd",20];
+			//_target addMagazineCargoGlobal ["UK3CB_BAF_20Rnd",20];
 			_target addMagazineCargoGlobal ["UK3CB_BAF_17Rnd_9mm",5];
 		};
 		case (ADV_par_customWeap == 7): {
@@ -82,7 +84,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",20];
 			_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag_Tracer",10];
 			_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",5];
-			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",5];
+			//_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",5];
 			_target addMagazineCargoGlobal ["11Rnd_45ACP_Mag",5];
 		};
 	};
@@ -112,14 +114,14 @@ private ["_target"];
 		_target addMagazineCargoGlobal ["B_IR_Grenade",1];
 	};
 
-	_ACE_fieldDressing = 2;
-	_ACE_packingBandage = 2;
-	_ACE_elasticBandage = 2;
-	_ACE_quikclot = 2;
+	_ACE_fieldDressing = 0;
+	_ACE_packingBandage = 0;
+	_ACE_elasticBandage = 0;
+	_ACE_quikclot = 0;
 	_ACE_atropine = 0;
 	_ACE_epinephrine = 0;
 	_ACE_morphine = 0;
-	_ACE_tourniquet = 1;
+	_ACE_tourniquet = 0;
 	_ACE_bloodIV = 0;
 	_ACE_bloodIV_500 = 0;
 	_ACE_bloodIV_250 = 0;

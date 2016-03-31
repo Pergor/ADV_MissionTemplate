@@ -18,24 +18,24 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 		case (ADV_par_customWeap == 1): {
 			_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51",6];
 			_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51_Tracer",6];
-			_target addMagazineCargoGlobal ["BWA3_200Rnd_556x45",2];
-			_target addMagazineCargoGlobal ["BWA3_200Rnd_556x45_Tracer",2];
+			//_target addMagazineCargoGlobal ["BWA3_200Rnd_556x45",2];
+			//_target addMagazineCargoGlobal ["BWA3_200Rnd_556x45_Tracer",2];
 		};
 		//SeL RHS
 		case (ADV_par_customWeap == 2): {
 			_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51",12];
-			_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",4];
+			//_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",4];
 		};		
 		//SeL CUP
 		case (ADV_par_customWeap == 3 || ADV_par_customWeap == 4 || ADV_par_customWeap == 5): {
 			_target addMagazineCargoGlobal ["CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M",12];
-			_target addMagazineCargoGlobal ["CUP_200Rnd_TE4_Red_Tracer_556x45_L110A1",4];
+			//_target addMagazineCargoGlobal ["CUP_200Rnd_TE4_Red_Tracer_556x45_L110A1",4];
 		};
 		case (ADV_par_customWeap == 6): {
 			_target addMagazineCargoGlobal ["UK3CB_BAF_75Rnd_T",6];
 			_target addMagazineCargoGlobal ["UK3CB_BAF_75Rnd",6];
-			_target addMagazineCargoGlobal ["UK3CB_BAF_200Rnd_T",2];
-			_target addMagazineCargoGlobal ["UK3CB_BAF_200Rnd",2];
+			//_target addMagazineCargoGlobal ["UK3CB_BAF_200Rnd_T",2];
+			//_target addMagazineCargoGlobal ["UK3CB_BAF_200Rnd",2];
 		};
 		case (ADV_par_customWeap == 7): {
 			//ammo
@@ -46,33 +46,33 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			_target addMagazineCargoGlobal ["130Rnd_338_Mag",8];
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",4];
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",4];
-			_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",4];
+			//_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",4];
 		};
 	};
 	//grenades
 	switch (ADV_par_customWeap) do {
 		case 1: {
-			_target addMagazineCargoGlobal ["BWA3_DM25",4];
+			_target addMagazineCargoGlobal ["BWA3_DM25",2];
 		};
 		case 2: {
-			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",4];
+			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",2];
 		};
 		default {
-			_target addMagazineCargoGlobal ["SmokeShell",4];
+			_target addMagazineCargoGlobal ["SmokeShell",2];
 		};
 	};
 	if (ADV_par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
 		_target addMagazineCargoGlobal ["B_IR_Grenade",1];
 	};
 
-	_ACE_fieldDressing = 2;
-	_ACE_packingBandage = 2;
-	_ACE_elasticBandage = 2;
-	_ACE_quikclot = 2;
+	_ACE_fieldDressing = 0;
+	_ACE_packingBandage = 0;
+	_ACE_elasticBandage = 0;
+	_ACE_quikclot = 0;
 	_ACE_atropine = 0;
 	_ACE_epinephrine = 0;
 	_ACE_morphine = 0;
-	_ACE_tourniquet = 1;
+	_ACE_tourniquet = 0;
 	_ACE_bloodIV = 0;
 	_ACE_bloodIV_500 = 0;
 	_ACE_bloodIV_250 = 0;

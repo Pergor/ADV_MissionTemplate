@@ -37,24 +37,24 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	//grenades
 	switch (ADV_par_indWeap) do {
 		case 2: {
-			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",4];
+			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",2];
 		};
 		default {
-			_target addMagazineCargoGlobal ["SmokeShell",4];
+			_target addMagazineCargoGlobal ["SmokeShell",2];
 		};
 	};
 	if (ADV_par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
 		_target addMagazineCargoGlobal ["I_IR_Grenade",1];
 	};
 
-	_ACE_fieldDressing = 2;
-	_ACE_packingBandage = 2;
-	_ACE_elasticBandage = 2;
-	_ACE_quikclot = 2;
+	_ACE_fieldDressing = 0;
+	_ACE_packingBandage = 0;
+	_ACE_elasticBandage = 0;
+	_ACE_quikclot = 0;
 	_ACE_atropine = 0;
 	_ACE_epinephrine = 0;
 	_ACE_morphine = 0;
-	_ACE_tourniquet = 1;
+	_ACE_tourniquet = 0;
 	_ACE_bloodIV = 0;
 	_ACE_bloodIV_500 = 0;
 	_ACE_bloodIV_250 = 0;

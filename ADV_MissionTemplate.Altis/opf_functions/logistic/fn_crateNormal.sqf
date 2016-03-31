@@ -20,7 +20,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_AK",20];
 			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_7N10_AK",10];
 			_target addMagazineCargoGlobal ["rhs_100Rnd_762x54mmR",5];
-			if (ADV_par_opfSilencers > 0) then { _target addMagazineCargoGlobal ["rhs_20rnd_9x39mm_SP5",10]; } else { _target addMagazineCargoGlobal ["rhs_10Rnd_762x54mmR_7N1",10]; };
+			//if (ADV_par_opfSilencers > 0) then { _target addMagazineCargoGlobal ["rhs_20rnd_9x39mm_SP5",10]; } else { _target addMagazineCargoGlobal ["rhs_10Rnd_762x54mmR_7N1",10]; };
 			_target addMagazineCargoGlobal ["rhs_mag_9x19_17",5];
 		};
 		//SeL RHS
@@ -29,7 +29,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			_target addMagazineCargoGlobal ["CUP_30Rnd_545x39_AK_M",20];
 			_target addMagazineCargoGlobal ["CUP_30Rnd_TE1_Green_Tracer_545x39_AK_M",10];
 			_target addMagazineCargoGlobal ["CUP_75Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M",5];
-			_target addMagazineCargoGlobal ["CUP_10Rnd_762x54_SVD_M",10];
+			//_target addMagazineCargoGlobal ["CUP_10Rnd_762x54_SVD_M",10];
 			_target addMagazineCargoGlobal ["CUP_8Rnd_9x18_Makarov_M",5];
 		};
 		case (ADV_par_opfWeap == 4): {};
@@ -38,8 +38,10 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",20];
 			_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",10];
 			_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",5];
+			/*
 			_target addMagazineCargoGlobal ["10Rnd_762x51_Mag",10];
 			_target addMagazineCargoGlobal ["10Rnd_93x64_DMR_05_Mag",10];
+			*/
 			_target addMagazineCargoGlobal ["16Rnd_9x21_Mag",5];
 		};
 	};
@@ -80,14 +82,14 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 		_target addMagazineCargoGlobal ["O_IR_Grenade",1];
 	};
 
-	_ACE_fieldDressing = 2;
-	_ACE_packingBandage = 2;
-	_ACE_elasticBandage = 2;
-	_ACE_quikclot = 2;
+	_ACE_fieldDressing = 0;
+	_ACE_packingBandage = 0;
+	_ACE_elasticBandage = 0;
+	_ACE_quikclot = 0;
 	_ACE_atropine = 0;
 	_ACE_epinephrine = 0;
 	_ACE_morphine = 0;
-	_ACE_tourniquet = 1;
+	_ACE_tourniquet = 0;
 	_ACE_bloodIV = 0;
 	_ACE_bloodIV_500 = 0;
 	_ACE_bloodIV_250 = 0;

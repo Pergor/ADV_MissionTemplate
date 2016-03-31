@@ -15,10 +15,10 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	//grenades
 	switch (ADV_par_indWeap) do {
 		case 2: {
-			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",4];
+			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",10];
 		};
 		default {
-			_target addMagazineCargoGlobal ["SmokeShell",4];
+			_target addMagazineCargoGlobal ["SmokeShell",10];
 		};
 	};
 	if ( ADV_par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
