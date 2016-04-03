@@ -10,12 +10,14 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 
 	//tfar serious mode
 
-	ADV_par_seriousMode = ["param_SeriousMode",0] call BIS_fnc_getParamValue;
-	if ( ADV_par_seriousMode > 0 ) then {
-		tf_radio_channel_name = "Arma3-TFAR";
-		tf_radio_channel_password = "123";
-		if (isServer) then {
-			{ publicVariable _x } forEach ["tf_radio_channel_name","tf_radio_channel_password"];
+	[] spawn {
+		waitUntil {!isNil "ADV_par_seriousMode"};
+		if ( ADV_par_seriousMode > 0 ) then {
+			tf_radio_channel_name = "Arma3-TFAR";
+			tf_radio_channel_password = "123";
+			if (isServer) then {
+				{ publicVariable _x } forEach ["tf_radio_channel_name","tf_radio_channel_password"];
+			};
 		};
 	};
 
