@@ -39,7 +39,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	_ACE_bloodIV_250 = 0;
 	_ACE_plasmaIV = 5;
 	_ACE_plasmaIV_500 = 5;
-	_ACE_plasmaIV_250 = 5;
+	_ACE_plasmaIV_250 = 0;
 	_ACE_salineIV = 5;
 	_ACE_salineIV_500 = 5;
 	_ACE_salineIV_250 = 0;
