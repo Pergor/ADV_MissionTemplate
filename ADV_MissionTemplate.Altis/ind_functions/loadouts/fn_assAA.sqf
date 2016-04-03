@@ -26,6 +26,7 @@ _silencer = "muzzle_snds_H";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [7,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_additionalAmmo = [2,"Titan_AA"];
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;
@@ -57,7 +58,6 @@ _launcher = "";
 
 //launcher ammo (if a launcher is given) - (integer) 
 _launcherAmmo = [0,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
-_additionalAmmo = [2,"Titan_AA"];
 
 //binocular - (string)
 _binocular = "Binocular";
