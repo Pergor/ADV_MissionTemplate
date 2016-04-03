@@ -105,7 +105,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	if (isClass (configFile >> "CfgPatches" >> "ACE_common")) then {
 		_ACE_EarPlugs = 2;
 
-		_ACE_SpareBarrel = 0;
+		_ACE_SpareBarrel = 1;
 		_ACE_tacticalLadder = 0;
 		_ACE_UAVBattery = 0;
 		_ACE_wirecutter = 0;

@@ -17,21 +17,21 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["BWA3_DM51A1",10];		
 			_target addMagazineCargoGlobal ["BWA3_DM25",20];		
 			_target addMagazineCargoGlobal ["BWA3_DM32_Orange",20];
-			_target addMagazineCargoGlobal ["BWA3_DM32_Yellow",15];
+			_target addMagazineCargoGlobal ["BWA3_DM32_Yellow",20];
 		};
 		case 2: {
 			_target addMagazineCargoGlobal ["rhs_mag_m67",10];
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",20];
 			_target addMagazineCargoGlobal ["rhs_mag_m18_green",10];
 			_target addMagazineCargoGlobal ["rhs_mag_m18_red",10];
-			_target addMagazineCargoGlobal ["rhs_mag_m18_yellow",5];
+			_target addMagazineCargoGlobal ["rhs_mag_m18_yellow",10];
 		};
 		default {
 			_target addMagazineCargoGlobal ["HandGrenade",10];
 			_target addMagazineCargoGlobal ["SmokeShell",20];
 			_target addMagazineCargoGlobal ["SmokeShellGreen",10];
 			_target addMagazineCargoGlobal ["SmokeShellRed",10];
-			_target addMagazineCargoGlobal ["SmokeShellYellow",5];
+			_target addMagazineCargoGlobal ["SmokeShellYellow",10];
 		};
 	};
 	_target addMagazineCargoGlobal ["1Rnd_HE_Grenade_shell",20];
