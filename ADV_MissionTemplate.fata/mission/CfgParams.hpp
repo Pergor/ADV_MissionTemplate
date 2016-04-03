@@ -1,4 +1,4 @@
-class dummy_1 {
+class dummy_environment {
 	title = "---------------------- Umweltparameter ----------------------";
 	values[] = {-99999};
 	default = -99999;
@@ -32,7 +32,7 @@ class param_Weather
 	texts[] = {"Kein zufälliges Wetter","Klar","Bewölkt","Leichter Regen","Mittlerer Regen","Schwerer Regen","Leichter Nebel","Mittlerer Nebel","Dichter Nebel","Zufälliges Wetter"};
 	default = 99;
 };
-class dummy_3 {
+class dummy_respawn {
 	title = "---------------------- Respawn ----------------------";
 	values[] = {-99999};
 	default = -99999;
@@ -59,7 +59,7 @@ class param_vehicleRespawn
 	texts[] = {"15 Minuten","10 Minuten","5 Minuten","60 Sekunden","30 Sekunden","20 Sekunden","10 Sekunden","5 Sekunden","Deaktiviert"};
 	default = 300;
 };
-class dummy_8 {
+class dummy_settings_game {
 	title = "---------------------- Game Settings ----------------------";
 	values[] = {-99999};
 	default = -99999;
@@ -86,7 +86,7 @@ class param_invinciZeus
 	texts[] = {"Ja","Nein"};
 	default = 0;
 };
-class param_Fatigue
+class param_fatigue
 {
 	title="Sollen die Spieler Ausdauer verlieren können?";
 	values[] = {1,0};
@@ -114,75 +114,34 @@ class param_seriousMode
 	texts[] = {"Ja","Nein"};
 	default = 1;
 };
-class dummy_4 {
-	title = "---------------------- Fahrzeuge (Allgemein) ----------------------";
-	values[] = {-99999};
-	default = -99999;
-	texts[] = {""};
-};
-class param_Assets_cars
-{
-	title="Sollen am Startpunkt leichte Fahrzeuge für alle Seiten zur Verfügung stehen?";
-	values[] = {1,0,99};
-	texts[] = {"Ja","Nein (Die Fahrzeuge bleiben stehen, sind aber abgeschlossen und deaktiviert.)","Alle leichten Fahrzeuge werden von der Karte entfernt."};
-	default = 1;
-};
-class param_Assets_heavy
-{
-	title="Sollen am Startpunkt schwere Fahrzeuge für alle Seiten zur Verfügung stehen?";
-	values[] = {1,0,99};
-	texts[] = {"Ja","Nein (Die Fahrzeuge bleiben stehen, sind aber abgeschlossen und deaktiviert.)","Alle schweren Fahrzeuge werden von der Karte entfernt."};
-	default = 1;
-};
-class param_Assets_tanks
-{
-	title="Sollen am Startpunkt Panzer für alle Seiten zur Verfügung stehen?";
-	values[] = {1,0,99};
-	texts[] = {"Ja","Nein (Die Fahrzeuge bleiben stehen, sind aber abgeschlossen und deaktiviert.)","Alle Panzer werden von der Karte entfernt."};
-	default = 1;
-};
-class param_Assets_air_helis
-{
-	title="Sollen am Startpunkt Hubschrauber für alle Seiten zur Verfügung stehen?";
-	values[] = {1,0,99};
-	texts[] = {"Ja","Nein (Die Fahrzeuge bleiben stehen, sind aber abgeschlossen und deaktiviert.)","Alle Hubschrauber werden von der Karte entfernt."};
-	default = 1;
-};
-class param_Assets_air_fixed
-{
-	title="Sollen am Startpunkt Flugzeuge für alle Seiten zur Verfügung stehen?";
-	values[] = {1,0,99};
-	texts[] = {"Ja","Nein (Die Fahrzeuge bleiben stehen, sind aber abgeschlossen und deaktiviert.)","Alle Flugzeuge werden von der Karte entfernt."};
-	default = 1;
-};
-class dummy_5 {
+class dummy_equipment {
 	title = "---------------------- Ausrüstung (allgemein) ----------------------";
 	values[] = {-99999};
 	default = -99999;
 	texts[] = {""};
 };
-class param_Radios
+class param_radios
 {
 	title="Sollen die Spieler bei Missionsbeginn mit Funkgeräten ausgerüstet werden?";
 	values[] = {3,2,1,0};
 	texts[] = {"Alle erhalten einstellbare Funkgeräte","Nur Führungsrollen","Alle erhalten rollenspezifische Funkgeräte","Nein"};
 	default = 1;
 };
-class param_Tablets
+class param_tablets
 {
 	title="Mit welchen Tablets sollen die Spieler bei Missionsbeginn ausgerüstet werden?";
 	values[] = {2,1,99,0};
 	texts[] = {"ACE-GPS","cTab","Nur Vanilla-GPS","Keine"};
 	default = 1;
 };
-class param_CustomLoad
+class param_customLoad
 {
 	title="Sollen die Spieler mit custom loadouts ausgerüstet werden?";
 	values[] = {2,1,0};
 	texts[] = {"Spieler starten und respawnen mit custom loadouts.","Spieler starten mit custom loadouts (nur mit gearsaving).","Keine custom loadouts."};
 	default = 1;
 };
-class param_ChooseLoad
+class param_chooseLoad
 {
 	title="Sollen die Spieler am Start ihre Ausrüstung wechseln dürfen?";
 	values[] = {1,0};
@@ -210,7 +169,7 @@ class param_logisticDrop
 	texts[] = {"Ja","Nein"};
 	default = 0;
 };
-class dummy_6 {
+class dummy_blu_equipment {
 	title = "---------------------- BLUFOR-Ausrüstung ----------------------";
 	values[] = {-99999};
 	default = -99999;
@@ -251,7 +210,116 @@ class param_customWeap
 	texts[] = {"FAL, G3 und M60 - größtenteils ohne Optiken, keine Schalldämpfer (benötigt HLC_FAL, HLC_G3, HLC_MP5, HLC_M60)","BAF (benötigt UK3CB-Equipment und -Weapons)","BAF (benötigt CUP)","CUP Arma 2 (benötigt CUP)","CUP Operation Arrowhead (benötigt CUP)","SeL-Mods (benötigt RHSUSF, optional hlc_mp5, IanSky-Scopes und RH-Pistols)","BWmod (benötigt BWmod, optional hlc_g36)","Keine"};
 	default = 0;
 };
-class dummy_7 {
+class dummy_ind_equipment {
+	title = "---------------------- INDFOR-Parameter ----------------------";
+	values[] = {-99999};
+	default = -99999;
+	texts[] = {""};
+};
+class param_indWeap
+{
+	title="Welche Waffen sollen an INDFOR-Einheiten ausgegeben werden?";
+	values[] = {3,2,1,0};
+	texts[] = {"FAL, G3 und M60 - größtenteils ohne Optiken, keine Schalldämpfer (benötigt HLC_FAL, HLC_G3, HLC_MP5, HLC_M60)","SeL-Mods (benötigt RHSUSF, optional hlc_mp5, IanSky-Scopes und RH-Pistols)","Vanilla Mk20","Vanilla MX"};
+	default = 0;
+};
+class param_indUni
+{
+	title="Welche Uniformen sollen an INDFOR-Einheiten ausgegeben werden?";
+	values[] = {2,1,0};
+	texts[] = {"TFA PMC","Vanilla AAF","Vanilla PMC"};
+	default = 0;
+};
+class param_indCarAssets
+{
+	title="Sollen die INDFOR-Fahrzeuge ersetzt/entfernt werden?";
+	values[] = {99,1,0};
+	texts[] = {"Keine Fahrzeuge","AAF-Fahrzeuge","Nein"};
+	default = 0;
+};
+class dummy_opf_equipment {
+	title = "---------------------- OPFOR-Ausrüstung ----------------------";
+	values[] = {-99999};
+	default = -99999;
+	texts[] = {""};
+};
+class param_opfNVGs
+{
+	title="Sollen die OPFOR-Spieler bei Missionsbeginn mit Nachtausrüstung ausgerüstet werden?";
+	values[] = {2,1,0};
+	texts[] = {"Nachtausrüstung mit NVGs","Nachtausrüstung ohne NVGs","Nein"};
+	default = 0;
+};
+class param_opfOptics
+{
+	title="Sollen die (OPFOR-)Spieler, sofern voreingestellt, bei Missionsbeginn mit optischen Zielhilfen ausgerüstet werden (betrifft nicht Scharfschützen)?";
+	values[] = {1,0};
+	texts[] = {"Ja","Nein"};
+	default = 1;
+};
+class param_opfSilencers
+{
+	title="Sollen die OPFOR-Spieler bei Missionsbeginn mit Schalldämpfern ausgerüstet werden?";
+	values[] = {2,1,0};
+	texts[] = {"Schalldämpfer im Inventar","Schalldämpfer an den Waffen","Nein"};
+	default = 0;
+};
+class param_opfUni
+{
+	title="Welche Uniform-Sets sollen an OPFOR-Einheiten ausgegeben werden?";
+	values[] = {5,4,3,2,1,0};
+	texts[] = {"Afghan Militia (EricJ's Afghan Fighters&RHS)","Guerilla","Mountain Flora (RHS)","Flora (RHS)","EMR Summer (RHS)","Keine"};
+	default = 0;
+};
+class param_opfWeap
+{
+	title="Welche Waffen-Sets sollen an OPFOR-Einheiten ausgegeben werden?";
+	values[] = {4,3,2,1,0};
+	texts[] = {"HLC AK Pack (no logistic, no ammo in vehicles), am besten mit RHSAFRF","CUP (benötigt CUP)","RHS-Guerillas (benötigt RHSAFRF)","RHS (benötigt RHSAFRF)","Keine"};
+	default = 0;
+};
+class dummy_vehicles {
+	title = "---------------------- Fahrzeuge (Allgemein) ----------------------";
+	values[] = {-99999};
+	default = -99999;
+	texts[] = {""};
+};
+class param_Assets_cars
+{
+	title="Sollen am Startpunkt leichte Fahrzeuge für alle Seiten zur Verfügung stehen?";
+	values[] = {1,0,99};
+	texts[] = {"Ja","Nein (Die Fahrzeuge bleiben stehen, sind aber abgeschlossen und deaktiviert.)","Alle leichten Fahrzeuge werden von der Karte entfernt."};
+	default = 1;
+};
+class param_Assets_heavy
+{
+	title="Sollen am Startpunkt schwere Fahrzeuge für alle Seiten zur Verfügung stehen?";
+	values[] = {1,0,99};
+	texts[] = {"Ja","Nein (Die Fahrzeuge bleiben stehen, sind aber abgeschlossen und deaktiviert.)","Alle schweren Fahrzeuge werden von der Karte entfernt."};
+	default = 1;
+};
+class param_Assets_tanks
+{
+	title="Sollen am Startpunkt Panzer für alle Seiten zur Verfügung stehen?";
+	values[] = {1,0,99};
+	texts[] = {"Ja","Nein (Die Fahrzeuge bleiben stehen, sind aber abgeschlossen und deaktiviert.)","Alle Panzer werden von der Karte entfernt."};
+	default = 1;
+};
+class param_Assets_air_helis
+{
+	title="Sollen am Startpunkt Hubschrauber für alle Seiten zur Verfügung stehen?";
+	values[] = {1,0,99};
+	texts[] = {"Ja","Nein (Die Fahrzeuge bleiben stehen, sind aber abgeschlossen und deaktiviert.)","Alle Hubschrauber werden von der Karte entfernt."};
+	default = 1;
+};
+class param_Assets_air_fixed
+{
+	title="Sollen am Startpunkt Flugzeuge für alle Seiten zur Verfügung stehen?";
+	values[] = {1,0,99};
+	texts[] = {"Ja","Nein (Die Fahrzeuge bleiben stehen, sind aber abgeschlossen und deaktiviert.)","Alle Flugzeuge werden von der Karte entfernt."};
+	default = 1;
+};
+class dummy_blu_vehicles {
 	title = "---------------------- BLUFOR-Fahrzeuge ----------------------";
 	values[] = {-99999};
 	default = -99999;
@@ -299,75 +367,7 @@ class param_modAirAssets
 	texts[] = {"Keine Flugzeuge","FIR F-14D","RHS F-22/C130","RHS A-10/C130","AV-8B Harrier","F/A-18F (Zweisitzer)","F/A-18E (Einsitzer)","Nein"};
 	default = 0;
 };
-class dummy_ind_1 {
-	title = "---------------------- INDFOR-Parameter ----------------------";
-	values[] = {-99999};
-	default = -99999;
-	texts[] = {""};
-};
-class param_indWeap
-{
-	title="Welche Waffen sollen an INDFOR-Einheiten ausgegeben werden?";
-	values[] = {3,2,1,0};
-	texts[] = {"FAL, G3 und M60 - größtenteils ohne Optiken, keine Schalldämpfer (benötigt HLC_FAL, HLC_G3, HLC_MP5, HLC_M60)","SeL-Mods (benötigt RHSUSF, optional hlc_mp5, IanSky-Scopes und RH-Pistols)","Vanilla Mk20","Vanilla MX"};
-	default = 0;
-};
-class param_indUni
-{
-	title="Welche Uniformen sollen an INDFOR-Einheiten ausgegeben werden?";
-	values[] = {2,1,0};
-	texts[] = {"TFA PMC","Vanilla AAF","Vanilla PMC"};
-	default = 0;
-};
-class param_indCarAssets
-{
-	title="Sollen die INDFOR-Fahrzeuge ersetzt/entfernt werden?";
-	values[] = {99,1,0};
-	texts[] = {"Keine Fahrzeuge","AAF-Fahrzeuge","Nein"};
-	default = 0;
-};
-class dummy_opf_1 {
-	title = "---------------------- OPFOR-Ausrüstung ----------------------";
-	values[] = {-99999};
-	default = -99999;
-	texts[] = {""};
-};
-class param_opfNVGs
-{
-	title="Sollen die OPFOR-Spieler bei Missionsbeginn mit Nachtausrüstung ausgerüstet werden?";
-	values[] = {2,1,0};
-	texts[] = {"Nachtausrüstung mit NVGs","Nachtausrüstung ohne NVGs","Nein"};
-	default = 0;
-};
-class param_opfOptics
-{
-	title="Sollen die (OPFOR-)Spieler, sofern voreingestellt, bei Missionsbeginn mit optischen Zielhilfen ausgerüstet werden (betrifft nicht Scharfschützen)?";
-	values[] = {1,0};
-	texts[] = {"Ja","Nein"};
-	default = 1;
-};
-class param_opfSilencers
-{
-	title="Sollen die OPFOR-Spieler bei Missionsbeginn mit Schalldämpfern ausgerüstet werden?";
-	values[] = {2,1,0};
-	texts[] = {"Schalldämpfer im Inventar","Schalldämpfer an den Waffen","Nein"};
-	default = 0;
-};
-class param_opfUni
-{
-	title="Welche Uniform-Sets sollen an OPFOR-Einheiten ausgegeben werden?";
-	values[] = {5,4,3,2,1,0};
-	texts[] = {"Afghan Militia (EricJ's Afghan Fighters&RHS)","Guerilla","Mountain Flora (RHS)","Flora (RHS)","EMR Summer (RHS)","Keine"};
-	default = 0;
-};
-class param_opfWeap
-{
-	title="Welche Waffen-Sets sollen an OPFOR-Einheiten ausgegeben werden?";
-	values[] = {4,3,2,1,0};
-	texts[] = {"HLC AK Pack (no logistic, no ammo in vehicles), am besten mit RHSAFRF","CUP (benötigt CUP)","RHS-Guerillas (benötigt RHSAFRF)","RHS (benötigt RHSAFRF)","Keine"};
-	default = 0;
-};
-class dummy_opf_2 {
+class dummy_opf_vehicles {
 	title = "---------------------- OPFOR-Fahrzeuge ----------------------";
 	values[] = {-99999};
 	default = -99999;
@@ -415,7 +415,7 @@ class param_opfAirAssets
 	texts[] = {"Keine Flugzeuge","JS SU35","RHS SU-50","RHS SU-25","Nein"};
 	default = 0;
 };
-class dummy_ace_1 {
+class dummy_settings_ace {
 	title = "---------------------- ACE-Settings ----------------------";
 	values[] = {-99999};
 	default = -99999;
