@@ -9,14 +9,14 @@ params [
 ];
 
 adv_var_headsetOn = true;
-adv_var_headsetSWVolume = if (call TFAR_fnc_haveSWRadio) then { (call TFAR_fnc_ActiveSwRadio) call TFAR_fnc_getSwVolume; } else { 80 };
-adv_var_headsetLRVolume = if (call TFAR_fnc_haveLRRadio) then { [(call TFAR_fnc_activeLrRadio) select 0, (call TFAR_fnc_activeLrRadio) select 1] call TFAR_fnc_getLrVolume; } else { 80 };
+adv_var_headsetSWVolume = if (call TFAR_fnc_haveSWRadio) then { (call TFAR_fnc_ActiveSwRadio) call TFAR_fnc_getSwVolume; } else { 8 };
+adv_var_headsetLRVolume = if (call TFAR_fnc_haveLRRadio) then { [(call TFAR_fnc_activeLrRadio) select 0, (call TFAR_fnc_activeLrRadio) select 1] call TFAR_fnc_getLrVolume; } else { 8 };
 
 adv_script_fnc_headsetOff = {
 	//sw radio
 	if (call TFAR_fnc_haveSWRadio) then {
 		adv_var_headsetSWVolume = (call TFAR_fnc_ActiveSwRadio) call TFAR_fnc_getSwVolume;
-		[(call TFAR_fnc_ActiveSWRadio), 10] call TFAR_fnc_setSwVolume;
+		[(call TFAR_fnc_ActiveSWRadio), 0] call TFAR_fnc_setSwVolume;
 	};
 	
 	//lr and vehicle radio
