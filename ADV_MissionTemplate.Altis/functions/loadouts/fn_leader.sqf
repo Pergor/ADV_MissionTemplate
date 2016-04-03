@@ -28,6 +28,8 @@ _silencer = "muzzle_snds_H";		//if silencer is added
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [4,1];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 _additionalAmmo = [3,0,false];
+_additionalAmmo1 = [];
+_additionalAmmo2 = [];
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 3;
@@ -206,6 +208,13 @@ switch (ADV_par_customWeap) do {
 		};
 		_silencer = "BWA3_muzzle_snds_G36";		//if silencer is added
 		_handgun = "BWA3_P8";
+		if ( ADV_par_NVGs == 1 ) then {
+			_40mmFlareYellow = 0;
+			_handgun = "BWA3_P2A1";
+			_handgunAmmo = [5,"BWA3_1Rnd_Flare_Illum"];
+			_additionalAmmo1 = [2,"BWA3_1Rnd_Flare_Multistar_Green",false];
+			_additionalAmmo2 = [2,"BWA3_1Rnd_Flare_Multistar_Red",false];
+		};
 		_itemsHandgun = [""];
 		_handgunSilencer = "";		//if silencer is added
 	};
