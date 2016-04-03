@@ -29,6 +29,9 @@ private ["_target"];
 	_target addMagazineCargoGlobal ["APERSMine_Range_Mag",8];
 	_target addMagazineCargoGlobal ["APERSTripMine_Wire_Mag",8];
 	_target addMagazineCargoGlobal ["ClaymoreDirectionalMine_Remote_Mag",8];
+	
+	_target addItemCargoGlobal ["MineDetector",1];
+	
 	if !(isClass (configFile >> "CfgPatches" >> "ACE_explosives")) then {
 		_target addItemCargoGlobal ["ToolKit",2];
 	};

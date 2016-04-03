@@ -50,32 +50,23 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 		case ( ADV_par_opfWeap == 1 && ADV_par_opfWeap == 2): {
 			_target addMagazineCargoGlobal ["rhs_mag_rgd5",4];
 			_target addMagazineCargoGlobal ["rhs_mag_rdg2_white",4];
-			_target addMagazineCargoGlobal ["rhs_mag_rdg2_black",0];
+			//_target addMagazineCargoGlobal ["rhs_mag_rdg2_black",0];
 			_target addMagazineCargoGlobal ["rhs_VOG25",10];
-			_target addMagazineCargoGlobal ["rhs_GRD40_White",3];
-			_target addMagazineCargoGlobal ["rhs_GRD40_Green",3];
-			_target addMagazineCargoGlobal ["rhs_GRD40_Red",3];
-			_target addMagazineCargoGlobal ["rhs_VG40OP_white",3];
+			_target addMagazineCargoGlobal ["rhs_VG40OP_white",4];
 		};
 		case ( ADV_par_opfWeap == 3): {
 			_target addMagazineCargoGlobal ["CUP_HandGrenade_RGD5",4];
 			_target addMagazineCargoGlobal ["SmokeShell",4];
 			_target addMagazineCargoGlobal ["SmokeShellYellow",0];
 			_target addMagazineCargoGlobal ["CUP_1Rnd_HE_GP25_M",10];
-			_target addMagazineCargoGlobal ["CUP_1Rnd_SmokeRed_GP25_M",3];
-			_target addMagazineCargoGlobal ["CUP_1Rnd_SmokeGreen_GP25_M",3];
-			_target addMagazineCargoGlobal ["CUP_1Rnd_SmokeYellow_GP25_M",3];
-			_target addMagazineCargoGlobal ["CUP_FlareYellow_GP25_M",3];
+			_target addMagazineCargoGlobal ["CUP_FlareYellow_GP25_M",4];
 		};
 		default {
 			_target addMagazineCargoGlobal ["HandGrenade",4];
 			_target addMagazineCargoGlobal ["SmokeShell",4];
 			_target addMagazineCargoGlobal ["SmokeShellYellow",0];
 			_target addMagazineCargoGlobal ["1Rnd_HE_Grenade_shell",10];
-			_target addMagazineCargoGlobal ["1Rnd_SmokeRed_Grenade_shell",3];
-			_target addMagazineCargoGlobal ["1Rnd_SmokePurple_Grenade_shell",3];
-			_target addMagazineCargoGlobal ["1Rnd_SmokeYellow_Grenade_shell",3];
-			_target addMagazineCargoGlobal ["UGL_FlareYellow_F",3];
+			_target addMagazineCargoGlobal ["UGL_FlareYellow_F",4];
 		};
 	};
 	if ( ADV_par_opfNVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {

@@ -66,10 +66,7 @@ private ["_target"];
 	};
 	
 	_target addMagazineCargoGlobal ["1Rnd_HE_Grenade_shell",10];
-	_target addMagazineCargoGlobal ["1Rnd_SmokeRed_Grenade_shell",3];
-	_target addMagazineCargoGlobal ["1Rnd_SmokePurple_Grenade_shell",3];
-	_target addMagazineCargoGlobal ["1Rnd_SmokeYellow_Grenade_shell",3];
-	_target addMagazineCargoGlobal ["UGL_FlareGreen_F",3];
+	_target addMagazineCargoGlobal ["UGL_FlareGreen_F",4];
 
 	if ( ADV_par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
 		_target addMagazineCargoGlobal ["I_IR_Grenade",1];
