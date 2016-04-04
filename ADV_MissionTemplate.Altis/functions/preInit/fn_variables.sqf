@@ -87,6 +87,9 @@ if (isClass (configFile >> "CfgPatches" >> "cTab") && ADV_par_Tablets == 1) then
 //tawVD:
 tawvd_disablenone = true;
 
+//Laxeman's Suppress
+L_suppress_active = false;
+
 //finalization:
 ADV_variables_defined = true;
 
