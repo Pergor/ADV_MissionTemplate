@@ -20,7 +20,7 @@ if (isNil "ADV_spawnVar") then { ADV_spawnVar = 0; };
 */
 
 //scripts for first mission part
-waitUntil {sleep 1; ADV_taskVar == 1};
+//waitUntil {sleep 1; ADV_taskVar == 1};
 
 //scripts for following mission parts
 ADV_handle_dramaturgy_1 = [] spawn {
@@ -28,7 +28,7 @@ ADV_handle_dramaturgy_1 = [] spawn {
 };
 
 //mission end:
-[] spawn {
+ADV_handle_dramaturgy_end = [] spawn {
 	waitUntil {sleep 1; ADV_taskVar == 99};
 	["task_1", "succeeded"] remoteExec ["FHQ_TT_setTaskState",2];
 	sleep 20;
@@ -42,6 +42,10 @@ ADV_handle_dramaturgy_1 = [] spawn {
 [["I_Soldier_TL_F","I_Soldier_AR_F","I_Soldier_F","I_soldier_GL_F","I_medic_F"],independent,50,["LIMITED","CARELESS","STAG COLUMN"],[spawnLogic_1,spawnLogic_2],"area_1"] call ADV_fnc_spawnPatrol;
 or:
 [["I_Soldier_TL_F","I_Soldier_AR_F","I_Soldier_F","I_soldier_GL_F","I_medic_F"],independent,50,[spawnLogic_1],attackLogic_1] call ADV_fnc_spawnAttack;
+//for calling custom loadouts on last group spawned (just add one spawnLogic/Marker):
+_grp = [["B_Sniper_F","B_Spotter_F"],west,200,["LIMITED","STAG COLUMN","NOFOLLOW"],[spawnLogic_1]] call ADV_fnc_spawnPatrol;
+[(units _grp) select 0] call ADV_fnc_sniper;
+[(units _grp) select 1] call ADV_fnc_spotter;
 //for adding new tasks, create a new case in ADV_tasks.sqf, a new task within this case and call like this:
 [2] remoteExec ["ADV_fnc_tasks",2];
 */

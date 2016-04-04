@@ -3,7 +3,6 @@ this init is supposed to be mission specific.
 It's being executed right after the mission is being loaded.
 Every call, spawn or execVM that's mission specific should be placed in here.
 */
-
 //////////////////////////////////////////////////////////////////////////////////
 //calls before mission start (during the loading- and briefing-screen):
 //////////////////////////////////////////////////////////////////////////////////
