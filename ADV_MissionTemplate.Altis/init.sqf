@@ -20,6 +20,9 @@ waitUntil {!isNil "ADV_params_defined"};
 //custom init (mission specific):
 [] spawn compile preprocessFileLineNumbers "mission\init_custom.sqf";
 
+//Laxeman variables
+L_suppress_active = false;
+
 if ( isServer ) then {
 	//time and date:
 	setDate [2016, 8, ADV_par_day, ADV_par_hour, ADV_par_minute];
