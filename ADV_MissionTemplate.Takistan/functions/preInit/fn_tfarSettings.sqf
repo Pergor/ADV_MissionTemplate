@@ -9,7 +9,6 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	compile preprocessFileLineNumbers "\task_force_radio\functions\common.sqf";
 
 	//tfar serious mode
-
 	[] spawn {
 		tf_radio_channel_name = "TaskForceRadio";
 		waitUntil {!isNil "ADV_par_seriousMode"};
