@@ -24,7 +24,7 @@ _attachments = ["bipod_01_F_blk"];
 if ( ADV_par_NVGs == 1 ) then { _attachments pushback "acc_flashlight"; };
 if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H_MG";		//if silencer is added
-_additionalAmmo = [];
+_additionalAmmo = [0,0,false];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [3,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.

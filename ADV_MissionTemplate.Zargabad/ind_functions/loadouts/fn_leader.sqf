@@ -261,6 +261,23 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1
 	_backpack = _acreBackpack;
 };
 
+switch (toUpper (str (_this select 0))) do {
+	case "IND_LEADER_LOGISTIC": {
+		_ACE_isEngineer = 2;
+		_ACE_isEOD = true;
+		_tablet = true;
+		_androidDevice = false;
+	};
+	case "IND_LEADER_COMMAND": {
+		_ACE_isMedic = 2;
+		_tablet = true;
+		_androidDevice = false;
+		_40mmFlareYellow = 0;
+		_ACE_HuntIR_monitor = 1;
+		_ACE_HuntIR = 5;
+	};
+};
+
 ///// No editing necessary below this line /////
 
 _player = _this select 0;

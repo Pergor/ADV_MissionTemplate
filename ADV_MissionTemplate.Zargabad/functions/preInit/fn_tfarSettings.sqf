@@ -11,7 +11,9 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	//tfar serious mode
 
 	[] spawn {
+		tf_radio_channel_name = "TaskForceRadio";
 		waitUntil {!isNil "ADV_par_seriousMode"};
+		sleep 1;
 		if ( ADV_par_seriousMode > 0 ) then {
 			tf_radio_channel_name = "Arma3-TFAR";
 			tf_radio_channel_password = "123";
@@ -27,7 +29,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	tf_same_sw_frequencies_for_side = true;
 	tf_same_lr_frequencies_for_side = true;
 	tf_terrain_interception_coefficient = 3.0;
-	TF_speakerDistance = 20;
+	tf_speakerDistance = 20;
 
 	//radios
 	TF_defaultWestPersonalRadio = "tf_anprc148jem";
@@ -90,4 +92,21 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	};
 	tf_freq_guer = _settingsSwGuer;
 	tf_freq_guer_lr = _settingsLrGuer;
+	
+	/*
+	if (hasInterface) then {
+		[] spawn {
+			waitUntil { time > 1 && call TFAR_fnc_haveSWRadio };
+			switch (toUpper (groupID player)) do{
+				case "JUPITER": { [(call TFAR_fnc_activeSwRadio), 8] call TFAR_fnc_setSwChannel; };
+				case "MARS": { [(call TFAR_fnc_activeSwRadio), 1] call TFAR_fnc_setSwChannel; };
+				case "DEIMOS": { [(call TFAR_fnc_activeSwRadio), 2] call TFAR_fnc_setSwChannel; };
+				case "PHOBOS": { [(call TFAR_fnc_activeSwRadio), 3] call TFAR_fnc_setSwChannel; };
+				case "VULKAN": { [(call TFAR_fnc_activeSwRadio), 4] call TFAR_fnc_setSwChannel; };
+				case "MERKUR": { [(call TFAR_fnc_activeSwRadio), 5] call TFAR_fnc_setSwChannel; };
+				default { [(call TFAR_fnc_activeSwRadio), 1] call TFAR_fnc_setSwChannel; };
+			};
+		};
+	};
+	*/
 };

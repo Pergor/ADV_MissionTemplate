@@ -28,8 +28,8 @@ _silencer = "muzzle_snds_H";		//if silencer is added
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [4,1];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 _additionalAmmo = [3,0,false];
-_additionalAmmo1 = [];
-_additionalAmmo2 = [];
+_additionalAmmo1 = [0,0,false];
+_additionalAmmo2 = [0,0,false];
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 3;
@@ -434,6 +434,23 @@ if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radio
 };
 if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) ) then {
 	_backpack = _acreBackpack;
+};
+
+switch (toUpper (str (_this select 0))) do {
+	case "LEADER_LOGISTIC": {
+		_ACE_isEngineer = 2;
+		_ACE_isEOD = true;
+		_tablet = true;
+		_androidDevice = false;
+	};
+	case "LEADER_COMMAND": {
+		_ACE_isMedic = 2;
+		_tablet = true;
+		_androidDevice = false;
+		_40mmFlareYellow = 0;
+		_ACE_HuntIR_monitor = 1;
+		_ACE_HuntIR = 5;
+	};
 };
 
 ///// No editing necessary below this line /////
