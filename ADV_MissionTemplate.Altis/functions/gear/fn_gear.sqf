@@ -538,8 +538,8 @@ if ( ADV_par_Radios > 0 ) then {
 				TF_defaultWestPersonalRadio = "tf_ex8550";
 			};
 			if ( isClass(configFile >> "CfgPatches" >> "tfw_sem52sl") && (ADV_par_customUni == 1 || ADV_par_customUni == 2 || ADV_par_customWeap == 1) ) then {
-				TF_defaultWestPersonalRadio = "tfw_sem52sl";
-				TF_defaultWestRiflemanRadio = "tfw_sem52sl";
+				TF_defaultWestPersonalRadio = "tf_sem52sl";
+				TF_defaultWestRiflemanRadio = "tf_sem52sl";
 			};
 			_personalRadioType = switch ( side (group _unit) ) do {
 				case east: { TF_defaultEastPersonalRadio };
@@ -565,7 +565,7 @@ if ( ADV_par_Radios > 0 ) then {
 				};
 				//everyone gets personal radio
 				case 3: {
-					if ( _givePersonalRadio || _giveRiflemanRadio ) then { _unit linkItem _personalRadioType; };
+					_unit linkItem _personalRadioType;
 				};
 			};
 		};
