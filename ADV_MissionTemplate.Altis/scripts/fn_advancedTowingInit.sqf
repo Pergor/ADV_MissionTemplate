@@ -65,7 +65,7 @@ SA_Simulate_Towing_Speed = {
 	
 	_maxVehicleSpeed = getNumber (configFile >> "CfgVehicles" >> typeOf _vehicle >> "maxSpeed");
 	_vehicleMass = 1000 max (getMass _vehicle);
-	_maxTowedCargo = missionNamespace getVariable ["SA_MAX_TOWED_CARGO",1];
+	_maxTowedCargo = missionNamespace getVariable ["SA_MAX_TOWED_CARGO",2];
 	_runSimulation = true;
 	
 	private ["_currentVehicle","_totalCargoMass","_totalCargoCount","_findNextCargo","_towRopes","_ropeLength"];
@@ -126,6 +126,7 @@ SA_Simulate_Towing = {
 	private ["_vehicleHitchPosition","_cargoHitchPosition","_newCargoHitchPosition","_cargoVector","_movedCargoVector","_attachedObjects","_currentCargo"];
 	private ["_newCargoDir","_lastCargoVectorDir","_newCargoPosition","_doExit","_cargoPosition","_vehiclePosition","_maxVehicleSpeed","_vehicleMass","_cargoMass","_cargoCanFloat"];	
 	private ["_cargoCorner1AGL","_cargoCorner1ASL","_cargoCorner2AGL","_cargoCorner2ASL","_cargoCorner3AGL","_cargoCorner3ASL","_cargoCorner4AGL","_cargoCorner4ASL","_surfaceNormal1","_surfaceNormal2","_surfaceNormal"];
+	private ["_cargoCenterASL","_surfaceHeight","_surfaceHeight2","_maxSurfaceHeight"];
 	
 	_maxVehicleSpeed = getNumber (configFile >> "CfgVehicles" >> typeOf _vehicle >> "maxSpeed");
 	_cargoCanFloat = if( getNumber (configFile >> "CfgVehicles" >> typeOf _cargo >> "canFloat") == 1 ) then { true } else { false };
@@ -135,11 +136,11 @@ SA_Simulate_Towing = {
 	_cargoModelCenterGroundPosition = _cargo worldToModelVisual _cargoCenterOfMassAGL;
 	_cargoModelCenterGroundPosition set [0,0];
 	_cargoModelCenterGroundPosition set [1,0];
-	_cargoModelCenterGroundPosition set [2, (_cargoModelCenterGroundPosition select 2) - 0.10]; // Adjust height so that it doesn't ride directly on ground
+	_cargoModelCenterGroundPosition set [2, (_cargoModelCenterGroundPosition select 2) - 0.05]; // Adjust height so that it doesn't ride directly on ground
 	
 	// Calculate cargo model corner points
 	private ["_cargoCornerPoints"];
-	_cargoCornerPoints = [_vehicle] call SA_Get_Corner_Points;
+	_cargoCornerPoints = [_cargo] call SA_Get_Corner_Points;
 	_corner1 = _cargoCornerPoints select 0;
 	_corner2 = _cargoCornerPoints select 1;
 	_corner3 = _cargoCornerPoints select 2;
@@ -208,6 +209,31 @@ SA_Simulate_Towing = {
 			_surfaceNormal2 = (_cargoCorner4ASL vectorFromTo _cargoCorner2ASL) vectorCrossProduct (_cargoCorner4ASL vectorFromTo _cargoCorner3ASL);
 			_surfaceNormal = _surfaceNormal1 vectorAdd _surfaceNormal2;
 			
+			if(missionNamespace getVariable ["SA_TOW_DEBUG_ENABLED", false]) then {
+				if(isNil "sa_tow_debug_arrow_1") then {
+					sa_tow_debug_arrow_1 = "Sign_Arrow_F" createVehicleLocal [0,0,0];
+					sa_tow_debug_arrow_2 = "Sign_Arrow_F" createVehicleLocal [0,0,0];
+					sa_tow_debug_arrow_3 = "Sign_Arrow_F" createVehicleLocal [0,0,0];
+					sa_tow_debug_arrow_4 = "Sign_Arrow_F" createVehicleLocal [0,0,0];
+				};
+				sa_tow_debug_arrow_1 setPosASL _cargoCorner1ASL;
+				sa_tow_debug_arrow_1 setVectorUp _surfaceNormal;
+				sa_tow_debug_arrow_2 setPosASL _cargoCorner2ASL;
+				sa_tow_debug_arrow_2 setVectorUp _surfaceNormal;
+				sa_tow_debug_arrow_3 setPosASL _cargoCorner3ASL;
+				sa_tow_debug_arrow_3 setVectorUp _surfaceNormal;
+				sa_tow_debug_arrow_4 setPosASL _cargoCorner4ASL;
+				sa_tow_debug_arrow_4 setVectorUp _surfaceNormal;
+			};
+			
+			// Calculate adjusted surface height based on surface normal (prevents vehicle from clipping into ground)
+			_cargoCenterASL = AGLtoASL (_cargo modelToWorldVisual [0,0,0]);
+			_cargoCenterASL set [2,0];
+			_surfaceHeight = ((_cargoCorner1ASL vectorAdd ( _cargoCenterASL vectorMultiply -1)) vectorDotProduct _surfaceNormal1) /  ([0,0,1] vectorDotProduct _surfaceNormal1);
+			_surfaceHeight2 = ((_cargoCorner1ASL vectorAdd ( _cargoCenterASL vectorMultiply -1)) vectorDotProduct _surfaceNormal2) /  ([0,0,1] vectorDotProduct _surfaceNormal2);
+			_maxSurfaceHeight = (_newCargoPosition select 2) max _surfaceHeight max _surfaceHeight2;
+			_newCargoPosition set [2, _maxSurfaceHeight ];
+ 			
 			_newCargoPosition = _newCargoPosition vectorAdd ( _cargoModelCenterGroundPosition vectorMultiply -1 );
 			
 			_cargo setVectorDir _newCargoDir;
@@ -224,7 +250,7 @@ SA_Simulate_Towing = {
 			};
 			
 		} else {
-		
+
 			if(_lastMovedCargoPosition distance _cargoPosition > 2) then {
 				_lastCargoHitchPosition = _cargo modelToWorld _cargoHitchModelPos;
 				_lastCargoVectorDir = vectorDir _cargo;
@@ -252,19 +278,45 @@ SA_Simulate_Towing = {
 SA_Get_Corner_Points = {
 	params ["_vehicle"];
 	private ["_centerOfMass","_bbr","_p1","_p2","_rearCorner","_rearCorner2","_frontCorner","_frontCorner2"];
-	private ["_maxWidth","_widthOffset","_maxLength","_lengthOffset"];
+	private ["_maxWidth","_widthOffset","_maxLength","_lengthOffset","_widthFactor","_lengthFactor"];
+	
+	// Correct width and length factor for air
+	_widthFactor = 0.75;
+	_lengthFactor = 0.75;
+	if(_vehicle isKindOf "Air") then {
+		_widthFactor = 0.3;
+	};
+	if(_vehicle isKindOf "Helicopter") then {
+		_widthFactor = 0.2;
+		_lengthFactor = 0.45;
+	};
+	
 	_centerOfMass = getCenterOfMass _vehicle;
 	_bbr = boundingBoxReal _vehicle;
 	_p1 = _bbr select 0;
 	_p2 = _bbr select 1;
 	_maxWidth = abs ((_p2 select 0) - (_p1 select 0));
-	_widthOffset = ((_maxWidth / 2) - abs ( _centerOfMass select 0 )) * 0.75;
+	_widthOffset = ((_maxWidth / 2) - abs ( _centerOfMass select 0 )) * _widthFactor;
 	_maxLength = abs ((_p2 select 1) - (_p1 select 1));
-	_lengthOffset = ((_maxLength / 2) - abs (_centerOfMass select 1 )) * 0.75;
+	_lengthOffset = ((_maxLength / 2) - abs (_centerOfMass select 1 )) * _lengthFactor;
 	_rearCorner = [(_centerOfMass select 0) + _widthOffset, (_centerOfMass select 1) - _lengthOffset, _centerOfMass select 2];
 	_rearCorner2 = [(_centerOfMass select 0) - _widthOffset, (_centerOfMass select 1) - _lengthOffset, _centerOfMass select 2];
 	_frontCorner = [(_centerOfMass select 0) + _widthOffset, (_centerOfMass select 1) + _lengthOffset, _centerOfMass select 2];
 	_frontCorner2 = [(_centerOfMass select 0) - _widthOffset, (_centerOfMass select 1) + _lengthOffset, _centerOfMass select 2];
+	
+	if(missionNamespace getVariable ["SA_TOW_DEBUG_ENABLED", false]) then {
+		if(isNil "sa_tow_debug_arrow_1") then {
+			sa_tow_debug_arrow_1 = "Sign_Arrow_F" createVehicleLocal [0,0,0];
+			sa_tow_debug_arrow_2 = "Sign_Arrow_F" createVehicleLocal [0,0,0];
+			sa_tow_debug_arrow_3 = "Sign_Arrow_F" createVehicleLocal [0,0,0];
+			sa_tow_debug_arrow_4 = "Sign_Arrow_F" createVehicleLocal [0,0,0];
+		};
+		sa_tow_debug_arrow_1 setPosASL  AGLtoASL (_vehicle modelToWorldVisual _rearCorner);
+		sa_tow_debug_arrow_2 setPosASL  AGLtoASL (_vehicle modelToWorldVisual _rearCorner2);
+		sa_tow_debug_arrow_3 setPosASL  AGLtoASL (_vehicle modelToWorldVisual _frontCorner);
+		sa_tow_debug_arrow_4 setPosASL  AGLtoASL (_vehicle modelToWorldVisual _frontCorner2);
+	};
+			
 	[_rearCorner,_rearCorner2,_frontCorner,_frontCorner2];
 };
 
@@ -673,7 +725,9 @@ SA_Hint = {
 
 SA_Hide_Object_Global = {
 	params ["_obj"];
-	hideObjectGlobal _obj;
+	if( _obj isKindOf "Land_Can_V2_F" ) then {
+		hideObjectGlobal _obj;
+	};
 };
 
 SA_Set_Owner = {
@@ -687,19 +741,19 @@ SA_Add_Player_Tow_Actions = {
 		[] call SA_Take_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Take_Tow_Ropes_Action_Check"];
 
-	player addAction [("<t color=""#FFFF00"">" + ("Put Away Tow Ropes") + "</t>"), { 
+	player addAction [("<t color=""#FFFF00"">" + ("Put Away Tow Ropes") + "</t>"), {
 		[] call SA_Put_Away_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Put_Away_Tow_Ropes_Action_Check"];
 
-	player addAction [("<t color=""#FFFF00"">" + ("Attach Tow Ropes") + "</t>"), { 
+	player addAction [("<t color=""#FFFF00"">" + ("Attach Tow Ropes") + "</t>"), {
 		[] call SA_Attach_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Attach_Tow_Ropes_Action_Check"];
 
-	player addAction [("<t color=""#FFFF00"">" + ("Drop Tow Ropes") + "</t>"), { 
+	player addAction [("<t color=""#FFFF00"">" + ("Drop Tow Ropes") + "</t>"), {
 		[] call SA_Drop_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Drop_Tow_Ropes_Action_Check"];
 
-	player addAction [("<t color=""#FFFF00"">" + ("Pickup Tow Ropes") + "</t>"), { 
+	player addAction [("<t color=""#FFFF00"">" + ("Pickup Tow Ropes") + "</t>"), {
 		[] call SA_Pickup_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Pickup_Tow_Ropes_Action_Check"];
 
