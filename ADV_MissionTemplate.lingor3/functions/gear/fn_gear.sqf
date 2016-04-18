@@ -89,10 +89,12 @@ if !( isClass (configFile >> "CfgPatches" >> "ACE_Medical") ) then {
 };
 
 //scorch items
+/*
 if (isClass(configFile >> "CfgPatches" >> "scorch_invitems")) then {
 	if ( !isNil "_scorchItems" ) then { { _unit addItem _x; } forEach _scorchItems; };
 	if ( !isNil "_scorchItemsRandom" ) then { _unit addItem (_scorchItemsRandom call BIS_fnc_selectRandom); };
 };
+*/
 
 //'nades:
 switch ( true ) do {
