@@ -5789,6 +5789,8 @@ class Mission
 						init="(group this) setGroupId [""Zeus""]";
 						name="z1";
 						description="Zeus 1";
+						isPlayer=1;
+						isPlayable=1;
 					};
 					id=301;
 					type="B_officer_F";
@@ -6603,7 +6605,6 @@ class Mission
 						init="(group this) setGroupId [""Zeus""]";
 						name="opf_z1";
 						description="Zeus 1";
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=344;
