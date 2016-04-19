@@ -32,6 +32,9 @@ if ( isServer ) then {
 		ADV_handle_randomWeather = [] spawn MtB_fnc_randomWeather;
 	};
 
+	//custom vehicles:
+	[] spawn ADV_fnc_manageVeh;
+	
 	if (ADV_par_CustomLoad >= 1) then {
 		//ADV_handle_AILoadout = [] spawn ADV_fnc_AILoadout;
 	};
