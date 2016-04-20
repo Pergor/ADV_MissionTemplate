@@ -20,7 +20,7 @@ class ADV
 		class credits { file = "ADV_credits.sqf";preInit = 1; };
 		class tasks { file = "mission\ADV_tasks.sqf";preInit = 1; };
 		class briefing { file = "mission\ADV_briefing.sqf";preInit = 1; };		
-		class leaderBriefing { file = "mission\ADV_leaderBriefing.sqf"; postInit = 1; };
+		class leaderBriefing { file = "mission\ADV_leaderBriefing.sqf"; preInit = 1; };
 	};
 	class server
 	{
