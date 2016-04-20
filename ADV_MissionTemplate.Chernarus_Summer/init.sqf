@@ -32,8 +32,6 @@ if ( isServer ) then {
 		ADV_handle_randomWeather = [] spawn MtB_fnc_randomWeather;
 	};
 
-	//custom vehicles:
-	[] spawn ADV_fnc_manageVeh;
 	
 	if (ADV_par_CustomLoad >= 1) then {
 		//ADV_handle_AILoadout = [] spawn ADV_fnc_AILoadout;
@@ -47,6 +45,9 @@ if ( isServer ) then {
 	//ADV_handle_zbeCache = [1200,-1,false,100,1200,1200] spawn compile preprocessFileLineNumbers "scripts\zbe_cache\main.sqf";	
 	
 	sleep 1;
+	
+	//custom vehicles:
+	[] spawn ADV_fnc_manageVeh;
 	
 	/*	
 	//dead body and vehicle removery
