@@ -25,16 +25,17 @@ ADV_scriptfnc_paraJump = {
 	//has the unit had a backpack?
 	_hadBackpack = if !(backpack _unit == "") then {true} else {false};
 	if (_hadBackpack) then {
-		adv_var_parajump_backpack = backpack _unit;
-		adv_var_parajump_backpackItems = backpackItems _unit;
+		_unit setVariable ["adv_var_parajump_backpack", backpack _unit, true];
+		_unit setVariable ["adv_var_parajump_backpackItems", backpackItems _unit, true];
 		removeBackpack _unit;
+		systemChat "backpack saved.";
 	};
 	
 	//Parachute is given
 	_unit addBackpack "B_Parachute";
-	sleep 1;
+	sleep 1+(random 2);
 	//unit is moved to height 1500 on given position
-	_targetPos = [_targetPos select 0, _targetPos select 1, 1500];
+	_targetPos = [(_targetPos select 0)+(random 10), (_targetPos select 1)+(random 10), 1500];
 	_unit setPos _targetPos;
 	
 	//safety:
@@ -49,16 +50,16 @@ ADV_scriptfnc_paraJump = {
 	};
 	
 	//removal of the parachute:
-	waitUntil {sleep 0.5; isTouchingGround _unit};
+	waitUntil {sleep 0.2; isTouchingGround _unit};
 	if !(isClass(configFile >> "CfgPatches" >> "ace_parachute")) then { _unit playMove "AinvPercMstpSrasWrflDnon_Putdown_AmovPercMstpSrasWrflDnon"; };
 	sleep 1;
 	_unit action ["PutBag"];
 	sleep 1;
 	//and readding the old one:
 	if (_hadBackpack) then {
-		sleep 1;
-		_unit addBackpack adv_var_parajump_backpack;
-		{ (backpackContainer _unit) addItemCargoGlobal [_x,1] } forEach adv_var_parajump_backpackItems;
+		sleep 2;
+		_unit addBackpack (_unit getVariable ["adv_var_parajump_backpack",""]);
+		{ (backpackContainer _unit) addItemCargoGlobal [_x,1] } forEach (_unit getVariable ["adv_var_parajump_backpackItems",[""]]);
 		systemChat "backpack readded.";
 	};
 };
@@ -66,7 +67,8 @@ ADV_scriptfnc_paraJump = {
 //actual code:
 if (_unit == leader group _unit) then {
 	openmap true;
-	[_unit] onMapSingleClick "openmap false; [_this select 0,_pos] spawn ADV_scriptfnc_paraJump; onmapsingleclick '';";
+	[_unit] onMapSingleClick "openmap false; { [_x,_pos] spawn ADV_scriptfnc_paraJump } forEach (units (group (_this select 0))); onmapsingleclick '';";
+/*
 } else {
 	[_unit] spawn {
 		_unit = _this select 0;
@@ -74,6 +76,7 @@ if (_unit == leader group _unit) then {
 		sleep 4;
 		[_unit,[ (getPos _leader select 0) + (random 5) + 5, (getPos _leader select 1) + (random 5) + 5, 1500 ]] spawn ADV_scriptfnc_paraJump;
 	};
+*/
 };
 
 if (true) exitWith {};
