@@ -14,7 +14,7 @@
 			"Vor dem Aufbruch nicht vergessen:
 			<br/><br/>- Wenn ihr etwas an eurer Ausrüstung geändert habt, solltet ihr an den Kisten am Start ""Save gear"" auswählen!
 			<br/>- Teleport zum Gruppenführer über Flagge am Start.
-			<br/>- Revive-Zeit: 45 Minuten
+			<br/>- Revive-Zeit: standardmäßig 10 Minuten.
 			<br/>- Revive durch PAK überall.
 			<br/>- Reparatur nur für Pioniere und Logistiker mit Werkzeugkasten.
 			<br/>- Bei Sprengmittelentschärfung besteht ein Restrisiko.
