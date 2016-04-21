@@ -449,9 +449,9 @@ class ace_medical_maxReviveTime
 {
 	title = "ACE-Medical Max Revive Time";
 	ACE_setting = 1;
-	values[] = {180, 600, 1800, 2700, 3600};
-	default = 2700;
-	texts[] =  {"3 Minutes", "10 Minutes", "30 Minutes", "45 Minutes", "60 Minutes"};
+	values[] = {60, 180, 600, 1800, 2700, 3600};
+	default = 600;
+	texts[] =  {"1 Minute", "3 Minutes", "10 Minutes", "30 Minutes", "45 Minutes", "60 Minutes"};
 };
 class ace_medical_enableFor
 {

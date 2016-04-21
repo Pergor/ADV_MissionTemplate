@@ -214,7 +214,7 @@ class ace_medical_enableFractures {
     force = 0;
 };
 class ace_medical_enableAdvancedWounds {
-    value = 1;
+    value = 0;
     typeName = "BOOL";
     force = 0;
 };
@@ -259,7 +259,7 @@ class ace_medical_enableRevive {
     force = 0;
 };
 class ace_medical_maxReviveTime {
-    value = 2700;
+    value = 600;
     typeName = "SCALAR";
     force = 0;
 };
