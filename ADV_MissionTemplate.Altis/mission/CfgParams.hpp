@@ -200,14 +200,14 @@ class param_customUni
 {
 	title="Welche Uniform-Sets sollen an Einheiten ausgegeben werden?";
 	values[] = {14,13,12,11,10,8,7,6,5,4,3,2,1,9,0};
-	texts[] = {"TRYK - Snow","TRYK - SpecOps","UK3CB BAF","RHS - MARPAT Woodland","RHS - MARPAT Desert","RHS - UCP","RHS - OCP","TFA - ACU","TFA - Desert","TFA - Woodland","TFA - Mixed","BWmod - Flecktarn","BWmod - Tropentarn","Vanilla-Guerilla","Keine"};
+	texts[] = {"TRYK - Snow","TRYK - SpecOps","UK3CB BAF","RHS - MARPAT Woodland","RHS - MARPAT Desert","RHS - UCP","RHS - OCP","TFA - ACU","TFA - Desert","TFA - Woodland","TFA - Mixed","BWmod - Flecktarn","BWmod - Tropentarn","Vanilla-Guerilla","Vanilla NATO"};
 	default = 0;
 };
 class param_customWeap
 {
 	title="Welche Waffen-Sets sollen an Einheiten ausgegeben werden?";
 	values[] = {7,6,5,4,3,2,1,0};
-	texts[] = {"FAL, G3 und M60 - größtenteils ohne Optiken, keine Schalldämpfer (benötigt HLC_FAL, HLC_G3, HLC_MP5, HLC_M60)","BAF (benötigt UK3CB-Equipment und -Weapons)","BAF (benötigt CUP)","CUP Arma 2 (benötigt CUP)","CUP Operation Arrowhead (benötigt CUP)","SeL-Mods (benötigt RHSUSF, optional hlc_mp5, IanSky-Scopes und RH-Pistols)","BWmod (benötigt BWmod, optional hlc_g36)","Keine"};
+	texts[] = {"FAL, G3 und M60 - größtenteils ohne Optiken, keine Schalldämpfer (benötigt HLC_FAL, HLC_G3, HLC_MP5, HLC_M60)","BAF (benötigt UK3CB-Equipment und -Weapons)","BAF (benötigt CUP)","CUP Arma 2 (benötigt CUP)","CUP Operation Arrowhead (benötigt CUP)","SeL-Mods (benötigt RHSUSF, optional hlc_mp5, IanSky-Scopes und RH-Pistols)","BWmod (benötigt BWmod, optional hlc_g36)","Vanilla NATO"};
 	default = 0;
 };
 class dummy_ind_equipment {
