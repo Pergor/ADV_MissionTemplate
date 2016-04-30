@@ -685,6 +685,7 @@ SA_TOW_RULES = [
 	["Car","CAN_TOW","Ship"],
 	["Car","CAN_TOW","Air"],
 	["Car","CANT_TOW","Helicopter"],
+	["UGV_01_base_F","CAN_TOW","Helicopter"],
 	["Truck_F","CAN_TOW","Helicopter"],
 	["Truck_F","CAN_TOW","Cargo_base_F"],
 	["Ship","CAN_TOW","Ship"]
