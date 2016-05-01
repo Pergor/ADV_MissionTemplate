@@ -344,7 +344,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_common") ) then {
 					_mediBack addItemCargoGlobal ["ACE_salineIV_500", _ACE_salineIV_500];
 					_mediBack addItemCargoGlobal ["ACE_salineIV_250", _ACE_salineIV_250];
 					
-					if ( (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",1]) > 0 ) then {
+					if !(missionnamespace getVariable ["ace_medical_enableAdvancedWounds",true]) then {
 						for "_i" from 1 to _ACE_surgicalKit do { _unit addItem "ACE_surgicalKit"; };
 					};
 					for "_i" from 1 to _ACE_personalAidKit do { _unit addItem "ACE_personalAidKit"; };
@@ -371,10 +371,10 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_common") ) then {
 					for "_i" from 1 to _ACE_salineIV_500 do { _unit addItem "ACE_salineIV_500"; };
 					for "_i" from 1 to _ACE_salineIV_250 do { _unit addItem "ACE_salineIV_250"; };
 					
-					if ( (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",1]) > 0 ) then {
+					if !(missionnamespace getVariable ["ace_medical_enableAdvancedWounds",true]) then {
 						for "_i" from 1 to _ACE_surgicalKit do { _unit addItem "ACE_surgicalKit"; };
 					};
-						for "_i" from 1 to _ACE_personalAidKit do { _unit addItem "ACE_personalAidKit"; };
+					for "_i" from 1 to _ACE_personalAidKit do { _unit addItem "ACE_personalAidKit"; };
 				};
 				//_mediBack addItemCargoGlobal ["ACE_surgicalKit", _ACE_surgicalKit];
 				//_mediBack addItemCargoGlobal ["ACE_personalAidKit", _ACE_personalAidKit];

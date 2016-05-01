@@ -13,7 +13,7 @@ _backpack = ["B_Kitbag_mcamo","B_Kitbag_rgr","B_Kitbag_cbr"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "G_Combat";
-_unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0]];
+_unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0],["loadCoef",0.8]];
 
 //weapons - primary weapon - (string)
 _primaryweapon = "LMG_Zafir_F";
