@@ -13,6 +13,7 @@ _backpack = ["B_FieldPack_khk","B_FieldPack_oli","B_FieldPack_cbr"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "G_Combat";
+_unitTraits = [["medic",true]];
 
 //weapons - primary weapon - (string)
 _primaryweapon = ["arifle_MX_Black_F","arifle_MX_F"];

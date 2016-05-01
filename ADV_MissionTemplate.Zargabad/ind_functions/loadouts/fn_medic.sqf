@@ -13,6 +13,7 @@ _backpack = ["B_Kitbag_rgr"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
+_unitTraits = [["medic",true],["engineer",false],["explosiveSpecialist",false],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0]];
 
 //weapons - primary weapon - (string)
 _primaryweapon = ["arifle_MX_Black_F"];

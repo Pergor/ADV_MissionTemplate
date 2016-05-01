@@ -258,6 +258,11 @@ if ( _removeBackpackAfterWeapons ) then {
 { (backpackContainer _unit) addItemCargoGlobal [_x,1] } forEach _itemsBackpack;
 {_unit addItem _x} forEach _items;
 
+//unitTraits:
+if (!isNil "_unitTraits") then {
+	{ _unit setUnitTrait [_x select 0, _x select 1, true] } forEach _unitTraits;
+};
+
 //NVG-Removal:
 if ( ( !(side (group _unit) == east) && ADV_par_NVGs < 2 ) || (side (group _unit) == east && ADV_par_opfNVGs < 2) ) then {
 	{

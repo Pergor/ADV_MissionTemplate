@@ -13,6 +13,7 @@ if ( ADV_par_opfWeap > 0 ) then { _backpack = ["B_AssaultPack_ocamo","B_AssaultP
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
+_unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0]];
 
 //weapons - primary weapon - (string)
 _primaryweapon = "arifle_Katiba_GL_F";

@@ -13,6 +13,7 @@ _backpack = ["B_AssaultPack_dgtl","B_AssaultPack_khk","B_AssaultPack_rgr","B_Ass
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "G_Combat";
+_unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0]];
 
 //weapons - primary weapon - (string)
 _primaryweapon = "LMG_Mk200_F";
