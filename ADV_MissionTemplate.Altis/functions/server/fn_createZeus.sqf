@@ -1,7 +1,7 @@
 ﻿/*
 create zeus script by Belbo
 
-Creates a zeus module for a player with a specified UID
+Creates a zeus module for a player with a specified unit's name
 
 _this select 0 = string of player's unit - (string)
 
