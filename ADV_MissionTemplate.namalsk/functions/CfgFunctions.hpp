@@ -26,6 +26,7 @@ class ADV
 	{
 		class armedHuron {};
 		class artillery {};
+		class CASRun {};
 		class changeVeh {};
 		class createZeus {};
 		class disableVeh {};
