@@ -131,8 +131,10 @@ switch (ADV_par_modHeavyAssets) do {
 	case 4: {[ADV_veh_heavys,["M1126_ICV_M134_DG1_NOSLATWOOD","M1126_ICV_M134_DG1_SLATWOOD","M1126_ICV_M2_DG1_NOSLATWOOD","M1126_ICV_M2NEST_DG1_NOSLATWOOD","M1130_CV_DG1_NOSLATWOOD","M1130_CV_DG1_SLATWOOD","M1133_MEV_DG1_SLATWOOD"],west] spawn ADV_fnc_changeVeh;};
 	//DAR MaxxPro MRAP
 	case 5: {[ADV_veh_heavys,["DAR_MaxxProDeploy","DAR_MaxxProDeploy","DAR_MaxxPro","DAR_MaxxProDXM","DAR_MaxxProPlus"],west] spawn ADV_fnc_changeVeh;};
-	//stv retextures
-	case 6: {[ADV_veh_heavys,["Steve_IFV_Warrior","Steve_IFV_Marid"],west] spawn ADV_fnc_changeVeh;};
+	//stv warrior
+	case 6: {[ADV_veh_heavys,["Steve_IFV_Warrior"],west] spawn ADV_fnc_changeVeh;};
+	//stv marid
+	case 13: {[ADV_veh_heavys,["Steve_IFV_Marid"],west] spawn ADV_fnc_changeVeh;};
 	//RHS M2 desert
 	case 7: {[ADV_veh_heavys,["RHS_M2A2","RHS_M2A2_BUSKI","RHS_M2A3_BUSKIII"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_medic,["rhsusf_m113d_usarmy_medical"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_ammo,["rhsusf_m113d_usarmy_supply"],west] spawn ADV_fnc_changeVeh;};
 	//RHS M2 woodland

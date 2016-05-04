@@ -342,15 +342,15 @@ class param_modTruckAssets
 class param_modHeavyAssets
 {
 	title="Sollen schwere Fahrzeuge durch AddOn-Fahrzeuge ersetzt werden?";
-	values[] = {99,12,11,10,9,8,7,6,5,4,3,2,1,0};
-	texts[] = {"Keine schweren Fahrzeuge","Cha LAV25 - Woodland","Cha LAV25 - Sand","RHS MRAP - Woodland","RHS MRAP - Sand","RHS M2 - Woodland","RHS M2 - Sand","stv retextures","DAR MaxxPro","Stryker - Woodland","Stryker - Sand","BWmod Puma - Woodland","BWmod Puma - Sand","Nein"};
+	values[] = {99,12,11,10,9,8,7,13,6,5,4,3,2,1,0};
+	texts[] = {"Keine schweren Fahrzeuge","Cha LAV25 - Woodland","Cha LAV25 - Sand","RHS MRAP - Woodland","RHS MRAP - Sand","RHS M2 - Woodland","RHS M2 - Sand","stv retexture - Marid","stv retexture - Warrior/Mora","DAR MaxxPro","Stryker - Woodland","Stryker - Sand","BWmod Puma - Woodland","BWmod Puma - Sand","Nein"};
 	default = 0;
 };
 class param_modTankAssets
 {
 	title="Sollen Panzer durch AddOn-Fahrzeuge ersetzt werden?";
 	values[] = {99,9,7,8,6,5,2,1,0};
-	texts[] = {"Keine Panzer/Artillerie","RHS - Woodland (mit M119-Artillerie)","RHS - Woodland (mit M109A6-Artillerie)","RHS - Sand (mit M119-Artillerie)","RHS - Sand (mit M109A6-Artillerie)","stv retextures","BWmod Leopard - Woodland","BWmod Leopard - Sand","Nein"};
+	texts[] = {"Keine Panzer/Artillerie","RHS - Woodland (mit M119-Artillerie)","RHS - Woodland (mit M109A6-Artillerie)","RHS - Sand (mit M119-Artillerie)","RHS - Sand (mit M109A6-Artillerie)","stv retexture - Leopard/Kuma","BWmod Leopard - Woodland","BWmod Leopard - Sand","Nein"};
 	default = 0;
 };
 class param_modHeliAssets
