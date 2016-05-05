@@ -52,6 +52,8 @@ if (_name == "") then {
 _markerName = format ["%1%2","respPos_",_name];
 _respawnPos = createMarkerLocal [_markerName, getPos _veh];
 _respawnPos setMarkerDirLocal (getDir _veh);
+_markerPos = getMarkerPos _respawnPos;
+_respawnPos setMarkerPos [_markerPos select 0, _markerPos select 1, (getPos _veh) select 2];
 
 while {true} do {
 	waitUntil {sleep 1; !alive _veh};
