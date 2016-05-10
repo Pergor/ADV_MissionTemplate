@@ -18,7 +18,7 @@ If you don't use these names, I don't furnish a guarantee that your mission will
 
 Don't EVER place playable units that aren't included in the base game (ie. vanilla units).
 
-Most settings for this template can be altered in the MP lobby.
+Most settings for this template can be altered in the MP lobby or in mission\CfgParams.hpp (standards for MP lobby params), mission\CfgACEParams.hpp (standards for MP lobby params for ACE³) or in mission\CfgACE.hpp (ACE-Settings).
 
 /////////////////////
 The following functions might proove helpful while creating a mission:
