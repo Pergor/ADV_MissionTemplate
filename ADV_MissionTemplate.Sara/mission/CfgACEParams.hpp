@@ -4,7 +4,7 @@ class dummy_settings_ace {
 	default = -99999;
 	texts[] = {""};
 };
-class ace_medical_level 
+class ace_medical_level
 {
 	title = "ACE-Medical Level";
 	ACE_setting = 1;
@@ -12,7 +12,15 @@ class ace_medical_level
 	default = 2;
 	texts[] =  {"Basic", "Advanced"};
 };
-class ace_medical_preventInstaDeath 
+class ace_medical_enableAdvancedWounds
+{
+	title = "ACE-Medical Enable Advanced Wounds";
+	ACE_setting = 1;
+	values[] = {0, 1};
+	default = 0;
+	texts[] =  {"Disabled", "Enabled"};
+};
+class ace_medical_preventInstaDeath
 {
 	title = "ACE-Medical Prevent Instant Death";
 	ACE_setting = 1;
