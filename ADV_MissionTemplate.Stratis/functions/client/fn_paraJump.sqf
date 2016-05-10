@@ -23,10 +23,9 @@ ADV_scriptfnc_paraJump = {
 	];
 	
 	//has the unit had a backpack?
-	_hadBackpack = if !(backpack _unit == "") then {true} else {false};
-	if (_hadBackpack) then {
-		_unit setVariable ["adv_var_parajump_backpack", backpack _unit, true];
-		_unit setVariable ["adv_var_parajump_backpackItems", backpackItems _unit, true];
+	_unit setVariable ["adv_var_parajump_backpack", backpack _unit, true];
+	_unit setVariable ["adv_var_parajump_backpackItems", backpackItems _unit, true];
+	if !((_unit getVariable "adv_var_parajump_backpack") == "") then {
 		removeBackpack _unit;
 		systemChat "backpack saved.";
 	};
@@ -56,10 +55,10 @@ ADV_scriptfnc_paraJump = {
 	_unit action ["PutBag"];
 	sleep 1;
 	//and readding the old one:
-	if (_hadBackpack) then {
+	if !((_unit getVariable "adv_var_parajump_backpack") == "") then {
 		sleep 2;
-		_unit addBackpack (_unit getVariable ["adv_var_parajump_backpack",""]);
-		{ (backpackContainer _unit) addItemCargoGlobal [_x,1] } forEach (_unit getVariable ["adv_var_parajump_backpackItems",[""]]);
+		_unit addBackpack (_unit getVariable "adv_var_parajump_backpack");
+		{ (backpackContainer _unit) addItemCargoGlobal [_x,1] } forEach (_unit getVariable "adv_var_parajump_backpackItems");
 		systemChat "backpack readded.";
 	};
 };
