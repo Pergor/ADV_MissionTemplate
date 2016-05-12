@@ -27,7 +27,7 @@ ADV_scriptfnc_paraJump = {
 	_unit setVariable ["adv_var_parajump_backpackItems", backpackItems _unit, true];
 	if !((_unit getVariable "adv_var_parajump_backpack") == "") then {
 		removeBackpack _unit;
-		systemChat "backpack saved.";
+		systemChat "Backpack saved. Wait after landing for it to be readded!";
 	};
 	
 	//Parachute is given
@@ -59,14 +59,14 @@ ADV_scriptfnc_paraJump = {
 		sleep 2;
 		_unit addBackpack (_unit getVariable "adv_var_parajump_backpack");
 		{ (backpackContainer _unit) addItemCargoGlobal [_x,1] } forEach (_unit getVariable "adv_var_parajump_backpackItems");
-		systemChat "backpack readded.";
+		systemChat "Backpack readded.";
 	};
 };
 
 //actual code:
 if (_unit == leader group _unit) then {
 	openmap true;
-	[_unit] onMapSingleClick "openmap false; { [_x,_pos] spawn ADV_scriptfnc_paraJump } forEach (units (group (_this select 0))); onmapsingleclick '';";
+	[_unit] onMapSingleClick "openmap false; { [_x,_pos] remoteExec ['ADV_scriptfnc_paraJump',0] } forEach (units (group (_this select 0))); onmapsingleclick '';";
 /*
 } else {
 	[_unit] spawn {
