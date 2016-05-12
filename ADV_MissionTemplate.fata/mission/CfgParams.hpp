@@ -328,7 +328,7 @@ class dummy_blu_vehicles {
 class param_modCarAssets
 {
 	title="Sollen leichte Fahrzeuge durch AddOn-Fahrzeuge ersetzt werden?";
-	values[] = {99,9,8,7,9,6,5,4,3,2,1,0};
+	values[] = {99,10,8,7,9,6,5,4,3,2,1,0};
 	texts[] = {"Keine leichten Fahrzeuge","ADV-Retex Fenneks","RHS Marines - Woodland","RHS Marines - Sand","RHS Army - Plain Green","RHS Army - Woodland","RHS Army - Sand","UK3CB BAF vehicles - Woodland","UK3CB BAF vehicles - Sand","BW-Fahrzeuge - Woodland","BW-Fahrzeuge - Sand","Nein"};
 	default = 0;
 };

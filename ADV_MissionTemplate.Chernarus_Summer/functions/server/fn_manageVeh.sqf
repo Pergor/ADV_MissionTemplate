@@ -98,7 +98,7 @@ switch (ADV_par_modCarAssets) do {
 	//RHS Marines woodland
 	case 8: {[ADV_veh_MRAPs,["rhsusf_m1025_w_s","rhsusf_m1025_w_s","rhsusf_m998_w_s_4dr"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["rhsusf_m1025_w_s_m2"],west] spawn ADV_fnc_changeVeh;};
 	//adv_retex Fenneks
-	case 9: {[ADV_veh_MRAPs,["adv_retex_b_strider_f"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["adv_retex_b_strider_hmg_f"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["adv_retex_b_strider_gmg_f"],west] spawn ADV_fnc_changeVeh;};
+	case 10: {[ADV_veh_MRAPs,["adv_retex_b_strider_f"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["adv_retex_b_strider_hmg_f"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsGMG,["adv_retex_b_strider_gmg_f"],west] spawn ADV_fnc_changeVeh;};
 	//no vehicles
 	case 99: {[ADV_veh_MRAPs+ADV_veh_MRAPsHMG+ADV_veh_MRAPsGMG+ADV_veh_ATVs,[""],west] spawn ADV_fnc_changeVeh;};
 	default {};
