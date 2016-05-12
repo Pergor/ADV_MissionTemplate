@@ -97,6 +97,8 @@ switch (ADV_par_modCarAssets) do {
 	case 7: {[ADV_veh_MRAPs,["rhsusf_m1025_d_s","rhsusf_m1025_d_s","rhsusf_m998_d_s_4dr"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["rhsusf_m1025_d_s_m2"],west] spawn ADV_fnc_changeVeh;};
 	//RHS Marines woodland
 	case 8: {[ADV_veh_MRAPs,["rhsusf_m1025_w_s","rhsusf_m1025_w_s","rhsusf_m998_w_s_4dr"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["rhsusf_m1025_w_s_m2"],west] spawn ADV_fnc_changeVeh;};
+	//adv_retex Fenneks
+	case 9: {[ADV_veh_MRAPs,["adv_retex_b_strider_f"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["adv_retex_b_strider_hmg_f"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["adv_retex_b_strider_gmg_f"],west] spawn ADV_fnc_changeVeh;};
 	//no vehicles
 	case 99: {[ADV_veh_MRAPs+ADV_veh_MRAPsHMG+ADV_veh_MRAPsGMG+ADV_veh_ATVs,[""],west] spawn ADV_fnc_changeVeh;};
 	default {};
@@ -132,9 +134,21 @@ switch (ADV_par_modHeavyAssets) do {
 	//DAR MaxxPro MRAP
 	case 5: {[ADV_veh_heavys,["DAR_MaxxProDeploy","DAR_MaxxProDeploy","DAR_MaxxPro","DAR_MaxxProDXM","DAR_MaxxProPlus"],west] spawn ADV_fnc_changeVeh;};
 	//stv warrior
-	case 6: {[ADV_veh_heavys,["Steve_IFV_Warrior"],west] spawn ADV_fnc_changeVeh;};
+	case 6: {
+		if (isClass(configFile >> "CfgPatches" >> "adv_retex")) then {
+			[ADV_veh_heavys,["adv_retex_b_mora_f"],west] spawn ADV_fnc_changeVeh;
+		} else {	
+			[ADV_veh_heavys,["Steve_IFV_Warrior"],west] spawn ADV_fnc_changeVeh;
+		};
+	};
 	//stv marid
-	case 13: {[ADV_veh_heavys,["Steve_IFV_Marid"],west] spawn ADV_fnc_changeVeh;};
+	case 13: {
+		if (isClass(configFile >> "CfgPatches" >> "adv_retex")) then {
+			[ADV_veh_heavys,["adv_retex_b_marid_f"],west] spawn ADV_fnc_changeVeh;
+		} else {
+			[ADV_veh_heavys,["Steve_IFV_Marid"],west] spawn ADV_fnc_changeVeh;
+		};
+	};
 	//RHS M2 desert
 	case 7: {[ADV_veh_heavys,["RHS_M2A2","RHS_M2A2_BUSKI","RHS_M2A3_BUSKIII"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_medic,["rhsusf_m113d_usarmy_medical"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_ammo,["rhsusf_m113d_usarmy_supply"],west] spawn ADV_fnc_changeVeh;};
 	//RHS M2 woodland
