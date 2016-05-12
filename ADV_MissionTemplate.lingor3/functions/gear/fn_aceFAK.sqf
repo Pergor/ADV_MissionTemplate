@@ -64,11 +64,23 @@ switch _FAKtype do {
 			_ACE_salineIV = 0;
 			_ACE_salineIV_500 = 8;
 			_ACE_salineIV_250 = 8;
-			_ACE_surgicalKit = 1;
 			_ACE_personalAidKit = 1;
+			if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) > 0 ) then {
+				_ACE_personalAidKit = 4;
+			};
+			_ACE_surgicalKit = 1;
+			if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) > 0 ) then {
+				_ACE_surgicalKit = 4;
+			};
 			
 			if !(_backpack == "") then {
 				_mediBack = unitBackpack _unit;
+				
+				if ( missionnamespace getVariable ["ace_medical_enableAdvancedWounds",true] ) then {
+					for "_i" from 1 to _ACE_surgicalKit do { _unit addItem "ACE_surgicalKit"; };
+				};
+				for "_i" from 1 to _ACE_personalAidKit do { _unit addItem "ACE_personalAidKit"; };
+				
 				_mediBack addItemCargoGlobal ["ACE_fieldDressing", _ACE_fieldDressing];
 				_mediBack addItemCargoGlobal ["ACE_elasticBandage", _ACE_elasticBandage];
 				_mediBack addItemCargoGlobal ["ACE_packingBandage", _ACE_packingBandage];
@@ -84,8 +96,6 @@ switch _FAKtype do {
 				_mediBack addItemCargoGlobal ["ACE_salineIV_500", _ACE_salineIV_500];
 				_mediBack addItemCargoGlobal ["ACE_salineIV_250", _ACE_salineIV_250];
 				
-				for "_i" from 1 to _ACE_surgicalKit do { _unit addItem "ACE_surgicalKit"; };
-				for "_i" from 1 to _ACE_personalAidKit do { _unit addItem "ACE_personalAidKit"; };
 			} else {
 				for "_i" from 1 to _ACE_fieldDressing do { _unit addItem "ACE_fieldDressing"; };
 				for "_i" from 1 to _ACE_elasticBandage do { _unit addItem "ACE_elasticBandage"; };
@@ -103,8 +113,10 @@ switch _FAKtype do {
 				for "_i" from 1 to _ACE_salineIV_500 do { _unit addItem "ACE_salineIV_500"; };
 				for "_i" from 1 to _ACE_salineIV_250 do { _unit addItem "ACE_salineIV_250"; };
 				
-				for "_i" from 1 to _ACE_surgicalKit do { _unit addItem "ACE_surgicalKit"; };
-				for "_i" from 1 to _ACE_personalAidKit do { _unit addItem "ACE_personalAidKit"; };				
+				if ( missionnamespace getVariable ["ace_medical_enableAdvancedWounds",true] ) then {
+					for "_i" from 1 to _ACE_surgicalKit do { _unit addItem "ACE_surgicalKit"; };
+				};
+				for "_i" from 1 to _ACE_personalAidKit do { _unit addItem "ACE_personalAidKit"; };	
 			};
 		} else {
 			_ACE_fieldDressing = 64;
