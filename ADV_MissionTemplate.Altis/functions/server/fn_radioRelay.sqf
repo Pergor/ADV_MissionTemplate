@@ -11,12 +11,12 @@ Possible call - has to be executed on client and server:
 in init.sqf:
 [VEHICLE, west, 90] spawn ADV_fnc_radioRelay;
 or
-[VEHICLE, west, 90] spawn compile preprocessFileLineNumbers "fn_radioRelay";
+[VEHICLE, west, 90] spawn compile preprocessFileLineNumbers "fn_radioRelay.sqf";
 
 or from a local client:
 [VEHICLE, west, 90] remoteExec ["ADV_fnc_radioRelay",0];
 or
-{[VEHICLE, west, 90] spawn compile preprocessFileLineNumbers "fn_radioRelay";} remoteExec ["bis_fnc_spawn",0];
+{[VEHICLE, west, 90] spawn compile preprocessFileLineNumbers "fn_radioRelay.sqf";} remoteExec ["bis_fnc_spawn",0];
 */
 
 params [
