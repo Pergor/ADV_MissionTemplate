@@ -168,17 +168,9 @@ switch (ADV_par_modHeavyAssets) do {
 		};	
 	};
 	//RHS MRAP desert
-	case 10: {[ADV_veh_heavys,["rhsusf_rg33_d","rhsusf_rg33_m2_d","rhsusf_rg33_m2_d"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_medic,["rhsusf_m113_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
-		if !(ADV_par_modTruckAssets == 3) then {
-			[ADV_veh_logistic_ammo,["rhsusf_m113d_usarmy_supply"],west] spawn ADV_fnc_changeVeh;
-		};
-	};
+	case 10: {[ADV_veh_heavys,["rhsusf_rg33_d","rhsusf_rg33_m2_d","rhsusf_rg33_m2_d"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_medic,["rhsusf_m113_usarmy_medical"],west] spawn ADV_fnc_changeVeh;};
 	//RHS MRAP woodland
-	case 11: {[ADV_veh_heavys,["rhsusf_rg33_wd","rhsusf_rg33_m2_wd","rhsusf_rg33_m2_wd"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_medic,["rhsusf_m113d_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
-		if !(ADV_par_modTruckAssets == 2) then {
-			[ADV_veh_logistic_ammo,["rhsusf_m113_usarmy_supply"],west] spawn ADV_fnc_changeVeh;
-		};
-	};
+	case 11: {[ADV_veh_heavys,["rhsusf_rg33_wd","rhsusf_rg33_m2_wd","rhsusf_rg33_m2_wd"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_medic,["rhsusf_m113d_usarmy_medical"],west] spawn ADV_fnc_changeVeh;};
 	//CHA LAVs desert
 	case 12: {[ADV_veh_heavys,["Cha_Des1_LAV25","Cha_Des1_LAV25A2","Cha_Des1_LAV25A2"],west] spawn ADV_fnc_changeVeh;};
 	//CHA LAVs woodland

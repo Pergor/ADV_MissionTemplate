@@ -6,8 +6,8 @@ params [
 
 switch true do {
 	case (_veh isKindOf "rhsusf_hmmwe_base"): {
-		if (ADV_par_modCarAssets == 9) then {
-			[_veh,["OLIVE",1],Nil] call BIS_fnc_initVehicle;
+		if (ADV_par_modCarAssets == 7) then {
+			[_veh,["OLIVE",1],nil] call BIS_fnc_initVehicle;
 		};
 	};
 	default {};
