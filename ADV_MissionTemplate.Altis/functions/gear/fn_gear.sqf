@@ -104,7 +104,7 @@ switch ( true ) do {
 		_unit addMagazines ["BWA3_DM32_Orange", _grenadeSmokeOrange+_grenadeSmokePurple+_grenadeSmokeRed];
 		_unit addMagazines ["BWA3_DM32_Yellow", _grenadeSmokeYellow+_grenadeSmokeGreen+_grenadeSmokeBlue];
 	};
-	case ( (ADV_par_customWeap == 2 && ( side ( group _unit ) == west )) || (ADV_par_indWeap == 2 && ( side ( group _unit ) == independent )) ): {
+	case ( ((ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4) && ( side ( group _unit ) == west )) || (ADV_par_indWeap == 2 && ( side ( group _unit ) == independent )) ): {
 		_unit addMagazines ["rhs_mag_m67", _grenadeHE];
 		_unit addMagazines ["rhs_mag_an_m8hc", _grenadeSmokeWhite];
 		_unit addMagazines ["rhs_mag_m18_yellow", _grenadeSmokeYellow];
@@ -222,6 +222,7 @@ if ( (side (group _unit) == west && ADV_par_Silencers == 1) || (side (group _uni
 if ( _launcher in _disposableLaunchers ) then {
 	_launcherAmmo set [0,1];
 };
+if ( (typeName (_launcher)) == "ARRAY" ) then { _launcher = _launcher call BIS_fnc_selectRandom; };
 [_unit,_launcher,_launcherAmmo select 0,_launcherAmmo select 1] call BIS_fnc_addWeapon;
 if ( (typeName (_primaryWeapon)) == "ARRAY" ) then { _primaryWeapon = _primaryWeapon call BIS_fnc_selectRandom; };
 if (_primaryweaponAmmo select 0 > 0) then {

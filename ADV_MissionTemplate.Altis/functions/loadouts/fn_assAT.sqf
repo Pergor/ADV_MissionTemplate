@@ -212,28 +212,45 @@ switch (ADV_par_customWeap) do {
 		_additionalAmmo = nil;
 	};
 	case 2: {
-		//SELmods
-		_primaryweapon = ["rhs_weap_m4_grip2","rhs_weap_m4_carryhandle","rhs_weap_m4_carryhandle"];
-		_additionalAmmo = [2,"rhs_fgm148_magazine_AT"];
-		if (ADV_par_customUni == 10 || ADV_par_customUni == 11) then {
-			_primaryweapon = ["rhs_weap_m4_carryhandle","rhs_weap_m16a4_carryhandle","rhs_weap_m16a4_carryhandle","rhs_weap_m16a4_carryhandle","rhs_weap_m16a4_grip"];
-			_additionalAmmo = [2,"rhs_mag_smaw_HEAA"];
-		};
-		_optic = ["rhsusf_acc_compm4","rhsusf_acc_eotech_552","rhsusf_acc_ACOG"];
-		//if (isClass(configFile >> "CfgPatches" >> "iansky_opt")) then {_optic append [""];};
-		if ( ADV_par_NVGs > 0 ) then { _attachments = ["rhsusf_acc_anpeq15side"]; };
-		_silencer = "rhsusf_acc_rotex5_grey";		//if silencer is added
+		//RHS ARMY
+		_primaryweapon = ["rhs_weap_m4_carryhandle","rhs_weap_m4_grip2","rhs_weap_m4a1_carryhandle"];
+		_optic = ["rhsusf_acc_compm4","rhsusf_acc_eotech_552","rhsusf_acc_eotech_552","rhsusf_acc_ACOG","rhsusf_acc_SpecterDR_3D"];
+		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
+		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		_silencer = "rhsusf_acc_rotex5_grey";
 		_primaryweaponAmmo set [1,9];
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
-		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
-			_handgun = "RH_m9";
-			_itemsHandgun = ["RH_x300"];
-			_handgunSilencer = "RH_m9qd";
-		};
+		_additionalAmmo = [2,"rhs_fgm148_magazine_AT"];
 	};
 	case 3: {
+		//RHS Marines
+		_primaryweapon = ["rhs_weap_m16a4_carryhandle"];
+		_optic = ["rhsusf_acc_compm4","rhsusf_acc_eotech_552","rhsusf_acc_eotech_552","rhsusf_acc_ACOG","rhsusf_acc_ACOG3"];
+		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
+		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		_silencer = "rhsusf_acc_rotex5_grey";
+		_primaryweaponAmmo set [1,9];
+		_handgun = "rhsusf_weap_m1911a1";
+		_itemsHandgun = [""];
+		_handgunSilencer = "";
+		_additionalAmmo = [2,"rhs_mag_smaw_HEAA"];
+	};
+	case 4: {
+		//RHS SOF
+		_primaryweapon = ["rhs_weap_hk416d145","rhs_weap_hk416d145","rhs_weap_hk416d10","rhs_weap_hk416d10_LMT","rhs_weap_m4a1_blockII_KAC","rhs_weap_m4_carryhandle"];
+		_optic = ["rhsusf_acc_SpecterDR_CX_3D","rhsusf_acc_SpecterDR_3d"];
+		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
+		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		_silencer = "rhsusf_acc_rotex5_grey";
+		_primaryweaponAmmo set [1,9];
+		_handgun = "rhsusf_weap_m9";
+		_itemsHandgun = [""];
+		_handgunSilencer = "";
+		_additionalAmmo = [2,"rhs_fgm148_magazine_AT"];
+	};
+	case 5: {
 		//SELmods CUP Mk16
 		_primaryweapon = ["CUP_arifle_Mk16_STD","CUP_arifle_Mk16_STD","CUP_arifle_Mk16_STD_FG","CUP_arifle_Mk16_STD_SFG"];
 		_optic = ["CUP_optic_CompM2_Desert"];
@@ -245,7 +262,7 @@ switch (ADV_par_customWeap) do {
 		_handgunSilencer = "CUP_muzzle_snds_M9";		//if silencer is added
 		_additionalAmmo = [2,"CUP_Javelin_M"];
 	};
-	case 4: {
+	case 6: {
 		//SELmods CUP M4
 		_primaryweapon = ["CUP_arifle_M16A4_Base","CUP_arifle_M16A4_Base","CUP_arifle_M16A4_Base","CUP_arifle_M4A1","CUP_arifle_M4A1_camo","CUP_arifle_M4A3_desert"];
 		_optic = ["CUP_optic_CompM4"];
@@ -257,7 +274,7 @@ switch (ADV_par_customWeap) do {
 		_handgunSilencer = "CUP_muzzle_snds_M9";		//if silencer is added
 		_additionalAmmo = [2,"CUP_Javelin_M"];
 	};
-	case 5: {
+	case 7: {
 		//BAF
 		_primaryweapon="CUP_arifle_L85A2";
 		_optic = ["CUP_optic_SUSAT","CUP_optic_ACOG"];
@@ -269,7 +286,7 @@ switch (ADV_par_customWeap) do {
 		_handgunSilencer = "muzzle_snds_L";		//if silencer is added
 		_additionalAmmo = [2,"CUP_Javelin_M"];
 	};
-	case 6: {
+	case 8: {
 		//UK3CB
 		_primaryweapon = ["UK3CB_BAF_L85A2","UK3CB_BAF_L85A2_RIS_AFG","UK3CB_BAF_L85A2_EMAG","UK3CB_BAF_L85A2_RIS"];
 		_optic = ["UK3CB_BAF_SUSAT_3D"];
@@ -283,7 +300,7 @@ switch (ADV_par_customWeap) do {
 		_launcherAmmo = [1,0];
 		_additionalAmmo = nil;
 	};
-	case 7: {
+	case 9: {
 		_primaryWeapon = ["hlc_rifle_g3a3ris","hlc_rifle_g3a3ris","hlc_rifle_g3a3ris","hlc_rifle_FAL5061","hlc_rifle_STG58F","hlc_rifle_L1A1SLR"];
 		_optic = [""];
 		_attachments = [""];

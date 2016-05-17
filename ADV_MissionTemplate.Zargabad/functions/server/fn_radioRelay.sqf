@@ -26,6 +26,9 @@ params [
 ];
 
 if !(isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {};
+if (hasInterface) then {
+	waitUntil {player == player};
+};
 
 if (side player == _side || typeOf _relay == "Land_DataTerminal_01_F") then {
 

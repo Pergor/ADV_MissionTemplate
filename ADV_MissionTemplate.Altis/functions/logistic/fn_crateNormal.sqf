@@ -26,21 +26,21 @@ private ["_target"];
 			//_target addMagazineCargoGlobal ["BWA3_10Rnd_762x51_G28_LR",10];
 			_target addMagazineCargoGlobal ["BWA3_15Rnd_9x19_P8",5];
 		};
-		//SeL RHS
-		case (ADV_par_customWeap == 2): {
+		//RHS
+		case (ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4): {
 			//ammo
 			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",20];
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
 			_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",5];
 			//_target addMagazineCargoGlobal ["rhsusf_20Rnd_762x51_m118_special_Mag",5];
-			if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
-				_target addMagazineCargoGlobal ["RH_12Rnd_45cal_usp",5];
+			if (ADV_par_customWeap == 3) then {
+				_target addMagazineCargoGlobal ["rhsusf_mag_7x45acp_MHP",5];
 			} else {
 				_target addMagazineCargoGlobal ["rhsusf_mag_15Rnd_9x19_JHP",5];
 			};
 		};
 		//SeL CUP MK16
-		case (ADV_par_customWeap == 3 || ADV_par_customWeap == 4 || ADV_par_customWeap == 5): {
+		case (ADV_par_customWeap == 5 || ADV_par_customWeap == 6 || ADV_par_customWeap == 7): {
 			//ammo
 			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",20];
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
@@ -59,7 +59,7 @@ private ["_target"];
 			};
 			*/
 		};
-		case (ADV_par_customWeap == 6): {
+		case (ADV_par_customWeap == 68): {
 			//ammo
 			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",20];
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
@@ -67,7 +67,7 @@ private ["_target"];
 			//_target addMagazineCargoGlobal ["UK3CB_BAF_20Rnd",20];
 			_target addMagazineCargoGlobal ["UK3CB_BAF_17Rnd_9mm",5];
 		};
-		case (ADV_par_customWeap == 7): {
+		case (ADV_par_customWeap == 9): {
 			//ammo
 			_target addMagazineCargoGlobal ["hlc_20rnd_762x51_b_G3",15];
 			_target addMagazineCargoGlobal ["hlc_20rnd_762x51_T_G3",5];	
@@ -95,6 +95,14 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["BWA3_DM25",4];
 		};
 		case 2: {
+			_target addMagazineCargoGlobal ["rhs_mag_m67",4];
+			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",4];
+		};
+		case 3: {
+			_target addMagazineCargoGlobal ["rhs_mag_m67",4];
+			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",4];
+		};
+		case 4: {
 			_target addMagazineCargoGlobal ["rhs_mag_m67",4];
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",4];
 		};

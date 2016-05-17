@@ -200,7 +200,7 @@ switch (true) do {
 		_handgunSilencer = "BWA3_muzzle_snds_MP7";
 		_handgunAmmo = [5,0];
 	};
-	case (ADV_par_customWeap == 2): {
+	case (ADV_par_customWeap == 2 || ADV_par_customWeap == 3): {
 		//SELmods
 		_primaryweapon = ["rhs_weap_m4_carryhandle"];
 		_optic = [""];
@@ -214,15 +214,28 @@ switch (true) do {
 			_primaryweaponAmmo set [1,9];
 		};
 		_handgun = "rhsusf_weap_m9";
+		if (ADV_par_customWeap == 3) then { _handgun = "rhsusf_weap_m1911a1"; };
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
-		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
-			_handgun = "RH_m9";
-			_itemsHandgun = ["RH_x300"];
-			_handgunSilencer = "RH_m9qd";
-		};
 	};
-	case (ADV_par_customWeap == 3 || ADV_par_customWeap == 4): {
+	case (ADV_par_customWeap == 4): {
+		//SELmods
+		_primaryweapon = ["rhs_weap_hk416d10_LMT","rhs_weap_m4a1_blockII_KAC","rhs_weap_m4_carryhandle"];
+		_optic = [""];
+		_attachments = [""];
+		_silencer = "";
+		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
+			_primaryweapon = ["hlc_smg_MP5N","hlc_smg_mp5k_PDW","hlc_smg_mp5a3"];
+			_silencer = "hlc_muzzle_Tundra";
+			if (ADV_par_Silencers == 1) then { _primaryweapon = "hlc_smg_mp5sd6"; _silencer = ""; _primaryweaponAmmo set [1,2];};
+		} else {
+			_primaryweaponAmmo set [1,9];
+		};
+		_handgun = "rhsusf_weap_m9";
+		_itemsHandgun = [""];
+		_handgunSilencer = "";
+	};
+	case (ADV_par_customWeap == 5 || ADV_par_customWeap == 6): {
 		//CUP
 		_primaryweapon = "CUP_smg_MP5A5";
 		if (ADV_par_Silencers == 1) then { _primaryweapon = "CUP_smg_MP5SD6" };
@@ -233,7 +246,7 @@ switch (true) do {
 		_itemsHandgun=[];
 		_handgunSilencer = "CUP_muzzle_snds_M9";
 	};
-	case (ADV_par_customWeap == 5): {
+	case (ADV_par_customWeap == 7): {
 		//CUP BAF
 		_primaryweapon = "CUP_smg_MP5A5";
 		if (ADV_par_Silencers == 1) then { _primaryweapon = "CUP_smg_MP5SD6" };
@@ -244,7 +257,7 @@ switch (true) do {
 		_itemsHandgun=["CUP_acc_Glock17_Flashlight"];
 		_handgunSilencer = "muzzle_snds_L";
 	};
-	case (ADV_par_customWeap == 6): {
+	case (ADV_par_customWeap == 8): {
 		//UK3CB
 		_primaryweapon = "UK3CB_BAF_L91A1";
 		if (ADV_par_Silencers == 1) then { _primaryweapon = "UK3CB_BAF_L92A1" };
@@ -255,7 +268,7 @@ switch (true) do {
 		_itemsHandgun=["UK3CB_BAF_Flashlight_L131A1"];
 		_handgunSilencer = "muzzle_snds_L";
 	};
-	case (ADV_par_customWeap == 7): {
+	case (ADV_par_customWeap == 9): {
 		//HLC
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
 			_primaryweapon = ["hlc_smg_mp5a2","hlc_smg_mp510","hlc_smg_mp5a4"];

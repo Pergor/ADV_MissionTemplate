@@ -199,7 +199,7 @@ switch (true) do {
 		if ( ADV_par_optics == 1 ) then { _itemsHandgun = ["BWA3_optic_RSAS"]; } else { _itemsHandgun = [""]; };
 		_handgunAmmo = [5,0];
 	};
-	case (ADV_par_customWeap == 2): {
+	case (ADV_par_customWeap == 2 || ADV_par_customWeap == 3): {
 		//SELmods
 		_primaryweapon = ["rhs_weap_m4_carryhandle"];
 		_optic = [""];
@@ -209,28 +209,38 @@ switch (true) do {
 			_primaryweaponAmmo set [1,9];
 		};
 		_handgun = "rhsusf_weap_m9";
+		if (ADV_par_customWeap == 3) then { _handgun = "rhsusf_weap_m1911a1"; };
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
-		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
-			_handgun = "RH_m9";
-			_itemsHandgun = ["RH_x300"];
-		};
 	};
-	case (ADV_par_customWeap == 3 || ADV_par_customWeap == 4): {
+	case (ADV_par_customWeap == 4): {
+		//SELmods
+		_primaryweapon = ["rhs_weap_hk416d10_LMT","rhs_weap_m4a1_blockII_KAC","rhs_weap_m4_carryhandle"];
+		_optic = [""];
+		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
+			_primaryweapon = ["hlc_smg_MP5N","hlc_smg_mp5k_PDW","hlc_smg_mp5a3","hlc_smg_mp5a4"];
+		} else {
+			_primaryweaponAmmo set [1,9];
+		};
+		_handgun = "rhsusf_weap_m9";
+		_itemsHandgun = [""];
+		_handgunSilencer = "";
+	};
+	case (ADV_par_customWeap == 5 || ADV_par_customWeap == 6): {
 		//CUP
 		_primaryweapon = "CUP_smg_MP5A5";
 		_optic = [""];
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=[];
 	};
-	case (ADV_par_customWeap == 5): {
+	case (ADV_par_customWeap == 7): {
 		//CUP BAF
 		_primaryweapon = "CUP_smg_MP5A5";
 		_optic = [""];
 		_handgun="CUP_hgun_Glock17";
 		_itemsHandgun=["CUP_acc_Glock17_Flashlight"];
 	};
-	case (ADV_par_customWeap == 6): {
+	case (ADV_par_customWeap == 8): {
 		//UK3CB
 		_primaryweapon = ["UK3CB_BAF_L85A2"];
 		_optic = [""];
@@ -238,7 +248,7 @@ switch (true) do {
 		_handgun = "UK3CB_BAF_L131A1";
 		_itemsHandgun=["UK3CB_BAF_Flashlight_L131A1"];
 	};
-	case (ADV_par_customWeap == 7): {
+	case (ADV_par_customWeap == 9): {
 		//HLC
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
 			_primaryweapon = ["hlc_smg_mp5a2","hlc_smg_mp510","hlc_smg_mp5a4"];

@@ -209,10 +209,9 @@ switch (ADV_par_customWeap) do {
 		_itemsHandgun = [];
 	};
 	case 2: {
-		//SELmods
-		_primaryweapon = ["rhs_weap_mk18_grip2","rhs_weap_mk18_grip2_KAC","rhs_weap_mk18_KAC"];
+		//RHS Army
+		_primaryweapon = ["rhs_weap_m4a1_blockII_KAC","rhs_weap_m4a1_blockII"];
 		_optic = ["rhsusf_acc_eotech_552"];
-		//if (isClass(configFile >> "CfgPatches" >> "iansky_opt")) then {_optic append [""];};
 		_attachments = ["rhsusf_acc_anpeq15","rhsusf_acc_rotex5_grey"];
 		_primaryweaponAmmo = [7,9];
 		_additionalAmmo = nil;
@@ -225,6 +224,36 @@ switch (ADV_par_customWeap) do {
 		};
 	};
 	case 3: {
+		//RHS Marines
+		_primaryweapon = ["rhs_weap_mk18_grip2","rhs_weap_mk18_grip2_KAC","rhs_weap_mk18_KAC"];
+		_optic = ["rhsusf_acc_eotech_552"];
+		_attachments = ["rhsusf_acc_anpeq15","rhsusf_acc_rotex5_grey"];
+		_primaryweaponAmmo = [7,9];
+		_additionalAmmo = nil;
+		_handgun = "rhsusf_weap_m9";
+		_itemsHandgun = [""];
+		_handgunSilencer = "";
+		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
+			_handgun = "RH_m9";
+			_itemsHandgun = ["RH_x300","RH_m9qd"];
+		};
+	};
+	case 4: {
+		//RHS SOF
+		_primaryweapon = ["rhs_weap_hk416d10","rhs_weap_hk416d10_LMT"];
+		_optic = ["rhsusf_acc_eotech_552"];
+		_attachments = ["rhsusf_acc_anpeq15","rhsusf_acc_rotex5_grey"];
+		_primaryweaponAmmo = [7,9];
+		_additionalAmmo = nil;
+		_handgun = "rhsusf_weap_m9";
+		_itemsHandgun = [""];
+		_handgunSilencer = "";
+		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
+			_handgun = "RH_m9";
+			_itemsHandgun = ["RH_x300","RH_m9qd"];
+		};
+	};
+	case 5: {
 		//SELmods CUP Mk16
 		_primaryweapon = "CUP_arifle_M4A3_desert";
 		_optic = ["CUP_optic_CompM4"];
@@ -234,7 +263,7 @@ switch (ADV_par_customWeap) do {
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=["CUP_muzzle_snds_M9"];
 	};
-	case 4: {
+	case 6: {
 		//SELmods CUP M4
 		_primaryweapon = "CUP_arifle_M4A3_desert";
 		_optic = ["CUP_optic_CompM4"];
@@ -244,7 +273,7 @@ switch (ADV_par_customWeap) do {
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=["CUP_muzzle_snds_M9"];
 	};
-	case 5: {
+	case 7: {
 		//BAF
 		_primaryweapon = "CUP_arifle_M4A3_desert";
 		_optic = ["CUP_optic_CompM4"];
@@ -254,7 +283,7 @@ switch (ADV_par_customWeap) do {
 		_handgun="CUP_hgun_Glock17";
 		_itemsHandgun=["CUP_acc_Glock17_Flashlight","muzzle_snds_L"];
 	};
-	case 6: {
+	case 8: {
 		//UK3CB
 		_primaryweapon = ["UK3CB_BAF_L85A2_RIS_AFG","UK3CB_BAF_L85A2_EMAG","UK3CB_BAF_L85A2_RIS"];
 		_optic = ["UK3CB_BAF_SUSAT_3D"];

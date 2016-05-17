@@ -40,8 +40,8 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["BWA3_DM32_Orange",5];
 			_target addMagazineCargoGlobal ["BWA3_DM32_Yellow",5];
 		};
-		case (ADV_par_customWeap == 2): {
-			_target addWeaponCargoGlobal ["rhs_weap_mk18",1];
+		case (ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4): {
+			_target addWeaponCargoGlobal ["rhs_weap_m4_carryhandle",1];
 			_target addWeaponCargoGlobal ["rhs_weap_M136",2];
 			
 			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["rhs_m136_mag",2]; };
@@ -55,8 +55,8 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["rhs_mag_m18_red",5];
 			_target addMagazineCargoGlobal ["rhs_mag_m18_green",5];
 		};
-		case (ADV_par_customWeap >= 3 && ADV_par_customWeap <= 5): {
-			if (ADV_par_customWeap == 5) then {
+		case (ADV_par_customWeap >= 5 && ADV_par_customWeap <= 7): {
+			if (ADV_par_customWeap == 7) then {
 				_target addWeaponCargoGlobal ["CUP_arifle_L85A2",1];
 			} else {
 				_target addWeaponCargoGlobal ["CUP_arifle_M4A1",1];
@@ -74,7 +74,7 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["SmokeShellRed",5];
 			_target addMagazineCargoGlobal ["SmokeShellBlue",5];
 		};
-		case (ADV_par_customWeap == 6): {
+		case (ADV_par_customWeap == 8): {
 			_target addWeaponCargoGlobal ["UK3CB_BAF_L85A2",1];
 			_target addWeaponCargoGlobal ["UK3CB_BAF_AT4_AP_Launcher",2];
 
@@ -88,7 +88,7 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["SmokeShellRed",5];
 			_target addMagazineCargoGlobal ["SmokeShellBlue",5];
 		};
-		case (ADV_par_customWeap == 7): {
+		case (ADV_par_customWeap == 9): {
 			_target addWeaponCargoGlobal ["hlc_smg_mp5a2",1];
 			if (isClass(configFile >> "CfgPatches" >> "rhsusf_main")) then {
 				_target addWeaponCargoGlobal ["rhs_weap_M136",2];
@@ -153,7 +153,7 @@ switch (true) do {
 		_target addBackpackCargoGlobal ["TFA_assault_FOL",1];
 	};
 	case (ADV_par_customUni == 7 || ADV_par_customUni == 8 || ADV_par_customUni == 10 || ADV_par_customUni == 11): {
-		_target addItemCargoGlobal ["rhsusf_ach_helmet_M81",1];
+		_target addItemCargoGlobal ["rhsusf_ach_bare",1];
 		_target addItemCargoGlobal ["rhsusf_spc",1];
 		_target addBackpackCargoGlobal ["rhsusf_falconii",1];
 	};

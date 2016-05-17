@@ -179,7 +179,7 @@ _ACE_HandFlare_Red = 0;
 _ACE_HandFlare_White = 0;
 _ACE_HandFlare_Yellow = 0;
 
-//AGM Variables (if AGM is running) - (bool)
+//ACE Variables (if ACE is running) - (bool)
 _ACE_isMedic = 1;	//0 = no medic; 1 = medic; 2 = doctor;
 _ACE_isEngineer = 1;	//0 = no specialist; 1 = engineer; 2 = repair specialist;
 _ACE_isEOD = true;
@@ -218,24 +218,45 @@ switch (ADV_par_customWeap) do {
 		_itemsHandgun = [];
 	};
 	case 2: {
-		//SELmods
-		_primaryweapon = ["rhs_weap_m4_m320","rhs_weap_m4a1_m320"];
-		_optic = ["rhsusf_acc_compm4","rhsusf_acc_eotech_552","rhsusf_acc_ACOG"];
-		//if (isClass(configFile >> "CfgPatches" >> "iansky_opt")) then {_optic append [""];};
-		if (isClass(configFile >> "CfgPatches" >> "FHQ_Accessories")) then { _optic append ["FHQ_optic_HWS_G33"]; };
-		_attachments = ["rhsusf_acc_rotex5_grey"];
-		if ( ADV_par_NVGs > 0 ) then { _attachments pushBack "rhsusf_acc_anpeq15"; };
+		//RHS ARMY
+		_primaryweapon = ["rhs_weap_m4a1_blockII_M203","rhs_weap_m4a1_m320"];
+		_optic = ["rhsusf_acc_SpecterDR_CX_3D","rhsusf_acc_SpecterDR_3d"];
+		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
+		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		_silencer = "rhsusf_acc_rotex5_grey";
 		_primaryweaponAmmo set [1,9];
-		_additionalAmmo = [5,"rhsusf_5Rnd_300winmag_xm2010",true];
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
-		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
-			_handgun="RH_fnp45";
-			_itemsHandgun=["RH_x300","RH_gemtech45"];
-		};
+		_additionalAmmo = [5,"rhsusf_5Rnd_300winmag_xm2010",true];
 	};
 	case 3: {
+		//RHS Marines
+		_primaryweapon = ["rhs_weap_mk18_m320","rhs_weap_m4a1_m320"];
+		_optic = ["rhsusf_acc_SpecterDR_CX_3D","rhsusf_acc_SpecterDR_3d"];
+		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
+		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		_silencer = "rhsusf_acc_rotex5_grey";
+		_primaryweaponAmmo set [1,9];
+		_handgun = "rhsusf_weap_m1911a1";
+		_itemsHandgun = [""];
+		_handgunSilencer = "";
+		_additionalAmmo = [5,"rhsusf_mag_10Rnd_STD_50BMG_mk211",true];
+	};
+	case 4: {
+		//RHS SOF
+		_primaryweapon = ["rhs_weap_hk416d145_m320","rhs_weap_hk416d10_m320","rhs_weap_mk18_m320","rhs_weap_m4a1_m320"];
+		_optic = ["rhsusf_acc_SpecterDR_CX_3D","rhsusf_acc_SpecterDR_3d"];
+		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
+		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		_silencer = "rhsusf_acc_rotex5_grey";
+		_primaryweaponAmmo set [1,9];
+		_handgun = "rhsusf_weap_m9";
+		_itemsHandgun = [""];
+		_handgunSilencer = "";
+		_additionalAmmo = [5,"rhsusf_mag_10Rnd_STD_50BMG_mk211",true];
+	};
+	case 5: {
 		//SELmods CUP Mk16
 		_primaryweapon = ["CUP_arifle_M4A1_BUIS_GL","CUP_arifle_M4A1_BUIS_camo_GL","CUP_arifle_M4A1_BUIS_desert_GL"];
 		_optic = ["CUP_optic_CompM2_Desert"];
@@ -247,7 +268,7 @@ switch (ADV_par_customWeap) do {
 		_itemsHandgun=["CUP_acc_CZ_M3X","muzzle_snds_L"];
 		_binocular="CUP_SOFLAM";
 	};
-	case 4: {
+	case 6: {
 		//SELmods CUP M4
 		_primaryweapon = ["CUP_arifle_M4A1_BUIS_GL","CUP_arifle_M4A1_BUIS_camo_GL","CUP_arifle_M4A1_BUIS_desert_GL"];
 		_optic = ["CUP_optic_CompM2_Woodland"];
@@ -259,7 +280,7 @@ switch (ADV_par_customWeap) do {
 		_itemsHandgun=["CUP_acc_CZ_M3X","muzzle_snds_L"];
 		_binocular="CUP_SOFLAM";
 	};
-	case 5: {
+	case 7: {
 		//BAF
 		_primaryweapon="CUP_arifle_L85A2_GL";
 		_optic = ["CUP_optic_SUSAT"];
@@ -270,7 +291,7 @@ switch (ADV_par_customWeap) do {
 		_itemsHandgun=["CUP_acc_CZ_M3X","muzzle_snds_L"];
 		_binocular="CUP_SOFLAM";
 	};
-	case 6: {
+	case 8: {
 		//UK3CB
 		_primaryweapon = ["UK3CB_BAF_L85A2_UGL_HWS"];
 		_optic = ["UK3CB_BAF_SUSAT_3D"];
@@ -282,7 +303,7 @@ switch (ADV_par_customWeap) do {
 		_itemsHandgun=["UK3CB_BAF_Flashlight_L131A1","muzzle_snds_L"];
 		_binocular="UK3CB_BAF_Soflam_Laserdesignator";
 	};
-	case 7: {
+	case 9: {
 		_primaryWeapon = ["hlc_smg_9mmar"];
 		_optic = [""];
 		_attachments = [""];

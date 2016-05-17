@@ -205,7 +205,7 @@ switch (ADV_par_customWeap) do {
 		_itemsHandgun = [];
 	};
 	case 2: {
-		//SELmods
+		//RHS Army
 		_primaryweapon = switch (toUpper (worldname)) do {
 			case "CHERNARUS": {"rhs_weap_XM2010_wd"};
 			case "TAKISTAN": {"rhs_weap_XM2010_d"};
@@ -213,17 +213,30 @@ switch (ADV_par_customWeap) do {
 			default {"rhs_weap_XM2010"};
 		};
 		_attachments = ["optic_LRPS","rhsusf_acc_harris_bipod"];
-		if (isClass(configFile >> "CfgPatches" >> "iansky_opt")) then { _attachments = ["iansky_nfbeast","rhsusf_acc_harris_bipod"]; };
 		_silencer = "rhsusf_acc_M2010S";
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
-		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
-			_handgun="RH_fnp45";
-			_itemsHandgun=["RH_x300","RH_gemtech45"];
-		};
 	};
 	case 3: {
+		//RHS Marines
+		_primaryweapon = ["rhs_weap_M107"];
+		_attachments = ["optic_LRPS"];
+		_silencer = "rhsusf_acc_M2010S";
+		_handgun = "rhsusf_weap_m1911a1";
+		_itemsHandgun = [""];
+		_handgunSilencer = "";
+	};
+	case 4: {
+		//RHS SOF
+		_primaryweapon = ["rhs_weap_M107"];
+		_attachments = ["optic_LRPS"];
+		_silencer = "rhsusf_acc_M2010S";
+		_handgun = "rhsusf_weap_m9";
+		_itemsHandgun = [""];
+		_handgunSilencer = "";
+	};
+	case 5: {
 		//SELmods CUP Mk16
 		_attachments = ["CUP_optic_LeupoldMk4_10x40_LRT_Woodland"];
 		if (isClass(configFile >> "CfgPatches" >> "iansky_opt")) then { _attachments = ["FHQ_optic_LeupoldERT","bipod_02_F_blk"]; };
@@ -236,7 +249,7 @@ switch (ADV_par_customWeap) do {
 		_itemsHandgun=["CUP_acc_CZ_M3X","muzzle_snds_L"];
 		_binocular="CUP_SOFLAM";
 	};
-	case 4: {
+	case 6: {
 		//SELmods CUP M4
 		_attachments = ["CUP_optic_LeupoldMk4_10x40_LRT_Woodland"];		
 		if (isClass(configFile >> "CfgPatches" >> "iansky_opt")) then { _attachments = ["FHQ_optic_LeupoldERT","bipod_02_F_blk"]; };
@@ -249,7 +262,7 @@ switch (ADV_par_customWeap) do {
 		_itemsHandgun=["CUP_acc_CZ_M3X","muzzle_snds_L"];
 		_binocular="CUP_SOFLAM";
 	};
-	case 5: {
+	case 7: {
 		//BAF
 		_primaryweapon = "CUP_srifle_AS50";
 		if (isClass(configFile >> "CfgPatches" >> "iansky_opt")) then { _attachments = ["iansky_nfbeast"]; };
@@ -259,7 +272,7 @@ switch (ADV_par_customWeap) do {
 		_handgunSilencer = "";		//if silencer is added
 		_binocular="CUP_SOFLAM";
 	};
-	case 6: {
+	case 8: {
 		//UK3CB
 		_primaryweapon = ["UK3CB_BAF_L115A3_Ghillie","UK3CB_BAF_L115A3"];
 		_silencer = "UK3CB_BAF_Silencer_L115A3";
@@ -267,7 +280,7 @@ switch (ADV_par_customWeap) do {
 		_itemsHandgun=["UK3CB_BAF_Flashlight_L131A1","muzzle_snds_L"];
 		_binocular = "UK3CB_BAF_Soflam_Laserdesignator";
 	};
-	case 7: {
+	case 9: {
 		_primaryWeapon = ["hlc_rifle_psg1"];
 		_optic = [""];
 		_attachments = [""];

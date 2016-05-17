@@ -23,7 +23,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			_target addMagazineCargoGlobal ["BWA3_Fliegerfaust_Mag",4];
 		};
 		//SeL RHS
-		case ( ADV_par_customWeap == 2 || ( ADV_par_customWeap == 7 && isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) ): {
+		case ( ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4 || ( ADV_par_customWeap == 9 && isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) ): {
 			//weapons
 			_target addWeaponCargoGlobal ["rhs_weap_M136",3];
 			//ammo
@@ -33,7 +33,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			_target addMagazineCargoGlobal ["rhs_fim92_mag",4];
 		};
 		//SeL CUP
-		case (ADV_par_customWeap == 3 || ADV_par_customWeap == 4 || ADV_par_customWeap == 5): {
+		case (ADV_par_customWeap == 5 || ADV_par_customWeap == 6 || ADV_par_customWeap == 7): {
 			//weapons
 			_target addWeaponCargoGlobal ["CUP_launch_M136",3];
 			//ammo
@@ -43,7 +43,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			_target addMagazineCargoGlobal ["CUP_Stinger_M",4];
 		};
 		//UK3CB
-		case (ADV_par_customWeap == 6): {
+		case (ADV_par_customWeap == 8): {
 			//weapons
 			_target addWeaponCargoGlobal ["UK3CB_BAF_AT4_AP_Launcher",3];
 			
@@ -66,6 +66,12 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			_target addMagazineCargoGlobal ["BWA3_DM25",2];		
 		};
 		case 2: {
+			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",2];
+		};
+		case 3: {
+			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",2];
+		};
+		case 4: {
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",2];
 		};
 		default {

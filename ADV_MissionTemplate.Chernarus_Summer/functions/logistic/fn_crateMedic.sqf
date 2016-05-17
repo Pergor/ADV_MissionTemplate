@@ -13,11 +13,11 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	_target allowDamage false;
 	
 	//grenades
-	switch (ADV_par_customWeap) do {
-		case 1: {
+	switch (true) do {
+		case (ADV_par_customWeap == 1): {
 			_target addMagazineCargoGlobal ["BWA3_DM25",10];
 		};
-		case 2: {
+		case (ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4): {
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",10];
 		};
 		default {

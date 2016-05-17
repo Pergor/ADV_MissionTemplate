@@ -203,7 +203,7 @@ switch (true) do {
 	};
 	case (ADV_par_opfWeap == 2): {
 		//RHS Guerilla
-		if (ADV_par_opfSilencers > 0) then {_primaryweapon = "rhs_weap_asval";} else {_primaryweapon = "rhs_weap_svds";};
+		if (ADV_par_opfSilencers > 0) then {_primaryweapon = "rhs_weap_vss";} else {_primaryweapon = "rhs_weap_svds";};
 		_optic = [""];
 		_attachments = [""];
 		_silencer = "";		//if silencer is added		

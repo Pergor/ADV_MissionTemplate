@@ -19,6 +19,12 @@ private ["_target"];
 		case 2: {
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",2];
 		};
+		case 3: {
+			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",2];
+		};
+		case 4: {
+			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",2];
+		};
 		default {
 			_target addMagazineCargoGlobal ["SmokeShell",2];
 		};
@@ -33,7 +39,7 @@ private ["_target"];
 		_target addItemCargoGlobal [TF_defaultWestPersonalRadio,1];
 	};
 	
-	if ( ADV_par_Tablets == 1 && isClass (configFile >> "CfgPatches" >> "cTab") ) then {
+	if ( ADV_par_tablets == 1 && isClass (configFile >> "CfgPatches" >> "cTab") ) then {
 		_target addItemCargoGlobal ["ItemAndroid",1];
 	};
 	

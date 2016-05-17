@@ -204,31 +204,45 @@ switch (ADV_par_customWeap) do {
 		_handgunSilencer = "";		//if silencer is added
 	};
 	case 2: {
-		//SELmods
+		//RHS Army
 		_primaryWeapon = ["rhs_weap_m249_pip_S_vfg","rhs_weap_m249_pip_S"];
-		_optic = ["rhsusf_acc_compm4","rhsusf_acc_eotech_552"];
-		//if (isClass(configFile >> "CfgPatches" >> "iansky_opt")) then {_optic append [""];};
+		_optic = ["rhsusf_acc_compm4","rhsusf_acc_eotech_552","rhsusf_acc_eotech_552"];
 		if (ADV_par_customUni == 10 || ADV_par_customUni == 11) then {
-			_primaryWeapon = ["rhs_weap_m249_pip_S","rhs_weap_m27iar","rhs_weap_m27iar"] call BIS_fnc_selectRandom;
-			if ( _primaryWeapon == "rhs_weap_m27iar" ) then {
-				_optic = ["rhsusf_acc_ACOG","rhsusf_acc_ACOG3"];
-				if (isClass(configFile >> "CfgPatches" >> "iansky_opt")) then { _optic append ["iansky_specterdr","iansky_specterdr_t","iansky_specterdr_fde"]; };
-				_primaryweaponAmmo = [7,9];
-				_additionalAmmo = [14,"30rnd_556x45_STANAG",true];	//not working, whyever...
-			};
 		};
-		if ( ADV_par_NVGs > 0 ) then { _attachments = ["rhsusf_acc_anpeq15side"]; };
+		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
+		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_silencer = "";
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
-		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
-			_handgun = "RH_m9";
-			_itemsHandgun = ["RH_x300"];
-			_handgunSilencer = "RH_m9qd";
-		};
 	};
 	case 3: {
+		//RHS Marines
+		_primaryWeapon = ["rhs_weap_m249_pip_S","rhs_weap_m27iar","rhs_weap_m27iar"] call BIS_fnc_selectRandom;
+		_optic = ["rhsusf_acc_ACOG","rhsusf_acc_ACOG3"];
+		if ( _primaryWeapon == "rhs_weap_m27iar" ) then {
+			_primaryweaponAmmo = [7,9];
+			_additionalAmmo = [14,"30rnd_556x45_STANAG",true];
+		};
+		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
+		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		_silencer = "";
+		_handgun = "rhsusf_weap_m1911a1";
+		_itemsHandgun = [""];
+		_handgunSilencer = "";
+	};
+	case 4: {
+		//RHS SOF
+		_primaryWeapon = ["rhs_weap_m249_pip_S_vfg","rhs_weap_m249_pip_S"];
+		_optic = ["rhsusf_acc_eotech_552"];
+		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
+		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		_silencer = "";
+		_handgun = "rhsusf_weap_m9";
+		_itemsHandgun = [""];
+		_handgunSilencer = "";
+	};
+	case 5: {
 		//SELmods CUP Mk16
 		_primaryWeapon = ["CUP_lmg_M249_para"];
 		_optic = ["CUP_optic_CompM4"];
@@ -238,7 +252,7 @@ switch (ADV_par_customWeap) do {
 		_itemsHandgun=[""];
 		_handgunSilencer = "CUP_muzzle_snds_M9";		//if silencer is added
 	};
-	case 4: {
+	case 6: {
 		//SELmods CUP M4
 		_primaryWeapon = ["CUP_lmg_M249_para"];
 		_optic = ["CUP_optic_CompM4"];
@@ -248,7 +262,7 @@ switch (ADV_par_customWeap) do {
 		_itemsHandgun=[""];
 		_handgunSilencer = "CUP_muzzle_snds_M9";		//if silencer is added
 	};
-	case 5: {
+	case 7: {
 		//BAF
 		_primaryweapon = ["CUP_lmg_L110A1"];
 		_optic = ["CUP_optic_SUSAT"];
@@ -258,7 +272,7 @@ switch (ADV_par_customWeap) do {
 		_itemsHandgun = ["CUP_acc_Glock17_Flashlight"];
 		_handgunSilencer = "muzzle_snds_L";		//if silencer is added
 	};
-	case 6: {
+	case 8: {
 		//UK3CB
 		_primaryweapon = ["UK3CB_BAF_L110A2","UK3CB_BAF_L110A2_FIST"];
 		_optic = ["UK3CB_BAF_SUSAT_3D"];
@@ -269,7 +283,7 @@ switch (ADV_par_customWeap) do {
 		_itemsHandgun=["UK3CB_BAF_Flashlight_L131A1"];
 		_handgunSilencer = "muzzle_snds_L";
 	};
-	case 7: {
+	case 9: {
 		_primaryWeapon = ["hlc_rifle_LAR"];
 		_optic = [""];
 		_attachments = [""];

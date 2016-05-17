@@ -189,7 +189,7 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_candybar","","",""];
 switch (true) do {
 	case (ADV_par_opfWeap == 1): {
 		//RHS
-		_primaryweapon = ["rhs_weap_ak74m_folded","rhs_weap_ak74m_plummag_folded","rhs_weap_ak74m_desert_folded"];
+		_primaryweapon = ["rhs_weap_aks74un_folded"];
 		_optic = [""];
 		_attachments = [""];
 		_silencer = "";		//if silencer is added
@@ -199,7 +199,7 @@ switch (true) do {
 	};
 	case (ADV_par_opfWeap == 2): {
 		//RHS Guerilla
-		_primaryweapon = ["rhs_weap_akm","rhs_weap_akms"];
+		_primaryweapon = ["rhs_weap_aks74u_folded"];
 		_optic = [""];
 		_attachments = [""];
 		_silencer = "";		//if silencer is added		

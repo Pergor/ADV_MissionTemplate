@@ -22,22 +22,26 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			//_target addMagazineCargoGlobal ["BWA3_200Rnd_556x45_Tracer",2];
 		};
 		//SeL RHS
-		case (ADV_par_customWeap == 2): {
-			_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51",10];
+		case (ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4): {
+			if (ADV_par_customWeap == 3 && isClass(configFile >> "CfgPatches" >> "hlcweapons_m60e4")) then {
+				_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_M_M60E4",10];
+			} else {
+				_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51",10];
+			};
 			//_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",4];
 		};		
 		//SeL CUP
-		case (ADV_par_customWeap == 3 || ADV_par_customWeap == 4 || ADV_par_customWeap == 5): {
+		case (ADV_par_customWeap == 5 || ADV_par_customWeap == 6 || ADV_par_customWeap == 7): {
 			_target addMagazineCargoGlobal ["CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M",10];
 			//_target addMagazineCargoGlobal ["CUP_200Rnd_TE4_Red_Tracer_556x45_L110A1",4];
 		};
-		case (ADV_par_customWeap == 6): {
+		case (ADV_par_customWeap == 8): {
 			_target addMagazineCargoGlobal ["UK3CB_BAF_75Rnd_T",5];
 			_target addMagazineCargoGlobal ["UK3CB_BAF_75Rnd",5];
 			//_target addMagazineCargoGlobal ["UK3CB_BAF_200Rnd_T",2];
 			//_target addMagazineCargoGlobal ["UK3CB_BAF_200Rnd",2];
 		};
-		case (ADV_par_customWeap == 7): {
+		case (ADV_par_customWeap == 9): {
 			//ammo
 			_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_M_M60E4",10];
 			_target addMagazineCargoGlobal ["hlc_50rnd_762x51_M_FAL",5];
@@ -55,6 +59,12 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			_target addMagazineCargoGlobal ["BWA3_DM25",2];
 		};
 		case 2: {
+			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",2];
+		};
+		case 3: {
+			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",2];
+		};
+		case 4: {
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",2];
 		};
 		default {

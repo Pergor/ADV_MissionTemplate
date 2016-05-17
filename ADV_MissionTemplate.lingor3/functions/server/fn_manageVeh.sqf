@@ -92,11 +92,11 @@ switch (ADV_par_modCarAssets) do {
 	//RHS ARMY woodland
 	case 6: {[ADV_veh_MRAPs,["rhsusf_m1025_w","rhsusf_m1025_w","rhsusf_m998_w_4dr"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["rhsusf_m1025_w_m2"],west] spawn ADV_fnc_changeVeh;};
 	//RHS ARMY plain green
-	case 9: {[ADV_veh_MRAPs,["rhsusf_m1025_w","rhsusf_m1025_w","rhsusf_m998_w_4dr"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["rhsusf_m1025_w_m2"],west] spawn ADV_fnc_changeVeh;};
+	case 7: {[ADV_veh_MRAPs,["rhsusf_m1025_w","rhsusf_m1025_w","rhsusf_m998_w_4dr"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["rhsusf_m1025_w_m2"],west] spawn ADV_fnc_changeVeh;};
 	//RHS Marines desert
-	case 7: {[ADV_veh_MRAPs,["rhsusf_m1025_d_s","rhsusf_m1025_d_s","rhsusf_m998_d_s_4dr"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["rhsusf_m1025_d_s_m2"],west] spawn ADV_fnc_changeVeh;};
+	case 8: {[ADV_veh_MRAPs,["rhsusf_m1025_d_s","rhsusf_m1025_d_s","rhsusf_m998_d_s_4dr"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["rhsusf_m1025_d_s_m2"],west] spawn ADV_fnc_changeVeh;};
 	//RHS Marines woodland
-	case 8: {[ADV_veh_MRAPs,["rhsusf_m1025_w_s","rhsusf_m1025_w_s","rhsusf_m998_w_s_4dr"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["rhsusf_m1025_w_s_m2"],west] spawn ADV_fnc_changeVeh;};
+	case 9: {[ADV_veh_MRAPs,["rhsusf_m1025_w_s","rhsusf_m1025_w_s","rhsusf_m998_w_s_4dr"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["rhsusf_m1025_w_s_m2"],west] spawn ADV_fnc_changeVeh;};
 	//adv_retex Fenneks
 	case 10: {[ADV_veh_MRAPs,["adv_retex_b_strider_f"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["adv_retex_b_strider_hmg_f"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsGMG,["adv_retex_b_strider_gmg_f"],west] spawn ADV_fnc_changeVeh;};
 	//no vehicles
@@ -109,9 +109,15 @@ switch (ADV_par_modTruckAssets) do {
 	//DAR MTVR
 	case 1: {[ADV_veh_transport,["DAR_MK27","DAR_MK27T"],west] spawn ADV_fnc_changeVeh;[ADV_veh_logistic_fuel,["DAR_LHS_8"],west] spawn ADV_fnc_changeVeh;[ADV_veh_logistic_repair+ADV_veh_logistic_ammo,["DAR_LHS_16"],west] spawn ADV_fnc_changeVeh;[ADV_veh_logistic_medic,["DAR_MK23"],west] spawn ADV_fnc_changeVeh;};
 	//RHS sand
-	case 2: {[ADV_veh_transport,["rhsusf_M1083A1P2_d_fmtv_usarmy","rhsusf_M1083A1P2_B_d_fmtv_usarmy"],west] spawn ADV_fnc_changeVeh;};
+	case 2: {[ADV_veh_transport,["rhsusf_M1083A1P2_d_fmtv_usarmy","rhsusf_M1083A1P2_B_d_fmtv_usarmy"],west] spawn ADV_fnc_changeVeh;
+		[ADV_veh_logistic_repair,["rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_d","rhsusf_M977A4_REPAIR_BKIT_usarmy_d"],west] spawn ADV_fnc_changeVeh;
+		[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_BKIT_M2_usarmy_d","rhsusf_M977A4_AMMO_BKIT_usarmy_d"],west] spawn ADV_fnc_changeVeh;
+	};
 	//RHS woodland
-	case 3: {[ADV_veh_transport,["rhsusf_M1083A1P2_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_wd_fmtv_usarmy"],west] spawn ADV_fnc_changeVeh;};
+	case 3: {[ADV_veh_transport,["rhsusf_M1083A1P2_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_wd_fmtv_usarmy"],west] spawn ADV_fnc_changeVeh;
+		[ADV_veh_logistic_repair,["rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_wd","rhsusf_M977A4_REPAIR_BKIT_usarmy_wd"],west] spawn ADV_fnc_changeVeh;
+		[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_usarmy_wd"],west] spawn ADV_fnc_changeVeh;
+	};
 	//BAF desert
 	case 4: {[ADV_veh_transport,["UK3CB_BAF_Coyote_Logistics_L111A1_D"],west] spawn ADV_fnc_changeVeh;};
 	//BAF woodland
@@ -142,7 +148,7 @@ switch (ADV_par_modHeavyAssets) do {
 		};
 	};
 	//stv marid
-	case 13: {
+	case 7: {
 		if (isClass(configFile >> "CfgPatches" >> "adv_retex")) then {
 			[ADV_veh_heavys,["adv_retex_b_marid_f"],west] spawn ADV_fnc_changeVeh;
 		} else {
@@ -150,17 +156,33 @@ switch (ADV_par_modHeavyAssets) do {
 		};
 	};
 	//RHS M2 desert
-	case 7: {[ADV_veh_heavys,["RHS_M2A2","RHS_M2A2_BUSKI","RHS_M2A3_BUSKIII"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_medic,["rhsusf_m113d_usarmy_medical"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_ammo,["rhsusf_m113d_usarmy_supply"],west] spawn ADV_fnc_changeVeh;};
+	case 8: {[ADV_veh_heavys,["RHS_M2A2","RHS_M2A2_BUSKI","RHS_M2A3_BUSKIII"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_medic,["rhsusf_m113d_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
+		if !(ADV_par_modTruckAssets == 3) then {
+			[ADV_veh_logistic_ammo,["rhsusf_m113d_usarmy_supply"],west] spawn ADV_fnc_changeVeh;
+		};
+	};
 	//RHS M2 woodland
-	case 8: {[ADV_veh_heavys,["RHS_M2A2_wd","RHS_M2A2_BUSKI_WD","RHS_M2A3_BUSKIII_wd"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_medic,["rhsusf_m113_usarmy_medical"],west] spawn ADV_fnc_changeVeh;[ADV_veh_logistic_ammo,["rhsusf_m113_usarmy_supply"],west] spawn ADV_fnc_changeVeh;};
+	case 9: {[ADV_veh_heavys,["RHS_M2A2_wd","RHS_M2A2_BUSKI_WD","RHS_M2A3_BUSKIII_wd"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_medic,["rhsusf_m113_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
+		if !(ADV_par_modTruckAssets == 2) then {
+			[ADV_veh_logistic_ammo,["rhsusf_m113_usarmy_supply"],west] spawn ADV_fnc_changeVeh;
+		};	
+	};
 	//RHS MRAP desert
-	case 9: {[ADV_veh_heavys,["rhsusf_rg33_d","rhsusf_rg33_m2_d","rhsusf_rg33_m2_d"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_medic,["rhsusf_m113_usarmy_medical"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_ammo,["rhsusf_m113d_usarmy_supply"],west] spawn ADV_fnc_changeVeh;};
+	case 10: {[ADV_veh_heavys,["rhsusf_rg33_d","rhsusf_rg33_m2_d","rhsusf_rg33_m2_d"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_medic,["rhsusf_m113_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
+		if !(ADV_par_modTruckAssets == 3) then {
+			[ADV_veh_logistic_ammo,["rhsusf_m113d_usarmy_supply"],west] spawn ADV_fnc_changeVeh;
+		};
+	};
 	//RHS MRAP woodland
-	case 10: {[ADV_veh_heavys,["rhsusf_rg33_wd","rhsusf_rg33_m2_wd","rhsusf_rg33_m2_wd"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_medic,["rhsusf_m113d_usarmy_medical"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_ammo,["rhsusf_m113d_usarmy_supply"],west] spawn ADV_fnc_changeVeh;};
+	case 11: {[ADV_veh_heavys,["rhsusf_rg33_wd","rhsusf_rg33_m2_wd","rhsusf_rg33_m2_wd"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_medic,["rhsusf_m113d_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
+		if !(ADV_par_modTruckAssets == 2) then {
+			[ADV_veh_logistic_ammo,["rhsusf_m113_usarmy_supply"],west] spawn ADV_fnc_changeVeh;
+		};
+	};
 	//CHA LAVs desert
-	case 11: {[ADV_veh_heavys,["Cha_Des1_LAV25","Cha_Des1_LAV25A2","Cha_Des1_LAV25A2"],west] spawn ADV_fnc_changeVeh;};
+	case 12: {[ADV_veh_heavys,["Cha_Des1_LAV25","Cha_Des1_LAV25A2","Cha_Des1_LAV25A2"],west] spawn ADV_fnc_changeVeh;};
 	//CHA LAVs woodland
-	case 12: {[ADV_veh_heavys,["Cha_LAV25","Cha_LAV25A2","Cha_LAV25A2"],west] spawn ADV_fnc_changeVeh;};
+	case 13: {[ADV_veh_heavys,["Cha_LAV25","Cha_LAV25A2","Cha_LAV25A2"],west] spawn ADV_fnc_changeVeh;};
 	//no vehicles
 	case 99: {[ADV_veh_heavys,[""],west] spawn ADV_fnc_changeVeh;};
 	default {};
@@ -172,18 +194,18 @@ switch (ADV_par_modTankAssets) do {
 	case 1: {[ADV_veh_tanks,["BWA3_Leopard2A6M_Tropen"],west] spawn ADV_fnc_changeVeh;};
 	//BWmod Leopard woodland
 	case 2: {[ADV_veh_tanks,["BWA3_Leopard2A6M_Fleck"],west] spawn ADV_fnc_changeVeh;};
-	//Burne's M1A2 sand
-	case 3: {[ADV_veh_tanks,["Burnes_M1A2_MEU_02_Public"],west] spawn ADV_fnc_changeVeh;};
-	//Burne's M1A2 woodland
-	case 4: {[ADV_veh_tanks,["Burnes_M1A2_MEU_01_Public"],west] spawn ADV_fnc_changeVeh;};
 	//stv retextures
-	case 5: {[ADV_veh_tanks,["Steve_MBT_Kuma"],west] spawn ADV_fnc_changeVeh;};
+	case 3: {[ADV_veh_tanks,["Steve_MBT_Kuma"],west] spawn ADV_fnc_changeVeh;};
 	//RHS desert
-	case 6: {[ADV_veh_tanks,["rhsusf_m1a1fep_d","rhsusf_m1a1aimd_usarmy","rhsusf_m1a1aim_tuski_d","rhsusf_m1a2sep1d_usarmy","rhsusf_m1a2sep1tuskid_usarmy","rhsusf_m1a2sep1tuskiid_usarmy"],west] spawn ADV_fnc_changeVeh;[ADV_veh_artys,["rhsusf_m109d_usarmy"],west] spawn ADV_fnc_changeVeh;};
-	case 8: {[ADV_veh_tanks,["rhsusf_m1a1fep_d","rhsusf_m1a1aimd_usarmy","rhsusf_m1a1aim_tuski_d","rhsusf_m1a2sep1d_usarmy","rhsusf_m1a2sep1tuskid_usarmy","rhsusf_m1a2sep1tuskiid_usarmy"],west] spawn ADV_fnc_changeVeh;[ADV_veh_artys,["RDS_M119_FIA"],west] spawn ADV_fnc_changeVeh;};
+	case 4: {[ADV_veh_tanks,["rhsusf_m1a1fep_d","rhsusf_m1a1aimd_usarmy","rhsusf_m1a1aim_tuski_d","rhsusf_m1a2sep1d_usarmy","rhsusf_m1a2sep1tuskid_usarmy","rhsusf_m1a2sep1tuskiid_usarmy"],west] spawn ADV_fnc_changeVeh;[ADV_veh_artys,["rhsusf_m109d_usarmy"],west] spawn ADV_fnc_changeVeh;};
+	case 5: {[ADV_veh_tanks,["rhsusf_m1a1fep_d","rhsusf_m1a1aimd_usarmy","rhsusf_m1a1aim_tuski_d","rhsusf_m1a2sep1d_usarmy","rhsusf_m1a2sep1tuskid_usarmy","rhsusf_m1a2sep1tuskiid_usarmy"],west] spawn ADV_fnc_changeVeh;[ADV_veh_artys,["RHS_M119_D"],west] spawn ADV_fnc_changeVeh;};
 	//RHS woodland
-	case 7: {[ADV_veh_tanks,["rhsusf_m1a1fep_wd","rhsusf_m1a1fep_od","rhsusf_m1a1aimwd_usarmy","rhsusf_m1a1aim_tuski_wd","rhsusf_m1a2sep1wd_usarmy","rhsusf_m1a2sep1tuskiwd_usarmy","rhsusf_m1a2sep1tuskiiwd_usarmy"],west] spawn ADV_fnc_changeVeh;[ADV_veh_artys,["rhsusf_m109_usarmy"],west] spawn ADV_fnc_changeVeh;};
-	case 9: {[ADV_veh_tanks,["rhsusf_m1a1fep_wd","rhsusf_m1a1fep_od","rhsusf_m1a1aimwd_usarmy","rhsusf_m1a1aim_tuski_wd","rhsusf_m1a2sep1wd_usarmy","rhsusf_m1a2sep1tuskiwd_usarmy","rhsusf_m1a2sep1tuskiiwd_usarmy"],west] spawn ADV_fnc_changeVeh;[ADV_veh_artys,["RDS_M119_FIA"],west] spawn ADV_fnc_changeVeh;};
+	case 6: {[ADV_veh_tanks,["rhsusf_m1a1fep_wd","rhsusf_m1a1fep_od","rhsusf_m1a1aimwd_usarmy","rhsusf_m1a1aim_tuski_wd","rhsusf_m1a2sep1wd_usarmy","rhsusf_m1a2sep1tuskiwd_usarmy","rhsusf_m1a2sep1tuskiiwd_usarmy"],west] spawn ADV_fnc_changeVeh;[ADV_veh_artys,["rhsusf_m109_usarmy"],west] spawn ADV_fnc_changeVeh;};
+	case 7: {[ADV_veh_tanks,["rhsusf_m1a1fep_wd","rhsusf_m1a1fep_od","rhsusf_m1a1aimwd_usarmy","rhsusf_m1a1aim_tuski_wd","rhsusf_m1a2sep1wd_usarmy","rhsusf_m1a2sep1tuskiwd_usarmy","rhsusf_m1a2sep1tuskiiwd_usarmy"],west] spawn ADV_fnc_changeVeh;[ADV_veh_artys,["RHS_M119_WD"],west] spawn ADV_fnc_changeVeh;};
+	//Burne's M1A2 sand
+	case 8: {[ADV_veh_tanks,["Burnes_M1A2_MEU_02_Public"],west] spawn ADV_fnc_changeVeh;};
+	//Burne's M1A2 woodland
+	case 9: {[ADV_veh_tanks,["Burnes_M1A2_MEU_01_Public"],west] spawn ADV_fnc_changeVeh;};
 	//no vehicles
 	case 99: {[ADV_veh_tanks+ADV_veh_artys,[""],west] spawn ADV_fnc_changeVeh;};
 	default {};
@@ -191,16 +213,18 @@ switch (ADV_par_modTankAssets) do {
 
 //replaces helis with mod helis:
 switch (ADV_par_modHeliAssets) do {
-	//BAFHelis
-	case 1: {[ADV_veh_airTransport,["UK3CB_BAF_Wildcat_Transport_RN_ZZ396"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airRecon,["UK3CB_BAF_Wildcat_Armed_Army_ZZ400"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airLogistic,["UK3CB_BAF_Merlin_RAF_ZJ124"],west] spawn ADV_fnc_changeVeh;};
 	//BWHelis
-	case 2: {[ADV_veh_airTransport,["BW_NH90Armed","BW_NH90Armed","BW_NH90Armed","BW_NH90","EC635_Unarmed_BW","EC635_BW"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airRecon,["EC635_Unarmed_BW","EC635_BW"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airLogistic,["CUP_B_CH53E_BW"],west] spawn ADV_fnc_changeVeh;};
+	case 1: {[ADV_veh_airTransport,["BW_NH90Armed","BW_NH90Armed","BW_NH90Armed","BW_NH90","EC635_Unarmed_BW","EC635_BW"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airRecon,["EC635_Unarmed_BW","EC635_BW"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airLogistic,["CUP_B_CH53E_BW"],west] spawn ADV_fnc_changeVeh;};
+	//BAFHelis
+	case 2: {[ADV_veh_airTransport,["UK3CB_BAF_Wildcat_Transport_RN_ZZ396"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airRecon,["UK3CB_BAF_Wildcat_Armed_Army_ZZ400"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airLogistic,["UK3CB_BAF_Merlin_RAF_ZJ124"],west] spawn ADV_fnc_changeVeh;};
 	//RHS Army
 	case 3: {[ADV_veh_airTransport,["RHS_UH60M_d","RHS_UH60M_d","RHS_UH60M_d","RHS_UH60M_d","RHS_UH60M_MEV_d"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airRecon,["rhs_ah64d","rhs_ah64d_cs"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airLogistic,["RHS_CH_47F","RHS_CH_47F","RHS_CH_47F","RHS_CH_47F_LIGHT"],west] spawn ADV_fnc_changeVeh;};
 	//RHS Marines
 	case 4: {[ADV_veh_airTransport,["rhs_uh1y"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airRecon,["rhs_ah1z"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airLogistic,["rhsusf_CH53E_USMC"],west] spawn ADV_fnc_changeVeh;};
+	//RHS Army with RHS OH6M
+	case 5: {[ADV_veh_airTransport,["RHS_UH60M_d","RHS_UH60M_d","RHS_UH60M_d","RHS_UH60M_d","RHS_UH60M_MEV_d"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airRecon,["RHS_MELB_AH6M_M","RHS_MELB_AH6M_L","RHS_MELB_MH6M","RHS_MELB_MH6M"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airLogistic,["RHS_CH_47F","RHS_CH_47F","RHS_CH_47F","RHS_CH_47F_LIGHT"],west] spawn ADV_fnc_changeVeh;};
 	//RHS Army with MELB
-	case 5: {[ADV_veh_airTransport,["RHS_UH60M_d","RHS_UH60M_d","RHS_UH60M_d","RHS_UH60M_d","RHS_UH60M_MEV_d"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airRecon,["MELB_AH6M_M","MELB_MH6M"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airLogistic,["RHS_CH_47F","RHS_CH_47F","RHS_CH_47F","RHS_CH_47F_LIGHT"],west] spawn ADV_fnc_changeVeh;};
+	case 6: {[ADV_veh_airTransport,["RHS_UH60M_d","RHS_UH60M_d","RHS_UH60M_d","RHS_UH60M_d","RHS_UH60M_MEV_d"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airRecon,["MELB_AH6M_M","MELB_MH6M"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airLogistic,["RHS_CH_47F","RHS_CH_47F","RHS_CH_47F","RHS_CH_47F_LIGHT"],west] spawn ADV_fnc_changeVeh;};
 	//no vehicles
 	case 99: {[ADV_veh_helis,[""],west] spawn ADV_fnc_changeVeh;};
 	default {};
