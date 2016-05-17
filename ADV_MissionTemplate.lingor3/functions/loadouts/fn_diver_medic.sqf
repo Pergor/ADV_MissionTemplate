@@ -226,9 +226,16 @@ switch (ADV_par_customWeap) do {
 		_primaryweapon = ["rhs_weap_mk18_grip2","rhs_weap_mk18_grip2_KAC","rhs_weap_mk18_KAC"];
 		_optic = ["rhsusf_acc_eotech_552"];
 		_attachments = ["rhsusf_acc_anpeq15","rhsusf_acc_rotex5_grey"];
-		_primaryweaponAmmo = [7,9];
-		_additionalAmmo = nil;
-		_handgun = "rhsusf_weap_m9";
+		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5") && ADV_par_Silencers == 1) then {
+			_primaryweapon = "hlc_smg_mp5sd6"; _silencer = "";
+			_attachments = [];
+			_primaryweaponAmmo set [1,2];
+			_additionalAmmo = nil;
+		} else {
+			_primaryweaponAmmo = [7,9];
+			_additionalAmmo = nil;
+		};
+		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
 		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {

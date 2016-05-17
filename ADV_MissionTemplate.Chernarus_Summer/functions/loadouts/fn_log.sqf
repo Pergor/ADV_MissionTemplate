@@ -217,11 +217,7 @@ switch (true) do {
 		//SELmods
 		_primaryweapon = ["rhs_weap_hk416d10_LMT","rhs_weap_m4a1_blockII_KAC","rhs_weap_m4_carryhandle"];
 		_optic = [""];
-		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
-			_primaryweapon = ["hlc_smg_MP5N","hlc_smg_mp5k_PDW","hlc_smg_mp5a3","hlc_smg_mp5a4"];
-		} else {
-			_primaryweaponAmmo set [1,9];
-		};
+		_primaryweaponAmmo set [1,9];
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";

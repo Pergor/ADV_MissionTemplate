@@ -200,7 +200,6 @@ switch (ADV_par_indWeap) do {
 		//SELmods
 		_primaryWeapon = ["rhs_weap_m249_pip_S_vfg","rhs_weap_m249_pip_S"];
 		_optic = ["rhsusf_acc_compm4","rhsusf_acc_eotech_552"];
-		//if (isClass(configFile >> "CfgPatches" >> "iansky_opt")) then {_optic append [""];};
 		_attachments = ["rhsusf_acc_anpeq15side"];
 		_silencer = "";
 		_handgun = "rhsusf_weap_m1911a1";
