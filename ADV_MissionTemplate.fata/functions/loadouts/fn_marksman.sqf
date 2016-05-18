@@ -231,7 +231,7 @@ switch (ADV_par_customWeap) do {
 	case 4: {
 		//RHS SOF
 		_primaryweapon = ["rhs_weap_sr25","rhs_weap_sr25_ec"];
-		_optic = ["rhsusf_acc_LEUPOLDMK4_2","rhsusf_acc_LEUPOLDMK4_2","rhsusf_acc_LEUPOLDMK4"];
+		_optic = ["rhsusf_acc_LEUPOLDMK4_2"];
 		_attachments = ["rhsusf_acc_harris_bipod"];
 		_silencer = "rhsusf_acc_SR25S";		//if silencer is added
 		if ( ADV_par_NVGs == 1 ) then { _attachments append "rhsusf_acc_M952V"; };

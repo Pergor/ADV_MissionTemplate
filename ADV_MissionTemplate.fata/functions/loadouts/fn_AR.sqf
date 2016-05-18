@@ -35,6 +35,7 @@ if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && ADV_par_DLCContent == 1
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [1,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 _additionalAmmo = [3,0,true];
+_additionalAmmo1 = [0,0,false];
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;
@@ -207,27 +208,28 @@ switch (ADV_par_customWeap) do {
 	};
 	case 2: {
 		//RHS Army
-		_primaryWeapon = ["rhs_weap_m240B","rhs_weap_m240G"];
+		_primaryWeapon = ["rhs_weap_m240B"];
 		_optic = ["rhsusf_acc_ELCAN"];
 		_attachments = [""];
 		_silencer = "";		//if silencer is added
-		_primaryweaponAmmo set [1,5];
-		_additionalAmmo = [4,5,true];
+		_primaryweaponAmmo = [1,8];
+		_additionalAmmo = [4,8,true];
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
 	};
 	case 3: {
 		//RHS Marines
-		_primaryWeapon = ["rhs_weap_m240B","rhs_weap_m240G"];
+		_primaryWeapon = ["rhs_weap_m240G"];
 		_optic = ["rhsusf_acc_ELCAN"];
-		_primaryweaponAmmo set [1,5];
-		_additionalAmmo = [4,5,true];
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_m60e4")) then {
 			_primaryWeapon = ["hlc_lmg_m60","hlc_lmg_M60E4"];
 			_optic = ["rhsusf_acc_ACOG","rhsusf_acc_ACOG3"];
 			_primaryweaponAmmo set [1,1];
-			_additionalAmmo = [3,1,true];
+			_additionalAmmo = [4,1,true];
+		} else {
+			_primaryweaponAmmo = [1,8];
+			_additionalAmmo = [4,8,true];	
 		};
 		_attachments = [""];
 		_silencer = "";		//if silencer is added
@@ -238,11 +240,11 @@ switch (ADV_par_customWeap) do {
 	case 4: {
 		//RHS SOF
 		_primaryWeapon = ["rhs_weap_m240B","rhs_weap_m240G"];
-		_optic = ["rhsusf_acc_ELCAN"];
+		_optic = ["rhsusf_acc_ELCAN_ard"];
 		_attachments = [""];
 		_silencer = "";		//if silencer is added
-		_primaryweaponAmmo set [1,5];
-		_additionalAmmo = [4,5,true];
+		_primaryweaponAmmo = [1,8];
+		_additionalAmmo = [4,8,true];
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";

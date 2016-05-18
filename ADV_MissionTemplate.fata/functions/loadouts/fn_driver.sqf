@@ -201,14 +201,12 @@ switch (true) do {
 		_handgunAmmo = [5,0];
 	};
 	case (ADV_par_customWeap == 2 || ADV_par_customWeap == 3): {
-		//SELmods
+		//RHS Army & Marines
 		_primaryweapon = ["rhs_weap_m4_carryhandle"];
 		_optic = [""];
 		_attachments = [""];
 		_silencer = "";
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
-			_primaryweapon = ["hlc_smg_MP5N","hlc_smg_mp5k_PDW","hlc_smg_mp5a3"];
-			_silencer = "hlc_muzzle_Tundra";
 			if (ADV_par_Silencers == 1) then { _primaryweapon = "hlc_smg_mp5sd6"; _silencer = ""; _primaryweaponAmmo set [1,2];};
 		} else {
 			_primaryweaponAmmo set [1,9];
@@ -219,7 +217,7 @@ switch (true) do {
 		_handgunSilencer = "";
 	};
 	case (ADV_par_customWeap == 4): {
-		//SELmods
+		//RHS SOF
 		_primaryweapon = ["rhs_weap_hk416d10_LMT","rhs_weap_m4a1_blockII_KAC","rhs_weap_m4_carryhandle"];
 		_optic = [""];
 		_attachments = [""];

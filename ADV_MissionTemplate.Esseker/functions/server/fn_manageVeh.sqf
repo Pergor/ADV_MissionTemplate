@@ -157,13 +157,13 @@ switch (ADV_par_modHeavyAssets) do {
 	};
 	//RHS M2 desert
 	case 8: {[ADV_veh_heavys,["RHS_M2A2","RHS_M2A2_BUSKI","RHS_M2A3_BUSKIII"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_medic,["rhsusf_m113d_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
-		if !(ADV_par_modTruckAssets == 3) then {
+		if !(ADV_par_modTruckAssets == 2) then {
 			[ADV_veh_logistic_ammo,["rhsusf_m113d_usarmy_supply"],west] spawn ADV_fnc_changeVeh;
 		};
 	};
 	//RHS M2 woodland
 	case 9: {[ADV_veh_heavys,["RHS_M2A2_wd","RHS_M2A2_BUSKI_WD","RHS_M2A3_BUSKIII_wd"],west] spawn ADV_fnc_changeVeh; [ADV_veh_logistic_medic,["rhsusf_m113_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
-		if !(ADV_par_modTruckAssets == 2) then {
+		if !(ADV_par_modTruckAssets == 3) then {
 			[ADV_veh_logistic_ammo,["rhsusf_m113_usarmy_supply"],west] spawn ADV_fnc_changeVeh;
 		};	
 	};

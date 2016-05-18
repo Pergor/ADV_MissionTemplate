@@ -202,7 +202,7 @@ switch (ADV_par_customWeap) do {
 		_optic = ["BWA3_optic_EOTech_Mag_Off"];
 		_attachments = ["BWA3_acc_VarioRay_irlaser","BWA3_muzzle_snds_G36"];
 		_handgun = "BWA3_P8";
-		_itemsHandgun = [];
+		_itemsHandgun = [""];
 	};
 	case 2: {
 		//RHS Army
@@ -226,7 +226,7 @@ switch (ADV_par_customWeap) do {
 		_attachments = ["rhsusf_acc_anpeq15","rhsusf_acc_rotex5_grey"];
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5") && ADV_par_Silencers == 1) then {
 			_primaryweapon = "hlc_smg_mp5sd6"; _silencer = "";
-			_attachments = [];
+			_attachments = [""];
 			_primaryweaponAmmo set [1,2];
 			_additionalAmmo = nil;
 		} else {

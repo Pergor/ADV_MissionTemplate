@@ -221,8 +221,8 @@ switch (ADV_par_customWeap) do {
 	case 3: {
 		//RHS Marines
 		_primaryweapon = ["rhs_weap_M107"];
-		_attachments = ["optic_LRPS"];
-		_silencer = "rhsusf_acc_M2010S";
+		_attachments = ["rhsusf_acc_premier"];
+		_silencer = "";
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
@@ -230,8 +230,8 @@ switch (ADV_par_customWeap) do {
 	case 4: {
 		//RHS SOF
 		_primaryweapon = ["rhs_weap_M107"];
-		_attachments = ["optic_LRPS"];
-		_silencer = "rhsusf_acc_M2010S";
+		_attachments = ["rhsusf_acc_premier"];
+		_silencer = "";
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";

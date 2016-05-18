@@ -68,10 +68,11 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["rhsusf_20Rnd_762x51_m118_special_Mag",20];
 			_target addMagazineCargoGlobal ["rhsusf_5Rnd_300winmag_xm2010",10];
 			_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51",20];
+			_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51_m80a1epr",20];
 			_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",20];
 			if (ADV_par_customWeap == 3) then {
 				if (isClass(configFile >> "CfgPatches" >> "hlcweapons_m60e4")) then {
-					_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_M_M60E4",10];
+					_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_M_M60E4",20];
 				};
 				_target addMagazineCargoGlobal ["rhsusf_mag_7x45acp_MHP",5];
 			} else {
@@ -83,9 +84,14 @@ private ["_target"];
 			if (ADV_par_optics == 1) then {
 				_target addItemCargoGlobal ["rhsusf_acc_compm4",5];
 				_target addItemCargoGlobal ["rhsusf_acc_eotech_552",5];
+				_target addItemCargoGlobal ["rhsusf_acc_ELCAN",5];
 				_target addItemCargoGlobal ["rhsusf_acc_ACOG",5];
 				_target addItemCargoGlobal ["rhsusf_acc_ACOG_pip",5];
 				_target addItemCargoGlobal ["rhsusf_acc_LEUPOLDMK4",1];
+				_target addItemCargoGlobal ["rhsusf_acc_LEUPOLDMK4_2",1];
+				_target addItemCargoGlobal ["rhsusf_acc_premier",1];
+				_target addItemCargoGlobal ["rhsusf_acc_SpecterDR_3d",5];
+				_target addItemCargoGlobal ["rhsusf_acc_SpecterDR",5];
 			};
 		};
 		//SeL CUP MK16

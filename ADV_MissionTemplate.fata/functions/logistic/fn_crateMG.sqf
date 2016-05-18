@@ -26,7 +26,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			if (ADV_par_customWeap == 3 && isClass(configFile >> "CfgPatches" >> "hlcweapons_m60e4")) then {
 				_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_M_M60E4",10];
 			} else {
-				_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51",10];
+				_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51_m80a1epr",10];
 			};
 			//_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",4];
 		};		
