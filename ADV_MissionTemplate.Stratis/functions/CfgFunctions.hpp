@@ -34,7 +34,7 @@ class ADV
 		class flare {};
 		class HCobjects {};
 		class lockVeh {};
-		class manageVeh {};
+		class manageVeh { postInit = 1; };
 		class nil {};
 		class radioRelay {};
 		class respawnVeh {};

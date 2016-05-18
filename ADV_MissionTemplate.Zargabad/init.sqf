@@ -44,9 +44,9 @@ if ( isServer ) then {
 	sleep 1;
 	
 	//custom vehicles:
-	[] spawn ADV_fnc_manageVeh;
-	[] spawn ADV_opf_fnc_manageVeh;
-	[] spawn ADV_ind_fnc_manageVeh;
+	//[] spawn ADV_fnc_manageVeh;
+	//[] spawn ADV_opf_fnc_manageVeh;
+	//[] spawn ADV_ind_fnc_manageVeh;
 	
 	/*	
 	//dead body and vehicle removery

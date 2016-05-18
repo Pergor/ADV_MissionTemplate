@@ -5,7 +5,7 @@ class ADV_ind
 	{
 		file = "ind_functions\server";
 		class disableVehSelector {};
-		class manageVeh {postInit = 1;};
+		class manageVeh { postInit = 1; };
 	};
 	class gear
 	{
