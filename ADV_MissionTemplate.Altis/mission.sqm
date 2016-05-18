@@ -1,4 +1,4 @@
-version=51;
+version=52;
 class EditorData
 {
 	moveGridStep=1;
@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=540;
+		nextID=574;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={15163.208,48.101166,17239.621};
-		dir[]={-0.85662091,-0.51611727,-0.00063422514};
-		up[]={-0.51626062,0.85642236,-0.000383707};
-		aside[]={-0.00074048457,-1.8744156e-007,1.0000728};
+		pos[]={16575.297,33.912735,12762.445};
+		dir[]={-0.33223814,-0.69431126,0.63841641};
+		up[]={-0.32052627,0.71966529,0.61591119};
+		aside[]={0.88707781,-1.3111276e-008,0.46164155};
 	};
 };
 binarizationWanted=0;
@@ -115,14 +115,14 @@ class Mission
 	};
 	class Entities
 	{
-		items=249;
+		items=250;
 		class Item0
 		{
 			dataType="Marker";
 			position[]={15129.301,17.90008,17272.439};
 			name="respawn_west";
 			type="Empty";
-			angle=225.12514;
+			angle=225.12512;
 			id=0;
 		};
 		class Item1
@@ -286,7 +286,7 @@ class Mission
 			colorName="ColorEAST";
 			a=0.69999999;
 			b=0.69999999;
-			angle=104.31816;
+			angle=104.31815;
 			id=14;
 		};
 		class Item15
@@ -474,6 +474,7 @@ class Mission
 				angles[]={0,5.6037254,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -492,6 +493,7 @@ class Mission
 				angles[]={0,5.8629904,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -509,6 +511,7 @@ class Mission
 				angles[]={0,4.3949485,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -526,6 +529,7 @@ class Mission
 				angles[]={0,0.52854067,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -542,6 +546,7 @@ class Mission
 				angles[]={0,5.8629904,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -559,6 +564,7 @@ class Mission
 				angles[]={0,5.8629904,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -576,6 +582,7 @@ class Mission
 				angles[]={0,5.8629904,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -593,6 +600,7 @@ class Mission
 				angles[]={0,5.8629904,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -610,6 +618,7 @@ class Mission
 				angles[]={0,2.5069036,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -626,6 +635,7 @@ class Mission
 				angles[]={0,6.1935334,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -642,6 +652,7 @@ class Mission
 				angles[]={0,0.40648893,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -659,6 +670,7 @@ class Mission
 				angles[]={0,3.1415927,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -666,6 +678,7 @@ class Mission
 			};
 			id=43;
 			type="B_MRAP_01_F";
+			atlOffset=-0.0041294098;
 		};
 		class Item44
 		{
@@ -676,6 +689,7 @@ class Mission
 				angles[]={0,3.1415927,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -693,6 +707,7 @@ class Mission
 				angles[]={0,3.1415927,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -700,6 +715,7 @@ class Mission
 			};
 			id=45;
 			type="B_MRAP_01_hmg_F";
+			atlOffset=4.7683716e-005;
 		};
 		class Item46
 		{
@@ -710,6 +726,7 @@ class Mission
 				angles[]={0,1.4835298,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -717,6 +734,7 @@ class Mission
 			};
 			id=46;
 			type="B_MRAP_01_F";
+			atlOffset=-0.0041294098;
 		};
 		class Item47
 		{
@@ -727,6 +745,7 @@ class Mission
 				angles[]={0,1.4835298,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -744,6 +763,7 @@ class Mission
 				angles[]={0,1.4835298,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -751,6 +771,7 @@ class Mission
 			};
 			id=48;
 			type="B_MRAP_01_hmg_F";
+			atlOffset=4.9591064e-005;
 		};
 		class Item49
 		{
@@ -761,6 +782,7 @@ class Mission
 				angles[]={0.0013372133,0.82431024,0.0013372133};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -778,6 +800,7 @@ class Mission
 				angles[]={0,0.82431024,0.0012918708};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -795,6 +818,7 @@ class Mission
 				angles[]={0,0.82431024,0.0012918708};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -812,6 +836,7 @@ class Mission
 				angles[]={0,3.1415927,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -829,6 +854,7 @@ class Mission
 				angles[]={0,3.1415927,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -846,6 +872,7 @@ class Mission
 				angles[]={0,3.1415927,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -854,6 +881,7 @@ class Mission
 			};
 			id=54;
 			type="B_APC_Tracked_01_CRV_F";
+			atlOffset=5.7220459e-006;
 		};
 		class Item55
 		{
@@ -864,6 +892,7 @@ class Mission
 				angles[]={0,1.4835298,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -881,6 +910,7 @@ class Mission
 				angles[]={0,1.4835298,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -898,6 +928,7 @@ class Mission
 				angles[]={0,1.4835298,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -916,6 +947,7 @@ class Mission
 				angles[]={0,2.0519836,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -923,6 +955,7 @@ class Mission
 			};
 			id=58;
 			type="B_Heli_Transport_01_F";
+			atlOffset=7.2479248e-005;
 		};
 		class Item59
 		{
@@ -933,6 +966,7 @@ class Mission
 				angles[]={0.0026520467,3.9095376,0.0039967569};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -951,6 +985,7 @@ class Mission
 				angles[]={0.049292382,3.5489523,0.0066682254};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -958,6 +993,7 @@ class Mission
 			};
 			id=60;
 			type="B_Heli_Transport_01_F";
+			atlOffset=7.4386597e-005;
 		};
 		class Item61
 		{
@@ -968,6 +1004,7 @@ class Mission
 				angles[]={6.2685208,3.2474818,6.2791886};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -975,6 +1012,7 @@ class Mission
 			};
 			id=61;
 			type="B_Heli_Transport_01_F";
+			atlOffset=7.2479248e-005;
 		};
 		class Item62
 		{
@@ -985,6 +1023,7 @@ class Mission
 				angles[]={0.0012918708,2.6722736,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -992,6 +1031,7 @@ class Mission
 			};
 			id=62;
 			type="B_Heli_Transport_01_F";
+			atlOffset=7.4386597e-005;
 		};
 		class Item63
 		{
@@ -1002,6 +1042,7 @@ class Mission
 				angles[]={0,0.74115235,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1019,6 +1060,7 @@ class Mission
 				angles[]={0.0053265258,0.74115235,6.2751846};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1036,6 +1078,7 @@ class Mission
 				angles[]={0.0012918708,2.4560099,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1053,6 +1096,7 @@ class Mission
 				angles[]={0.0039967569,1.983811,0.0026520467};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1070,6 +1114,7 @@ class Mission
 				angles[]={6.2791886,3.0203271,6.2791886};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1077,6 +1122,7 @@ class Mission
 			};
 			id=67;
 			type="B_MRAP_01_F";
+			atlOffset=-0.0041294098;
 		};
 		class Item68
 		{
@@ -1087,6 +1133,7 @@ class Mission
 				angles[]={6.2765174,3.0203271,0.0013372133};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1094,6 +1141,7 @@ class Mission
 			};
 			id=68;
 			type="B_MRAP_01_F";
+			atlOffset=-0.0041294098;
 		};
 		class Item69
 		{
@@ -1104,6 +1152,7 @@ class Mission
 				angles[]={0,0.77431488,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1121,6 +1170,7 @@ class Mission
 				angles[]={0,0.77431488,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1138,6 +1188,7 @@ class Mission
 				angles[]={0,3.9205852,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1155,6 +1206,7 @@ class Mission
 				angles[]={0,3.9205852,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1172,6 +1224,7 @@ class Mission
 				angles[]={0,3.9205852,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1189,6 +1242,7 @@ class Mission
 				angles[]={0,0.77431488,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1206,6 +1260,7 @@ class Mission
 				angles[]={0,3.9205852,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1223,6 +1278,7 @@ class Mission
 				angles[]={0,0.77431488,6.2822089};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1240,6 +1296,7 @@ class Mission
 				angles[]={0.0079935296,3.037641,6.2685208};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1257,6 +1314,7 @@ class Mission
 				angles[]={0.0080009829,3.037641,0.0066682254};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1274,6 +1332,7 @@ class Mission
 				angles[]={0.015998369,3.037641,6.2818484};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1281,6 +1340,7 @@ class Mission
 			};
 			id=79;
 			type="B_Quadbike_01_F";
+			atlOffset=1.9073486e-006;
 		};
 		class Item80
 		{
@@ -1291,6 +1351,7 @@ class Mission
 				angles[]={0.015998369,3.037641,0.0079935296};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1308,6 +1369,7 @@ class Mission
 				angles[]={0.0093286335,3.037641,0.0066682254};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1325,6 +1387,7 @@ class Mission
 				angles[]={0.0093286335,3.037641,0.0080009829};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1342,6 +1405,7 @@ class Mission
 				angles[]={0.014664836,3.037641,6.2698536};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1359,6 +1423,7 @@ class Mission
 				angles[]={0.014664836,3.037641,0.0013372133};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1376,6 +1441,7 @@ class Mission
 				angles[]={0.029324362,2.2912509,0.027993103};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1383,6 +1449,7 @@ class Mission
 			};
 			id=85;
 			type="B_MBT_01_TUSK_F";
+			atlOffset=0.0058784485;
 		};
 		class Item86
 		{
@@ -1393,6 +1460,7 @@ class Mission
 				angles[]={0.0066682254,5.2981911,6.2765174};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1400,6 +1468,7 @@ class Mission
 			};
 			id=86;
 			type="B_MBT_01_TUSK_F";
+			atlOffset=0.0058803558;
 		};
 		class Item87
 		{
@@ -1410,6 +1479,7 @@ class Mission
 				angles[]={0,2.3413241,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1427,6 +1497,7 @@ class Mission
 				angles[]={6.2778587,3.6402156,6.2805333};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1434,6 +1505,7 @@ class Mission
 			};
 			id=88;
 			type="B_Heli_Transport_03_F";
+			atlOffset=-0.29873276;
 		};
 		class Item89
 		{
@@ -1444,6 +1516,7 @@ class Mission
 				angles[]={0.0039967569,2.3417606,0.010664274};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1451,6 +1524,7 @@ class Mission
 			};
 			id=89;
 			type="B_Truck_01_transport_F";
+			atlOffset=0.00020980835;
 		};
 		class Item90
 		{
@@ -1461,6 +1535,7 @@ class Mission
 				angles[]={0.0053265258,2.3417606,6.2751846};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1468,6 +1543,7 @@ class Mission
 			};
 			id=90;
 			type="B_Truck_01_transport_F";
+			atlOffset=0.00020980835;
 		};
 		class Item91
 		{
@@ -1478,6 +1554,7 @@ class Mission
 				angles[]={0.010664274,2.352447,6.2791886};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1485,6 +1562,7 @@ class Mission
 			};
 			id=91;
 			type="B_Truck_01_fuel_F";
+			atlOffset=0.00020980835;
 		};
 		class Item92
 		{
@@ -1495,6 +1573,7 @@ class Mission
 				angles[]={6.2805333,2.3577876,0.017329043};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1502,6 +1581,7 @@ class Mission
 			};
 			id=92;
 			type="B_Truck_01_ammo_F";
+			atlOffset=0.00020980835;
 		};
 		class Item93
 		{
@@ -1512,6 +1592,7 @@ class Mission
 				angles[]={0.0066682254,2.356194,0.018663859};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1519,6 +1600,7 @@ class Mission
 			};
 			id=93;
 			type="B_Truck_01_Repair_F";
+			atlOffset=0.00020980835;
 		};
 		class Item94
 		{
@@ -1529,6 +1611,7 @@ class Mission
 				angles[]={0.0039967569,2.3417606,0.0093286335};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1536,6 +1619,7 @@ class Mission
 			};
 			id=94;
 			type="B_Truck_01_medical_F";
+			atlOffset=0.00020980835;
 		};
 		class Item95
 		{
@@ -1546,6 +1630,7 @@ class Mission
 				angles[]={6.2791886,5.6037254,6.2179461};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1554,6 +1639,7 @@ class Mission
 			};
 			id=95;
 			type="Flag_CSAT_F";
+			atlOffset=0.0084953308;
 		};
 		class Item96
 		{
@@ -1564,6 +1650,7 @@ class Mission
 				angles[]={0.017329043,1.400501,6.2060065};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1581,6 +1668,7 @@ class Mission
 				angles[]={6.2765174,6.2156453,6.2299018};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1598,12 +1686,14 @@ class Mission
 				angles[]={6.2765174,2.3492386,6.2299018};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
 			};
 			id=98;
 			type="Land_Pallet_MilBoxes_F";
+			atlOffset=0.00064468384;
 		};
 		class Item99
 		{
@@ -1614,6 +1704,7 @@ class Mission
 				angles[]={6.2765174,1.4005013,6.2299018};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1631,6 +1722,7 @@ class Mission
 				angles[]={6.2765174,1.4005013,6.2551947};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1648,6 +1740,7 @@ class Mission
 				angles[]={6.2765174,1.4005013,6.2551947};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1665,6 +1758,7 @@ class Mission
 				angles[]={0.0080009829,1.4005013,6.2060056};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1682,12 +1776,14 @@ class Mission
 				angles[]={6.2765174,4.3275976,6.2551947};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
 			};
 			id=103;
 			type="Land_Pallet_MilBoxes_F";
+			atlOffset=0.00015449524;
 		};
 		class Item104
 		{
@@ -1698,12 +1794,14 @@ class Mission
 				angles[]={6.2765174,1.731045,6.2551947};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
 			};
 			id=104;
 			type="Land_Pallet_MilBoxes_F";
+			atlOffset=0.00015258789;
 		};
 		class Item105
 		{
@@ -1714,6 +1812,7 @@ class Mission
 				angles[]={6.2765174,2.2271869,6.2551947};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1731,6 +1830,7 @@ class Mission
 				angles[]={0.022662206,4.067193,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1748,6 +1848,7 @@ class Mission
 				angles[]={0.027993103,4.067193,6.2818484};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1765,6 +1866,7 @@ class Mission
 				angles[]={0.051953323,4.067193,0.0026744273};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1782,6 +1884,7 @@ class Mission
 				angles[]={0.051953323,4.067193,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1799,6 +1902,7 @@ class Mission
 				angles[]={0.054611389,4.067193,6.272521};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1816,6 +1920,7 @@ class Mission
 				angles[]={0.0053265258,4.067193,0.0026520467};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1833,6 +1938,7 @@ class Mission
 				angles[]={0.034652505,5.4709339,6.2685208};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1850,6 +1956,7 @@ class Mission
 				angles[]={0.045302324,5.4709339,6.2525291};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1857,6 +1964,7 @@ class Mission
 			};
 			id=113;
 			type="O_MBT_02_arty_F";
+			atlOffset=1.9073486e-006;
 		};
 		class Item114
 		{
@@ -1867,6 +1975,7 @@ class Mission
 				angles[]={0.017332481,5.4709339,6.2485328};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1884,6 +1993,7 @@ class Mission
 				angles[]={0,4.0798669,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1901,6 +2011,7 @@ class Mission
 				angles[]={0.0026520467,4.0798669,6.2791886};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1918,6 +2029,7 @@ class Mission
 				angles[]={0.038646095,4.0798669,0.049292382};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1925,6 +2037,7 @@ class Mission
 			};
 			id=117;
 			type="O_APC_Tracked_02_cannon_F";
+			atlOffset=0.0038738251;
 		};
 		class Item118
 		{
@@ -1935,6 +2048,7 @@ class Mission
 				angles[]={0.0080009829,4.0798669,6.2818484};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1952,6 +2066,7 @@ class Mission
 				angles[]={0.043971907,4.0798669,6.2818484};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1969,6 +2084,7 @@ class Mission
 				angles[]={0.061256282,4.0798669,6.256525};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1976,6 +2092,7 @@ class Mission
 			};
 			id=120;
 			type="O_APC_Tracked_02_cannon_F";
+			atlOffset=0.0038738251;
 		};
 		class Item121
 		{
@@ -1986,6 +2103,7 @@ class Mission
 				angles[]={0.0026744273,5.6091385,6.2645216};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -1993,6 +2111,7 @@ class Mission
 			};
 			id=121;
 			type="O_Heli_Light_02_F";
+			atlOffset=-0.0049972534;
 		};
 		class Item122
 		{
@@ -2003,6 +2122,7 @@ class Mission
 				angles[]={0.018663859,5.6599107,6.2325621};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2021,6 +2141,7 @@ class Mission
 				angles[]={0.018663859,4.0718579,6.2658563};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2038,6 +2159,7 @@ class Mission
 				angles[]={0.0093286335,4.0497928,6.2751846};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2055,6 +2177,7 @@ class Mission
 				angles[]={0.0093286335,4.1063275,6.2751846};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2072,6 +2195,7 @@ class Mission
 				angles[]={0.017329043,4.055408,6.2698536};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2089,6 +2213,7 @@ class Mission
 				angles[]={0.017329043,4.055408,6.2698536};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2106,6 +2231,7 @@ class Mission
 				angles[]={0.013332055,4.0497928,6.2751846};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2123,6 +2249,7 @@ class Mission
 				angles[]={0.0093286335,4.1063275,6.2751846};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2140,6 +2267,7 @@ class Mission
 				angles[]={0.018663859,4.0718579,6.2751846};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2157,6 +2285,7 @@ class Mission
 				angles[]={6.2818484,1.0352385,6.2778587};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2174,6 +2303,7 @@ class Mission
 				angles[]={0.13909611,2.4997258,6.2671871};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2191,6 +2321,7 @@ class Mission
 				angles[]={0.038647637,2.4997258,0.02399601};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2208,6 +2339,7 @@ class Mission
 				angles[]={0.06656827,2.5104079,0.012000273};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2225,6 +2357,7 @@ class Mission
 				angles[]={0.050623242,2.5157495,0.029324362};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2242,6 +2375,7 @@ class Mission
 				angles[]={0.017329043,4.8859286,0.0039967569};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2249,6 +2383,7 @@ class Mission
 			};
 			id=136;
 			type="O_Heli_Light_02_F";
+			atlOffset=-0.0049953461;
 		};
 		class Item137
 		{
@@ -2259,6 +2394,7 @@ class Mission
 				angles[]={0.035984326,4.8859286,0.0066682254};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2266,6 +2402,7 @@ class Mission
 			};
 			id=137;
 			type="O_Heli_Light_02_F";
+			atlOffset=-0.0050067902;
 		};
 		class Item138
 		{
@@ -2276,6 +2413,7 @@ class Mission
 				angles[]={0.030658109,4.8859286,6.2631865};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2283,6 +2421,7 @@ class Mission
 			};
 			id=138;
 			type="O_Heli_Light_02_F";
+			atlOffset=-0.0050048828;
 		};
 		class Item139
 		{
@@ -2293,6 +2432,7 @@ class Mission
 				angles[]={0.010664274,4.8893466,6.2818484};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2300,6 +2440,7 @@ class Mission
 			};
 			id=139;
 			type="O_Heli_Light_02_unarmed_F";
+			atlOffset=-0.0050029755;
 		};
 		class Item140
 		{
@@ -2310,6 +2451,7 @@ class Mission
 				angles[]={0.018663859,4.8893466,0.0039967569};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2317,6 +2459,7 @@ class Mission
 			};
 			id=140;
 			type="O_Heli_Light_02_unarmed_F";
+			atlOffset=-0.0049953461;
 		};
 		class Item141
 		{
@@ -2327,6 +2470,7 @@ class Mission
 				angles[]={0.0039967569,3.3375862,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2334,6 +2478,7 @@ class Mission
 			};
 			id=141;
 			type="O_Plane_CAS_02_F";
+			atlOffset=4.7683716e-005;
 		};
 		class Item142
 		{
@@ -2344,6 +2489,7 @@ class Mission
 				angles[]={0.010664274,0.88814592,6.2751846};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2351,6 +2497,7 @@ class Mission
 			};
 			id=142;
 			type="O_Plane_CAS_02_F";
+			atlOffset=7.4386597e-005;
 		};
 		class Item143
 		{
@@ -2361,6 +2508,7 @@ class Mission
 				angles[]={0.059928458,4.067193,6.2698536};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2378,6 +2526,7 @@ class Mission
 				angles[]={0.0039967569,4.067193,6.2818484};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2395,6 +2544,7 @@ class Mission
 				angles[]={0.0053265258,5.4559345,6.2671871};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2412,6 +2562,7 @@ class Mission
 				angles[]={0.025327841,5.4790945,0.0039967569};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2429,6 +2580,7 @@ class Mission
 				angles[]={0.046633169,0.66322511,0.019999012};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2436,6 +2588,7 @@ class Mission
 			};
 			id=147;
 			type="O_Heli_Transport_04_F";
+			atlOffset=-0.073404312;
 		};
 		class Item148
 		{
@@ -2446,6 +2599,7 @@ class Mission
 				angles[]={0.046633169,0.67580897,0.019999012};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2462,6 +2616,7 @@ class Mission
 				angles[]={0.030658109,4.8871698,6.2631865};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2478,6 +2633,7 @@ class Mission
 				angles[]={0.035984326,4.8871698,0.0066682254};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2494,6 +2650,7 @@ class Mission
 				angles[]={0.017329043,4.8871698,0.0039967569};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2510,6 +2667,7 @@ class Mission
 				angles[]={0.018667053,4.8871698,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2526,6 +2684,7 @@ class Mission
 				angles[]={0.010664274,4.8871698,6.2818484};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2542,6 +2701,7 @@ class Mission
 				angles[]={6.2818484,0,6.2498641};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2559,6 +2719,7 @@ class Mission
 				angles[]={0.025327841,2.4993114,0.017332481};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2576,6 +2737,7 @@ class Mission
 				angles[]={0.065240532,2.4993114,0.017332481};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2593,6 +2755,7 @@ class Mission
 				angles[]={6.2392135,0.66322511,0.061256282};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2610,6 +2773,7 @@ class Mission
 				angles[]={6.2392135,0.66322511,6.2405434};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2627,6 +2791,7 @@ class Mission
 				angles[]={0,5.8629904,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2644,6 +2809,7 @@ class Mission
 				angles[]={0,0.55276322,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2661,6 +2827,7 @@ class Mission
 				angles[]={0,0.73617291,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2678,6 +2845,7 @@ class Mission
 				angles[]={0,0.75866151,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2695,6 +2863,7 @@ class Mission
 				angles[]={0,6.2824697,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2702,16 +2871,18 @@ class Mission
 			};
 			id=163;
 			type="Land_WeldingTrolley_01_F";
+			atlOffset=1.2397766e-005;
 		};
 		class Item164
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={16602.551,13.381704,12718.631};
+				position[]={16601.982,13.381704,12719.317};
 				angles[]={0,0.49594226,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2729,6 +2900,7 @@ class Mission
 				angles[]={0,5.8203411,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2746,6 +2918,7 @@ class Mission
 				angles[]={0,1.2470552,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2763,6 +2936,7 @@ class Mission
 				angles[]={0,0.22196749,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2780,6 +2954,7 @@ class Mission
 				angles[]={0,0.73585695,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2797,6 +2972,7 @@ class Mission
 				angles[]={0,0.72236907,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2814,6 +2990,7 @@ class Mission
 				angles[]={0,0.74989116,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2831,6 +3008,7 @@ class Mission
 				angles[]={0,0.72239351,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2844,10 +3022,11 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={16596.07,11,12727.914};
+				position[]={16595.068,11,12728.411};
 				angles[]={0,1.5184364,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2864,6 +3043,7 @@ class Mission
 				angles[]={6.2778587,3.6483314,0.0093286335};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2871,6 +3051,7 @@ class Mission
 			};
 			id=173;
 			type="SignAd_Sponsor_Redburger_F";
+			atlOffset=4.0054321e-005;
 		};
 		class Item174
 		{
@@ -2881,12 +3062,14 @@ class Mission
 				angles[]={0.0013372133,5.4086709,0.030656165};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
 			};
 			id=174;
 			type="Land_CampingChair_V2_F";
+			atlOffset=0.00047302246;
 		};
 		class Item175
 		{
@@ -2897,6 +3080,7 @@ class Mission
 				angles[]={0.0013372133,7.8150086e-005,0.030656165};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2904,6 +3088,7 @@ class Mission
 			};
 			id=175;
 			type="Land_Sunshade_04_F";
+			atlOffset=0.0013399124;
 		};
 		class Item176
 		{
@@ -2914,6 +3099,7 @@ class Mission
 				angles[]={0,0.54204166,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2930,6 +3116,7 @@ class Mission
 				angles[]={0,0.70700151,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2947,6 +3134,7 @@ class Mission
 				angles[]={6.2818484,0,0.0026520467};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2954,6 +3142,7 @@ class Mission
 			};
 			id=178;
 			type="Land_Sunshade_04_F";
+			atlOffset=1.9073486e-005;
 		};
 		class Item179
 		{
@@ -2963,6 +3152,7 @@ class Mission
 				position[]={16536.451,12.302504,12764.432};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2980,6 +3170,7 @@ class Mission
 				angles[]={0,2.2587528,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2997,6 +3188,7 @@ class Mission
 				angles[]={0,3.6741273,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3014,6 +3206,7 @@ class Mission
 				angles[]={0.0012918708,4.635612,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3031,6 +3224,7 @@ class Mission
 				angles[]={0,4.2965641,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3038,6 +3232,7 @@ class Mission
 			};
 			id=183;
 			type="Land_TablePlastic_01_F";
+			atlOffset=0.00032520294;
 		};
 		class Item184
 		{
@@ -3048,6 +3243,7 @@ class Mission
 				angles[]={6.2818484,6.6135763e-005,0.0026520467};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3055,6 +3251,7 @@ class Mission
 			};
 			id=184;
 			type="Land_TablePlastic_01_F";
+			atlOffset=1.8119812e-005;
 		};
 		class Item185
 		{
@@ -3065,6 +3262,7 @@ class Mission
 				angles[]={0,5.2831464,6.2751918};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3072,6 +3270,7 @@ class Mission
 			};
 			id=185;
 			type="SignAd_SponsorS_Blueking_F";
+			atlOffset=4.1007996e-005;
 		};
 		class Item186
 		{
@@ -3082,6 +3281,7 @@ class Mission
 				angles[]={0,5.2668276,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3099,6 +3299,7 @@ class Mission
 				angles[]={0,5.267683,6.2751918};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3106,6 +3307,7 @@ class Mission
 			};
 			id=187;
 			type="SignAd_SponsorS_Burstkoke_F";
+			atlOffset=2.9563904e-005;
 		};
 		class Item188
 		{
@@ -3116,12 +3318,14 @@ class Mission
 				angles[]={0,5.2684507,6.2751918};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
 			};
 			id=188;
 			type="Land_Bench_01_F";
+			atlOffset=1.6212463e-005;
 		};
 		class Item189
 		{
@@ -3132,12 +3336,14 @@ class Mission
 				angles[]={6.2818484,0.36286268,0.0026520467};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
 			};
 			id=189;
 			type="Land_CampingChair_V2_F";
+			atlOffset=2.8610229e-005;
 		};
 		class Item190
 		{
@@ -3148,12 +3354,14 @@ class Mission
 				angles[]={0,4.308764,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
 			};
 			id=190;
 			type="Land_CampingChair_V2_F";
+			atlOffset=5.2452087e-005;
 		};
 		class Item191
 		{
@@ -3164,6 +3372,7 @@ class Mission
 				angles[]={0.0093286335,0.49776092,0.0053265258};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3171,6 +3380,7 @@ class Mission
 			};
 			id=191;
 			type="SignAd_Sponsor_Suatmm_F";
+			atlOffset=5.7220459e-005;
 		};
 		class Item192
 		{
@@ -3181,6 +3391,7 @@ class Mission
 				angles[]={0.0093286335,0.51083869,0.0053265258};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3188,6 +3399,7 @@ class Mission
 			};
 			id=192;
 			type="SignAd_Sponsor_Blueking_F";
+			atlOffset=5.8174133e-005;
 		};
 		class Item193
 		{
@@ -3198,6 +3410,7 @@ class Mission
 				angles[]={0,3.6801314,0.010664274};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3205,6 +3418,7 @@ class Mission
 			};
 			id=193;
 			type="SignAd_Sponsor_Burstkoke_F";
+			atlOffset=6.4849854e-005;
 		};
 		class Item194
 		{
@@ -3215,6 +3429,7 @@ class Mission
 				angles[]={0.027990974,2.0545142,0.034652505};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3222,6 +3437,7 @@ class Mission
 			};
 			id=194;
 			type="Land_CncBarrierMedium4_F";
+			atlOffset=0.003118515;
 		};
 		class Item195
 		{
@@ -3232,12 +3448,14 @@ class Mission
 				angles[]={0,3.6996965,6.2805333};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
 			};
 			id=195;
 			type="Land_Kiosk_blueking_F";
+			atlOffset=0.099381447;
 		};
 		class Item196
 		{
@@ -3248,6 +3466,7 @@ class Mission
 				angles[]={0,0.6457718,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3265,6 +3484,7 @@ class Mission
 				angles[]={0,3.6734469,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3282,6 +3502,7 @@ class Mission
 				angles[]={0,3.6721902,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3299,6 +3520,7 @@ class Mission
 				angles[]={0,0.55276322,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3316,6 +3538,7 @@ class Mission
 				angles[]={0,3.8047304,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3334,6 +3557,7 @@ class Mission
 				angles[]={0.015998369,2.117451,0.015998369};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3341,6 +3565,7 @@ class Mission
 			};
 			id=201;
 			type="Land_BarGate_F";
+			atlOffset=-0.026758194;
 		};
 		class Item202
 		{
@@ -3351,6 +3576,7 @@ class Mission
 				angles[]={0,3.0948353,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3368,6 +3594,7 @@ class Mission
 				angles[]={0,2.6179938,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3385,6 +3612,7 @@ class Mission
 				angles[]={0,2.7052603,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3402,6 +3630,7 @@ class Mission
 				angles[]={0,3.7873645,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3415,10 +3644,11 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={16596.555,12.400242,12728.082};
+				position[]={16595.553,12.400242,12728.579};
 				angles[]={0,4.1500459,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3436,6 +3666,7 @@ class Mission
 				angles[]={0,0.55276322,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3452,6 +3683,7 @@ class Mission
 				angles[]={0.0013372133,0.76969016,6.2818484};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3586,7 +3818,7 @@ class Mission
 						angles[]={0.24058206,0,0.25186872};
 					};
 					side="West";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.2;
@@ -3618,7 +3850,7 @@ class Mission
 						angles[]={0.25061768,0,0.057271164};
 					};
 					side="East";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.2;
@@ -3627,12 +3859,14 @@ class Mission
 					};
 					id=213;
 					type="o_soldier_unarmed_f";
+					atlOffset=-7.6293945e-006;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=212;
+			atlOffset=-7.6293945e-006;
 		};
 		class Item212
 		{
@@ -3650,7 +3884,7 @@ class Mission
 						angles[]={0.21145752,0,0.031988446};
 					};
 					side="Independent";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.2;
@@ -3682,7 +3916,7 @@ class Mission
 						angles[]={0.27424487,0,6.0922084};
 					};
 					side="Civilian";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.2;
@@ -4275,7 +4509,7 @@ class Mission
 						angles[]={0.0012918708,3.1315393,0};
 					};
 					side="West";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4297,6 +4531,7 @@ class Mission
 						angles[]={0.0013372133,3.1315393,0.0013372133};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4317,6 +4552,7 @@ class Mission
 						angles[]={0.0013372133,3.1315393,0.0013372133};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4337,6 +4573,7 @@ class Mission
 						angles[]={0.0013372133,3.131557,0.0013372133};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4357,6 +4594,7 @@ class Mission
 						angles[]={0,3.2633467,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4390,7 +4628,7 @@ class Mission
 						angles[]={0.0012918708,6.273138,0};
 					};
 					side="West";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4412,6 +4650,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4432,6 +4671,7 @@ class Mission
 						angles[]={0.0012918708,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4452,6 +4692,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4471,6 +4712,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4490,6 +4732,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4509,6 +4752,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4529,6 +4773,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4548,6 +4793,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4567,6 +4813,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4599,7 +4846,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4621,6 +4868,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4641,6 +4889,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4661,6 +4910,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4680,6 +4930,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4699,6 +4950,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4718,6 +4970,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4738,6 +4991,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4757,6 +5011,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4776,6 +5031,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4798,7 +5054,7 @@ class Mission
 			side="Independent";
 			class Entities
 			{
-				items=3;
+				items=5;
 				class Item0
 				{
 					dataType="Object";
@@ -4808,7 +5064,7 @@ class Mission
 						angles[]={0,2.6468966,0};
 					};
 					side="Independent";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4830,6 +5086,7 @@ class Mission
 						angles[]={0,2.6468966,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4850,6 +5107,7 @@ class Mission
 						angles[]={0,2.6468966,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4860,6 +5118,46 @@ class Mission
 					};
 					id=298;
 					type="I_medic_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={16560.146,11.001439,12766.888};
+						angles[]={0,2.6666014,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						name="ind_ftLeader_command";
+						description="ZBV";
+						isPlayable=1;
+					};
+					id=544;
+					type="I_Soldier_SL_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={16562.664,11.001439,12768};
+						angles[]={0,2.6666014,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						name="ind_ftLeader_command_1";
+						description="ZBV";
+						isPlayable=1;
+					};
+					id=546;
+					type="I_Soldier_SL_F";
 				};
 			};
 			class Attributes
@@ -4883,7 +5181,7 @@ class Mission
 						angles[]={0,5.7214947,0};
 					};
 					side="Independent";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4905,6 +5203,7 @@ class Mission
 						angles[]={0,5.7214947,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4925,6 +5224,7 @@ class Mission
 						angles[]={0,5.7214947,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4945,6 +5245,7 @@ class Mission
 						angles[]={0,5.7214947,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4964,6 +5265,7 @@ class Mission
 						angles[]={0,5.7214947,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -4979,29 +5281,11 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={16564.877,11.001439,12759.577};
-						angles[]={0,5.7214947,0};
-					};
-					side="Independent";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="ind_soldier_1";
-						description="Schütze";
-						isPlayable=1;
-					};
-					id=305;
-					type="I_soldier_F";
-				};
-				class Item6
-				{
-					dataType="Object";
-					class PositionInfo
-					{
 						position[]={16561.832,11.001439,12753.973};
 						angles[]={0,5.7214947,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5013,7 +5297,7 @@ class Mission
 					id=306;
 					type="I_Soldier_TL_F";
 				};
-				class Item7
+				class Item6
 				{
 					dataType="Object";
 					class PositionInfo
@@ -5022,6 +5306,7 @@ class Mission
 						angles[]={0,5.7214947,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5032,7 +5317,7 @@ class Mission
 					id=307;
 					type="I_engineer_F";
 				};
-				class Item8
+				class Item7
 				{
 					dataType="Object";
 					class PositionInfo
@@ -5041,6 +5326,7 @@ class Mission
 						angles[]={0,5.7214947,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5051,24 +5337,45 @@ class Mission
 					id=308;
 					type="I_Soldier_GL_F";
 				};
-				class Item9
+				class Item8
 				{
 					dataType="Object";
 					class PositionInfo
 					{
 						position[]={16568.268,11.001439,12754.653};
-						angles[]={0,5.7214947,0};
+						angles[]={0,5.7214856,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
-						name="ind_soldier_2";
+						name="ind_soldier_1";
 						description="Schütze";
 						isPlayable=1;
 					};
 					id=309;
 					type="I_soldier_F";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={16564.877,11.001439,12759.577};
+						angles[]={0,5.7214856,0};
+					};
+					side="Independent";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="ind_soldierAT_1";
+						description="AT-Schütze";
+						isPlayable=1;
+					};
+					id=540;
+					type="I_Soldier_LAT_F";
 				};
 			};
 			class Attributes
@@ -5092,7 +5399,7 @@ class Mission
 						angles[]={0,5.6451979,0};
 					};
 					side="Independent";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5114,6 +5421,7 @@ class Mission
 						angles[]={0,5.6451979,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5134,6 +5442,7 @@ class Mission
 						angles[]={0,5.6451979,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5154,6 +5463,7 @@ class Mission
 						angles[]={0,5.6451979,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5173,6 +5483,7 @@ class Mission
 						angles[]={0,5.6451979,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5188,29 +5499,11 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={16571.805,11.001439,12748.639};
-						angles[]={0,5.6451979,0};
-					};
-					side="Independent";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="ind_soldier_3";
-						description="Schütze";
-						isPlayable=1;
-					};
-					id=316;
-					type="I_soldier_F";
-				};
-				class Item6
-				{
-					dataType="Object";
-					class PositionInfo
-					{
 						position[]={16569.086,11.001439,12742.89};
 						angles[]={0,5.6451979,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5222,26 +5515,7 @@ class Mission
 					id=317;
 					type="I_Soldier_TL_F";
 				};
-				class Item7
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={16570.996,11.001439,12740.793};
-						angles[]={0,5.6451979,0};
-					};
-					side="Independent";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="ind_marksman_1";
-						description="Zielfernrohrschütze";
-						isPlayable=1;
-					};
-					id=318;
-					type="I_Soldier_M_F";
-				};
-				class Item8
+				class Item6
 				{
 					dataType="Object";
 					class PositionInfo
@@ -5250,6 +5524,7 @@ class Mission
 						angles[]={0,5.6451979,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5260,7 +5535,7 @@ class Mission
 					id=319;
 					type="I_Soldier_GL_F";
 				};
-				class Item9
+				class Item7
 				{
 					dataType="Object";
 					class PositionInfo
@@ -5269,15 +5544,56 @@ class Mission
 						angles[]={0,5.6451979,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
-						name="ind_soldier_4";
+						name="ind_soldier_2";
 						description="Schütze";
 						isPlayable=1;
 					};
 					id=320;
 					type="I_soldier_F";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={16571.805,11.001439,12748.639};
+						angles[]={0,5.6451979,0};
+					};
+					side="Independent";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="ind_soldierAT_2";
+						description="AT-Schütze";
+						isPlayable=1;
+					};
+					id=541;
+					type="I_Soldier_LAT_F";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={16570.996,11.001439,12740.793};
+						angles[]={0,5.6451979,0};
+					};
+					side="Independent";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="ind_spec_2";
+						description="Pionier";
+						isPlayable=1;
+					};
+					id=547;
+					type="I_engineer_F";
 				};
 			};
 			class Attributes
@@ -5301,7 +5617,7 @@ class Mission
 						angles[]={0,5.7194319,0};
 					};
 					side="Independent";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5323,6 +5639,7 @@ class Mission
 						angles[]={0,5.7194319,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5343,6 +5660,7 @@ class Mission
 						angles[]={0,5.7194319,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5363,6 +5681,7 @@ class Mission
 						angles[]={0,5.7194319,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5382,6 +5701,7 @@ class Mission
 						angles[]={0,5.7194319,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5397,29 +5717,11 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={16580.615,11.001439,12739.777};
-						angles[]={0,5.7194319,0};
-					};
-					side="Independent";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="ind_soldier_5";
-						description="Schütze";
-						isPlayable=1;
-					};
-					id=327;
-					type="I_soldier_F";
-				};
-				class Item6
-				{
-					dataType="Object";
-					class PositionInfo
-					{
 						position[]={16577.543,11.001439,12734.7};
 						angles[]={0,5.7194319,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5431,26 +5733,27 @@ class Mission
 					id=328;
 					type="I_Soldier_TL_F";
 				};
-				class Item7
+				class Item6
 				{
 					dataType="Object";
 					class PositionInfo
 					{
 						position[]={16579.271,11.001439,12732.486};
-						angles[]={0,5.7194319,0};
+						angles[]={0,5.7194266,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
-						name="ind_spec_2";
+						name="ind_spec_3";
 						description="Pionier";
 						isPlayable=1;
 					};
 					id=329;
 					type="I_engineer_F";
 				};
-				class Item8
+				class Item7
 				{
 					dataType="Object";
 					class PositionInfo
@@ -5459,6 +5762,7 @@ class Mission
 						angles[]={0,5.7194319,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5469,24 +5773,45 @@ class Mission
 					id=330;
 					type="I_Soldier_GL_F";
 				};
-				class Item9
+				class Item8
 				{
 					dataType="Object";
 					class PositionInfo
 					{
 						position[]={16583.982,11.001439,12735.43};
-						angles[]={0,5.7194319,0};
+						angles[]={0,5.7194266,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
-						name="ind_soldier_6";
+						name="ind_soldier_3";
 						description="Schütze";
 						isPlayable=1;
 					};
 					id=331;
 					type="I_soldier_F";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={16580.615,11.001439,12739.777};
+						angles[]={0,5.7194266,0};
+					};
+					side="Independent";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="ind_soldierAT_3";
+						description="AT-Schütze";
+						isPlayable=1;
+					};
+					id=542;
+					type="I_Soldier_LAT_F";
 				};
 			};
 			class Attributes
@@ -5510,7 +5835,7 @@ class Mission
 						angles[]={0,5.0494838,0};
 					};
 					side="Independent";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5532,6 +5857,7 @@ class Mission
 						angles[]={0,5.0494838,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5552,6 +5878,7 @@ class Mission
 						angles[]={0,5.0494838,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5572,6 +5899,7 @@ class Mission
 						angles[]={0,5.0494838,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5592,6 +5920,7 @@ class Mission
 						angles[]={0,5.0494838,0};
 					};
 					side="Independent";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5611,62 +5940,6 @@ class Mission
 		class Item228
 		{
 			dataType="Group";
-			side="Independent";
-			class Entities
-			{
-				items=2;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={16566.145,11.001439,12780.581};
-						angles[]={0,3.1415927,0};
-					};
-					side="Independent";
-					flags=2;
-					class Attributes
-					{
-						skill=0.60000002;
-						rank="COLONEL";
-						init="(group this) setGroupId [""Zeus""]";
-						name="ind_z1";
-						description="Zeus 1";
-						isPlayable=1;
-					};
-					id=339;
-					type="I_officer_F";
-				};
-				class Item1
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={16568.088,11.001439,12782.271};
-						angles[]={0,3.1415927,0};
-					};
-					side="Independent";
-					class Attributes
-					{
-						skill=0.60000002;
-						rank="MAJOR";
-						init="(group this) setGroupId [""Zeus""]";
-						name="ind_z2";
-						description="Zeus 2";
-						isPlayable=1;
-					};
-					id=340;
-					type="I_officer_F";
-				};
-			};
-			class Attributes
-			{
-			};
-			id=338;
-		};
-		class Item229
-		{
-			dataType="Group";
 			side="East";
 			class Entities
 			{
@@ -5680,7 +5953,7 @@ class Mission
 						angles[]={0.0093286335,0.91482478,6.2751846};
 					};
 					side="East";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5702,6 +5975,7 @@ class Mission
 						angles[]={0.0093286335,0.91482478,6.2751846};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5723,6 +5997,7 @@ class Mission
 						angles[]={0.0093286335,0.91482478,6.2751846};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5744,6 +6019,7 @@ class Mission
 						angles[]={0.0093286335,0.91482478,0.014664836};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5764,6 +6040,7 @@ class Mission
 						angles[]={0.0093286335,0.73638237,0.014664836};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5781,7 +6058,7 @@ class Mission
 			};
 			id=341;
 		};
-		class Item230
+		class Item229
 		{
 			dataType="Group";
 			side="East";
@@ -5797,7 +6074,7 @@ class Mission
 						angles[]={0.0080009829,4.0568962,6.2765174};
 					};
 					side="East";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5819,6 +6096,7 @@ class Mission
 						angles[]={0.0080009829,4.0568962,6.2791886};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5839,6 +6117,7 @@ class Mission
 						angles[]={0.0080009829,4.0568962,6.2765174};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5859,6 +6138,7 @@ class Mission
 						angles[]={0.012000273,4.0568962,0.0053265258};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5878,6 +6158,7 @@ class Mission
 						angles[]={0.012000273,4.0568962,0.0053265258};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5897,6 +6178,7 @@ class Mission
 						angles[]={0.012000273,4.0568962,0.0053265258};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5916,6 +6198,7 @@ class Mission
 						angles[]={0.02399601,4.0568962,6.2765174};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5936,6 +6219,7 @@ class Mission
 						angles[]={0.012000273,4.0568962,0.0053265258};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5955,6 +6239,7 @@ class Mission
 						angles[]={0.051952176,4.0568962,0.0053265258};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5974,6 +6259,7 @@ class Mission
 						angles[]={0.051952176,4.0568962,0.0053265258};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -5990,7 +6276,7 @@ class Mission
 			};
 			id=347;
 		};
-		class Item231
+		class Item230
 		{
 			dataType="Group";
 			side="East";
@@ -6006,7 +6292,7 @@ class Mission
 						angles[]={0.011995304,4.0568962,6.2738566};
 					};
 					side="East";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6028,6 +6314,7 @@ class Mission
 						angles[]={0.011995304,4.0568962,6.2738566};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6048,6 +6335,7 @@ class Mission
 						angles[]={0.011995304,4.0568962,6.2738566};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6068,6 +6356,7 @@ class Mission
 						angles[]={0.011995304,4.0568962,6.2738566};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6087,6 +6376,7 @@ class Mission
 						angles[]={0.011995304,4.0568962,6.2738566};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6106,6 +6396,7 @@ class Mission
 						angles[]={0.015998369,4.0568962,6.2698536};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6125,6 +6416,7 @@ class Mission
 						angles[]={0.012000273,4.0568962,0.0053265258};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6145,6 +6437,7 @@ class Mission
 						angles[]={0.033321146,4.0568962,0.02399601};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6164,6 +6457,7 @@ class Mission
 						angles[]={0.033321146,4.0568962,0.02399601};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6183,6 +6477,7 @@ class Mission
 						angles[]={0.033321146,4.0568962,0.02399601};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6199,421 +6494,7 @@ class Mission
 			};
 			id=358;
 		};
-		class Item232
-		{
-			dataType="Group";
-			side="East";
-			class Entities
-			{
-				items=10;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20872.283,27.114407,7293.7939};
-						angles[]={0.015998369,4.1510391,6.2698536};
-					};
-					side="East";
-					flags=2;
-					class Attributes
-					{
-						skill=0.60000002;
-						rank="SERGEANT";
-						init="(group this) setGroupId [""Leopard""]";
-						name="opf_leader_3";
-						description="Kommandant - Leopard";
-						isPlayable=1;
-					};
-					id=370;
-					type="O_Soldier_SL_F";
-				};
-				class Item1
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20871.035,27.105331,7295.4004};
-						angles[]={0.015998369,4.1510563,6.2698536};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						rank="CORPORAL";
-						name="opf_driver_1";
-						description="Richtschütze";
-						isPlayable=1;
-					};
-					id=371;
-					type="O_crew_F";
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20869.949,27.091333,7297.1802};
-						angles[]={0.015998369,4.1607604,6.2698536};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="opf_driver_2";
-						description="Fahrer";
-						isPlayable=1;
-					};
-					id=372;
-					type="O_crew_F";
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20868.5,27.051336,7299.1519};
-						angles[]={0.033321146,4.1607604,6.2698536};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						init="(group this) setGroupId [""Leopard""]";
-						name="opf_leader_4";
-						description="Truppführer - Leopard 1";
-						isPlayable=1;
-					};
-					id=373;
-					type="O_Soldier_TL_F";
-				};
-				class Item4
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20874.072,27.086275,7295.1099};
-						angles[]={0.015998369,4.1510391,6.2805333};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="opf_AR_1";
-						description="MG-Schütze";
-						isPlayable=1;
-					};
-					id=374;
-					type="O_Soldier_AR_F";
-				};
-				class Item5
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20872.887,27.059784,7296.9629};
-						angles[]={0.015998369,4.1510563,6.2805333};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="opf_assAR_1";
-						description="asst. MG-Schütze";
-						isPlayable=1;
-					};
-					id=375;
-					type="O_Soldier_AAR_F";
-				};
-				class Item6
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20871.705,27.030172,7298.5054};
-						angles[]={0.033321146,4.1510391,6.2698536};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="opf_gren_4";
-						description="Grenadier";
-						isPlayable=1;
-					};
-					id=376;
-					type="O_Soldier_GL_F";
-				};
-				class Item7
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20870.154,26.981659,7300.5801};
-						angles[]={0.033321146,4.1510391,6.2698536};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="opf_soldier_1";
-						description="Soldat";
-						isPlayable=1;
-					};
-					id=377;
-					type="O_Soldier_F";
-				};
-				class Item8
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20868.779,26.929392,7302.6982};
-						angles[]={0.033321146,4.1510563,6.2698536};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="opf_soldierAT_5";
-						description="Soldat (RPG)";
-						isPlayable=1;
-					};
-					id=378;
-					type="O_Soldier_GL_F";
-				};
-				class Item9
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20867.789,26.8801,7304.5732};
-						angles[]={0.033321146,4.1510391,6.2698536};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="opf_cls_1";
-						description="Einsatzersthelfer";
-						isPlayable=1;
-					};
-					id=379;
-					type="O_medic_F";
-				};
-			};
-			class Attributes
-			{
-			};
-			id=369;
-		};
-		class Item233
-		{
-			dataType="Group";
-			side="East";
-			class Entities
-			{
-				items=10;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20875.924,26.984909,7297.0269};
-						angles[]={0.038647637,4.0513983,6.2578578};
-					};
-					side="East";
-					flags=2;
-					class Attributes
-					{
-						skill=0.60000002;
-						rank="SERGEANT";
-						init="(group this) setGroupId [""Panther""]";
-						name="opf_leader_5";
-						description="Gruppenführer - Panther";
-						isPlayable=1;
-					};
-					id=381;
-					type="O_Soldier_SL_F";
-				};
-				class Item1
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20874.793,26.947187,7298.9331};
-						angles[]={0.033321146,4.0513983,6.2578578};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="opf_AR_2";
-						description="MG-Schütze - Panther 1";
-						isPlayable=1;
-					};
-					id=382;
-					type="O_Soldier_AR_F";
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20875.869,26.892248,7299.7632};
-						angles[]={0.033321146,4.0568962,6.2578578};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="opf_assAR_2";
-						description="asst. MG-Schütze";
-						isPlayable=1;
-					};
-					id=383;
-					type="O_Soldier_AAR_F";
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20877.057,26.832458,7300.7188};
-						angles[]={0.02399601,4.0513983,6.2671871};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="opf_cls_2";
-						description="Einsatzersthelfer";
-						isPlayable=1;
-					};
-					id=384;
-					type="O_medic_F";
-				};
-				class Item4
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20873.488,26.927221,7300.5244};
-						angles[]={0.033321146,4.0569134,6.2578578};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="opf_AT_1";
-						description="AT-Schütze - Panther 2";
-						isPlayable=1;
-					};
-					id=385;
-					type="O_Soldier_AT_F";
-				};
-				class Item5
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20874.605,26.86676,7301.4893};
-						angles[]={0.033321146,4.0513983,6.2578578};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="opf_assAT_1";
-						description="asst. AT-Schütze";
-						isPlayable=1;
-					};
-					id=386;
-					type="O_Soldier_AAT_F";
-				};
-				class Item6
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20875.713,26.809105,7302.5874};
-						angles[]={0.02399601,4.0513983,6.2671871};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="opf_soldier_3";
-						description="Soldat";
-						isPlayable=1;
-					};
-					id=387;
-					type="O_Soldier_F";
-				};
-				class Item7
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20871.871,26.895229,7302.4868};
-						angles[]={0.033321146,4.0513983,6.2698536};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="opf_AA_1";
-						description="AA-Spezialist - Panther 3";
-						isPlayable=1;
-					};
-					id=388;
-					type="O_Soldier_AA_F";
-				};
-				class Item8
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20873.143,26.837645,7303.4731};
-						angles[]={0.033321146,4.0513983,6.2578578};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="opf_assAA_1";
-						description="asst. AA-Spezialist";
-						isPlayable=1;
-					};
-					id=389;
-					type="O_Soldier_AAA_F";
-				};
-				class Item9
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={20874.361,26.784937,7304.4956};
-						angles[]={0.02399601,4.0513983,6.2671871};
-					};
-					side="East";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="opf_soldier_4";
-						description="Soldat";
-						isPlayable=1;
-					};
-					id=390;
-					type="O_Soldier_F";
-				};
-			};
-			class Attributes
-			{
-			};
-			id=380;
-		};
-		class Item234
+		class Item231
 		{
 			dataType="Group";
 			side="East";
@@ -6629,7 +6510,7 @@ class Mission
 						angles[]={0.0080009829,4.0568962,6.2791886};
 					};
 					side="East";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6651,6 +6532,7 @@ class Mission
 						angles[]={0.013332055,4.0568962,6.2738566};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6669,7 +6551,7 @@ class Mission
 			};
 			id=391;
 		};
-		class Item235
+		class Item232
 		{
 			dataType="Group";
 			side="East";
@@ -6685,7 +6567,7 @@ class Mission
 						angles[]={0.013332055,4.0568962,0.010664274};
 					};
 					side="East";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6707,6 +6589,7 @@ class Mission
 						angles[]={0.013332055,4.0568962,0.010664274};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6725,7 +6608,7 @@ class Mission
 			};
 			id=394;
 		};
-		class Item236
+		class Item233
 		{
 			dataType="Group";
 			side="East";
@@ -6741,7 +6624,7 @@ class Mission
 						angles[]={0.02666023,4.0568962,6.2805333};
 					};
 					side="East";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6763,6 +6646,7 @@ class Mission
 						angles[]={0.02666023,4.0568962,6.2805333};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6783,6 +6667,7 @@ class Mission
 						angles[]={0.02666023,4.0568962,6.2805333};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6803,6 +6688,7 @@ class Mission
 						angles[]={0.015998369,4.0569134,6.2805333};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6823,6 +6709,7 @@ class Mission
 						angles[]={0.015998369,4.0569134,6.2805333};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6840,7 +6727,7 @@ class Mission
 			};
 			id=397;
 		};
-		class Item237
+		class Item234
 		{
 			dataType="Group";
 			side="East";
@@ -6856,7 +6743,7 @@ class Mission
 						angles[]={0.03731497,4.0568962,0.0053265258};
 					};
 					side="East";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6878,6 +6765,7 @@ class Mission
 						angles[]={0.038646095,4.0568962,0.0053377044};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6898,6 +6786,7 @@ class Mission
 						angles[]={0.038646095,4.0568962,0.0053377044};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6918,6 +6807,7 @@ class Mission
 						angles[]={0.038646095,4.0568962,0.0053377044};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6938,6 +6828,7 @@ class Mission
 						angles[]={0.038647637,4.0569134,6.2578578};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6955,7 +6846,7 @@ class Mission
 			};
 			id=403;
 		};
-		class Item238
+		class Item235
 		{
 			dataType="Group";
 			side="East";
@@ -6971,7 +6862,7 @@ class Mission
 						angles[]={0.010664274,0.91482824,0.0039967569};
 					};
 					side="East";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -6993,6 +6884,7 @@ class Mission
 						angles[]={0.010664274,0.91482824,6.2751846};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -7011,7 +6903,7 @@ class Mission
 			};
 			id=409;
 		};
-		class Item239
+		class Item236
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -7025,6 +6917,25 @@ class Mission
 			{
 				class Attribute0
 				{
+					property="AllowFreeCamera";
+					expression="_this setVariable ['AllowFreeCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
 					property="WhitelistedSides";
 					expression="_this setVariable ['WhitelistedSides', _value];";
 					class Value
@@ -7041,7 +6952,26 @@ class Mission
 						};
 					};
 				};
-				class Attribute1
+				class Attribute2
+				{
+					property="ShowFocusInfo";
+					expression="_this setVariable ['ShowFocusInfo', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute3
 				{
 					property="AllowAi";
 					expression="_this setVariable ['AllowAi', _value];";
@@ -7060,10 +6990,10 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				nAttributes=4;
 			};
 		};
-		class Item240
+		class Item237
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -7077,6 +7007,25 @@ class Mission
 			{
 				class Attribute0
 				{
+					property="AllowFreeCamera";
+					expression="_this setVariable ['AllowFreeCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
 					property="WhitelistedSides";
 					expression="_this setVariable ['WhitelistedSides', _value];";
 					class Value
@@ -7093,7 +7042,26 @@ class Mission
 						};
 					};
 				};
-				class Attribute1
+				class Attribute2
+				{
+					property="ShowFocusInfo";
+					expression="_this setVariable ['ShowFocusInfo', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute3
 				{
 					property="AllowAi";
 					expression="_this setVariable ['AllowAi', _value];";
@@ -7112,10 +7080,10 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				nAttributes=4;
 			};
 		};
-		class Item241
+		class Item238
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -7129,7 +7097,7 @@ class Mission
 			id=414;
 			type="HeadlessClient_F";
 		};
-		class Item242
+		class Item239
 		{
 			dataType="Group";
 			side="West";
@@ -7144,7 +7112,7 @@ class Mission
 						position[]={15159.356,17.911438,17256.943};
 					};
 					side="West";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -7156,48 +7124,6 @@ class Mission
 					};
 					id=463;
 					type="B_Soldier_SL_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item1
 				{
@@ -7208,6 +7134,7 @@ class Mission
 						angles[]={0,0.013631022,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -7218,48 +7145,6 @@ class Mission
 					};
 					id=464;
 					type="B_medic_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item2
 				{
@@ -7269,6 +7154,7 @@ class Mission
 						position[]={15161.643,17.911438,17256.834};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -7278,48 +7164,6 @@ class Mission
 					};
 					id=465;
 					type="B_soldier_AR_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item3
 				{
@@ -7329,6 +7173,7 @@ class Mission
 						position[]={15161.627,17.911438,17254.719};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -7338,48 +7183,6 @@ class Mission
 					};
 					id=466;
 					type="B_soldier_AAR_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item4
 				{
@@ -7389,6 +7192,7 @@ class Mission
 						position[]={15163.37,17.911438,17254.73};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -7398,48 +7202,6 @@ class Mission
 					};
 					id=467;
 					type="B_soldier_AT_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item5
 				{
@@ -7449,6 +7211,7 @@ class Mission
 						position[]={15165.418,17.911438,17254.656};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -7458,48 +7221,6 @@ class Mission
 					};
 					id=468;
 					type="B_soldier_AAT_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item6
 				{
@@ -7509,6 +7230,7 @@ class Mission
 						position[]={15168.283,17.911438,17256.635};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -7518,110 +7240,8 @@ class Mission
 					};
 					id=469;
 					type="B_Soldier_TL_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item7
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={15168.318,17.911438,17254.387};
-					};
-					side="West";
-					class Attributes
-					{
-						skill=0.60000002;
-						name="lmg_5";
-						description="LMG-Schütze";
-						isPlayable=1;
-					};
-					id=470;
-					type="B_soldier_AT_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item8
 				{
 					dataType="Object";
 					class PositionInfo
@@ -7629,6 +7249,7 @@ class Mission
 						position[]={15170.703,17.911438,17254.326};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -7638,50 +7259,8 @@ class Mission
 					};
 					id=471;
 					type="B_Soldier_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
-				class Item9
+				class Item8
 				{
 					dataType="Object";
 					class PositionInfo
@@ -7689,6 +7268,7 @@ class Mission
 						position[]={15172.561,17.911438,17254.172};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -7698,48 +7278,25 @@ class Mission
 					};
 					id=472;
 					type="B_Soldier_F";
-					class CustomAttributes
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
 					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
+						position[]={15168.318,17.911438,17254.387};
 					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="lmg_5";
+						description="LMG-Schütze";
+						isPlayable=1;
+					};
+					id=561;
+					type="B_soldier_AR_F";
 				};
 			};
 			class Attributes
@@ -7747,7 +7304,7 @@ class Mission
 			};
 			id=462;
 		};
-		class Item243
+		class Item240
 		{
 			dataType="Group";
 			side="West";
@@ -7762,60 +7319,18 @@ class Mission
 						position[]={15159.746,17.911438,17251.824};
 					};
 					side="West";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
 						rank="SERGEANT";
 						init="(group this) setGroupId [""Vulkan""]";
-						name="leader_5";
+						name="driver_1";
 						description="Kommandant - Vulkan";
 						isPlayable=1;
 					};
 					id=475;
 					type="B_Soldier_SL_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item1
 				{
@@ -7825,57 +7340,16 @@ class Mission
 						position[]={15161.879,17.911438,17251.891};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
-						name="driver_3";
+						name="driver_2";
 						description="Richtschütze";
 						isPlayable=1;
 					};
 					id=476;
 					type="B_crew_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item2
 				{
@@ -7885,57 +7359,16 @@ class Mission
 						position[]={15164.146,17.911438,17251.936};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
-						name="driver_7";
+						name="driver_3";
 						description="Fahrer";
 						isPlayable=1;
 					};
 					id=477;
 					type="B_crew_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item3
 				{
@@ -7945,59 +7378,18 @@ class Mission
 						position[]={15166.531,17.911438,17251.936};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
 						rank="CORPORAL";
 						init="(group this) setGroupId [""Vulkan""]";
-						name="leader_8";
+						name="leader_5";
 						description="Truppführer - Vulkan 1";
 						isPlayable=1;
 					};
 					id=478;
 					type="B_Soldier_TL_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item4
 				{
@@ -8007,70 +7399,30 @@ class Mission
 						position[]={15159.771,17.911438,17249.754};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
-						name="AR_3";
+						name="AR_2";
 						description="MG-Schütze";
 						isPlayable=1;
 					};
 					id=479;
 					type="B_soldier_AR_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item5
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={15161.891,17.911438,17249.717};
+						position[]={15161.89,17.911438,17249.717};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
-						name="assAR_3";
+						name="assAR_2";
 						description="asst. MG-Schütze";
 						isPlayable=1;
 					};
@@ -8082,60 +7434,19 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={15164.291,17.911438,17249.84};
+						position[]={15164.29,17.911438,17249.84};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
-						name="gren_4";
+						name="gren_3";
 						description="Grenadier";
 						isPlayable=1;
 					};
 					id=481;
 					type="B_Soldier_GL_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item7
 				{
@@ -8145,57 +7456,16 @@ class Mission
 						position[]={15166.48,17.911438,17249.756};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
-						name="soldier_4";
+						name="soldier_3";
 						description="Schütze";
 						isPlayable=1;
 					};
 					id=482;
 					type="B_Soldier_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item8
 				{
@@ -8205,117 +7475,35 @@ class Mission
 						position[]={15168.942,17.911438,17249.656};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
-						name="soldierAT_6";
+						name="soldierAT_5";
 						description="Schütze (AT)";
 						isPlayable=1;
 					};
 					id=483;
 					type="B_soldier_LAT_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item9
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={15171.491,17.911438,17249.668};
+						position[]={15171.49,17.911438,17249.668};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
-						name="cls_2";
+						name="cls_1";
 						description="Einsatzersthelfer";
 						isPlayable=1;
 					};
 					id=484;
 					type="B_medic_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 			};
 			class Attributes
@@ -8323,7 +7511,7 @@ class Mission
 			};
 			id=474;
 		};
-		class Item244
+		class Item241
 		{
 			dataType="Group";
 			side="West";
@@ -8339,7 +7527,7 @@ class Mission
 						angles[]={0.0026529003,6.2731323,0};
 					};
 					side="West";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -8351,48 +7539,7 @@ class Mission
 					};
 					id=490;
 					type="B_spotter_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
+					atlOffset=0.0030002594;
 				};
 				class Item1
 				{
@@ -8403,6 +7550,7 @@ class Mission
 						angles[]={0,6.2731323,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -8414,56 +7562,15 @@ class Mission
 					};
 					id=491;
 					type="B_sniper_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 			};
 			class Attributes
 			{
 			};
 			id=489;
+			atlOffset=0.0030002594;
 		};
-		class Item245
+		class Item242
 		{
 			dataType="Group";
 			side="West";
@@ -8479,7 +7586,7 @@ class Mission
 						angles[]={0,6.2731323,0};
 					};
 					side="West";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -8491,48 +7598,6 @@ class Mission
 					};
 					id=493;
 					type="B_spotter_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item1
 				{
@@ -8543,6 +7608,7 @@ class Mission
 						angles[]={0,6.2731323,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -8554,48 +7620,6 @@ class Mission
 					};
 					id=494;
 					type="B_sniper_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 			};
 			class Attributes
@@ -8603,7 +7627,7 @@ class Mission
 			};
 			id=492;
 		};
-		class Item246
+		class Item243
 		{
 			dataType="Group";
 			side="West";
@@ -8619,7 +7643,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -8641,6 +7665,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -8661,6 +7686,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -8681,6 +7707,7 @@ class Mission
 						angles[]={0,6.273138,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -8701,6 +7728,7 @@ class Mission
 						angles[]={0,6.2731323,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -8711,48 +7739,6 @@ class Mission
 					};
 					id=528;
 					type="B_engineer_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 			};
 			class Attributes
@@ -8760,7 +7746,7 @@ class Mission
 			};
 			id=523;
 		};
-		class Item247
+		class Item244
 		{
 			dataType="Group";
 			side="West";
@@ -8776,60 +7762,18 @@ class Mission
 						angles[]={0,6.2731323,0};
 					};
 					side="West";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
 						rank="SERGEANT";
 						init="(group this) setGroupId [""Merkur""]";
-						name="driver_5";
+						name="driver_4";
 						description="Gruppenführer - Merkur";
 						isPlayable=1;
 					};
 					id=532;
 					type="B_crew_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item1
 				{
@@ -8837,14 +7781,15 @@ class Mission
 					class PositionInfo
 					{
 						position[]={15150.532,17.911438,17255.018};
-						angles[]={0,6.273138,0};
+						angles[]={0,6.2731323,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
 						rank="CORPORAL";
-						name="driver_6";
+						name="driver_5";
 						description="Fahrer";
 						isPlayable=1;
 					};
@@ -8857,14 +7802,15 @@ class Mission
 					class PositionInfo
 					{
 						position[]={15152.146,17.911438,17254.9};
-						angles[]={0,6.273138,0};
+						angles[]={0,6.2731323,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
 						rank="CORPORAL";
-						name="driver_8";
+						name="driver_6";
 						description="Fahrer";
 						isPlayable=1;
 					};
@@ -8880,6 +7826,7 @@ class Mission
 						angles[]={0,6.2731323,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -8890,48 +7837,6 @@ class Mission
 					};
 					id=521;
 					type="B_engineer_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item4
 				{
@@ -8942,6 +7847,7 @@ class Mission
 						angles[]={0,6.2731323,0};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -8951,48 +7857,6 @@ class Mission
 					};
 					id=522;
 					type="B_engineer_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 			};
 			class Attributes
@@ -9000,7 +7864,7 @@ class Mission
 			};
 			id=531;
 		};
-		class Item248
+		class Item245
 		{
 			dataType="Group";
 			side="West";
@@ -9016,7 +7880,7 @@ class Mission
 						angles[]={0.0013372133,3.131557,0.0013372133};
 					};
 					side="West";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -9029,48 +7893,6 @@ class Mission
 					};
 					id=537;
 					type="B_officer_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item1
 				{
@@ -9081,6 +7903,7 @@ class Mission
 						angles[]={0.0053265258,3.1315393,0.0013372133};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
@@ -9092,54 +7915,566 @@ class Mission
 					};
 					id=538;
 					type="B_officer_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 			};
 			class Attributes
 			{
 			};
 			id=536;
+		};
+		class Item246
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=10;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20876.598,26.948648,7297.5229};
+						angles[]={0.038641591,4.1510386,6.2578607};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.60000002;
+						rank="SERGEANT";
+						init="(group this) setGroupId [""Leopard""]";
+						name="opf_driver_1";
+						description="Kommandant - Leopard";
+						isPlayable=1;
+					};
+					id=549;
+					type="O_Soldier_SL_F";
+					atlOffset=-1.9073486e-006;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20875.35,26.926571,7299.1289};
+						angles[]={0.033318337,4.1510563,6.2578607};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						rank="CORPORAL";
+						name="opf_driver_2";
+						description="Richtschütze";
+						isPlayable=1;
+					};
+					id=550;
+					type="O_crew_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20874.264,26.894753,7300.9087};
+						angles[]={0.033318337,4.1607599,6.2578607};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="opf_driver_3";
+						description="Fahrer";
+						isPlayable=1;
+					};
+					id=551;
+					type="O_crew_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20872.814,26.86574,7302.8809};
+						angles[]={0.033318337,4.1607599,6.2578607};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						init="(group this) setGroupId [""Leopard""]";
+						name="opf_leader_5";
+						description="Truppführer - Leopard 1";
+						isPlayable=1;
+					};
+					id=552;
+					type="O_Soldier_TL_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20878.387,26.862274,7298.8389};
+						angles[]={0.033318337,4.1510386,6.2578607};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="opf_AR_2";
+						description="MG-Schütze";
+						isPlayable=1;
+					};
+					id=553;
+					type="O_Soldier_AR_F";
+					atlOffset=0.0030002594;
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20877.201,26.833784,7300.6919};
+						angles[]={0.023998277,4.1510563,6.2671809};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="opf_assAR_2";
+						description="asst. MG-Schütze";
+						isPlayable=1;
+					};
+					id=554;
+					type="O_Soldier_AAR_F";
+					atlOffset=0.0030002594;
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20876.02,26.815678,7302.2339};
+						angles[]={0.023998277,4.1510386,6.2671809};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="opf_gren_3";
+						description="Grenadier";
+						isPlayable=1;
+					};
+					id=555;
+					type="O_Soldier_GL_F";
+					atlOffset=0.0030002594;
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20874.469,26.790691,7304.3086};
+						angles[]={0.023998277,4.1510386,6.2671809};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="opf_soldier_3";
+						description="Soldat";
+						isPlayable=1;
+					};
+					id=556;
+					type="O_Soldier_F";
+					atlOffset=0.0030002594;
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20873.094,26.742329,7306.4268};
+						angles[]={0.035988688,4.1510563,6.2671981};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="opf_soldierAT_5";
+						description="Soldat (RPG)";
+						isPlayable=1;
+					};
+					id=557;
+					type="O_Soldier_GL_F";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20871.781,26.663889,7308.2852};
+						angles[]={0.035984326,4.1510386,0.029324362};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="opf_cls_1";
+						description="Einsatzersthelfer";
+						isPlayable=1;
+					};
+					id=558;
+					type="O_medic_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=548;
+			atlOffset=-1.9073486e-006;
+		};
+		class Item247
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=10;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20872.457,27.109457,7293.9585};
+						angles[]={0.015998369,4.0513978,6.2698536};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.60000002;
+						rank="SERGEANT";
+						init="(group this) setGroupId [""Panther""]";
+						name="opf_leader_3";
+						description="Gruppenführer - Panther";
+						isPlayable=1;
+					};
+					id=381;
+					type="O_Soldier_SL_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20871.768,27.029972,7298.4854};
+						angles[]={0.033321146,4.0569129,6.2698536};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="opf_AT_1";
+						description="AT-Schütze";
+						isPlayable=1;
+					};
+					id=385;
+					type="O_Soldier_AT_F";
+					atlOffset=-1.9073486e-006;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20870.393,26.980375,7300.5234};
+						angles[]={0.033321146,4.0513978,6.2698536};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="opf_assAT_1";
+						description="asst. AT-Schütze";
+						isPlayable=1;
+					};
+					id=386;
+					type="O_Soldier_AAT_F";
+					atlOffset=-1.9073486e-006;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20866.436,26.82869,7305.7305};
+						angles[]={0.078505196,4.0513978,6.2698536};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="opf_soldier_2";
+						description="Soldat";
+						isPlayable=1;
+					};
+					id=390;
+					type="O_Soldier_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20874.08,27.084198,7295.2383};
+						angles[]={0.015998369,4.0513978,6.2805333};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="opf_medic_3";
+						description="Sanitäter";
+						isPlayable=1;
+					};
+					id=559;
+					type="O_medic_F";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20871.27,27.098955,7295.6035};
+						angles[]={0.015998369,4.0568957,6.2698536};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="opf_AR_1";
+						description="MG-Schütze - Panther 1";
+						isPlayable=1;
+					};
+					id=560;
+					type="O_Soldier_AR_F";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20872.828,27.061281,7296.8794};
+						angles[]={0.015998369,4.0513978,6.2805333};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="opf_assAR_1";
+						description="asst. MG-Schütze";
+						isPlayable=1;
+					};
+					id=562;
+					type="O_Soldier_AAR_F";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20867.219,27.016592,7300.707};
+						angles[]={0.033318337,4.0513978,6.2698507};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="opf_ft_5";
+						description="Truppführer - Panther 2";
+						isPlayable=1;
+					};
+					id=563;
+					type="O_Soldier_TL_F";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20869.148,26.937498,7302.3081};
+						angles[]={0.033321146,4.0513978,6.2698536};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="opf_lmg_5";
+						description="LMG-Schütze";
+						isPlayable=1;
+					};
+					id=564;
+					type="O_Soldier_AR_F";
+					atlOffset=-1.9073486e-006;
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={20867.871,26.897203,7304.0273};
+						angles[]={0.033321146,4.0513978,6.2698536};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="opf_soldier_1";
+						description="Soldat";
+						isPlayable=1;
+					};
+					id=565;
+					type="O_Soldier_F";
+					atlOffset=-1.9073486e-006;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=380;
+		};
+		class Item248
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={16550.172,11.001439,12759.522};
+						angles[]={0,1.2368311,0};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						init="this setGroupId [""Viper""]";
+						name="ind_spotter_1";
+						description="Beobachter";
+						isPlayable=1;
+					};
+					id=568;
+					type="I_Spotter_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={16548.033,11.001439,12757.054};
+						angles[]={0,1.2845134,0};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						init="this setGroupId [""Viper""]";
+						name="ind_sniper_1";
+						description="Scharfschütze";
+						isPlayable=1;
+					};
+					id=570;
+					type="I_Sniper_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=566;
+		};
+		class Item249
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={16565.008,11.001439,12780.327};
+						angles[]={0,3.1415927,0};
+					};
+					side="Independent";
+					flags=6;
+					class Attributes
+					{
+						skill=0.60000002;
+						rank="COLONEL";
+						init="(group this) setGroupId [""Zeus""]";
+						name="ind_z1";
+						description="Zeus 1";
+						isPlayable=1;
+					};
+					id=572;
+					type="I_officer_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={16566.951,11.001439,12782.018};
+						angles[]={0,3.1415927,0};
+					};
+					side="Independent";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						rank="MAJOR";
+						init="(group this) setGroupId [""Zeus""]";
+						name="ind_z2";
+						description="Zeus 2";
+						isPlayable=1;
+					};
+					id=573;
+					type="I_officer_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=571;
 		};
 	};
 };
