@@ -219,7 +219,7 @@ switch (ADV_par_customWeap) do {
 	};
 	case 2: {
 		//RHS ARMY
-		_primaryweapon = ["rhs_weap_m4a1_blockII_M203","rhs_weap_m4a1_m320"];
+		_primaryweapon = ["rhs_weap_m4a1_blockII_M203","rhs_weap_m4a1_blockII_M203","rhs_weap_m4a1_m320"];
 		_optic = ["rhsusf_acc_SpecterDR_CX_3D","rhsusf_acc_SpecterDR_3d"];
 		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
 		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
@@ -232,7 +232,7 @@ switch (ADV_par_customWeap) do {
 	};
 	case 3: {
 		//RHS Marines
-		_primaryweapon = ["rhs_weap_mk18_m320","rhs_weap_m4a1_m320"];
+		_primaryweapon = ["rhs_weap_mk18_m320","rhs_weap_mk18_m320","rhs_weap_m4a1_m320"];
 		_optic = ["rhsusf_acc_SpecterDR_CX_3D","rhsusf_acc_SpecterDR_3d"];
 		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
 		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };

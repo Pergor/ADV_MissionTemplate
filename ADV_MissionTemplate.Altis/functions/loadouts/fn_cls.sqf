@@ -211,7 +211,7 @@ switch (ADV_par_customWeap) do {
 	case 2: {
 		//RHS ARMY
 		_primaryweapon = ["rhs_weap_m4_carryhandle","rhs_weap_m4_grip2","rhs_weap_m4a1_carryhandle"];
-		_optic = ["rhsusf_acc_ACOG","rhsusf_acc_ACOG3","rhsusf_acc_SpecterDR_CX_3D","rhsusf_acc_SpecterDR_CX_3D"];
+		_optic = ["rhsusf_acc_ACOG","rhsusf_acc_ACOG3","rhsusf_acc_SpecterDR_CX_3D","rhsusf_acc_SpecterDR_3d"];
 		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
 		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_silencer = "rhsusf_acc_rotex5_grey";
