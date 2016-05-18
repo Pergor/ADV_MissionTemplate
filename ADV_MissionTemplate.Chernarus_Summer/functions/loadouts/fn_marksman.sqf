@@ -210,8 +210,8 @@ switch (ADV_par_customWeap) do {
 		_optic = ["rhsusf_acc_LEUPOLDMK4_2","rhsusf_acc_LEUPOLDMK4_2","rhsusf_acc_LEUPOLDMK4"];
 		_attachments = ["rhsusf_acc_harris_bipod"];
 		_silencer = "rhsusf_acc_SR25S";		//if silencer is added
-		if ( ADV_par_NVGs == 1 ) then { _attachments append "rhsusf_acc_M952V"; };
-		if ( ADV_par_NVGs == 0 ) then { _attachments append "rhsusf_acc_anpeq15side_bk"; };
+		if ( ADV_par_NVGs == 1 ) then { _attachments pushback "rhsusf_acc_M952V"; };
+		if ( ADV_par_NVGs == 2 ) then { _attachments pushback "rhsusf_acc_anpeq15side_bk"; };
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
@@ -222,8 +222,8 @@ switch (ADV_par_customWeap) do {
 		_optic = ["rhsusf_acc_LEUPOLDMK4_2","rhsusf_acc_LEUPOLDMK4_2","rhsusf_acc_LEUPOLDMK4"];
 		_attachments = ["rhsusf_acc_harris_bipod"];
 		_silencer = "rhsusf_acc_SR25S";		//if silencer is added
-		if ( ADV_par_NVGs == 1 ) then { _attachments append "rhsusf_acc_M952V"; };
-		if ( ADV_par_NVGs == 0 ) then { _attachments append "rhsusf_acc_anpeq15side_bk"; };
+		if ( ADV_par_NVGs == 1 ) then { _attachments pushback "rhsusf_acc_M952V"; };
+		if ( ADV_par_NVGs == 2 ) then { _attachments pushback "rhsusf_acc_anpeq15side_bk"; };
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
@@ -234,8 +234,8 @@ switch (ADV_par_customWeap) do {
 		_optic = ["rhsusf_acc_LEUPOLDMK4_2"];
 		_attachments = ["rhsusf_acc_harris_bipod"];
 		_silencer = "rhsusf_acc_SR25S";		//if silencer is added
-		if ( ADV_par_NVGs == 1 ) then { _attachments append "rhsusf_acc_M952V"; };
-		if ( ADV_par_NVGs == 0 ) then { _attachments append "rhsusf_acc_anpeq15side_bk"; };
+		if ( ADV_par_NVGs == 1 ) then { _attachments pushback "rhsusf_acc_M952V"; };
+		if ( ADV_par_NVGs == 2 ) then { _attachments pushback "rhsusf_acc_anpeq15side_bk"; };
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";

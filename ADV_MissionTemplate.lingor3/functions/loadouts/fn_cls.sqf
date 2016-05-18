@@ -213,7 +213,7 @@ switch (ADV_par_customWeap) do {
 		_primaryweapon = ["rhs_weap_m4_carryhandle","rhs_weap_m4_grip2","rhs_weap_m4a1_carryhandle"];
 		_optic = ["rhsusf_acc_ACOG","rhsusf_acc_ACOG3","rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR_OD"];
 		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
-		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		if ( ADV_par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_silencer = "rhsusf_acc_rotex5_grey";
 		_primaryweaponAmmo set [1,9];
 		_handgun = "rhsusf_weap_m9";
@@ -225,7 +225,7 @@ switch (ADV_par_customWeap) do {
 		_primaryweapon = ["rhs_weap_m16a4_carryhandle"];
 		_optic = ["rhsusf_acc_ACOG","rhsusf_acc_ACOG3"];
 		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
-		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		if ( ADV_par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_silencer = "rhsusf_acc_rotex5_grey";
 		_primaryweaponAmmo set [1,9];
 		_handgun = "rhsusf_weap_m1911a1";
@@ -237,7 +237,7 @@ switch (ADV_par_customWeap) do {
 		_primaryweapon = ["rhs_weap_hk416d145","rhs_weap_hk416d145","rhs_weap_hk416d10","rhs_weap_hk416d10_LMT","rhs_weap_m4a1_blockII_KAC","rhs_weap_m4_carryhandle"];
 		_optic = ["rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR_OD"];
 		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
-		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		if ( ADV_par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_silencer = "rhsusf_acc_rotex5_grey";
 		_primaryweaponAmmo set [1,9];
 		_handgun = "rhsusf_weap_m9";

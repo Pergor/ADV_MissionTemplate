@@ -210,7 +210,7 @@ switch (ADV_par_customWeap) do {
 		if (ADV_par_customUni == 10 || ADV_par_customUni == 11) then {
 		};
 		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
-		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		if ( ADV_par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_silencer = "";
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
@@ -225,7 +225,7 @@ switch (ADV_par_customWeap) do {
 			_additionalAmmo = [14,"30rnd_556x45_STANAG",true];
 		};
 		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
-		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		if ( ADV_par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_silencer = "";
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
@@ -236,7 +236,7 @@ switch (ADV_par_customWeap) do {
 		_primaryWeapon = ["rhs_weap_m249_pip_S_vfg","rhs_weap_m249_pip_S"];
 		_optic = ["rhsusf_acc_eotech_552"];
 		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
-		if ( ADV_par_NVGs == 0 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		if ( ADV_par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_silencer = "";
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
