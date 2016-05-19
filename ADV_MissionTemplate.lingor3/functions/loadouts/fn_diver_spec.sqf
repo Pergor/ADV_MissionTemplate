@@ -213,6 +213,7 @@ switch (ADV_par_customWeap) do {
 		_primaryweapon = ["rhs_weap_m4a1_blockII_KAC","rhs_weap_m4a1_blockII"];
 		_optic = ["rhsusf_acc_eotech_552"];
 		_attachments = ["rhsusf_acc_anpeq15","rhsusf_acc_rotex5_grey"];
+		_attachments pushBack (["","rhsusf_acc_grip2"] call BIS_fnc_selectRandom);
 		_primaryweaponAmmo = [7,9];
 		_additionalAmmo = nil;
 		_handgun = "rhsusf_weap_m9";
@@ -236,6 +237,7 @@ switch (ADV_par_customWeap) do {
 		} else {
 			_primaryweaponAmmo = [7,9];
 			_additionalAmmo = nil;
+			_attachments pushBack (["","rhsusf_acc_grip2"] call BIS_fnc_selectRandom);
 		};
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
@@ -250,6 +252,7 @@ switch (ADV_par_customWeap) do {
 		_primaryweapon = ["rhs_weap_hk416d10","rhs_weap_hk416d10_LMT"];
 		_optic = ["rhsusf_acc_eotech_552"];
 		_attachments = ["rhsusf_acc_anpeq15","rhsusf_acc_rotex5_grey"];
+		_attachments pushBack (["","rhsusf_acc_grip2"] call BIS_fnc_selectRandom);
 		_primaryweaponAmmo = [7,9];
 		_additionalAmmo = nil;
 		_handgun = "rhsusf_weap_m9";

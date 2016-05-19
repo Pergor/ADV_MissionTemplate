@@ -213,6 +213,7 @@ switch (ADV_par_customWeap) do {
 		_optic = ["rhsusf_acc_compm4","rhsusf_acc_eotech_552","rhsusf_acc_eotech_552","rhsusf_acc_ACOG","rhsusf_acc_SpecterDR"];
 		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
 		if ( ADV_par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		_attachments pushBack (["","","","","rhsusf_acc_grip1","rhsusf_acc_grip2","rhsusf_acc_grip2_tan","rhsusf_acc_grip3"] call BIS_fnc_selectRandom);
 		_silencer = "rhsusf_acc_rotex5_grey";
 		_primaryweaponAmmo set [1,9];
 		_handgun = "rhsusf_weap_m9";
@@ -237,6 +238,7 @@ switch (ADV_par_customWeap) do {
 		_optic = ["rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR_OD"];
 		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
 		if ( ADV_par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		_attachments pushBack (["","","rhsusf_acc_grip1","rhsusf_acc_grip2","rhsusf_acc_grip2_tan","rhsusf_acc_grip3"] call BIS_fnc_selectRandom);
 		_silencer = "rhsusf_acc_rotex5_grey";
 		_primaryweaponAmmo set [1,9];
 		_handgun = "rhsusf_weap_m9";

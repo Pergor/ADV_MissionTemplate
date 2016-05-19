@@ -224,7 +224,7 @@ switch (ADV_par_customWeap) do {
 		_attachments = ["rhsusf_acc_rotex5_grey"];
 		if ( ADV_par_NVGs == 1 ) then { _attachments pushback "rhsusf_acc_M952V"; };
 		if ( ADV_par_NVGs == 2 ) then { _attachments pushback "rhsusf_acc_anpeq15side_bk"; };
-		_silencer = "";
+		_attachments pushBack (["","rhsusf_acc_grip2"] call BIS_fnc_selectRandom);
 		_primaryweaponAmmo set [1,9];
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
@@ -238,7 +238,7 @@ switch (ADV_par_customWeap) do {
 		_attachments = ["rhsusf_acc_rotex5_grey"];
 		if ( ADV_par_NVGs == 1 ) then { _attachments pushback "rhsusf_acc_M952V"; };
 		if ( ADV_par_NVGs == 2 ) then { _attachments pushback "rhsusf_acc_anpeq15side_bk"; };
-		_silencer = "";
+		_attachments pushBack (["","rhsusf_acc_grip2"] call BIS_fnc_selectRandom);
 		_primaryweaponAmmo set [1,9];
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
@@ -252,7 +252,7 @@ switch (ADV_par_customWeap) do {
 		_attachments = ["rhsusf_acc_rotex5_grey"];
 		if ( ADV_par_NVGs == 1 ) then { _attachments pushback "rhsusf_acc_M952V"; };
 		if ( ADV_par_NVGs == 2 ) then { _attachments pushback "rhsusf_acc_anpeq15side_bk"; };
-		_silencer = "";
+		_attachments pushBack (["","rhsusf_acc_grip2"] call BIS_fnc_selectRandom);
 		_primaryweaponAmmo set [1,9];
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
