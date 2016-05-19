@@ -46,6 +46,7 @@ ADV_veh_artys = [];
 		case ( [_vehicleName,0,11] call BIS_fnc_trimString == "air_logistic" ): { ADV_veh_airLogistic pushBack _vehicleName; };
 		//fixed wing planes
 		case ( [_vehicleName,0,7] call BIS_fnc_trimString == "air_a164" ): { ADV_veh_airCAS pushBack _vehicleName; };
+		case ( [_vehicleName,0,6] call BIS_fnc_trimString == "air_cas" ): { ADV_veh_airCAS pushBack _vehicleName; };
 		case ( [_vehicleName,0,7] call BIS_fnc_trimString == "air_c130" ): { ADV_veh_airC130 pushBack _vehicleName; };
 		//MRAPs
 		case ( [_vehicleName,0,7] call BIS_fnc_trimString == "MRAP_hmg" ): { ADV_veh_MRAPsHMG pushBack _vehicleName; };
