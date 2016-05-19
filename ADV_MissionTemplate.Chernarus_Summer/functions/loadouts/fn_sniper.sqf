@@ -217,6 +217,10 @@ switch (ADV_par_customWeap) do {
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
+		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
+			_handgun = "RH_m9";
+			_itemsHandgun = ["RH_x300","RH_m9qd"];
+		};
 	};
 	case 3: {
 		//RHS Marines
@@ -226,6 +230,10 @@ switch (ADV_par_customWeap) do {
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
+		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
+			_handgun = "RH_m9";
+			_itemsHandgun = ["RH_x300","RH_m9qd"];
+		};
 	};
 	case 4: {
 		//RHS SOF
@@ -235,6 +243,10 @@ switch (ADV_par_customWeap) do {
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
+		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
+			_handgun = "RH_m9";
+			_itemsHandgun = ["RH_x300","RH_m9qd"];
+		};
 	};
 	case 5: {
 		//SELmods CUP Mk16

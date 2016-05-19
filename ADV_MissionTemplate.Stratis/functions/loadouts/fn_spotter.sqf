@@ -229,6 +229,10 @@ switch (ADV_par_customWeap) do {
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
+		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
+			_handgun = "RH_m9";
+			_itemsHandgun = ["RH_x300","RH_m9qd"];
+		};
 		_additionalAmmo = [5,"rhsusf_5Rnd_300winmag_xm2010",true];
 	};
 	case 3: {
@@ -243,6 +247,10 @@ switch (ADV_par_customWeap) do {
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
+		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
+			_handgun = "RH_m9";
+			_itemsHandgun = ["RH_x300","RH_m9qd"];
+		};
 		_additionalAmmo = [5,"rhsusf_mag_10Rnd_STD_50BMG_mk211",true];
 	};
 	case 4: {
@@ -257,6 +265,10 @@ switch (ADV_par_customWeap) do {
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
+		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
+			_handgun = "RH_m9";
+			_itemsHandgun = ["RH_x300","RH_m9qd"];
+		};
 		_additionalAmmo = [5,"rhsusf_mag_10Rnd_STD_50BMG_mk211",true];
 	};
 	case 5: {
