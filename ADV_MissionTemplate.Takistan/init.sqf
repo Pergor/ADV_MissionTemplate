@@ -28,11 +28,6 @@ if ( isServer ) then {
 	if (ADV_par_weather != 99) then {
 		ADV_handle_randomWeather = [] spawn MtB_fnc_randomWeather;
 	};
-
-	
-	if (ADV_par_CustomLoad >= 1) then {
-		//ADV_handle_AILoadout = [] spawn ADV_fnc_AILoadout;
-	};
 	
 	//stops the blabbering of AI units and players
 	if ( isMultiplayer ) then {

@@ -74,7 +74,6 @@ class ADV
 		class addACEItems {};
 		class addMagazine {};
 		class addVehicleLoad {};
-		class AILoadout {};
 		class applyLoadout {};
 		class clearCargo {};
 		class crate {};
