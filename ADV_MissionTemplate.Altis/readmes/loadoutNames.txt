@@ -43,6 +43,12 @@ asst. TOW Gunner:		assTOW_X
 	asst. HMG Gunner:		opf_aCSW_X
 	asst. TOW Gunner:		opf_aTOW_X
 	
+//command group units (with ind_/opf_ prefix respectively):
+leader_command, leader_command_X
+leader_log, leader_log_X
+log_command, log_command_X
+medic_command, medic_command_X
+	
 //civilian loadouts:
 Additional civilian loadouts are preconfigured, but they are not automatically added to playable units.
 Call like this in mission\initPlayerLocal_custom.sqf:

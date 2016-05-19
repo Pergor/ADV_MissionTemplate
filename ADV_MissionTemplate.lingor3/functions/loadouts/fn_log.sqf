@@ -385,14 +385,16 @@ switch (ADV_par_customUni) do {
 
 _player = _this select 0;
 //TFAR-manpacks
-if ( str _player == "log_command" ) then {
-	if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) ) then {
-		_backpack = switch (ADV_par_CustomUni) do {
-			case 1: {["tf_rt1523g_bwmod"]};
-			case 2: {["tf_rt1523g_bwmod"]};
-			case 9: {["tf_rt1523g_rhs"]};
-			case 12: {["UK3CB_BAF_B_Bergen_MTP_Radio_H_A","UK3CB_BAF_B_Bergen_MTP_Radio_H_B"]};
-			default {["tf_rt1523g_big_rhs"]};
+switch (toUpper ([str (_this select 0),0,6] call BIS_fnc_trimString)) do {
+	case "LOG_COM": {
+		if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) ) then {
+			_backpack = switch (ADV_par_CustomUni) do {
+				case 1: {["tf_rt1523g_bwmod"]};
+				case 2: {["tf_rt1523g_bwmod"]};
+				case 9: {["tf_rt1523g_rhs"]};
+				case 12: {["UK3CB_BAF_B_Bergen_MTP_Radio_H_A","UK3CB_BAF_B_Bergen_MTP_Radio_H_B"]};
+				default {["tf_rt1523g_big_rhs"]};
+			};
 		};
 	};
 };

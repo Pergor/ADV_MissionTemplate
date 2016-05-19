@@ -109,7 +109,7 @@ if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 	//CustomMod items//
 
 //ACRE radios
-_ACREradios = ["ACRE_PRC343"];	//_this select 0=shortrange radio;_this select 1=leader radio;_this select 2=backpackRadio;
+_ACREradios = ["ACRE_PRC343","ACRE_PRC148"];	//_this select 0=shortrange radio;_this select 1=leader radio;_this select 2=backpackRadio;
 //TFAR items
 _givePersonalRadio = true;
 _giveRiflemanRadio = false;
@@ -408,6 +408,7 @@ switch (ADV_par_customUni) do {
 		_uniform = ["U_BG_Guerrilla_6_1","U_BG_Guerilla2_2","U_BG_Guerilla2_1","U_BG_Guerilla2_3","U_BG_Guerilla3_1"];
 		_headgear = ["H_Shemag_olive","H_ShemagOpen_tan","H_ShemagOpen_khk","H_Cap_headphones","H_MilCap_mcamo","H_MilCap_gry","H_MilCap_blue","H_Cap_tan_specops_US",
 			"H_Cap_usblack","H_Cap_oli_hs","H_Cap_blk","H_Booniehat_tan","H_Booniehat_oli","H_Booniehat_khk","H_Watchcap_khk","H_Watchcap_cbr","H_Watchcap_camo"];
+		_ACREradios = ["ACRE_PRC343"];
 	};
 	case 12: {
 		//UK3CB
@@ -443,14 +444,13 @@ if (isClass(configFile >> "CfgPatches" >> "adv_insignia")) then {
 	_insignium = "ADV_insignia_medic";
 };
 
-if (str (_this select 0) == "medic_command") then {
-	_binocular = "Rangefinder";
-	if !(ADV_par_customUni == 9) then { _ACREradios = ["ACRE_PRC343","ACRE_PRC148"]; };
-	_givePersonalRadio = true;
-	_giveRiflemanRadio = false;
-	_androidDevice = true;
-	_microDAGR = false;
-	_ACE_MapTools = 1;
+switch (toUpper ([str (_this select 0),0,8] call BIS_fnc_trimString)) do {
+	case "MEDIC_COM": {
+		_binocular = "Rangefinder";
+		_androidDevice = true;
+		_microDAGR = false;
+		_ACE_MapTools = 1;
+	};
 };
 ///// No editing necessary below this line /////
 

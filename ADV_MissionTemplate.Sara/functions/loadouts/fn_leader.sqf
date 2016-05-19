@@ -390,7 +390,7 @@ switch (ADV_par_customUni) do {
 		_uniform = ["rhs_uniform_FROG01_d"];
 		_vest = ["rhsusf_spc_teamleader"];
 		_headgear = ["rhsusf_lwh_helmet_marpatd_headset"];
-		_acreBackpack = ["rhsusf_assault_eagleaiii_coy"];
+		_acreBackpack = ["rhsusf_falconii_coy"];
 		_items pushBack "rhs_Booniehat_marpatd";
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};	
@@ -399,7 +399,7 @@ switch (ADV_par_customUni) do {
 		_uniform = ["rhs_uniform_FROG01_wd"];
 		_vest = ["rhsusf_spc_teamleader"];
 		_headgear = ["rhsusf_lwh_helmet_marpatwd_headset"];
-		_acreBackpack = ["rhsusf_assault_eagleaiii_coy"];
+		_acreBackpack = ["rhsusf_falconii"];
 		_items pushBack "rhs_Booniehat_marpatwd";
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};
@@ -457,14 +457,15 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1
 	_backpack = _acreBackpack;
 };
 
-switch (toUpper (str (_this select 0))) do {
-	case "LEADER_LOGISTIC": {
+switch (toUpper ([str (_this select 0),0,9] call BIS_fnc_trimString)) do {
+	case "LEADER_LOG": {
+		_ACE_isMedic = 2;
 		_ACE_isEngineer = 2;
 		_ACE_isEOD = true;
 		_tablet = true;
 		_androidDevice = false;
 	};
-	case "LEADER_COMMAND": {
+	case "LEADER_COM": {
 		_ACE_isMedic = 2;
 		_tablet = true;
 		_androidDevice = false;
@@ -475,7 +476,6 @@ switch (toUpper (str (_this select 0))) do {
 };
 
 ///// No editing necessary below this line /////
-
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
 CL_IE_Module_Enabled = true;

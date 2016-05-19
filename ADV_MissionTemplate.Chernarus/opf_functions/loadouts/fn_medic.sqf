@@ -108,7 +108,7 @@ if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 	//CustomMod items//
 
 //ACRE radios
-_ACREradios = ["ACRE_PRC343"];	//_this select 0=shortrange radio;_this select 1=leader radio;_this select 2=backpackRadio;
+_ACREradios = ["ACRE_PRC343","ACRE_PRC148"];	//_this select 0=shortrange radio;_this select 1=leader radio;_this select 2=backpackRadio;
 //TFAR items
 _givePersonalRadio = true;
 _giveRiflemanRadio = false;
@@ -240,6 +240,7 @@ switch (ADV_par_opfUni) do {
 		_vest = ["rhs_6b23_digi_medic"];
 		_headgear = ["rhs_6b28","rhs_6b28_ess","rhs_6b26_green","rhs_6b26_ess_green","rhs_6b27m_green","rhs_6b27m_green_ess","rhs_6b27m","rhs_6b27m_ess","rhs_6b28_green","rhs_6b28_green_ess"];
 		_backpack = ["B_Kitbag_sgg"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 2: {
 		//RHS Flora
@@ -247,6 +248,7 @@ switch (ADV_par_opfUni) do {
 		_vest = ["rhs_6b23_medic"];
 		_headgear = ["rhs_6b26","rhs_6b26_ess","rhs_6b26_green","rhs_6b26_ess_green","rhs_6b27m_green","rhs_6b27m_green_ess","rhs_6b27m","rhs_6b27m_ess","rhs_6b28_green","rhs_6b28_green_ess"];
 		_backpack = ["B_Kitbag_sgg"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 3: {
 		//RHS Mountain Flora
@@ -254,14 +256,25 @@ switch (ADV_par_opfUni) do {
 		_vest = ["rhs_6b23_ML_medic"];
 		_headgear = ["rhs_6b26_green","rhs_6b26_ess_green","rhs_6b27m_green","rhs_6b27m_green_ess","rhs_6b27m","rhs_6b27m_ess","rhs_6b28_green","rhs_6b28_green_ess"];
 		_backpack = ["B_Kitbag_sgg"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 4: {
+		//RHS EMR Desert
+		_uniform = ["rhs_uniform_emr_des_patchless"];
+		_vest = ["rhs_6b23_ML_medic"];
+		_headgear = ["rhs_6b7_1m_olive","rhs_6b7_1m_bala2_olive","rhs_6b7_1m","rhs_6b7_1m_bala2","rhs_6b28_green","rhs_6b28_green_bala",
+			"rhs_6b27m_green","rhs_6b27m_green_bala","rhs_6b27m_green_ess","rhs_6b26","rhs_6b26_bala","rhs_6b26_ess"];
+		_backpack = ["B_Kitbag_sgg"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhs_1PN138"];
+	};
+	case 5: {
 		//Guerilla
 		_uniform = ["U_OG_Guerrilla_6_1","U_OG_Guerilla2_2","U_OG_Guerilla2_1","U_OG_Guerilla2_3","U_OG_Guerilla3_1"];
 		_headgear = ["H_Watchcap_cbr","H_Watchcap_camo","H_Booniehat_khk","H_Booniehat_oli","H_Cap_blk","H_Cap_oli","H_Cap_tan","H_Cap_brn_SPECOPS","H_MilCap_ocamo",
 			"H_Cap_headphones","H_ShemagOpen_tan"];
+		_ACREradios = ["ACRE_PRC343"];
 	};
-	case 5: {
+	case 6: {
 		//Afghan Militia (EricJ's Taliban)
 		_uniform = ["U_Afghan01NH","U_Afghan02NH","U_Afghan03NH"];
 		if (isClass(configFile >> "CfgPatches" >> "maa_Uniform")) then {_uniform append ["TRYK_U_taki_BL","TRYK_U_taki_COY","TRYK_U_taki_wh","TRYK_U_taki_G_BL","TRYK_U_taki_G_COY","TRYK_U_taki_G_WH","TRYK_ZARATAKI","TRYK_ZARATAKI2","TRYK_ZARATAKI3"]};
@@ -270,6 +283,9 @@ switch (ADV_par_opfUni) do {
 		_goggles = "";
 		_useProfileGoggles = 0;
 		_backpack = ["rhs_assault_umbts"];
+		_ACREradios = ["ACRE_PRC343"];
+		_givePersonalRadio = false;
+		_giveRiflemanRadio = true;
 	};
 	default {};
 };
@@ -278,15 +294,17 @@ if (isClass(configFile >> "CfgPatches" >> "adv_insignia")) then {
 	_insignium = "ADV_insignia_medic";
 };
 
-if ( str (_this select 0) == "opf_medic_command" && !(ADV_par_opfUni==5) ) then {
-	_isLeader = true;
-	_binocular = "Rangefinder";
-	_ACREradios = ["ACRE_PRC343","ACRE_PRC148"];
-	_givePersonalRadio = true;
-	_giveRiflemanRadio = false;
-	_androidDevice = true;
-	_microDAGR = false;
-	_ACE_MapTools = 1;
+if !( ADV_par_opfUni==6 ) then {
+	switch (toUpper ([str (_this select 0),3,12] call BIS_fnc_trimString)) do {
+		case "MEDIC_COM": {
+			_binocular = "Rangefinder";
+			_givePersonalRadio = true;
+			_giveRiflemanRadio = false;
+			_androidDevice = true;
+			_microDAGR = false;
+			_ACE_MapTools = 1;
+		};
+	};
 };
 ///// No editing necessary below this line /////
 _player = _this select 0;

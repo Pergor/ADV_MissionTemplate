@@ -237,27 +237,37 @@ switch (ADV_par_opfUni) do {
 		_uniform = ["rhs_uniform_emr_patchless"];
 		_vest = ["rhs_6b23_digi_crewofficer","rhs_6b23_digi_crew","rhs_6b23_digi_engineer","rhs_6b23_crewofficer","rhs_6b23_crew","rhs_6b23_engineer"];
 		_headgear = ["rhs_tsh4","rhs_tsh4_bala","rhs_tsh4_ess","rhs_tsh4_ess_bala"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 2: {
 		//RHS Flora
 		_uniform = ["rhs_uniform_flora_patchless"];
 		_vest = ["rhs_6b23_digi_crewofficer","rhs_6b23_digi_crew","rhs_6b23_digi_engineer","rhs_6b23_crewofficer","rhs_6b23_crew","rhs_6b23_engineer"];
 		_headgear = ["rhs_tsh4","rhs_tsh4_bala","rhs_tsh4_ess","rhs_tsh4_ess_bala"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 3: {
 		//RHS Mountain Flora
 		_uniform = ["rhs_uniform_m88_patchless"];
 		_vest = ["rhs_6b23_ML_crewofficer","rhs_6b23_ML_crew","rhs_6b23_ML_engineer","rhs_6b23_crewofficer","rhs_6b23_crew","rhs_6b23_engineer"];
 		_headgear = ["rhs_tsh4","rhs_tsh4_bala","rhs_tsh4_ess","rhs_tsh4_ess_bala"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 4: {
+		//RHS EMR Desert
+		_uniform = ["rhs_uniform_emr_des_patchless"];
+		_vest = ["rhs_6b23_ML_crewofficer","rhs_6b23_ML_crew","rhs_6b23_ML_engineer","rhs_6b23_crewofficer","rhs_6b23_crew","rhs_6b23_engineer"];
+		_headgear = ["rhs_tsh4","rhs_tsh4_bala","rhs_tsh4_ess","rhs_tsh4_ess_bala"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhs_1PN138"];
+	};
+	case 5: {
 		//Guerilla
 		_uniform = ["U_OG_Guerrilla_6_1","U_OG_Guerilla2_2","U_OG_Guerilla2_1","U_OG_Guerilla2_3","U_OG_Guerilla3_1"];
 		_headgear = ["H_Watchcap_cbr","H_Watchcap_camo","H_Booniehat_khk","H_Booniehat_oli","H_Cap_blk","H_Cap_oli","H_Cap_tan","H_Cap_brn_SPECOPS","H_MilCap_ocamo",
 			"H_Cap_headphones","H_ShemagOpen_tan"];
 		_ACREradios = ["ACRE_PRC343"];
 	};
-	case 5: {
+	case 6: {
 		//Afghan Militia (EricJ's Taliban)
 		_uniform = ["U_Afghan01NH","U_Afghan02NH","U_Afghan03NH"];
 		if (isClass(configFile >> "CfgPatches" >> "maa_Uniform")) then {_uniform append ["TRYK_U_taki_BL","TRYK_U_taki_COY","TRYK_U_taki_wh","TRYK_U_taki_G_BL","TRYK_U_taki_G_COY","TRYK_U_taki_G_WH","TRYK_ZARATAKI","TRYK_ZARATAKI2","TRYK_ZARATAKI3"]};

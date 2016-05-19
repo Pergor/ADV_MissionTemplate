@@ -247,15 +247,18 @@ switch (ADV_par_indUni) do {
 	};
 };
 
+//TFAR-manpacks
+switch (toUpper ([str (_this select 0),3,10] call BIS_fnc_trimString)) do {
+	case "LOG_COM": {
+		if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) ) then {
+			_backpack = "tf_rt1523g_rhs";
+		};
+	};
+};
+
 ///// No editing necessary below this line /////
 
 _player = _this select 0;
-//TFAR-manpacks
-if ( str _player == "ind_log_command" ) then {
-	if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) ) then {
-		_backpack = "tf_rt1523g_rhs";
-	};
-};
 [_player] call ADV_fnc_gear;
 CL_IE_Module_Enabled = true;
 

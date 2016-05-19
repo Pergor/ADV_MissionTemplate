@@ -109,7 +109,7 @@ if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 	//CustomMod items//
 
 //ACRE radios
-_ACREradios = ["ACRE_PRC343"];	//_this select 0=shortrange radio;_this select 1=leader radio;_this select 2=backpackRadio;
+_ACREradios = ["ACRE_PRC343","ACRE_PRC148"];	//_this select 0=shortrange radio;_this select 1=leader radio;_this select 2=backpackRadio;
 //TFAR items
 _givePersonalRadio = true;
 _giveRiflemanRadio = false;
@@ -248,14 +248,15 @@ if (isClass(configFile >> "CfgPatches" >> "adv_insignia")) then {
 	_insignium = "ADV_insignia_medic";
 };
 
-if (str (_this select 0) == "ind_medic_command") then {
-	_binocular = "Rangefinder";
-	_ACREradios = ["ACRE_PRC343","ACRE_PRC148"];
-	_givePersonalRadio = true;
-	_giveRiflemanRadio = false;
-	_androidDevice = true;
-	_microDAGR = false;
-	_ACE_MapTools = 1;
+switch (toUpper ([str (_this select 0),3,12] call BIS_fnc_trimString)) do {
+	case "MEDIC_COM": {
+		_binocular = "Rangefinder";
+		_givePersonalRadio = true;
+		_giveRiflemanRadio = false;
+		_androidDevice = true;
+		_microDAGR = false;
+		_ACE_MapTools = 1;
+	};
 };
 ///// No editing necessary below this line /////
 

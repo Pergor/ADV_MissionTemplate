@@ -267,15 +267,15 @@ class param_opfSilencers
 class param_opfUni
 {
 	title="Welche Uniform-Sets sollen an OPFOR-Einheiten ausgegeben werden?";
-	values[] = {5,4,3,2,1,0};
-	texts[] = {"Afghan Militia (EricJ's Afghan Fighters&RHS)","Guerilla","Mountain Flora (RHS)","Flora (RHS)","EMR Summer (RHS)","Keine"};
+	values[] = {6,5,4,3,2,1,0};
+	texts[] = {"Afghan Militia (EricJ's Afghan Fighters & RHS)","Guerilla","EMR Desert (RHS)","Mountain Flora (RHS)","Flora (RHS)","EMR Summer (RHS)","Vanilla CSAT"};
 	default = 0;
 };
 class param_opfWeap
 {
 	title="Welche Waffen-Sets sollen an OPFOR-Einheiten ausgegeben werden?";
 	values[] = {4,3,2,1,0};
-	texts[] = {"HLC AK Pack (no logistic, no ammo in vehicles), am besten mit RHSAFRF","CUP (benötigt CUP)","RHS-Guerillas (benötigt RHSAFRF)","RHS (benötigt RHSAFRF)","Keine"};
+	texts[] = {"HLC AK Pack (no logistic, no ammo in vehicles), am besten mit RHSAFRF","CUP (benötigt CUP)","RHS-Guerillas (benötigt RHSAFRF)","RHS (benötigt RHSAFRF)","VANILLA CSAT"};
 	default = 0;
 };
 class dummy_vehicles {

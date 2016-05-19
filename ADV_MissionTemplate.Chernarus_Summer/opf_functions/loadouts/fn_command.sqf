@@ -238,24 +238,35 @@ switch (ADV_par_opfUni) do {
 		//RHS EMR-Summer
 		_uniform = ["rhs_uniform_emr_patchless"];
 		_vest = ["rhs_6b23_digi_crewofficer","rhs_6b13_Flora_crewofficer","rhs_6b13_crewofficer"];
-		_headgear = ["rhs_fieldcap_digi"];
+		_headgear = ["rhs_beret_milp"];
 		_acreBackpack = ["rhs_assault_umbts"];
+		_items = _items-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 2: {
 		//RHS Flora
 		_uniform = ["rhs_uniform_flora"];
 		_vest = ["rhs_6b13_Flora_crewofficer","rhs_6b13_crewofficer"];
-		_headgear = ["rhs_fieldcap"];
+		_headgear = ["rhs_beret_milp"];
 		_acreBackpack = ["rhs_assault_umbts"];
+		_items = _items-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 3: {
 		//RHS Mountain Flora
 		_uniform = ["rhs_uniform_m88_patchless"];
 		_vest = ["rhs_6b23_ML_crewofficer"];
-		_headgear = ["rhs_fieldcap_ml"];
+		_headgear = ["rhs_beret_milp"];
 		_acreBackpack = ["rhs_assault_umbts"];
-	};
+		_items = _items-["NVGoggles_OPFOR"]+["rhs_1PN138"];
+	};	
 	case 4: {
+		//RHS EMR Desert
+		_uniform = ["rhs_uniform_m88_patchless"];
+		_vest = ["rhs_6b23_ML_crewofficer"];
+		_headgear = ["rhs_beret_milp"];
+		_acreBackpack = ["rhs_assault_umbts"];
+		_items = _items-["NVGoggles_OPFOR"]+["rhs_1PN138"];
+	};
+	case 5: {
 		//Guerilla
 		_uniform = ["U_OG_leader"];
 		_headgear = ["H_Watchcap_cbr","H_Watchcap_camo","H_Booniehat_khk","H_Booniehat_oli","H_Cap_blk","H_Cap_oli","H_Cap_tan","H_Cap_brn_SPECOPS","H_MilCap_ocamo",
@@ -263,7 +274,7 @@ switch (ADV_par_opfUni) do {
 		_binocular = "Binocular";
 		_ACREradios = ["","ACRE_PRC343","ACRE_PRC77"];
 	};
-	case 5: {
+	case 6: {
 		//Afghan Militia (EricJ's Taliban)
 		_uniform = ["U_Afghan01NH","U_Afghan02NH","U_Afghan03NH"];
 		if (isClass(configFile >> "CfgPatches" >> "maa_Uniform")) then {_uniform append ["TRYK_U_taki_BL","TRYK_U_taki_COY","TRYK_U_taki_wh","TRYK_U_taki_G_BL","TRYK_U_taki_G_COY","TRYK_U_taki_G_WH","TRYK_ZARATAKI","TRYK_ZARATAKI2","TRYK_ZARATAKI3"]};
@@ -284,6 +295,7 @@ if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radio
 		case 1: {["tf_mr3000_rhs"]};
 		case 2: {["tf_mr3000_rhs"]};
 		case 3: {["tf_mr3000_rhs"]};
+		case 4: {["tf_mr3000_rhs"]};
 		case 5: {[""]};
 		default {["tf_mr3000_rhs"]};
 	};

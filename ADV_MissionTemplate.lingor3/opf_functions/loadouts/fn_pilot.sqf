@@ -237,18 +237,28 @@ switch (ADV_par_opfUni) do {
 		_uniform = ["rhs_uniform_df15"];
 		_vest = ["V_TacVest_oli"];
 		_headgear = ["rhs_zsh7a"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 2: {
 		//RHS Flora
 		_uniform = ["rhs_uniform_df15"];
 		_vest = ["V_TacVest_oli"];
 		_headgear = ["rhs_zsh7a"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 3: {
 		//RHS Mountain Flora
 		_uniform = ["rhs_uniform_df15"];
 		_vest = ["V_TacVest_oli"];
 		_headgear = ["rhs_zsh7a"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhs_1PN138"];
+	};
+	case 4: {
+		//RHS EMR Desert
+		_uniform = ["rhs_uniform_df15"];
+		_vest = ["V_TacVest_oli"];
+		_headgear = ["rhs_zsh7a"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	default {};
 };
