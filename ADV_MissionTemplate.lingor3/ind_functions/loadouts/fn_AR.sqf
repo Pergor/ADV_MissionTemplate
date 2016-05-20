@@ -202,20 +202,15 @@ switch (ADV_par_indWeap) do {
 	};
 	case 2: {
 		//SELmods
-		_primaryWeapon = ["rhs_weap_m240B_CAP"];
-		_optic = ["rhsusf_acc_ELCAN"];
+		_primaryWeapon = ["rhs_weap_m240B","rhs_weap_m240G"];
+		_optic = ["rhsusf_acc_ELCAN_ard"];
 		_attachments = [""];
 		_silencer = "";		//if silencer is added
-		_primaryweaponAmmo set [1,5];
-		_additionalAmmo = [4,5,true];
+		_primaryweaponAmmo = [1,8];
+		_additionalAmmo = [4,8,true];
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
-		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
-			_handgun = "RH_m9";
-			_itemsHandgun = ["RH_x300"];
-			_handgunSilencer = "RH_m9qd";
-		};
 	};
 	case 3: {
 		_primaryWeapon = ["hlc_lmg_m60","hlc_lmg_M60E4"];

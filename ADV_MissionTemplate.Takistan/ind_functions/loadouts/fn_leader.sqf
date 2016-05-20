@@ -206,20 +206,16 @@ switch (ADV_par_indWeap) do {
 	case 2: {
 		//SELmods
 		_primaryweapon = ["rhs_weap_m4a1_m320","rhs_weap_m4_m320"];
-		_optic = ["rhsusf_acc_ACOG","rhsusf_acc_ACOG3"];
-		if (isClass(configFile >> "CfgPatches" >> "iansky_opt")) then {_optic append ["iansky_specterdrkf_t","iansky_specterdrkf_fde","iansky_specterdrkf"];};
-		_attachments = ["rhsusf_acc_anpeq15side"];
+		_optic = ["rhsusf_acc_ACOG","rhsusf_acc_ACOG3","rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR_OD"];
+		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
+		if ( ADV_par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		_attachments pushBack (["","","","","rhsusf_acc_grip1","rhsusf_acc_grip2","rhsusf_acc_grip2_tan","rhsusf_acc_grip3"] call BIS_fnc_selectRandom);
 		_silencer = "rhsusf_acc_rotex5_grey";
 		_primaryweaponAmmo set [1,10];
 		_additionalAmmo set [1,9];
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
-		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
-			_handgun = "RH_m9";
-			_itemsHandgun = ["RH_x300"];
-			_handgunSilencer = "RH_m9qd";
-		};
 	};
 	case 3: {
 		_primaryWeapon = ["HLC_Rifle_g3ka4_GL"];

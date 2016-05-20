@@ -205,11 +205,6 @@ switch (ADV_par_indWeap) do {
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
-		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
-			_handgun = "RH_m9";
-			_itemsHandgun = ["RH_x300"];
-			_handgunSilencer = "RH_m9qd";
-		};
 	};
 	case 3: {
 		_primaryWeapon = ["hlc_rifle_LAR"];

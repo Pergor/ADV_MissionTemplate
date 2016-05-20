@@ -22,11 +22,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",21];
 			_target addMagazineCargoGlobal ["rhsusf_20Rnd_762x51_m118_special_Mag",7];
 			_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",4];
-			if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
-				_target addMagazineCargoGlobal ["RH_12Rnd_45cal_usp",8];
-			} else {
-				_target addMagazineCargoGlobal ["rhsusf_mag_7x45acp_MHP",8];
-			};
+			_target addMagazineCargoGlobal ["rhsusf_mag_7x45acp_MHP",8];
 		};
 		case (ADV_par_indWeap == 3): {
 			//weapons

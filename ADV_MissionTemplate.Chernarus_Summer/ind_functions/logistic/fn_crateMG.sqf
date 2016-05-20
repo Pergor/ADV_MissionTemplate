@@ -16,7 +16,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	switch (true) do {
 		//SeL RHS
 		case (ADV_par_indWeap == 2): {
-			_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51",10];
+			_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51_m80a1epr",10];
 			//_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",4];
 		};		
 		case (ADV_par_indWeap == 3): {

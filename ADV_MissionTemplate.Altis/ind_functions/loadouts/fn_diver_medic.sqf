@@ -193,18 +193,18 @@ _scorchItemsRandom = [""];
 switch (ADV_par_customWeap) do {
 	case 2: {
 		//SELmods
-		_primaryweapon = ["rhs_weap_mk18_grip2","rhs_weap_mk18_grip2_KAC","rhs_weap_mk18_KAC"];
+		_primaryweapon = ["rhs_weap_m4a1_blockII_KAC","rhs_weap_m4a1_blockII"];
 		_optic = ["rhsusf_acc_eotech_552"];
-		//if (isClass(configFile >> "CfgPatches" >> "iansky_opt")) then {_optic append [""];};
 		_attachments = ["rhsusf_acc_anpeq15","rhsusf_acc_rotex5_grey"];
+		_attachments pushBack (["","rhsusf_acc_grip2"] call BIS_fnc_selectRandom);
 		_primaryweaponAmmo = [7,9];
 		_additionalAmmo = nil;
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
 		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
-			_handgun = "RH_m9";
-			_itemsHandgun = ["RH_x300","RH_m9qd"];
+			_handgun="RH_fnp45";
+			_itemsHandgun=["RH_x300","RH_gemtech45"];
 		};
 	};
 	default {};

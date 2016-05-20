@@ -20,11 +20,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
 			_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",5];
 			//_target addMagazineCargoGlobal ["rhsusf_20Rnd_762x51_m118_special_Mag",5];
-			if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
-				_target addMagazineCargoGlobal ["RH_12Rnd_45cal_usp",5];
-			} else {
-				_target addMagazineCargoGlobal ["rhsusf_mag_7x45acp_MHP",5];
-			};
+			_target addMagazineCargoGlobal ["rhsusf_mag_7x45acp_MHP",5];
 		};
 		case (ADV_par_indWeap == 3): {
 			//ammo

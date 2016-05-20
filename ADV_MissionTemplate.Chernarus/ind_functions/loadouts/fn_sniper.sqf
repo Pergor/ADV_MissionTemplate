@@ -205,14 +205,16 @@ switch (ADV_par_indWeap) do {
 	};
 	case 2: {
 		//SELmods
-		_primaryweapon = switch (toUpper (worldname)) do {
-			case "CHERNARUS": {"rhs_weap_XM2010_wd"};
-			case "TAKISTAN": {"rhs_weap_XM2010_d"};
-			case "ZARGABAD": {"rhs_weap_XM2010_d"};
-			default {"rhs_weap_XM2010"};
+		_primaryWeapon = switch (true) do {
+			case ((toUpper worldname) in ADV_var_lushMaps): {"rhs_weap_XM2010_wd";};
+			case ((toUpper worldname) in ADV_var_aridMaps): {"rhs_weap_XM2010_d"};
+			default {["rhs_weap_XM2010","rhs_weap_XM2010_sa"]};
 		};
-		_attachments = ["optic_LRPS","rhsusf_acc_harris_bipod"];
-		if (isClass(configFile >> "CfgPatches" >> "iansky_opt")) then { _attachments = ["iansky_nfbeast","rhsusf_acc_harris_bipod"]; };
+		_attachments = switch (true) do {
+			case ((toUpper worldname) in ADV_var_aridMaps): {["rhsusf_acc_LEUPOLDMK4_2_d"]};
+			default {["rhsusf_acc_LEUPOLDMK4_2"]};
+		};
+		_attachments pushback "rhsusf_acc_harris_bipod";
 		_silencer = "rhsusf_acc_M2010S";
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];

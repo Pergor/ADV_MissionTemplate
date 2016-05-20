@@ -202,18 +202,12 @@ switch (ADV_par_indWeap) do {
 		//SELmods
 		_primaryweapon = ["rhs_weap_mk18","rhs_weap_mk18_grip2","rhs_weap_mk18_grip2_KAC","rhs_weap_mk18_KAC"];
 		_optic = ["rhsusf_acc_eotech_552"];
-		//if (isClass(configFile >> "CfgPatches" >> "iansky_opt")) then {_optic append [""];};
 		_attachments = ["rhsusf_acc_anpeq15"];
 		_silencer = "rhsusf_acc_rotex5_grey";		//if silencer is added
 		_primaryweaponAmmo set [1,9];
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
-		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
-			_handgun = "RH_m9";
-			_itemsHandgun = ["RH_x300"];
-			_handgunSilencer = "RH_m9qd";
-		};
 	};
 	case 3: {
 		_primaryWeapon = ["hlc_rifle_FAL5061","hlc_rifle_g3a3ris","hlc_rifle_STG58F","hlc_rifle_L1A1SLR"];

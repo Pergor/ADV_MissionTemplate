@@ -202,18 +202,16 @@ switch (true) do {
 		//SELmods
 		_primaryweapon = ["rhs_weap_m4_carryhandle"];
 		_optic = [""];
+		_attachments = [""];
+		_silencer = "";
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
-			_primaryweapon = ["hlc_smg_MP5N","hlc_smg_mp5k_PDW","hlc_smg_mp5a3","hlc_smg_mp5a4"];
+			if (ADV_par_Silencers == 1) then { _primaryweapon = "hlc_smg_mp5sd6"; _silencer = ""; _primaryweaponAmmo set [1,2];};
 		} else {
 			_primaryweaponAmmo set [1,9];
 		};
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
-		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
-			_handgun = "RH_m9";
-			_itemsHandgun = ["RH_x300"];
-		};
 	};
 	case (ADV_par_indWeap == 3): {
 		//HLC

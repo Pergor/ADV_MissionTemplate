@@ -19,13 +19,9 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",40];
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",20];
 			_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",12];
-			_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51",12];
+			_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51_m80a1epr",12];
 			_target addMagazineCargoGlobal ["rhsusf_20Rnd_762x51_m118_special_Mag",20];
-			if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
-				_target addMagazineCargoGlobal ["RH_12Rnd_45cal_usp",20];
-			} else {
-				_target addMagazineCargoGlobal ["rhsusf_mag_7x45acp_MHP",20];
-			};
+			_target addMagazineCargoGlobal ["rhsusf_mag_7x45acp_MHP",20];
 		};
 		case (ADV_par_indWeap == 3): {
 			//ammo

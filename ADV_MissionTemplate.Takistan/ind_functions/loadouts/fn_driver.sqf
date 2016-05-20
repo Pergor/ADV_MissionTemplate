@@ -203,8 +203,6 @@ switch (true) do {
 		_attachments = [""];
 		_silencer = "";
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
-			_primaryweapon = ["hlc_smg_MP5N","hlc_smg_mp5k_PDW","hlc_smg_mp5a3"];
-			_silencer = "hlc_muzzle_Tundra";
 			if (ADV_par_Silencers == 1) then { _primaryweapon = "hlc_smg_mp5sd6"; _silencer = ""; _primaryweaponAmmo set [1,2];};
 		} else {
 			_primaryweaponAmmo set [1,9];
@@ -212,11 +210,6 @@ switch (true) do {
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
-		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
-			_handgun = "RH_m9";
-			_itemsHandgun = ["RH_x300"];
-			_handgunSilencer = "RH_m9qd";
-		};
 	};
 	case (ADV_par_indWeap == 3): {
 		//HLC

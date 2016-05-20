@@ -220,7 +220,7 @@ class param_indWeap
 {
 	title="Welche Waffen sollen an INDFOR-Einheiten ausgegeben werden?";
 	values[] = {3,2,1,0};
-	texts[] = {"FAL, G3 und M60 - größtenteils ohne Optiken, keine Schalldämpfer (benötigt HLC_FAL, HLC_G3, HLC_MP5, HLC_M60)","SeL-Mods (benötigt RHSUSF, optional hlc_mp5, IanSky-Scopes und RH-Pistols)","Vanilla Mk20","Vanilla MX"};
+	texts[] = {"FAL, G3 und M60 - größtenteils ohne Optiken, keine Schalldämpfer (benötigt HLC_FAL, HLC_G3, HLC_MP5, HLC_M60)","RHSUSF (benötigt RHSUSF, optional hlc_mp5 und RH-Pistols)","Vanilla Mk20","Vanilla MX"};
 	default = 0;
 };
 class param_indUni
