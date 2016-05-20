@@ -6,8 +6,8 @@ magazines one for one in _items.
 */
 
 //clothing - (string)
-_uniform = switch (toUpper (worldname)) do {
-	//case "TAKISTAN": {};
+_uniform = switch (true) do {
+	//case ((toUpper worldname) in ADV_var_aridMaps): {};
 	default {["U_B_GhillieSuit"];};
 };
 _vest = ["V_PlateCarrier2_rgr","V_PlateCarrier1_rgr"];
@@ -104,11 +104,11 @@ _items = ["NVGoggles_OPFOR"];
 
 //MarksmenDLC-objects:
 if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
-	_uniform = switch (toUpper (worldname)) do {
-		case "TAKISTAN": {["U_B_FullGhillie_ard"]};
-		case "ZARGABAD": {["U_B_FullGhillie_ard"]};
-		case "ALTIS": {["U_B_FullGhillie_ard","U_B_FullGhillie_sard"]};
-		case "STRATIS": {["U_B_FullGhillie_sard"]};
+	_uniform = switch (true) do {
+		case ((toUpper worldname) == "ALTIS"): {["U_B_FullGhillie_ard","U_B_FullGhillie_sard"]};
+		case ((toUpper worldname) in ADV_var_aridMaps): {["U_B_FullGhillie_ard"]};
+		case ((toUpper worldname) in ADV_var_sAridMaps): {["U_B_FullGhillie_sard"]};
+		case ((toUpper worldname) in ADV_var_lushMaps): {["U_B_FullGhillie_lsh"]};
 		default {["U_B_FullGhillie_lsh","U_B_FullGhillie_sard"]};
 	};
 };
@@ -206,13 +206,16 @@ switch (ADV_par_customWeap) do {
 	};
 	case 2: {
 		//RHS Army
-		_primaryweapon = switch (toUpper (worldname)) do {
-			case "CHERNARUS": {"rhs_weap_XM2010_wd"};
-			case "TAKISTAN": {"rhs_weap_XM2010_d"};
-			case "ZARGABAD": {"rhs_weap_XM2010_d"};
-			default {"rhs_weap_XM2010"};
+		_primaryWeapon = switch (true) do {
+			case ((toUpper worldname) in ADV_var_lushMaps): {"rhs_weap_XM2010_wd";};
+			case ((toUpper worldname) in ADV_var_aridMaps): {"rhs_weap_XM2010_d"};
+			default {["rhs_weap_XM2010","rhs_weap_XM2010_sa"]};
 		};
-		_attachments = ["optic_LRPS","rhsusf_acc_harris_bipod"];
+		_attachments = switch (true) do {
+			case ((toUpper worldname) in ADV_var_aridMaps): {["rhsusf_acc_LEUPOLDMK4_2_d"]};
+			default {["rhsusf_acc_LEUPOLDMK4_2"]};
+		};
+		_attachments pushback "rhsusf_acc_harris_bipod";
 		_silencer = "rhsusf_acc_M2010S";
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];

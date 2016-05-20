@@ -103,21 +103,16 @@ _items = ["NVGoggles_OPFOR"];
 
 //MarksmenDLC-objects:
 if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
-	_uniform = switch (toUpper (worldname)) do {
-		case "TAKISTAN": {["U_O_FullGhillie_ard"]};
-		case "ZARGABAD": {["U_O_FullGhillie_ard"]};
-		case "ALTIS": {["U_O_FullGhillie_ard","U_O_FullGhillie_sard"]};
-		case "STRATIS": {["U_O_FullGhillie_sard"]};
+	_uniform = switch (true) do {
+		case ((toUpper worldname) == "ALTIS"): {["U_O_FullGhillie_ard","U_O_FullGhillie_sard"]};
+		case ((toUpper worldname) in ADV_var_aridMaps): {["U_O_FullGhillie_ard"]};
+		case ((toUpper worldname) in ADV_var_sAridMaps): {["U_O_FullGhillie_sard"]};
+		case ((toUpper worldname) in ADV_var_lushMaps): {["U_O_FullGhillie_lsh"]};
 		default {["U_O_FullGhillie_lsh","U_O_FullGhillie_sard"]};
 	};
 };
-_groupWeapons = [];
-{_groupWeapons pushback (primaryWeapon _x);} forEach units group (_this select 0);
-if ("srifle_DMR_04_F" in _groupWeapons || "srifle_DMR_04_Tan_F" in _groupWeapons) then {
-	_additionalAmmo = [5,"10Rnd_127x54_Mag"];
-};
 
-	//CustomMod items//
+//CustomMod items//
 	
 //ACRE radios
 _ACREradios = ["ACRE_PRC343","ACRE_PRC148"];	//_this select 0=shortrange radio;_this select 1=leader radio;_this select 2=backpackRadio;

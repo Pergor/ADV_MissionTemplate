@@ -20,11 +20,27 @@ if (isClass (configFile >> "CfgPatches" >> "acre_main")) then {
 };
 */
 
-if (isClass(configFile >> "CfgPatches" >> "ace_medical")) then {
-	if ( !isClass(configFile >> "CfgPatches" >> "adv_fixlegs_ace") && !(ace_medical_healHitPointAfterAdvBandage) ) then {
-		missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true,true];
-	};
+//map variables:
+ADV_var_aridMaps = [
+	"MCN_ALIABAD","BMFAYSHKHABUR","CLAFGHAN","FALLUJAH","FATA","HELLSKITCHEN","HELLSKITCHENS","MCN_HAZARKOT","PRAA_AV","RESHMAAN",
+	"SHAPUR_BAF","TAKISTAN","TORABORA","TUP_QOM","ZARGABAD","PJA307","PJA306","MOUNTAINS_ACR","TUNBA","KUNDUZ"
+];
+ADV_var_sAridMaps = [
+	"STRATIS","ALTIS","PORTO","ISLADUALA3"
+];
+ADV_var_lushMaps = [
+	"LINGOR3","MAK_JUNGLE","PJA305","TROPICA","TIGERIA","TIGERIA_SE","SARA","SARALITE","SARA_DBE1","INTRO","CHERNARUS","CHERNARUS_SUMMER",
+	"FDF_ISLE1_A","MBG_CELLE2","WOODLAND_ACR","BOOTCAMP_ACR","THIRSK","BORNHOLM","UTES","ANIM_HELVANTIS_V2","ABRAMIA","PANTHERA3","VT5"
+];
+switch (ADV_par_customUni) do {
+	case 1: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_lushMaps) then {2}; };
+	case 2: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_aridMaps) then {1}; };
+	case 4: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_aridMaps) then {5}; };
+	case 5: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_lushMaps) then {4}; };
+	case 10: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_lushMaps) then {11}; };
+	case 11: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_aridMaps) then {10}; };
 };
+
 if (isClass(configFile >> "CfgPatches" >> "ace_rearm") && (ADV_par_modTankAssets == 2 || ADV_par_modTankAssets == 1)) then {
 	missionNamespace setVariable ["ace_rearm_level",0,true];
 };

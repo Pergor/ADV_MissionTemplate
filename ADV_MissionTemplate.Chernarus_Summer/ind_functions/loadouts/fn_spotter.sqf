@@ -104,11 +104,11 @@ _items = ["NVGoggles_OPFOR"];
 
 //MarksmenDLC-objects:
 if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
-	_uniform = switch (toUpper (worldname)) do {
-		case "TAKISTAN": {["U_I_FullGhillie_ard"]};
-		case "ZARGABAD": {["U_I_FullGhillie_ard"]};
-		case "ALTIS": {["U_I_FullGhillie_ard","U_I_FullGhillie_sard"]};
-		case "STRATIS": {["U_I_FullGhillie_sard"]};
+	_uniform = switch (true) do {
+		case ((toUpper worldname) == "ALTIS"): {["U_I_FullGhillie_ard","U_I_FullGhillie_sard"]};
+		case ((toUpper worldname) in ADV_var_aridMaps): {["U_I_FullGhillie_ard"]};
+		case ((toUpper worldname) in ADV_var_sAridMaps): {["U_I_FullGhillie_sard"]};
+		case ((toUpper worldname) in ADV_var_lushMaps): {["U_I_FullGhillie_lsh"]};
 		default {["U_I_FullGhillie_lsh","U_I_FullGhillie_sard"]};
 	};
 };

@@ -198,7 +198,7 @@ class param_Silencers
 };
 class param_customUni
 {
-	title="Welche Uniform-Sets sollen an Einheiten ausgegeben werden?";
+	title="Welche Uniform-Sets sollen an Einheiten ausgegeben werden? (Desert/Woodland-Varianten werden möglicherweise durch worldname überschrieben.)";
 	values[] = {14,13,12,11,10,8,7,6,5,4,3,2,1,9,0};
 	texts[] = {"TRYK - Snow","TRYK - SpecOps","UK3CB BAF","RHS - MARPAT Woodland","RHS - MARPAT Desert","RHS - UCP","RHS - OCP","TFA - ACU","TFA - Desert","TFA - Woodland","TFA - Mixed","BWmod - Flecktarn","BWmod - Tropentarn","Vanilla-Guerilla","Vanilla NATO"};
 	default = 0;
