@@ -107,6 +107,11 @@ if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 	_optic = ["optic_KHS_blk"];
 	_silencer = "muzzle_snds_93mmg";		//if silencer is added
 	_backpack = ["B_AssaultPack_ocamo","B_AssaultPack_cbr"];
+	if (ADV_par_Silencers == 1) then {
+		_primaryweapon = ["srifle_DMR_04_F"];
+		_attachments pushBack "bipod_02_F_blk";
+		_silencer = "";
+	};
 };
 	//CustomMod items//
 	
