@@ -117,7 +117,7 @@ class ADV
 		class spotter {};
 		class uavOp {};
 	};
-	class loadouts_spec
+	class loadouts_civ
 	{
 		class civ {};
 		class civPilot {};
