@@ -77,11 +77,11 @@ ADV_ind_veh_artys = [];
 } forEach vehicles;
 
 ADV_ind_veh_helis = ADV_ind_veh_airRecon+ADV_ind_veh_airTransport+ADV_ind_veh_airLogistic;
-ADV_ind_veh_fixedWing = ADV_ind_veh_airCAS+ADV_ind_veh_airC130;
+ADV_ind_veh_fixedWing = ADV_ind_veh_airCAS+ADV_ind_veh_airC130+ADV_ind_veh_UAVs;
 ADV_ind_veh_air = ADV_ind_veh_helis+ADV_ind_veh_fixedWing;
 ADV_ind_veh_armored = ADV_ind_veh_heavys+ADV_ind_veh_tanks+ADV_ind_veh_artys;
 ADV_ind_veh_car = ADV_ind_veh_MRAPs+ADV_ind_veh_MRAPsHMG+ADV_ind_veh_MRAPsGMG+ADV_ind_veh_SUV+ADV_ind_veh_Offroad+ADV_ind_veh_OffroadHMG;
-ADV_ind_veh_light = ADV_ind_veh_ATVs+ADV_ind_veh_car+ADV_ind_veh_transport+ADV_ind_veh_logistic_repair+ADV_ind_veh_logistic_fuel+ADV_ind_veh_logistic_ammo+ADV_ind_veh_logistic_medic;
+ADV_ind_veh_light = ADV_ind_veh_ATVs+ADV_ind_veh_UGVs+ADV_ind_veh_UGVs_repair+ADV_ind_veh_car+ADV_ind_veh_transport+ADV_ind_veh_logistic_repair+ADV_ind_veh_logistic_fuel+ADV_ind_veh_logistic_ammo+ADV_ind_veh_logistic_medic;
 
 ADV_ind_veh_all = ADV_ind_veh_light+ADV_ind_veh_armored+ADV_ind_veh_air;
 

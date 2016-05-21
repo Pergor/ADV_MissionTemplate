@@ -74,11 +74,11 @@ ADV_veh_artys = [];
 } forEach vehicles;
 
 ADV_veh_helis = ADV_veh_airLogistic+ADV_veh_airTransport+ADV_veh_airRecon;
-ADV_veh_fixedWing = ADV_veh_airCAS+ADV_veh_airC130;
+ADV_veh_fixedWing = ADV_veh_airCAS+ADV_veh_airC130+ADV_veh_UAVs;
 ADV_veh_air = ADV_veh_helis+ADV_veh_fixedWing;
 ADV_veh_armored = ADV_veh_heavys+ADV_veh_tanks+ADV_veh_artys;
 ADV_veh_car = ADV_veh_MRAPS+ADV_veh_MRAPsHMG+ADV_veh_MRAPsGMG;
-ADV_veh_light = ADV_veh_ATVs+ADV_veh_car+ADV_veh_transport+ADV_veh_logistic_fuel+ADV_veh_logistic_ammo+ADV_veh_logistic_repair+ADV_veh_logistic_medic;
+ADV_veh_light = ADV_veh_ATVs+ADV_veh_UGVs+ADV_veh_UGVs_repair+ADV_veh_car+ADV_veh_transport+ADV_veh_logistic_fuel+ADV_veh_logistic_ammo+ADV_veh_logistic_repair+ADV_veh_logistic_medic;
 
 ADV_veh_all = ADV_veh_light+ADV_veh_armored+ADV_veh_air;
 
