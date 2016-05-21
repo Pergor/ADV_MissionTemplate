@@ -447,7 +447,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_common") ) then {
 		_unit linkItem "ACE_Altimeter";
 	};
 	if ( isClass(configFile >> "CfgPatches" >> "ACE_Grenades") ) then {
-		if (ADV_par_NVGs == 1) then {
+		if ( ( !(side (group _unit) == east) && ADV_par_NVGs == 1 ) || (side (group _unit) == east && ADV_par_opfNVGs == 1) ) then {
 			_unit addMagazines ["ACE_HandFlare_Green", _ACE_HandFlare_Green];
 			_unit addMagazines ["ACE_HandFlare_Red", _ACE_HandFlare_Red];
 			_unit addMagazines ["ACE_HandFlare_White", _ACE_HandFlare_White];
