@@ -34,6 +34,9 @@ ADV_opf_veh_logistic_ammo = [];
 ADV_opf_veh_logistic_repair = [];
 ADV_opf_veh_logistic_medic = [];
 ADV_opf_veh_ATVs = [];
+ADV_opf_veh_UAVs = [];
+ADV_opf_veh_UGVs = [];
+ADV_opf_veh_UGVs_repair = [];
 
 ADV_opf_veh_heavys = [];
 ADV_opf_veh_tanks = [];
@@ -55,6 +58,9 @@ ADV_opf_veh_artys = [];
 		case ( [_vehicleName,0,11] call BIS_fnc_trimString == "opf_MRAP_gmg" ): { ADV_opf_veh_MRAPsGMG pushBack _vehicleName; };
 		case ( [_vehicleName,0,7] call BIS_fnc_trimString == "opf_MRAP" ): { ADV_opf_veh_MRAPs pushBack _vehicleName; };
 		//logistics
+		case ( [_vehicleName,0,6] call BIS_fnc_trimString == "opf_uav" ): { ADV_opf_veh_UAVs pushBack _vehicleName; };
+		case ( [_vehicleName,0,6] call BIS_fnc_trimString == "opf_ugv" ): { ADV_opf_ veh_UGVs pushBack _vehicleName; };
+		case ( [_vehicleName,0,13] call BIS_fnc_trimString == "opf_ugv_repair" ): { ADV_opf_veh_UGVs_repair pushBack _vehicleName; };
 		case ( [_vehicleName,0,6] call BIS_fnc_trimString == "opf_ATV" ): { ADV_opf_veh_ATVs pushBack _vehicleName; };
 		case ( [_vehicleName,0,12] call BIS_fnc_trimString == "opf_transport" ): { ADV_opf_veh_transport pushBack _vehicleName; };
 		case ( [_vehicleName,0,16] call BIS_fnc_trimString == "opf_logistic_fuel" ): { ADV_opf_veh_logistic_fuel pushBack _vehicleName; };
