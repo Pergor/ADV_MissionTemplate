@@ -1,9 +1,9 @@
 class ADV_gear
-{	
+{
 	tag = "ADV";
 	class gear
 	{
-		file = "ADV_gear\gear";
+		file = "adv_gear\gear";
 		class aceFak {};
 		class acreSettings { preInit = 1 };
 		class addMagazine {};
@@ -18,7 +18,7 @@ class ADV_gear
 	};
 	class loadouts
 	{
-		file = "ADV_gear\loadouts";
+		file = "adv_gear\loadouts";
 		class AA {};
 		class ABearer {};
 		class AR {};
