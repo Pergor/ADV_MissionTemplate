@@ -12,7 +12,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	tf_radio_channel_name = "Arma3-TFAR";
 	tf_radio_channel_password = "123";
 	if (isServer) then {
-				{ publicVariable _x } forEach ["tf_radio_channel_name","tf_radio_channel_password"];
+		{ publicVariable _x } forEach ["tf_radio_channel_name","tf_radio_channel_password"];
 	};
 
 	tf_no_auto_long_range_radio = true;
