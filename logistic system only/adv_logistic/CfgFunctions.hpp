@@ -3,6 +3,7 @@ class ADV_logistic
 	tag = "ADV";
 	class logistic
 	{
+		file = "adv_logistic\logistic";
 		class crateAT {};
 		class crateEOD {};
 		class crateGrenades {};
@@ -20,6 +21,7 @@ class ADV_logistic
 	};
 	class common
 	{
+		file = "adv_logistic\common";
 		tag = "ADV_logistic";
 		class addACEItems {};
 		class clearCargo {};

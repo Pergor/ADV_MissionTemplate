@@ -10,6 +10,7 @@ ADV_par_opfNVGs = 0;		//NVGs for east (0 = no night equipment; 1 = night equipme
 ADV_par_Tablets = 1;		//0 = vanilla gps, 1 = cTab, 2 = ACE, 99 = no gps
 ADV_par_DLCContent = 1:		//define if dlc content should be given, if players own the DLCs
 
+//array of different maps (only necessary for sniper and spotter loadouts):
 ADV_var_aridMaps = [
 	"MCN_ALIABAD","BMFAYSHKHABUR","CLAFGHAN","FALLUJAH","FATA","HELLSKITCHEN","HELLSKITCHENS","MCN_HAZARKOT","PRAA_AV","RESHMAAN",
 	"SHAPUR_BAF","TAKISTAN","TORABORA","TUP_QOM","ZARGABAD","PJA307","PJA306","MOUNTAINS_ACR","TUNBA","KUNDUZ"
@@ -23,7 +24,7 @@ ADV_var_lushMaps = [
 ];
 
 //defines the player's unit:
-[player] call ADV_fnc_playerUnit;
+[player] call ADV_gear_fnc_playerUnit;
 
 //waitUntil-player is initialized
 waitUntil {time > 1};

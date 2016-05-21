@@ -1,11 +1,10 @@
 class ADV_gear
 {
-	tag = "ADV";
 	class gear
 	{
 		file = "adv_gear\gear";
+		tag = "ADV";
 		class aceFak {};
-		class acreSettings { preInit = 1 };
 		class addMagazine {};
 		class applyLoadout {};
 		class dialogGearInit {};
@@ -13,12 +12,11 @@ class ADV_gear
 		class gear {};
 		class insignia {};
 		class nil {};
-		class playerUnit {};
-		class tfarSettings { preInit = 1 };
 	};
 	class loadouts
 	{
 		file = "adv_gear\loadouts";
+		tag = "ADV";
 		class AA {};
 		class ABearer {};
 		class AR {};
@@ -46,5 +44,13 @@ class ADV_gear
 		class spec {};
 		class spotter {};
 		class uavOp {};
+	};
+	class common
+	{
+		file = "adv_gear\common";
+		tag = "ADV_gear";
+		class acreSettings { preInit = 1 };
+		class playerUnit {};
+		class tfarSettings { preInit = 1 };
 	};
 };

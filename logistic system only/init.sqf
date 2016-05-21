@@ -7,11 +7,9 @@ ADV_par_logisticDrop = 0;		//Should logistic crates be droppable upon mapclick? 
 ADV_par_logisticTeam = 0;		//Should larger crates (0 - no, 1 - crate Team, 2 - crate Team and slingloadable crate) be placeable?
 
 if (hasInterface) then {
-	waitUntil {player == player};
+	waitUntil {player == player && time > 1};
+	
+	if (!isNil "OBJECT") then { OBJECT addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_2_loadoutDialog";},nil,3,false,true,"","player distance cursortarget <5"]; };
 };
-//waitUntil-player is initialized
-waitUntil {time > 1};
-
-if (!isNil "OBJECT") then { OBJECT addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_2_loadoutDialog";},nil,3,false,true,"","player distance cursortarget <5"]; };
 
 if (true) exitWith {};
