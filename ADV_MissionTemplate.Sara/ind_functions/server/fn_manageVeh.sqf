@@ -33,6 +33,9 @@ ADV_ind_veh_logistic_ammo = [];
 ADV_ind_veh_logistic_repair = ["ind_repair_1","ind_repair_2","ind_repair_3","ind_repair_4","ind_repair_5","ind_repair_6","ind_repair_7","ind_repair_8","ind_repair_9","ind_repair_10"];
 ADV_ind_veh_logistic_medic = [];
 ADV_ind_veh_ATVs = [];
+ADV_ind_veh_UAVs = [];
+ADV_ind_veh_UGVs = [];
+ADV_ind_veh_UGVs_repair = [];
 
 ADV_ind_veh_heavys = [];
 ADV_ind_veh_tanks = [];
@@ -56,6 +59,9 @@ ADV_ind_veh_artys = [];
 		case ( [_vehicleName,0,13] call BIS_fnc_trimString == "ind_OffroadHMG" ): { ADV_ind_veh_OffroadHMG pushBack _vehicleName; };
 		case ( [_vehicleName,0,10] call BIS_fnc_trimString == "ind_Offroad" ): { ADV_ind_veh_Offroad pushBack _vehicleName; };
 		//logistics
+		case ( [_vehicleName,0,6] call BIS_fnc_trimString == "ind_uav" ): { ADV_ind_veh_UAVs pushBack _vehicleName; };
+		case ( [_vehicleName,0,6] call BIS_fnc_trimString == "ind_ugv" ): { ADV_ind_veh_UGVs pushBack _vehicleName; };
+		case ( [_vehicleName,0,13] call BIS_fnc_trimString == "ind_ugv_repair" ): { ADV_ind_veh_UGVs_repair pushBack _vehicleName; };
 		case ( [_vehicleName,0,6] call BIS_fnc_trimString == "ind_ATV" ): { ADV_ind_veh_ATVs pushBack _vehicleName; };
 		case ( [_vehicleName,0,12] call BIS_fnc_trimString == "ind_transport" ): { ADV_ind_veh_transport pushBack _vehicleName; };
 		case ( [_vehicleName,0,16] call BIS_fnc_trimString == "ind_logistic_fuel" ): { ADV_ind_veh_logistic_fuel pushBack _vehicleName; };
@@ -71,11 +77,11 @@ ADV_ind_veh_artys = [];
 } forEach vehicles;
 
 ADV_ind_veh_helis = ADV_ind_veh_airRecon+ADV_ind_veh_airTransport+ADV_ind_veh_airLogistic;
-ADV_ind_veh_fixedWing = ADV_ind_veh_airCAS+ADV_ind_veh_airC130;
+ADV_ind_veh_fixedWing = ADV_ind_veh_airCAS+ADV_ind_veh_airC130+ADV_ind_veh_UAVs;
 ADV_ind_veh_air = ADV_ind_veh_helis+ADV_ind_veh_fixedWing;
 ADV_ind_veh_armored = ADV_ind_veh_heavys+ADV_ind_veh_tanks+ADV_ind_veh_artys;
 ADV_ind_veh_car = ADV_ind_veh_MRAPs+ADV_ind_veh_MRAPsHMG+ADV_ind_veh_MRAPsGMG+ADV_ind_veh_SUV+ADV_ind_veh_Offroad+ADV_ind_veh_OffroadHMG;
-ADV_ind_veh_light = ADV_ind_veh_ATVs+ADV_ind_veh_car+ADV_ind_veh_transport+ADV_ind_veh_logistic_repair+ADV_ind_veh_logistic_fuel+ADV_ind_veh_logistic_ammo+ADV_ind_veh_logistic_medic;
+ADV_ind_veh_light = ADV_ind_veh_ATVs+ADV_ind_veh_UGVs+ADV_ind_veh_UGVs_repair+ADV_ind_veh_car+ADV_ind_veh_transport+ADV_ind_veh_logistic_repair+ADV_ind_veh_logistic_fuel+ADV_ind_veh_logistic_ammo+ADV_ind_veh_logistic_medic;
 
 ADV_ind_veh_all = ADV_ind_veh_light+ADV_ind_veh_armored+ADV_ind_veh_air;
 
