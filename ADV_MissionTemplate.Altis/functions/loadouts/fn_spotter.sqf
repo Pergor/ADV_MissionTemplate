@@ -29,7 +29,7 @@ _silencer = "";		//if silencer is added
 _primaryweaponAmmo = [7,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 _additionalAmmo = [5,"7Rnd_408_Mag",true];
 
-//40mm Grenades - (integer)
+//40mm Grenades - (arrays)
 _40mmHeGrenadesAmmo = 4;
 _40mmSmokeGrenadesWhite = 1;
 _40mmSmokeGrenadesYellow = 0;
@@ -64,18 +64,9 @@ _launcherAmmo = [0,0];		//first number: Amount of magazines, second number: conf
 _binocular = "Laserdesignator";
 
 //throwables - (integer)
-_grenadeHE = 2;
-_grenadeSmokeWhite = 2;
-_grenadeSmokeYellow = 0;
-_grenadeSmokeOrange = 0;
-_grenadeSmokeRed = 1;
-_grenadeSmokePurple = 0;
-_grenadeSmokeBlue = 0;
-_grenadeSmokeGreen = 0;
-_chemlightYellow = 0;
-_chemlightRed = 1;
-_chemlightGreen = 0;
-_chemlightBlue = 0;
+_grenadeSet = 0;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.
+_grenades = ["HE","HE","WHITE","WHITE","GREEN","RED"];		//depending on the custom loadout the colours may be merged.
+_chemlights = ["RED"];
 _IRgrenade = 1;
 
 //first aid kits and medi kits- (integer)

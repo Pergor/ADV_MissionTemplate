@@ -33,13 +33,13 @@ _additionalAmmo = [3,0,false];
 _40mmHeGrenadesAmmo = 3;
 _40mmSmokeGrenadesWhite = 0;
 _40mmSmokeGrenadesYellow = 1;
-_40mmSmokeGrenadesOrange = 1;
+_40mmSmokeGrenadesOrange = 0;
 _40mmSmokeGrenadesRed = 1;
 _40mmSmokeGrenadesPurple = 0;
 _40mmSmokeGrenadesBlue = 0;
-_40mmSmokeGrenadesGreen = 0;
+_40mmSmokeGrenadesGreen = 1;
 _40mmFlareWhite = 0;
-_40mmFlareYellow = 5;
+_40mmFlareYellow = 4;
 _40mmFlareRed = 0;
 _40mmFlareGreen = 0;
 _40mmFlareIR = 0;
@@ -64,18 +64,9 @@ _launcherAmmo = [0,0];
 _binocular = "Rangefinder";
 
 //throwables - (integer)
-_grenadeHE = 2;
-_grenadeSmokeWhite = 1;
-_grenadeSmokeYellow = 1;
-_grenadeSmokeOrange = 0;
-_grenadeSmokeRed = 0;
-_grenadeSmokePurple = 0;
-_grenadeSmokeBlue = 0;
-_grenadeSmokeGreen = 0;
-_chemlightYellow = 0;
-_chemlightRed = 1;
-_chemlightGreen = 0;
-_chemlightBlue = 0;
+_grenadeSet = 1;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.
+_grenades = [""];		//depending on the custom loadout the colours may be merged. add like this: ["HE","HE","WHITE"] (adds two HE and one white smoke grenade).
+_chemlights = [""];		//add like this: ["RED","RED","GREEN"] (adds two red and one green chemlight).
 _IRgrenade = 1;
 
 //first aid kits and medi kits- (integer)

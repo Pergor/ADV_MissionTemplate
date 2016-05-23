@@ -42,6 +42,15 @@ class ADV
 		class paraBomb {};
 		class zeusObjects {};
 	};
+	class serverGear
+	{
+		class addACEItems {};
+		class addVehicleLoad {};
+		class clearCargo {};
+		class crate {};
+		class submarineLoad {};
+		class vehicleLoad {};
+	};
 	class AI
 	{
 		class setSide {};
@@ -71,21 +80,18 @@ class ADV
 	class gear
 	{
 		class aceFAK {};
-		class addACEItems {};
+		class aceGear {};
+		class add40mm {};
+		class addGrenades {};
 		class addMagazine {};
-		class addVehicleLoad {};
+		class addRadios {};
 		class applyLoadout {};
-		class clearCargo {};
-		class crate {};
 		class CSW {};
 		class dialogGearInit {};
 		class dialogLoadout {};
 		class gear {};
 		class insignia {};
-		class mgCrate {};
 		class removeWeapon {};
-		class submarineLoad {};
-		class vehicleLoad {};
 	};
 	class loadouts
 	{

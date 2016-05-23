@@ -62,18 +62,9 @@ _launcherAmmo = [0,0];		//first number: Amount of magazines, second number: conf
 _binocular = "Rangefinder";
 
 //throwables - (integer)
-_grenadeHE = 0;
-_grenadeSmokeWhite = 0;
-_grenadeSmokeYellow = 0;
-_grenadeSmokeOrange = 0;
-_grenadeSmokeRed = 0;
-_grenadeSmokePurple = 0;
-_grenadeSmokeBlue = 2;
-_grenadeSmokeGreen = 0;
-_chemlightYellow = 0;
-_chemlightRed = 0;
-_chemlightGreen = 0;
-_chemlightBlue = 2;
+_grenadeSet = 0;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.
+_grenades = ["WHITE","WHITE","RED"];		//depending on the custom loadout the colours may be merged.
+_chemlights = ["RED"];
 _IRgrenade = 1;
 
 //first aid kits and medi kits- (integer)

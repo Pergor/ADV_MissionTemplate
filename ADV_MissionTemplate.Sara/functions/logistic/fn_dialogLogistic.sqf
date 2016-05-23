@@ -187,6 +187,7 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 		_target = _this select 0;
 		_target allowDamage false;
 		[_target] call ADV_fnc_clearCargo;
+		_target setPosASL (getPosASL player);
 		if ( ADV_par_customLoad == 1 ) then {
 			[_target] remoteExec ["aeroson_fnc_gearsaving",0,true];
 		};
@@ -208,67 +209,67 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 			};
 		};		
 		case "ADV_LOGISTIC_CRATEGRENADES": {
-			_box = createVehicle [ADV_logistic_crateTypeEOD,getPos player,[],0,"CAN_COLLIDE"];
+			_box = createVehicle [ADV_logistic_crateTypeEOD,getPosASL player,[],0,"CAN_COLLIDE"];
 			[_box] call _functionForAll;
 			_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateGrenades"];
 			[_box] remoteExecCall [_function,2];
 		};
 		case "ADV_LOGISTIC_CRATEEOD": {
-			_box = createVehicle [ADV_logistic_crateTypeEOD,getPos player,[],0,"CAN_COLLIDE"];
+			_box = createVehicle [ADV_logistic_crateTypeEOD,getPosASL player,[],0,"CAN_COLLIDE"];
 			[_box] call _functionForAll;
 			_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateEOD"];
 			[_box] remoteExecCall [_function,2];
 		};
 		case "ADV_LOGISTIC_CRATESTUFF": {
-			_box = createVehicle [ADV_logistic_crateTypeSupport,getPos player,[],0,"CAN_COLLIDE"];
+			_box = createVehicle [ADV_logistic_crateTypeSupport,getPosASL player,[],0,"CAN_COLLIDE"];
 			[_box] call _functionForAll;
 			_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateStuff"];
 			[_box] remoteExecCall [_function,2];
 		};
 		case "ADV_LOGISTIC_CRATETEAM": {
-			_box = createVehicle [ADV_logistic_crateTypeNormal,getPos player,[],0,"CAN_COLLIDE"];
+			_box = createVehicle [ADV_logistic_crateTypeNormal,getPosASL player,[],0,"CAN_COLLIDE"];
 			[_box] call _functionForAll;
 			_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateTeam"];
 			[_box] remoteExecCall [_function,2];
 		};
 		case "ADV_LOGISTIC_CRATENORMAL": {
-			_box = createVehicle [ADV_logistic_crateTypeNormal,getPos player,[],0,"CAN_COLLIDE"];
+			_box = createVehicle [ADV_logistic_crateTypeNormal,getPosASL player,[],0,"CAN_COLLIDE"];
 			[_box] call _functionForAll;
 			_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateNormal"];
 			[_box] remoteExecCall [_function,2];
 		};
 		case "ADV_LOGISTIC_CRATEMG": {
-			_box = createVehicle [ADV_logistic_crateTypeMG,getPos player,[],0,"CAN_COLLIDE"];
+			_box = createVehicle [ADV_logistic_crateTypeMG,getPosASL player,[],0,"CAN_COLLIDE"];
 			[_box] call _functionForAll;
 			_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateMG"];
 			[_box] remoteExecCall [_function,2];
 		};
 		case "ADV_LOGISTIC_CRATEAT": {
-			_box = createVehicle [ADV_logistic_crateTypeAT,getPos player,[],0,"CAN_COLLIDE"];
+			_box = createVehicle [ADV_logistic_crateTypeAT,getPosASL player,[],0,"CAN_COLLIDE"];
 			[_box] call _functionForAll;
 			_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateAT"];
 			[_box] remoteExecCall [_function,2];
 		};
 		case "ADV_LOGISTIC_CRATEMEDIC": {
-			_box = createVehicle [ADV_logistic_crateTypeMedic,getPos player,[],0,"CAN_COLLIDE"];
+			_box = createVehicle [ADV_logistic_crateTypeMedic,getPosASL player,[],0,"CAN_COLLIDE"];
 			[_box] call _functionForAll;
 			_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateMedic"];
 			[_box] remoteExecCall [_function,2];
 		};
 		case "ADV_LOGISTIC_CRATESUPPORT": {
-			_box = createVehicle [ADV_logistic_crateTypeSupport,getPos player,[],0,"CAN_COLLIDE"];
+			_box = createVehicle [ADV_logistic_crateTypeSupport,getPosASL player,[],0,"CAN_COLLIDE"];
 			[_box] call _functionForAll;
 			_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateSupport"];
 			[_box] remoteExecCall [_function,2];
 		};
 		case "ADV_LOGISTIC_WHEEL": {
 			if (isClass(configFile >> "CfgPatches" >> "ace_repair")) then {
-				_box = createVehicle ["ACE_Wheel",getPos player,[],0,"CAN_COLLIDE"];
+				_box = createVehicle ["ACE_Wheel",getPosASL player,[],0,"CAN_COLLIDE"];
 			};
 		};
 		case "ADV_LOGISTIC_TRACK": {
 			if (isClass(configFile >> "CfgPatches" >> "ace_repair")) then {
-				_box = createVehicle ["ACE_Track",getPos player,[],0,"CAN_COLLIDE"];
+				_box = createVehicle ["ACE_Track",getPosASL player,[],0,"CAN_COLLIDE"];
 			};
 		};
 		case "ADV_LOGISTIC_CRATEDELETE": {
@@ -279,7 +280,7 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 			};
 		};	
 		case "ADV_LOGISTIC_CRATEEMPTY": {
-			_box = createVehicle [ADV_logistic_crateTypeNormal,getPos player,[],0,"CAN_COLLIDE"];
+			_box = createVehicle [ADV_logistic_crateTypeNormal,getPosASL player,[],0,"CAN_COLLIDE"];
 			[_box] call _functionForAll;
 		};
 		default {};

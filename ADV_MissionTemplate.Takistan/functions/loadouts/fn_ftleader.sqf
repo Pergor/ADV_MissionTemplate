@@ -28,7 +28,7 @@ _silencer = "muzzle_snds_H";		//if silencer is added
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [7,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
-//40mm Grenades - (integer)
+//40mm Grenades - (arrays)
 _40mmHeGrenadesAmmo = 0;
 _40mmSmokeGrenadesWhite = 0;
 _40mmSmokeGrenadesYellow = 0;
@@ -63,18 +63,9 @@ _launcherAmmo = [0,0];		//first number: Amount of magazines, second number: conf
 _binocular = "Rangefinder";
 
 //throwables - (integer)
-_grenadeHE = 2;
-_grenadeSmokeWhite = 1;
-_grenadeSmokeYellow = 0;
-_grenadeSmokeOrange = 0;
-_grenadeSmokeRed = 0;
-_grenadeSmokePurple = 0;
-_grenadeSmokeBlue = 0;
-_grenadeSmokeGreen = 1;
-_chemlightYellow = 0;
-_chemlightRed = 1;
-_chemlightGreen = 0;
-_chemlightBlue = 0;
+_grenadeSet = 1;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.
+_grenades = [""];			//depending on the custom loadout the colours may be merged. add like this: ["HE","HE","WHITE"] (adds two HE and one white smoke grenade).
+_chemlights = [""];		//add like this: ["RED","RED","GREEN"] (adds two red and one green chemlight).
 _IRgrenade = 1;
 
 //first aid kits and medi kits- (integer)
