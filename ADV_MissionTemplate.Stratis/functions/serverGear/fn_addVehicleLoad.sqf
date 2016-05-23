@@ -35,9 +35,12 @@ if (!isServer) exitWith {};
 		case (str _x in ADV_veh_tanks+ADV_veh_artys): {
 			[_x,false,true,2] call ADV_fnc_vehicleLoad;
 		};
-		case (str _x in ADV_veh_ATVs): {
+		case (str _x in ADV_veh_ATVs+ADV_veh_UAVs+ADV_veh_UGVs): {
 			[_x,false,false,0] call ADV_fnc_vehicleLoad;
 		};
+		case (str _x in ADV_veh_UGVs_repair): {
+			[_x,false,false,0,true] call ADV_fnc_vehicleLoad;
+		};	
 	};
 } forEach _this;
 
