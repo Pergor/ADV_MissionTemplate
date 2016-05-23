@@ -50,10 +50,12 @@ if (_name == "") then {
 	ADV_respawnVeh_newNameNumber = ADV_respawnVeh_newNameNumber+1;
 };
 _markerName = format ["%1%2","respPos_",_name];
-_respawnPos = createMarkerLocal [_markerName, getPos _veh];
+_respawnPos = createMarkerLocal [_markerName, getPosASL _veh];
 _respawnPos setMarkerDirLocal (getDir _veh);
-_markerPos = getMarkerPos _respawnPos;
-_respawnPos setMarkerPos [_markerPos select 0, _markerPos select 1, (getPos _veh) select 2];
+_respHeightPos = getPosASL _veh;
+/*
+_respawnPos setMarkerPos [_markerPos select 0, _markerPos select 1, (getPosASL _veh) select 2];
+*/
 
 while {true} do {
 	waitUntil {sleep 1; !alive _veh};
@@ -67,6 +69,7 @@ while {true} do {
 	_veh enableSimulation false;
 	sleep 2;
 	_veh = createVehicle [_vehType, (getMarkerPos _respawnPos), [], 0, "CAN_COLLIDE"];
+	_veh setPosASL _respHeightPos;
 	_veh setDir (markerDir _respawnPos);
 	[_veh,_name] remoteExec ["setVehicleVarName",0];
 	_veh call compile format ["%1 = _this; publicVariable '%1'", _name];
@@ -81,6 +84,7 @@ while {true} do {
 		if (_veh isKindOf "Tank") then { call compile format ["%1 call ADV_%2%3",[_veh,false,false,2,false],_sidePrefix,"fnc_vehicleLoad"]; };
 		if (_veh isKindOf "Car") then { call compile format ["%1 call ADV_%2%3",[_veh,false,false,1,false],_sidePrefix,"fnc_vehicleLoad"]; };
 		if (_veh isKindOf "Motorcycle") then { call compile format ["%1 call ADV_%2%3",[_veh,false,false,1,false],_sidePrefix,"fnc_vehicleLoad"]; };
+		if (_veh isKindOf "UGV_01_base_F") then { call compile format ["%1 call ADV_%2%3",[_veh,false,false,0,false],_sidePrefix,"fnc_vehicleLoad"]; };
 	};
 	if (ADV_par_TIEquipment > 0) then {
 		_veh disableTIEquipment true;
