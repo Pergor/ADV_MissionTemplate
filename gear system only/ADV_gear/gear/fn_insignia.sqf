@@ -20,7 +20,7 @@ if ( side (group _target) == west && (isClass (configFile >> "CfgPatches" >> "bw
 		case "COLONEL": {["BWA3_insignia_18_oberstleutnant","BWA3_insignia_19_oberst"];};
 	};
 	_insignium = _insigniumArray call BIS_fnc_selectRandom;
-	[_target,_insignium] remoteExecCall ["BIS_fnc_setUnitInsignia",0,_target];
+	[_target,_insignium] remoteExecCall ["BIS_fnc_setUnitInsignia",0,true];
 };
 
 //simple rank patches insignia
@@ -34,7 +34,7 @@ if ( side (group _target) == west && (isClass (configFile >> "CfgPatches" >> "si
 		case "MAJOR": {"MAJOR_SimpleRP";};
 		case "COLONEL": {"COLONEL_SimpleRP";};
 	};
-	[_target,_insignium] remoteExecCall ["BIS_fnc_setUnitInsignia",0,_target];
+	[_target,_insignium] remoteExecCall ["BIS_fnc_setUnitInsignia",0,true];
 };
 
 //adv insignia
@@ -50,7 +50,7 @@ if (isClass (configFile >> "CfgPatches" >> "adv_insignia")) then {
 			case "COLONEL": {["ADV_insignia_usarmy_13"];};
 		};
 		_insignium = _insigniumArray call BIS_fnc_selectRandom;
-		[_target,_insignium] remoteExecCall ["BIS_fnc_setUnitInsignia",0,_target];
+		[_target,_insignium] remoteExecCall ["BIS_fnc_setUnitInsignia",0,true];
 	};
 	if ( side (group _target) == east && !(ADV_par_opfUni == 4 || ADV_par_opfUni == 5) ) exitWith {
 		_insigniumArray = switch (rank _target) do {
@@ -63,7 +63,7 @@ if (isClass (configFile >> "CfgPatches" >> "adv_insignia")) then {
 			case "COLONEL": {["ADV_insignia_rus_12"];};
 		};
 		_insignium = _insigniumArray call BIS_fnc_selectRandom;
-		[_target,_insignium] remoteExecCall ["BIS_fnc_setUnitInsignia",0,_target];
+		[_target,_insignium] remoteExecCall ["BIS_fnc_setUnitInsignia",0,true];
 	};
 };
 
