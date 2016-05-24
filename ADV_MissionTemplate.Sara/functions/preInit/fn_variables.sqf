@@ -20,7 +20,7 @@ if (isClass (configFile >> "CfgPatches" >> "acre_main")) then {
 };
 */
 
-missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",1,true];
+missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true,true];
 
 //map variables:
 ADV_var_aridMaps = [
