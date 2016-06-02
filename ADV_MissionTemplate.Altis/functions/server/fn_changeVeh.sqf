@@ -42,7 +42,7 @@ params [
 		_veh = createVehicle [_newVehType, _pos, [], 0, "NONE"];
 		if ( isNull _veh ) exitWith { diag_log format ["The vehicle class %1 doesn't exist anymore. adv_fnc_changeVeh can't work.",_newVehType]; };
 		_veh setDir _dir;
-		_veh setPos [_pos select 0, _pos select 1,0];
+		_veh setPosATL [_pos select 0, _pos select 1, _pos select 2];
 		[_veh,_name] remoteExec ["setVehicleVarName",0];
 		_veh call compile format ["%1 = _this; publicVariable '%1'", _name];
 		
