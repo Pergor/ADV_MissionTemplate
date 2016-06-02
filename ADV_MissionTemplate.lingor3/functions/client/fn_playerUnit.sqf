@@ -16,7 +16,6 @@ _object = str _target;
 if (side _target == sideLogic) exitWith {};
 
 if (side _target == west) then {
-	//_soldier = [];for "_x" from 1 to 20 do {_newGuy = format ["%1%2","soldier_",_x];_soldier pushback _newGuy};
 	_zeus = ["z1","z2","z3","z4","z5"];
 	
 	_prefix = [_object,0,2] call BIS_fnc_trimString;
@@ -190,5 +189,3 @@ if (side _target == civilian) then {
 
 _target setVariable ["ADV_var_playerUnit",_playerUnit];
 _playerUnit;
-
-//if (true) exitWith {};
