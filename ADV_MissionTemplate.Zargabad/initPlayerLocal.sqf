@@ -183,6 +183,9 @@ if !(isClass(configFile >> "CfgPatches" >> "ace_cargo")) then {
 	ADV_handle_igiLoad = [] execVM "scripts\IgiLoad\IgiLoadInit.sqf";
 };
 
+//friggin' ace
+missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true];
+
 sleep 8;
 //a little hint stating the date and time
 ["Have Fun!", "Datum:" + str (date select 2) + "/" + str (date select 1) + "/" + str (date select 0)] spawn BIS_fnc_infoText;
