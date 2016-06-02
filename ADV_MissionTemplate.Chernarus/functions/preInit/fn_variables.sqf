@@ -34,13 +34,13 @@ ADV_var_lushMaps = [
 	"LINGOR3","MAK_JUNGLE","PJA305","TROPICA","TIGERIA","TIGERIA_SE","SARA","SARALITE","SARA_DBE1","INTRO","CHERNARUS","CHERNARUS_SUMMER",
 	"FDF_ISLE1_A","MBG_CELLE2","WOODLAND_ACR","BOOTCAMP_ACR","THIRSK","BORNHOLM","UTES","ANIM_HELVANTIS_V2","ABRAMIA","PANTHERA3","VT5"
 ];
-switch (ADV_par_customUni) do {
-	case 1: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_lushMaps) then {2}; };
-	case 2: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_aridMaps) then {1}; };
-	case 4: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_aridMaps) then {5}; };
-	case 5: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_lushMaps) then {4}; };
-	case 10: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_lushMaps) then {11}; };
-	case 11: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_aridMaps) then {10}; };
+ADV_par_customUni = switch (ADV_par_customUni) do {
+	case 1: { if ((toUpper worldname) in ADV_var_lushMaps) then {2} else {1}; };
+	case 2: { if ((toUpper worldname) in ADV_var_aridMaps) then {1} else {2}; };
+	case 4: { if ((toUpper worldname) in ADV_var_aridMaps) then {5} else {4}; };
+	case 5: { if ((toUpper worldname) in ADV_var_lushMaps) then {4} else {5}; };
+	case 10: { if ((toUpper worldname) in ADV_var_lushMaps) then {11} else {10}; };
+	case 11: { if ((toUpper worldname) in ADV_var_aridMaps) then {10} else {11}; };
 };
 
 if (isClass(configFile >> "CfgPatches" >> "ace_rearm") && (ADV_par_modTankAssets == 2 || ADV_par_modTankAssets == 1)) then {

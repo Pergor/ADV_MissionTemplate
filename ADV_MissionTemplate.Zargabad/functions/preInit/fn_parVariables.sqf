@@ -6,16 +6,21 @@ call compile preprocessfilelinenumbers "ADV_Setup\ADV_par_Variables.sqf";
 or per preInit via cfgFunctions
 */
 
-private ["_param","_suffix","_value","_var"];
-{
-	_param = configName ((missionConfigFile >> "Params") select _ForEachIndex);
-	_suffix = [_param,6] call BIS_fnc_trimString;
-	_value = paramsArray select _ForEachIndex;
-	_var = format ["ADV_par_%1 = %2",_suffix, _value];
-	if( _suffix != "" ) then {
-		call compileFinal _var;
-	};
-} forEach paramsArray;
+private ["_arrayCreation","_param","_suffix","_value","_var"];
+
+_arrayCreation = {
+	{
+		_param = configName ((missionConfigFile >> "Params") select _ForEachIndex);
+		_suffix = [_param,6] call BIS_fnc_trimString;
+		_value = paramsArray select _ForEachIndex;
+		_var = format ["adv_par_%1 = %2",_suffix, _value];
+		if( _suffix != "" ) then {
+			call compileFinal _var;
+		};
+	} forEach paramsArray;
+};
+
+call _arrayCreation;
 
 publicVariable "ADV_par_seriousMode";
 publicVariable "ADV_par_headlessClient";
@@ -38,6 +43,9 @@ if (ADV_par_Assets_heavy == 99) then {ADV_par_modHeavyAssets = 99;ADV_par_opfHea
 if (ADV_par_Assets_tanks == 99) then {ADV_par_modTankAssets = 99;ADV_par_opfTankAssets=99;};
 if (ADV_par_Assets_air_helis == 99) then {ADV_par_modHeliAssets = 99;ADV_par_opfHeliAssets=99;};
 if (ADV_par_Assets_air_fixed == 99) then {ADV_par_modAirAssets = 99;ADV_par_opfAirAssets=99;};
+
+//just to be on the safe side:
+//call _arrayCreation;
 
 //finalization:
 ADV_params_defined = true;
