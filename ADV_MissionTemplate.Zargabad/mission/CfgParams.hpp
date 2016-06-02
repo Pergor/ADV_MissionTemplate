@@ -275,7 +275,7 @@ class param_opfWeap
 {
 	title="Welche Waffen-Sets sollen an OPFOR-Einheiten ausgegeben werden?";
 	values[] = {4,3,2,1,0};
-	texts[] = {"HLC AK Pack (no logistic, no ammo in vehicles), am besten mit RHSAFRF","CUP (benötigt CUP)","RHS-Guerillas (benötigt RHSAFRF)","RHS (benötigt RHSAFRF)","VANILLA CSAT"};
+	texts[] = {"HLC AK Pack (no logistic, no ammo in vehicles), am besten mit RHSAFRF","CUP (benötigt CUP)","RHS-Guerillas (benötigt RHSAFRF)","RHS (benötigt RHSAFRF)","Vanilla CSAT"};
 	default = 0;
 };
 class dummy_vehicles {
