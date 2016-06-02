@@ -25,7 +25,7 @@ if ( isClass(configFile >> "CfgPatches" >> "tfa_units") ) then { _NVGoggles appe
 if ( isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) then { _NVGoggles append ["rhsusf_ANPVS_14","rhsusf_ANPVS_15"]; };
 if ( isClass(configFile >> "CfgPatches" >> "UK3CB_BAF_Equipment") ) then { _NVGoggles append ["UK3CB_BAF_HMNVS"]; };
 if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _NVGoggles append ["dsk_nsv"]; };
-_disposableLaunchers = ["BWA3_Pzf3","BWA3_RGW90","STI_M136","CUP_launch_M136","rhs_weap_M136","rhs_weap_M136_hedp","rhs_weap_M136_hp","RHS_WEAP_RPG26","RHS_WEAP_RSHG2","RHS_WEAP_RPG18"];
+_disposableLaunchers = ["BWA3_Pzf3","BWA3_RGW90","STI_M136","CUP_launch_M136","rhs_weap_M136","rhs_weap_M136_hedp","rhs_weap_M136_hp","RHS_WEAP_M72A7","RHS_WEAP_RPG26","RHS_WEAP_RSHG2","RHS_WEAP_RPG18"];
 if ( isClass(configFile >> "CfgPatches" >> "ACE_disposable") ) then { _disposableLaunchers append ["launch_NLAW_F"]; };
 if (isNil "ADV_params_defined") then {
 	ADV_par_customWeap = 0; ADV_par_opfWeap = 0; ADV_par_indWeap = 0;
@@ -155,11 +155,13 @@ if (!isNil "_unitTraits") then {
 };
 
 //NVG-Removal:
-if ( ( !(side (group _unit) == east) && ADV_par_NVGs < 2 ) || (side (group _unit) == east && ADV_par_opfNVGs < 2) ) then {
-	{
-		_unit unlinkItem _x;
-		_unit removeItems _x;
-	} forEach _NVGoggles;
+if !(["diver",_unit getVariable ["ADV_var_playerUnit","ADV_fnc_nil"]] call BIS_fnc_inString) then {
+	if ( ( !(side (group _unit) == east) && ADV_par_NVGs < 2 ) || (side (group _unit) == east && ADV_par_opfNVGs < 2) ) then {
+		{
+			_unit unlinkItem _x;
+			_unit removeItems _x;
+		} forEach _NVGoggles;
+	};
 };
 //tablets & GPS:
 if !( ADV_par_Tablets == 99 ) then {
