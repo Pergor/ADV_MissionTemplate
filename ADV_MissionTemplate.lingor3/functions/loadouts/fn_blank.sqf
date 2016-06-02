@@ -109,8 +109,8 @@ _ACE_EarPlugs = 0;
 
 _ace_FAK = 0;		//overwrites the values for bandages, morphine and tourniquet and adds a specified number of bandages and morphine. Defined in fn_aceFAK.sqf
 _ACE_fieldDressing = 0;
-_ACE_packingBandage = 0;
 _ACE_elasticBandage = 0;
+_ACE_packingBandage = 0;
 _ACE_quikclot = 0;
 _ACE_atropine = 0;
 _ACE_adenosine = 0;
