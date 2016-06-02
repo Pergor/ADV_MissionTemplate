@@ -85,7 +85,7 @@ _itemsBackpack = [];
 _itemsLink = [
 	"ItemWatch",
 	"ItemCompass",
-	"B_UavTerminal",
+	"I_UavTerminal",
 	"ItemMap",
 	"NVGoggles_OPFOR"
 ];
