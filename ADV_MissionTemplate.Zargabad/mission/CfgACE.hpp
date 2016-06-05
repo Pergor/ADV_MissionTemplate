@@ -168,7 +168,7 @@ class ace_maptools_EveryoneCanDrawOnBriefing {
     typeName = "BOOL";
     force = 0;
 };
-class ace_medical_level {
+class ace_medical_level {	//will be overwritten with CfgACEParams.hpp values or setting in MP lobby!
     value = 2;
     typeName = "SCALAR";
     force = 0;
@@ -183,7 +183,7 @@ class ace_medical_increaseTrainingInLocations {
     typeName = "BOOL";
     force = 0;
 };
-class ace_medical_enableFor {
+class ace_medical_enableFor {	//will be overwritten with CfgACEParams.hpp values or setting in MP lobby!
     value = 0;
     typeName = "SCALAR";
     force = 0;
@@ -213,7 +213,7 @@ class ace_medical_enableFractures {
     typeName = "BOOL";
     force = 0;
 };
-class ace_medical_enableAdvancedWounds {
+class ace_medical_enableAdvancedWounds {	//will be overwritten with CfgACEParams.hpp values or setting in MP lobby!
     value = 0;
     typeName = "BOOL";
     force = 0;
@@ -238,7 +238,7 @@ class ace_medical_AIDamageThreshold {
     typeName = "SCALAR";
     force = 0;
 };
-class ace_medical_enableUnconsciousnessAI {
+class ace_medical_enableUnconsciousnessAI {		//will be overwritten with CfgACEParams.hpp values or setting in MP lobby!
     value = 0;
     typeName = "SCALAR";
     force = 0;
@@ -248,17 +248,17 @@ class ace_medical_remoteControlledAI {
     typeName = "BOOL";
     force = 0;
 };
-class ace_medical_preventInstaDeath {
+class ace_medical_preventInstaDeath {	//will be overwritten with CfgACEParams.hpp values or setting in MP lobby!
     value = 1;
     typeName = "BOOL";
     force = 0;
 };
-class ace_medical_enableRevive {
+class ace_medical_enableRevive {	//will be overwritten with CfgACEParams.hpp values or setting in MP lobby!
     value = 1;
     typeName = "SCALAR";
     force = 0;
 };
-class ace_medical_maxReviveTime {
+class ace_medical_maxReviveTime {	//will be overwritten with CfgACEParams.hpp values or setting in MP lobby!
     value = 600;
     typeName = "SCALAR";
     force = 0;
@@ -433,7 +433,7 @@ class ace_overheating_unJamFailChance {
     typeName = "SCALAR";
     force = 0;
 };
-class ace_rearm_level {
+class ace_rearm_level {		//will be overwritten with CfgACEParams.hpp values or setting in MP lobby!
     value = 1;
     typeName = "SCALAR";
     force = 0;
