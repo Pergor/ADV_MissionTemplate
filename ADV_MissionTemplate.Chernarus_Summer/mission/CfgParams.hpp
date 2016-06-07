@@ -167,7 +167,7 @@ class param_logisticDrop
 	title="Soll der Logistik-Nachschub per Mapclick in der Luft abgeworfen werden können?";
 	values[] = {1,0};
 	texts[] = {"Ja","Nein"};
-	default = 0;
+	default = 1;
 };
 class dummy_blu_equipment {
 	title = "---------------------- BLUFOR-Ausrüstung ----------------------";
