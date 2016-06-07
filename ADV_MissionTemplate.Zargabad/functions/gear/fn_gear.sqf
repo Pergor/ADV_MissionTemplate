@@ -135,7 +135,7 @@ if ( ( !(side (group _unit) == east) && ADV_par_Silencers == 2) || (side (group 
 
 if ( _primaryWeapon != "" ) then {
 	_muzzles = getArray (configFile / "CfgWeapons" / _primaryWeapon / "muzzles");
-	_muzzle = if ( _muzzles select 0 == "this" ) then { primaryWeapon _unit } else { _muzzles select 0; };
+	_muzzle = if ( _muzzles select 0 == "this" ) then { primaryWeapon _unit } else { _muzzles select 0 };
 	_unit selectWeapon _muzzle;
 };
 if ( _removeBackpackAfterWeapons ) then {
