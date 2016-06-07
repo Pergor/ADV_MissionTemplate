@@ -159,17 +159,6 @@ if ( (str player) in ["z1","z2","opf_z1","opf_z2","ind_z1","ind_z2"] ) then {
 	};
 };
 
-//make hands steady with !ace_medical_healHitPointAfterAdvBandage
-/*
-if (isClass(configFile >> "CfgPatches" >> "ace_medical")) then {
-	if !(ace_medical_healHitPointAfterAdvBandage) then {
-		//_fixHands = ["fixHandsSelfAction",("<t color=""#FF0000"">" + ("Arme ruhig stellen") + "</t>"),"",{_target = (_this select 0);[5, [_target], {((_this select 0) select 0) setHit ["hands", 0];}, {},""] call ace_common_fnc_progressBar;},{((_this select 0) getHit "hands" >= 0.50) && ((_this select 0) call ace_medical_fnc_isInStableCondition)}] call ace_interact_menu_fnc_createAction;
-		//[player , 1, ["ACE_SelfActions","Medical"],_fixHands] call ace_interact_menu_fnc_addActionToObject;
-	};
-	//_fixWalking = ["fixWalkingSelfAction","Beine wiederherstellen","",{player setHit ["legs", 0]},{ (player getHit "legs" >= 0.50) && (player call ace_medical_fnc_isInStableCondition) }] call ace_interact_menu_fnc_createAction;
-	//[player , 1, ["ACE_SelfActions","Medical"],_fixWalking] call ace_interact_menu_fnc_addActionToObject;
-};
-*/
 //add raise/lower headset-action:
 //[player] spawn ADV_fnc_radioHeadset;
 
@@ -182,9 +171,6 @@ titleFadeOut 3;
 if !(isClass(configFile >> "CfgPatches" >> "ace_cargo")) then {
 	ADV_handle_igiLoad = [] execVM "scripts\IgiLoad\IgiLoadInit.sqf";
 };
-
-//friggin' ace
-missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true];
 
 sleep 8;
 //a little hint stating the date and time
