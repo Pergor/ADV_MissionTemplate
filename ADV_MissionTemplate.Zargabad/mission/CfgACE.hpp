@@ -259,7 +259,7 @@ class ace_medical_enableRevive {	//will be overwritten with CfgACEParams.hpp val
     force = 0;
 };
 class ace_medical_maxReviveTime {	//will be overwritten with CfgACEParams.hpp values or setting in MP lobby!
-    value = 600;
+    value = 900;
     typeName = "SCALAR";
     force = 0;
 };
