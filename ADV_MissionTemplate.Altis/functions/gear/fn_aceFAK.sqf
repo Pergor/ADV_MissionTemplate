@@ -54,8 +54,8 @@ switch _FAKtype do {
 		if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 || (missionnamespace getVariable ["ace_medical_medicSetting",2]) > 1 ) then {
 			_ACE_fieldDressing = 18;
 			_ACE_elasticBandage = 18;
-			_ACE_packingBandage = 32;
-			_ACE_quikclot = 32;
+			_ACE_packingBandage = 36;
+			_ACE_quikclot = 36;
 			_ACE_atropine = 0;
 			_ACE_adenosine = 10;
 			_ACE_epinephrine = 12;
