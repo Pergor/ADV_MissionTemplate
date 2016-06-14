@@ -100,7 +100,7 @@ if (!isClass(configFile >> "CfgPatches" >> "adv_aimcoeff")) then {
 //move/remove respawn marker:
 //[120 = Time until the respawn marker is moved again, 20 = radius around the group leader to place the marker]
 ADV_scriptVar_initMoveMarker_jump = {
-	(_this select 0) addAction [("<t color=""#00FF00"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJump},nil,3,false,true,"","player distance cursortarget <5"];
+	(_this select 0) addAction [("<t color=""#00FF00"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJumpSelection},nil,3,false,true,"","player distance cursortarget <5 && player == leader (group player)"];
 };
 switch ( ADV_par_moveMarker ) do {
 	case 1: {
@@ -159,17 +159,6 @@ if ( (str player) in ["z1","z2","opf_z1","opf_z2","ind_z1","ind_z2"] ) then {
 	};
 };
 
-//make hands steady with !ace_medical_healHitPointAfterAdvBandage
-/*
-if (isClass(configFile >> "CfgPatches" >> "ace_medical")) then {
-	if !(ace_medical_healHitPointAfterAdvBandage) then {
-		//_fixHands = ["fixHandsSelfAction",("<t color=""#FF0000"">" + ("Arme ruhig stellen") + "</t>"),"",{_target = (_this select 0);[5, [_target], {((_this select 0) select 0) setHit ["hands", 0];}, {},""] call ace_common_fnc_progressBar;},{((_this select 0) getHit "hands" >= 0.50) && ((_this select 0) call ace_medical_fnc_isInStableCondition)}] call ace_interact_menu_fnc_createAction;
-		//[player , 1, ["ACE_SelfActions","Medical"],_fixHands] call ace_interact_menu_fnc_addActionToObject;
-	};
-	//_fixWalking = ["fixWalkingSelfAction","Beine wiederherstellen","",{player setHit ["legs", 0]},{ (player getHit "legs" >= 0.50) && (player call ace_medical_fnc_isInStableCondition) }] call ace_interact_menu_fnc_createAction;
-	//[player , 1, ["ACE_SelfActions","Medical"],_fixWalking] call ace_interact_menu_fnc_addActionToObject;
-};
-*/
 //add raise/lower headset-action:
 //[player] spawn ADV_fnc_radioHeadset;
 
@@ -182,9 +171,6 @@ titleFadeOut 3;
 if !(isClass(configFile >> "CfgPatches" >> "ace_cargo")) then {
 	ADV_handle_igiLoad = [] execVM "scripts\IgiLoad\IgiLoadInit.sqf";
 };
-
-//friggin' ace
-missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true];
 
 sleep 8;
 //a little hint stating the date and time

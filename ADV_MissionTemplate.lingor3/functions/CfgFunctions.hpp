@@ -70,6 +70,7 @@ class ADV
 		class moveRespMarker {};
 		class mileage {};
 		class paraJump {};
+		class paraJumpSelection {};
 		class playerUnit {};
 		class radioHeadset {};
 		class rollDice {};

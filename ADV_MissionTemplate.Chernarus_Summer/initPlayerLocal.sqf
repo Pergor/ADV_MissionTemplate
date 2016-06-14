@@ -100,7 +100,7 @@ if (!isClass(configFile >> "CfgPatches" >> "adv_aimcoeff")) then {
 //move/remove respawn marker:
 //[120 = Time until the respawn marker is moved again, 20 = radius around the group leader to place the marker]
 ADV_scriptVar_initMoveMarker_jump = {
-	(_this select 0) addAction [("<t color=""#00FF00"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJump},nil,3,false,true,"","player distance cursortarget <5"];
+	(_this select 0) addAction [("<t color=""#00FF00"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJumpSelection},nil,3,false,true,"","player distance cursortarget <5 && player == leader (group player)"];
 };
 switch ( ADV_par_moveMarker ) do {
 	case 1: {
