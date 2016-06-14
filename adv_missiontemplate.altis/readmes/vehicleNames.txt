@@ -1,0 +1,61 @@
+﻿If you want to have vehicle respawn and predefined items for your vehicles, name them according to this scheme, wherein _n is any number (eg. MRAP_1 or MRAP_1234):
+
+////////////////////////
+Vehicles for side west (add opf_ or ind_ in front of vehicle name to have it geared up with gear for side east or independent, eg. ind_air_transport_1 or opf_tank_1):
+
+////////////////////////
+Regular vehicles (will have weapons):
+
+MRAP_n
+MRAP_hmg_n
+MRAP_gmg_n
+
+////////////////////////
+Trucks (will have weapons):
+
+transport_n
+
+logistic vehicles (will not have weapons but will be defined as repair-/medical-/rearm-/refuel-vehicles):
+
+logistic_fuel_n
+logistic_ammo_n
+logistic_repair_n
+logistic_medic_n
+
+////////////////////////
+Mechanized vehicles (will have weapons):
+
+heavy_n
+
+////////////////////////
+Tanks (will have weapons):
+
+tank_n
+
+////////////////////////
+Self propelled artillery (will have weapons):
+
+arty_n
+
+////////////////////////
+Transport helicopters:
+
+air_transport_n
+
+Logistical helicopters (will be defined as medical-vehicles):
+
+air_logistic_n
+
+Small helicopters:
+
+air_recon_n
+
+////////////////////////
+fixed wing fighters:
+
+air_cas_n
+
+////////////////////////
+C130 (will only be available if RHSUSF is present and MP lobby param is selected; will be removed otherwise):
+
+air_c130_n

@@ -1,0 +1,63 @@
+If you want to add side and weapon specific gear to a crate, use the following functions:
+
+To clear the cargo of a crate just use
+[cursorTarget] call ADV_fnc_clearCargo;
+
+//regular ammunition:
+[cursorTarget] call ADV_fnc_crateNormal;
+[cursorTarget] call ADV_opf_fnc_crateNormal;
+[cursorTarget] call ADV_ind_fnc_crateNormal;
+
+//medical supplies:
+[cursorTarget] call ADV_fnc_crateMedic;
+[cursorTarget] call ADV_opf_fnc_crateMedic;
+[cursorTarget] call ADV_ind_fnc_crateMedic;
+
+//MMG ammunition:
+[cursorTarget] call ADV_fnc_crateMG;
+[cursorTarget] call ADV_opf_fnc_crateMG;
+[cursorTarget] call ADV_ind_fnc_crateMG;
+
+//Grenades:
+[cursorTarget] call ADV_fnc_crateGrenades;
+[cursorTarget] call ADV_opf_fnc_crateGrenades;
+[cursorTarget] call ADV_ind_fnc_crateGrenades;
+
+//AT rockets and disposable launchers:
+[cursorTarget] call ADV_fnc_crateAT;
+[cursorTarget] call ADV_opf_fnc_crateAT;
+[cursorTarget] call ADV_ind_fnc_crateAT;
+
+//ammunition and equipment for one fire team:
+[cursorTarget] call ADV_fnc_crateTeam;
+[cursorTarget] call ADV_opf_fnc_crateTeam;
+[cursorTarget] call ADV_ind_fnc_crateTeam;
+
+//ammunition and equipment for one squad:
+[cursorTarget] call ADV_fnc_crateLarge;
+[cursorTarget] call ADV_opf_fnc_crateLarge;
+[cursorTarget] call ADV_ind_fnc_crateLarge;
+
+//eod equipment and supplies:
+[cursorTarget] call ADV_fnc_crateEOD;
+[cursorTarget] call ADV_opf_fnc_crateEOD;
+[cursorTarget] call ADV_ind_fnc_crateEOD;
+
+//support equipment and supplies (mainly tools, sandbags etc.):
+[cursorTarget] call ADV_fnc_crateSupport;
+[cursorTarget] call ADV_opf_fnc_crateSupport;
+[cursorTarget] call ADV_ind_fnc_crateSupport;
+
+//food (only if scorch_invitems is present):
+[cursorTarget] call ADV_fnc_crateStuff;
+
+//If you just need to quickly create prefilled logistic crates (with weapon parameter specific gear for the side of the player's unit) call 'em locally like this:
+//The crates will appear at the position of the calling player. No counter will be reduced with these commands. Does not work for the large crate.
+["ADV_LOGISTIC_CRATENORMAL",true] call ADV_fnc_dialogLogistic;
+["ADV_LOGISTIC_CRATEMEDIC",true] call ADV_fnc_dialogLogistic;
+["ADV_LOGISTIC_CRATEMG",true] call ADV_fnc_dialogLogistic;
+["ADV_LOGISTIC_CRATEAT",true] call ADV_fnc_dialogLogistic;
+["ADV_LOGISTIC_CRATETEAM",true] call ADV_fnc_dialogLogistic;
+["ADV_LOGISTIC_CRATEEOD",true] call ADV_fnc_dialogLogistic;
+["ADV_LOGISTIC_CRATESUPPORT",true] call ADV_fnc_dialogLogistic;
+["ADV_LOGISTIC_CRATESTUFF",true] call ADV_fnc_dialogLogistic;
