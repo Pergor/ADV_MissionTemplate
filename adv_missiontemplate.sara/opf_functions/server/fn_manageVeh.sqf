@@ -94,6 +94,8 @@ switch (ADV_par_opfCarAssets) do {
 	case 2: {[ADV_opf_veh_MRAPs,["rhs_tigr_msv"],east] spawn ADV_fnc_changeVeh;[ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG,["rhs_tigr_ffv_msv"],east] spawn ADV_fnc_changeVeh;};
 	//RDS vehicles
 	case 3: {[ADV_opf_veh_MRAPs+ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG,["RDS_Gaz24_Civ_01","RDS_Gaz24_Civ_02","RDS_Gaz24_Civ_03","RDS_Lada_Civ_01","RDS_Lada_Civ_02","RDS_Lada_Civ_03","RDS_Lada_Civ_04"],east] spawn ADV_fnc_changeVeh;[ADV_opf_veh_ATVs,[""],east] spawn ADV_fnc_changeVeh;};
+	//Apex Qilin
+	case 4: {[ADV_opf_veh_MRAPs,["O_T_LSV_02_unarmed_F"],east] spawn ADV_fnc_changeVeh;[ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG,["O_T_LSV_02_armed_F"],east] spawn ADV_fnc_changeVeh;};
 	//no vehicles
 	case 99: {[ADV_opf_veh_MRAPs+ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG+ADV_opf_veh_ATVs,[""],east] spawn ADV_fnc_changeVeh;};
 	default {};
@@ -157,6 +159,8 @@ switch (ADV_par_opfHeliAssets) do {
 
 //replaces planes with mod planes:
 switch (ADV_par_opfAirAssets) do {
+	//Apex Xi'an
+	//case 0: { [ADV_opf_veh_airC130,["O_T_VTOL_02_infantry_F"],west] spawn ADV_fnc_changeVeh; };
 	//RHS SU-25
 	case 1: {[ADV_opf_veh_airCAS,["RHS_Su25SM_vvsc","RHS_Su25SM_vvs"],east] spawn ADV_fnc_changeVeh;};
 	//RHS Su T-50

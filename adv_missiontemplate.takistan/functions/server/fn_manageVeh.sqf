@@ -106,6 +106,8 @@ switch (ADV_par_modCarAssets) do {
 	case 9: {[ADV_veh_MRAPs,["rhsusf_m1025_w_s","rhsusf_m1025_w_s","rhsusf_m998_w_s_4dr"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["rhsusf_m1025_w_s_m2"],west] spawn ADV_fnc_changeVeh;};
 	//adv_retex Fenneks
 	case 10: {[ADV_veh_MRAPs,["adv_retex_b_strider_f"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["adv_retex_b_strider_hmg_f"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsGMG,["adv_retex_b_strider_gmg_f"],west] spawn ADV_fnc_changeVeh;};
+	//Apex Prowler
+	case 11: {[ADV_veh_MRAPs,["B_LSV_01_unarmed_F"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG+ADV_veh_MRAPsGMG,["B_T_LSV_01_armed_F"],west] spawn ADV_fnc_changeVeh;};
 	//no vehicles
 	case 99: {[ADV_veh_MRAPs+ADV_veh_MRAPsHMG+ADV_veh_MRAPsGMG+ADV_veh_ATVs,[""],west] spawn ADV_fnc_changeVeh;};
 	default {};
@@ -247,7 +249,10 @@ switch (ADV_par_modAirAssets) do {
 	case 99: {[ADV_veh_fixedWing,[""],west] spawn ADV_fnc_changeVeh;};
 	default {};
 };
-if (ADV_par_modAirAssets == 4 || ADV_par_modAirAssets == 5) then {[ADV_veh_airC130,["RHS_C130J"],west] spawn ADV_fnc_changeVeh;} else {[ADV_veh_airC130,[""],west] spawn ADV_fnc_changeVeh;};
+if (ADV_par_modAirAssets == 4 || ADV_par_modAirAssets == 5) then {[ADV_veh_airC130,["RHS_C130J"],west] spawn ADV_fnc_changeVeh;} else {
+	[ADV_veh_airC130,[""],west] spawn ADV_fnc_changeVeh;
+	//[ADV_veh_airC130,["B_T_VTOL_01_infantry_F"],west] spawn ADV_fnc_changeVeh;
+};
 
 //removes the markers according to the lobby params
 if (ADV_par_Assets_cars == 0 || ADV_par_Assets_cars == 99 || ADV_par_modCarAssets == 99) then {
