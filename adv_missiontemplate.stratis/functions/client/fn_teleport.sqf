@@ -28,7 +28,7 @@ adv_scriptfnc_teleport = {
 	};
 	titleText ["", "BLACK OUT", 2];
 	sleep 2;
-	titleText [format ["You are being teleported to %1 \n\n\n Have Fun! :)", _target], "BLACK FADED"];
+	titleText [format ["You are being teleported to %1.", _target], "BLACK FADED"];
 	sleep 1;
 	if (_target isKindOf "AllVehicles") then {
 		_unit moveInCargo _target;
