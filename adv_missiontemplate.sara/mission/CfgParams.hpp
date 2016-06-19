@@ -198,16 +198,16 @@ class param_Silencers
 };
 class param_customUni
 {
-	title="Welche Uniform-Sets sollen an Einheiten ausgegeben werden? (Desert/Woodland-Varianten werden möglicherweise durch worldname überschrieben.)";
-	values[] = {14,13,12,11,10,8,7,6,5,4,3,2,1,9,0};
-	texts[] = {"TRYK - Snow","TRYK - SpecOps","UK3CB BAF","RHS - MARPAT Woodland","RHS - MARPAT Desert","RHS - UCP","RHS - OCP","TFA - ACU","TFA - Desert","TFA - Woodland","TFA - Mixed","BWmod - Flecktarn","BWmod - Tropentarn","Vanilla-Guerilla","Vanilla NATO"};
+	title="Welche Uniform-Sets sollen an Einheiten ausgegeben werden? (Kann durch worldname beeinflusst werden.)";
+	values[] = {14,13,12,11,10,8,7,6,5,4,3,2,1,9,20,0};
+	texts[] = {"TRYK - Snow","TRYK - SpecOps","UK3CB BAF","RHS - MARPAT Woodland","RHS - MARPAT Desert","RHS - UCP","RHS - OCP","TFA - ACU","TFA - Desert","TFA - Woodland","TFA - Mixed","BWmod - Flecktarn","BWmod - Tropentarn","Vanilla-Guerilla","Apex NATO","Vanilla NATO"};
 	default = 0;
 };
 class param_customWeap
 {
-	title="Welche Waffen-Sets sollen an Einheiten ausgegeben werden?";
-	values[] = {9,8,7,6,5,4,3,2,1,0};
-	texts[] = {"FAL, G3 und M60 - größtenteils ohne Optiken, keine Schalldämpfer (benötigt HLC_FAL, HLC_G3, HLC_MP5, HLC_M60)","BAF (benötigt UK3CB-Equipment und -Weapons)","BAF (benötigt CUP)","CUP Arma 2 (benötigt CUP)","CUP Operation Arrowhead (benötigt CUP)","RHS SOF (benötigt RHSUSF)","RHS Marines (benötigt RHSUSF, optional HLC_MP5, HLC_M60)","RHS Army (benötigt RHSUSF, optional HLC_MP5)","BWmod (benötigt BWmod, optional HLC_G36)","Vanilla NATO"};
+	title="Welche Waffen-Sets sollen an Einheiten ausgegeben werden? (Kann durch worldname beeinflusst werden.)";
+	values[] = {9,8,7,6,5,4,3,2,1,20,0};
+	texts[] = {"FAL, G3 und M60 - größtenteils ohne Optiken, keine Schalldämpfer (benötigt HLC_FAL, HLC_G3, HLC_MP5, HLC_M60)","BAF (benötigt UK3CB-Equipment und -Weapons)","BAF (benötigt CUP)","CUP Arma 2 (benötigt CUP)","CUP Operation Arrowhead (benötigt CUP)","RHS SOF (benötigt RHSUSF)","RHS Marines (benötigt RHSUSF, optional HLC_MP5, HLC_M60)","RHS Army (benötigt RHSUSF, optional HLC_MP5)","BWmod (benötigt BWmod, optional HLC_G36)","Apex NATO","Vanilla NATO"};
 	default = 0;
 };
 class dummy_ind_equipment {
