@@ -13,21 +13,22 @@ params [
 	["_unit",player,[objNull]],
 	["_targetPos",[0,0,0], [[]]]
 ];
-if !(local _unit) exitWith {};
+
+if (!local _unit) exitWith {};
 
 //has the unit had a backpack?
-_unit setVariable ["adv_var_parajump_backpack", backpack _unit, true];
-_unit setVariable ["adv_var_parajump_backpackItems", backpackItems _unit, true];
+_unit setVariable ["adv_var_parajump_backpack", backpack _unit];
+_unit setVariable ["adv_var_parajump_backpackItems", backpackItems _unit];
 if !((_unit getVariable "adv_var_parajump_backpack") == "") then {
 	removeBackpack _unit;
 	systemChat "Backpack saved. Wait after landing for it to be readded!";
 };
-
+sleep 1;
 //Parachute is given
-_unit addBackpack "B_Parachute";
-sleep 1+(random 2);
+_unit addBackpackGlobal "B_Parachute";
+sleep 1+(random 3);
 //unit is moved to height 1500 on given position
-_targetPos = [(_targetPos select 0)+(random 10), (_targetPos select 1)+(random 10), 1500];
+_targetPos = [(_targetPos select 0)+(5+(random 10)), (_targetPos select 1)+(5+(random 10)), 1500];
 _unit setPos _targetPos;
 
 //safety:
@@ -50,7 +51,7 @@ sleep 1;
 //and readding the old one:
 if !((_unit getVariable "adv_var_parajump_backpack") == "") then {
 	sleep 2;
-	_unit addBackpack (_unit getVariable "adv_var_parajump_backpack");
+	_unit addBackpackGlobal (_unit getVariable "adv_var_parajump_backpack");
 	{ (backpackContainer _unit) addItemCargoGlobal [_x,1] } forEach (_unit getVariable "adv_var_parajump_backpackItems");
 	systemChat "Backpack readded.";
 };

@@ -13,8 +13,6 @@ params [
 	["_unit",player,[objNull]]
 ];
 
-if !(local _unit) exitWith {};
-
 if (_unit == leader group _unit) then {
 	openmap true;
 	[_unit] onMapSingleClick "openmap false; { [_x,_pos] remoteExec ['ADV_fnc_paraJump',0] } forEach (units (group (_this select 0))); onmapsingleclick '';";
