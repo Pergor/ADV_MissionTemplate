@@ -41,11 +41,15 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
 		("<t color=""#FF0000"">" + ("DROP LAUNCHER") + "</t>"),
 		"",
 		{ [player] call ADV_scriptfnc_dropLauncher },
-		{ !(secondaryWeapon player == "") && ( toUpper (secondaryWeapon player) ) in ADV_array_dispLaunch }
+		{ ( toUpper (secondaryWeapon player) ) in ADV_array_dispLaunch }
 	] call ace_interact_menu_fnc_createAction;
 	[player , 1, ["ACE_SelfActions"],_ace_dropLaunch] call ace_interact_menu_fnc_addActionToObject;
 } else {
 	//if ace is not present, this loop will start that adds a regular addaction to the player:
+	ADV_action_dropIt = player addAction ["<t color=""#FFFFFF"">" + ("Drop Launcher") + "</t>",{[player] call ADV_scriptfnc_dropLauncher},"",6,true,true,"",
+		"( toUpper (secondaryWeapon player) ) in ADV_array_dispLaunch"
+	];
+	/*
 	while {true} do {
 		waitUntil { sleep 2; !(secondaryWeapon player == "") };
 		waitUntil { sleep 1; ( toUpper (secondaryWeapon player) ) in ADV_array_dispLaunch };
@@ -56,4 +60,5 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
 		player removeAction ADV_action_dropIt;
 		sleep 1;
 	};
+	*/
 };
