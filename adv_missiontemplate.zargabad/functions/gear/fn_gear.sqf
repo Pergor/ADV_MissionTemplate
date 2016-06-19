@@ -55,7 +55,7 @@ _unit addVest _vest;
 if ( (typeName (_backpack)) == "ARRAY" ) then { _backpack = _backpack call BIS_fnc_selectRandom; };
 _removeBackpackAfterWeapons = false;
 if ( _backpack == "backpackdummy" ) then { _backpack = "B_Carryall_oli"; _removeBackpackAfterWeapons = true; };
-_unit addBackpack _backpack;
+_unit addBackpackGlobal _backpack;
 clearMagazineCargoGlobal (unitBackpack _unit);
 clearItemCargoGlobal (unitBackpack _unit);
 clearWeaponCargoGlobal (unitBackpack _unit);
