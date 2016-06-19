@@ -81,6 +81,20 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["hlc_50rnd_762x51_M_FAL",20];
 			_target addMagazineCargoGlobal ["hlc_30Rnd_9x19_B_MP5",20];
 		};
+		case (ADV_par_indWeap == 20): {
+			//weapons
+			_target addWeaponCargoGlobal ["launch_RPG7_F",5];
+			//ammo
+			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",40];
+			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_Tracer_F",40];
+			_target addMagazineCargoGlobal ["11Rnd_45ACP_Mag",10];
+			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",40];
+			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",10];
+			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",10];
+			_target addMagazineCargoGlobal ["7Rnd_408_Mag",10];		
+			
+			_target addMagazineCargoGlobal ["RPG7_F",10];		
+		};
 		default {
 			//weapons
 			_target addWeaponCargoGlobal ["launch_NLAW_F",5];

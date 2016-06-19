@@ -43,6 +43,15 @@ private ["_target"];
 				_target addMagazineCargoGlobal ["11Rnd_45ACP_Mag",8];
 			};
 		};
+		case (ADV_par_indWeap == 20): {
+			//weapons
+			_target addWeaponCargoGlobal ["launch_RPG7_F",1];
+			//ammo
+			_target addMagazineCargoGlobal ["RPG7_F",1];
+			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",30];
+			_target addMagazineCargoGlobal ["16Rnd_9x21_Mag",8];
+			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",7];
+		};
 		default {
 			//weapons
 			_target addWeaponCargoGlobal ["launch_NLAW_F",1];

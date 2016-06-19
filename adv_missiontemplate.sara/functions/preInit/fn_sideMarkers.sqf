@@ -28,10 +28,18 @@ called via preInit for server and once for every client in initPlayerLocal.sqf w
 		if ((side player) == independent) then {
 			{_x setMarkerAlphaLocal 0;} forEach _bluforMarker+_opforMarker;
 			if (!isNil "ADV_par_indUni") then {
-				if (ADV_par_indUni == 1) then {
-					"ind_base" setMarkerColorLocal "Default";
-					"ind_base" setMarkerTypeLocal "flag_AAF";
-					"ind_base" setMarkerTextLocal "";
+				switch (ADV_par_indUni) do {
+					case 20: {
+						"ind_base" setMarkerTypeLocal "flag_Syndicat";
+						"ind_base" setMarkerTextLocal "Syndikat";
+						{_x setMarkerColorLocal "ColorBrown"} forEach _indMarker;
+					};
+					case 1: {
+						"ind_base" setMarkerColorLocal "Default";
+						"ind_base" setMarkerTypeLocal "flag_AAF";
+						"ind_base" setMarkerTextLocal "";
+					};
+					default {};
 				};
 			};
 		};

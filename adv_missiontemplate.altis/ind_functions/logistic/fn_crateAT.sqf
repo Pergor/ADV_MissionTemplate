@@ -24,6 +24,12 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 
 			_target addMagazineCargoGlobal ["rhs_fim92_mag",4];
 		};
+		case ( ADV_par_indWeap == 20 ): {
+			//weapons
+			_target addWeaponCargoGlobal ["launch_RPG7_F",3];
+		
+			_target addMagazineCargoGlobal ["RPG7_F",8];
+		};
 		default {
 			//weapons
 			_target addWeaponCargoGlobal ["launch_NLAW_F",3];

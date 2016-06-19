@@ -225,6 +225,15 @@ switch (ADV_par_indWeap) do {
 			_handgunSilencer = "";
 		};
 	};
+	case 20: {
+		//APEX AKM
+		_primaryWeapon = "arifle_AKS_F";
+		_40mmHeGrenadesAmmo = 0;
+		_40mmSmokeGrenadesWhite = 0;
+		_40mmSmokeGrenadesRed = 0;
+		_40mmSmokeGrenadesGreen = 0;
+		_handgun = "hgun_Pistol_01_F";
+	};
 	default {};
 };
 

@@ -213,6 +213,11 @@ switch (ADV_par_indWeap) do {
 			_handgunSilencer = "";
 		};
 	};
+	case 20: {
+		//APEX AKM
+		_primaryWeapon = "arifle_AKM_F";
+		_handgun = "hgun_Pistol_01_F";
+	};
 	default {};
 };
 
@@ -225,9 +230,14 @@ switch (ADV_par_indUni) do {
 	};
 	case 2: {
 	//TFA uniforms
-	_uniform = ["TFA_Instructor_BW","TFA_Instructor_BT","TFA_Instructor2_BW","TFA_Instructor_BlT","TFA_green_blk_rs","TFA_green_blk","TFA_green_KHK","TFA_green_KHK_rs","TFA_black_KHK_rs","TFA_black_KHK","TFA_black_grn_rs","TFA_black_grn"];
-	_vest = ["TFA_PlateCarrierH_Black","TFA_PlateCarrierH_fol","TFA_PlateCarrierH_Grn","TFA_PlateCarrierH_Mix","TFA_PlateCarrierH_Tan"];
-	_headgear = ["TFA_Cap_fry"];
+		_uniform = ["TFA_Instructor_BW","TFA_Instructor_BT","TFA_Instructor2_BW","TFA_Instructor_BlT","TFA_green_blk_rs","TFA_green_blk","TFA_green_KHK","TFA_green_KHK_rs","TFA_black_KHK_rs","TFA_black_KHK","TFA_black_grn_rs","TFA_black_grn"];
+		_vest = ["TFA_PlateCarrierH_Black","TFA_PlateCarrierH_fol","TFA_PlateCarrierH_Grn","TFA_PlateCarrierH_Mix","TFA_PlateCarrierH_Tan"];
+		_headgear = ["TFA_Cap_fry"];
+	};
+	case 20: {
+	//Apex Syndikat
+		_uniform = ["U_I_C_Soldier_Camo_F"];
+		_vest = ["V_TacVest_oli","V_I_G_resistanceLeader_F"];
 	};
 };
 

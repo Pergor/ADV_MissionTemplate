@@ -19,7 +19,7 @@ _unitTraits = [["medic",false],["engineer",true],["explosiveSpecialist",false],[
 _primaryweapon = "SMG_01_F";
 
 //primary weapon items - (array)
-_optic = ["optic_Holosight_smg"];
+_optic = [""];
 _attachments = [""];
 _silencer = "muzzle_snds_acp";		//if silencer is added
 
@@ -218,6 +218,9 @@ switch (true) do {
 			_handgunSilencer = "";
 		};
 	};
+	case (ADV_par_indWeap == 20): {
+		_handgun = "hgun_Pistol_01_F";
+	};
 	default {};
 };
 
@@ -226,6 +229,10 @@ switch (ADV_par_indUni) do {
 	//AAF uniforms
 		_vest = ["V_TacVest_khk"];
 		_headgear = ["H_CrewHelmetHeli_I"];
+	};
+	case 20: {
+	//Apex Syndikat
+		_uniform = ["U_I_C_Soldier_Camo_F","U_I_C_Soldier_Para_1_F","U_I_C_Soldier_Para_2_F","U_I_C_Soldier_Para_3_F"];
 	};
 };
 

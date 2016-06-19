@@ -226,6 +226,9 @@ switch (ADV_par_indWeap) do {
 			_handgunSilencer = "";
 		};
 	};
+	case 20: {
+		_handgun = "hgun_Pistol_01_F";
+	};
 	default {};
 };
 

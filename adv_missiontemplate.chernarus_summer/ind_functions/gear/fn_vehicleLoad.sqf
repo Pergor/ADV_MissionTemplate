@@ -64,6 +64,21 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["SmokeShellRed",5];
 			_target addMagazineCargoGlobal ["SmokeShellBlue",5];
 		};
+		case (ADV_par_indWeap == 20): {
+			_target addWeaponCargoGlobal ["launch_RPG7_F",1];
+			_target addMagazineCargoGlobal ["RPG7_F",2];
+			_target addWeaponCargoGlobal ["arifle_AKS_F",1];
+			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",20];
+			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_Tracer_F",15];
+
+			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",1];
+			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",1];
+			
+			_target addMagazineCargoGlobal ["HandGrenade",5];
+			_target addMagazineCargoGlobal ["SmokeShell",10];
+			_target addMagazineCargoGlobal ["SmokeShellRed",5];
+			_target addMagazineCargoGlobal ["SmokeShellBlue",5];		
+		};
 		default {
 			if (isClass(configFile >> "CfgPatches" >> "ace_disposable")) then {  
 				_target addWeaponCargoGlobal ["launch_NLAW_F",2];
@@ -103,7 +118,7 @@ switch (true) do {
 		_target addBackpackCargoGlobal ["B_AssaultPack_dgtl",1];
 	};
 	default {
-		_target addItemCargoGlobal ["H_HelmetB_sand",1];
+		_target addItemCargoGlobal ["H_HelmetB",1];
 		_target addItemCargoGlobal ["V_TacVest_blk",1];
 		_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
 	};

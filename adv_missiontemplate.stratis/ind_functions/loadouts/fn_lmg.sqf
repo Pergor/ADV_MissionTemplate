@@ -27,6 +27,7 @@ _silencer = "muzzle_snds_H_MG";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [3,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_additionalAmmo = [0,0,false];
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;
@@ -209,6 +210,13 @@ switch (ADV_par_indWeap) do {
 			_handgunSilencer = "";
 		};
 	};
+	case 20: {
+		//APEX AKM
+		_primaryWeapon = "arifle_AKM_F";
+		_primaryweaponAmmo = [7,0];
+		_additionalAmmo = [14,0,true];
+		_handgun = "hgun_Pistol_01_F";
+	};
 	default {};
 };
 
@@ -225,6 +233,11 @@ switch (ADV_par_indUni) do {
 		_uniform = ["TFA_Instructor_BW","TFA_Instructor_BT","TFA_Instructor2_BW","TFA_Instructor_BlT","TFA_green_blk_rs","TFA_green_blk","TFA_green_KHK","TFA_green_KHK_rs","TFA_black_KHK_rs","TFA_black_KHK","TFA_black_grn_rs","TFA_black_grn"];
 		_vest = ["TFA_PlateCarrierH_Black","TFA_PlateCarrierH_fol","TFA_PlateCarrierH_Grn","TFA_PlateCarrierH_Mix","TFA_PlateCarrierH_Tan"];
 		_headgear = ["TFA_Cap_Inst","TFA_Cap_bears","TFA_Cap_lad","TFA_Cap_oak","TFA_Cap_HS_blk","TFA_Cap_HS_grn","TFA_Cap_HS_tan"];
+	};
+	case 20: {
+	//Apex Syndikat
+		_uniform = ["U_I_C_Soldier_Para_4_F","U_I_C_Soldier_Para_1_F","U_I_C_Soldier_Para_2_F","U_I_C_Soldier_Para_3_F"];
+		_vest = ["V_TacChestrig_grn_F","V_TacChestrig_cbr_F","V_TacChestrig_oli_F","V_HarnessO_brn","V_TacVest_oli","V_I_G_resistanceLeader_F"];
 	};
 };
 

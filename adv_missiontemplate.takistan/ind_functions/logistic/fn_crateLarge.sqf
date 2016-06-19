@@ -37,6 +37,15 @@ private ["_target"];
 				_target addMagazineCargoGlobal ["11Rnd_45ACP_Mag",20];
 			};
 		};
+		case (ADV_par_indWeap == 20): {
+			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",50];
+			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_Tracer_F",30];
+			_target addMagazineCargoGlobal ["16Rnd_9x21_Mag",20];
+
+			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",20];
+			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",6];
+			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",6];		
+		};
 		default {
 			if ( ADV_par_indWeap == 1 ) then {
 				_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",40];

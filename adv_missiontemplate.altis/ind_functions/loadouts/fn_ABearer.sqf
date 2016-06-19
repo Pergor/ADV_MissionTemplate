@@ -221,6 +221,14 @@ switch (ADV_par_indWeap) do {
 		_additionalAmmo = [10,"hlc_20rnd_762x51_b_G3",true];
 		_additionalAmmo1 = [10,"hlc_20Rnd_762x51_B_fal",true];
 	};
+	case (ADV_par_indWeap == 20): {
+		//APEX AKM
+		_primaryWeapon = "arifle_AKM_F";
+		_additionalAmmo = [30,"30Rnd_762x39_Mag_F",true];
+		_additionalAmmo1 = [0,0,false];
+		_additionalAmmo2 = [0,0,false];
+		_handgun = "hgun_Pistol_01_F";
+	};
 	default {};
 };
 
@@ -237,6 +245,11 @@ switch (ADV_par_indUni) do {
 		_uniform = ["TFA_Instructor_BW","TFA_Instructor_BT","TFA_Instructor2_BW","TFA_Instructor_BlT","TFA_green_blk_rs","TFA_green_blk","TFA_green_KHK","TFA_green_KHK_rs","TFA_black_KHK_rs","TFA_black_KHK","TFA_black_grn_rs","TFA_black_grn"];
 		_vest = ["TFA_PlateCarrierH_Black","TFA_PlateCarrierH_fol","TFA_PlateCarrierH_Grn","TFA_PlateCarrierH_Mix","TFA_PlateCarrierH_Tan"];
 		_headgear = ["TFA_Cap_Inst","TFA_Cap_bears","TFA_Cap_lad","TFA_Cap_oak","TFA_Cap_HS_blk","TFA_Cap_HS_grn","TFA_Cap_HS_tan"];
+	};
+	case 20: {
+	//Apex Syndikat
+		_uniform = ["U_I_C_Soldier_Camo_F","U_I_C_Soldier_Para_1_F","U_I_C_Soldier_Para_2_F","U_I_C_Soldier_Para_3_F"];
+		_vest = ["V_TacChestrig_grn_F","V_TacChestrig_cbr_F","V_TacChestrig_oli_F","V_HarnessO_brn","V_HarnessO_ghex_F","V_TacVest_oli","V_I_G_resistanceLeader_F"];
 	};
 };
 
