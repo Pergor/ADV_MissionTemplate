@@ -115,7 +115,11 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["SmokeShellBlue",5];
 		};
 		default {
-			_target addWeaponCargoGlobal ["arifle_MXC_F",1];
+			if (ADV_par_customWeap == 20) then {
+				_target addWeaponCargoGlobal ["arifle_SPAR_01_blk_F",1];
+			} else {
+				_target addWeaponCargoGlobal ["arifle_MXC_F",1];
+			};
 
 			if (isClass(configFile >> "CfgPatches" >> "ace_disposable")) then {  
 				_target addWeaponCargoGlobal ["launch_NLAW_F",2];
@@ -123,9 +127,15 @@ if (_withWeapons) then {
 				_target addWeaponCargoGlobal ["launch_NLAW_F",1];
 				_target addMagazineCargoGlobal ["NLAW_F",2];
 			};
-			_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",20];
-			_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag_Tracer",10];
-			_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",2];
+			if (ADV_par_customWeap == 20) then {
+				_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_red",20];
+				_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
+				_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Red_F",2];
+			} else {
+				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",20];
+				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag_Tracer",10];
+				_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",2];
+			};
 			_target addMagazineCargoGlobal ["130Rnd_338_Mag",2];
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",1];
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",1];
@@ -163,7 +173,7 @@ switch (true) do {
 		_target addBackpackCargoGlobal ["UK3CB_BAF_B_Bergen_MTP_Rifleman_L_A",1];	
 	};
 	default {
-		_target addItemCargoGlobal ["H_HelmetB_sand",1];
+		_target addItemCargoGlobal ["H_HelmetB",1];
 		_target addItemCargoGlobal ["V_TacVest_blk",1];
 		_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
 	};
