@@ -53,7 +53,8 @@ reviveBleedOutDelay = 1200;
 enableDebugConsole = 1;			//0 für OFF, 1 für Admin only, 2 für alle.
 aikills = 0;					//show ai kills in score table
 disabledAI = 1;					//disable AI for all playable units
-disableChannels[]={0,1,6};		//0=Global;1=Side;2=Command;3=Group;4=Vehicle;5=Direct;6=System;
+//disableChannels[]={0,1,6};		//0=Global;1=Side;2=Command;3=Group;4=Vehicle;5=Direct;6=System;
+disableChannels[]={{0,true,true},{1,true,true},{6,true,true}};		// {channelID, disableChat<bool>, disableVoice<bool>} for 0=Global;1=Side;2=Command;3=Group;4=Vehicle;5=Direct;6=System;
 forceRotorLibSimulation = 0;	//0=options based;1=force enable;2=force disable
 showMap = 1;
 ShowCompass = 1;
