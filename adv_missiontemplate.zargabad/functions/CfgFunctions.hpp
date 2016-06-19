@@ -76,6 +76,7 @@ class ADV
 		class rollDice {};
 		class showArtiSetting {};
 		class spawnFire {};
+		class teleport {};
 		class undercover {};
 	};
 	class gear
