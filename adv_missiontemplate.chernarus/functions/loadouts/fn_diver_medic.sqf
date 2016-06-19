@@ -321,6 +321,10 @@ switch (ADV_par_customUni) do {
 		//TFA ACU
 		_backpack = ["TFA_Kitbag_Blk"];
 	};
+	case 20: {
+		//APEX NATO
+		_items = _items-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
+	};
 	default {};
 };
 

@@ -7,7 +7,7 @@ magazines one for one in _items.
 
 //clothing - (string)
 _uniform = switch (true) do {
-	//case ((toUpper worldname) in ADV_var_aridMaps): {};
+	case ((toUpper worldname) == "TANOA"): {"U_B_T_Sniper_F"};
 	default {["U_B_GhillieSuit"];};
 };
 _vest = ["V_PlateCarrier2_rgr","V_PlateCarrier1_rgr"];
@@ -19,7 +19,7 @@ _goggles = "";
 _unitTraits = [["medic",true],["engineer",true],["explosiveSpecialist",true],["UAVHacker",true],["camouflageCoef",1.5],["audibleCoef",0.5],["loadCoef",0.9]];
 
 //weapons - primary weapon - (string)
-_primaryweapon = "srifle_LRR_F";
+_primaryweapon = ["srifle_LRR_F"];
 
 //primary weapon items - (array)
 _optic = [""];
@@ -97,6 +97,7 @@ _items = ["NVGoggles_OPFOR"];
 if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 	_uniform = switch (true) do {
 		case ((toUpper worldname) == "ALTIS"): {["U_B_FullGhillie_ard","U_B_FullGhillie_sard"]};
+		case ((toUpper worldname) == "TANOA"): {["U_B_T_FullGhillie_tna_F"]};
 		case ((toUpper worldname) in ADV_var_aridMaps): {["U_B_FullGhillie_ard"]};
 		case ((toUpper worldname) in ADV_var_sAridMaps): {["U_B_FullGhillie_sard"]};
 		case ((toUpper worldname) in ADV_var_lushMaps): {["U_B_FullGhillie_lsh"]};
@@ -297,6 +298,15 @@ switch (ADV_par_customWeap) do {
 			_handgunSilencer = "";
 		};
 	};
+	case 20: {
+		//APEX HK416
+		switch (true) do {
+			case ((toUpper worldname) in ["ALTIS"]): {_primaryWeapon = "srifle_LRR_tna_F"; _attachments = ["optic_LRPS_tna_F"];};
+			case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon = "srifle_LRR_tna_F"; _attachments = ["optic_LRPS_tna_F"];};
+			default {};
+		};
+		_binocular = "Laserdesignator_01_khk_F";
+	};
 	default {};
 };
 switch (ADV_par_customUni) do {
@@ -387,6 +397,10 @@ switch (ADV_par_customUni) do {
 		_backpack = ["TRYK_Winter_pack"];
 		_useProfileGoggles = 0;
 		_goggles = ["TRYK_kio_balaclava_WH"];
+	};
+	case 20: {
+		//APEX NATO
+		_items = _items-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};
 };

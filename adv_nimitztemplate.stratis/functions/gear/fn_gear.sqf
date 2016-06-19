@@ -20,7 +20,7 @@ _medicBackPacks = [
 _manPacks = ["tf_mr3000","tf_anprc155","tf_rt1523g","clf_prc117g_ap_multi","clf_nicecomm2_multi","clf_nicecomm2_coy","clf_nicecomm2_prc117g_multi",
 	"clf_nicecomm2_prc117g_coy","ACRE_PRC117F","ACRE_PRC77"
 ];
-_NVGoggles = ["NVGoggles","NVGoggles_OPFOR","NVGoggles_INDEP"];
+_NVGoggles = ["NVGoggles","NVGoggles_OPFOR","NVGoggles_INDEP"];//"NVGoggles_tna_F"
 if ( isClass(configFile >> "CfgPatches" >> "tfa_units") ) then { _NVGoggles append ["TFA_NVGoggles","TFA_NVGoggles2"]; };
 if ( isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) then { _NVGoggles append ["rhsusf_ANPVS_14","rhsusf_ANPVS_15"]; };
 if ( isClass(configFile >> "CfgPatches" >> "rhs_main") ) then { _NVGoggles append ["rhs_1PN138"]; };

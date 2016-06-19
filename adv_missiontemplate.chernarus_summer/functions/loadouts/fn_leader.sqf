@@ -18,6 +18,7 @@ _unitTraits = [["medic",true],["engineer",false],["explosiveSpecialist",false],[
 
 //weapons - primary weapon - (string)
 _primaryweapon = "arifle_MX_GL_Black_F";
+if (worldName == "TANOA") then { _primaryweapon = ["arifle_MX_GL_Black_F","arifle_MX_GL_khk_F"]; };
 
 //primary weapon items - (array)
 _optic = ["optic_Hamr"];
@@ -310,6 +311,14 @@ switch (ADV_par_customWeap) do {
 			_handgunSilencer = "";
 		};
 	};
+	case 20: {
+		//APEX HK416
+		_primaryWeapon = "arifle_SPAR_01_GL_blk_F";
+		_silencer = "muzzle_snds_M";
+		_primaryweaponAmmo set [1,3];
+		_additionalAmmo set [1,2];
+		_optic = ["optic_Arco_blk_F"];
+	};
 	default {};
 };
 switch (ADV_par_customUni) do {
@@ -428,6 +437,12 @@ switch (ADV_par_customUni) do {
 		_backpack = ["TRYK_B_Belt_BLK"];
 		_useProfileGoggles = 0;
 		_goggles = ["TRYK_kio_balaclava_WH","",""];
+	};
+	case 20: {
+		//APEX NATO
+		_uniform = ["U_B_T_Soldier_SL_F"];
+		_vest = ["V_PlateCarrier1_tna_F","V_PlateCarrier2_tna_F"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};
 };

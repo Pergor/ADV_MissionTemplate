@@ -19,7 +19,7 @@ _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],
 _primaryweapon = "SMG_01_F";
 
 //primary weapon items - (array)
-_optic = ["optic_Holosight_smg"];
+_optic = [""];
 _attachments = [""];
 _silencer = "muzzle_snds_acp";		//if silencer is added
 
@@ -272,6 +272,10 @@ switch (true) do {
 			_itemsHandgun = [""];
 			_handgunSilencer = "";
 		};
+	};
+	case (ADV_par_customWeap == 20): {
+		_primaryweapon = "SMG_05_F";
+		_silencer = "muzzle_snds_L";
 	};
 	default {};
 };

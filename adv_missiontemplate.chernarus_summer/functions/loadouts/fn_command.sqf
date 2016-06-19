@@ -291,6 +291,13 @@ switch (ADV_par_customWeap) do {
 			_handgunSilencer = "";
 		};
 	};
+	case 20: {
+		//APEX HK416
+		_primaryWeapon = "arifle_SPAR_01_blk_F";
+		_silencer = "muzzle_snds_M";
+		_primaryweaponAmmo set [1,2];
+		_optic = ["optic_Holosight_blk_F"];
+	};
 	default {};
 };
 switch (ADV_par_customUni) do {
@@ -401,6 +408,12 @@ switch (ADV_par_customUni) do {
 		_vest = ["TRYK_V_Bulletproof"];
 		_headgear = ["TRYK_H_woolhat"];
 		_backpack = ["TRYK_B_Belt_BLK"];
+	};
+	case 20: {
+		//APEX NATO
+		_uniform = ["U_B_T_Soldier_F"];
+		_vest = ["V_PlateCarrier1_tna_F"];
+		_items = _items-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};
 };

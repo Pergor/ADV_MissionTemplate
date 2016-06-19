@@ -303,6 +303,10 @@ switch (ADV_par_customWeap) do {
 			_handgunSilencer = "";
 		};
 	};
+	case 20: {
+		//APEX HK416
+		_optic = ["optic_Arco_blk_F","optic_MRCO"];
+	};
 	default {};
 };
 switch (ADV_par_customUni) do {
@@ -429,6 +433,14 @@ switch (ADV_par_customUni) do {
 		_backpack = ["TRYK_B_Carryall_wh","TRYK_Winter_pack"];
 		_useProfileGoggles = 0;
 		_goggles = ["TRYK_kio_balaclava_WH","",""];
+	};
+	case 20: {
+		//APEX NATO
+		_uniform = ["U_B_T_Soldier_AR_F","U_B_T_Soldier_SL_F","U_B_T_Soldier_F","U_B_T_Soldier_F"];
+		_vest = ["V_PlateCarrierSpec_tna_F"];
+		_headgear = ["H_HelmetB_tna_F","H_HelmetB_Enh_tna_F"];
+		_backpack = ["B_Kitbag_rgr"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};
 };

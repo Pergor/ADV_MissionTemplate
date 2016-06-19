@@ -265,6 +265,10 @@ switch (true) do {
 			_handgunSilencer = "";
 		};
 	};
+	case (ADV_par_customWeap == 20): {
+		_primaryweapon = "SMG_05_F";
+		_silencer = "muzzle_snds_L";
+	};
 	default {};
 };
 switch (ADV_par_customUni) do {

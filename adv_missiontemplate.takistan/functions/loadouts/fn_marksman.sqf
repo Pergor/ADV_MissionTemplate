@@ -26,9 +26,13 @@ if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_B";		//if silencer is added
 //MarksmenDLC-objects:
 if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && ADV_par_DLCContent == 1) then {
-	_primaryWeapon = ["srifle_DMR_03_F","srifle_DMR_03_khaki_F"];
-	if (worldname == "TAKISTAN" || worldname == "ZARGABAD") then {_primaryWeapon pushback "srifle_DMR_03_tan_F";};
+	_primaryWeapon = ["srifle_DMR_03_F"];
 	_optic = ["optic_AMS"];
+	switch (true) do {
+		case ((toUpper worldname) in ADV_var_aridMaps): {_primaryWeapon append ["srifle_DMR_03_tan_F"]; _optic pushBack "optic_AMS_snd";};
+		case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon append ["srifle_DMR_03_woodland_F","srifle_DMR_03_khaki_F"]; _optic pushBack "optic_AMS_khk";};
+		default {};
+	};
 };
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
@@ -284,6 +288,15 @@ switch (ADV_par_customWeap) do {
 			_handgunSilencer = "";
 		};
 	};
+	case 20: {
+		//APEX HK416
+		_primaryWeapon = ["arifle_SPAR_03_blk_F","arifle_SPAR_03_blk_F"];
+		switch (true) do {
+			case ((toUpper worldname) in ADV_var_aridMaps): {_primaryWeapon append ["arifle_SPAR_03_snd_F"]};
+			case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon append ["arifle_SPAR_03_khk_F"]};
+			default {};
+		};
+	};
 	default {};
 };
 switch (ADV_par_customUni) do {
@@ -420,6 +433,13 @@ switch (ADV_par_customUni) do {
 		_backpack = ["TRYK_B_Belt_BLK"];
 		_useProfileGoggles = 0;
 		_goggles = ["TRYK_kio_balaclava_WH","",""];
+	};
+	case 20: {
+		//APEX NATO
+		_uniform = ["U_B_T_Soldier_SL_F","U_B_T_Soldier_F"];
+		_vest = ["V_PlateCarrier1_tna_F","V_PlateCarrier2_tna_F"];
+		_headgear = ["H_HelmetB_tna_F","H_HelmetB_Enh_tna_F"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};
 };
