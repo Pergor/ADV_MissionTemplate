@@ -321,6 +321,7 @@ switch (ADV_par_customUni) do {
 	};
 	case 20: {
 		//APEX NATO
+		_headgear = ["H_Helmet_Skate"];
 		_items = _items-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};
