@@ -6,14 +6,17 @@ Attaches an action to an object that allows teleport to a provided location from
 Possible call - has to be executed on each client locally:
 [START,TARGET] call ADV_fnc_teleport;
 
-_this select 0 = objects the action should be attached to.
-_this select 1 = object, marker or position the teleport should lead to.
+_this select 0 = objects the action should be attached to. (object)
+_this select 1 = object, marker or position the teleport should lead to. (object, marker, positionATL)
+_this select 2 = Name for the location. (optional - string)
 */
 
 params [
 	["_start", objNull, [objNull]],
-	["_target", objNull, [objNull,"",[]]]
+	["_target", objNull, [objNull,"",[]]],
+	["_name","",[""]]
 ];
+_name = if (_name == "") then {_target} else {_name};
 
 adv_scriptfnc_teleport = {
 	params [
@@ -22,7 +25,7 @@ adv_scriptfnc_teleport = {
 	];
 	_targetPos = switch (typeName _target) do {
 		case "STRING": { getMarkerPos _target };
-		case "OBJECT": { getPos _target };
+		case "OBJECT": { getPosATL _target };
 		case "ARRAY": { _target };
 		default {nil};
 	};
@@ -33,14 +36,14 @@ adv_scriptfnc_teleport = {
 	if (_target isKindOf "AllVehicles") then {
 		_unit moveInCargo _target;
 	} else {
-		_unit setPos _targetPos;
+		_unit setPosATL _targetPos;
 	};
 	sleep 1;
 	titleFadeOut 2;
 };
 
 _start addAction [
-	format ["<t color='#00FF00'>Teleport to %1</t>",_target],
+	format ["<t color='#00FF00'>Teleport to %1</t>",_name],
 	{
 		[_this select 1,_this select 3] spawn adv_scriptfnc_teleport;
 	},_target,6,false,true,"","player distance cursortarget <5"
