@@ -179,8 +179,8 @@ _scorchItems = [""];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 
 //Addon Content:
-switch (true) do {
-	case (ADV_par_opfWeap == 1): {
+switch (ADV_par_opfWeap) do {
+	case 1: {
 		//RHS
 		_primaryweapon = ["rhs_weap_ak74m","rhs_weap_ak74m_camo","rhs_weap_ak74m_desert","rhs_weap_ak74m_plummag","rhs_weap_ak74m_2mag","rhs_weap_ak74m_2mag_camo"];
 		_optic = ["rhs_acc_pso1m2","rhs_acc_1p29"];
@@ -190,7 +190,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_opfWeap == 2): {
+	case 2: {
 		//RHS Guerilla
 		_primaryweapon = ["rhs_weap_akm","rhs_weap_akms"];
 		_optic = [""];
@@ -200,7 +200,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_opfWeap == 3): {
+	case 3: {
 		//CUP
 		_primaryweapon = "CUP_arifle_AK107";
 		_optic = ["CUP_optic_PSO_1"];
@@ -210,7 +210,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "CUP_muzzle_PB6P9";
 	};
-	case (ADV_par_opfWeap == 4): {
+	case 4: {
 		//HLC AK
 		_primaryweapon = ["hlc_rifle_ak74","hlc_rifle_ak74_dirty","hlc_rifle_ak74_dirty2"];
 		_optic = [""];
@@ -221,6 +221,14 @@ switch (true) do {
 			_itemsHandgun = [""];
 			_handgunSilencer = "RH_pmsd";
 		};
+	};
+	case 20: {
+		//Apex
+		_primaryweapon = "";
+		_optic = [""];
+		_attachments = [""];
+		_silencer = "";
+		_primaryweaponAmmo set [1,0];
 	};
 	default {};
 };
@@ -268,6 +276,14 @@ switch (ADV_par_opfUni) do {
 		_headgear = ["","H_Shemag_olive","H_ShemagOpen_tan","H_ShemagOpen_khk","Afghan_01Hat","Afghan_02Hat","Afghan_03Hat","Afghan_04Hat","Afghan_05Hat","Afghan_06Hat"];
 		_goggles = "";
 		_useProfileGoggles = 0;
+	};
+	case 20: {
+		//Apex Green Hex
+		_uniform = ["U_O_T_Soldier_F"];
+		_vest = ["V_HarnessO_ghex_F","V_HarnessO_ghex_F","V_HarnessOSpec_brn"];
+		_headgear = ["H_HelmetO_ghex_F","H_HelmetLeaderO_ghex_F"];
+		_backpack = [""];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};
 };

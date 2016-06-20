@@ -230,8 +230,17 @@ switch (ADV_par_indWeap) do {
 		_primaryWeapon = "arifle_AKS_F";
 		_40mmHeGrenadesAmmo = 0;
 		_40mmSmokeGrenadesWhite = 0;
+		_40mmSmokeGrenadesYellow = 0;
+		_40mmSmokeGrenadesOrange = 0;
 		_40mmSmokeGrenadesRed = 0;
+		_40mmSmokeGrenadesPurple = 0;
+		_40mmSmokeGrenadesBlue = 0;
 		_40mmSmokeGrenadesGreen = 0;
+		_40mmFlareWhite = 0;
+		_40mmFlareYellow = 0;
+		_40mmFlareRed = 0;
+		_40mmFlareGreen = 0;
+		_40mmFlareIR = 0;
 		_handgun = "hgun_Pistol_01_F";
 	};
 	default {};
