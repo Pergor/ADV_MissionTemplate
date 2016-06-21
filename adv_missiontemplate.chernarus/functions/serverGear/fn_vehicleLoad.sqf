@@ -118,7 +118,7 @@ if (_withWeapons) then {
 			if (ADV_par_customWeap == 20) then {
 				_target addWeaponCargoGlobal ["arifle_SPAR_01_blk_F",1];
 			} else {
-				_target addWeaponCargoGlobal ["arifle_MXC_F",1];
+				_target addWeaponCargoGlobal ["arifle_MXC_Black_F",1];
 			};
 
 			if (isClass(configFile >> "CfgPatches" >> "ace_disposable")) then {  
