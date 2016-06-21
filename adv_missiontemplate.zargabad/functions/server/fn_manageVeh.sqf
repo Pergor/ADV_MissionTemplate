@@ -250,7 +250,7 @@ switch (ADV_par_modAirAssets) do {
 	default {};
 };
 if (ADV_par_modAirAssets == 4 || ADV_par_modAirAssets == 5) then {[ADV_veh_airC130,["RHS_C130J"],west] spawn ADV_fnc_changeVeh;} else {
-	if !(toUpper (worldname == "TANOA")) then { [ADV_veh_airC130,[""],west] spawn ADV_fnc_changeVeh; };
+	if !(toUpper worldname == "TANOA") then { [ADV_veh_airC130,[""],west] spawn ADV_fnc_changeVeh; };
 	//[ADV_veh_airC130,["B_T_VTOL_01_infantry_F"],west] spawn ADV_fnc_changeVeh;
 };
 
