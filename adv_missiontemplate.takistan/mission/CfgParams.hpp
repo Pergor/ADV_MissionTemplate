@@ -267,8 +267,8 @@ class param_opfSilencers
 class param_opfUni
 {
 	title="Welche Uniform-Sets sollen an OPFOR-Einheiten ausgegeben werden?";
-	values[] = {6,5,4,3,2,1,0};
-	texts[] = {"Afghan Militia (EricJ's Afghan Fighters & RHS)","Guerilla","EMR Desert (RHS)","Mountain Flora (RHS)","Flora (RHS)","EMR Summer (RHS)","Vanilla CSAT"};
+	values[] = {6,5,4,3,2,1,20,0};
+	texts[] = {"Afghan Militia (EricJ's Afghan Fighters & RHS)","Guerilla","EMR Desert (RHS)","Mountain Flora (RHS)","Flora (RHS)","EMR Summer (RHS)","Apex CSAT","Vanilla CSAT"};
 	default = 0;
 };
 class param_opfWeap

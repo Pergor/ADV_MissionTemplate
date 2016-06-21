@@ -6,7 +6,7 @@ The kind of ammo a player gets with this loadout does not necessarily have to be
 
 //clothing - (string)
 _uniform = switch (true) do {
-	//case ((toUpper worldname) in ADV_var_aridMaps): {};
+	case ((toUpper worldname) == "TANOA"): {"U_O_T_Sniper_F"};
 	default {["U_O_GhillieSuit"];};
 };
 _vest = ["V_HarnessOSpec_brn"];
@@ -96,6 +96,7 @@ _items = ["NVGoggles_OPFOR"];
 if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 	_uniform = switch (true) do {
 		case ((toUpper worldname) == "ALTIS"): {["U_O_FullGhillie_ard","U_O_FullGhillie_sard"]};
+		case ((toUpper worldname) == "TANOA"): {["U_O_T_FullGhillie_tna_F"]};
 		case ((toUpper worldname) in ADV_var_aridMaps): {["U_O_FullGhillie_ard"]};
 		case ((toUpper worldname) in ADV_var_sAridMaps): {["U_O_FullGhillie_sard"]};
 		case ((toUpper worldname) in ADV_var_lushMaps): {["U_O_FullGhillie_lsh"]};
@@ -186,8 +187,8 @@ _scorchItems = [""];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 
 //Addon Content:
-switch (true) do {
-	case (ADV_par_opfWeap == 1): {
+switch (ADV_par_opfWeap) do {
+	case 1: {
 		//RHS
 		_primaryweapon = ["rhs_weap_svdp"];
 		_optic = [""];
@@ -196,7 +197,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_opfWeap == 2): {
+	case 2: {
 		//RHS Guerilla
 		_primaryweapon = ["rhs_weap_svdp"];
 		_optic = [""];
@@ -206,7 +207,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_opfWeap == 3): {
+	case 3: {
 		//CUP
 		_primaryweapon = "CUP_srifle_ksvk";
 		_optic = [""];
@@ -215,7 +216,7 @@ switch (true) do {
 		_itemsHandgun = ["CUP_muzzle_PB6P9"];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_opfWeap == 4): {
+	case 4: {
 		//HLC weapons
 		if ( isClass (configFile >> "CfgPatches" >> "rhs_main") ) then {
 			_primaryweapon = ["rhs_weap_svdp"];
@@ -228,6 +229,15 @@ switch (true) do {
 			_itemsHandgun = ["RH_pmsd"];
 			_handgunSilencer = "";
 		};
+	};
+	case 20: {
+		//APEX CSAT
+		switch (true) do {
+			case ((toUpper worldname) in ["ALTIS"]): {_primaryWeapon = "srifle_GM6_ghex_F"; _attachments = ["optic_LRPS_tna_F"];};
+			case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon = "srifle_GM6_ghex_F"; _attachments = ["optic_LRPS_tna_F"];};
+			default {};
+		};
+		_binocular = "Laserdesignator_02_ghex_F";
 	};
 	default {};
 };
@@ -271,6 +281,10 @@ switch (ADV_par_opfUni) do {
 		_binocular = "Binocular";
 		_goggles = "";
 		_useProfileGoggles = 0;
+	};
+	case 20: {
+		//Apex Green Hex
+		_items = _items-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};
 };

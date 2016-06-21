@@ -286,8 +286,7 @@ switch (ADV_par_opfUni) do {
 		//Apex Green Hex
 		_uniform = ["U_O_T_Soldier_F"];
 		_vest = ["V_HarnessO_ghex_F","V_HarnessO_ghex_F","V_HarnessOSpec_brn","V_TacVest_oli"];
-		_headgear = ["H_HelmetO_ghex_F","H_HelmetLeaderO_ghex_F"];
-		_backpack = [""];
+		_headgear = ["H_HelmetO_ghex_F","H_HelmetSpecO_ghex_F"];
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};

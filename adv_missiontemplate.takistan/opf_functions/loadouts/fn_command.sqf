@@ -282,6 +282,13 @@ switch (ADV_par_opfUni) do {
 		_acreBackpack = ["rhs_sidor"];
 		_ACREradios = ["","ACRE_PRC343","ACRE_PRC77"];
 	};
+	case 20: {
+		//Apex Green Hex
+		_uniform = ["U_O_T_Officer_F"];
+		_vest = ["V_TacVest_oli"];
+		_headgear = ["H_MilCap_ghex_F"];
+		_items = _items-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
+	};
 	default {};
 };
 

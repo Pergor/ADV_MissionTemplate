@@ -59,6 +59,9 @@ _handgunAmmo = [2,0];
 
 //weapons - launcher - (string)
 _launcher = "launch_RPG32_F";
+if (worldname == "TANOA") then {
+	_launcher = "launch_RPG32_ghex_F";
+};
 
 //launcher ammo (if a launcher is given) - (integer) 
 _launcherAmmo = [1,0];
@@ -281,6 +284,13 @@ switch (ADV_par_opfUni) do {
 		_useProfileGoggles = 0;
 		if ( ADV_par_opfWeap==1 || ADV_par_opfWeap==2 ) then {_launcher = "rhs_weap_rpg7";};
 		if (ADV_par_opfWeap==3) then {_launcher = "CUP_launch_RPG7V";};
+	};
+	case 20: {
+		//Apex Green Hex
+		_uniform = ["U_O_T_Soldier_F"];
+		_vest = ["V_HarnessO_ghex_F","V_HarnessO_ghex_F","V_HarnessOSpec_brn","V_TacVest_oli"];
+		_headgear = ["H_HelmetO_ghex_F","H_HelmetSpecO_ghex_F"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};
 };

@@ -49,7 +49,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			if (worldName == "TANOA") then {
 				_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_F",21];
 				_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_Tracer_F",7];
-				_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",4];
+				_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",4];
 			} else {
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",21];
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",7];

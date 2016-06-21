@@ -20,6 +20,7 @@ _primaryweapon = "arifle_MXC_Black_F";
 
 //primary weapon items - (array)
 _optic = ["optic_ACO"];
+if (worldname == "TANOA") then {_optic = ["optic_Holosight_blk_F"];};
 _attachments = [""];
 if ( ADV_par_NVGs == 1 ) then { _attachments pushback "acc_flashlight"; };
 if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };

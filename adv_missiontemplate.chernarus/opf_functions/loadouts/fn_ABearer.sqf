@@ -33,7 +33,10 @@ if (worldName == "TANOA") then {
 _primaryweaponAmmo = [7,0];
 _additionalAmmo = [10,"30Rnd_65x39_caseless_green",true];
 _additionalAmmo1 = [2,"200Rnd_65x39_cased_Box",true];
-if (worldName == "TANOA") then { _additionalAmmo1 = [2,"100Rnd_580x42_Mag_F",true]; };
+if (worldName == "TANOA") then {
+	_additionalAmmo = [10,"30Rnd_580x42_Mag_F",true];
+	_additionalAmmo1 = [2,"100Rnd_580x42_Mag_F",true];
+};
 _additionalAmmo2 = [10,"1Rnd_HE_Grenade_shell",true];
 
 //40mm Grenades - (integer)
@@ -295,6 +298,14 @@ switch (ADV_par_opfUni) do {
 		_goggles = "";
 		_useProfileGoggles = 0;
 		_backpack = ["rhs_sidor"];
+	};
+	case 20: {
+		//Apex Green Hex
+		_uniform = ["U_O_T_Soldier_F"];
+		_vest = ["V_HarnessO_ghex_F","V_HarnessO_ghex_F","V_HarnessOSpec_brn","V_TacVest_oli"];
+		_headgear = ["H_HelmetO_ghex_F","H_HelmetSpecO_ghex_F"];
+		_backpack = ["B_Carryall_ghex_F"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};
 };

@@ -60,6 +60,9 @@ _handgunAmmo = [2,0];
 
 //weapons - launcher - (string)
 _launcher = "launch_O_Titan_short_F";
+if (worldName == "TANOA") then {
+	_launcher = "launch_O_Titan_short_ghex_F";
+};
 
 //launcher ammo (if a launcher is given) - (integer) 
 _launcherAmmo = [2,0];
@@ -288,6 +291,13 @@ switch (ADV_par_opfUni) do {
 		_backpack = ["rhs_rpg_empty"];
 		_goggles = "";
 		_useProfileGoggles = 0;
+	};
+	case 20: {
+		//Apex Green Hex
+		_uniform = ["U_O_T_Soldier_F"];
+		_vest = ["V_HarnessO_ghex_F","V_HarnessO_ghex_F","V_HarnessOSpec_brn","V_TacVest_oli"];
+		_headgear = ["H_HelmetO_ghex_F","H_HelmetSpecO_ghex_F"];
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};
 };

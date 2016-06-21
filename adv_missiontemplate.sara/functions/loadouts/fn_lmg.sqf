@@ -21,6 +21,9 @@ _primaryweapon = "LMG_Mk200_F";
 
 //primary weapon items - (array)
 _optic = ["optic_ACO","optic_Hamr","optic_MRCO","optic_Holosight"];
+if (worldName == "TANOA") then {
+	_optic = _optic-["optic_Holosight"]+["optic_Holosight_blk_F"];
+};
 _attachments = ["bipod_01_F_blk"];
 if ( ADV_par_NVGs == 1 ) then { _attachments pushback "acc_flashlight"; };
 if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
@@ -430,7 +433,7 @@ switch (ADV_par_customUni) do {
 		//APEX NATO
 		_uniform = ["U_B_T_Soldier_AR_F","U_B_T_Soldier_AR_F","U_B_T_Soldier_SL_F","U_B_T_Soldier_F"];
 		_vest = ["V_PlateCarrier1_tna_F","V_PlateCarrier2_tna_F"];
-		_headgear = ["H_HelmetB_tna_F","H_HelmetB_Enh_tna_F"];
+		_headgear = ["H_HelmetB_tna_F","H_HelmetB_Enh_tna_F","H_HelmetB_Light_tna_F"];
 		if ( ADV_par_NVGs > 0 ) then { _backpack = ["B_AssaultPack_tna_F"]; };
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};

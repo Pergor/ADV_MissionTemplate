@@ -56,6 +56,9 @@ _handgunAmmo = [2,0];		//first number: Amount of magazines, second number: confi
 
 //weapons - launcher - (string)
 _launcher = "launch_I_Titan_F";
+if (worldName == "TANOA") then {
+	_launcher = "launch_B_Titan_tna_F";
+};
 
 //launcher ammo (if a launcher is given) - (integer) 
 _launcherAmmo = [2,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.

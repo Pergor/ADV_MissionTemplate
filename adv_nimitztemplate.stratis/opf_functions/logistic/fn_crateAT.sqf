@@ -34,7 +34,11 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 		};
 		case (ADV_par_opfWeap == 4): {};
 		default {
-			_target addWeaponCargoGlobal ["launch_RPG32_F",1];
+			if (worldname == "TANOA") then {
+				_target addWeaponCargoGlobal ["launch_RPG32_ghex_F",1];
+			} else {
+				_target addWeaponCargoGlobal ["launch_RPG32_F",1];
+			};
 			
 			_target addMagazineCargoGlobal ["RPG32_F",3];
 			_target addMagazineCargoGlobal ["Titan_AT",4];

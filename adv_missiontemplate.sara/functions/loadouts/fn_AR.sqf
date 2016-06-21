@@ -27,7 +27,7 @@ _silencer = "muzzle_snds_H";		//if silencer is added
 //MarksmenDLC-objects:
 if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && ADV_par_DLCContent == 1) then {
 	_primaryWeapon = ["MMG_02_black_F"];
-	if (worldname == "TAKISTAN" || worldname == "ZARGABAD") then {_primaryWeapon pushback "MMG_02_sand_F";};
+	if ((toUpper worldname) in ADV_var_aridMaps) then {_primaryWeapon pushback "MMG_02_sand_F";};
 	_optic = ["optic_Hamr"];
 	_silencer = "muzzle_snds_338_black";		//if silencer is added
 };
@@ -437,8 +437,8 @@ switch (ADV_par_customUni) do {
 	case 20: {
 		//APEX NATO
 		_uniform = ["U_B_T_Soldier_AR_F","U_B_T_Soldier_SL_F","U_B_T_Soldier_F","U_B_T_Soldier_F"];
-		_vest = ["V_PlateCarrierSpec_tna_F"];
-		_headgear = ["H_HelmetB_tna_F","H_HelmetB_Enh_tna_F"];
+		_vest = ["V_PlateCarrierGL_tna_F"];
+		_headgear = ["H_HelmetB_tna_F","H_HelmetB_Enh_tna_F","H_HelmetB_Light_tna_F"];
 		_backpack = ["B_Kitbag_rgr"];
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};

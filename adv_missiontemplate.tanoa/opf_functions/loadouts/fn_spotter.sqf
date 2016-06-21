@@ -5,7 +5,10 @@ The kind of ammo a player gets with this loadout does not necessarily have to be
 */
 
 //clothing - (string)
-_uniform = ["U_O_GhillieSuit"];
+_uniform = switch (true) do {
+	case ((toUpper worldname) == "TANOA"): {"U_O_T_Sniper_F"};
+	default {["U_O_GhillieSuit"];};
+};
 _vest = ["V_HarnessOSpec_brn"];
 _headgear = ["H_ShemagOpen_tan"];
 _backpack = ["B_AssaultPack_ocamo","B_AssaultPack_cbr"];
@@ -102,6 +105,7 @@ _items = ["NVGoggles_OPFOR"];
 if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 	_uniform = switch (true) do {
 		case ((toUpper worldname) == "ALTIS"): {["U_O_FullGhillie_ard","U_O_FullGhillie_sard"]};
+		case ((toUpper worldname) == "TANOA"): {["U_O_T_FullGhillie_tna_F"]};
 		case ((toUpper worldname) in ADV_var_aridMaps): {["U_O_FullGhillie_ard"]};
 		case ((toUpper worldname) in ADV_var_sAridMaps): {["U_O_FullGhillie_sard"]};
 		case ((toUpper worldname) in ADV_var_lushMaps): {["U_O_FullGhillie_lsh"]};
@@ -192,8 +196,8 @@ _scorchItems = [""];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 
 //Addon Content:
-switch (true) do {
-	case (ADV_par_opfWeap == 1): {
+switch (ADV_par_opfWeap) do {
+	case 1: {
 		//RHS
 		_primaryweapon = ["rhs_weap_ak74m_gp25"];
 		_optic = ["rhs_acc_ekp1","rhs_acc_1p63"];
@@ -203,7 +207,7 @@ switch (true) do {
 		_handgunSilencer = "";
 		_additionalAmmo = [5,"rhs_10Rnd_762x54mmR_7N1",true];
 	};
-	case (ADV_par_opfWeap == 2): {
+	case 2: {
 		//RHS Guerilla
 		_primaryweapon = ["rhs_weap_akm_gp25"];
 		_optic = [""];
@@ -213,7 +217,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_opfWeap == 3): {
+	case 3: {
 		//CUP
 		_primaryweapon = "CUP_smg_bizon";
 		_attachments = ["CUP_muzzle_Bizon"];
@@ -228,7 +232,7 @@ switch (true) do {
 		_handgunSilencer = "";
 		_additionalAmmo = [5,"CUP_5Rnd_127x108_KSVK_M",true];
 	};
-	case (ADV_par_opfWeap == 4): {
+	case 4: {
 		//HLC AK
 		_primaryweapon = ["hlc_rifle_aks74u"];
 		_optic = [""];
@@ -245,6 +249,10 @@ switch (true) do {
 			_handgunSilencer = "";
 		};
 		if ( isClass (configFile >> "CfgPatches" >> "rhs_main") ) then { _additionalAmmo = [5,"rhs_10Rnd_762x54mmR_7N1",true]; };
+	};
+	case 20: {
+		//APEX CSAT
+		_binocular = "Laserdesignator_02_ghex_F";
 	};
 	default {};
 };
@@ -263,13 +271,13 @@ switch (ADV_par_opfUni) do {
 	};
 	case 3: {
 		//RHS Mountain Flora
-		_vests = ["rhs_6b23_ML_sniper","rhs_6b23_sniper"];
+		_vest = ["rhs_6b23_ML_sniper","rhs_6b23_sniper"];
 		_backpack = ["rhs_sidor","rhs_assault_umbts","B_AssaultPack_sgg"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 4: {
 		//RHS EMR Desert
-		_vests = ["rhs_6b23_ML_sniper","rhs_6b23_sniper"];
+		_vest = ["rhs_6b23_ML_sniper","rhs_6b23_sniper"];
 		_backpack = ["rhs_sidor","rhs_assault_umbts","B_AssaultPack_sgg"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
@@ -288,6 +296,10 @@ switch (ADV_par_opfUni) do {
 		_binocular = "Binocular";
 		_goggles = "";
 		_useProfileGoggles = 0;
+	};
+	case 20: {
+		//Apex Green Hex
+		_items = _items-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};
 };
