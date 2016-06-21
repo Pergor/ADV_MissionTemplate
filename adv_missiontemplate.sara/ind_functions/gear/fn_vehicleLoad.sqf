@@ -92,7 +92,7 @@ if (_withWeapons) then {
 				_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag",20];
 				_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_yellow",10];
 			} else {
-				_target addWeaponCargoGlobal ["arifle_MXC_F",1];
+				_target addWeaponCargoGlobal ["arifle_MXC_Black_F",1];
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",20];
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag_Tracer",10];
 			};
