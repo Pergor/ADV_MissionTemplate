@@ -24,6 +24,11 @@ if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H";		//if silencer is added
 
+if (worldName == "TANOA") then {
+	_primaryweapon = ["arifle_CTAR_blk_F"];
+	_silencer = "muzzle_snds_58_blk_F";
+};
+
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [7,0];
 
@@ -280,7 +285,7 @@ switch (ADV_par_opfUni) do {
 	case 20: {
 		//Apex Green Hex
 		_uniform = ["U_O_T_Soldier_F"];
-		_vest = ["V_HarnessO_ghex_F","V_HarnessO_ghex_F","V_HarnessOSpec_brn"];
+		_vest = ["V_HarnessO_ghex_F","V_HarnessO_ghex_F","V_HarnessOSpec_brn","V_TacVest_oli"];
 		_headgear = ["H_HelmetO_ghex_F","H_HelmetLeaderO_ghex_F"];
 		_backpack = [""];
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];

@@ -17,6 +17,7 @@ _unitTraits = [["medic",true],["engineer",false],["explosiveSpecialist",false],[
 
 //weapons - primary weapon - (string)
 _primaryweapon = "arifle_MX_GL_Black_F";
+if (worldName == "TANOA") then { _primaryweapon = ["arifle_MX_GL_Black_F","arifle_MX_GL_khk_F"]; };
 
 //primary weapon items - (array)
 _optic = ["optic_Hamr"];

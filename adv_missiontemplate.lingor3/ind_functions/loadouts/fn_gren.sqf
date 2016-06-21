@@ -17,6 +17,7 @@ _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],
 
 //weapons - primary weapon - (string)
 _primaryweapon = ["arifle_MX_GL_Black_F"];
+if (worldName == "TANOA") then { _primaryweapon = ["arifle_MX_GL_Black_F","arifle_MX_GL_khk_F"]; };
 
 //primary weapon items - (array)
 _optic = ["optic_Hamr","optic_Hamr","optic_ACO","optic_Holosight"];
@@ -217,7 +218,18 @@ switch (ADV_par_indWeap) do {
 		//APEX AKM
 		_primaryWeapon = "arifle_AKM_F";
 		_40mmHeGrenadesAmmo = 0;
+		_40mmSmokeGrenadesWhite = 0;
+		_40mmSmokeGrenadesYellow = 0;
+		_40mmSmokeGrenadesOrange = 0;
+		_40mmSmokeGrenadesRed = 0;
+		_40mmSmokeGrenadesPurple = 0;
+		_40mmSmokeGrenadesBlue = 0;
+		_40mmSmokeGrenadesGreen = 0;
+		_40mmFlareWhite = 0;
 		_40mmFlareYellow = 0;
+		_40mmFlareRed = 0;
+		_40mmFlareGreen = 0;
+		_40mmFlareIR = 0;
 		_handgun = "hgun_Pistol_01_F";
 		_grenadeSet = 0;
 		_grenades = ["HE","HE","HE","HE","HE","HE","WHITE","GREEN","RED"];

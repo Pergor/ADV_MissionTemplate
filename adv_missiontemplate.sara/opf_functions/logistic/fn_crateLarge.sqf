@@ -37,9 +37,15 @@ private ["_target"];
 		case (ADV_par_opfWeap == 4): {};
 		default {
 			//ammo
-			_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",40];
-			_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",20];
-			_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",12];
+			if (worldName == "TANOA") then {
+				_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_F",40];
+				_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_Tracer_F",2];
+				_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",12];
+			} else {
+				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",40];
+				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",20];
+				_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",12];
+			};
 			_target addMagazineCargoGlobal ["150Rnd_93x64_Mag",12];
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",6];
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",6];

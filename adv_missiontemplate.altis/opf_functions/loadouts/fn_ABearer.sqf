@@ -24,10 +24,16 @@ if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H";		//if silencer is added
 
+if (worldName == "TANOA") then {
+	_primaryweapon = ["arifle_CTAR_blk_F"];
+	_silencer = "muzzle_snds_58_blk_F";
+};
+
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [7,0];
 _additionalAmmo = [10,"30Rnd_65x39_caseless_green",true];
 _additionalAmmo1 = [2,"200Rnd_65x39_cased_Box",true];
+if (worldName == "TANOA") then { _additionalAmmo1 = [2,"100Rnd_580x42_Mag_F",true]; };
 _additionalAmmo2 = [10,"1Rnd_HE_Grenade_shell",true];
 
 //40mm Grenades - (integer)

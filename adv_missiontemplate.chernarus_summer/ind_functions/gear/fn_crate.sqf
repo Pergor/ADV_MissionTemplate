@@ -87,6 +87,7 @@ private ["_target"];
 			//ammo
 			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",40];
 			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_Tracer_F",40];
+			_target addMagazineCargoGlobal ["30Rnd_545x39_Mag_F",40];
 			_target addMagazineCargoGlobal ["11Rnd_45ACP_Mag",10];
 			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",40];
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",10];

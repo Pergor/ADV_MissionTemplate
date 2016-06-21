@@ -35,9 +35,15 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 		case (ADV_par_opfWeap == 4): {};
 		default {
 			//ammo
-			_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",20];
-			_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",10];
-			_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",5];
+			if (worldName == "TANOA") then {
+				_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_F",20];
+				_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_Tracer_F",10];
+				_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",5];
+			} else {
+				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",20];
+				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",10];
+				_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",5];
+			};
 			/*
 			_target addMagazineCargoGlobal ["10Rnd_762x51_Mag",10];
 			_target addMagazineCargoGlobal ["10Rnd_93x64_DMR_05_Mag",10];

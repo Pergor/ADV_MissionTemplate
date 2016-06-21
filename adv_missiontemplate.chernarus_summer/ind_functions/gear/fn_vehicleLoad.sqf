@@ -70,6 +70,7 @@ if (_withWeapons) then {
 			_target addWeaponCargoGlobal ["arifle_AKS_F",1];
 			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",20];
 			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_Tracer_F",15];
+			_target addMagazineCargoGlobal ["30Rnd_545x39_Mag_F",5];
 
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",1];
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",1];

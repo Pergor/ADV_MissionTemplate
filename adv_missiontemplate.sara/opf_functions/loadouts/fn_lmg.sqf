@@ -27,6 +27,11 @@ _silencer = "muzzle_snds_H_MG";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [3,0];
+if (worldName == "TANOA") then {
+	_primaryweapon = ["arifle_CTARS_blk_F"];
+	_silencer = "muzzle_snds_58_blk_F";
+	_primaryweaponAmmo = [5,0];
+};
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;

@@ -17,6 +17,7 @@ _unitTraits = [["medic",true],["engineer",false],["explosiveSpecialist",false],[
 
 //weapons - primary weapon - (string)
 _primaryweapon = "arifle_MX_GL_Black_F";
+if (worldName == "TANOA") then { _primaryweapon = ["arifle_MX_GL_Black_F","arifle_MX_GL_khk_F"]; };
 
 //primary weapon items - (array)
 _optic = ["optic_Hamr"];
@@ -225,10 +226,18 @@ switch (ADV_par_indWeap) do {
 		_primaryweaponAmmo set [1,2];
 		_additionalAmmo set [1,0];
 		_40mmHeGrenadesAmmo = 0;
+		_40mmSmokeGrenadesWhite = 0;
 		_40mmSmokeGrenadesYellow = 0;
+		_40mmSmokeGrenadesOrange = 0;
 		_40mmSmokeGrenadesRed = 0;
+		_40mmSmokeGrenadesPurple = 0;
+		_40mmSmokeGrenadesBlue = 0;
 		_40mmSmokeGrenadesGreen = 0;
+		_40mmFlareWhite = 0;
 		_40mmFlareYellow = 0;
+		_40mmFlareRed = 0;
+		_40mmFlareGreen = 0;
+		_40mmFlareIR = 0;
 		_handgun = "hgun_Pistol_01_F";
 	};
 	default {};
