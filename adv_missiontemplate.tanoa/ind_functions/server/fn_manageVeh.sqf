@@ -158,7 +158,7 @@ if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_pa
 			_x setVariable ["tf_hasRadio", true, true];
 			//_x setVariable ["tf_side", independent, true];
 		};
-		if (ADV_par_indUni != 1 || toUpper worldname == "TANOA") then {
+		if (ADV_par_indUni != 1 || toUpper worldname != "TANOA") then {
 			_x setObjectTextureGlobal [0,'#(rgb,8,8,3)color(1,1,1,0.004)'];
 			if (str _x in ADV_ind_veh_transport) then {
 				_x setObjectTextureGlobal [1,'#(rgb,8,8,3)color(1,1,1,0.004)'];
