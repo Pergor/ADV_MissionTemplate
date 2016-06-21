@@ -99,11 +99,13 @@ while {true} do {
 	if ( _name in ADV_veh_artys || _name in ADV_opf_veh_artys || _name in ADV_ind_veh_artys ) then {
 		[_veh] call ADV_fnc_showArtiSetting;
 	};
-	if (_name in ADV_ind_veh_all && ADV_par_indUni != 0) then {
+	if (_name in ADV_ind_veh_all && ADV_par_indUni != 1) then {
 		sleep 2;
-		_x setObjectTextureGlobal [0,'#(rgb,8,8,3)color(1,1,1,0.004)'];
-		if (str _x in ADV_ind_veh_transport) then {
-			_x setObjectTextureGlobal [1,'#(rgb,8,8,3)color(1,1,1,0.004)'];
+		if (toUpper worldname != "TANOA" && (str _x in ADV_ind_veh_transport+ADV_ind_veh_Offroad+ADV_ind_veh_airRecon)) then {
+			_x setObjectTextureGlobal [0,'#(rgb,8,8,3)color(1,1,1,0.004)'];
+			if (str _x in ADV_ind_veh_transport) then {
+				_x setObjectTextureGlobal [1,'#(rgb,8,8,3)color(1,1,1,0.004)'];
+			};
 		};
 	};
 	if (isClass(configFile >> "CfgPatches" >> "rhs_main")) then {

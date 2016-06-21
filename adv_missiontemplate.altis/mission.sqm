@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={16668.525,137.79761,12718.283};
-		dir[]={-0.92257684,-0.32685381,-0.20530434};
-		up[]={-0.31917089,0.94503415,-0.071023457};
-		aside[]={-0.21723075,-1.794222e-006,0.97618157};
+		pos[]={16606.609,43.144859,12698.819};
+		dir[]={-0.41378215,-0.59723866,0.68721193};
+		up[]={-0.30812001,0.80199403,0.51173353};
+		aside[]={0.8567642,-4.3772161e-007,0.51586962};
 	};
 };
 binarizationWanted=0;
@@ -69,15 +69,17 @@ addons[]=
 	"A3_Modules_F_Curator_Curator",
 	"A3_Characters_F",
 	"A3_Data_F_Curator_Characters",
+	"A3_Characters_F_Exp_Civil",
 	"A3_Modules_F",
 	"A3_Data_F_Exp_A_Virtual",
+	"A3_Characters_F_Exp",
 	"A3_Structures_F_System"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=25;
+		items=26;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -102,7 +104,7 @@ class AddonsMetaData
 		class Item3
 		{
 			className="A3_Supplies_F_Heli";
-			name="Arma 3 Helicopters - Ammoboxes and supplies";
+			name="Arma 3 Helicopters - Ammoboxes and Supplies";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -123,7 +125,7 @@ class AddonsMetaData
 		class Item6
 		{
 			className="A3_Armor_F_Gamma";
-			name="Arma 3 - Armored land vehicles";
+			name="Arma 3 - Armored Land Vehicles";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -144,7 +146,7 @@ class AddonsMetaData
 		class Item9
 		{
 			className="A3_Structures_F";
-			name="Arma 3 Alpha - Buildings and structures";
+			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -165,7 +167,7 @@ class AddonsMetaData
 		class Item12
 		{
 			className="A3_Armor_F_EPC";
-			name="Arma 3 Win Episode - Armored land vehicles";
+			name="Arma 3 Win Episode - Armored Land Vehicles";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -179,7 +181,7 @@ class AddonsMetaData
 		class Item14
 		{
 			className="A3_Soft_F_Beta";
-			name="Arma 3 Beta - Unarmored land vehicles";
+			name="Arma 3 Beta - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -193,35 +195,35 @@ class AddonsMetaData
 		class Item16
 		{
 			className="A3_Soft_F_EPC";
-			name="Arma 3 Win Episode - Unarmored land vehicles";
+			name="Arma 3 Win Episode - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
 		class Item17
 		{
 			className="A3_Structures_F_Heli";
-			name="Arma 3 Helicopters - Buildings and structures";
+			name="Arma 3 Helicopters - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
 		class Item18
 		{
 			className="A3_Structures_F_Kart";
-			name="Arma 3 Karts - Buildings and structures";
+			name="Arma 3 Karts - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
 		class Item19
 		{
 			className="A3_Structures_F_EPC";
-			name="Arma 3 Win Episode - Buildings and structures";
+			name="Arma 3 Win Episode - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
 		class Item20
 		{
 			className="A3_Modules_F_Curator";
-			name="Arma 3 Zeus Update - Scripted features";
+			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -241,15 +243,22 @@ class AddonsMetaData
 		};
 		class Item23
 		{
-			className="A3_Modules_F";
-			name="Arma 3 Alpha - Scripted Modules";
+			className="A3_Characters_F_Exp";
+			name="Arma 3 Apex - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
 		class Item24
 		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
+			author="Bohemia Interactive";
+			url="http://www.arma3.com";
+		};
+		class Item25
+		{
 			className="A3_Data_F_Exp_A";
-			name="Arma 3 Nexus Update - Main configuration";
+			name="Arma 3 Nexus Update - Main Configuration";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -389,7 +398,7 @@ class Mission
 			position[]={15129.301,17.90008,17272.439};
 			name="respawn_west";
 			type="Empty";
-			angle=225.12502;
+			angle=225.125;
 			id=0;
 		};
 		class Item1
@@ -3091,7 +3100,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={16584.951,12.85847,12715.84};
-				angles[]={0,0.73617291,0};
+				angles[]={0,0.73617989,0};
 			};
 			side="Empty";
 			flags=4;
@@ -3099,6 +3108,7 @@ class Mission
 			{
 				skill=0.60000002;
 				name="ind_fuel_1";
+				textures="Black";
 			};
 			id=161;
 			type="C_Van_01_fuel_F";
@@ -3218,7 +3228,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={16572.551,12.611503,12726.262};
-				angles[]={0,0.73585695,0};
+				angles[]={0,0.73584825,0};
 			};
 			side="Empty";
 			flags=4;
@@ -3226,6 +3236,7 @@ class Mission
 			{
 				skill=0.60000002;
 				name="ind_Offroad_1";
+				textures="Darkred";
 			};
 			id=168;
 			type="C_Offroad_01_F";
@@ -3236,7 +3247,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={16567.15,12.611503,12731.562};
-				angles[]={0,0.72236907,0};
+				angles[]={0,0.72237432,0};
 			};
 			side="Empty";
 			flags=4;
@@ -3244,6 +3255,7 @@ class Mission
 			{
 				skill=0.60000002;
 				name="ind_Offroad_2";
+				textures="Darkred";
 			};
 			id=169;
 			type="C_Offroad_01_F";
@@ -3254,7 +3266,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={16562.451,12.596462,12735.731};
-				angles[]={0,0.74989116,0};
+				angles[]={0,0.74989814,0};
 			};
 			side="Empty";
 			flags=4;
@@ -3262,6 +3274,7 @@ class Mission
 			{
 				skill=0.60000002;
 				name="ind_SUV_2";
+				textures="Black";
 			};
 			id=170;
 			type="C_SUV_01_F";
@@ -3272,7 +3285,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={16577.451,12.596462,12721.831};
-				angles[]={0,0.72239351,0};
+				angles[]={0,0.72239178,0};
 			};
 			side="Empty";
 			flags=4;
@@ -3280,6 +3293,7 @@ class Mission
 			{
 				skill=0.60000002;
 				name="ind_SUV_1";
+				textures="Black";
 			};
 			id=171;
 			type="C_SUV_01_F";
@@ -3774,6 +3788,7 @@ class Mission
 			{
 				skill=0.60000002;
 				name="ind_Offroad_hmg_1";
+				textures="Guerilla_09";
 			};
 			id=198;
 			type="B_G_Offroad_01_armed_F";
@@ -3839,7 +3854,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={16578.609,12.596462,12801.341};
+				position[]={16578.609,12.596462,12801.34};
 				angles[]={0,3.0948353,0};
 			};
 			side="Empty";
@@ -3848,6 +3863,7 @@ class Mission
 			{
 				skill=0.60000002;
 				name="ind_SUV_4";
+				textures="Black";
 			};
 			id=202;
 			type="C_SUV_01_F";
@@ -3866,6 +3882,7 @@ class Mission
 			{
 				skill=0.60000002;
 				name="ind_SUV_3";
+				textures="Black";
 			};
 			id=203;
 			type="C_SUV_01_F";
@@ -3883,7 +3900,9 @@ class Mission
 			class Attributes
 			{
 				skill=0.60000002;
+				init="this setObjectTexture [1,'#(rgb,8,8,3)color(1,1,1,0.004)'];";
 				name="ind_Offroad_3";
+				textures="Darkred";
 			};
 			id=204;
 			type="C_Offroad_01_F";
