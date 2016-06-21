@@ -32,7 +32,7 @@ called via preInit for server and once for every client in initPlayerLocal.sqf w
 					case 20: {
 						"ind_base" setMarkerTypeLocal "flag_Syndicat";
 						"ind_base" setMarkerTextLocal "Syndikat";
-						{_x setMarkerColorLocal "ColorBrown"} forEach _indMarker;
+						//{_x setMarkerColorLocal "ColorBrown"} forEach _indMarker;
 					};
 					case 1: {
 						"ind_base" setMarkerColorLocal "Default";
