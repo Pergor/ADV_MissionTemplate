@@ -27,7 +27,7 @@ _silencer = "muzzle_snds_H_MG";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [3,0];
-if (worldName == "TANOA") then {
+if (worldName == "TANOA" || ADV_par_opfWeap == 20 || ADV_par_opfWeap == 21) then {
 	_primaryweapon = ["arifle_CTARS_blk_F"];
 	_silencer = "muzzle_snds_58_blk_F";
 	_primaryweaponAmmo = [5,0];
@@ -185,8 +185,8 @@ _scorchItems = [""];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 
 //Addon Content:
-switch (true) do {
-	case (ADV_par_opfWeap == 1): {
+switch (ADV_par_opfWeap) do {
+	case 1: {
 		//RHS
 		_primaryweapon = "rhs_weap_pkm";
 		_primaryweaponAmmo set [0,4];
@@ -197,7 +197,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_opfWeap == 2): {
+	case 2: {
 		//RHS Guerilla
 		_primaryweapon = ["rhs_weap_pkm"];
 		_primaryweaponAmmo set [0,4];
@@ -208,7 +208,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_opfWeap == 3): {
+	case 3: {
 		//CUP
 		_primaryweapon = "CUP_arifle_RPK74";
 		_optic = ["CUP_optic_Kobra"];
@@ -219,7 +219,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "CUP_muzzle_PB6P9";
 	};
-	case (ADV_par_opfWeap == 4): {
+	case 4: {
 		//HLC AK
 		_primaryweapon = ["hlc_rifle_rpk74n"];
 		_optic = [""];
@@ -291,7 +291,7 @@ switch (ADV_par_opfUni) do {
 		_uniform = ["U_O_T_Soldier_F"];
 		_vest = ["V_HarnessO_ghex_F","V_HarnessO_ghex_F","V_HarnessOSpec_brn","V_TacVest_oli"];
 		_headgear = ["H_HelmetO_ghex_F","H_HelmetSpecO_ghex_F"];
-		if ( ADV_par_opfWeap > 0 ) then { _backpack = ["B_AssaultPack_rgr"]; };
+		if ( ADV_par_opfWeap > 0 && ADV_par_opfWeap < 5 ) then { _backpack = ["B_AssaultPack_rgr"]; };
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};

@@ -24,7 +24,7 @@ if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H";		//if silencer is added
 
-if (worldName == "TANOA") then {
+if (worldName == "TANOA" || ADV_par_opfWeap == 20) then {
 	_primaryweapon = ["arifle_CTAR_blk_F"];
 	_silencer = "muzzle_snds_58_blk_F";
 };
@@ -33,11 +33,11 @@ if (worldName == "TANOA") then {
 _primaryweaponAmmo = [7,0];
 _additionalAmmo = [10,"30Rnd_65x39_caseless_green",true];
 _additionalAmmo1 = [2,"200Rnd_65x39_cased_Box",true];
-if (worldName == "TANOA") then {
-	_additionalAmmo = [10,"30Rnd_580x42_Mag_F",true];
-	_additionalAmmo1 = [2,"100Rnd_580x42_Mag_F",true];
-};
 _additionalAmmo2 = [10,"1Rnd_HE_Grenade_shell",true];
+if (worldName == "TANOA" || ADV_par_opfWeap == 20) then {
+	_additionalAmmo set [1,"30Rnd_580x42_Mag_F"];
+	_additionalAmmo1 = [4,"100Rnd_580x42_Mag_F",true];
+};
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;
@@ -191,8 +191,8 @@ _scorchItems = [""];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 
 //Addon Content:
-switch (true) do {
-	case (ADV_par_opfWeap == 1): {
+switch (ADV_par_opfWeap) do {
+	case 1: {
 		//RHS
 		_primaryweapon = ["rhs_weap_ak74m","rhs_weap_ak74m_camo","rhs_weap_ak74m_desert","rhs_weap_ak74m_plummag","rhs_weap_ak74m_2mag","rhs_weap_ak74m_2mag_camo"];
 		_optic = ["rhs_acc_pso1m2","rhs_acc_1p29"];
@@ -205,7 +205,7 @@ switch (true) do {
 		_additionalAmmo1 set [1,"rhs_100Rnd_762x54mmR"];
 		_additionalAmmo2 set [1,"rhs_VOG25"];
 	};
-	case (ADV_par_opfWeap == 2): {
+	case 2: {
 		//RHS Guerilla
 		_primaryweapon = ["rhs_weap_akm","rhs_weap_akms"];
 		_optic = [""];
@@ -218,7 +218,7 @@ switch (true) do {
 		_additionalAmmo1 set [1,"rhs_100Rnd_762x54mmR"];
 		_additionalAmmo2 set [1,"rhs_VOG25"];
 	};
-	case (ADV_par_opfWeap == 3): {
+	case 3: {
 		//CUP
 		_primaryweapon = "CUP_arifle_AK107";
 		_optic = ["CUP_optic_PSO_1"];
@@ -231,7 +231,7 @@ switch (true) do {
 		_additionalAmmo1 set [1,"CUP_75Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M"];
 		_additionalAmmo2 set [1,"CUP_1Rnd_HE_GP25_M"];
 	};
-	case (ADV_par_opfWeap == 4): {
+	case 4: {
 		//HLC AK
 		_primaryweapon = ["hlc_rifle_ak74","hlc_rifle_ak74_dirty","hlc_rifle_ak74_dirty2"];
 		_optic = [""];
@@ -246,6 +246,13 @@ switch (true) do {
 		_additionalAmmo1 set [1,"hlc_45Rnd_545x39_t_rpk"];
 		_additionalAmmo1 set [0,5];
 		_additionalAmmo2 set [1,"hlc_VOG25_AK"];
+	};
+	case 21: {
+		//Apex AK12
+		_primaryWeapon = "arifle_AK12_F";
+		_silencer = "muzzle_snds_B";
+		_additionalAmmo set [1,"30Rnd_762x39_Mag_F"];
+		_additionalAmmo1 = [4,"100Rnd_580x42_Mag_F",true];
 	};
 	default {};
 };

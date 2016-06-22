@@ -24,7 +24,7 @@ if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H";		//if silencer is added
 
-if (worldName == "TANOA") then {
+if (worldName == "TANOA" || ADV_par_opfWeap == 20) then {
 	_primaryweapon = ["arifle_CTAR_blk_F"];
 	_silencer = "muzzle_snds_58_blk_F";
 };
@@ -227,13 +227,10 @@ switch (ADV_par_opfWeap) do {
 			_handgunSilencer = "RH_pmsd";
 		};
 	};
-	case 20: {
-		//Apex
-		_primaryweapon = "";
-		_optic = [""];
-		_attachments = [""];
-		_silencer = "";
-		_primaryweaponAmmo set [1,0];
+	case 21: {
+		//Apex AK12
+		_primaryWeapon = "arifle_AK12_F";
+		_silencer = "muzzle_snds_B";
 	};
 	default {};
 };

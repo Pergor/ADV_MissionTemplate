@@ -178,8 +178,8 @@ _scorchItems = ["sc_dogtag"];
 _scorchItemsRandom = ["sc_cigarettepack","sc_candybar",""];
 
 //Addon Content:
-switch (true) do {
-	case (ADV_par_indWeap == 1): {
+switch (ADV_par_indWeap) do {
+	case 1: {
 		//Vanilla Mk20
 		_primaryWeapon = ["hgun_PDW2000_F"];
 		_silencer = ["muzzle_snds_L"];
@@ -187,7 +187,7 @@ switch (true) do {
 		_itemsHandgun = [""];
 		_handgunSilencer = [""];
 	};
-	case (ADV_par_indWeap == 2): {
+	case 2: {
 		//SELmods
 		_primaryweapon = "";
 		_optic = [""];
@@ -204,7 +204,7 @@ switch (true) do {
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_indWeap == 3): {
+	case 3: {
 		//HLC
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
 			_primaryweapon = ["hlc_smg_mp5a2","hlc_smg_mp510","hlc_smg_mp5a4"];
@@ -218,7 +218,9 @@ switch (true) do {
 			_handgunSilencer = "";
 		};
 	};
-	case (ADV_par_indWeap == 20): {
+	case 20: {
+		_primaryweapon = "SMG_05_F";
+		_silencer = "";
 		_handgun = "hgun_Pistol_01_F";
 	};
 	default {};

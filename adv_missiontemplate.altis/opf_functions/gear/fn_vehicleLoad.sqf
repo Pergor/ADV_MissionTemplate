@@ -60,18 +60,28 @@ if (_withWeapons) then {
 		};
 		case (ADV_par_opfWeap == 4): { };
 		default {
-			if (worldName == "TANOA") then {
-				_target addWeaponCargoGlobal ["arifle_CTAR_blk_F",1];
-				_target addWeaponCargoGlobal ["launch_RPG32_ghex_F",2];
-				_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_F",20];
-				_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_Tracer_F",10];
-				_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",2];
-			} else {
-				_target addWeaponCargoGlobal ["arifle_Katiba_C_F",1];
-				_target addWeaponCargoGlobal ["launch_RPG32_F",2];
-				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",20];
-				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",10];
-				_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",2];
+			switch (true) do {
+				case (ADV_par_opfWeap == 21): {
+					_target addWeaponCargoGlobal ["arifle_AK12_F",1];
+					_target addWeaponCargoGlobal ["launch_RPG32_ghex_F",2];
+					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",20];
+					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_Tracer_F",10];
+					_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",4];
+				};
+				case (worldName == "TANOA" || ADV_par_opfWeap == 20): {
+					_target addWeaponCargoGlobal ["arifle_CTAR_blk_F",1];
+					_target addWeaponCargoGlobal ["launch_RPG32_ghex_F",2];
+					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_F",20];
+					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_Tracer_F",10];
+					_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",4];
+				};
+				default {
+					_target addWeaponCargoGlobal ["arifle_Katiba_C_F",1];
+					_target addWeaponCargoGlobal ["launch_RPG32_F",2];
+					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",20];
+					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",10];
+					_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",2];
+				};
 			};
 			_target addMagazineCargoGlobal ["RPG32_F",2];
 
@@ -103,6 +113,11 @@ switch (true) do {
 	};
 	case (ADV_par_opfUni == 5): {
 		_target addItemCargoGlobal ["V_TacVest_khk",1];
+		_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
+	};
+	case (ADV_par_opfUni == 20): {
+		_target addItemCargoGlobal ["H_HelmetSpecO_ghex_F",1];
+		_target addItemCargoGlobal ["V_TacVest_oli",1];
 		_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
 	};
 	default {

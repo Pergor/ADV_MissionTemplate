@@ -222,12 +222,14 @@ switch (ADV_par_indWeap) do {
 		_additionalAmmo = [10,"hlc_20rnd_762x51_b_G3",true];
 		_additionalAmmo1 = [10,"hlc_20Rnd_762x51_B_fal",true];
 	};
-	case (ADV_par_indWeap == 20): {
+	case 20: {
 		//APEX AKM
-		_primaryWeapon = "arifle_AKM_F";
-		_additionalAmmo = [30,"30Rnd_762x39_Mag_F",true];
-		_additionalAmmo1 = [0,0,false];
-		_additionalAmmo2 = [0,0,false];
+		_primaryWeapon = ["arifle_AKM_F","arifle_AKM_F","arifle_AKM_F","arifle_AK12_F"];
+		_optic = [""];
+		if ( ADV_par_NVGs == 2 ) then { _attachments = _attachments-["acc_pointer_IR"]; };
+		_silencer = "";
+		_additionalAmmo set [1,"30Rnd_762x39_Mag_F"];
+		_additionalAmmo1 set [1,"200Rnd_556x45_Box_F"];
 		_handgun = "hgun_Pistol_01_F";
 	};
 	default {};

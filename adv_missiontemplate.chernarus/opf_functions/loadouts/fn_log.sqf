@@ -24,6 +24,11 @@ if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "";		//if silencer is added
 
+if (worldName == "TANOA" || ADV_par_opfWeap == 20) then {
+	_primaryweapon = ["arifle_CTAR_blk_F"];
+	_silencer = "";
+};
+
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [4,0];
 
@@ -179,8 +184,8 @@ _scorchItems = [""];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 
 //Addon Content:
-switch (true) do {
-	case (ADV_par_opfWeap == 1): {
+switch (ADV_par_opfWeap) do {
+	case 1: {
 		//RHS
 		_primaryweapon = ["rhs_weap_ak74m_folded","rhs_weap_ak74m_plummag_folded","rhs_weap_ak74m_camo_folded","rhs_weap_ak74m_desert_folded"];
 		_optic = [""];
@@ -190,7 +195,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_opfWeap == 2): {
+	case 2: {
 		//RHS Guerilla
 		_primaryweapon = ["rhs_weap_akms"];
 		_optic = [""];
@@ -200,7 +205,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_opfWeap == 3): {
+	case 3: {
 		//CUP
 		_primaryweapon = "CUP_arifle_AKS74U";
 		_optic = [""];
@@ -210,7 +215,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "CUP_muzzle_PB6P9";
 	};
-	case (ADV_par_opfWeap == 4): {
+	case 4: {
 		//HLC AK
 		_primaryweapon = ["hlc_rifle_aks74u"];
 		_optic = [""];
@@ -221,6 +226,10 @@ switch (true) do {
 			_itemsHandgun = [""];
 			_handgunSilencer = "RH_pmsd";
 		};
+	};
+	case 21: {
+		//Apex AK12
+		_primaryWeapon = "arifle_AK12_F";
 	};
 	default {};
 };

@@ -181,8 +181,8 @@ _scorchItems = [""];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 
 //Addon Content:
-switch (true) do {
-	case (ADV_par_opfWeap == 1): {
+switch (ADV_par_opfWeap) do {
+	case 1: {
 		//RHS
 		_primaryweapon = "rhs_weap_pkp";
 		_additionalAmmo set [0,4];
@@ -193,7 +193,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_opfWeap == 2): {
+	case 2: {
 		//RHS Guerilla
 		_primaryweapon = ["rhs_weap_pkm"];
 		_additionalAmmo set [0,4];
@@ -204,7 +204,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_opfWeap == 3): {
+	case 3: {
 		//CUP
 		_primaryweapon = "CUP_lmg_PKM";
 		_additionalAmmo set [0,4];
@@ -215,7 +215,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "CUP_muzzle_PB6P9";
 	};
-	case (ADV_par_opfWeap == 4): {
+	case 4: {
 		//HLC AK
 		if ( isClass (configFile >> "CfgPatches" >> "rhs_main") ) then {
 			_primaryweapon = ["rhs_weap_pkm"];

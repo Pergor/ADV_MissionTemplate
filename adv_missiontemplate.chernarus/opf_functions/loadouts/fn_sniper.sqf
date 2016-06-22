@@ -18,12 +18,17 @@ _goggles = "";
 _unitTraits = [["medic",true],["engineer",true],["explosiveSpecialist",true],["UAVHacker",true],["camouflageCoef",1.5],["audibleCoef",0.5],["loadCoef",0.9]];
 
 //weapons - primary weapon - (string)
-_primaryweapon = ["srifle_GM6_camo_F","srifle_GM6_F"];
+_primaryweapon = ["srifle_GM6_F"];
+if ((toUpper worldname) in ADV_var_aridMaps) then { _primaryweapon pushBack "srifle_GM6_camo_F"; };
 
 //primary weapon items - (array)
 _optic = [""];
 _attachments = ["optic_LRPS"];
 _silencer = "";		//if silencer is added
+switch (true) do {
+	case (worldname == "TANOA" || ADV_par_opfWeap == 20 || ADV_par_opfWeap == 21): {_primaryWeapon append ["srifle_GM6_ghex_F","srifle_GM6_ghex_F"]; _attachments = ["optic_LRPS_tna_F"];};
+	default {};
+};
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [7,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
@@ -231,12 +236,11 @@ switch (ADV_par_opfWeap) do {
 		};
 	};
 	case 20: {
-		//APEX CSAT
-		switch (true) do {
-			case ((toUpper worldname) in ["ALTIS"]): {_primaryWeapon = "srifle_GM6_ghex_F"; _attachments = ["optic_LRPS_tna_F"];};
-			case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon = "srifle_GM6_ghex_F"; _attachments = ["optic_LRPS_tna_F"];};
-			default {};
-		};
+		//APEX CAR-95
+		_binocular = "Laserdesignator_02_ghex_F";
+	};
+	case 21: {
+		//APEX AK12
 		_binocular = "Laserdesignator_02_ghex_F";
 	};
 	default {};

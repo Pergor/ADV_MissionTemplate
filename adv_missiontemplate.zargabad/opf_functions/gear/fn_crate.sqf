@@ -68,22 +68,34 @@ if (!isServer) exitWith {};
 		};
 		default {
 			//weapons
-			if (worldName == "TANOA") then {
-				_target addWeaponCargoGlobal ["launch_RPG32_ghex_F",5];
-				_target addWeaponCargoGlobal ["launch_O_Titan_ghex_F",5];
-				_target addWeaponCargoGlobal ["launch_O_Titan_short_ghex_F",5];
-				//ammo
-				_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_F",40];
-				_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_Tracer_F",40];
-				_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",20];
-			} else {
-				_target addWeaponCargoGlobal ["launch_RPG32_F",5];
-				_target addWeaponCargoGlobal ["launch_Titan_F",5];
-				_target addWeaponCargoGlobal ["launch_Titan_short_F",5];
-				//ammo
-				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",40];
-				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",40];
-				_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",20];
+			switch (true) do {
+				case (ADV_par_opfWeap == 21): {
+					_target addWeaponCargoGlobal ["launch_RPG32_ghex_F",5];
+					_target addWeaponCargoGlobal ["launch_O_Titan_ghex_F",5];
+					_target addWeaponCargoGlobal ["launch_O_Titan_short_ghex_F",5];
+					//ammo
+					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",40];
+					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_Tracer_F",40];
+					_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",20];
+				};
+				case (worldName == "TANOA" || ADV_par_opfWeap == 20): {
+					_target addWeaponCargoGlobal ["launch_RPG32_ghex_F",5];
+					_target addWeaponCargoGlobal ["launch_O_Titan_ghex_F",5];
+					_target addWeaponCargoGlobal ["launch_O_Titan_short_ghex_F",5];
+					//ammo
+					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_F",40];
+					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_Tracer_F",40];
+					_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",20];
+				};
+				default {
+					_target addWeaponCargoGlobal ["launch_RPG32_F",5];
+					_target addWeaponCargoGlobal ["launch_Titan_F",5];
+					_target addWeaponCargoGlobal ["launch_Titan_short_F",5];
+					//ammo
+					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",40];
+					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",40];
+					_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",20];
+				};
 			};
 			_target addMagazineCargoGlobal ["5Rnd_127x108_Mag",10];
 			_target addMagazineCargoGlobal ["5Rnd_127x108_APDS_Mag",10];

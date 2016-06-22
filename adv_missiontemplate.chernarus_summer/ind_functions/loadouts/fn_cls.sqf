@@ -214,9 +214,12 @@ switch (ADV_par_indWeap) do {
 			_handgunSilencer = "";
 		};
 	};
-	case (ADV_par_indWeap == 20): {
+	case 20: {
 		//APEX AKM
-		_primaryWeapon = "arifle_AKM_F";
+		_primaryWeapon = ["arifle_AKM_F","arifle_AKM_F","arifle_AKM_F","arifle_AK12_F"];
+		_optic = [""];
+		if ( ADV_par_NVGs == 2 ) then { _attachments = _attachments-["acc_pointer_IR"]; };
+		_silencer = "";
 		_handgun = "hgun_Pistol_01_F";
 	};
 	default {};

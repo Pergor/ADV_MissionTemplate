@@ -187,8 +187,8 @@ _scorchItems = [""];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 
 //Addon Content:
-switch (true) do {
-	case (ADV_par_opfWeap == 1): {
+switch (ADV_par_opfWeap) do {
+	case 1: {
 		//RHS
 		if (ADV_par_opfSilencers > 0) then {_primaryweapon = "rhs_weap_asval";} else {_primaryweapon = "rhs_weap_svds";};
 		_optic = ["rhs_acc_pso1m2"];
@@ -197,7 +197,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_opfWeap == 2): {
+	case 2: {
 		//RHS Guerilla
 		if (ADV_par_opfSilencers > 0) then {_primaryweapon = "rhs_weap_vss";} else {_primaryweapon = "rhs_weap_svds";};
 		_optic = [""];
@@ -207,7 +207,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_opfWeap == 3): {
+	case 3: {
 		//CUP
 		if (ADV_par_opfSilencers > 0) then {_primaryweapon = "CUP_srifle_VSSVintorez";} else {_primaryweapon = "CUP_srifle_SVD";};
 		_optic = ["CUP_optic_PSO_3"];
@@ -216,7 +216,7 @@ switch (true) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "CUP_muzzle_PB6P9";
 	};
-	case (ADV_par_opfWeap == 4): {
+	case 4: {
 		//HLC AK
 		_primaryweapon = ["hlc_rifle_ak74","hlc_rifle_ak74_dirty","hlc_rifle_ak74_dirty2"];
 		_optic = [""];

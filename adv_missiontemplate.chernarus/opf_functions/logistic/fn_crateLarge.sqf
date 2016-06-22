@@ -36,15 +36,22 @@ private ["_target"];
 		};
 		case (ADV_par_opfWeap == 4): {};
 		default {
-			//ammo
-			if (worldName == "TANOA") then {
-				_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_F",40];
-				_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_Tracer_F",2];
-				_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",12];
-			} else {
-				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",40];
-				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",20];
-				_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",12];
+			switch (true) do {
+				case (ADV_par_opfWeap == 21): {
+					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",40];
+					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_Tracer_F",20];
+					_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",24];
+				};
+				case (worldName == "TANOA" || ADV_par_opfWeap == 20): {
+					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_F",40];
+					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_Tracer_F",20];
+					_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",24];
+				};
+				default {
+					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",40];
+					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",20];
+					_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",12];
+				};
 			};
 			_target addMagazineCargoGlobal ["150Rnd_93x64_Mag",12];
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",6];

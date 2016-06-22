@@ -301,7 +301,6 @@ switch (ADV_par_customWeap) do {
 	case 20: {
 		//APEX HK416
 		switch (true) do {
-			case ((toUpper worldname) in ["ALTIS"]): {_primaryWeapon = "srifle_LRR_tna_F"; _attachments = ["optic_LRPS_tna_F"];};
 			case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon = "srifle_LRR_tna_F"; _attachments = ["optic_LRPS_tna_F"];};
 			default {};
 		};

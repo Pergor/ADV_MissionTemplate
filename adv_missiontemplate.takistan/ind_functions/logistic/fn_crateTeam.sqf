@@ -48,7 +48,8 @@ private ["_target"];
 			_target addWeaponCargoGlobal ["launch_RPG7_F",1];
 			//ammo
 			_target addMagazineCargoGlobal ["RPG7_F",1];
-			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",30];
+			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",21];
+			_target addMagazineCargoGlobal ["200Rnd_556x45_Box_F",4];
 			_target addMagazineCargoGlobal ["16Rnd_9x21_Mag",8];
 			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",7];
 		};

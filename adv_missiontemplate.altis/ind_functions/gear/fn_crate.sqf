@@ -90,6 +90,8 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["30Rnd_545x39_Mag_F",40];
 			_target addMagazineCargoGlobal ["11Rnd_45ACP_Mag",10];
 			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",40];
+			_target addMagazineCargoGlobal ["200Rnd_556x45_Box_F",20];
+			_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Tracer_Red_F",20];
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",10];
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",10];
 			_target addMagazineCargoGlobal ["7Rnd_408_Mag",10];		

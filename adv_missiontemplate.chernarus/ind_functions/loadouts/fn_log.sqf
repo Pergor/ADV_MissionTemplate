@@ -180,8 +180,8 @@ _scorchItems = ["sc_dogtag"];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar","","",""];
 
 //Addon Content:
-switch (true) do {
-	case (ADV_par_indWeap == 1): {
+switch (ADV_par_indWeap) do {
+	case 1: {
 		//Vanilla Mk20
 		_primaryWeapon = ["arifle_Mk20C_F","arifle_Mk20C_plain_F"];
 		_silencer = ["muzzle_snds_M"];
@@ -189,7 +189,7 @@ switch (true) do {
 		_itemsHandgun = [""];
 		_handgunSilencer = [""];
 	};
-	case (ADV_par_indWeap == 2): {
+	case 2: {
 		//SELmods
 		_primaryweapon = ["rhs_weap_m4_carryhandle"];
 		_optic = [""];
@@ -204,7 +204,7 @@ switch (true) do {
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_indWeap == 3): {
+	case 3: {
 		//HLC
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
 			_primaryweapon = ["hlc_smg_mp5a2","hlc_smg_mp510","hlc_smg_mp5a4"];
@@ -218,7 +218,7 @@ switch (true) do {
 			_handgunSilencer = "";
 		};
 	};
-	case (ADV_par_indWeap == 20): {
+	case 20: {
 		//APEX AKM
 		_primaryWeapon = "arifle_AKS_F";
 		_handgun = "hgun_Pistol_01_F";

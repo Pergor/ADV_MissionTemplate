@@ -19,12 +19,11 @@ _unitTraits = [["medic",true],["engineer",true],["explosiveSpecialist",true],["U
 
 //weapons - primary weapon - (string)
 _primaryweapon = "arifle_Katiba_GL_F";
-if (worldName == "TANOA") then { _primaryweapon = ["arifle_CTAR_GL_blk_F"]; };
 
 //primary weapon items - (array)
 _optic = ["optic_Holosight"];
 _attachments = ["muzzle_snds_H"];
-if (worldName == "TANOA") then {
+if (worldName == "TANOA" || ADV_par_opfWeap == 20) then {
 	_primaryweapon = ["arifle_CTAR_GL_blk_F"];
 	_attachments = ["muzzle_snds_58_blk_F"];
 };
@@ -252,6 +251,14 @@ switch (ADV_par_opfWeap) do {
 	};
 	case 20: {
 		//APEX CSAT
+		_binocular = "Laserdesignator_02_ghex_F";
+	};
+	case 21: {
+		//Apex AK12
+		_primaryWeapon = "arifle_AK12_GL_F";
+		_attachments = ["muzzle_snds_B"];
+		if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
+		if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 		_binocular = "Laserdesignator_02_ghex_F";
 	};
 	default {};

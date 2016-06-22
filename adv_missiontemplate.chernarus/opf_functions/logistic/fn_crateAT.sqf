@@ -34,7 +34,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 		};
 		case (ADV_par_opfWeap == 4): {};
 		default {
-			if (worldname == "TANOA") then {
+			if (worldName == "TANOA" || ADV_par_opfWeap == 20 || ADV_par_opfWeap == 21) then {
 				_target addWeaponCargoGlobal ["launch_RPG32_ghex_F",1];
 			} else {
 				_target addWeaponCargoGlobal ["launch_RPG32_F",1];

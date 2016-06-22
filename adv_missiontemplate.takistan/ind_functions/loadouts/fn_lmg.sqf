@@ -212,9 +212,9 @@ switch (ADV_par_indWeap) do {
 	};
 	case 20: {
 		//APEX AKM
-		_primaryWeapon = "arifle_AKM_F";
-		_primaryweaponAmmo = [7,0];
-		_additionalAmmo = [14,0,true];
+		_primaryWeapon = "LMG_03_F";
+		_optic = [""];
+		if ( ADV_par_NVGs == 2 ) then { _attachments = _attachments-["acc_pointer_IR"]; };
 		_handgun = "hgun_Pistol_01_F";
 	};
 	default {};

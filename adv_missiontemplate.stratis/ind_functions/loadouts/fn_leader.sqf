@@ -222,22 +222,10 @@ switch (ADV_par_indWeap) do {
 	};
 	case 20: {
 		//APEX AKM
-		_primaryWeapon = "arifle_AKM_F";
+		_primaryWeapon = "arifle_AK12_GL_F";
+		_optic = [""];
+		if ( ADV_par_NVGs == 2 ) then { _attachments = _attachments-["acc_pointer_IR"]; };
 		_primaryweaponAmmo set [1,2];
-		_additionalAmmo set [1,0];
-		_40mmHeGrenadesAmmo = 0;
-		_40mmSmokeGrenadesWhite = 0;
-		_40mmSmokeGrenadesYellow = 0;
-		_40mmSmokeGrenadesOrange = 0;
-		_40mmSmokeGrenadesRed = 0;
-		_40mmSmokeGrenadesPurple = 0;
-		_40mmSmokeGrenadesBlue = 0;
-		_40mmSmokeGrenadesGreen = 0;
-		_40mmFlareWhite = 0;
-		_40mmFlareYellow = 0;
-		_40mmFlareRed = 0;
-		_40mmFlareGreen = 0;
-		_40mmFlareIR = 0;
 		_handgun = "hgun_Pistol_01_F";
 	};
 	default {};

@@ -216,25 +216,10 @@ switch (ADV_par_indWeap) do {
 	};
 	case 20: {
 		//APEX AKM
-		_primaryWeapon = "arifle_AKM_F";
-		_40mmHeGrenadesAmmo = 0;
-		_40mmSmokeGrenadesWhite = 0;
-		_40mmSmokeGrenadesYellow = 0;
-		_40mmSmokeGrenadesOrange = 0;
-		_40mmSmokeGrenadesRed = 0;
-		_40mmSmokeGrenadesPurple = 0;
-		_40mmSmokeGrenadesBlue = 0;
-		_40mmSmokeGrenadesGreen = 0;
-		_40mmFlareWhite = 0;
-		_40mmFlareYellow = 0;
-		_40mmFlareRed = 0;
-		_40mmFlareGreen = 0;
-		_40mmFlareIR = 0;
+		_primaryWeapon = "arifle_AK12_GL_F";
+		if ( ADV_par_NVGs == 2 ) then { _attachments = _attachments-["acc_pointer_IR"]; };
+		_optic = [""];
 		_handgun = "hgun_Pistol_01_F";
-		_grenadeSet = 0;
-		_grenades = ["HE","HE","HE","HE","HE","HE","WHITE","GREEN","RED"];
-		_chemlights = ["RED"];
-		_IRgrenade = 0;
 	};
 	default {};
 };

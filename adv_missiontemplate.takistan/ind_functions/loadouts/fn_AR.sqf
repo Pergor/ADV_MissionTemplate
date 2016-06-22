@@ -25,9 +25,9 @@ if ( ADV_par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H";		//if silencer is added
 //MarksmenDLC-objects:
-if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && ADV_par_indWeap > 20 ) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && ADV_par_indWeap != 20 ) then {
 	_primaryWeapon = ["MMG_02_black_F"];
-	if (worldname == "TAKISTAN" || worldname == "ZARGABAD") then {_primaryWeapon pushback "MMG_02_sand_F";};
+	if ((toUpper worldname) in ADV_var_aridMaps) then {_primaryWeapon pushback "MMG_02_sand_F";};
 	_optic = ["optic_Hamr"];
 	_silencer = "muzzle_snds_338_black";		//if silencer is added
 };
@@ -218,7 +218,7 @@ switch (ADV_par_indWeap) do {
 	};
 	case 20: {
 		_optic = [""];
-		_attachments = [""];
+		if ( ADV_par_NVGs == 2 ) then { _attachments = _attachments-["acc_pointer_IR"]; };
 		_silencer = "";
 		_handgun = "hgun_Pistol_01_F";
 	};
