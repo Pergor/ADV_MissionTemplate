@@ -23,7 +23,7 @@ if (isMultiplayer) then {
 };
 
 //randomweather:
-if (ADV_par_weather != 99) then {
+if (ADV_par_randomWeather != 99) then {
 	ADV_handle_randomWeather = [] spawn MtB_fnc_randomWeather;
 };
 

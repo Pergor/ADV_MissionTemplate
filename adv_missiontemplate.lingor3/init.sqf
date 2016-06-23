@@ -25,7 +25,7 @@ if ( isServer ) then {
 	setDate [2016, 8, ADV_par_day, ADV_par_hour, ADV_par_minute];
 
 	//randomweather:
-	if (ADV_par_weather != 99) then {
+	if (ADV_par_randomWeather != 99) then {
 		ADV_handle_randomWeather = [] spawn MtB_fnc_randomWeather;
 	};
 	
@@ -153,13 +153,7 @@ if (isClass(configFile >> "CfgPatches" >> "ace_explosives")) then {
 	} forEach allMines;
 };
 
-/*
-ADV_handle_aiFatigue = [] spawn {
-	while {true} do {
-		{ if ( !isPlayer _x && !(_x getVariable ["ADV_var_aiFatigue",false]) ) then { _x enableFatigue false; _x enableStamina false; _x setVariable ["ADV_var_aiFatigue",false]; }; } forEach allUnits;
-		sleep 10;
-	};
-};
-*/
+//friggin' ace
+missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true];
 
 if (true) exitWith {};

@@ -25,7 +25,7 @@ if ( isServer ) then {
 	setDate [2016, 8, ADV_par_day, ADV_par_hour, ADV_par_minute];
 
 	//randomweather:
-	if (ADV_par_weather != 99) then {
+	if (ADV_par_randomWeather != 99) then {
 		ADV_handle_randomWeather = [] spawn MtB_fnc_randomWeather;
 	};
 	

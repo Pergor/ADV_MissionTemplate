@@ -25,14 +25,14 @@ class param_day
 	texts[] = {"Neumond","zunehmender Halbmond (sichtbar in der ersten Hälfte der Nacht)","Vollmond","abnehmender Halbmond (sichtbar in der zweiten Hälfte der Nacht)"};
 	default = 23;
 };
-class param_weather
+class param_randomWeather
 {
-	title="Zufälliges Wetter";
+	title="Dynamisches Wetter";
 	values[] = {99,1,2,3,4,5,6,7,8,9};
-	texts[] = {"Kein zufälliges Wetter","Klar","Bewölkt","Leichter Regen","Mittlerer Regen","Schwerer Regen","Leichter Nebel","Mittlerer Nebel","Dichter Nebel","Zufälliges Wetter"};
+	texts[] = {"Kein dynamisches Wetter","Klar","Bewölkt","Leichter Regen","Mittlerer Regen","Schwerer Regen","Leichter Nebel","Mittlerer Nebel","Dichter Nebel","Zufälliges Wetter"};
 	default = 99;
 };
-class param_fixedWeather
+class param_weather
 {
 	title="Dauerhaftes Wetter";
 	values[] = {99,1,2,3,4,5,6,7,8,9,98};
