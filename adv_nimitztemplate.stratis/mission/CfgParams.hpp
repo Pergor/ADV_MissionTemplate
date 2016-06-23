@@ -32,6 +32,13 @@ class param_Weather
 	texts[] = {"Kein zufälliges Wetter","Klar","Bewölkt","Leichter Regen","Mittlerer Regen","Schwerer Regen","Leichter Nebel","Mittlerer Nebel","Dichter Nebel","Zufälliges Wetter"};
 	default = 99;
 };
+class param_fixedWeather
+{
+	title="Dauerhaftes Wetter";
+	values[] = {99,1,2,3,4,5,6,7,8,9,98};
+	texts[] = {"Keine Veränderung","Sonnig","Klar","Bewölkt","Leichter Regen","Mittlerer Regen","Schwerer Regen","Leichter Nebel","Mittlerer Nebel","Dichter Nebel","Zufälliges Wetter"};
+	default = 99;
+};
 class dummy_respawn {
 	title = "---------------------- Respawn ----------------------";
 	values[] = {-99999};
@@ -274,8 +281,8 @@ class param_opfUni
 class param_opfWeap
 {
 	title="Welche Waffen-Sets sollen an OPFOR-Einheiten ausgegeben werden?";
-	values[] = {4,3,2,1,0};
-	texts[] = {"HLC AK Pack (no logistic, no ammo in vehicles), am besten mit RHSAFRF","CUP (benötigt CUP)","RHS-Guerillas (benötigt RHSAFRF)","RHS (benötigt RHSAFRF)","Vanilla CSAT"};
+	values[] = {4,3,2,1,21,20,0};
+	texts[] = {"HLC AK Pack (no logistic, no ammo in vehicles), am besten mit RHSAFRF","CUP (benötigt CUP)","RHS-Guerillas (benötigt RHSAFRF)","RHS (benötigt RHSAFRF)","Apex AK12","Apex CAR-95","Vanilla CSAT"};
 	default = 0;
 };
 class dummy_vehicles {

@@ -44,6 +44,8 @@ class Params
 // Begin Script
 // ============
 
+if ( ADV_par_weather == 99 || ADV_par_fixedWeather != 99 ) exitWith {};
+
 // Debug Messages.  This is set to 1 for the demo mission, but you should set this to 0 for regular missions. | 0 = Debug Messages Off, 1 = Debug Messages On
 rw2Debug = 0;
 

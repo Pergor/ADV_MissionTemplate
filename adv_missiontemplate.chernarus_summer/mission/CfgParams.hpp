@@ -32,6 +32,13 @@ class param_Weather
 	texts[] = {"Kein zufälliges Wetter","Klar","Bewölkt","Leichter Regen","Mittlerer Regen","Schwerer Regen","Leichter Nebel","Mittlerer Nebel","Dichter Nebel","Zufälliges Wetter"};
 	default = 99;
 };
+class param_fixedWeather
+{
+	title="Dauerhaftes Wetter";
+	values[] = {99,1,2,3,4,5,6,7,8,9,98};
+	texts[] = {"Keine Veränderung","Sonnig","Klar","Bewölkt","Leichter Regen","Mittlerer Regen","Schwerer Regen","Leichter Nebel","Mittlerer Nebel","Dichter Nebel","Zufälliges Wetter"};
+	default = 99;
+};
 class dummy_respawn {
 	title = "---------------------- Respawn ----------------------";
 	values[] = {-99999};

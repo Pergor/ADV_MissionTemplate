@@ -40,6 +40,7 @@ class ADV
 		class respawnVeh {};
 		class rhsDecals {};
 		class paraBomb {};
+		class weather { postInit = 1; };
 		class zeusObjects {};
 	};
 	class serverGear
