@@ -128,10 +128,11 @@ if (_primaryweaponAmmo select 0 > 0) then {
 	[_unit,_primaryWeapon,_primaryweaponAmmo select 0,_primaryweaponAmmo select 1] call BIS_fnc_addWeapon;
 };
 if ( (typeName (_optic) ) == "ARRAY" ) then { _optic = _optic call BIS_fnc_selectRandom; };
+if ( (!(side (group _unit) == east) && ADV_par_optics == 2) || ((side (group _unit) == east) && ADV_par_opfOptics == 2) ) then { _optic = [_optic,""] call BIS_fnc_selectRandom; };
 //silencers and attachments
-if ( ( !(side (group _unit) == east) && ADV_par_optics == 1) || (side (group _unit) == east && ADV_par_opfOptics == 1) ) then { _attachments pushBack _optic; };
-if ( ( !(side (group _unit) == east) && ADV_par_Silencers == 1) || (side (group _unit) == east && ADV_par_opfSilencers == 1) ) then { _attachments pushback _silencer; };
-if ( ( !(side (group _unit) == east) && ADV_par_Silencers == 2) || (side (group _unit) == east && ADV_par_opfSilencers == 2) ) then { _unit addItem _silencer; _unit addItem _handgunSilencer; };
+if ( (!(side (group _unit) == east) && ADV_par_optics > 0) || (side (group _unit) == east && ADV_par_opfOptics > 0) ) then { _attachments pushBack _optic; };
+if ( (!(side (group _unit) == east) && ADV_par_Silencers == 1) || (side (group _unit) == east && ADV_par_opfSilencers == 1) ) then { _attachments pushback _silencer; };
+if ( (!(side (group _unit) == east) && ADV_par_Silencers == 2) || (side (group _unit) == east && ADV_par_opfSilencers == 2) ) then { _unit addItem _silencer; _unit addItem _handgunSilencer; };
 { _unit addPrimaryWeaponItem _x; } forEach _attachments;
 
 if ( _primaryWeapon != "" ) then {

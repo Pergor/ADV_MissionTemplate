@@ -81,7 +81,7 @@ private ["_target"];
 			if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then { _target addMagazineCargoGlobal ["hlc_30Rnd_9x19_B_MP5",10]; };
 			//items
 			_target addItemCargoGlobal ["rhsusf_acc_harris_bipod",3];
-			if (ADV_par_optics == 1) then {
+			if (ADV_par_optics > 0) then {
 				_target addItemCargoGlobal ["rhsusf_acc_compm4",5];
 				_target addItemCargoGlobal ["rhsusf_acc_eotech_552",5];
 				_target addItemCargoGlobal ["rhsusf_acc_ELCAN",5];
@@ -122,7 +122,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["CUP_18Rnd_9x19_Phantom",10];
 			_target addMagazineCargoGlobal ["CUP_30Rnd_9x19_MP5",10];
 			//items
-			if (ADV_par_optics == 1) then {
+			if (ADV_par_optics > 0) then {
 				_target addItemCargoGlobal ["CUP_optic_CompM4",5];
 				_target addItemCargoGlobal ["CUP_optic_CompM2_Black",5];
 				_target addItemCargoGlobal ["CUP_optic_CompM2_Woodland",5];
@@ -153,7 +153,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["CUP_18Rnd_9x19_Phantom",10];
 			_target addMagazineCargoGlobal ["CUP_30Rnd_9x19_MP5",10];
 			//items
-			if (ADV_par_optics == 1) then {
+			if (ADV_par_optics > 0) then {
 				_target addItemCargoGlobal ["CUP_optic_SUSAT",5];
 				_target addItemCargoGlobal ["CUP_optic_RCO_desert",5];
 				_target addItemCargoGlobal ["CUP_optic_RCO",5];
@@ -178,7 +178,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["UK3CB_BAF_17Rnd_9mm",20];
 			_target addMagazineCargoGlobal ["UK3CB_BAF_30Rnd_9mm",10];
 			//items
-			if (ADV_par_optics == 1) then {
+			if (ADV_par_optics > 0) then {
 				_target addItemCargoGlobal ["UK3CB_BAF_SUSAT_3D",5];
 				_target addItemCargoGlobal ["UK3CB_BAF_TA31F_3D",5];
 				_target addItemCargoGlobal ["UK3CB_BAF_SpecterLDS_3D",5];
@@ -244,7 +244,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["Titan_AP",5];
 			//items
 			_target addItemCargoGlobal ["bipod_01_F_blk",3];
-			if (ADV_par_optics == 1) then {
+			if (ADV_par_optics > 0) then {
 				_target addItemCargoGlobal ["optic_MRD",5];
 				_target addItemCargoGlobal ["optic_Aco",5];
 				_target addItemCargoGlobal ["optic_Holosight",5];

@@ -41,7 +41,7 @@ private ["_target"];
 			if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then { _target addMagazineCargoGlobal ["hlc_30Rnd_9x19_B_MP5",10]; };
 			//items
 			_target addItemCargoGlobal ["rhsusf_acc_harris_bipod",3];
-			if (ADV_par_optics == 1) then {
+			if (ADV_par_optics > 0) then {
 				_target addItemCargoGlobal ["rhsusf_acc_compm4",5];
 				_target addItemCargoGlobal ["rhsusf_acc_eotech_552",5];
 				_target addItemCargoGlobal ["rhsusf_acc_ACOG",5];
@@ -125,7 +125,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["Titan_AP",5];
 			//items
 			_target addItemCargoGlobal ["bipod_01_F_blk",3];
-			if (ADV_par_optics == 1) then {
+			if (ADV_par_optics > 0) then {
 				_target addItemCargoGlobal ["optic_MRD",5];
 				_target addItemCargoGlobal ["optic_Aco_grn",5];
 				_target addItemCargoGlobal ["optic_Holosight",5];

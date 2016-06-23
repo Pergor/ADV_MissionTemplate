@@ -34,7 +34,7 @@ if (!isServer) exitWith {};
 			_target addMagazineCargoGlobal ["rhs_rpg7_TBG7V_mag",5];
 			_target addMagazineCargoGlobal ["rhs_mag_9k38_rocket",5];
 			//items
-			if (missionNamespace getVariable ["ADV_par_isTvT",false]) then {
+			if (ADV_par_opfOptics > 0) then {
 				_target addItemCargoGlobal ["rhs_acc_pso1m2",5];
 				_target addItemCargoGlobal ["rhs_acc_1p63",5];
 				_target addItemCargoGlobal ["rhs_acc_ekp1",5];
@@ -61,7 +61,7 @@ if (!isServer) exitWith {};
 			_target addMagazineCargoGlobal ["CUP_OG7_M",5];
 			_target addMagazineCargoGlobal ["CUP_Igla_M",5];
 			//items
-			if (missionNamespace getVariable ["ADV_par_isTvT",false]) then {
+			if (ADV_par_opfOptics > 0) then {
 				_target addItemCargoGlobal ["CUP_optic_PSO_1",5];
 				_target addItemCargoGlobal ["CUP_optic_Kobra",5];
 			};
@@ -112,7 +112,7 @@ if (!isServer) exitWith {};
 			_target addMagazineCargoGlobal ["Titan_AP",5];
 			_target addMagazineCargoGlobal ["RPG32_F",5];
 			//items
-			if (ADV_par_opfOptics == 1) then {
+			if (ADV_par_opfOptics > 0) then {
 				_target addItemCargoGlobal ["optic_Yorris",5];
 				_target addItemCargoGlobal ["optic_ACO_grn",5];
 				_target addItemCargoGlobal ["optic_DMS",2];

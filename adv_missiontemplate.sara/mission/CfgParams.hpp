@@ -192,8 +192,8 @@ class param_NVGs
 class param_optics
 {
 	title="Sollen die (BLUFOR- & INDFOR-)Spieler, sofern voreingestellt, bei Missionsbeginn mit optischen Zielhilfen ausgerüstet werden (betrifft nicht Scharfschützen)?";
-	values[] = {1,0};
-	texts[] = {"Ja","Nein"};
+	values[] = {2,1,0};
+	texts[] = {"50:50","Ja","Nein"};
 	default = 1;
 };
 class param_Silencers
@@ -260,8 +260,8 @@ class param_opfNVGs
 class param_opfOptics
 {
 	title="Sollen die (OPFOR-)Spieler, sofern voreingestellt, bei Missionsbeginn mit optischen Zielhilfen ausgerüstet werden (betrifft nicht Scharfschützen)?";
-	values[] = {1,0};
-	texts[] = {"Ja","Nein"};
+	values[] = {2,1,0};
+	texts[] = {"50:50","Ja","Nein"};
 	default = 1;
 };
 class param_opfSilencers
