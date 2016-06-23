@@ -25,10 +25,13 @@ if ( ADV_par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_B";		//if silencer is added
 //MarksmenDLC-objects:
-if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
-	_primaryWeapon = "srifle_DMR_03_F";
-	_optic = ["optic_AMS"];
-	_silencer = "";		//if silencer is added
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && ADV_par_DLCContent == 1) then {
+	_primaryWeapon = ["srifle_DMR_03_F"];
+	switch (true) do {
+		case ((toUpper worldname) in ADV_var_aridMaps): {_primaryWeapon append ["srifle_DMR_03_tan_F"]; _optic = ["optic_AMS","optic_AMS_snd"];};
+		case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon append ["srifle_DMR_03_woodland_F","srifle_DMR_03_khaki_F"]; _optic = ["optic_AMS","optic_AMS_khk"];};
+		default {_optic = ["optic_AMS"];};
+	};
 };
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)

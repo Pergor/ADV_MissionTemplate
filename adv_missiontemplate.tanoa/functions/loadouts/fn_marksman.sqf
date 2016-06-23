@@ -27,11 +27,10 @@ _silencer = "muzzle_snds_B";		//if silencer is added
 //MarksmenDLC-objects:
 if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && ADV_par_DLCContent == 1) then {
 	_primaryWeapon = ["srifle_DMR_03_F"];
-	_optic = ["optic_AMS"];
 	switch (true) do {
-		case ((toUpper worldname) in ADV_var_aridMaps): {_primaryWeapon append ["srifle_DMR_03_tan_F"]; _optic pushBack "optic_AMS_snd";};
-		case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon append ["srifle_DMR_03_woodland_F","srifle_DMR_03_khaki_F"]; _optic pushBack "optic_AMS_khk";};
-		default {};
+		case ((toUpper worldname) in ADV_var_aridMaps): {_primaryWeapon append ["srifle_DMR_03_tan_F"]; _optic = ["optic_AMS","optic_AMS_snd"];};
+		case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon append ["srifle_DMR_03_woodland_F","srifle_DMR_03_khaki_F"]; _optic = ["optic_AMS","optic_AMS_khk"];};
+		default {_optic = ["optic_AMS"];};
 	};
 };
 
