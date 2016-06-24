@@ -187,7 +187,7 @@ tpw_core_fnc_civs =
 				"gsep_zernovo",
 				"Bornholm",
 				"anim_helvantis_v2"
-			] && 
+			]
 		) then {
 			_civstring = "RDS";
 		};
