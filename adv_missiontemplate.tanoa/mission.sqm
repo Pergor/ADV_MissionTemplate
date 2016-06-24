@@ -12,14 +12,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=122;
+		nextID=196;
 	};
 	class Camera
 	{
-		pos[]={11736.271,41.101746,3129.1604};
-		dir[]={0.39358306,-0.6425705,0.65758747};
-		up[]={0.33003959,0.76613498,0.55142623};
-		aside[]={0.85813814,-4.1467138e-007,-0.51362282};
+		pos[]={11753.909,10.13788,3159.5605};
+		dir[]={-0.35190967,-0.49191067,-0.79649985};
+		up[]={-0.19884296,0.87055522,-0.45006049};
+		aside[]={-0.91479361,-1.5058322e-006,0.40417939};
 	};
 };
 binarizationWanted=0;
@@ -42,8 +42,9 @@ addons[]=
 	"A3_Soft_F_Beta_Truck_01",
 	"A3_Soft_F_Gamma_Truck_01",
 	"A3_Modules_F_Curator_Curator",
-	"A3_Characters_F",
+	"A3_Characters_F_Exp",
 	"A3_Data_F_Exp_A_Virtual",
+	"A3_Characters_F",
 	"A3_Soft_F_Exp_LSV_01",
 	"A3_Structures_F_Mil_Helipads",
 	"A3_Structures_F_Mil_Shelters",
@@ -64,7 +65,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=25;
+		items=26;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -179,8 +180,8 @@ class AddonsMetaData
 		};
 		class Item16
 		{
-			className="A3_Characters_F";
-			name="Arma 3 Alpha - Characters and Clothing";
+			className="A3_Characters_F_Exp";
+			name="Arma 3 Apex - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -193,47 +194,54 @@ class AddonsMetaData
 		};
 		class Item18
 		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="http://www.arma3.com";
+		};
+		class Item19
+		{
 			className="A3_Soft_F_Exp";
 			name="Arma 3 Apex - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item19
+		class Item20
 		{
 			className="A3_Air_F_Exp";
 			name="Arma 3 Apex - Aircrafts";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item20
+		class Item21
 		{
 			className="A3_Ui_F_Exp";
 			name="Arma 3 Apex - User Interface";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item21
+		class Item22
 		{
 			className="A3_Boat_F_Exp";
 			name="Arma 3 Apex - Boats and Submersibles";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item22
+		class Item23
 		{
 			className="A3_Structures_F_Exp_Infrastructure";
 			name="Arma 3 Apex - Infrastructure Objects";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item23
+		class Item24
 		{
 			className="A3_Structures_F_Exp";
 			name="Arma 3 Apex - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item24
+		class Item25
 		{
 			className="A3_Signs_F";
 			name="Arma 3 - Signs";
@@ -981,6 +989,7 @@ class Mission
 			};
 			id=44;
 			type="B_Heli_Light_01_F";
+			atlOffset=-1.1920929e-005;
 		};
 		class Item26
 		{
@@ -2020,7 +2029,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=84;
-					type="B_officer_F";
+					type="B_T_Officer_F";
 					atlOffset=0.022663116;
 				};
 				class Item1
@@ -2042,7 +2051,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=86;
-					type="B_medic_F";
+					type="B_T_Medic_F";
 					atlOffset=0.0053329468;
 				};
 				class Item2
@@ -2064,7 +2073,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=749;
-					type="B_Soldier_SL_F";
+					type="B_T_Soldier_SL_F";
 					atlOffset=0.028999805;
 					class CustomAttributes
 					{
@@ -2109,7 +2118,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=750;
-					type="B_Soldier_SL_F";
+					type="B_T_Soldier_SL_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2153,7 +2162,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=751;
-					type="B_Soldier_SL_F";
+					type="B_T_Soldier_SL_F";
 					atlOffset=0.0029997826;
 					class CustomAttributes
 					{
@@ -2213,7 +2222,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=90;
-					type="B_Soldier_SL_F";
+					type="B_T_Soldier_SL_F";
 				};
 				class Item1
 				{
@@ -2234,7 +2243,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=91;
-					type="B_medic_F";
+					type="B_T_Medic_F";
 				};
 				class Item2
 				{
@@ -2255,7 +2264,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=92;
-					type="B_Soldier_TL_F";
+					type="B_T_Soldier_TL_F";
 				};
 				class Item3
 				{
@@ -2275,7 +2284,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=93;
-					type="B_soldier_AR_F";
+					type="B_T_Soldier_AR_F";
 				};
 				class Item4
 				{
@@ -2295,7 +2304,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=94;
-					type="B_Soldier_GL_F";
+					type="B_T_Soldier_GL_F";
 				};
 				class Item5
 				{
@@ -2315,7 +2324,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=95;
-					type="B_soldier_LAT_F";
+					type="B_T_Soldier_LAT_F";
 				};
 				class Item6
 				{
@@ -2336,7 +2345,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=96;
-					type="B_Soldier_TL_F";
+					type="B_T_Soldier_TL_F";
 				};
 				class Item7
 				{
@@ -2356,7 +2365,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=97;
-					type="B_soldier_AR_F";
+					type="B_T_Soldier_AR_F";
 				};
 				class Item8
 				{
@@ -2376,7 +2385,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=98;
-					type="B_engineer_F";
+					type="B_T_Engineer_F";
 					atlOffset=0.0086650848;
 				};
 				class Item9
@@ -2397,7 +2406,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=99;
-					type="B_soldier_LAT_F";
+					type="B_T_Soldier_LAT_F";
 					atlOffset=0.041596413;
 				};
 			};
@@ -2433,7 +2442,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=101;
-					type="B_Soldier_SL_F";
+					type="B_T_Soldier_SL_F";
 				};
 				class Item1
 				{
@@ -2454,7 +2463,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=102;
-					type="B_medic_F";
+					type="B_T_Medic_F";
 				};
 				class Item2
 				{
@@ -2475,7 +2484,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=103;
-					type="B_Soldier_TL_F";
+					type="B_T_Soldier_TL_F";
 					atlOffset=0.0013341904;
 				};
 				class Item3
@@ -2496,7 +2505,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=104;
-					type="B_soldier_AR_F";
+					type="B_T_Soldier_AR_F";
 				};
 				class Item4
 				{
@@ -2516,7 +2525,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=105;
-					type="B_Soldier_GL_F";
+					type="B_T_Soldier_GL_F";
 				};
 				class Item5
 				{
@@ -2536,7 +2545,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=106;
-					type="B_soldier_LAT_F";
+					type="B_T_Soldier_LAT_F";
 				};
 				class Item6
 				{
@@ -2557,7 +2566,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=107;
-					type="B_Soldier_TL_F";
+					type="B_T_Soldier_TL_F";
 				};
 				class Item7
 				{
@@ -2577,7 +2586,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=108;
-					type="B_soldier_AR_F";
+					type="B_T_Soldier_AR_F";
 				};
 				class Item8
 				{
@@ -2597,7 +2606,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=109;
-					type="B_engineer_F";
+					type="B_T_Engineer_F";
 				};
 				class Item9
 				{
@@ -2617,7 +2626,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=110;
-					type="B_soldier_LAT_F";
+					type="B_T_Soldier_LAT_F";
 				};
 			};
 			class Attributes
@@ -2777,7 +2786,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=114;
-					type="B_Soldier_SL_F";
+					type="B_T_Soldier_SL_F";
 				};
 				class Item1
 				{
@@ -2798,7 +2807,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=115;
-					type="B_medic_F";
+					type="B_T_Medic_F";
 					atlOffset=0.0079994202;
 				};
 				class Item2
@@ -2819,7 +2828,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=116;
-					type="B_soldier_AR_F";
+					type="B_T_Soldier_AR_F";
 				};
 				class Item3
 				{
@@ -2839,7 +2848,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=117;
-					type="B_soldier_AAR_F";
+					type="B_T_Soldier_AAR_F";
 					atlOffset=0.0066661835;
 				};
 				class Item4
@@ -2860,7 +2869,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=118;
-					type="B_soldier_AT_F";
+					type="B_T_Soldier_AT_F";
 					atlOffset=0.0046720505;
 				};
 				class Item5
@@ -2881,7 +2890,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=119;
-					type="B_soldier_AAT_F";
+					type="B_T_Soldier_AAT_F";
 				};
 				class Item6
 				{
@@ -2901,7 +2910,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=120;
-					type="B_Soldier_TL_F";
+					type="B_T_Soldier_TL_F";
 				};
 				class Item7
 				{
@@ -2921,7 +2930,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=121;
-					type="B_Soldier_F";
+					type="B_T_Soldier_F";
 				};
 				class Item8
 				{
@@ -2941,7 +2950,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=122;
-					type="B_Soldier_F";
+					type="B_T_Soldier_F";
 					atlOffset=0.00066661835;
 				};
 				class Item9
@@ -2962,7 +2971,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=123;
-					type="B_soldier_AR_F";
+					type="B_T_Soldier_AR_F";
 				};
 			};
 			class Attributes
@@ -2997,7 +3006,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=125;
-					type="B_Soldier_SL_F";
+					type="B_T_Soldier_SL_F";
 				};
 				class Item1
 				{
@@ -3017,7 +3026,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=126;
-					type="B_crew_F";
+					type="B_T_Crew_F";
 				};
 				class Item2
 				{
@@ -3037,7 +3046,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=127;
-					type="B_crew_F";
+					type="B_T_Crew_F";
 				};
 				class Item3
 				{
@@ -3059,7 +3068,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=128;
-					type="B_Soldier_TL_F";
+					type="B_T_Soldier_TL_F";
 				};
 				class Item4
 				{
@@ -3079,7 +3088,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=129;
-					type="B_soldier_AR_F";
+					type="B_T_Soldier_AR_F";
 				};
 				class Item5
 				{
@@ -3099,7 +3108,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=130;
-					type="B_soldier_AAR_F";
+					type="B_T_Soldier_AAR_F";
 				};
 				class Item6
 				{
@@ -3119,7 +3128,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=131;
-					type="B_Soldier_GL_F";
+					type="B_T_Soldier_GL_F";
 				};
 				class Item7
 				{
@@ -3139,7 +3148,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=132;
-					type="B_Soldier_F";
+					type="B_T_Soldier_F";
 				};
 				class Item8
 				{
@@ -3159,7 +3168,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=133;
-					type="B_soldier_LAT_F";
+					type="B_T_Soldier_LAT_F";
 				};
 				class Item9
 				{
@@ -3179,7 +3188,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=134;
-					type="B_medic_F";
+					type="B_T_Medic_F";
 				};
 			};
 			class Attributes
@@ -3214,7 +3223,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=136;
-					type="B_spotter_F";
+					type="B_T_Spotter_F";
 				};
 				class Item1
 				{
@@ -3236,7 +3245,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=137;
-					type="B_sniper_F";
+					type="B_T_Sniper_F";
 				};
 			};
 			class Attributes
@@ -3271,7 +3280,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=139;
-					type="B_spotter_F";
+					type="B_T_Spotter_F";
 				};
 				class Item1
 				{
@@ -3293,7 +3302,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=140;
-					type="B_sniper_F";
+					type="B_T_Sniper_F";
 				};
 			};
 			class Attributes
@@ -3328,7 +3337,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=142;
-					type="B_Pilot_F";
+					type="B_T_Pilot_F";
 				};
 				class Item1
 				{
@@ -3349,7 +3358,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=143;
-					type="B_Pilot_F";
+					type="B_T_Pilot_F";
 				};
 				class Item2
 				{
@@ -3370,7 +3379,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=144;
-					type="B_Pilot_F";
+					type="B_T_Pilot_F";
 				};
 				class Item3
 				{
@@ -3391,7 +3400,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=145;
-					type="B_Pilot_F";
+					type="B_T_Pilot_F";
 				};
 				class Item4
 				{
@@ -3412,7 +3421,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=146;
-					type="B_engineer_F";
+					type="B_T_Engineer_F";
 				};
 			};
 			class Attributes
@@ -3447,7 +3456,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=148;
-					type="B_crew_F";
+					type="B_T_Crew_F";
 				};
 				class Item1
 				{
@@ -3468,7 +3477,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=149;
-					type="B_crew_F";
+					type="B_T_Crew_F";
 				};
 				class Item2
 				{
@@ -3489,7 +3498,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=150;
-					type="B_crew_F";
+					type="B_T_Crew_F";
 					atlOffset=0.0020084381;
 				};
 				class Item3
@@ -3511,7 +3520,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=151;
-					type="B_engineer_F";
+					type="B_T_Engineer_F";
 					atlOffset=0.012663841;
 				};
 				class Item4
@@ -3532,7 +3541,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=152;
-					type="B_engineer_F";
+					type="B_T_Engineer_F";
 					atlOffset=0.0053329468;
 				};
 			};
@@ -3568,7 +3577,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=154;
-					type="B_officer_F";
+					type="B_T_Officer_F";
 				};
 				class Item1
 				{
@@ -3590,7 +3599,8 @@ class Mission
 						isPlayable=1;
 					};
 					id=155;
-					type="B_officer_F";
+					type="B_T_Officer_F";
+					atlOffset=4.7683716e-007;
 				};
 			};
 			class Attributes
@@ -6725,6 +6735,7 @@ class Mission
 			};
 			id=3446;
 			type="B_Heli_Transport_01_F";
+			atlOffset=-0.00012969971;
 		};
 		class Item163
 		{
@@ -6772,6 +6783,7 @@ class Mission
 			};
 			id=3449;
 			type="RoadCone_F";
+			atlOffset=-9.5367432e-007;
 		};
 		class Item166
 		{
@@ -6838,6 +6850,7 @@ class Mission
 			};
 			id=3453;
 			type="RoadCone_F";
+			atlOffset=-9.5367432e-007;
 		};
 		class Item170
 		{
@@ -6854,6 +6867,7 @@ class Mission
 			};
 			id=3454;
 			type="RoadCone_F";
+			atlOffset=-9.5367432e-007;
 		};
 		class Item171
 		{
@@ -6870,6 +6884,7 @@ class Mission
 			};
 			id=3455;
 			type="RoadCone_F";
+			atlOffset=-9.5367432e-007;
 		};
 	};
 };
