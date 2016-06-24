@@ -79,16 +79,19 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	tf_freq_east = _settingsSwEast;
 	tf_freq_east_lr = _settingsLrEast;
 
-	if ((independent getFriend west)>0.6) then {_settingsSWGuer set [4, "_bluefor"];} else {
-		if ((independent getFriend east)>0.6) then {_settingsSWGuer set [4, "_opfor"];} else {
+	if ( [independent,west] call BIS_fnc_sideIsFriendly ) then {
+		_settingsSWGuer set [4, "_bluefor"];
+		_settingsLrGuer set [4, "_bluefor"];
+	} else {
+		if ( [independent,east] call BIS_fnc_sideIsFriendly ) then {
+			_settingsSWGuer set [4, "_opfor"];
+			_settingsLrGuer set [4, "_opfor"];
+		} else {
 			_settingsSWGuer set [4, "_indfor"];
-		};
-	};
-	if ((independent getFriend west)>0.6) then {_settingsLrGuer set [4, "_bluefor"];} else {
-		if ((independent getFriend east)>0.6) then {_settingsLrGuer set [4, "_opfor"];} else {
 			_settingsLrGuer set [4, "_indfor"];
 		};
 	};
+
 	tf_freq_guer = _settingsSwGuer;
 	tf_freq_guer_lr = _settingsLrGuer;
 	
