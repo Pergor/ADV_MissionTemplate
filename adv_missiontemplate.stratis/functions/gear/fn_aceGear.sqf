@@ -121,7 +121,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_tagging") && !isNil "_ACE_sprayP
 		case "BLUE": {"ACE_sprayPaintBlue"};
 		case "GREEN": {"ACE_sprayPaintGreen"};
 		case "RED": {"ACE_sprayPaintRed"};
-		case "RANDOM": { ["ACE_sprayPaintBlack","ACE_sprayPaintBlue","ACE_sprayPaintGreen","ACE_sprayPaintRed"] call BIS_fnc_selectRandom };
+		case "RANDOM": { selectRandom ["ACE_sprayPaintBlack","ACE_sprayPaintBlue","ACE_sprayPaintGreen","ACE_sprayPaintRed"] };
 		default {""};
 	};
 	if !(_ACE_sprayPaint_type == "") then { _unit addItem _ACE_sprayPaint_type; };

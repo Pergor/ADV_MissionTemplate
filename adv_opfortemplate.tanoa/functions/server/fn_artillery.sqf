@@ -30,7 +30,7 @@ params [
 			_strike setvectorup [0,9,0.1];
 			_strike setvelocity [0,0,-150];
 			waitUntil {((getPosATL _strike) select 2) < 300};
-			_sound = ["incoming1.wss","incoming2.wss"] call BIS_fnc_selectRandom;
+			_sound = selectRandom ["incoming1.wss","incoming2.wss"];
 			_soundFile = format ["a3\data_f_curator\sound\cfgSounds\%1",_sound];
 			playSound3D [_soundFile, _strike,false,getPos _strike, 3.3];
 			sleep ((_delay select 0) + round (random ((_delay select 1) - (_delay select 0))));

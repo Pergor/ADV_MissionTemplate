@@ -28,7 +28,7 @@ params [
 //if (count _this > 2) then { _initNew = _this select 2;} else { _initNew = {};};
 
 {
-	_newVehType = _newVehs call BIS_fnc_selectRandom;
+	_newVehType = selectRandom _newVehs;
 	_object = str _x;
 	_isVehicle = _object in _vehicleType;
 	if (_isVehicle) then {

@@ -48,22 +48,22 @@ removeBackpack _unit;
 removeVest _unit;
 { _unit removeMagazine _x } forEach magazines _unit;
 //...and readding. Clothing:
-if ( (typeName (_uniform)) == "ARRAY" ) then { _uniform = _uniform call BIS_fnc_selectRandom; };
+if ( (typeName (_uniform)) == "ARRAY" ) then { _uniform = selectRandom _uniform; };
 _unit forceAddUniform _uniform;
-if ( (typeName (_vest)) == "ARRAY" ) then { _vest = _vest call BIS_fnc_selectRandom;};
+if ( (typeName (_vest)) == "ARRAY" ) then { _vest = selectRandom _vest;};
 _unit addVest _vest;
-if ( (typeName (_backpack)) == "ARRAY" ) then { _backpack = _backpack call BIS_fnc_selectRandom; };
+if ( (typeName (_backpack)) == "ARRAY" ) then { _backpack = selectRandom _backpack; };
 _removeBackpackAfterWeapons = false;
 if ( _backpack == "backpackdummy" ) then { _backpack = "B_Carryall_oli"; _removeBackpackAfterWeapons = true; };
 _unit addBackpackGlobal _backpack;
 clearMagazineCargoGlobal (unitBackpack _unit);
 clearItemCargoGlobal (unitBackpack _unit);
 clearWeaponCargoGlobal (unitBackpack _unit);
-if ( (typeName (_headgear)) == "ARRAY" ) then { _headgear = _headgear call BIS_fnc_selectRandom; };
+if ( (typeName (_headgear)) == "ARRAY" ) then { _headgear = selectRandom _headgear; };
 _unit addHeadgear _headgear;
 if ( _useProfileGoggles == 0 ) then {
 	removeGoggles _unit;
-	if ( (typeName (_goggles) ) == "ARRAY" ) then { _goggles = _goggles call BIS_fnc_selectRandom; };
+	if ( (typeName (_goggles) ) == "ARRAY" ) then { _goggles = selectRandom _goggles; };
 	_unit addGoggles _goggles;
 };
 
@@ -93,7 +93,7 @@ if !( isClass (configFile >> "CfgPatches" >> "ACE_Medical") ) then {
 /*
 if (isClass(configFile >> "CfgPatches" >> "scorch_invitems")) then {
 	if ( !isNil "_scorchItems" ) then { { _unit addItem _x; } forEach _scorchItems; };
-	if ( !isNil "_scorchItemsRandom" ) then { _unit addItem (_scorchItemsRandom call BIS_fnc_selectRandom); };
+	if ( !isNil "_scorchItemsRandom" ) then { _unit addItem (selectRandom  _scorchItemsRandom); };
 };
 */
 
@@ -111,24 +111,24 @@ if (_insignium == "") then {
 };
 //weapons
 [_unit,_binocular,1] call BIS_fnc_addWeapon;
-if (( typeName (_handgun)) == "ARRAY" ) then { _handgun = _handgun call BIS_fnc_selectRandom; };
+if (( typeName (_handgun)) == "ARRAY" ) then { _handgun = selectRandom _handgun; };
 [_unit,_handgun,_handgunAmmo select 0,_handgunAmmo select 1] call BIS_fnc_addWeapon;
 if ( (side (group _unit) == west && ADV_par_Silencers == 1) || (side (group _unit) == east && ADV_par_opfSilencers == 1) ) then { _itemsHandgun pushback _handgunSilencer; };
 { _unit addHandgunItem _x } forEach _itemsHandgun;
 if ( _launcher in _disposableLaunchers ) then {
 	_launcherAmmo set [0,1];
 };
-if ( (typeName (_launcher)) == "ARRAY" ) then { _launcher = _launcher call BIS_fnc_selectRandom; };
+if ( (typeName (_launcher)) == "ARRAY" ) then { _launcher = selectRandom _launcher; };
 [_unit,_launcher,_launcherAmmo select 0,_launcherAmmo select 1] call BIS_fnc_addWeapon;
-if ( (typeName (_primaryWeapon)) == "ARRAY" ) then { _primaryWeapon = _primaryWeapon call BIS_fnc_selectRandom; };
+if ( (typeName (_primaryWeapon)) == "ARRAY" ) then { _primaryWeapon = selectRandom _primaryWeapon; };
 if (_primaryweaponAmmo select 0 > 0) then {
 	[_unit,_primaryWeapon,1,_primaryweaponAmmo select 1] call BIS_fnc_addWeapon;
 	[_unit,(_primaryweaponAmmo select 0)-1,0,_primaryweaponAmmo select 1] call ADV_fnc_addMagazine;
 } else {
 	[_unit,_primaryWeapon,_primaryweaponAmmo select 0,_primaryweaponAmmo select 1] call BIS_fnc_addWeapon;
 };
-if ( (typeName (_optic) ) == "ARRAY" ) then { _optic = _optic call BIS_fnc_selectRandom; };
-if ( (!(side (group _unit) == east) && ADV_par_optics == 2) || ((side (group _unit) == east) && ADV_par_opfOptics == 2) ) then { _optic = [_optic,""] call BIS_fnc_selectRandom; };
+if ( (typeName (_optic) ) == "ARRAY" ) then { _optic = selectRandom _optic; };
+if ( (!(side (group _unit) == east) && ADV_par_optics == 2) || ((side (group _unit) == east) && ADV_par_opfOptics == 2) ) then { _optic = selectRandom [_optic,""]; };
 //silencers and attachments
 if ( (!(side (group _unit) == east) && ADV_par_optics > 0) || (side (group _unit) == east && ADV_par_opfOptics > 0) ) then { _attachments pushBack _optic; };
 if ( (!(side (group _unit) == east) && ADV_par_Silencers == 1) || (side (group _unit) == east && ADV_par_opfSilencers == 1) ) then { _attachments pushback _silencer; };

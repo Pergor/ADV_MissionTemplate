@@ -50,7 +50,7 @@ params [
 	};
 	_flare = createVehicle [_colorType, _spawnPos, [], _spread, "NONE"];
 	_flare setVelocity [0,0,-0.2];
-	_sound = ["flaregun_1.wss","flaregun_2.wss","flaregun_3.wss","flaregun_4.wss"] call BIS_fnc_selectRandom;
+	_sound = selectRandom ["flaregun_1.wss","flaregun_2.wss","flaregun_3.wss","flaregun_4.wss"];
 	_soundFile = format ["a3\missions_f_beta\data\sounds\Showcase_Night\%1",_sound];
 	playSound3d [_soundFile,_flare];
 } forEach _spawn;

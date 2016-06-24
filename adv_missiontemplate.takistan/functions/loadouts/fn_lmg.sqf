@@ -212,7 +212,7 @@ switch (ADV_par_customWeap) do {
 	};
 	case 3: {
 		//RHS Marines
-		_primaryWeapon = ["rhs_weap_m249_pip_S","rhs_weap_m27iar","rhs_weap_m27iar"] call BIS_fnc_selectRandom;
+		_primaryWeapon = selectRandom ["rhs_weap_m249_pip_S","rhs_weap_m27iar","rhs_weap_m27iar"];
 		_optic = ["rhsusf_acc_ACOG","rhsusf_acc_ACOG3"];
 		if ( _primaryWeapon == "rhs_weap_m27iar" ) then {
 			_primaryweaponAmmo = [7,9];
