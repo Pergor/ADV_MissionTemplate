@@ -64,7 +64,7 @@ while {true} do {
 		deleteMarkerLocal _respawnPos;
 	};
 	sleep _delay-3;
-	{detach _x; deleteVehicle _x} forEach attachedObjects _veh;
+	{detach _x; deleteVehicle _x} count attachedObjects _veh;
 	if (_veh distance2D (getMarkerPos _respawnPos) < 100) then { deleteVehicle _veh; };
 	_veh enableSimulation false;
 	sleep 2;
@@ -74,7 +74,7 @@ while {true} do {
 	[_veh,_name] remoteExec ["setVehicleVarName",0];
 	_veh call compile format ["%1 = _this; publicVariable '%1'", _name];
 	sleep 2;
-	{_x addCuratorEditableObjects [[_veh],false];} forEach allCurators;
+	{_x addCuratorEditableObjects [[_veh],false];} count allCurators;
 	[_veh] call ADV_fnc_clearCargo;
 	if ((str _veh) in ADV_veh_all || (str _veh) in ADV_opf_veh_all || (str _veh) in ADV_ind_veh_all) then {
 		call compile format ["[%1] call adv_%2%3",_veh,_sidePrefix,"fnc_addVehicleLoad"];

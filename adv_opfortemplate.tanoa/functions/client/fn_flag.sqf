@@ -35,6 +35,7 @@ if (count _this == 0) exitWith {};
 			};
 		},nil,6,false,false,"","player distance cursortarget <5"
 	];
-} forEach _this;
+	nil;
+} count _this;
 	
 if (true) exitWith {};

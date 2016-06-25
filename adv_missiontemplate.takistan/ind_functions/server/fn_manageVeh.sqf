@@ -74,7 +74,8 @@ ADV_ind_veh_artys = [];
 		case ( [_vehicleName,0,7] call BIS_fnc_trimString == "ind_arty" ): { ADV_ind_veh_artys pushBack _vehicleName; };
 		default {};
 	};
-} forEach vehicles;
+	nil;
+} count vehicles;
 
 ADV_ind_veh_helis = ADV_ind_veh_airRecon+ADV_ind_veh_airTransport+ADV_ind_veh_airLogistic;
 ADV_ind_veh_fixedWing = ADV_ind_veh_airCAS+ADV_ind_veh_airC130+ADV_ind_veh_UAVs;
@@ -129,16 +130,16 @@ switch (ADV_par_modAirAssets) do {
 
 //removes the markers according to the lobby params
 if (ADV_par_Assets_cars == 0 || ADV_par_Assets_cars == 99 || ADV_par_indCarAssets == 99) then {
-	{_x setMarkerAlpha 0;} forEach _veh_lightMarkers
+	{_x setMarkerAlpha 0;} count _veh_lightMarkers
 };
 if (ADV_par_Assets_tanks == 0 || ADV_par_Assets_tanks == 99) then {
-	{_x setMarkerAlpha 0;} forEach _veh_heavyMarkers;
+	{_x setMarkerAlpha 0;} count _veh_heavyMarkers;
 };
 if (ADV_par_Assets_air_helis == 0 || ADV_par_Assets_air_helis == 99) then {
-	{_x setMarkerAlpha 0;} forEach _veh_heliMarkers;
+	{_x setMarkerAlpha 0;} count _veh_heliMarkers;
 };
 if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_par_Assets_air_fixed == 99 && ADV_par_Assets_air_helis == 99)) then {
-	{_x setMarkerAlpha 0;} forEach _veh_fixedMarkers;
+	{_x setMarkerAlpha 0;} count _veh_fixedMarkers;
 };
 
 //manages disablement and load.
@@ -170,7 +171,8 @@ if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_pa
 			*/
 		};
 	};
-} forEach vehicles;
+	nil;
+} count vehicles;
 
 
 if (true) exitWith { missionNamespace setVariable ["ADV_var_manageVeh_ind",true,true]; };

@@ -31,7 +31,7 @@ if ( isServer ) then {
 	
 	//stops the blabbering of AI units and players
 	if ( isMultiplayer ) then {
-		{_x setVariable ["BIS_noCoreConversations", true, true]} forEach allUnits;
+		{_x setVariable ["BIS_noCoreConversations", true, true]} count allUnits;
 	};
 	
 	//ADV_handle_zbeCache = [1200,-1,false,100,1200,1200] spawn compile preprocessFileLineNumbers "scripts\zbe_cache\main.sqf";	
@@ -57,7 +57,7 @@ if ( isServer ) then {
 	};*/
 	
 	//removes notification and bird of all curators:
-	{ _x setVariable ["birdType",""]; _x setVariable ["showNotification",false]; [_x, [-1, -2, 2]] call bis_fnc_setCuratorVisionModes;} forEach allCurators;
+	{ _x setVariable ["birdType",""]; _x setVariable ["showNotification",false]; [_x, [-1, -2, 2]] call bis_fnc_setCuratorVisionModes; nil;} count allCurators;
 
 	//sets ownership of the units to either zeus or the HC:
 	[] spawn {
@@ -123,7 +123,7 @@ if ( isServer ) then {
 };
 
 if ( hasInterface ) then {
-	titleText [format ["%1 \n\n\nThis mission was built by %2 \n\n\n Have Fun! :)", briefingName, missionNamespace getVariable "ADV_missionAuthor"], "BLACK FADED"];
+	titleText [format ["%1 \n\n\nThis mission was built by %2 \n\n\n Have Fun! :)", briefingName, missionNamespace getVariable ["ADV_missionAuthor","[SeL] Belbo // Adrian"]], "BLACK FADED"];
 };
 
 //mission dramaturgy (will be executed on server as long as HC param is not selected. If HC param is selected it will be executed on HC only)
@@ -150,7 +150,8 @@ if (isClass(configFile >> "CfgPatches" >> "ace_explosives")) then {
 		_defuseHelper = "ACE_DefuseObject" createVehicleLocal (getPos _x);
 		_defuseHelper attachTo [_x, [0,0,0]];
 		_defuseHelper setVariable ["ACE_explosives_Explosive",_x];
-	} forEach allMines;
+		nil;
+	} count allMines;
 };
 
 //friggin' ace

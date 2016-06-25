@@ -22,6 +22,7 @@ params [
 		_x setOwner (owner _HC);
 		_x setVariable ["Owned_by_HC",true];
 	};
-} forEach _units;
+	nil;
+} count _units;
 
 if (true) exitWith {};

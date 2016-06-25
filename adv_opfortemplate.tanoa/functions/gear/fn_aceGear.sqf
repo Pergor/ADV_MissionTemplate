@@ -206,7 +206,8 @@ if ( ( !(side (group _unit) == east) && ADV_par_NVGs == 2) || (side (group _unit
 				if ( _x in _itemsVest ) then { _unit addItemToVest "ACE_NVG_Wide"; };
 				if ( _x in _itemsBackpack ) then { _unit addItemToUniform "ACE_NVG_Wide"; };
 			};
-		} forEach _NVGoggles;
+			nil;
+		} count _NVGoggles;
 	};
 	if ( isClass(configFile >> "CfgPatches" >> "ACE_Vector") && _binocular == "Rangefinder" ) then {
 		[_unit,"ACE_Vector",1] call BIS_fnc_addWeapon;

@@ -11,7 +11,7 @@
 			[_box,false] call AGM_Drag_fnc_makeDraggable;
 		};
 	},nil,0.5,false,true,"","player distance cursortarget <5"];
-	
-} forEach _this;
+	nil;
+} count _this;
 
 if (true) exitWith {};

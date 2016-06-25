@@ -100,7 +100,7 @@ _chemArray = if ( ( !(side (group _unit) == east) && ADV_par_NVGs > 0 ) || (side
 	[["",0]];
 };
 
-{ _unit addMagazines [_x select 0, _x select 1]; } forEach _grenArray+_chemArray;
+{ _unit addMagazines [_x select 0, _x select 1]; } count _grenArray+_chemArray;
 
 if ( !isClass(configFile >> "CfgPatches" >> "ACE_attach") && (( !(side (group _unit) == east) && ADV_par_NVGs == 2 ) || (side (group _unit) == east && ADV_par_opfNVGs == 2)) ) then {
 	_IR_GrenType = switch (side (group _unit)) do {

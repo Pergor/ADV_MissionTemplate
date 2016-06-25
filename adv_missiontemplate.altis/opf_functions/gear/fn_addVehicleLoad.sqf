@@ -42,6 +42,7 @@ if (!isServer) exitWith {};
 			[_x,false,false,0,true] call ADV_opf_fnc_vehicleLoad;
 		};
 	};
-} forEach _this;
+	nil;
+} count _this;
 
 if (true) exitWith {};

@@ -31,6 +31,7 @@ _this = artillery vehicles or mortars the notification should be applied to.
 			ADV_artiVar = 0;
 		},nil,6,false,true,"","gunner _target == _this"
 	];
-} forEach _this;
+	nil;
+} count _this;
 
 if (true) exitWith {};

@@ -27,6 +27,7 @@ private ["_target","_gwh","_handgunWeap","_primWeap","_secWeap"];
 	_target removeWeapon _handgunWeap;
 	_target removeWeapon _primWeap;
 	_target removeWeapon _secWeap;
-} forEach _this;
+	nil;
+} count _this;
 
 if (true) exitWith {};

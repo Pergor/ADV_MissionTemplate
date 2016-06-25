@@ -36,6 +36,6 @@ params [
 			sleep ((_delay select 0) + round (random ((_delay select 1) - (_delay select 0))));
 		};
 	};
-} forEach _targetArray;
+} count _targetArray;
 
 if (true) exitWith {};

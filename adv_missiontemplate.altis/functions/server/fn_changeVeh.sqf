@@ -35,7 +35,7 @@ params [
 		_name = vehicleVarName _x;
 		_dir = getDir _x; 
 		_pos = getPosATL _x;
-		{deleteVehicle _x} forEach attachedObjects _x;
+		{deleteVehicle _x} count attachedObjects _x;
 		deleteVehicle _x;
 		sleep 1;
 		if (_newVehType == "") exitWith {}; 
@@ -69,7 +69,7 @@ params [
 				};
 			};
 			[_veh,ADV_par_vehicleRespawn, _side, (typeOf _veh)] spawn ADV_fnc_respawnVeh;
-			{_veh addCuratorEditableObjects [[_veh],false];} forEach allCurators;
+			{_veh addCuratorEditableObjects [[_veh],false];} count allCurators;
 			if ( ADV_par_Radios > 0 && (_veh isKindOf "CAR" || _veh isKindOf "TANK" || _veh isKindOf "AIR") ) then {
 				_veh setVariable ["tf_hasRadio", true, true];
 			};
@@ -86,6 +86,7 @@ params [
 			_veh setVariable ["adv_var_vehicleIsChanged",true,true];
 		};
 	};
-} forEach vehicles;
+	nil;
+} count vehicles;
 	
 if (true) exitWith{};

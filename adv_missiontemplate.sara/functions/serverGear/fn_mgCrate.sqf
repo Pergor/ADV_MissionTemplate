@@ -14,7 +14,7 @@ if (!isServer) exitWith {};
 	if (ADV_par_customWeap == 0) then {
 		_crate addMagazineCargoGlobal ["130Rnd_338_Mag",20];
 	};
-	
-} forEach _this;
+	nil;
+} count _this;
 
 if (true) exitWith {};

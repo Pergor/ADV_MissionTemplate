@@ -195,7 +195,7 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 	};
 	switch ( toUpper (_crateSelection) ) do {
 		case "ADV_LOGISTIC_CRATELARGE": {
-			{deleteVehicle _x} forEach (nearestObjects [(getMarkerPos ADV_logistic_locationCrateLarge), ["ReammoBox_F"], 3]);
+			{deleteVehicle _x} count (nearestObjects [(getMarkerPos ADV_logistic_locationCrateLarge), ["ReammoBox_F"], 3]);
 			[] spawn {
 				sleep 1;
 				_box = createVehicle [ADV_logistic_crateTypeLarge,getMarkerPos ADV_logistic_locationCrateLarge,[],0,"CAN_COLLIDE"];
@@ -273,10 +273,10 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 			};
 		};
 		case "ADV_LOGISTIC_CRATEDELETE": {
-			{deleteVehicle _x} forEach (nearestObjects [player, ["ReammoBox_F"], 3]);
+			{deleteVehicle _x} count (nearestObjects [player, ["ReammoBox_F"], 3]);
 			if (isClass(configFile >> "CfgPatches" >> "ace_repair")) then {
-				{deleteVehicle _x} forEach (nearestObjects [player, ["ACE_Wheel"], 3]);
-				{deleteVehicle _x} forEach (nearestObjects [player, ["ACE_Track"], 3]);
+				{deleteVehicle _x} count (nearestObjects [player, ["ACE_Wheel"], 3]);
+				{deleteVehicle _x} count (nearestObjects [player, ["ACE_Track"], 3]);
 			};
 		};	
 		case "ADV_LOGISTIC_CRATEEMPTY": {

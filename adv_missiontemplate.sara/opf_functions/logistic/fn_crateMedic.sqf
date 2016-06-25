@@ -107,6 +107,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 		[_target] call ADV_fnc_addACEItems;
 	};
 
-} forEach _this;
+	nil;
+} count _this;
 
 if (true) exitWith {true;};

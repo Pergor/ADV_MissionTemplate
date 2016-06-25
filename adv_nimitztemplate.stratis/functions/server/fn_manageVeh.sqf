@@ -71,7 +71,8 @@ ADV_veh_artys = [];
 		case ( [_vehicleName,0,3] call BIS_fnc_trimString == "arty" ): { ADV_veh_artys pushBack _vehicleName; };
 		default {};
 	};
-} forEach vehicles;
+	nil;
+} count vehicles;
 
 ADV_veh_helis = ADV_veh_airLogistic+ADV_veh_airTransport+ADV_veh_airRecon;
 ADV_veh_fixedWing = ADV_veh_airCAS+ADV_veh_airC130+ADV_veh_UAVs;
@@ -121,11 +122,13 @@ switch (ADV_par_modTruckAssets) do {
 	case 2: {[ADV_veh_transport,["rhsusf_M1083A1P2_d_fmtv_usarmy","rhsusf_M1083A1P2_B_d_fmtv_usarmy"],west] spawn ADV_fnc_changeVeh;
 		[ADV_veh_logistic_repair,["rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_d","rhsusf_M977A4_REPAIR_BKIT_usarmy_d"],west] spawn ADV_fnc_changeVeh;
 		[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_BKIT_M2_usarmy_d","rhsusf_M977A4_AMMO_BKIT_usarmy_d"],west] spawn ADV_fnc_changeVeh;
+		[ADV_veh_logistic_fuel,["rhsusf_M978A4_usarmy_d"],west] spawn ADV_fnc_changeVeh;
 	};
 	//RHS woodland
 	case 3: {[ADV_veh_transport,["rhsusf_M1083A1P2_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_wd_fmtv_usarmy"],west] spawn ADV_fnc_changeVeh;
 		[ADV_veh_logistic_repair,["rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_wd","rhsusf_M977A4_REPAIR_BKIT_usarmy_wd"],west] spawn ADV_fnc_changeVeh;
 		[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_usarmy_wd"],west] spawn ADV_fnc_changeVeh;
+		[ADV_veh_logistic_fuel,["rhsusf_M978A4_usarmy_wd"],west] spawn ADV_fnc_changeVeh;
 	};
 	//BAF desert
 	case 4: {[ADV_veh_transport,["UK3CB_BAF_Coyote_Logistics_L111A1_D"],west] spawn ADV_fnc_changeVeh;};
@@ -256,16 +259,16 @@ if (ADV_par_modAirAssets == 4 || ADV_par_modAirAssets == 5) then {[ADV_veh_airC1
 
 //removes the markers according to the lobby params
 if (ADV_par_Assets_cars == 0 || ADV_par_Assets_cars == 99 || ADV_par_modCarAssets == 99) then {
-	{_x setMarkerAlpha 0;} forEach _veh_lightMarkers
+	{_x setMarkerAlpha 0;} count _veh_lightMarkers
 };
 if (ADV_par_Assets_tanks == 0 || ADV_par_Assets_tanks == 99 ||ADV_par_modTankAssets == 99) then {
-	{_x setMarkerAlpha 0;} forEach _veh_heavyMarkers;
+	{_x setMarkerAlpha 0;} count _veh_heavyMarkers;
 };
 if (ADV_par_Assets_air_helis == 0 || ADV_par_Assets_air_helis == 99 || ADV_par_modHeliAssets == 99) then {
-	{_x setMarkerAlpha 0;} forEach _veh_heliMarkers;
+	{_x setMarkerAlpha 0;} count _veh_heliMarkers;
 };
 if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_par_Assets_air_fixed == 99 && ADV_par_Assets_air_helis == 99) || ADV_par_modAirAssets == 99) then {
-	{_x setMarkerAlpha 0;} forEach _veh_fixedMarkers;
+	{_x setMarkerAlpha 0;} count _veh_fixedMarkers;
 };
 
 //manages disablement and load.
@@ -289,7 +292,8 @@ if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_pa
 			//_x setVariable ["tf_side", west, true];
 		};
 	};
-} forEach vehicles;
+	nil;
+} count vehicles;
 
 if (ADV_par_TIEquipment == 2 && ADV_par_TIEquipment == 4) then {
 	[] spawn {
@@ -299,7 +303,8 @@ if (ADV_par_TIEquipment == 2 && ADV_par_TIEquipment == 4) then {
 				if (ADV_par_TIEquipment == 4) then {
 					_x disableNVGEquipment true;
 				};
-			} forEach vehicles;
+				nil;
+			} count vehicles;
 			sleep 10;			
 		};
 	};

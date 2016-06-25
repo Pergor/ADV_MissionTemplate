@@ -23,6 +23,7 @@ if (count _this == 0) exitWith {};
 	ADV_board addAction ["<t color='#ffff11'>Whiteboard -> Bewegung 3</t>",{ADV_board setObjectTextureGlobal [0,"img\04.jpg"];},nil,1,false,false,"","player distance cursortarget <3"];
 	ADV_board addAction ["<t color='#ffff11'>Whiteboard -> Viel Erfolg!</t>",{ADV_board setObjectTextureGlobal [0,"img\05.jpg"];},nil,1,false,false,"","player distance cursortarget <3"];
 	*/
-} forEach _this;
+	nil;
+} count _this;
 
 if (true) exitWith {};

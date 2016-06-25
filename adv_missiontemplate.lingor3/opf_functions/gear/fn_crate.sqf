@@ -308,6 +308,7 @@ if (!isServer) exitWith {};
 	_target addItemCargoGlobal ["Toolkit",2];
 	_target addItemCargoGlobal ["acc_flashlight",5];
 	
-} forEach _this;
+	nil;
+} count _this;
 
 if (true) exitWith {};

@@ -323,8 +323,8 @@ if (_target isKindOf "Air") then {
 	_freeSpaces = _freeSpaces + (_target emptyPositions "Driver");
 	_freeSpaces = _freeSpaces + (_target emptyPositions "Commander");
 	if (_freeSpaces > 8) then {_freespaces = 8};
-	{_target addBackpackCargoGlobal [_x, _freeSpaces];} forEach _parachutes;
+	{_target addBackpackCargoGlobal [_x, _freeSpaces];} count _parachutes;
 };
-{_target addBackpackCargoGlobal [_x, 1];} forEach _backpacks;
+{_target addBackpackCargoGlobal [_x, 1];} count _backpacks;
 
 if (true) exitWith {true;};

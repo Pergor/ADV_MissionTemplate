@@ -46,7 +46,7 @@ removeallWeapons _unit;
 removeHeadgear _unit;
 removeBackpack _unit;
 removeVest _unit;
-{ _unit removeMagazine _x } forEach magazines _unit;
+{ _unit removeMagazine _x } count magazines _unit;
 //...and readding. Clothing:
 if ( (typeName (_uniform)) == "ARRAY" ) then { _uniform = selectRandom _uniform; };
 _unit forceAddUniform _uniform;
@@ -73,7 +73,7 @@ if ( _backpack in _medicBackPacks || isClass (configFile >> "CfgPatches" >> "ACE
 	_unit removeItems "FirstAidKit";
 	if ( isClass (configFile >> "CfgPatches" >> "ACE_Medical") ) then {
 		_ACE_Items = ["ACE_atropine","ACE_fieldDressing","ACE_elasticBandage","ACE_quikclot","ACE_bloodIV","ACE_bloodIV_500","ACE_bloodIV_250","ACE_bodyBag","ACE_epinephrine","ACE_morphine","ACE_packingBandage","ACE_personalAidKit","ACE_plasmaIV","ACE_plasmaIV_500","ACE_plasmaIV_250","ACE_salineIV","ACE_salineIV_500","ACE_salineIV_250","ACE_surgicalKit","ACE_tourniquet"];
-		{ _unit removeItems _x } forEach _ACE_Items;
+		{ _unit removeItems _x } count _ACE_Items;
 	};
 };
 if !( isClass (configFile >> "CfgPatches" >> "ACE_Medical") ) then {
@@ -92,7 +92,7 @@ if !( isClass (configFile >> "CfgPatches" >> "ACE_Medical") ) then {
 //scorch items
 /*
 if (isClass(configFile >> "CfgPatches" >> "scorch_invitems")) then {
-	if ( !isNil "_scorchItems" ) then { { _unit addItem _x; } forEach _scorchItems; };
+	if ( !isNil "_scorchItems" ) then { { _unit addItem _x; } count _scorchItems; };
 	if ( !isNil "_scorchItemsRandom" ) then { _unit addItem (selectRandom  _scorchItemsRandom); };
 };
 */
@@ -103,7 +103,7 @@ if (isClass(configFile >> "CfgPatches" >> "scorch_invitems")) then {
 [_unit] call ADV_fnc_add40mm;
 
 //items:
-{ _unit linkitem _x } forEach _itemslink;
+{ _unit linkitem _x } count _itemslink;
 if (_insignium == "") then {
 	[_unit] call ADV_fnc_insignia;
 } else {
@@ -114,7 +114,7 @@ if (_insignium == "") then {
 if (( typeName (_handgun)) == "ARRAY" ) then { _handgun = selectRandom _handgun; };
 [_unit,_handgun,_handgunAmmo select 0,_handgunAmmo select 1] call BIS_fnc_addWeapon;
 if ( (side (group _unit) == west && ADV_par_Silencers == 1) || (side (group _unit) == east && ADV_par_opfSilencers == 1) ) then { _itemsHandgun pushback _handgunSilencer; };
-{ _unit addHandgunItem _x } forEach _itemsHandgun;
+{ _unit addHandgunItem _x } count _itemsHandgun;
 if ( _launcher in _disposableLaunchers ) then {
 	_launcherAmmo set [0,1];
 };
@@ -133,7 +133,7 @@ if ( (!(side (group _unit) == east) && ADV_par_optics == 2) || ((side (group _un
 if ( (!(side (group _unit) == east) && ADV_par_optics > 0) || (side (group _unit) == east && ADV_par_opfOptics > 0) ) then { _attachments pushBack _optic; };
 if ( (!(side (group _unit) == east) && ADV_par_Silencers == 1) || (side (group _unit) == east && ADV_par_opfSilencers == 1) ) then { _attachments pushback _silencer; };
 if ( (!(side (group _unit) == east) && ADV_par_Silencers == 2) || (side (group _unit) == east && ADV_par_opfSilencers == 2) ) then { _unit addItem _silencer; _unit addItem _handgunSilencer; };
-{ _unit addPrimaryWeaponItem _x; } forEach _attachments;
+{ _unit addPrimaryWeaponItem _x; } count _attachments;
 
 if ( _primaryWeapon != "" ) then {
 	_muzzles = getArray (configFile / "CfgWeapons" / _primaryWeapon / "muzzles");
@@ -146,14 +146,14 @@ if ( _removeBackpackAfterWeapons ) then {
 _unit selectWeapon "SmokeShellMuzzle";
 
 //container items
-{ (uniformContainer _unit) addItemCargoGlobal [_x,1] } forEach _itemsUniform;
-{ (vestContainer _unit) addItemCargoGlobal [_x,1] } forEach _itemsVest;
-{ (backpackContainer _unit) addItemCargoGlobal [_x,1] } forEach _itemsBackpack;
-{_unit addItem _x} forEach _items;
+{ (uniformContainer _unit) addItemCargoGlobal [_x,1] } count _itemsUniform;
+{ (vestContainer _unit) addItemCargoGlobal [_x,1] } count _itemsVest;
+{ (backpackContainer _unit) addItemCargoGlobal [_x,1] } count _itemsBackpack;
+{_unit addItem _x} count _items;
 
 //unitTraits:
 if (!isNil "_unitTraits") then {
-	{ _unit setUnitTrait [_x select 0, _x select 1, true] } forEach _unitTraits;
+	{ _unit setUnitTrait [_x select 0, _x select 1, true] } count _unitTraits;
 };
 
 //NVG-Removal:
@@ -162,7 +162,7 @@ if !(["diver",_unit getVariable ["ADV_var_playerUnit","ADV_fnc_nil"]] call BIS_f
 		{
 			_unit unlinkItem _x;
 			_unit removeItems _x;
-		} forEach _NVGoggles;
+		} count _NVGoggles;
 	};
 };
 //tablets & GPS:

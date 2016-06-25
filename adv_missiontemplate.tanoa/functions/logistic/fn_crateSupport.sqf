@@ -121,6 +121,7 @@ private ["_target"];
 		_ACE_HandFlare_Yellow = 0;
 		[_target] call ADV_fnc_addACEItems;
 	};
-} forEach _this;
+	nil;
+} count _this;
 
 if (true) exitWith {true;};

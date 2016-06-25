@@ -39,7 +39,8 @@ switch (typeName _curator) do {
 			_x addCuratorEditableObjects [(allMissionObjects "Man"), false];
 			_x addCuratorEditableObjects [(allMissionObjects "Air"), true];
 			_x addCuratorEditableObjects [(allMissionObjects "Ammo"), false];
-		} forEach allCurators;
+			nil;
+		} count allCurators;
 		while {true} do {
 			{
 				_curatorUnit = getAssignedCuratorUnit _x;
@@ -47,7 +48,7 @@ switch (typeName _curator) do {
 					_x addCuratorEditableObjects [allUnits, false];
 					_x addCuratorEditableObjects [vehicles, true];
 				};
-			} forEach allCurators;
+			} count allCurators;
 			sleep 5;
 		};
 	};

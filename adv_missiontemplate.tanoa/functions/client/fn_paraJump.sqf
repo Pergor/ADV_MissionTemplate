@@ -52,7 +52,7 @@ sleep 1;
 if !((_unit getVariable "adv_var_parajump_backpack") == "") then {
 	sleep 2;
 	_unit addBackpackGlobal (_unit getVariable "adv_var_parajump_backpack");
-	{ (backpackContainer _unit) addItemCargoGlobal [_x,1] } forEach (_unit getVariable "adv_var_parajump_backpackItems");
+	{ (backpackContainer _unit) addItemCargoGlobal [_x,1] } count (_unit getVariable "adv_var_parajump_backpackItems");
 	systemChat "Backpack readded.";
 };
 

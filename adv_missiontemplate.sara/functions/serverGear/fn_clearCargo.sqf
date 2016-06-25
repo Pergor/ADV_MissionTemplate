@@ -6,6 +6,6 @@ if (count _this == 0) exitWith {};
 //removes all content from the target:
 {
 	clearWeaponCargoGlobal _x;clearMagazineCargoGlobal _x;clearBackpackCargoGlobal _x;clearItemCargoGlobal _x;
-} forEach _this;
+} count _this;
 
 if (true) exitWith {true;};

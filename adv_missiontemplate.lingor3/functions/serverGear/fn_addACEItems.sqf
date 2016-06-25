@@ -146,6 +146,7 @@ if !(isServer && (isClass(configFile >> "CfgPatches" >> "ACE_common"))) exitWith
 		if (!isNil "_ACE_sprayPaintGreen") then { _target addItemCargoGlobal ["ACE_sprayPaintGreen", _ACE_sprayPaintGreen]; };
 		if (!isNil "_ACE_sprayPaintRed") then { _target addItemCargoGlobal ["ACE_sprayPaintRed", _ACE_sprayPaintRed]; };
 	};
-} forEach _this;
+	nil;
+} count _this;
 
 if (true) exitWith {};

@@ -29,7 +29,7 @@ if (ADV_par_randomWeather != 99) then {
 
 //waitUntil-player is on map
 titleText ["", "BLACK FADED"];
-titleText [format ["%1 \n\n\nThis mission was built by %2 \n\n\n Have Fun! :)", briefingName, missionNamespace getVariable "ADV_missionAuthor"], "BLACK FADED"];
+titleText [format ["%1 \n\n\nThis mission was built by %2 \n\n\n Have Fun! :)", briefingName, missionNamespace getVariable ["ADV_missionAuthor","[SeL] Belbo // Adrian"]], "BLACK FADED"];
 
 //fuck mcc
 if (!isNil "mcc_actionInedx") then { player removeAction mcc_actionInedx; };
@@ -174,9 +174,12 @@ if !(isClass(configFile >> "CfgPatches" >> "ace_cargo")) then {
 
 sleep 4;
 //a little hint stating the date and time
-//["Have Fun!", "Datum:" + str (date select 2) + "/" + str (date select 1) + "/" + str (date select 0)] spawn BIS_fnc_infoText;
-["Have Fun!"] spawn BIS_fnc_infoText;
-sleep 4;
-[] spawn compile preprocessFileLineNumbers "a3\missions_f_epa\Campaign_shared\Functions\Timeline\fn_camp_showOSD.sqf";
+if ((toUpper worldname) in ["STRATIS","ALTIS"]) then {
+	["Have Fun!"] spawn BIS_fnc_infoText;
+	sleep 4;
+	[] spawn compile preprocessFileLineNumbers "a3\missions_f_epa\Campaign_shared\Functions\Timeline\fn_camp_showOSD.sqf";
+} else {
+	["Have Fun!", "Datum:" + str (date select 2) + "/" + str (date select 1) + "/" + str (date select 0)] spawn BIS_fnc_infoText;
+};
 
 if (true) exitWith {};

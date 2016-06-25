@@ -27,6 +27,9 @@ params [
 		_curator addCuratorEditableObjects [(allMissionObjects "Man"), false];
 		_curator addCuratorEditableObjects [(allMissionObjects "Air"), true];
 		_curator addCuratorEditableObjects [(allMissionObjects "Ammo"), false];
+		_curator setVariable ["birdType",""];
+		_curator setVariable ["showNotification",false];
+		[_curator, [-1, -2, 2]] call bis_fnc_setCuratorVisionModes;
 		
 		/*
 		[_curator, "player",["%ALL"]] call BIS_fnc_setCuratorAttributes;
@@ -55,6 +58,7 @@ params [
 		
 		_unit assignCurator _curator;
 	};
-} forEach allPlayers;
+	nil;
+} count allPlayers;
 
 true;
