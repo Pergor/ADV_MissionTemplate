@@ -190,6 +190,8 @@ switch (ADV_par_opfWeap) do {
 		_primaryweapon = "rhs_weap_ak74m_folded";
 		_optic = [""];
 		_attachments = ["rhs_acc_dtk"];
+		if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "rhs_acc_2dpZenit"; };
+		if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "rhs_acc_perst1ik"; };
 		_silencer = "rhs_acc_tgpa";		//if silencer is added		
 		_handgun = "rhs_weap_makarov_pmm";
 		_itemsHandgun = [];

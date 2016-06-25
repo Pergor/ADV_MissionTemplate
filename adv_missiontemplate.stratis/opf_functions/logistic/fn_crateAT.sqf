@@ -15,7 +15,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	//weapons & ammo
 	switch (true) do {
 		//RHS
-		case (ADV_par_opfWeap == 1 && ADV_par_opfWeap == 2): {
+		case (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
 			_target addWeaponCargoGlobal ["rhs_weap_rpg7",1];
 			
 			_target addMagazineCargoGlobal ["rhs_rpg7_PG7VL_mag",4];
@@ -48,7 +48,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	};
 	//grenades
 	switch (true) do {
-		case ( ADV_par_opfWeap == 1 && ADV_par_opfWeap == 2): {
+		case ( ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
 			_target addMagazineCargoGlobal ["rhs_mag_rdg2_white",2];
 		};
 		default {

@@ -26,7 +26,7 @@ _backpacks = [];
 //weapons and ammo
 if (_withWeapons) then {
 	switch (true) do {
-		case (ADV_par_opfWeap == 1 && ADV_par_opfWeap == 2): {
+		case (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
 			_target addWeaponCargoGlobal ["rhs_weap_ak74m_folded",1];
 			_target addWeaponCargoGlobal ["rhs_weap_rpg7",1];
 

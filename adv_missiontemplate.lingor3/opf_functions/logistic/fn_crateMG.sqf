@@ -15,7 +15,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	//weapons & ammo
 	switch (true) do {
 		//RHS
-		case (ADV_par_opfWeap == 1 && ADV_par_opfWeap == 2): {
+		case (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
 			_target addMagazineCargoGlobal ["rhs_100Rnd_762x54mmR",5];
 			_target addMagazineCargoGlobal ["rhs_100Rnd_762x54mmR_green",5];
 			//_target addMagazineCargoGlobal ["rhs_45Rnd_545X39_AK",4];

@@ -13,7 +13,7 @@ if (!isServer) exitWith {};
 	//weapons & ammo
 	switch (true) do {
 		//RHS
-		case (ADV_par_opfWeap == 1 && ADV_par_opfWeap == 2): {
+		case (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
 			//weapons
 			_target addWeaponCargoGlobal ["rhs_weap_rpg7",5];
 			_target addWeaponCargoGlobal ["rhs_weap_igla",3];
@@ -39,6 +39,7 @@ if (!isServer) exitWith {};
 				_target addItemCargoGlobal ["rhs_acc_1p63",5];
 				_target addItemCargoGlobal ["rhs_acc_ekp1",5];
 			};
+			_target addItemCargoGlobal ["rhs_acc_2dpZenit",5];
 		};
 		case (ADV_par_opfWeap == 3): {
 			//weapons
@@ -128,7 +129,7 @@ if (!isServer) exitWith {};
 	//grenades
 	switch (true) do {
 		//RHS
-		case (ADV_par_opfWeap == 1 && ADV_par_opfWeap == 2): {
+		case (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
 			_target addMagazineCargoGlobal ["rhs_mag_rgd5",20];
 			_target addMagazineCargoGlobal ["rhs_mag_rdg2_white",20];
 			_target addMagazineCargoGlobal ["rhs_mag_rdg2_black",20];

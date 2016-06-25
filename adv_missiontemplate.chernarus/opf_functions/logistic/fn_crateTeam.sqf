@@ -15,7 +15,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	//weapons & ammo
 	switch (true) do {
 		//BWmod
-		case (ADV_par_opfWeap == 1 && ADV_par_opfWeap == 2): {
+		case (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
 			//ammo
 			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_AK",21];
 			_target addMagazineCargoGlobal ["rhs_10Rnd_762x54mmR_7N1",7];

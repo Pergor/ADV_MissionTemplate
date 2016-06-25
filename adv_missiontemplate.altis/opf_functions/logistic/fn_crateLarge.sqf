@@ -14,7 +14,7 @@ private ["_target"];
 	//weapons & ammo
 	switch (true) do {
 		//BWmod
-		case (ADV_par_opfWeap == 1 && ADV_par_opfWeap == 2): {
+		case (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
 			//ammo
 			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_AK",40];
 			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_7N10_AK",20];
@@ -34,7 +34,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["CUP_10Rnd_762x54_SVD_M",20];
 			_target addMagazineCargoGlobal ["CUP_8Rnd_9x18_Makarov_M",20];
 		};
-		case (ADV_par_opfWeap == 4): {};
+		//case (ADV_par_opfWeap == 4): {};
 		default {
 			switch (true) do {
 				case (ADV_par_opfWeap == 21): {

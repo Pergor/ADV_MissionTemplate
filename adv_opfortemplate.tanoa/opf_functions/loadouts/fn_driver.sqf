@@ -190,7 +190,7 @@ switch (ADV_par_opfWeap) do {
 	};
 	case 2: {
 		//RHS Guerilla
-		_primaryweapon = ["rhs_weap_aks74u_folded"];
+		_primaryweapon = ["rhs_weap_aks74un_folded"];
 		_optic = [""];
 		_attachments = [""];
 		_silencer = "";		//if silencer is added		

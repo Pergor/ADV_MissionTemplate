@@ -13,7 +13,7 @@ private ["_target"];
 
 	//grenades
 	switch (true) do {
-		case ( ADV_par_opfWeap == 1 && ADV_par_opfWeap == 2): {
+		case ( ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
 			_target addMagazineCargoGlobal ["rhs_mag_rgd5",10];
 			_target addMagazineCargoGlobal ["rhs_mag_rdg2_white",20];
 			_target addMagazineCargoGlobal ["rhs_mag_rdg2_black",20];
