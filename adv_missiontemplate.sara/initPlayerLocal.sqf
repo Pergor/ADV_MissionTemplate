@@ -172,8 +172,11 @@ if !(isClass(configFile >> "CfgPatches" >> "ace_cargo")) then {
 	ADV_handle_igiLoad = [] execVM "scripts\IgiLoad\IgiLoadInit.sqf";
 };
 
-sleep 8;
+sleep 4;
 //a little hint stating the date and time
-["Have Fun!", "Datum:" + str (date select 2) + "/" + str (date select 1) + "/" + str (date select 0)] spawn BIS_fnc_infoText;
+//["Have Fun!", "Datum:" + str (date select 2) + "/" + str (date select 1) + "/" + str (date select 0)] spawn BIS_fnc_infoText;
+["Have Fun!"] spawn BIS_fnc_infoText;
+sleep 4;
+[] spawn compile preprocessFileLineNumbers "a3\missions_f_epa\Campaign_shared\Functions\Timeline\fn_camp_showOSD.sqf";
 
 if (true) exitWith {};
