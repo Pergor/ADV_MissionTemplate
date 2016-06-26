@@ -90,7 +90,15 @@ ADV_ind_veh_all = ADV_ind_veh_light+ADV_ind_veh_armored+ADV_ind_veh_air;
 
 //replaces MRAPS with mod cars:
 switch (ADV_par_indCarAssets) do {
-	case 1: {[ADV_ind_veh_SUV,["I_MRAP_03_F"],independent] spawn ADV_fnc_changeVeh;[ADV_ind_veh_Offroad+ADV_ind_veh_OffroadHMG,["I_MRAP_03_hmg_F"],independent] spawn ADV_fnc_changeVeh;[ADV_ind_veh_airRecon,["I_Heli_light_03_F"],independent] spawn ADV_fnc_changeVeh;};
+	case 1: {
+		[ADV_ind_veh_SUV,["I_MRAP_03_F"],independent] spawn ADV_fnc_changeVeh;
+		[ADV_ind_veh_Offroad+ADV_ind_veh_OffroadHMG,["I_MRAP_03_hmg_F"],independent] spawn ADV_fnc_changeVeh;
+		[ADV_ind_veh_airRecon,["I_Heli_light_03_F"],independent] spawn ADV_fnc_changeVeh;
+		[ADV_ind_veh_transport,["I_Truck_02_covered_F"],independent] spawn ADV_fnc_changeVeh;
+		[ADV_ind_veh_logistic_fuel,["I_Truck_02_fuel_F"],independent] spawn ADV_fnc_changeVeh;
+		[ADV_ind_veh_logistic_ammo,["I_Truck_02_ammo_F"],independent] spawn ADV_fnc_changeVeh;
+		[ADV_ind_veh_logistic_repair,["I_Truck_02_box_F"],independent] spawn ADV_fnc_changeVeh;
+	};
 	case 99: {[ADV_ind_veh_all,[""],independent] spawn ADV_fnc_changeVeh;};
 	default {};
 };

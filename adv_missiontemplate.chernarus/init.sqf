@@ -86,6 +86,7 @@ if ( isServer ) then {
 		//indep crates
 		if (!isNil "ind_crate_1") then {[ind_crate_1] call ADV_fnc_clearCargo;};
 		if (!isNil "ind_crate_2") then {[ind_crate_2] call ADV_fnc_clearCargo;[ind_crate_2] call ADV_ind_fnc_crate;};
+		if (!isNil "ind_crate_3") then {[ind_crate_3] call ADV_fnc_clearCargo;[ind_crate_3] call ADV_ind_fnc_crate;};
 		if (!isNil "ind_crate_empty") then {[ind_crate_empty] call ADV_fnc_clearCargo;[ind_crate_empty] call ADV_ind_fnc_crate;};
 		//east crates:
 		ADV_objects_opfClearCargo = [];
