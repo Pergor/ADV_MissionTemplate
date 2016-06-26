@@ -172,6 +172,13 @@ if !(isClass(configFile >> "CfgPatches" >> "ace_cargo")) then {
 	ADV_handle_igiLoad = [] execVM "scripts\IgiLoad\IgiLoadInit.sqf";
 };
 
+switch (side (group player)) do {
+	case west: { [player,"respawn_west",70] call adv_fnc_safezone; };
+	case east: { [player,"respawn_east",70] call adv_fnc_safezone; };
+	case independent: { [player,"respawn_guerrila",70] call adv_fnc_safezone; };
+	default {};
+};
+
 sleep 4;
 //a little hint stating the date and time
 if ((toUpper worldname) in ["STRATIS","ALTIS"]) then {

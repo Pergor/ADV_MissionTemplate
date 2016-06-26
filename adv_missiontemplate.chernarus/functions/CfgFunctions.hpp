@@ -75,6 +75,7 @@ class ADV
 		class playerUnit {};
 		class radioHeadset {};
 		class rollDice {};
+		class safeZone {};
 		class showArtiSetting {};
 		class spawnFire {};
 		class teleport {};

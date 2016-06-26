@@ -14,7 +14,6 @@ _this select 3 = Functions to call or code to spawn on the spawned crate. Crate 
 _this select 4 = Functions to call or code to spawn on the spawned crate. Crate object is _this select 0 in the code or function. (Array of functions or string - optional);
 _this select 5 = Classname of crate (string - optional);
 _this select 6 = Classname of parachute (string - optional);
-
 */
 
 if (!isServer && hasInterface) exitWith {};
