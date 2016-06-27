@@ -2644,7 +2644,7 @@ class Mission
 					{
 						skill=0.60000002;
 						name="AR_1";
-						description="MMG-Schütze - Phobos 1";
+						description="MMG-Schütze";
 						isPlayable=1;
 					};
 					id=116;
@@ -2726,7 +2726,7 @@ class Mission
 					{
 						skill=0.60000002;
 						name="ft_5";
-						description="Truppführer - Phobos 2";
+						description="Truppführer - Phobos 1";
 						isPlayable=1;
 					};
 					id=120;
@@ -2745,12 +2745,12 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						name="soldier_1";
+						name="lmg_5";
 						description="Schütze";
 						isPlayable=1;
 					};
 					id=121;
-					type="B_T_Soldier_F";
+					type="B_T_Soldier_AR_F";
 				};
 				class Item8
 				{
@@ -2765,7 +2765,7 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						name="soldier_2";
+						name="soldier_1";
 						description="Schütze";
 						isPlayable=1;
 					};
@@ -2786,12 +2786,12 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						name="lmg_5";
-						description="LMG-Schütze";
+						name="cls_1";
+						description="Einsatzersthelfer";
 						isPlayable=1;
 					};
 					id=123;
-					type="B_T_Soldier_AR_F";
+					type="B_T_medic_F";
 				};
 			};
 			class Attributes
