@@ -44,6 +44,11 @@ if (ADV_par_Assets_tanks == 99) then {ADV_par_modTankAssets = 99;ADV_par_opfTank
 if (ADV_par_Assets_air_helis == 99) then {ADV_par_modHeliAssets = 99;ADV_par_opfHeliAssets=99;};
 if (ADV_par_Assets_air_fixed == 99) then {ADV_par_modAirAssets = 99;ADV_par_opfAirAssets=99;};
 
+if (ADV_par_engineArtillery == 0) then {
+	missionNamespace setVariable ["ace_mk6mortar_allowComputerRangefinder",true];
+	missionNamespace setVariable ["ace_mk6mortar_airResistanceEnabled",true];
+};
+
 //just to be on the safe side:
 //call _arrayCreation;
 
