@@ -3,8 +3,8 @@
 		["_crate", objNull, [objNull]],
 		["_targetPos", [0,0,0], [[]]]
 	];
-	systemChat "ETA: ~3 minutes.";
-	sleep 180;
+	systemChat "ETA: ~1 minute.";
+	sleep 60;
 	_targetPos = [_targetPos select 0, _targetPos select 1, 600];
 	_chute = createVehicle ["B_Parachute_02_F", _targetPos, [], 0, "NONE"];
 	_crate setPos _targetPos;
