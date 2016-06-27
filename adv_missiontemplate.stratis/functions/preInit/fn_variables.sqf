@@ -20,7 +20,7 @@ if (isClass (configFile >> "CfgPatches" >> "acre_main")) then {
 };
 */
 
-missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true,true];
+missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true];
 
 //map variables:
 ADV_var_aridMaps = [
@@ -45,8 +45,8 @@ switch (ADV_par_customUni) do {
 	default {};
 };
 
-if (isClass(configFile >> "CfgPatches" >> "ace_rearm") && (ADV_par_modTankAssets == 2 || ADV_par_modTankAssets == 1)) then {
-	missionNamespace setVariable ["ace_rearm_level",0,true];
+if (isClass(configFile >> "CfgPatches" >> "ace_rearm") && (ADV_par_modTankAssets == 1 || ADV_par_modTankAssets == 2)) then {
+	missionNamespace setVariable ["ace_rearm_level",0];
 };
 
 if (isNil "ADV_par_Tablets") then { ADV_par_Tablets = ["param_Tablets",1] call BIS_fnc_getParamValue; };
