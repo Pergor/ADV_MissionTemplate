@@ -383,7 +383,7 @@ class ace_mk6mortar_airResistanceEnabled {
     typeName = "BOOL";
     force = 0;
 };
-class ace_mk6mortar_allowComputerRangefinder {
+class ace_mk6mortar_allowComputerRangefinder {	//NEEDS to be set to 0 if ace_mk6mortar_airResistanceEnabled == 1!
     value = 0;
     typeName = "BOOL";
     force = 0;
