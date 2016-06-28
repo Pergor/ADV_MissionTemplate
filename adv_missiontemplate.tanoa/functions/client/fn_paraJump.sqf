@@ -27,13 +27,15 @@ sleep 1;
 //Parachute is given
 _unit addBackpackGlobal "B_Parachute";
 sleep 2+(random 4);
-//unit is moved to height 1500 on given position
-_targetPos = [(_targetPos select 0)+(20+(random 10)), (_targetPos select 1)+(20+(random 10)), 2000];
-_unit setPos _targetPos;
+//unit is moved to height 2000 on given position
+_target = [(_targetPos select 0)+(20+(random 10)), (_targetPos select 1)+(20+(random 10)), 2000];
+_unit setPos _target;
+_unit allowDamage false;
 
 //safety:
-waitUntil {((getPos _unit) select 2) > 900};
-waitUntil {((getPos _unit) select 2) < 110};
+waitUntil {((getPosWorld _unit) select 2) > 900};
+_unit moveTo _targetPos;
+waitUntil {((getPosWorld _unit) select 2) < 110};
 if (isClass(configFile >> "CfgPatches" >> "ace_parachute")) then {
 	if !(backpack _unit == "ACE_ReserveParachute") then {
 		_unit action ["openParachute", _unit];
@@ -41,9 +43,11 @@ if (isClass(configFile >> "CfgPatches" >> "ace_parachute")) then {
 } else {
 	_unit action ["openParachute", _unit];
 };
+_unit allowDamage true;
+_unit moveTo _targetPos;
 
 //removal of the parachute:
-waitUntil {sleep 0.2; isTouchingGround _unit};
+waitUntil {sleep 0.2; ( isTouchingGround _unit || ((getPosATL _unit) select 2) < 1 )};
 if !(isClass(configFile >> "CfgPatches" >> "ace_parachute")) then { _unit playMove "AinvPercMstpSrasWrflDnon_Putdown_AmovPercMstpSrasWrflDnon"; };
 sleep 1;
 _unit action ["PutBag"];
