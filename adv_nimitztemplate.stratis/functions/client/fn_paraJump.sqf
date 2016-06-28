@@ -26,9 +26,9 @@ if !((_unit getVariable "adv_var_parajump_backpack") == "") then {
 sleep 1;
 //Parachute is given
 _unit addBackpackGlobal "B_Parachute";
-sleep 1+(random 3);
+sleep 2+(random 4);
 //unit is moved to height 1500 on given position
-_targetPos = [(_targetPos select 0)+(5+(random 10)), (_targetPos select 1)+(5+(random 10)), 1500];
+_targetPos = [(_targetPos select 0)+(20+(random 10)), (_targetPos select 1)+(20+(random 10)), 2000];
 _unit setPos _targetPos;
 
 //safety:
