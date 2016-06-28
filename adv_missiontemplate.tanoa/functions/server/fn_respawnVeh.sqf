@@ -53,6 +53,7 @@ _markerName = format ["%1%2","respPos_",_name];
 _respawnPos = createMarkerLocal [_markerName, getPosASL _veh];
 _respawnPos setMarkerDirLocal (getDir _veh);
 _respHeightPos = getPosASL _veh;
+_initLine = _veh getVariable ["adv_initline",""];
 /*
 _respawnPos setMarkerPos [_markerPos select 0, _markerPos select 1, (getPosASL _veh) select 2];
 */
@@ -115,6 +116,8 @@ while {true} do {
 		[_veh] call ADV_fnc_rhsDecals;
 	};
 	call compile format ["[%1] call adv_%2%3",_veh,_sidePrefix,"fnc_disableVehSelector"];
+	call compile format ["%1 call compile %2",_veh,str _initLine];
+	_veh setVariable ["adv_initline",str _initLine];
 };
 	
 if (true) exitWith{};
