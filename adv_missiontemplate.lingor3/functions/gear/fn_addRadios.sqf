@@ -15,8 +15,9 @@ if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) then {
 		if ( _x in _linkedRadios ) then {
 			_actualRadio pushBack _x
 		};
-	} forEach (assignedItems _unit);
-	{_unit unlinkItem _x; _unit removeItems _x;} forEach _actualRadio;
+		nil;
+	} count (assignedItems _unit);
+	{_unit unlinkItem _x; _unit removeItems _x;} count _actualRadio;
 };
 
 switch ( true ) do {
@@ -41,9 +42,10 @@ switch ( true ) do {
 			//everyone gets role specific radio
 			default {
 				if ( _givePersonalRadio ) then { _unit linkItem _personalRadioType; };
-				if ( _giveRiflemanRadio && _givePersonalRadio ) then { _unit addItem _riflemanRadioType; };
 				if ( _giveRiflemanRadio && !_givePersonalRadio ) then { _unit linkItem _riflemanRadioType; };
-				if ( _tfar_microdagr > 0 ) then { _unit addItem "tf_microdagr"; };
+				if ( _giveRiflemanRadio && _givePersonalRadio ) then { _unit addItem _riflemanRadioType; };
+				if ( _tfar_microdagr > 0 && _givePersonalRadio) then { _unit addItem "tf_microdagr"; };
+				if ( _tfar_microdagr > 0 && !_givePersonalRadio) then { _unit linkItem "tf_microdagr"; };
 			};
 			//only leaders get Radio
 			case 2: {
@@ -59,12 +61,12 @@ switch ( true ) do {
 		switch ADV_par_Radios do {
 			//everyone gets role specific radio
 			default {
-				{ _unit addItem _x; } forEach _ACREradios;
+				{ _unit addItem _x; } count _ACREradios;
 			};
 			//only leaders get Radio
 			case 2: {
 				_ACREradios deleteAt 0; _ACREradios deleteAt 2;
-				{ _unit addItem _x; } forEach _ACREradios;
+				{ _unit addItem _x; } count _ACREradios;
 			};
 			//everyone gets personal radio
 			case 3: {

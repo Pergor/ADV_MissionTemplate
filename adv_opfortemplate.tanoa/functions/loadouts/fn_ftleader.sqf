@@ -105,7 +105,7 @@ _ACREradios = ["ACRE_PRC343","ACRE_PRC148"];	//_this select 0=shortrange radio;_
 //TFAR items
 _givePersonalRadio = true;
 _giveRiflemanRadio = false;
-_tfar_microdagr = 0;				//adds the tfar microdagr to set the channels for a rifleman radio
+_tfar_microdagr = 1;				//adds the tfar microdagr to set the channels for a rifleman radio
 
 //ACE items (if ACE is running on the server) - (integers)
 _ACE_EarPlugs = 1;
