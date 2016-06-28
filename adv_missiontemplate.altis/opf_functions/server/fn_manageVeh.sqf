@@ -42,6 +42,8 @@ ADV_opf_veh_heavys = [];
 ADV_opf_veh_tanks = [];
 ADV_opf_veh_artys = [];
 
+///// No editing necessary below this line /////
+
 {
 	_vehicleName = str _x;
 	switch ( true ) do {
@@ -85,7 +87,50 @@ ADV_opf_veh_light = ADV_opf_veh_ATVs+ADV_opf_veh_UGVs+ADV_opf_veh_UGVs_repair+AD
 
 ADV_opf_veh_all = ADV_opf_veh_light+ADV_opf_veh_armored+ADV_opf_veh_air;
 
-///// No editing necessary below this line /////
+//removes the markers according to the lobby params
+if (ADV_par_Assets_cars == 0 || ADV_par_Assets_cars == 99 || ADV_par_opfCarAssets == 99) then {
+	{_x setMarkerAlpha 0;} count _veh_lightMarkers
+};
+if (ADV_par_Assets_tanks == 0 || ADV_par_Assets_tanks == 99 ||ADV_par_opfTankAssets == 99) then {
+	{_x setMarkerAlpha 0;} count _veh_heavyMarkers;
+};
+if (ADV_par_Assets_air_helis == 0 || ADV_par_Assets_air_helis == 99 || ADV_par_opfHeliAssets == 99) then {
+	{_x setMarkerAlpha 0;} count _veh_heliMarkers;
+};
+if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_par_Assets_air_fixed == 99 && ADV_par_Assets_air_helis == 99) || ADV_par_opfAirAssets == 99) then {
+	{_x setMarkerAlpha 0;} count _veh_fixedMarkers;
+};
+
+//creation of vehicle code:
+adv_opf_manageVeh_codeForAll = {
+	_veh = _this;
+	[_veh] call ADV_fnc_clearCargo;
+	[_veh] call ADV_opf_fnc_addVehicleLoad;
+	[_veh] call ADV_opf_fnc_disableVehSelector;
+	[_veh,ADV_par_vehicleRespawn, east, (typeOf _veh)] spawn ADV_fnc_respawnVeh;
+	if (ADV_par_engineArtillery == 1 && str _veh in ADV_opf_veh_artys) then {
+		[_veh] call ADV_fnc_showArtiSetting;
+	};
+	if (ADV_par_TIEquipment > 0) then {
+		_veh disableTIEquipment true;
+		if (ADV_par_TIEquipment > 2) then {
+			_veh disableNVGEquipment true;
+		};
+	};
+	if ( ADV_par_Radios > 0 && (_veh isKindOf 'CAR' || _veh isKindOf 'TANK' || _veh isKindOf 'AIR') ) then {
+		_veh setVariable ['tf_hasRadio', true, true];
+	};
+	if (isClass(configFile >> 'CfgPatches' >> 'rhs_main')) then {
+		[_veh] call ADV_opf_fnc_rhsDecals;
+	};
+};
+//application of code:
+{
+	if (str _x in ADV_opf_veh_all) then {
+		call compile format ["%1 spawn %2", _x, adv_opf_manageVeh_codeForAll];
+	};
+	nil;
+} count vehicles;
 
 //replaces MRAPS with mod cars:
 switch (ADV_par_opfCarAssets) do {
@@ -172,43 +217,5 @@ switch (ADV_par_opfAirAssets) do {
 	case 99: {[ADV_opf_veh_airCAS,[""],east] spawn ADV_fnc_changeVeh;};
 	default {};
 };
-
-//removes the markers according to the lobby params
-if (ADV_par_Assets_cars == 0 || ADV_par_Assets_cars == 99 || ADV_par_opfCarAssets == 99) then {
-	{_x setMarkerAlpha 0;} count _veh_lightMarkers
-};
-if (ADV_par_Assets_tanks == 0 || ADV_par_Assets_tanks == 99 ||ADV_par_opfTankAssets == 99) then {
-	{_x setMarkerAlpha 0;} count _veh_heavyMarkers;
-};
-if (ADV_par_Assets_air_helis == 0 || ADV_par_Assets_air_helis == 99 || ADV_par_opfHeliAssets == 99) then {
-	{_x setMarkerAlpha 0;} count _veh_heliMarkers;
-};
-if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_par_Assets_air_fixed == 99 && ADV_par_Assets_air_helis == 99) || ADV_par_opfAirAssets == 99) then {
-	{_x setMarkerAlpha 0;} count _veh_fixedMarkers;
-};
-
-//disables vehicles at start
-{
-	if (str _x in ADV_opf_veh_all) then {
-		[_x] call ADV_fnc_clearCargo;
-		[_x] call ADV_opf_fnc_addVehicleLoad;
-		[_x] call ADV_opf_fnc_disableVehSelector;
-		[_x,ADV_par_vehicleRespawn, east, (typeOf _x)] spawn ADV_fnc_respawnVeh;
-		if (str _x in ADV_opf_veh_artys) then {
-			[_x] call ADV_fnc_showArtiSetting;
-		};
-		if ( ADV_par_Radios > 0 && (_x isKindOf "CAR" || _x isKindOf "TANK" || _x isKindOf "AIR") ) then {
-			_x setVariable ["tf_hasRadio", true, true];
-			//_x setVariable ["tf_side", east, true];
-		};
-		if (ADV_par_TIEquipment > 0) then {
-			_x disableTIEquipment true;
-			if (ADV_par_TIEquipment > 2) then {
-				_x disableNVGEquipment true;
-			};
-		};
-	};
-	nil;
-} count Vehicles;
 
 if (true) exitWith { missionNamespace setVariable ["ADV_var_manageVeh_opf",true,true]; };

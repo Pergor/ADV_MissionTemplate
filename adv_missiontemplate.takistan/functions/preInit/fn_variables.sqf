@@ -35,7 +35,7 @@ ADV_var_lushMaps = [
 	"FDF_ISLE1_A","MBG_CELLE2","WOODLAND_ACR","BOOTCAMP_ACR","THIRSK","BORNHOLM","UTES","ANIM_HELVANTIS_V2","ABRAMIA","PANTHERA3","VT5",
 	"TANOA"
 ];
-switch (ADV_par_customUni) do {
+switch ( ADV_par_customUni ) do {
 	case 1: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_lushMaps) then {2} else {1}; };
 	case 2: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_aridMaps) then {1} else {2}; };
 	case 4: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_aridMaps) then {5} else {4}; };

@@ -29,6 +29,7 @@ class ADV
 		class CASRun {};
 		class changeVeh {};
 		class createZeus {};
+		class disableTI {};
 		class disableVeh {};
 		class disableVehSelector {};
 		class flare {};

@@ -53,7 +53,7 @@ _markerName = format ["%1%2","respPos_",_name];
 _respawnPos = createMarkerLocal [_markerName, getPosASL _veh];
 _respawnPos setMarkerDirLocal (getDir _veh);
 _respHeightPos = getPosASL _veh;
-_initLine = _veh getVariable ["adv_initline",""];
+_initLine = _veh getVariable ["adv_vehicleinit",""];
 /*
 _respawnPos setMarkerPos [_markerPos select 0, _markerPos select 1, (getPosASL _veh) select 2];
 */
@@ -76,10 +76,17 @@ while {true} do {
 	_veh call compile format ["%1 = _this; publicVariable '%1'", _name];
 	sleep 2;
 	{_x addCuratorEditableObjects [[_veh],false];} count allCurators;
-	[_veh] call ADV_fnc_clearCargo;
-	if ((str _veh) in ADV_veh_all || (str _veh) in ADV_opf_veh_all || (str _veh) in ADV_ind_veh_all) then {
-		call compile format ["[%1] call adv_%2%3",_veh,_sidePrefix,"fnc_addVehicleLoad"];
-	} else {
+
+	if ( (str _veh) in ADV_veh_all ) then {
+		call compile format ["%1 spawn %2",_veh,adv_manageVeh_codeForAll];
+	};
+	if ( (str _veh) in ADV_opf_veh_all ) then {
+		call compile format ["%1 spawn %2",_veh,adv_opf_manageVeh_codeForAll];
+	};
+	if ( (str _veh) in ADV_ind_veh_all ) then {
+		call compile format ["%1 spawn %2",_veh,adv_ind_manageVeh_codeForAll];
+	};
+	if !( (str _veh) in ADV_veh_all || (str _veh) in ADV_opf_veh_all || (str _veh) in ADV_ind_veh_all ) then {
 		if (_veh isKindOf "Helicopter" || _veh isKindOf "Ship") then { call compile format ["%1 call ADV_%2%3",[_veh,false,false,2,false],_sidePrefix,"fnc_vehicleLoad"]; };
 		if (_veh isKindOf "Plane") then { call compile format ["%1 call ADV_%2%3",[_veh,false,false,1,false],_sidePrefix,"fnc_vehicleLoad"]; };
 		if (_veh isKindOf "Tank") then { call compile format ["%1 call ADV_%2%3",[_veh,false,false,2,false],_sidePrefix,"fnc_vehicleLoad"]; };
@@ -87,37 +94,9 @@ while {true} do {
 		if (_veh isKindOf "Motorcycle") then { call compile format ["%1 call ADV_%2%3",[_veh,false,false,1,false],_sidePrefix,"fnc_vehicleLoad"]; };
 		if (_veh isKindOf "UGV_01_base_F") then { call compile format ["%1 call ADV_%2%3",[_veh,false,false,0,false],_sidePrefix,"fnc_vehicleLoad"]; };
 	};
-	if (ADV_par_TIEquipment > 0) then {
-		_veh disableTIEquipment true;
-		if (ADV_par_TIEquipment > 2) then {
-			_veh disableNVGEquipment true;
-		};
-	};
-	if ( ADV_par_Radios > 0 && (_veh isKindOf "CAR" || _veh isKindOf "TANK" || _veh isKindOf "AIR") ) then {
-		_veh setVariable ["tf_hasRadio", true, true];
-		//_veh setVariable ["tf_side", west, true];
-	};
-	if ( _name in ADV_veh_artys || _name in ADV_opf_veh_artys || _name in ADV_ind_veh_artys ) then {
-		[_veh] call ADV_fnc_showArtiSetting;
-	};
-	if (_name in ADV_ind_veh_all && ADV_par_indUni != 1) then {
-		sleep 2;
-		if (toUpper worldname != "TANOA" && (str _x in ADV_ind_veh_transport+ADV_ind_veh_Offroad+ADV_ind_veh_airRecon)) then {
-			_x setObjectTextureGlobal [0,'#(rgb,8,8,3)color(1,1,1,0.004)'];
-			if (str _x in ADV_ind_veh_transport) then {
-				_x setObjectTextureGlobal [1,'#(rgb,8,8,3)color(1,1,1,0.004)'];
-			};
-		};
-	};
-	if (isClass(configFile >> "CfgPatches" >> "rhs_main")) then {
-		[_veh] call ADV_opf_fnc_rhsDecals;
-	};
-	if (isClass(configFile >> "CfgPatches" >> "rhsusf_main")) then {
-		[_veh] call ADV_fnc_rhsDecals;
-	};
-	call compile format ["[%1] call adv_%2%3",_veh,_sidePrefix,"fnc_disableVehSelector"];
+	sleep 1;
 	call compile format ["%1 call compile %2",_veh,str _initLine];
-	_veh setVariable ["adv_initline",str _initLine];
+	_veh setVariable ["adv_vehicleinit",str _initLine];
 };
 	
 if (true) exitWith{};

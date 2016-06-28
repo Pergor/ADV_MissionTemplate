@@ -125,8 +125,8 @@ Turns true as soon as vehicle management has been completed. (Does not include c
 Useful other commands:
 
 If you want or need to put something in a vehicles init-line (which be will applied to the vehicle even after respawn) do it like this:
-this setVariable ["adv_initline","_this call any_function"];
-this call compile (this getVariable "adv_initline");
+this setVariable ["adv_vehicleinit","_this call any_function"];
+this call compile (this getVariable "adv_vehicleinit");
 You can put your code in the field "_this call any_function". Remember to refer to the vehicle with _this instead of this!
 
 removeFromRemainsCollector [this];

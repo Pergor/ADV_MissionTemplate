@@ -114,12 +114,15 @@ if ( isServer ) then {
 	
 	if (!isNil "flag_1") then {
 		flag_1 setFlagTexture "img\flag.paa";
+		flag_1 setFlagSide west;
 	};
 	if (!isNil "opf_flag_1") then {
 		opf_flag_1 setFlagTexture "img\flag.paa";
+		opf_flag_1 setFlagSide east;
 	};
 	if (!isNil "ind_flag_1") then {
 		ind_flag_1 setFlagTexture "img\flag.paa";
+		ind_flag_1 setFlagSide independent;
 	};
 };
 

@@ -13,4 +13,4 @@ switch true do {
 	default {};
 };
 
-if (true) exitWith {};
+true;

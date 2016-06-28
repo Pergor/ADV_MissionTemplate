@@ -111,7 +111,7 @@ class param_TIEquipment
 {
 	title="Soll NV- und Thermal-Imaging in Fahrzeugen und statischen Waffen deaktiviert werden?";
 	values[] = {4,3,2,1,0};
-	texts[] = {"Kein NV- und Thermal-Imaging für alle Fahrzeuge & statische Waffen","Kein NV- und Thermal-Imaging für Spieler-Fahrzeuge und statische Waffen","Kein Thermal-Imaging für alle Fahrzeuge & statische Waffen","Kein Thermal-Imaging für Spieler-Fahrzeuge und statische Waffen","Nein"};
+	texts[] = {"Kein NV- und Thermal-Imaging für alle Fahrzeuge & statische Waffen","Kein NV- und Thermal-Imaging für Spieler-Fahrzeuge","Kein Thermal-Imaging für alle Fahrzeuge & statische Waffen","Kein Thermal-Imaging für Spieler-Fahrzeuge","Nein"};
 	default = 0;
 };
 class param_seriousMode
