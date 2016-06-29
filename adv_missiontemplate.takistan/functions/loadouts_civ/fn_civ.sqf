@@ -10,13 +10,11 @@ _uniform = ["U_BG_Guerilla2_2","U_BG_Guerilla2_1","U_BG_Guerilla2_3","U_BG_Gueri
 _vest = [""]; 
 _headgear = ["H_Cap_oli","H_Cap_blk","H_Cap_grn","H_Cap_tan","","","","","","","",""];
 _backpack = [""];
-if (isClass(configFile >> "CfgPatches" >> "lop_c_men")) then {
-	if ( toUpper (worldname) == "TAKISTAN" || toUpper (worldname) == "ZARGABAD" || toUpper (worldname) == "FATA" || toUpper (worldname) == "KUNDUZ") then {
-		_uniform = ["LOP_U_TAK_Civ_Fatigue_01","LOP_U_TAK_Civ_Fatigue_02","LOP_U_TAK_Civ_Fatigue_04"];
-		_headgear = ["LOP_H_Pakol","LOP_H_Turban","H_ShemagOpen_khk","",""];
-	};
+if ( (isClass(configFile >> "CfgPatches" >> "lop_c_men")) && (toUpper (worldname) in ADV_var_aridMaps) ) then {
+	_uniform = ["LOP_U_TAK_Civ_Fatigue_01","LOP_U_TAK_Civ_Fatigue_02","LOP_U_TAK_Civ_Fatigue_04"];
+	_headgear = ["LOP_H_Pakol","LOP_H_Turban","H_ShemagOpen_khk","",""];
 };
-if (isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians")) then {
+if ( (isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians")) && (toUpper (worldname) in ADV_var_europeMaps) ) then {
 	if ( toUpper (worldname) == "CHERNARUS" || toUpper (worldname) == "CHERNARUS_SUMMER" ) then {
 		_uniform = ["rds_uniform_citizen1","rds_uniform_citizen2","rds_uniform_citizen3","rds_uniform_citizen4","U_Marshal",
 			"rds_uniform_Profiteer3","rds_uniform_Profiteer4","rds_uniform_schoolteacher","rds_uniform_Villager1","rds_uniform_Woodlander1","rds_uniform_Woodlander2"];
@@ -103,9 +101,9 @@ _itemsBackpack = [];
 
 //linked items (don't put "ItemRadio" in here, as it's set with _equipRadio) - (array)
 _itemsLink = [
-		"ItemWatch",
-		"ItemMap"
-	];
+	"ItemWatch",
+	"ItemMap"
+];
 		
 //items added to any container - (array)
 _items = [];
@@ -204,4 +202,5 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar",""
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
 
-true;
+_return = getUnitLoadout _player;
+_return;

@@ -192,4 +192,5 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar",""
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
 
-true;
+_return = getUnitLoadout _player;
+_return;

@@ -260,4 +260,5 @@ switch ( toUpper ([(str _player),0,7] call BIS_fnc_trimString) ) do {
 	case "IND_ATOW": { [_player,6] call ADV_fnc_CSW; };
 };
 
-true;
+_return = getUnitLoadout _player;
+_return;

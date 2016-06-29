@@ -262,4 +262,5 @@ switch (toUpper ([str (_this select 0),3,12] call BIS_fnc_trimString)) do {
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
 
-true;
+_return = getUnitLoadout _player;
+_return;

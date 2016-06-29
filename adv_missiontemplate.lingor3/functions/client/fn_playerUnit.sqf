@@ -16,7 +16,7 @@ _object = str _target;
 if (side _target == sideLogic) exitWith {};
 
 if (side _target == west) then {
-	_zeus = ["z1","z2","z3","z4","z5"];
+	_zeus = ["Z1","Z2","Z3","Z4","Z5"];
 	
 	_prefix = [_object,0,2] call BIS_fnc_trimString;
 	_playerUnit = switch (toUpper (_prefix)) do {
@@ -58,7 +58,7 @@ if (side _target == west) then {
 				case ( toUpper ([_object,0,5] call BIS_fnc_trimString) == "ASSCSW" ): {"ADV_fnc_soldier"};			//asst. crew served weapon
 				case ( toUpper ([_object,0,8] call BIS_fnc_trimString) == "ASSMORTAR" ): {"ADV_fnc_soldier"};		//asst. mortar gunner
 				case ( toUpper ([_object,0,5] call BIS_fnc_trimString) == "ASSTOW" ): {"ADV_fnc_soldier"};		//asst. mortar gunner
-				case (_object in _zeus): {"ADV_fnc_zeus"};
+				case ( (toUpper _object) in _zeus ): {"ADV_fnc_zeus"};
 				default {"ADV_fnc_nil"};
 			};
 		};	
@@ -66,7 +66,7 @@ if (side _target == west) then {
 };
 
 if (side _target == east) then {
-	_zeus = ["opf_z1","opf_z2","opf_z3","opf_z4","opf_z5"];
+	_zeus = ["OPF_Z1","OPF_Z2","OPF_Z3","OPF_Z4","OPF_Z5"];
 	
 	_prefix = [_object,0,6] call BIS_fnc_trimString; 
 	_playerUnit = switch (toUpper (_prefix)) do {
@@ -112,7 +112,7 @@ if (side _target == east) then {
 				case ( toUpper ([_object,0,9] call BIS_fnc_trimString) == "OPF_ASSCSW" ): {"ADV_opf_fnc_soldier"};			//asst. crew served weapon
 				case ( toUpper ([_object,0,12] call BIS_fnc_trimString) == "OPF_ASSMORTAR" ): {"ADV_opf_fnc_soldier"};		//asst. mortar gunner
 				case ( toUpper ([_object,0,9] call BIS_fnc_trimString) == "OPF_ASSTOW" ): {"ADV_opf_fnc_soldier"};		//asst. mortar gunner
-				case (_object in _zeus): {"ADV_fnc_zeus"};
+				case ( (toUpper _object) in _zeus ): {"ADV_fnc_zeus"};
 				default {"ADV_fnc_nil"};
 			};
 		};	
@@ -120,7 +120,7 @@ if (side _target == east) then {
 };
 
 if (side _target == independent) then {
-	_zeus = ["ind_z1","ind_z2","ind_z3","ind_z4","ind_z5"];
+	_zeus = ["IND_Z1","IND_Z2","IND_Z3","IND_Z4","IND_Z5"];
 	
 	_prefix = [_object,0,6] call BIS_fnc_trimString; 
 	_playerUnit = switch (toUpper (_prefix)) do {
@@ -166,7 +166,7 @@ if (side _target == independent) then {
 				case ( toUpper ([_object,0,9] call BIS_fnc_trimString) == "IND_ASSCSW" ): {"ADV_ind_fnc_soldier"};			//asst. crew served weapon
 				case ( toUpper ([_object,0,12] call BIS_fnc_trimString) == "IND_ASSMORTAR" ): {"ADV_ind_fnc_soldier"};		//asst. mortar gunner
 				case ( toUpper ([_object,0,9] call BIS_fnc_trimString) == "IND_ASSTOW" ): {"ADV_ind_fnc_soldier"};		//asst. mortar gunner
-				case (_object in _zeus): {"ADV_fnc_zeus"};
+				case ( (toUpper _object) in _zeus ): {"ADV_fnc_zeus"};
 				default {"ADV_fnc_nil"};
 			};
 		};	

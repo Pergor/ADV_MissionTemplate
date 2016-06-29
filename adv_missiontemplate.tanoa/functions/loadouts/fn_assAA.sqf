@@ -462,4 +462,5 @@ switch (ADV_par_customUni) do {
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
 
-true;
+_return = getUnitLoadout _player;
+_return;

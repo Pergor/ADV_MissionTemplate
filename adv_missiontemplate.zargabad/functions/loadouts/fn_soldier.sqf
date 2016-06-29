@@ -451,4 +451,5 @@ switch true do {
 	default {};
 };
 
-true;
+_return = getUnitLoadout _player;
+_return;
