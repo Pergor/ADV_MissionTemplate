@@ -4969,7 +4969,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						rank="CORPORAL";
 						name="opf_AR_1";
 						description="MMG-Schütze";
 						isPlayable=1;
@@ -4989,12 +4988,12 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						name="opf_assAR_1";
-						description="asst. MMG-Schütze";
+						name="opf_AR_2";
+						description="MMG-Schütze";
 						isPlayable=1;
 					};
 					id=270;
-					type="O_Soldier_AAR_F";
+					type="O_Soldier_AR_F";
 				};
 				class Item4
 				{
@@ -5008,12 +5007,12 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						name="opf_AT_1";
-						description="AT-Schütze";
+						name="opf_assAR_1";
+						description="asst. MMG-Schütze";
 						isPlayable=1;
 					};
 					id=271;
-					type="O_Soldier_AT_F";
+					type="O_Soldier_AAR_F";
 				};
 				class Item5
 				{
@@ -5027,12 +5026,12 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						name="opf_assAT_1";
-						description="asst. AT-Schütze";
+						name="opf_assAR_2";
+						description="asst. MMG-Schütze";
 						isPlayable=1;
 					};
 					id=272;
-					type="O_Soldier_AAT_F";
+					type="O_Soldier_AAR_F";
 				};
 				class Item6
 				{
@@ -5192,7 +5191,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						rank="CORPORAL";
 						name="AR_1";
 						description="MMG-Schütze";
 						isPlayable=1;
@@ -5212,12 +5210,12 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						name="assAR_1";
-						description="asst. MMG-Schütze";
+						name="AR_2";
+						description="MMG-Schütze";
 						isPlayable=1;
 					};
 					id=282;
-					type="B_soldier_AAR_F";
+					type="B_soldier_AR_F";
 				};
 				class Item4
 				{
@@ -5231,12 +5229,12 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						name="AT_1";
-						description="AT-Spezialist";
+						name="assAR_1";
+						description="asst. MMG-Schütze";
 						isPlayable=1;
 					};
 					id=283;
-					type="B_soldier_AT_F";
+					type="B_soldier_AAR_F";
 				};
 				class Item5
 				{
@@ -5250,12 +5248,12 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						name="assAT_1";
-						description="asst. AT-Spezialist (BWmod: Schütze (RGW90))";
+						name="assAR_2";
+						description="asst. MMG-Schütze";
 						isPlayable=1;
 					};
 					id=284;
-					type="B_soldier_AAT_F";
+					type="B_soldier_AAR_F";
 				};
 				class Item6
 				{
