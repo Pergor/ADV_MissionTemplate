@@ -97,6 +97,7 @@ class ADV
 		class gear {};
 		class insignia {};
 		class removeWeapon {};
+		class setFaction {};
 	};
 	class loadouts
 	{

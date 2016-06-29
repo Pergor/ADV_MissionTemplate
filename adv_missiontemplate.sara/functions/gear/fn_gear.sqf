@@ -203,6 +203,8 @@ if ( ADV_par_Radios > 0 ) then {
 	[_unit] call ADV_fnc_addRadios;
 };
 
+[_unit] call adv_fnc_setFaction;
+
 if !(_backpack == "") then {
 	if ( !isNil "_additionalAmmo" ) then { [_unit,_additionalAmmo select 0,0,_additionalAmmo select 1,_additionalAmmo select 2] call ADV_fnc_addMagazine; };
 	if ( !isNil "_additionalAmmo1" ) then { [_unit,_additionalAmmo1 select 0,0,_additionalAmmo1 select 1,_additionalAmmo1 select 2] call ADV_fnc_addMagazine; };
