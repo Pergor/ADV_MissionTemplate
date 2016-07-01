@@ -18,15 +18,24 @@ if (ADV_par_Tablets == 2) then {
 		_unit addItem "ACE_microDAGR";
 	};
 };
-
-if ( isClass(configFile >> "CfgPatches" >> "ACE_hearing") ) then {
+if ( isClass(configFile >> "CfgPatches" >> "ACE_hearing") && !isNil "_ACE_EarPlugs" ) then {
 	for "_i" from 1 to _ACE_EarPlugs do { _unit addItem "ACE_EarPlugs"; };
 };
-if ( isClass(configFile >> "CfgPatches" >> "ACE_maptools") && _ACE_MapTools > 0 ) then {
-	_unit addItem "ACE_MapTools";
+if ( isClass(configFile >> "CfgPatches" >> "ACE_gunbag") && !isNil "_ace_gunbag") then {
+	if ( _ace_gunbag > 0 && (backpack _unit) isEqualTo "" ) then {
+		_gunbag = switch (true) do {
+			case ( (toUpper worldname) in ADV_var_aridMaps ): {["ace_gunbag_Tan"]};
+			case ( (toUpper worldname) in ADV_var_lushMaps ): {["ace_gunbag"]};
+			default {["ace_gunbag","ace_gunbag_Tan"]};
+		};
+		_unit addBackpackGlobal (selectRandom _gunbag);
+	};
 };
-if ( isClass (configFile >> "CfgPatches" >> "ACE_rangecard") && _ACE_rangecard > 0 ) then {
-	_unit addItem "ACE_RangeCard";
+if ( isClass(configFile >> "CfgPatches" >> "ACE_maptools") && !isNil "_ACE_MapTools" ) then {
+	if (_ACE_MapTools > 0) then { _unit addItem "ACE_MapTools"; };
+};
+if ( isClass (configFile >> "CfgPatches" >> "ACE_rangecard") && !isNil "_ACE_rangecard" ) then {
+	if (_ACE_rangecard > 0) then { _unit addItem "ACE_RangeCard"; };
 };
 if ( isClass(configFile >> "CfgPatches" >> "ACE_medical") ) then {
 	if ( _ace_FAK > 0 ) then {
@@ -126,16 +135,16 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_tagging") && !isNil "_ACE_sprayP
 	};
 	if !(_ACE_sprayPaint_type == "") then { _unit addItem _ACE_sprayPaint_type; };
 };
-if ( isClass(configFile >> "CfgPatches" >> "ACE_captives") ) then {
+if ( isClass(configFile >> "CfgPatches" >> "ACE_captives") && !isNil "_ACE_CableTie" ) then {
 	for "_i" from 1 to _ACE_CableTie do { _unit addItem "ACE_CableTie"; };
 };
-if ( isClass(configFile >> "CfgPatches" >> "ACE_overheating") ) then {
+if ( isClass(configFile >> "CfgPatches" >> "ACE_overheating") && !isNil "_ACE_SpareBarrel" ) then {
 	for "_i" from 1 to _ACE_SpareBarrel do { _unit addItem "ACE_SpareBarrel"; };
 };
-if ( isClass(configFile >> "CfgPatches" >> "ACE_logistics_uavbattery") ) then {
+if ( isClass(configFile >> "CfgPatches" >> "ACE_logistics_uavbattery") && !isNil "_ACE_UAVBattery" ) then {
 	for "_i" from 1 to _ACE_UAVBattery do { _unit addItem "ACE_UAVBattery"; };
 };
-if ( isClass(configFile >> "CfgPatches" >> "ACE_logistics_wirecutter") ) then {
+if ( isClass(configFile >> "CfgPatches" >> "ACE_logistics_wirecutter") && !isNil "_ACE_wirecutter" ) then {
 	for "_i" from 1 to _ACE_wirecutter do { _unit addItem "ACE_wirecutter"; };
 };
 if ( isClass(configFile >> "CfgPatches" >> "ACE_explosives") ) then {
@@ -145,17 +154,17 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_explosives") ) then {
 	for "_i" from 1 to _ACE_DefusalKit do { _unit addItem "ACE_DefusalKit"; };
 	for "_i" from 1 to _ACE_Cellphone do { _unit addItem "ACE_Cellphone"; };
 };
-if ( isClass(configFile >> "CfgPatches" >> "ACE_kestrel4500") && _ACE_Kestrel > 0 ) then {
-	_unit addItem "ACE_Kestrel4500";
+if ( isClass(configFile >> "CfgPatches" >> "ACE_kestrel4500") && !isNil "_ACE_Kestrel" ) then {
+	if (_ACE_Kestrel > 0) then { _unit addItem "ACE_Kestrel4500"; };
 };
-if ( isClass(configFile >> "CfgPatches" >> "ACE_ATragMX") && _ACE_ATragMX > 0 ) then {
-	_unit addItem "ACE_ATragMX";
+if ( isClass(configFile >> "CfgPatches" >> "ACE_ATragMX") && !isNil "_ACE_ATragMX" ) then {
+	if (_ACE_ATragMX > 0) then { _unit addItem "ACE_ATragMX"; };
 };
-if ( isClass(configFile >> "CfgPatches" >> "ACE_mk6mortar") && _ACE_RangeTable_82mm > 0 ) then {
-	_unit addItem "ACE_RangeTable_82mm";
+if ( isClass(configFile >> "CfgPatches" >> "ACE_mk6mortar") && !isNil "_ACE_RangeTable_82mm" ) then {
+	if (_ACE_RangeTable_82mm > 0) then { _unit addItem "ACE_RangeTable_82mm"; };
 };
-if ( isClass(configFile >> "CfgPatches" >> "ACE_Parachute") && _ACE_Altimeter > 0 ) then {
-	_unit linkItem "ACE_Altimeter";
+if ( isClass(configFile >> "CfgPatches" >> "ACE_Parachute") && !isNil "_ACE_Altimeter" ) then {
+	if (_ACE_Altimeter > 0) then { _unit linkItem "ACE_Altimeter"; };
 };
 if ( isClass(configFile >> "CfgPatches" >> "ACE_Grenades") ) then {
 	if ( ( !(side (group _unit) == east) && ADV_par_NVGs == 1 ) || (side (group _unit) == east && ADV_par_opfNVGs == 1) ) then {
@@ -166,7 +175,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_Grenades") ) then {
 	};
 	_unit addMagazines ["ACE_M84", _ACE_M84];
 };
-if ( isClass(configFile >> "CfgPatches" >> "ACE_vehiclelock") ) then {
+if ( isClass(configFile >> "CfgPatches" >> "ACE_vehiclelock") && !isNil "_ACE_key" ) then {
 	_ACE_key_type = switch ( _ACE_key ) do {
 		case 2: {"ACE_key_master"};
 		case 3: {"ACE_key_lockpick"};
@@ -182,7 +191,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_vehiclelock") ) then {
 	};
 	_unit addItem _ACE_key_type;
 };
-if ( isClass (configFile >> "CfgPatches" >> "ACE_huntir") ) then {
+if ( isClass (configFile >> "CfgPatches" >> "ACE_huntir") && !isNil "_ACE_HuntIR_monitor" ) then {
 	if (_ACE_HuntIR_monitor > 0) then {
 		_unit addItem "ACE_HuntIR_monitor";
 	};
@@ -191,13 +200,13 @@ if ( isClass (configFile >> "CfgPatches" >> "ACE_huntir") ) then {
 	};
 };
 if ( ( !(side (group _unit) == east) && ADV_par_NVGs == 2) || (side (group _unit) == east && ADV_par_opfNVGs == 2) ) then {
-	if ( isClass (configFile >> "CfgPatches" >> "ACE_attach") ) then {
+	if ( isClass (configFile >> "CfgPatches" >> "ACE_attach") && !isNil "_IRgrenade" ) then {
 		for "_i" from 1 to _IRgrenade do {_unit addItem "ACE_IR_Strobe_Item";};
 	};
 	if ( isClass (configFile >> "CfgPatches" >> "ACE_nightvision") ) then {
 		ppEffectDestroy ace_nightvision_ppEffectFilmGrain;
 		{
-			if ( _x in ["NVGoggles","NVGoggles_OPFOR","NVGoggles_INDEP"] ) then {
+			if ( (toUpper _x) in ["NVGOGGLES","NVGOGGLES_OPFOR","NVGOGGLES_INDEP"] ) then {
 				_unit unlinkItem _x;
 				_unit removeItems _x;
 				if ( _x in _itemsLink ) then { _unit linkItem "ACE_NVG_Wide"; };
@@ -213,12 +222,12 @@ if ( ( !(side (group _unit) == east) && ADV_par_NVGs == 2) || (side (group _unit
 		[_unit,"ACE_Vector",1] call BIS_fnc_addWeapon;
 	};
 } else {
-	if ( isClass(configFile >> "CfgPatches" >> "ACE_yardage450") && _binocular == "Rangefinder" ) then {
-		[_unit,"ACE_yardage450",1] call BIS_fnc_addWeapon;
+	if ( isClass(configFile >> "CfgPatches" >> "ACE_Vector") && _binocular == "Rangefinder" ) then {
+		[_unit,"ACE_VectorDay",1] call BIS_fnc_addWeapon;
 	};
 };
-if ( isClass(configFile >> "CfgPatches" >> "ACE_mx2a") && ADV_par_TIEquipment == 0 && _ACE_MX2A > 0) then {
-	[_unit,"ACE_MX2A",1] call BIS_fnc_addWeapon;
+if ( isClass(configFile >> "CfgPatches" >> "ACE_mx2a") && ADV_par_TIEquipment == 0 && !isNil "_ACE_MX2A") then {
+	if (_ACE_MX2A > 0) then { [_unit,"ACE_MX2A",1] call BIS_fnc_addWeapon; };
 };
 if ( isClass(configFile >> "CfgPatches" >> "ACE_flashlights") && !isNil "_ACE_flashlight") then {
 	if ( _ACE_flashlight > 0 && ( (!(side (group _unit) == east) && ADV_par_NVGs > 0 ) || (side (group _unit) == east && ADV_par_opfNVGs > 0) ) ) then {
@@ -226,8 +235,16 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_flashlights") && !isNil "_ACE_fl
 		_unit addItem _flashlight;
 	};
 };
-if ( isClass(configFile >> "CfgPatches" >> "ACE_trenches") ) then {
-	if (!isNil "_ACE_EntrenchingTool") then { if ( _ACE_EntrenchingTool > 0 ) then { _unit addItem "ACE_EntrenchingTool"; }; };
+if ( isClass(configFile >> "CfgPatches" >> "ACE_trenches") && !isNil "_ACE_EntrenchingTool" ) then {
+	if ( _ACE_EntrenchingTool > 0 ) then { _unit addItem "ACE_EntrenchingTool"; };
+};
+if ( isClass(configFile >> "CfgPatches" >> "ACE_minedetector") ) then {
+	if ( "MineDetector" in _itemsLink+_items+_itemsUniform+_itemsVest+_itemsBackpack ) then {
+		_unit removeItems "MineDetector";
+		{_unit removeMagazines _x} count (handgunMagazine _unit);
+		_unit removeWeapon (handgunWeapon _unit);
+		[_unit,"ACE_VMH3"] call BIS_fnc_addWeapon;
+	};
 };
 //ACE variables:
 if (  str _unit in ["z1","z2","z3","z4","z5","opf_z1","opf_z2","opf_z3","opf_z4","opf_z5","ind_z1","ind_z2","ind_z3","ind_z4","ind_z5"] ) then { _ACE_isMedic = 2; _ACE_isEnginer = true; _ACE_isEOD = true; _ACE_isPilot = true; };

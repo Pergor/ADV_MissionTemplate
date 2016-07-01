@@ -33,7 +33,9 @@ private ["_target"];
 	_target addMagazineCargoGlobal ["APERSTripMine_Wire_Mag",8];
 	_target addMagazineCargoGlobal ["ClaymoreDirectionalMine_Remote_Mag",8];
 	
-	_target addItemCargoGlobal ["MineDetector",1];
+	if !( isClass(configFile >> "CfgPatches" >> "ACE_minedetector") ) then {
+		_target addItemCargoGlobal ["MineDetector",1];
+	};
 	
 	if !(isClass (configFile >> "CfgPatches" >> "ACE_explosives")) then {
 		_target addItemCargoGlobal ["ToolKit",2];
@@ -84,6 +86,8 @@ private ["_target"];
 		_ACE_MapTools = 0;
 		_ACE_CableTie = 10;
 		_ACE_NonSteerableParachute = 0;
+		_ACE_EntrenchingTool = 1;
+		_ACE_minedetector = 1;
 
 		_ACE_key_west = 0;
 		_ACE_key_east = 0;

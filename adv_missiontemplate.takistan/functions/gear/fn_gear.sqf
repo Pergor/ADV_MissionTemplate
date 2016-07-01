@@ -20,6 +20,7 @@ _medicBackPacks = [
 _manPacks = ["tf_mr3000","tf_anprc155","tf_rt1523g","clf_prc117g_ap_multi","clf_nicecomm2_multi","clf_nicecomm2_coy","clf_nicecomm2_prc117g_multi",
 	"clf_nicecomm2_prc117g_coy","ACRE_PRC117F","ACRE_PRC77"
 ];
+_bwmodG36 = ["BWA3_G36","BWA3_G36_LMG","BWA3_G36_AG","BWA3_G36K","BWA3_G36K_AG"];
 _NVGoggles = ["NVGoggles","NVGoggles_OPFOR","NVGoggles_INDEP"];//"NVGoggles_tna_F","O_NVGoggles_ghex_F","O_NVGoggles_hex_F","O_NVGoggles_urb_F","NVGogglesB_blk_F","NVGogglesB_grn_F","NVGogglesB_gry_F"
 if ( isClass(configFile >> "CfgPatches" >> "tfa_units") ) then { _NVGoggles append ["TFA_NVGoggles","TFA_NVGoggles2"]; };
 if ( isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) then { _NVGoggles append ["rhsusf_ANPVS_14","rhsusf_ANPVS_15"]; };
@@ -131,6 +132,9 @@ if ( (typeName (_optic) ) == "ARRAY" ) then { _optic = selectRandom _optic; };
 if ( (!(side (group _unit) == east) && ADV_par_optics == 2) || ((side (group _unit) == east) && ADV_par_opfOptics == 2) ) then { _optic = selectRandom [_optic,""]; };
 //silencers and attachments
 if ( (!(side (group _unit) == east) && ADV_par_optics > 0) || (side (group _unit) == east && ADV_par_opfOptics > 0) ) then { _attachments pushBack _optic; };
+if ( (!(side (group _unit) == east) && ADV_par_optics == 0) || (side (group _unit) == east && ADV_par_opfOptics == 0) ) then {
+	if ( (toUpper _primaryWeapon) in _bwmodG36 ) then { _attachments pushBack "BWA3_optic_G36C_Ironsight_100"; };
+};
 if ( (!(side (group _unit) == east) && ADV_par_Silencers == 1) || (side (group _unit) == east && ADV_par_opfSilencers == 1) ) then { _attachments pushback _silencer; };
 if ( (!(side (group _unit) == east) && ADV_par_Silencers == 2) || (side (group _unit) == east && ADV_par_opfSilencers == 2) ) then { _unit addItem _silencer; _unit addItem _handgunSilencer; };
 { _unit addPrimaryWeaponItem _x; } count _attachments;

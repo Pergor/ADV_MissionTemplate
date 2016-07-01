@@ -229,6 +229,8 @@ private ["_target"];
 		_ACE_CableTie = 20;
 		_ACE_NonSteerableParachute = 0;
 		_ACE_EntrenchingTool = 5;
+		_ACE_gunbag = 3;
+		_ACE_minedetector = 1;
 		
 		_ACE_sprayPaintBlack = 5;
 		_ACE_sprayPaintBlue = 5;

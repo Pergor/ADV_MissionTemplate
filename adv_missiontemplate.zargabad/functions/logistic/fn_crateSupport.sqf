@@ -97,6 +97,7 @@ private ["_target"];
 		_ACE_CableTie = 10;
 		_ACE_NonSteerableParachute = 0;
 		_ACE_EntrenchingTool = 1;
+		_ACE_minedetector = 1;
 
 		_ACE_key_west = 1;
 		_ACE_key_east = 0;

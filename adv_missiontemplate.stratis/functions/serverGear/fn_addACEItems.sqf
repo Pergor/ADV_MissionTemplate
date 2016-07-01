@@ -146,6 +146,16 @@ if !(isServer && (isClass(configFile >> "CfgPatches" >> "ACE_common"))) exitWith
 		if (!isNil "_ACE_sprayPaintGreen") then { _target addItemCargoGlobal ["ACE_sprayPaintGreen", _ACE_sprayPaintGreen]; };
 		if (!isNil "_ACE_sprayPaintRed") then { _target addItemCargoGlobal ["ACE_sprayPaintRed", _ACE_sprayPaintRed]; };
 	};
+	if (isClass(configFile >> "CfgPatches" >> "ACE_tagging")) then {
+		if (!isNil "_ACE_gunbag") then {
+			_target addBackpackCargoGlobal ["ACE_gunbag_tan", _ACE_gunbag];
+		};
+	};
+	if (isClass(configFile >> "CfgPatches" >> "ACE_minedetector")) then {
+		if (!isNil "_ACE_minedetector") then {
+			_target addWeaponCargoGlobal ["ACE_VMH3", _ACE_minedetector];
+		};
+	};
 	nil;
 } count _this;
 

@@ -60,10 +60,12 @@ if ( isServer ) then {
 	{ _x setVariable ["birdType",""]; _x setVariable ["showNotification",false]; [_x, [-1, -2, 2]] call bis_fnc_setCuratorVisionModes; nil;} count allCurators;
 
 	//sets ownership of the units to either zeus or the HC:
-	[] spawn {
-		waitUntil {time > 1};
-		if (ADV_par_headlessClient == 1) then {
-			ADV_handle_zeusObjects = [true] spawn ADV_fnc_zeusObjects;
+	if !(missionnamespace getVariable ["ace_zeus_autoAddObjects",false]) then {
+		[] spawn {
+			waitUntil {time > 1};
+			if (ADV_par_headlessClient == 1) then {
+				ADV_handle_zeusObjects = [true] spawn ADV_fnc_zeusObjects;
+			};
 		};
 	};
 	
@@ -114,12 +116,15 @@ if ( isServer ) then {
 	
 	if (!isNil "flag_1") then {
 		flag_1 setFlagTexture "img\flag.paa";
+		flag_1 setFlagSide west;
 	};
 	if (!isNil "opf_flag_1") then {
 		opf_flag_1 setFlagTexture "img\flag.paa";
+		opf_flag_1 setFlagSide east;
 	};
 	if (!isNil "ind_flag_1") then {
 		ind_flag_1 setFlagTexture "img\flag.paa";
+		ind_flag_1 setFlagSide independent;
 	};
 };
 

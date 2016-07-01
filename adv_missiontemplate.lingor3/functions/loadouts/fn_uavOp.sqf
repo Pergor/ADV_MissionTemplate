@@ -150,6 +150,7 @@ _ACE_Cellphone = 0;
 _ACE_MapTools = 0;
 _ACE_CableTie = 0;
 _ACE_sprayPaintColor = "NONE";
+_ACE_gunbag = 0;
 
 _ACE_key = 0;	//0 = no key, 1 = side dependant key, 2 = master key, 3 = lockpick
 _ACE_flashlight = 1;

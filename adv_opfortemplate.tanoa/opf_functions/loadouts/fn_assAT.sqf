@@ -135,8 +135,6 @@ _ACE_salineIV_250 = 0;
 _ACE_bodyBag = 0;
 _ACE_personalAidKit = 0;
 _ACE_surgicalKit = 0;
-_ACE_EntrenchingTool = 0;
-_ACE_sprayPaintColor = "NONE";
 
 _ACE_SpareBarrel = 0;
 _ACE_UAVBattery = 0;
@@ -148,6 +146,9 @@ _ACE_DefusalKit = 0;
 _ACE_Cellphone = 0;
 _ACE_MapTools = 0;
 _ACE_CableTie = 0;
+_ACE_EntrenchingTool = 0;
+_ACE_sprayPaintColor = "NONE";
+_ACE_gunbag = 0;
 
 _ACE_key = 0;	//0 = no key, 1 = side dependant key, 2 = master key, 3 = lockpick
 _ACE_flashlight = 1;
