@@ -572,9 +572,21 @@ class ace_switchunits_safeZoneRadius {
     force = 0;
 };
 class ace_ui_allowSelectiveUI {
-    value = 1;
+    value = 0;
     typeName = "BOOL";
     force = 0;
+};
+class ace_ui_ammoCount {
+        value = 0;
+        typeName = "BOOL";
+        isClientSettable = 0;
+		force = 1;
+};
+class ace_ui_gunnerAmmoCount {
+        value = 0;
+        typeName = "BOOL";
+        isClientSettable = 0;
+		force = 1;
 };
 class ace_vehiclelock_defaultLockpickStrength {
     value = 10;
