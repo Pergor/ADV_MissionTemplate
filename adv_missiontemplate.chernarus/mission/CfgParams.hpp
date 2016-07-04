@@ -62,8 +62,8 @@ class param_moveMarker
 class param_vehicleRespawn
 {
 	title="Wie hoch soll der Respawn-Timer für Fahrzeuge eingestellt werden?";
-	values[] = {900,600,300,60,30,20,10,5,9999};
-	texts[] = {"15 Minuten","10 Minuten","5 Minuten","60 Sekunden","30 Sekunden","20 Sekunden","10 Sekunden","5 Sekunden","Deaktiviert"};
+	values[] = {900,600,300,60,30,20,10,9999};
+	texts[] = {"15 Minuten","10 Minuten","5 Minuten","60 Sekunden","30 Sekunden","20 Sekunden","10 Sekunden","Deaktiviert"};
 	default = 300;
 };
 class dummy_settings_game {
@@ -111,7 +111,7 @@ class param_TIEquipment
 {
 	title="Soll NV- und Thermal-Imaging in Fahrzeugen und statischen Waffen deaktiviert werden?";
 	values[] = {4,3,2,1,0};
-	texts[] = {"Kein NV- und Thermal-Imaging für alle Fahrzeuge & statische Waffen","Kein NV- und Thermal-Imaging für Spieler-Fahrzeuge und statische Waffen","Kein Thermal-Imaging für alle Fahrzeuge & statische Waffen","Kein Thermal-Imaging für Spieler-Fahrzeuge und statische Waffen","Nein"};
+	texts[] = {"Kein NV- und Thermal-Imaging für alle Fahrzeuge & statische Waffen","Kein NV- und Thermal-Imaging für Spieler-Fahrzeuge","Kein Thermal-Imaging für alle Fahrzeuge & statische Waffen","Kein Thermal-Imaging für Spieler-Fahrzeuge","Nein"};
 	default = 0;
 };
 class param_seriousMode

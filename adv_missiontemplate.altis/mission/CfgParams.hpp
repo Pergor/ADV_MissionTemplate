@@ -62,8 +62,8 @@ class param_moveMarker
 class param_vehicleRespawn
 {
 	title="Wie hoch soll der Respawn-Timer für Fahrzeuge eingestellt werden?";
-	values[] = {900,600,300,60,30,20,10,5,9999};
-	texts[] = {"15 Minuten","10 Minuten","5 Minuten","60 Sekunden","30 Sekunden","20 Sekunden","10 Sekunden","5 Sekunden","Deaktiviert"};
+	values[] = {900,600,300,60,30,20,10,9999};
+	texts[] = {"15 Minuten","10 Minuten","5 Minuten","60 Sekunden","30 Sekunden","20 Sekunden","10 Sekunden","Deaktiviert"};
 	default = 300;
 };
 class dummy_settings_game {
