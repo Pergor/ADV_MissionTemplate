@@ -36,15 +36,18 @@ switch (typeName _curator) do {
 	default {
 		{
 			_x addCuratorEditableObjects [vehicles,true];
-			_x addCuratorEditableObjects [(allMissionObjects "Man"), false];
-			_x addCuratorEditableObjects [(allMissionObjects "Air"), true];
-			_x addCuratorEditableObjects [(allMissionObjects "Ammo"), false];
+			//_x addCuratorEditableObjects [(allMissionObjects "Man"), false];
+			//_x addCuratorEditableObjects [(allMissionObjects "Air"), true];
+			_x addCuratorEditableObjects [(entities "Man"), false];
+			_x addCuratorEditableObjects [(entities "Air"), false];
+			_x addCuratorEditableObjects [(entities "Ammo"), false];
 			nil;
 		} count allCurators;
 		while {true} do {
 			{
-				_curatorUnit = getAssignedCuratorUnit _x;
-				if (!isNil "_curatorUnit") then {
+				//_curatorUnit = getAssignedCuratorUnit _x;
+				//if (!isNil "_curatorUnit") then {
+				if ( !isNull (getAssignedCuratorUnit _x) ) then {
 					_x addCuratorEditableObjects [allUnits, false];
 					_x addCuratorEditableObjects [vehicles, true];
 				};
