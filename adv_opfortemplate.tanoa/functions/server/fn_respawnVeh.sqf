@@ -61,7 +61,7 @@ while {true} do {
 	if (isNull _veh) exitWith {
 		deleteMarkerLocal _respawnPos;
 	};
-	sleep _delay-3;
+	sleep _delay-2;
 	{detach _x; deleteVehicle _x} count attachedObjects _veh;
 	if (_veh distance2D (getMarkerPos _respawnPos) < 100) then { deleteVehicle _veh; };
 	_veh enableSimulation false;
