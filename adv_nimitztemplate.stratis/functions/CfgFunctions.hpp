@@ -64,6 +64,7 @@ class ADV
 	};
 	class client
 	{
+		class aceMine {};		
 		class board {};		
 		class changeName {};
 		class dispLaunch {};

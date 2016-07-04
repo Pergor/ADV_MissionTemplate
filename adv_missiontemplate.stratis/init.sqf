@@ -150,12 +150,7 @@ if (ADV_par_engineArtillery == 1) then {
 
 //ACE stuff that's been forgotten by the developers:
 if (isClass(configFile >> "CfgPatches" >> "ace_explosives")) then {
-	{
-		_defuseHelper = "ACE_DefuseObject" createVehicleLocal (getPos _x);
-		_defuseHelper attachTo [_x, [0,0,0]];
-		_defuseHelper setVariable ["ACE_explosives_Explosive",_x];
-		nil;
-	} count allMines;
+	[] call adv_fnc_aceMine;
 };
 
 //friggin' ace
