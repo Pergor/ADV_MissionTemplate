@@ -689,7 +689,7 @@ class ace_zeus_revealMines {
     force = 0;
 };
 class ace_zeus_autoAddObjects {
-    value = 1;
+    value = 0;
     typeName = "BOOL";
     force = 0;
 };
