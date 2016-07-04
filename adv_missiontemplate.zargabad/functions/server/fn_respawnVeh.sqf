@@ -54,9 +54,6 @@ _respawnPos = createMarkerLocal [_markerName, getPosASL _veh];
 _respawnPos setMarkerDirLocal (getDir _veh);
 _respHeightPos = getPosASL _veh;
 _initLine = _veh getVariable ["adv_vehicleinit",""];
-/*
-_respawnPos setMarkerPos [_markerPos select 0, _markerPos select 1, (getPosASL _veh) select 2];
-*/
 
 while {true} do {
 	waitUntil {sleep 1; !alive _veh};
@@ -69,13 +66,14 @@ while {true} do {
 	if (_veh distance2D (getMarkerPos _respawnPos) < 100) then { deleteVehicle _veh; };
 	_veh enableSimulation false;
 	sleep 2;
-	_veh = createVehicle [_vehType, (getMarkerPos _respawnPos), [], 0, "CAN_COLLIDE"];
+	_veh = createVehicle [_vehType, (getMarkerPos _respawnPos), [], 0, "NONE"];
+	_veh allowDamage false;
 	_veh setPosASL _respHeightPos;
 	_veh setDir (markerDir _respawnPos);
 	[_veh,_name] remoteExec ["setVehicleVarName",0];
 	_veh call compile format ["%1 = _this; publicVariable '%1'", _name];
 	sleep 2;
-	{_x addCuratorEditableObjects [[_veh],false];} count allCurators;
+	_veh allowDamage true;
 
 	if ( (str _veh) in ADV_veh_all ) then {
 		call compile format ["%1 spawn %2",_veh,adv_manageVeh_codeForAll];
@@ -99,4 +97,4 @@ while {true} do {
 	_veh setVariable ["adv_vehicleinit",str _initLine];
 };
 	
-if (true) exitWith{};
+if (true) exitWith {};

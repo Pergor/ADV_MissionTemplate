@@ -105,7 +105,6 @@ adv_manageVeh_codeForAll = {
 	[_veh] call ADV_fnc_clearCargo;
 	[_veh] call ADV_fnc_addVehicleLoad;
 	[_veh] call ADV_fnc_disableVehSelector;
-	[_veh,ADV_par_vehicleRespawn, west, (typeOf _veh)] spawn ADV_fnc_respawnVeh;
 	if (ADV_par_engineArtillery == 1 && str _veh in ADV_veh_artys) then {
 		[_veh] call ADV_fnc_showArtiSetting;
 	};
@@ -132,6 +131,7 @@ adv_manageVeh_codeForAll = {
 {
 	if (str _x in ADV_veh_all) then {
 		call compile format ["%1 spawn %2", _x, adv_manageVeh_codeForAll];
+		[_x,ADV_par_vehicleRespawn, west, (typeOf _x)] spawn ADV_fnc_respawnVeh;
 	};
 	nil;
 } count vehicles;
@@ -210,7 +210,7 @@ switch (ADV_par_modHeavyAssets) do {
 	case 6: {
 		if (isClass(configFile >> "CfgPatches" >> "adv_retex")) then {
 			[ADV_veh_heavys,["adv_retex_b_mora_f"],west] spawn ADV_fnc_changeVeh;
-		} else {	
+		} else {
 			[ADV_veh_heavys,["Steve_IFV_Warrior"],west] spawn ADV_fnc_changeVeh;
 		};
 	};
