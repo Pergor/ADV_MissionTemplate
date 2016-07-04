@@ -45,12 +45,15 @@ params [
 		waitUntil {!isNil "ADV_veh_all" && !isNil "ADV_opf_veh_all" && !isNil "ADV_ind_veh_all"};
 		if ( (str _veh) in ADV_veh_all ) then {
 			call compile format ["%1 spawn %2",_veh,adv_manageVeh_codeForAll];
+			[_veh,ADV_par_vehicleRespawn, west, (typeOf _veh)] spawn ADV_fnc_respawnVeh;
 		};
 		if ( (str _veh) in ADV_opf_veh_all ) then {
 			call compile format ["%1 spawn %2",_veh,adv_opf_manageVeh_codeForAll];
+			[_veh,ADV_par_vehicleRespawn, east, (typeOf _veh)] spawn ADV_fnc_respawnVeh;
 		};
 		if ( (str _veh) in ADV_ind_veh_all ) then {
 			call compile format ["%1 spawn %2",_veh,adv_ind_manageVeh_codeForAll];
+			[_veh,ADV_par_vehicleRespawn, independent, (typeOf _veh)] spawn ADV_fnc_respawnVeh;
 		};
 		
 		_veh allowDamage true;
