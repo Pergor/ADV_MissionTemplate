@@ -5,7 +5,7 @@ adv_handle_aceMine = [] spawn {
 	while {true} do {
 		{
 			_mine = _x;
-			if !(_mine getVariable ["adv_aceMine_helperAttached",false]) then {
+			if ( !(_mine getVariable ["adv_aceMine_helperAttached",false]) || !( "ACE_DefuseObject" in (attachedObjects _mine) ) ) then {
 				_defuseHelper = "ACE_DefuseObject" createVehicleLocal (getPos _mine);
 				_defuseHelper attachTo [_mine, [0,0,0]];
 				//_defuseHelper setVariable ["ACE_explosives_Explosive",_mine];
