@@ -40,14 +40,17 @@ if (isNil "ADV_params_defined") then {
 
 //removals:
 removeAllAssignedItems _unit;
+/*
 removeUniform _unit;
-removeallItems _unit;
-removeAllAssignedItems _unit;
-removeallWeapons _unit;
-removeHeadgear _unit;
 removeBackpack _unit;
 removeVest _unit;
+*/
+removeAllContainers _unit:
+removeallItems _unit;
+removeallWeapons _unit;
+removeHeadgear _unit;
 { _unit removeMagazine _x } count magazines _unit;
+removeAllAssignedItems _unit;
 //...and readding. Clothing:
 if ( (typeName (_uniform)) == "ARRAY" ) then { _uniform = selectRandom _uniform; };
 _unit forceAddUniform _uniform;
@@ -62,6 +65,7 @@ clearItemCargoGlobal (unitBackpack _unit);
 clearWeaponCargoGlobal (unitBackpack _unit);
 if ( (typeName (_headgear)) == "ARRAY" ) then { _headgear = selectRandom _headgear; };
 _unit addHeadgear _headgear;
+if ( (toUpper (goggles _unit)) in ["G_B_DIVING","G_O_DIVING","G_I_DIVING"] ) then { removeGoggles _unit; };
 if ( _useProfileGoggles == 0 ) then {
 	removeGoggles _unit;
 	if ( (typeName (_goggles) ) == "ARRAY" ) then { _goggles = selectRandom _goggles; };
@@ -162,11 +166,9 @@ if (!isNil "_unitTraits") then {
 
 //NVG-Removal:
 if !(["diver",_unit getVariable ["ADV_var_playerUnit","ADV_fnc_nil"]] call BIS_fnc_inString) then {
-	if ( ( !(side (group _unit) == east) && ADV_par_NVGs < 2 ) || (side (group _unit) == east && ADV_par_opfNVGs < 2) ) then {
-		{
-			_unit unlinkItem _x;
-			_unit removeItems _x;
-		} count _NVGoggles;
+	if ( ( !(side (group _unit) == east) && ADV_par_NVGs < 2 ) || ( side (group _unit) == east && ADV_par_opfNVGs < 2 ) ) then {
+		_unit unlinkItem (hmd _unit);
+		{ _unit removeItems _x; } count _NVGoggles;
 	};
 };
 //tablets & GPS:
