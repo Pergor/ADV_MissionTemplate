@@ -53,10 +53,12 @@ _markerName = format ["%1%2","respPos_",_name];
 _respawnPos = createMarkerLocal [_markerName, getPosASL _veh];
 _respawnPos setMarkerDirLocal (getDir _veh);
 _respHeightPos = getPosASL _veh;
+_objectTextures = getObjectTextures _veh;
 _initLine = _veh getVariable ["adv_vehicleinit",""];
 
 while {true} do {
 	waitUntil {sleep 1; !alive _veh};
+	_objectTextures = getObjectTextures _veh;
 	sleep 1;
 	if (isNull _veh) exitWith {
 		deleteMarkerLocal _respawnPos;
@@ -74,7 +76,10 @@ while {true} do {
 	_veh call compile format ["%1 = _this; publicVariable '%1'", _name];
 	sleep 2;
 	_veh allowDamage true;
-
+	for "_i" from 0 to ((count _objectTextures)-1) do {
+		_veh setObjectTextureGlobal [_i,(_objectTextures select _i)];
+	};
+	
 	if ( (str _veh) in ADV_veh_all ) then {
 		call compile format ["%1 spawn %2",_veh,adv_manageVeh_codeForAll];
 	};
