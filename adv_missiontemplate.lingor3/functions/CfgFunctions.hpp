@@ -87,6 +87,7 @@ class ADV
 	{
 		class aceFAK {};
 		class aceGear {};
+		class aceGunbag {};
 		class add40mm {};
 		class addGrenades {};
 		class addMagazine {};
@@ -99,6 +100,7 @@ class ADV
 		class insignia {};
 		class removeWeapon {};
 		class setFaction {};
+		class standardWeapon {};
 	};
 	class loadouts
 	{
