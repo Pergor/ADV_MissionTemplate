@@ -221,13 +221,16 @@ switch (ADV_par_customWeap) do {
 	};
 	case 3: {
 		//RHS Marines
+		/*
 		_primaryweapon = ["rhs_weap_M107"];
 		switch (true) do {
 			case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon append ["rhs_weap_M107_w"];};
 			case ((toUpper worldname) in ADV_var_aridMaps): {_primaryWeapon append ["rhs_weap_M107_d"];};
 			default {};
 		};
-		_attachments = ["rhsusf_acc_premier"];
+		*/
+		_primaryweapon = ["rhs_weap_m24sws_blk"];
+		_attachments = ["rhsusf_acc_premier","bipod_02_F_blk"];
 		_silencer = "";
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];

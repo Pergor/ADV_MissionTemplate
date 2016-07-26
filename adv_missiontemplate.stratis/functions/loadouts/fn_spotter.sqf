@@ -251,7 +251,8 @@ switch (ADV_par_customWeap) do {
 			_handgun = "RH_m9";
 			_itemsHandgun = ["RH_x300","RH_m9qd"];
 		};
-		_additionalAmmo = [5,"rhsusf_mag_10Rnd_STD_50BMG_mk211",true];
+		//_additionalAmmo = [5,"rhsusf_mag_10Rnd_STD_50BMG_mk211",true];
+		_additionalAmmo = [5,"rhsusf_5Rnd_762x51_m118_special_Mag",true];
 	};
 	case 4: {
 		//RHS SOF
