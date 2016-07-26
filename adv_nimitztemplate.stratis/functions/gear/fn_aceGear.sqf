@@ -21,16 +21,6 @@ if (ADV_par_Tablets == 2) then {
 if ( isClass(configFile >> "CfgPatches" >> "ACE_hearing") && !isNil "_ACE_EarPlugs" ) then {
 	for "_i" from 1 to _ACE_EarPlugs do { _unit addItem "ACE_EarPlugs"; };
 };
-if ( isClass(configFile >> "CfgPatches" >> "ACE_gunbag") && !isNil "_ace_gunbag") then {
-	if ( _ace_gunbag > 0 && (backpack _unit) isEqualTo "" ) then {
-		_gunbag = switch (true) do {
-			case ( (toUpper worldname) in ADV_var_aridMaps ): {["ace_gunbag_Tan"]};
-			case ( (toUpper worldname) in ADV_var_lushMaps ): {["ace_gunbag"]};
-			default {["ace_gunbag","ace_gunbag_Tan"]};
-		};
-		_unit addBackpackGlobal (selectRandom _gunbag);
-	};
-};
 if ( isClass(configFile >> "CfgPatches" >> "ACE_maptools") && !isNil "_ACE_MapTools" ) then {
 	if (_ACE_MapTools > 0) then { _unit addItem "ACE_MapTools"; };
 };
