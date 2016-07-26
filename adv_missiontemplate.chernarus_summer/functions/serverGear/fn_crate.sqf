@@ -67,6 +67,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",40];
 			_target addMagazineCargoGlobal ["rhsusf_20Rnd_762x51_m118_special_Mag",20];
 			_target addMagazineCargoGlobal ["rhsusf_5Rnd_300winmag_xm2010",10];
+			_target addMagazineCargoGlobal ["rhsusf_5Rnd_762x51_m118_special_Mag",10];
 			_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51",20];
 			_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51_m80a1epr",20];
 			_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",20];
