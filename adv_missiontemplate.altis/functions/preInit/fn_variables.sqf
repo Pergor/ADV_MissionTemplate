@@ -50,6 +50,11 @@ switch ( ADV_par_customUni ) do {
 	default {};
 };
 
+if ((toUpper worldname) isEqualTo "TANOA") then {
+	if ( ADV_par_customUni == 0 ) then { ADV_par_customUni = 20 };
+	if ( ADV_par_opfUni == 0 ) then { ADV_par_opfUni = 20 };
+};
+
 if (isClass(configFile >> "CfgPatches" >> "ace_rearm") && (ADV_par_modTankAssets == 1 || ADV_par_modTankAssets == 2)) then {
 	missionNamespace setVariable ["ace_rearm_level",0];
 };
