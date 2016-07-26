@@ -240,11 +240,12 @@ switch (ADV_par_customWeap) do {
 	};
 	case 5: {
 		//CUP Mk16
-		_primaryweapon = ["CUP_arifle_Mk16_STD","CUP_arifle_Mk16_STD","CUP_arifle_Mk16_STD_FG","CUP_arifle_Mk16_STD_SFG","CUP_arifle_Mk16_SV"];
+		_primaryweapon = ["CUP_arifle_Mk16_STD","CUP_arifle_Mk16_STD_FG"];
 		_optic = ["CUP_optic_ELCAN_SpecterDR"];
-		if ( ADV_par_NVGs > 0 ) then { _attachments = ["CUP_acc_ANPEQ_15"]; };
+		if ( ADV_par_NVGs == 1 ) then { _attachments = ["CUP_acc_Flashlight_desert"]; };
+		if ( ADV_par_NVGs == 2 ) then { _attachments = ["CUP_acc_ANPEQ_15"]; };
 		_silencer = "CUP_muzzle_snds_SCAR_L";
-		_primaryweaponAmmo set [1,9];
+		//_primaryweaponAmmo set [1,9];
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=[];
 		_handgunSilencer = "CUP_muzzle_snds_M9";
