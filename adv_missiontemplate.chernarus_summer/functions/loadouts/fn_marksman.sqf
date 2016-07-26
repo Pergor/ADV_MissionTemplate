@@ -149,7 +149,7 @@ _ACE_Cellphone = 0;
 _ACE_MapTools = 0;
 _ACE_CableTie = 0;
 _ACE_sprayPaintColor = "NONE";
-_ACE_gunbag = 1;
+_ACE_gunbag = 0;
 
 _ACE_key = 0;	//0 = no key, 1 = side dependant key, 2 = master key, 3 = lockpick
 _ACE_flashlight = 1;
@@ -193,6 +193,7 @@ switch (ADV_par_customWeap) do {
 		_optic = ["BWA3_optic_Shortdot"];
 		if ( ADV_par_NVGs > 0 ) then { _attachments = ["BWA3_acc_VarioRay_irlaser"]; };
 		_silencer = "BWA3_muzzle_snds_G28";
+		_ace_gunbag = 0;
 		_primaryweaponAmmo = [10,5];
 		_handgun = "BWA3_P8";
 		_itemsHandgun = [""];
