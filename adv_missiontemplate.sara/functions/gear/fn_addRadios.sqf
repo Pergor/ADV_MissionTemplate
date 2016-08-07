@@ -44,12 +44,12 @@ switch ( true ) do {
 				if ( _givePersonalRadio ) then { _unit linkItem _personalRadioType; };
 				if ( _giveRiflemanRadio && !_givePersonalRadio ) then { _unit linkItem _riflemanRadioType; };
 				if ( _giveRiflemanRadio && _givePersonalRadio ) then { _unit addItem _riflemanRadioType; };
-				if ( _tfar_microdagr > 0 && _givePersonalRadio) then { _unit addItem "tf_microdagr"; };
-				if ( _tfar_microdagr > 0 && !_givePersonalRadio) then { _unit linkItem "tf_microdagr"; };
+				if ( _tfar_microdagr > 0 && _givePersonalRadio ) then { _unit addItem "tf_microdagr"; };
+				if ( _tfar_microdagr > 0 && !_givePersonalRadio ) then { _unit linkItem "tf_microdagr"; };
 			};
 			//only leaders get Radio
 			case 2: {
-				if ( _givePersonalRadio ) then { _unit linkItem _personalRadioType; };
+				if ( (toUpper (rank _unit)) in ["SERGEANT","LIEUTENANT","CAPTAIN","MAJOR","COLONEL"] ) then { _unit linkItem _personalRadioType; };
 			};
 			//everyone gets personal radio
 			case 3: {
@@ -65,8 +65,10 @@ switch ( true ) do {
 			};
 			//only leaders get Radio
 			case 2: {
-				_ACREradios deleteAt 0; _ACREradios deleteAt 2;
-				{ _unit addItem _x; } count _ACREradios;
+				if ( (toUpper (rank _unit)) in ["SERGEANT","LIEUTENANT","CAPTAIN","MAJOR","COLONEL"] ) then {
+					_ACREradios deleteAt 0; _ACREradios deleteAt 2;
+					{ _unit addItem _x; } count _ACREradios;
+				};
 			};
 			//everyone gets personal radio
 			case 3: {
@@ -75,7 +77,9 @@ switch ( true ) do {
 		};
 	};
 	default {
-		_unit linkItem "ItemRadio";
+		if ( ( {_x == "ITEMRADIO"} count _itemsLink ) > 0 ) then {
+			_unit linkItem "ItemRadio";
+		};
 	};
 };
 
