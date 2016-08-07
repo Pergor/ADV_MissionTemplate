@@ -28,14 +28,16 @@ sleep 1;
 _unit addBackpackGlobal "B_Parachute";
 sleep 2+(random 4);
 //unit is moved to height 2000 on given position
-_target = [(_targetPos select 0)+(20+(random 10)), (_targetPos select 1)+(20+(random 10)), 2000];
+_startingHeight = missionNamespace getVariable ["adv_parajump_start",2000];
+_openingHeight = missionNamespace getVariable ["adv_parajump_opening",110];
+_target = [(_targetPos select 0)+(20+(random 10)), (_targetPos select 1)+(20+(random 10)), _startingHeight];
 _unit setPos _target;
 _unit allowDamage false;
 
 //safety:
-waitUntil {((getPosWorld _unit) select 2) > 900};
+waitUntil {((getPosWorld _unit) select 2) > 500};
 _unit moveTo _targetPos;
-waitUntil {((getPosWorld _unit) select 2) < 110};
+waitUntil {((getPosWorld _unit) select 2) < _openingHeight};
 if (isClass(configFile >> "CfgPatches" >> "ace_parachute")) then {
 	if !(backpack _unit == "ACE_ReserveParachute") then {
 		_unit action ["openParachute", _unit];
