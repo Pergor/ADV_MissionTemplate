@@ -157,12 +157,12 @@ switch (true) do {
 		_target addItemCargoGlobal ["BWA3_Vest_Fleck",1];
 		_target addBackpackCargoGlobal ["BWA3_AssaultPack_Fleck",1];
 	};
-	case (ADV_par_customUni >= 3 && ADV_par_customUni <= 6): {
-		_target addItemCargoGlobal ["TFA_H_HelmetIA_BDU",1];
-		_target addItemCargoGlobal ["TFA_PlateCarrier_Mix",1];
-		_target addBackpackCargoGlobal ["TFA_assault_FOL",1];
+	case (ADV_par_customUni == 6): {
+		_target addItemCargoGlobal ["CUP_H_BAF_Helmet_3_DPM",1];
+		_target addItemCargoGlobal ["CUP_V_BAF_Osprey_Mk2_DPM_Empty",1];
+		_target addBackpackCargoGlobal ["CUP_B_Bergen_BAF",1];
 	};
-	case (ADV_par_customUni == 7 || ADV_par_customUni == 8 || ADV_par_customUni == 10 || ADV_par_customUni == 11): {
+	case (ADV_par_customUni == 7 || ADV_par_customUni == 8 || ADV_par_customUni == 10): {
 		_target addItemCargoGlobal ["rhsusf_ach_bare",1];
 		_target addItemCargoGlobal ["rhsusf_spc",1];
 		_target addBackpackCargoGlobal ["rhsusf_falconii",1];

@@ -306,6 +306,11 @@ private ["_target"];
 			_target addItemCargoGlobal ["BWA3_M92_Fleck",5];
 			_target addBackpackCargoGlobal ["taktisch_fleck",3];
 		};
+		//CUP BAF
+		case 6: {
+			_target addItemCargoGlobal ["CUP_H_BAF_Helmet_3_DPM",5];
+			_target addBackpackCargoGlobal ["CUP_B_Bergen_BAF",3];
+		};
 		//uk3cb
 		case 12: {
 			_target addItemCargoGlobal ["UK3CB_BAF_H_Mk7_Camo_A",5];

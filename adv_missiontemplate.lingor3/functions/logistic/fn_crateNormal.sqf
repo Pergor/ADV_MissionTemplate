@@ -44,20 +44,7 @@ private ["_target"];
 			//ammo
 			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",20];
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
-			_target addMagazineCargoGlobal ["CUP_200Rnd_TE4_Red_Tracer_556x45_L110A1",5];
-			/*
-			if !(ADV_par_customWeap == 3 || ADV_par_customWeap == 6) then {
-				_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",40];
-				_target addMagazineCargoGlobal ["CUP_15Rnd_9x19_M9",5];
-			} else {
-				if (ADV_par_customWeap == 3) then {
-					_target addMagazineCargoGlobal ["CUP_20Rnd_762x51_B_M110",5];
-				};
-				if (ADV_par_customWeap == 6) then {
-					_target addMagazineCargoGlobal ["CUP_17Rnd_9x19_glock17",5];
-				};
-			};
-			*/
+			_target addMagazineCargoGlobal ["CUP_200Rnd_TE4_Red_Tracer_556x45_M249",5];
 		};
 		case (ADV_par_customWeap == 8): {
 			//ammo
