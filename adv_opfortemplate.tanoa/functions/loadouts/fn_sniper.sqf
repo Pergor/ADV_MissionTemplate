@@ -342,19 +342,30 @@ switch (ADV_par_customUni) do {
 	};
 	case 3: {
 		//TFA Mixed
-		_vest = ["TFA_PlateCarrierH_MCam","TFA_PlateCarrierH_Tan","TFA_PlateCarrierH_Grn","TFA_PlateCarrierH_NWU2"];
 	};
 	case 4: {
 		//TFA Woodland
-		_vest = ["TFA_PlateCarrierH_fol","TFA_PlateCarrierH_Grn","TFA_PlateCarrierH_Mix"];
 	};
 	case 5: {
 		//TFA Desert
-		_vest = ["TFA_PlateCarrierH_NWU2","TFA_PlateCarrierH_MCam","TFA_PlateCarrierH_Tan","TFA_PlateCarrierH_Mix"];
 	};
 	case 6: {
-		//TFA ACU
-		_vest = ["TFA_PlateCarrierH_ACU"];
+		//CUP BAF
+		switch (true) do {
+			case ((toUpper worldname) in ADV_var_aridMaps): {
+				//_uniform = ["CUP_U_B_USArmy_Ghillie"];
+				_vest = ["CUP_V_BAF_Osprey_Mk2_DDPM_Soldier1","CUP_V_BAF_Osprey_Mk2_DDPM_Soldier2","CUP_V_BAF_Osprey_Mk2_DDPM_Officer","CUP_V_BAF_Osprey_Mk2_DDPM_Sapper"];
+				_headgear = ["CUP_H_FR_BandanaWdl"];
+				_backpack = ["CUP_B_Bergen_BAF"];
+			};
+			default {
+				//_uniform = ["CUP_U_B_BAF_DPM_Ghillie"];
+				_vest = ["CUP_V_BAF_Osprey_Mk2_DDPM_Soldier1","CUP_V_BAF_Osprey_Mk2_DDPM_Soldier2","CUP_V_BAF_Osprey_Mk2_DDPM_Officer","CUP_V_BAF_Osprey_Mk2_DDPM_Sapper"];
+				_headgear = ["CUP_H_FR_BandanaWdl"];
+				_backpack = ["CUP_B_Bergen_BAF"];
+			};
+		};
+		_items = _items-["NVGoggles_OPFOR"]+["CUP_NVG_HMNVS"];
 	};
 	case 7: {
 		//RHS OCP
@@ -369,18 +380,20 @@ switch (ADV_par_customUni) do {
 		_items = _items-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_14"];
 	};
 	case 10: {
-		//RHS MARPAT Desert
+		//RHS MARPAT
+		switch (true) do {
+			case ((toUpper worldname) in ADV_var_aridMaps): {
+				_headgear = ["rhs_Booniehat_marpatd"];
+			};
+			default {
+				_headgear = ["rhs_Booniehat_marpatwd"];
+			};
+		};
 		_vest = ["rhsusf_spc_rifleman"];
 		_backpack = ["rhsusf_falconii"];
-		_headgear = ["rhs_Booniehat_marpatd"];
-		_items = _items-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
+		_items = _items-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_14"];
 	};	
 	case 11: {
-		//RHS MARPAT Woodland
-		_vest = ["rhsusf_spc_rifleman"];
-		_backpack = ["rhsusf_falconii"];
-		_headgear = ["rhs_Booniehat_marpatwd"];
-		_items = _items-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};
 	case 9: {
 		//Guerilla

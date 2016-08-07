@@ -249,7 +249,6 @@ switch (ADV_par_customWeap) do {
 		_optic = ["CUP_optic_CompM2_Woodland2"];
 		if ( ADV_par_NVGs > 0 ) then { _attachments = ["CUP_acc_ANPEQ_15"]; };
 		_silencer = "CUP_muzzle_snds_SCAR_L";		//if silencer is added
-		_primaryweaponAmmo set [1,9];
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=[];
 		_handgunSilencer = "CUP_muzzle_snds_M9";		//if silencer is added
@@ -260,7 +259,6 @@ switch (ADV_par_customWeap) do {
 		_optic = ["CUP_optic_CompM2_Woodland"];
 		if ( ADV_par_NVGs > 0 ) then { _attachments = ["CUP_acc_ANPEQ_2_camo"]; };
 		_silencer = "CUP_muzzle_snds_M16_camo";		//if silencer is added
-		_primaryweaponAmmo set [1,9];
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=[];
 		_handgunSilencer = "CUP_muzzle_snds_M9";		//if silencer is added
@@ -271,7 +269,6 @@ switch (ADV_par_customWeap) do {
 		_optic = ["CUP_optic_SUSAT","CUP_optic_ACOG"];
 		_attachments = [""];
 		_silencer = "CUP_muzzle_snds_L85";		//if silencer is added
-		_primaryweaponAmmo set [1,9];
 		_handgun="CUP_hgun_Glock17";
 		_itemsHandgun=["CUP_acc_Glock17_Flashlight"];
 		_handgunSilencer = "muzzle_snds_L";		//if silencer is added
@@ -337,29 +334,33 @@ switch (ADV_par_customUni) do {
 	};
 	case 3: {
 		//TFA Mixed
-		_uniform = ["TFA_BDU_MCAM_RS","TFA_BDU_MCAM","TFA_BDU_NWU2","TFA_BDU_NWU2_RS","TFA_MCAM_BDU","TFA_MCAM_BDU_RS","TFA_MCAM_NWU2","TFA_MCAM_NWU2_RS","TFA_MCAM_NWU3","TFA_MCAM_NWU3_RS",
-			"TFA_NWU2_MCAM","TFA_NWU2_MCAM_RS","TFA_NWU2_BDU","TFA_NWU2_BDU_RS","TFA_NWU2_NWU3","TFA_NWU2_NWU3_RS","TFA_NWU3_MCAM","TFA_NWU3_MCAM_RS","TFA_NWU3_NWU2","TFA_NWU3_NWU2_RS"];
-		_vest = ["TFA_PlateCarrierH_MCam","TFA_PlateCarrierH_Tan","TFA_PlateCarrierH_Grn","TFA_PlateCarrierH_NWU2"];
-		_headgear = ["TFA_ECH_Multi","TFA_ECH_Tan","TFA_ECH_NWU3","TFA_ECH_DESERT","TFA_ECH_SAND","TFA_ECH_GRASS","TFA_FAST_Multi","TFA_FAST_Tan","TFA_FAST_NWU2","TFA_FAST_NWU3",
-					"TFA_FAST_DES","TFA_FAST_SND","TFA_FAST_SNK","TFA_Mich_Tan","TFA_Mich_Green"];
 	};
 	case 4: {
 		//TFA Woodland
-		_uniform = ["TFA_nwu3","TFA_nwu3_rs"];
-		_vest = ["TFA_PlateCarrierH_fol","TFA_PlateCarrierH_Grn","TFA_PlateCarrierH_Mix","TFA_PlateCarrierH_MCam"];
-		_headgear = ["TFA_ECH_NWU3","TFA_FAST_NWU3","TFA_Mich_Green"];
 	};
 	case 5: {
 		//TFA Desert
-		_uniform = ["TFA_nwu2","TFA_nwu2_rs"];
-		_vest = ["TFA_PlateCarrierH_Grn","TFA_PlateCarrierH_Mix","TFA_PlateCarrierH_NWU2","TFA_PlateCarrierH_MCam","TFA_PlateCarrierH_Tan"];
-		_headgear = ["TFA_FAST_NWU2","TFA_Mich_Tan","TFA_ECH_AOR"];
 	};
 	case 6: {
-		//TFA ACU
-		_uniform = ["TFA_acu","TFA_acu_rs"];
-		_vest = ["TFA_PlateCarrierH_ACU"];
-		_headgear = ["TFA_H_HelmetIA_A"];
+		//CUP BAF
+		switch (true) do {
+			case ((toUpper worldname) in ADV_var_aridMaps): {
+				_uniform = ["CUP_U_B_BAF_DDPM_S2_UnRolled","CUP_U_B_BAF_DDPM_S1_RolledUp","CUP_U_B_BAF_DDPM_Tshirt"];
+				_vest = ["CUP_V_BAF_Osprey_Mk2_DDPM_Soldier1","CUP_V_BAF_Osprey_Mk2_DDPM_Soldier2","CUP_V_BAF_Osprey_Mk2_DDPM_Officer","CUP_V_BAF_Osprey_Mk2_DDPM_Sapper"];
+				_headgear = ["CUP_H_BAF_Helmet_1_DDPM","CUP_H_BAF_Helmet_Net_2_DDPM","CUP_H_BAF_Helmet_4_DDPM"];
+			};
+			case ((toUpper worldname) in ADV_var_lushMaps): {
+				_uniform = ["CUP_U_B_BAF_DPM_S2_UnRolled","CUP_U_B_BAF_DPM_S1_RolledUp","CUP_U_B_BAF_DPM_S1_RolledUp","CUP_U_B_BAF_DPM_Tshirt"];
+				_vest = ["CUP_V_BAF_Osprey_Mk2_DPM_Soldier1","CUP_V_BAF_Osprey_Mk2_DPM_Soldier2","CUP_V_BAF_Osprey_Mk2_DPM_Officer","CUP_V_BAF_Osprey_Mk2_DPM_Sapper"];
+				_headgear = ["CUP_H_BAF_Helmet_1_DPM","CUP_H_BAF_Helmet_Net_2_DPM","CUP_H_BAF_Helmet_4_DPM"];
+			};
+			default {
+				_uniform = ["CUP_U_B_BAF_MTP_S2_UnRolled","CUP_U_B_BAF_MTP_S1_RolledUp","CUP_U_B_BAF_MTP_Tshirt","CUP_U_B_BAF_MTP_S3_RolledUp","CUP_U_B_BAF_MTP_S5_UnRolled","CUP_U_B_BAF_MTP_S6_UnRolled"];
+				_vest = ["CUP_V_BAF_Osprey_Mk4_MTP_Grenadier","CUP_V_BAF_Osprey_Mk4_MTP_Rifleman","CUP_V_BAF_Osprey_Mk4_MTP_SquadLeader"];
+				_headgear = ["CUP_H_BAF_Helmet_1_MTP","CUP_H_BAF_Helmet_Net_2_MTP","CUP_H_BAF_Helmet_4_MTP"];
+			};
+		};
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["CUP_NVG_HMNVS"];
 	};
 	case 7: {
 		//RHS OCP
@@ -386,20 +387,23 @@ switch (ADV_par_customUni) do {
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};
 	case 10: {
-		//RHS MARPAT Desert
-		_uniform = ["rhs_uniform_FROG01_d"];
+	//RHS MARPAT
+		switch (true) do {
+			case ((toUpper worldname) in ADV_var_aridMaps): {
+				_uniform = ["rhs_uniform_FROG01_d"];
+				_headgear = ["rhsusf_lwh_helmet_marpatd","rhsusf_mich_helmet_marpatd","rhsusf_mich_helmet_marpatd_alt","rhsusf_mich_helmet_marpatd_norotos"];
+				_items pushBack "rhs_Booniehat_marpatd";
+			};
+			default {
+				_uniform = ["rhs_uniform_FROG01_wd"];
+				_headgear = ["rhsusf_lwh_helmet_marpatwd","rhsusf_mich_helmet_marpatwd","rhsusf_mich_helmet_marpatwd_alt","rhsusf_mich_helmet_marpatwd_norotos"];
+				_items pushBack "rhs_Booniehat_marpatwd";
+			};
+		};
 		_vest = ["rhsusf_spc_rifleman"];
-		_headgear = ["rhsusf_lwh_helmet_marpatd","rhsusf_mich_helmet_marpatd","rhsusf_mich_helmet_marpatd_alt","rhsusf_mich_helmet_marpatd_norotos"];
-		_items pushBack "rhs_Booniehat_marpatd";
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};	
 	case 11: {
-		//RHS MARPAT Woodland
-		_uniform = ["rhs_uniform_FROG01_wd"];
-		_vest = ["rhsusf_spc_rifleman"];
-		_headgear = ["rhsusf_lwh_helmet_marpatwd","rhsusf_mich_helmet_marpatwd","rhsusf_mich_helmet_marpatwd_alt","rhsusf_mich_helmet_marpatwd_norotos"];
-		_items pushBack "rhs_Booniehat_marpatwd";
-		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};
 	case 9: {
 		//Guerilla

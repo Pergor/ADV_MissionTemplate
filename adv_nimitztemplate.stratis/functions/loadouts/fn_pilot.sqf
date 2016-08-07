@@ -295,7 +295,6 @@ switch (true) do {
 	};	
 	case (ADV_par_customUni >= 3 && ADV_par_customUni < 7): {
 		//TFA Mixed
-		_uniform = ["TFA_coverall_black"];
 	};
 	case (ADV_par_customUni == 12): {
 		//BWmod Fleck
