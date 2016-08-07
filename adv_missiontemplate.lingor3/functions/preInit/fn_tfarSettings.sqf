@@ -27,6 +27,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	tf_give_microdagr_to_soldier = false;
 	tf_same_sw_frequencies_for_side = true;
 	tf_same_lr_frequencies_for_side = true;
+	tf_same_dd_frequencies_for_side = true;
 	tf_terrain_interception_coefficient = 3.0;
 	tf_speakerDistance = 20;
 
