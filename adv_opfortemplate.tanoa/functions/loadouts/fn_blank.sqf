@@ -220,7 +220,7 @@ switch (ADV_par_customUni) do {
 		//TFA Desert
 	};
 	case 6: {
-		//TFA ACU
+		//CUP BAF
 	};
 	case 7: {
 		//RHS OCP
