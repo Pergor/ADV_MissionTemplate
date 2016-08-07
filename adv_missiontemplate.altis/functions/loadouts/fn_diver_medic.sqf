@@ -306,22 +306,6 @@ switch (ADV_par_customUni) do {
 		_backpack = ["BWA3_Kitbag_Fleck_Medic"];
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _items = _items-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
 	};
-	case 3: {
-		//TFA Mixed
-		_backpack = ["TFA_Kitbag_Blk"];
-	};
-	case 4: {
-		//TFA Woodland
-		_backpack = ["TFA_Kitbag_Blk"];
-	};
-	case 5: {
-		//TFA Desert
-		_backpack = ["TFA_Kitbag_Blk"];
-	};
-	case 6: {
-		//TFA ACU
-		_backpack = ["TFA_Kitbag_Blk"];
-	};
 	case 20: {
 		//APEX NATO
 		_headgear = ["H_Helmet_Skate"];
