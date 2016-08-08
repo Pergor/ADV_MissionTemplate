@@ -1,7 +1,10 @@
 ﻿/*
 ADV_fnc_paraJump - by Belbo:
 
-Allows player to jump with a parachute over a position that's defined by mapclick (or by position of group leader of the player)
+Allows player to jump with a parachute over a position that's defined by mapclick (or by position of group leader of the player).
+If you want to change the altitudes of the jump and the forced opening, set these variables globally:
+adv_parajump_start -> starting altitude
+adv_parajump_opening -> forced opening altitude
 
 Possible call - has to be executed where unit is local:
 	[player] call ADV_fnc_paraJump;
@@ -33,6 +36,7 @@ _openingHeight = missionNamespace getVariable ["adv_parajump_opening",110];
 _target = [(_targetPos select 0)+(20+(random 10)), (_targetPos select 1)+(20+(random 10)), _startingHeight];
 _unit setPos _target;
 _unit allowDamage false;
+_openingHeight =  if ( _openingHeight < 109 ) then { 110 } else { _openingHeight };
 
 //safety:
 waitUntil {((getPosWorld _unit) select 2) > 500};
@@ -45,8 +49,9 @@ if (isClass(configFile >> "CfgPatches" >> "ace_parachute")) then {
 } else {
 	_unit action ["openParachute", _unit];
 };
-_unit allowDamage true;
 _unit moveTo _targetPos;
+waitUntil {((getPosWorld _unit) select 2) < 70};
+_unit allowDamage true;
 
 //removal of the parachute:
 waitUntil {sleep 0.2; ( isTouchingGround _unit || ((getPosATL _unit) select 2) < 1 )};
