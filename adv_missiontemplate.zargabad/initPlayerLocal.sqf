@@ -112,11 +112,6 @@ switch ( ADV_par_moveMarker ) do {
 		if (!isNil "ind_flag_1") then {	[ind_flag_1] call ADV_fnc_flag;	};
 	};
 	case 3: {
-		if (!isNil "flag_1") then { [flag_1] call ADV_scriptVar_initMoveMarker_jump; };
-		if (!isNil "opf_flag_1") then { [opf_flag_1] call ADV_scriptVar_initMoveMarker_jump; };
-		if (!isNil "ind_flag_1") then {	[ind_flag_1] call ADV_scriptVar_initMoveMarker_jump;	};
-	};
-	case 4: {
 		if (!isNil "flag_1") then { [flag_1] call ADV_fnc_flag; [flag_1] call ADV_scriptVar_initMoveMarker_jump; };
 		if (!isNil "opf_flag_1") then { [opf_flag_1] call ADV_fnc_flag; [opf_flag_1] call ADV_scriptVar_initMoveMarker_jump; };
 		if (!isNil "ind_flag_1") then {	[ind_flag_1] call ADV_fnc_flag;	[ind_flag_1] call ADV_scriptVar_initMoveMarker_jump; };
