@@ -67,6 +67,7 @@ class ADV
 		class aceMine {};		
 		class board {};		
 		class changeName {};
+		class changeUnit {};
 		class dialogTeleport {};
 		class dispLaunch {};
 		class execTeleport {};
