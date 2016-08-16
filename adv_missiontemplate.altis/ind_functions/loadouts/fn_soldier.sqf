@@ -249,9 +249,9 @@ switch (ADV_par_indUni) do {
 ///// No editing necessary below this line /////
 
 _player = _this select 0;
-if ( ((str _player) select [3,6]) == "ASSCSW" || ((str _player) select [0,4]) == "ACSW" ) then { _binocular = "Rangefinder"; };
+if ( ((str _player) select [4,6]) == "ASSCSW" || ((str _player) select [4,4]) == "ACSW" ) then { _binocular = "Rangefinder"; };
 [_player] call ADV_fnc_gear;
-switch ( toUpper ((str _player) select [3,4]) ) do {
+switch ( toUpper ((str _player) select [4,4]) ) do {
 	case "SOLD": { };
 	case "CSW_": { [_player,1] call ADV_fnc_CSW; };
 	case "ACSW": { [_player,2] call ADV_fnc_CSW; };
@@ -261,9 +261,9 @@ switch ( toUpper ((str _player) select [3,4]) ) do {
 	case "ATOW": { [_player,6] call ADV_fnc_CSW; };
 	default {
 		switch true do {
-			case (toUpper ((str _player) select [3,6]) == "ASSCSW"): { [_player,2] call ADV_fnc_CSW; };
-			case (toUpper ((str _player) select [3,9]) == "ASSMORTAR"): { [_player,4] call ADV_fnc_CSW; };
-			case (toUpper ((str _player) select [3,6]) == "ASSTOW"): { [_player,6] call ADV_fnc_CSW; };
+			case (toUpper ((str _player) select [4,6]) == "ASSCSW"): { [_player,2] call ADV_fnc_CSW; };
+			case (toUpper ((str _player) select [4,9]) == "ASSMORTAR"): { [_player,4] call ADV_fnc_CSW; };
+			case (toUpper ((str _player) select [4,6]) == "ASSTOW"): { [_player,6] call ADV_fnc_CSW; };
 			default {};
 		};
 	};
