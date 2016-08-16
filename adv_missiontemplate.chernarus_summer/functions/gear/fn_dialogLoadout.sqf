@@ -4,7 +4,7 @@
 
 _loadout = _this select 0; //String zur Datei
 
-if (_loadout == "") exitWith {hint "Kein Loadout angegeben";};
+if (_loadout isEqualTo "") exitWith {};
 
 // Aufruf des ausgewählten Loadouts -> Übergabe aus Dialog
 //[player] call compile preprocessFileLineNumbers (format [_loadout,%1]);
