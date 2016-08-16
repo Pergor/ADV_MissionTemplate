@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={14478.364,41.852715,16251.659};
-		dir[]={-0.2301856,-0.53303438,0.81433272};
-		up[]={-0.14504674,0.8459329,0.51311469};
-		aside[]={0.96239942,-3.3279866e-006,0.27202663};
+		pos[]={20976.6,40.969238,19216.07};
+		dir[]={-0.29293653,-0.7561233,0.58520687};
+		up[]={-0.33845684,0.65442872,0.67614388};
+		aside[]={0.89422441,0,0.44762126};
 	};
 };
 binarizationWanted=0;
@@ -62,6 +62,7 @@ addons[]=
 	"A3_Structures_F_Walls",
 	"A3_Characters_F",
 	"A3_Data_F_Curator_Characters",
+	"A3_Characters_F_Exp_Civil",
 	"A3_Modules_F",
 	"A3_Data_F_Exp_A_Virtual",
 	"A3_Structures_F_Mil_BagFence",
@@ -71,7 +72,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=24;
+		items=25;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -96,7 +97,7 @@ class AddonsMetaData
 		class Item3
 		{
 			className="A3_Supplies_F_Heli";
-			name="Arma 3 Helicopters - Ammoboxes and supplies";
+			name="Arma 3 Helicopters - Ammoboxes and Supplies";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -117,7 +118,7 @@ class AddonsMetaData
 		class Item6
 		{
 			className="A3_Armor_F_Gamma";
-			name="Arma 3 - Armored land vehicles";
+			name="Arma 3 - Armored Land Vehicles";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -138,7 +139,7 @@ class AddonsMetaData
 		class Item9
 		{
 			className="A3_Structures_F";
-			name="Arma 3 Alpha - Buildings and structures";
+			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -159,7 +160,7 @@ class AddonsMetaData
 		class Item12
 		{
 			className="A3_Armor_F_EPC";
-			name="Arma 3 Win Episode - Armored land vehicles";
+			name="Arma 3 Win Episode - Armored Land Vehicles";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -173,7 +174,7 @@ class AddonsMetaData
 		class Item14
 		{
 			className="A3_Soft_F_Beta";
-			name="Arma 3 Beta - Unarmored land vehicles";
+			name="Arma 3 Beta - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -187,21 +188,21 @@ class AddonsMetaData
 		class Item16
 		{
 			className="A3_Soft_F_EPC";
-			name="Arma 3 Win Episode - Unarmored land vehicles";
+			name="Arma 3 Win Episode - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
 		class Item17
 		{
 			className="A3_Structures_F_Heli";
-			name="Arma 3 Helicopters - Buildings and structures";
+			name="Arma 3 Helicopters - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
 		class Item18
 		{
 			className="A3_Structures_F_Kart";
-			name="Arma 3 Karts - Buildings and structures";
+			name="Arma 3 Karts - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -221,22 +222,29 @@ class AddonsMetaData
 		};
 		class Item21
 		{
-			className="A3_Modules_F";
-			name="Arma 3 Alpha - Scripted Modules";
+			className="A3_Characters_F_Exp";
+			name="Arma 3 Apex - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
 		class Item22
 		{
-			className="A3_Data_F_Exp_A";
-			name="Arma 3 Nexus Update - Main configuration";
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
 		class Item23
 		{
+			className="A3_Data_F_Exp_A";
+			name="Arma 3 Nexus Update - Main Configuration";
+			author="Bohemia Interactive";
+			url="http://www.arma3.com";
+		};
+		class Item24
+		{
 			className="A3_Modules_F_Curator";
-			name="Arma 3 Zeus Update - Scripted features";
+			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -376,7 +384,7 @@ class Mission
 			position[]={15129.301,17.90008,17272.439};
 			name="respawn_west";
 			type="Empty";
-			angle=225.12482;
+			angle=225.1248;
 			id=0;
 		};
 		class Item1
@@ -749,8 +757,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={15126.991,18.802422,17262.363};
-				angles[]={0,5.8629904,0};
+				position[]={15111.778,18.7864,17277.426};
+				angles[]={0.0026520467,5.8629904,0.0039967569};
 			};
 			side="Empty";
 			flags=4;
@@ -767,8 +775,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={15130.722,18.735302,17260.693};
-				angles[]={0,4.3949485,0};
+				position[]={15115.509,18.726616,17275.756};
+				angles[]={0.0026520467,4.3949485,0};
 			};
 			side="Empty";
 			flags=4;
@@ -785,8 +793,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={15128.109,18.360109,17260.521};
-				angles[]={0,0.52854067,0};
+				position[]={15112.896,18.351881,17275.584};
+				angles[]={0.0026520467,0.52854067,0};
 			};
 			side="Empty";
 			flags=4;
@@ -802,8 +810,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={15129.128,18.098724,17262.211};
-				angles[]={0,5.8629904,0};
+				position[]={15113.915,18.085995,17277.273};
+				angles[]={0.0026520467,5.8629904,0};
 			};
 			side="Empty";
 			flags=4;
@@ -820,7 +828,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={15131.002,18.194054,17257.174};
+				position[]={15115.789,18.194054,17272.236};
 				angles[]={0,5.8629904,0};
 			};
 			side="Empty";
@@ -838,8 +846,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={15131.102,18.194054,17258.799};
-				angles[]={0,5.8629904,0};
+				position[]={15115.889,18.19042,17273.861};
+				angles[]={0.0026520467,5.8629904,0};
 			};
 			side="Empty";
 			flags=4;
@@ -856,8 +864,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={15125.877,18.194054,17260.336};
-				angles[]={0,5.8629904,0};
+				position[]={15110.664,18.178984,17275.398};
+				angles[]={0.0026520467,5.8629904,0.0039967569};
 			};
 			side="Empty";
 			flags=4;
@@ -874,8 +882,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={15129.396,18.360109,17258.791};
-				angles[]={0,2.5069036,0};
+				position[]={15114.184,18.356497,17273.854};
+				angles[]={0.0026520467,2.5069036,0};
 			};
 			side="Empty";
 			flags=4;
@@ -891,8 +899,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={15127.204,18.360109,17258.799};
-				angles[]={0,6.1935334,0};
+				position[]={15111.991,18.354443,17273.861};
+				angles[]={0.0026520467,6.1935334,0.0039967569};
 			};
 			side="Empty";
 			flags=4;
@@ -908,7 +916,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={15128.872,18.098724,17256.92};
+				position[]={15113.659,18.098724,17271.982};
 				angles[]={0,0.40648893,0};
 			};
 			side="Empty";
@@ -1222,8 +1230,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={15108.283,18.845995,17278.51};
-				angles[]={0.0026520467,3.9095376,0.0039967569};
+				position[]={15131.197,18.87887,17255.34};
+				angles[]={0,3.9095376,0};
 			};
 			side="Empty";
 			flags=4;
@@ -1735,7 +1743,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={15120.694,19.272038,17266.213};
+				position[]={15118.522,19.272038,17268.209};
 				angles[]={0,2.3413241,0};
 			};
 			side="Empty";
@@ -3337,7 +3345,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={20964.768,17.818882,19226.174};
+				position[]={20966.994,17.818882,19227.025};
 				angles[]={0,5.8702679,0};
 			};
 			side="Empty";
@@ -3610,12 +3618,12 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
-						name="leader_command";
-						description="Adjutant";
+						name="medic_command";
+						description="Zug-Sanitäter";
 						isPlayable=1;
 					};
 					id=226;
-					type="B_Soldier_TL_F";
+					type="B_medic_F";
 				};
 				class Item2
 				{
@@ -3630,13 +3638,13 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						rank="LIEUTENANT";
-						name="medic_command";
-						description="Zug-Sanitäter";
+						rank="SERGEANT";
+						name="leader_command";
+						description="Adjutant";
 						isPlayable=1;
 					};
 					id=227;
-					type="B_medic_F";
+					type="B_Soldier_TL_F";
 				};
 				class Item3
 				{
@@ -3651,13 +3659,13 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						rank="CORPORAL";
-						name="uavOp_1";
-						description="UAV-Spezialist";
+						rank="SERGEANT";
+						name="ftleader_command_1";
+						description="ZBV";
 						isPlayable=1;
 					};
 					id=228;
-					type="B_soldier_UAV_F";
+					type="B_Soldier_SL_F";
 				};
 				class Item4
 				{
@@ -3672,13 +3680,13 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						rank="CORPORAL";
-						name="marksman_1";
-						description="Zielfernrohrschütze";
+						rank="SERGEANT";
+						name="ftleader_command_2";
+						description="ZBV";
 						isPlayable=1;
 					};
 					id=229;
-					type="B_soldier_M_F";
+					type="B_Soldier_SL_F";
 				};
 			};
 			class Attributes

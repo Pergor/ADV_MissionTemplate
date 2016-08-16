@@ -103,7 +103,7 @@
 ///////////////////////////////////////////////////////////////////////////
 /// Base Classes
 ///////////////////////////////////////////////////////////////////////////
-class adv_loadouts_RscText
+class adv_teleport_RscText
 {
 	deletable = 0;
 	fade = 0;
@@ -165,7 +165,7 @@ class adv_loadouts_RscText
 	};
 };
 
-class adv_loadouts_RscStructuredText
+class adv_teleport_RscStructuredText
 {
 	deletable = 0;
 	fade = 0;
@@ -196,7 +196,7 @@ class adv_loadouts_RscStructuredText
 	shadow = 1;
 };
 
-class adv_loadouts_RscPicture
+class adv_teleport_RscPicture
 {
 	deletable = 0;
 	fade = 0;
@@ -251,7 +251,7 @@ class adv_loadouts_RscPicture
 	};
 };
 
-class adv_loadouts_RscEdit
+class adv_teleport_RscEdit
 {
 	deletable = 0;
 	fade = 0;
@@ -320,7 +320,7 @@ class adv_loadouts_RscEdit
 	};
 };
 
-class adv_loadouts_RscCombo
+class adv_teleport_RscCombo
 {
 	deletable = 0;
 	fade = 0;
@@ -466,7 +466,7 @@ class adv_loadouts_RscCombo
 	};
 };
 
-class adv_loadouts_RscListBox
+class adv_teleport_RscListBox
 {
 	deletable = 0;
 	fade = 0;
@@ -617,7 +617,7 @@ class adv_loadouts_RscListBox
 	};
 };
 
-class adv_loadouts_RscButton
+class adv_teleport_RscButton
 {
 	deletable = 0;
 	fade = 0;
@@ -719,7 +719,7 @@ class adv_loadouts_RscButton
 	borderSize = 0;
 };
 
-class adv_loadouts_RscShortcutButton
+class adv_teleport_RscShortcutButton
 {
 	deletable = 0;
 	fade = 0;
@@ -859,7 +859,7 @@ class adv_loadouts_RscShortcutButton
 	};
 };
 
-class adv_loadouts_RscShortcutButtonMain
+class adv_teleport_RscShortcutButtonMain
 {
 	idc = -1;
 	style = 0;
@@ -928,7 +928,7 @@ class adv_loadouts_RscShortcutButtonMain
 	};
 };
 
-class adv_loadouts_RscFrame
+class adv_teleport_RscFrame
 {
 	type = 0;
 	idc = -1;
@@ -953,7 +953,7 @@ class adv_loadouts_RscFrame
 	text = "";
 };
 
-class adv_loadouts_RscSlider
+class adv_teleport_RscSlider
 {
 	deletable = 0;
 	fade = 0;
@@ -979,7 +979,7 @@ class adv_loadouts_RscSlider
 	h = 0.025;
 };
 
-class adv_loadouts_IGUIBack
+class adv_teleport_IGUIBack
 {
 	type = 0;
 	idc = 124;
@@ -1008,7 +1008,7 @@ class adv_loadouts_IGUIBack
 	};
 };
 
-class adv_loadouts_RscCheckBox
+class adv_teleport_RscCheckBox
 {
 	idc = -1;
 	type = 77;
@@ -1145,7 +1145,7 @@ class adv_loadouts_RscCheckBox
 	};
 };
 
-class adv_loadouts_RscTextCheckBox
+class adv_teleport_RscTextCheckBox
 {
 	idc = -1;
 	type = 7;
@@ -1245,7 +1245,7 @@ class adv_loadouts_RscTextCheckBox
 	};
 };
 
-class adv_loadouts_RscButtonMenu
+class adv_teleport_RscButtonMenu
 {
 	idc = -1;
 	type = 16;
@@ -1391,7 +1391,7 @@ class adv_loadouts_RscButtonMenu
 	};
 };
 
-class adv_loadouts_RscButtonMenuOK
+class adv_teleport_RscButtonMenuOK
 {
 	idc = 1;
 	shortcuts[] = 
@@ -1411,7 +1411,7 @@ class adv_loadouts_RscButtonMenuOK
 	};
 };
 
-class adv_loadouts_RscButtonMenuCancel
+class adv_teleport_RscButtonMenuCancel
 {
 	idc = 2;
 	shortcuts[] = 
@@ -1421,7 +1421,7 @@ class adv_loadouts_RscButtonMenuCancel
 	text = "Abbrechen";
 };
 
-class adv_loadouts_RscControlsGroup
+class adv_teleport_RscControlsGroup
 {
 	deletable = 0;
 	fade = 0;

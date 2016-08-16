@@ -262,5 +262,4 @@ _player = _this select 0;
 [_player] call ADV_fnc_gear;
 CL_IE_Module_Enabled = true;
 
-_return = getUnitLoadout _player;
-_return;
+nil;

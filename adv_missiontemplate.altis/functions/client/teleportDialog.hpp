@@ -4,25 +4,23 @@
 #include "parentDialog.hpp"
 
 // MACROS
-#define IDC_adv_loadouts_LOADOUT_RSCTEXT_1000	6877
-#define IDC_adv_loadouts_LOADOUT_RSCTEXT_1001	6878
-#define IDC_adv_loadouts_LOADOUT_RSCLISTBOX_1500	7377
-#define IDC_adv_loadouts_LOADOUT_RSCBUTTON_1600	7477
-#define IDC_adv_loadouts_LOADOUT_RSCBUTTON_1601	7478
-#define IDC_adv_loadouts_LOADOUT_RSCFRAME_1800	7677
-#define IDC_adv_loadouts_LOADOUT_RSCCOMBO_2100	7977
-#define IDC_adv_loadouts_LOADOUT_IGUIBACK_2200	8077
+#define IDC_adv_teleport_LOADOUT_RSCTEXT_1000	6877
+#define IDC_adv_teleport_LOADOUT_RSCTEXT_1001	6878
+#define IDC_adv_teleport_LOADOUT_RSCLISTBOX_1500	7377
+#define IDC_adv_teleport_LOADOUT_RSCBUTTON_1600	7477
+#define IDC_adv_teleport_LOADOUT_RSCBUTTON_1601	7478
+#define IDC_adv_teleport_LOADOUT_RSCFRAME_1800	7677
+#define IDC_adv_teleport_LOADOUT_RSCCOMBO_2100	7977
+#define IDC_adv_teleport_LOADOUT_IGUIBACK_2200	8077
 
-class adv_loadouts_mainDialog {
+class adv_teleport_mainDialog {
 
 	idd = 11;
 	movingEnable = true;
 	enableSimulation = true; // does not freeze the game
-	// lade init-Skript
-	//onload = "(_this) execVM 'functions\gear\fn_dialogGearInit.sqf';";
-	onload = "(_this) spawn ADV_fnc_dialogGearInit;";
+	onload = "(_this) spawn ADV_fnc_dialogTeleport;";
 
-	controls[] = { 
+	controls[] = {
 		IGUIBack_2200,	
 		RscFrame_1800,
 		RscListbox_1500,
@@ -33,9 +31,9 @@ class adv_loadouts_mainDialog {
 		RscButton_1601
 	};
 
-	class IGUIBack_2200: adv_loadouts_IGUIBack
+	class IGUIBack_2200: adv_teleport_IGUIBack
 	{
-		idc = IDC_adv_loadouts_LOADOUT_IGUIBACK_2200;
+		idc = IDC_adv_teleport_LOADOUT_IGUIBACK_2200;
 		x = 0.06 * GUI_GRID_W + GUI_GRID_X;
 		y = 0.99 * GUI_GRID_H + GUI_GRID_Y;
 		w = 40 * GUI_GRID_W;
@@ -43,10 +41,10 @@ class adv_loadouts_mainDialog {
 		moving = 1;
 	};
 
-	class RscFrame_1800: adv_loadouts_RscFrame
+	class RscFrame_1800: adv_teleport_RscFrame
 	{
-		idc = IDC_adv_loadouts_LOADOUT_RSCFRAME_1800;
-		text = "Loadout-Auswahlmenü"; //--- ToDo: Localize;
+		idc = IDC_adv_teleport_LOADOUT_RSCFRAME_1800;
+		text = "Teleport-Auswahlmenü"; //--- ToDo: Localize;
 		x = 0 * GUI_GRID_W + GUI_GRID_X;
 		y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
 		w = 40 * GUI_GRID_W;
@@ -54,10 +52,10 @@ class adv_loadouts_mainDialog {
 		sizeEx = 1 * GUI_GRID_H;
 	};
 
-	class RscListbox_1500: adv_loadouts_RscListbox
+	class RscListbox_1500: adv_teleport_RscListbox
 	{
-		idc = IDC_adv_loadouts_LOADOUT_RSCLISTBOX_1500;
-		text = "Loadouts"; //--- ToDo: Localize;
+		idc = IDC_adv_teleport_LOADOUT_RSCLISTBOX_1500;
+		text = "Ziel"; //--- ToDo: Localize;
 		x = 1 * GUI_GRID_W + GUI_GRID_X;
 		y = 3 * GUI_GRID_H + GUI_GRID_Y;
 		w = 16 * GUI_GRID_W;
@@ -72,10 +70,10 @@ class adv_loadouts_mainDialog {
 		};
 	};
 
-	class RscText_1000: adv_loadouts_RscText
+	class RscText_1000: adv_teleport_RscText
 	{
-		idc = IDC_adv_loadouts_LOADOUT_RSCTEXT_1000;
-		text = "Loadouts"; //--- ToDo: Localize;
+		idc = IDC_adv_teleport_LOADOUT_RSCTEXT_1000;
+		text = "Ziel"; //--- ToDo: Localize;
 		x = 1 * GUI_GRID_W + GUI_GRID_X;
 		y = 1.5 * GUI_GRID_H + GUI_GRID_Y;
 		w = 15.5 * GUI_GRID_W;
@@ -83,9 +81,9 @@ class adv_loadouts_mainDialog {
 	};
 	
 	/*
-	class RscCombo_2100: adv_loadouts_RscCombo
+	class RscCombo_2100: adv_teleport_RscCombo
 	{
-		idc = IDC_adv_loadouts_LOADOUT_RSCCOMBO_2100;
+		idc = IDC_adv_teleport_LOADOUT_RSCCOMBO_2100;
 		x = 18 * GUI_GRID_W + GUI_GRID_X;
 		y = 4.5 * GUI_GRID_H + GUI_GRID_Y;
 		w = 19.5 * GUI_GRID_W;
@@ -93,9 +91,9 @@ class adv_loadouts_mainDialog {
 	};
 
 	/*
-	class RscText_1001: adv_loadouts_RscText
+	class RscText_1001: adv_teleport_RscText
 	{
-		idc = IDC_adv_loadouts_LOADOUT_RSCTEXT_1001;
+		idc = IDC_adv_teleport_LOADOUT_RSCTEXT_1001;
 		text = "Optik"; //--- ToDo: Localize;
 		x = 18 * GUI_GRID_W + GUI_GRID_X;
 		y = 3 * GUI_GRID_H + GUI_GRID_Y;
@@ -104,20 +102,20 @@ class adv_loadouts_mainDialog {
 	};
 	*/
 	
-	class RscButton_1600: adv_loadouts_RscButton
+	class RscButton_1600: adv_teleport_RscButton
 	{
-		idc = IDC_adv_loadouts_LOADOUT_RSCBUTTON_1600;
+		idc = IDC_adv_teleport_LOADOUT_RSCBUTTON_1600;
 		text = "OK"; //--- ToDo: Localize;
 		x = 18 * GUI_GRID_W + GUI_GRID_X;
 		y = 8.5 * GUI_GRID_H + GUI_GRID_Y;
 		w = 9 * GUI_GRID_W;
 		h = 1.5 * GUI_GRID_H;
-		action = "[lbData [7377, lbCurSel 7377], lbData[7977, lbCurSel 7977]] call ADV_fnc_dialogLoadout;";
+		action = "[player, lbData [7377, lbCurSel 7377]] call adv_fnc_execteleport;";
 	};
 
-	class RscButton_1601: adv_loadouts_RscButton
+	class RscButton_1601: adv_teleport_RscButton
 	{
-		idc = IDC_adv_loadouts_LOADOUT_RSCBUTTON_1601;
+		idc = IDC_adv_teleport_LOADOUT_RSCBUTTON_1601;
 		text = "Abbrechen"; //--- ToDo: Localize;
 		x = 28.5 * GUI_GRID_W + GUI_GRID_X;
 		y = 8.5 * GUI_GRID_H + GUI_GRID_Y;
