@@ -72,8 +72,9 @@ while {true} do {
 	_veh allowDamage false;
 	_veh setPosASL _respHeightPos;
 	_veh setDir (markerDir _respawnPos);
-	[_veh,_name] remoteExec ["setVehicleVarName",0];
-	_veh call compile format ["%1 = _this; publicVariable '%1'", _name];
+	//[_veh,_name] remoteExec ["setVehicleVarName",0];
+	//_veh call compile format ["%1 = _this; publicVariable '%1'", _name];
+	[_veh,_name] call adv_fnc_changeUnit;
 	sleep 2;
 	_veh allowDamage true;
 	for "_i" from 0 to ((count _objectTextures)-1) do {

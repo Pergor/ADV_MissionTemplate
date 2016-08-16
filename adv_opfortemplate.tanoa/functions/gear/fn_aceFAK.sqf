@@ -68,6 +68,9 @@ switch _FAKtype do {
 			if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) > 0 ) then {
 				_ACE_personalAidKit = 4;
 			};
+			if ( (adv_par_ace_medical_GivePAK == 0) && !( (["medic_com",(str _unit)] call BIS_fnc_inString) || (["medic_log",(str _unit)] call BIS_fnc_inString) ) ) then {
+				_ACE_personalAidKit = 0;
+			};
 			_ACE_surgicalKit = 1;
 			if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) > 0 ) then {
 				_ACE_surgicalKit = 4;

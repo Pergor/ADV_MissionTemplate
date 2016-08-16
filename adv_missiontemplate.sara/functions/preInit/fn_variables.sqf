@@ -64,7 +64,15 @@ if (isNil "ADV_par_Tablets") then { ADV_par_Tablets = ["param_Tablets",1] call B
 if (isClass (configFile >> "CfgPatches" >> "cTab") && ADV_par_Tablets == 1) then {
 	cTab_encryptionKey_west = "b";
 	cTab_encryptionKey_east = "o";
-	cTab_encryptionKey_guer = "i";
+	if ( [independent,west] call BIS_fnc_sideIsFriendly ) then {
+		cTab_encryptionKey_guer = "b";
+	} else {
+		if ( [independent,east] call BIS_fnc_sideIsFriendly ) then {
+			cTab_encryptionKey_guer = "o";
+		} else {
+			cTab_encryptionKey_guer = "i";
+		};
+	};
 	cTab_encryptionKey_civ = "c";
     cTab_vehicleClass_has_FBCB2 = ["Car","Armored"
 		/*

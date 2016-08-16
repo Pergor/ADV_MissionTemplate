@@ -176,8 +176,8 @@ _ACE_isPilot = false;
 
 //Tablet-Items
 _tablet = true;
-_androidDevice = false;
-_microDAGR = true;
+_androidDevice = true;
+_microDAGR = false;
 _helmetCam = false;
 
 //scorch inv items
@@ -321,5 +321,4 @@ _player = _this select 0;
 [_player] call ADV_fnc_gear;
 CL_IE_Module_Enabled = true;
 
-_return = getUnitLoadout _player;
-_return;
+nil;

@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={5336.6367,163.22696,6116.7271};
-		dir[]={-0.76637626,-0.60643315,-0.2119455};
-		up[]={-0.58450174,0.79512984,-0.16164722};
-		aside[]={-0.26655203,3.1534e-008,0.96383077};
+		pos[]={4955.2578,47.56905,6165.4282};
+		dir[]={0.028410664,-0.53939241,-0.84159738};
+		up[]={0.018199628,0.84203482,-0.53912169};
+		aside[]={-0.99945283,-3.4409459e-007,-0.03373839};
 	};
 };
 binarizationWanted=0;
@@ -48,13 +48,14 @@ addons[]=
 	"A3_Soft_F_Gamma_Truck_01",
 	"A3_Characters_F",
 	"A3_Data_F_Curator_Characters",
+	"A3_Characters_F_Exp_Civil",
 	"A3_Modules_F_Curator_Curator"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=19;
+		items=20;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -79,7 +80,7 @@ class AddonsMetaData
 		class Item3
 		{
 			className="A3_Supplies_F_Heli";
-			name="Arma 3 Helicopters - Ammoboxes and supplies";
+			name="Arma 3 Helicopters - Ammoboxes and Supplies";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -100,7 +101,7 @@ class AddonsMetaData
 		class Item6
 		{
 			className="A3_Armor_F_Gamma";
-			name="Arma 3 - Armored land vehicles";
+			name="Arma 3 - Armored Land Vehicles";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -121,7 +122,7 @@ class AddonsMetaData
 		class Item9
 		{
 			className="A3_Structures_F";
-			name="Arma 3 Alpha - Buildings and structures";
+			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -135,7 +136,7 @@ class AddonsMetaData
 		class Item11
 		{
 			className="A3_Armor_F_EPC";
-			name="Arma 3 Win Episode - Armored land vehicles";
+			name="Arma 3 Win Episode - Armored Land Vehicles";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -154,7 +155,7 @@ class AddonsMetaData
 		class Item14
 		{
 			className="A3_Soft_F_Beta";
-			name="Arma 3 Beta - Unarmored land vehicles";
+			name="Arma 3 Beta - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -181,8 +182,15 @@ class AddonsMetaData
 		};
 		class Item18
 		{
+			className="A3_Characters_F_Exp";
+			name="Arma 3 Apex - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="http://www.arma3.com";
+		};
+		class Item19
+		{
 			className="A3_Modules_F_Curator";
-			name="Arma 3 Zeus Update - Scripted features";
+			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -250,7 +258,7 @@ class Mission
 		class Item2
 		{
 			dataType="Marker";
-			position[]={4965.9453,29.51,6120.0073};
+			position[]={4979.4497,29.463783,6119.4614};
 			name="crates";
 			text="Zusatzausrüstung";
 			type="Select";
@@ -298,7 +306,7 @@ class Mission
 		class Item6
 		{
 			dataType="Marker";
-			position[]={4975.0522,29.46805,6138.6899};
+			position[]={4960.1621,29.500404,6120.1641};
 			name="briefArea";
 			text="Briefing Area";
 			type="Select";
@@ -374,8 +382,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4963.2803,30.400627,6120.5742};
-				angles[]={0,5.1894693,0.0024897563};
+				position[]={4976.7847,30.356426,6120.0283};
+				angles[]={6.2806959,5.1894693,0.0049914722};
 			};
 			side="Empty";
 			flags=4;
@@ -386,14 +394,15 @@ class Mission
 			};
 			id=12;
 			type="C_supplyCrate_F";
+			atlOffset=1.9073486e-006;
 		};
 		class Item13
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4966.1196,30.341049,6122.2515};
-				angles[]={6.268187,3.7214224,0.014998405};
+				position[]={4979.624,30.283897,6121.7056};
+				angles[]={0.014998405,3.7214224,6.270689};
 			};
 			side="Empty";
 			flags=4;
@@ -410,8 +419,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4965.0752,29.96011,6120.4204};
-				angles[]={0,6.1381974,0};
+				position[]={4978.5796,29.919868,6119.8745};
+				angles[]={6.2581916,6.1381974,0.0050033992};
 			};
 			side="Empty";
 			flags=4;
@@ -427,8 +436,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4964.1655,29.698725,6122.1191};
-				angles[]={0,5.1894693,0};
+				position[]={4977.6699,29.661009,6121.5732};
+				angles[]={6.2806959,5.1894693,0.0049914722};
 			};
 			side="Empty";
 			flags=4;
@@ -439,14 +448,15 @@ class Mission
 			};
 			id=15;
 			type="Box_NATO_Wps_F";
+			atlOffset=1.9073486e-006;
 		};
 		class Item16
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4968.7207,29.788048,6119.8999};
-				angles[]={6.2581916,4.946485,6.278182};
+				position[]={4982.2251,29.724222,6119.354};
+				angles[]={6.2731905,4.946485,6.268187};
 			};
 			side="Empty";
 			flags=4;
@@ -457,14 +467,15 @@ class Mission
 			};
 			id=16;
 			type="Box_NATO_Ammo_F";
+			atlOffset=1.9073486e-006;
 		};
 		class Item17
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4967.7637,29.810045,6121.2979};
-				angles[]={6.268187,5.1894693,0.014998405};
+				position[]={4981.2681,29.733561,6120.752};
+				angles[]={0.014998405,5.1894693,6.268187};
 			};
 			side="Empty";
 			flags=4;
@@ -475,14 +486,15 @@ class Mission
 			};
 			id=17;
 			type="Box_NATO_AmmoOrd_F";
+			atlOffset=1.9073486e-006;
 		};
 		class Item18
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4963.5811,29.769152,6118.9365};
-				angles[]={6.2606897,5.1894693,0.0024897563};
+				position[]={4977.0854,29.713217,6118.3906};
+				angles[]={6.2656889,5.1894693,6.2806959};
 			};
 			side="Empty";
 			flags=4;
@@ -493,13 +505,14 @@ class Mission
 			};
 			id=18;
 			type="Box_NATO_Ammo_F";
+			atlOffset=3.8146973e-006;
 		};
 		class Item19
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4967.1646,29.944738,6119.3794};
+				position[]={4980.6689,29.901093,6118.8335};
 				angles[]={6.2581916,1.8333755,0};
 			};
 			side="Empty";
@@ -510,15 +523,15 @@ class Mission
 			};
 			id=19;
 			type="Land_Pallet_MilBoxes_F";
-			atlOffset=0.00014305115;
+			atlOffset=0.00014686584;
 		};
 		class Item20
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4965.208,29.918835,6118.2949};
-				angles[]={6.2606897,5.5200052,6.2806959};
+				position[]={4978.7124,29.867506,6117.749};
+				angles[]={6.2581916,5.5200052,0.0050033992};
 			};
 			side="Empty";
 			flags=4;
@@ -535,8 +548,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4968.2603,29.64761,6118.0049};
-				angles[]={6.2581916,6.0161443,6.278182};
+				position[]={4981.7646,29.605261,6117.459};
+				angles[]={6.2581916,6.0161443,0};
 			};
 			side="Empty";
 			flags=4;
@@ -547,6 +560,7 @@ class Mission
 			};
 			id=21;
 			type="Box_NATO_Wps_F";
+			atlOffset=1.9073486e-006;
 		};
 		class Item22
 		{
@@ -835,8 +849,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4976.4053,30.40411,6138.7759};
-				angles[]={6.2806959,1.5916877,6.2531958};
+				position[]={4960.1401,30.447813,6119.0684};
+				angles[]={6.2606878,3.1415927,0.0024958209};
 			};
 			side="Empty";
 			flags=4;
@@ -1311,18 +1325,41 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4959.1826,30.303997,6118.8618};
-				angles[]={6.2606897,4.7361021,6.278194};
+				position[]={4968.8701,30.289955,6118.3496};
+				angles[]={6.2581921,4.7361083,6.2781763};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
-				init="[this] call ADV_fnc_clearCargo;";
+				name="crate_empty";
 			};
 			id=63;
 			type="B_CargoNet_01_ammo_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[""arifle_MXC_F"",""arifle_MXM_F"",""arifle_MX_F"",""arifle_MX_GL_F"",""arifle_MX_SW_F"",""arifle_SDAR_F"",""hgun_P07_F"",""hgun_Pistol_heavy_01_F"",""launch_NLAW_F"",""launch_Titan_F"",""launch_Titan_short_F"",""SMG_01_F"",""srifle_EBR_F"",""srifle_LRR_camo_F"",""srifle_LRR_F"",""MineDetector""],[4,2,8,4,4,2,2,2,2,2,2,2,2,2,2,1]],[[""100Rnd_65x39_caseless_mag_Tracer"",""11Rnd_45ACP_Mag"",""16Rnd_9x21_Mag"",""1Rnd_HE_Grenade_shell"",""1Rnd_SmokeBlue_Grenade_shell"",""1Rnd_SmokeGreen_Grenade_shell"",""1Rnd_SmokeOrange_Grenade_shell"",""1Rnd_SmokePurple_Grenade_shell"",""1Rnd_SmokeRed_Grenade_shell"",""1Rnd_SmokeYellow_Grenade_shell"",""1Rnd_Smoke_Grenade_shell"",""20Rnd_556x45_UW_mag"",""20Rnd_762x51_Mag"",""30Rnd_45ACP_Mag_SMG_01"",""30Rnd_556x45_Stanag_red"",""30Rnd_65x39_caseless_mag"",""3Rnd_HE_Grenade_shell"",""7Rnd_408_Mag"",""APERSBoundingMine_Range_Mag"",""APERSMine_Range_Mag"",""APERSTripMine_Wire_Mag"",""ATMine_Range_Mag"",""B_IR_Grenade"",""ClaymoreDirectionalMine_Remote_Mag"",""DemoCharge_Remote_Mag"",""HandGrenade"",""Laserbatteries"",""MiniGrenade"",""NLAW_F"",""SatchelCharge_Remote_Mag"",""SLAMDirectionalMine_Wire_Mag"",""SmokeShell"",""SmokeShellBlue"",""SmokeShellGreen"",""SmokeShellOrange"",""SmokeShellPurple"",""SmokeShellRed"",""SmokeShellYellow"",""Titan_AA"",""Titan_AP"",""Titan_AT"",""UGL_FlareGreen_F"",""UGL_FlareWhite_F""],[16,14,14,15,2,2,2,2,2,2,2,6,24,14,6,52,3,12,5,5,5,5,8,5,5,24,5,24,8,5,5,2,2,2,2,2,2,2,6,6,6,2,2]],[[""Binocular"",""Laserdesignator"",""Rangefinder"",""acc_flashlight"",""acc_pointer_IR"",""FirstAidKit"",""ItemGPS"",""Medikit"",""muzzle_snds_acp"",""muzzle_snds_B"",""muzzle_snds_H"",""muzzle_snds_H_SW"",""muzzle_snds_L"",""optic_Aco"",""optic_Aco_smg"",""optic_DMS"",""optic_Hamr"",""optic_Holosight"",""optic_LRPS"",""optic_MRD"",""optic_NVS"",""optic_SOS"",""optic_tws"",""optic_tws_mg"",""ToolKit""],[1,1,1,5,5,10,5,1,5,5,5,1,5,2,2,2,2,2,2,2,2,2,2,2,1]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item64
 		{

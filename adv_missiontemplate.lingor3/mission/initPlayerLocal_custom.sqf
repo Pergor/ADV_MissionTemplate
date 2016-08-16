@@ -10,7 +10,7 @@ if (isDedicated) exitWith {};
 //calls before mission start (during the loading- and briefing-screen):			//
 //////////////////////////////////////////////////////////////////////////////////
 // place your custom content here:
-player allowDamage false;
+
 
 
 
@@ -21,8 +21,7 @@ player allowDamage false;
 waitUntil {time > 1};
 //////////////////////////////////////////////////////////////////////////////////
 // place your custom content here:
-sleep 10;
-player allowDamage true;
+
 
 
 

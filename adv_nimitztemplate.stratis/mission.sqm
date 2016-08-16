@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=255;
+		nextID=256;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={7988.1704,93.61879,163.52908};
-		dir[]={-0.52942824,-0.75251341,-0.39193782};
-		up[]={-0.604877,0.65846395,-0.44779158};
-		aside[]={-0.59505367,7.4086711e-007,0.80379343};
+		pos[]={7856.4658,70.73954,221.99954};
+		dir[]={0.80207419,-0.45015484,-0.39249188};
+		up[]={0.40434611,0.89294559,-0.19786523};
+		aside[]={-0.43954444,-2.1421874e-007,-0.89822739};
 	};
 };
 binarizationWanted=0;
@@ -36,19 +36,20 @@ addons[]=
 	"A3_Modules_F_Curator_Curator",
 	"A3_Characters_F",
 	"A3_Data_F_Curator_Characters",
+	"A3_Characters_F_Exp_Civil",
 	"A3_Modules_F",
 	"A3_Data_F_Exp_A_Virtual",
-	"cba_xeh",
 	"JDG_carrier",
 	"A3_Structures_F_Heli_Furniture",
 	"A3_Signs_F",
-	"A3_Structures_F_Heli_Items_Airport"
+	"A3_Structures_F_Heli_Items_Airport",
+	"A3_Structures_F_Civ_InfoBoards"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=16;
+		items=17;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -66,7 +67,7 @@ class AddonsMetaData
 		class Item2
 		{
 			className="A3_Supplies_F_Heli";
-			name="Arma 3 Helicopters - Ammoboxes and supplies";
+			name="Arma 3 Helicopters - Ammoboxes and Supplies";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -101,7 +102,7 @@ class AddonsMetaData
 		class Item7
 		{
 			className="A3_Modules_F_Curator";
-			name="Arma 3 Zeus Update - Scripted features";
+			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -121,32 +122,35 @@ class AddonsMetaData
 		};
 		class Item10
 		{
-			className="A3_Modules_F";
-			name="Arma 3 Alpha - Scripted Modules";
+			className="A3_Characters_F_Exp";
+			name="Arma 3 Apex - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
 		class Item11
 		{
-			className="A3_Data_F_Exp_A";
-			name="Arma 3 Nexus Update - Main configuration";
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
 		class Item12
 		{
-			className="cba_xeh";
-			name="cba_xeh";
+			className="A3_Data_F_Exp_A";
+			name="Arma 3 Nexus Update - Main Configuration";
+			author="Bohemia Interactive";
+			url="http://www.arma3.com";
 		};
 		class Item13
 		{
 			className="JDG_carrier";
 			name="JDG_carrier";
+			author="JDog, Odyseus, TeTeT";
 		};
 		class Item14
 		{
 			className="A3_Structures_F_Heli";
-			name="Arma 3 Helicopters - Buildings and structures";
+			name="Arma 3 Helicopters - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -154,6 +158,13 @@ class AddonsMetaData
 		{
 			className="A3_Signs_F";
 			name="Arma 3 - Signs";
+			author="Bohemia Interactive";
+			url="http://www.arma3.com";
+		};
+		class Item16
+		{
+			className="A3_Structures_F";
+			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -196,7 +207,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=42;
+		items=43;
 		class Item0
 		{
 			dataType="Marker";
@@ -225,7 +236,6 @@ class Mission
 				angles[]={0,3.9423609,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -233,7 +243,7 @@ class Mission
 			};
 			id=17;
 			type="B_supplyCrate_F";
-			atlOffset=0.0022029877;
+			atlOffset=9.7994881;
 		};
 		class Item3
 		{
@@ -244,7 +254,6 @@ class Mission
 				angles[]={0,5.0031257,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -252,7 +261,7 @@ class Mission
 			};
 			id=18;
 			type="B_CargoNet_01_ammo_F";
-			atlOffset=0.0020370483;
+			atlOffset=9.7994957;
 		};
 		class Item4
 		{
@@ -263,7 +272,6 @@ class Mission
 				angles[]={0,0.37232935,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -271,7 +279,7 @@ class Mission
 			};
 			id=36;
 			type="B_Heli_Transport_01_F";
-			atlOffset=0.0088176727;
+			atlOffset=132.77255;
 		};
 		class Item5
 		{
@@ -282,7 +290,6 @@ class Mission
 				angles[]={0,3.5238059,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -290,7 +297,7 @@ class Mission
 			};
 			id=38;
 			type="B_Heli_Transport_01_F";
-			atlOffset=0.0039997101;
+			atlOffset=14.979923;
 		};
 		class Item6
 		{
@@ -301,7 +308,6 @@ class Mission
 				angles[]={0,3.3516939,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -309,7 +315,7 @@ class Mission
 			};
 			id=39;
 			type="B_Heli_Transport_01_F";
-			atlOffset=0.001203537;
+			atlOffset=130.38576;
 		};
 		class Item7
 		{
@@ -320,7 +326,6 @@ class Mission
 				angles[]={0,6.1822195,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -328,7 +333,7 @@ class Mission
 			};
 			id=41;
 			type="B_Heli_Light_01_F";
-			atlOffset=0.0020370483;
+			atlOffset=10.399853;
 		};
 		class Item8
 		{
@@ -339,7 +344,6 @@ class Mission
 				angles[]={0.00059801998,3.6992214,0.0009134906};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -347,7 +351,7 @@ class Mission
 			};
 			id=42;
 			type="B_Heli_Light_01_F";
-			atlOffset=0.0003528595;
+			atlOffset=130.46637;
 		};
 		class Item9
 		{
@@ -358,7 +362,6 @@ class Mission
 				angles[]={0,0.33821547,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -366,7 +369,7 @@ class Mission
 			};
 			id=43;
 			type="B_Plane_CAS_01_F";
-			atlOffset=0.0038356781;
+			atlOffset=10.175028;
 		};
 		class Item10
 		{
@@ -384,7 +387,7 @@ class Mission
 			};
 			id=44;
 			type="B_Plane_CAS_01_F";
-			atlOffset=140.71394;
+			atlOffset=140.52689;
 		};
 		class Item11
 		{
@@ -395,7 +398,6 @@ class Mission
 				angles[]={0,1.9313152,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -403,7 +405,7 @@ class Mission
 			};
 			id=65;
 			type="B_Slingload_01_Cargo_F";
-			atlOffset=0.0022449493;
+			atlOffset=131.58165;
 		};
 		class Item12
 		{
@@ -414,7 +416,6 @@ class Mission
 				angles[]={0,0.3015112,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -422,6 +423,7 @@ class Mission
 			};
 			id=66;
 			type="B_Heli_Transport_03_F";
+			atlOffset=138.71552;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -900,7 +902,7 @@ class Mission
 					};
 					id=114;
 					type="B_soldier_UAV_F";
-					atlOffset=10.353132;
+					atlOffset=10.39653;
 				};
 				class Item4
 				{
@@ -921,7 +923,7 @@ class Mission
 					};
 					id=115;
 					type="B_soldier_M_F";
-					atlOffset=10.331968;
+					atlOffset=10.375366;
 				};
 			};
 			class Attributes
@@ -1250,7 +1252,7 @@ class Mission
 					};
 					id=131;
 					type="B_soldier_AR_F";
-					atlOffset=10.33446;
+					atlOffset=10.377838;
 				};
 				class Item4
 				{
@@ -1270,7 +1272,7 @@ class Mission
 					};
 					id=132;
 					type="B_Soldier_GL_F";
-					atlOffset=10.294909;
+					atlOffset=10.338287;
 				};
 				class Item5
 				{
@@ -1290,7 +1292,7 @@ class Mission
 					};
 					id=133;
 					type="B_soldier_LAT_F";
-					atlOffset=10.261043;
+					atlOffset=10.30442;
 				};
 				class Item6
 				{
@@ -1925,7 +1927,7 @@ class Mission
 					};
 					id=221;
 					type="B_Pilot_F";
-					atlOffset=10.3466;
+					atlOffset=10.389961;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2054,7 +2056,7 @@ class Mission
 					};
 					id=235;
 					type="B_Pilot_F";
-					atlOffset=10.346664;
+					atlOffset=10.39003;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2098,7 +2100,7 @@ class Mission
 					};
 					id=234;
 					type="B_Pilot_F";
-					atlOffset=10.347079;
+					atlOffset=10.390442;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2128,7 +2130,7 @@ class Mission
 			{
 			};
 			id=238;
-			atlOffset=10.346664;
+			atlOffset=10.39003;
 		};
 		class Item32
 		{
@@ -2158,7 +2160,7 @@ class Mission
 					};
 					id=222;
 					type="B_Pilot_F";
-					atlOffset=10.347383;
+					atlOffset=10.390747;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2232,7 +2234,7 @@ class Mission
 			{
 			};
 			id=239;
-			atlOffset=10.347383;
+			atlOffset=10.390747;
 		};
 		class Item33
 		{
@@ -2270,7 +2272,7 @@ class Mission
 			};
 			id=241;
 			type="B_Heli_Transport_03_F";
-			atlOffset=0.33756638;
+			atlOffset=0.33756828;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2311,7 +2313,7 @@ class Mission
 			};
 			id=243;
 			type="B_Heli_Transport_03_F";
-			atlOffset=10.356642;
+			atlOffset=10.400009;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2609,6 +2611,24 @@ class Mission
 			};
 			id=252;
 			atlOffset=0.28120804;
+		};
+		class Item42
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7988.1548,18.355066,159.46201};
+				angles[]={0,1.927175,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="this allowDamage false;";
+				name="BriefingBoard1";
+			};
+			id=255;
+			type="Land_MapBoard_F";
+			atlOffset=9.7993469;
 		};
 	};
 };

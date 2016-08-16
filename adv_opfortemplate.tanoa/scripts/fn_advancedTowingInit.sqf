@@ -549,7 +549,7 @@ SA_Can_Take_Tow_Ropes = {
 		private ["_existingVehicle","_existingTowRopes"];
 		_existingTowRopes = _vehicle getVariable ["SA_Tow_Ropes",[]];
 		_existingVehicle = player getVariable ["SA_Tow_Ropes_Vehicle", objNull];
-		vehicle player == player && player distance _vehicle < 10 && (count _existingTowRopes) == 0 && isNull _existingVehicle;
+		vehicle player == player && player distance _vehicle < 8 && (count _existingTowRopes) == 0 && isNull _existingVehicle;
 	} else {
 		false;
 	};
@@ -740,23 +740,23 @@ SA_Add_Player_Tow_Actions = {
 	
 	player addAction [("<t color=""#FFFF00"">" + ("Deploy Tow Ropes") + "</t>"), { 
 		[] call SA_Take_Tow_Ropes_Action;
-	}, nil, 0, false, true, "", "call SA_Take_Tow_Ropes_Action_Check"];
+	}, nil, 0, false, true, "", "call SA_Take_Tow_Ropes_Action_Check",8];
 
 	player addAction [("<t color=""#FFFF00"">" + ("Put Away Tow Ropes") + "</t>"), {
 		[] call SA_Put_Away_Tow_Ropes_Action;
-	}, nil, 0, false, true, "", "call SA_Put_Away_Tow_Ropes_Action_Check"];
+	}, nil, 0, false, true, "", "call SA_Put_Away_Tow_Ropes_Action_Check",8];
 
 	player addAction [("<t color=""#FFFF00"">" + ("Attach Tow Ropes") + "</t>"), {
 		[] call SA_Attach_Tow_Ropes_Action;
-	}, nil, 0, false, true, "", "call SA_Attach_Tow_Ropes_Action_Check"];
+	}, nil, 0, false, true, "", "call SA_Attach_Tow_Ropes_Action_Check",8];
 
 	player addAction [("<t color=""#FFFF00"">" + ("Drop Tow Ropes") + "</t>"), {
 		[] call SA_Drop_Tow_Ropes_Action;
-	}, nil, 0, false, true, "", "call SA_Drop_Tow_Ropes_Action_Check"];
+	}, nil, 0, false, true, "", "call SA_Drop_Tow_Ropes_Action_Check",8];
 
 	player addAction [("<t color=""#FFFF00"">" + ("Pickup Tow Ropes") + "</t>"), {
 		[] call SA_Pickup_Tow_Ropes_Action;
-	}, nil, 0, false, true, "", "call SA_Pickup_Tow_Ropes_Action_Check"];
+	}, nil, 0, false, true, "", "call SA_Pickup_Tow_Ropes_Action_Check",8];
 
 	player addEventHandler ["Respawn", {
 		player setVariable ["SA_Tow_Actions_Loaded",false];

@@ -33,6 +33,8 @@ sleep 2+(random 4);
 //unit is moved to height 2000 on given position
 _startingHeight = missionNamespace getVariable ["adv_parajump_start",2000];
 _openingHeight = missionNamespace getVariable ["adv_parajump_opening",110];
+private _ACE_GForceCoef = _unit getVariable ["ACE_GForceCoef",1];
+_unit setVariable ["ACE_GForceCoef", 0.4];
 _target = [(_targetPos select 0)+(20+(random 10)), (_targetPos select 1)+(20+(random 10)), _startingHeight];
 _unit setPos _target;
 _unit allowDamage false;
@@ -52,6 +54,7 @@ if (isClass(configFile >> "CfgPatches" >> "ace_parachute")) then {
 _unit moveTo _targetPos;
 waitUntil {((getPosWorld _unit) select 2) < 70};
 _unit allowDamage true;
+_unit setVariable ["ACE_GForceCoef", _ACE_GForceCoef];
 
 //removal of the parachute:
 waitUntil {sleep 0.2; ( isTouchingGround _unit || ((getPosATL _unit) select 2) < 1 )};

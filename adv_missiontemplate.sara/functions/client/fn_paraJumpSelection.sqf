@@ -6,7 +6,7 @@ Allows player to jump with a parachute over a position that's defined by mapclic
 Possible call - has to be executed where unit is local:
 	[player] call ADV_fnc_paraJump;
 Or, with an addaction:
-	ADV_handle_paraJumpAction = OBJECT addAction [("<t color=""#33FFFF"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJump},nil,3,false,true,"","player distance cursortarget <5"];
+	ADV_handle_paraJumpAction = OBJECT addAction [("<t color=""#33FFFF"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJump},nil,3,false,true,"","true",5];
 */
 
 params [

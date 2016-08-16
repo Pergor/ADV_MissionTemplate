@@ -1,17 +1,17 @@
 ﻿if (!isServer) exitWith {};
 
-private ["_submarine"];
+private ["_target"];
 
 {
-	_submarine = _x;
+	_target = _x;
 
-	_submarine addMagazineCargoGlobal ["20Rnd_556x45_UW_mag",10];
-	_submarine addMagazineCargoGlobal ["30Rnd_556x45_Stanag",10];
+	_target addMagazineCargoGlobal ["20Rnd_556x45_UW_mag",10];
+	_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag",10];
 	
-	_submarine addMagazineCargoGlobal ["SmokeShellBlue",5];
-	_submarine addMagazineCargoGlobal ["Chemlight_Blue",5];
+	_target addMagazineCargoGlobal ["SmokeShellBlue",5];
+	_target addMagazineCargoGlobal ["Chemlight_Blue",5];
 
-	_submarine addMagazineCargoGlobal ["SatchelCharge_Remote_Mag",2];
+	_target addMagazineCargoGlobal ["SatchelCharge_Remote_Mag",2];
 
 	//medical stuff
 	//ACE items (if ACE is running on the server) - (integers)
@@ -73,11 +73,11 @@ private ["_submarine"];
 		_ACE_HandFlare_Red = 0;
 		_ACE_HandFlare_White = 0;
 		_ACE_HandFlare_Yellow = 0;
-		[_submarine] call ADV_fnc_addACEItems;
+		[_target] call ADV_fnc_addACEItems;
 	};
 	if !(isClass (configFile >> "CfgPatches" >> "ACE_Medical")) then {
-		_submarine addItemCargoGlobal ["FirstAidKit",20];
-		_submarine addItemCargoGlobal ["MediKit",1];	
+		_target addItemCargoGlobal ["FirstAidKit",20];
+		_target addItemCargoGlobal ["MediKit",1];	
 	};
 
 } forEach _this;

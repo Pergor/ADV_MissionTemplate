@@ -71,7 +71,7 @@ if ( isServer ) then {
 	[] spawn {
 		//west crates:
 		ADV_objects_clearCargo = [];
-		if (!isNil "crate_1") then {[crate_1] call ADV_fnc_clearCargo;};
+		if (!isNil "crate_1") then {ADV_objects_clearCargo pushBack crate_1};
 		if (!isNil "crate_2") then {ADV_objects_clearCargo pushBack crate_2};
 		if (!isNil "crate_3") then {ADV_objects_clearCargo pushBack crate_3};
 		if (!isNil "crate_4") then {ADV_objects_clearCargo pushBack crate_4};
@@ -84,13 +84,13 @@ if ( isServer ) then {
 			ADV_objects_clearCargo call ADV_fnc_crate;
 		};
 		//indep crates
-		if (!isNil "ind_crate_1") then {[ind_crate_1] call ADV_fnc_clearCargo;};
+		if (!isNil "ind_crate_1") then {[ind_crate_1] call ADV_fnc_clearCargo;[ind_crate_1] call ADV_ind_fnc_crate;};
 		if (!isNil "ind_crate_2") then {[ind_crate_2] call ADV_fnc_clearCargo;[ind_crate_2] call ADV_ind_fnc_crate;};
 		if (!isNil "ind_crate_3") then {[ind_crate_3] call ADV_fnc_clearCargo;[ind_crate_3] call ADV_ind_fnc_crate;};
-		if (!isNil "ind_crate_empty") then {[ind_crate_empty] call ADV_fnc_clearCargo;[ind_crate_empty] call ADV_ind_fnc_crate;};
+		if (!isNil "ind_crate_4") then {[ind_crate_4] call ADV_fnc_clearCargo;[ind_crate_4] call ADV_ind_fnc_crate;};
 		//east crates:
 		ADV_objects_opfClearCargo = [];
-		if (!isNil "opf_crate_1") then {[opf_crate_1] call ADV_fnc_clearCargo;};
+		if (!isNil "opf_crate_1") then {ADV_objects_opfClearCargo pushBack opf_crate_1};
 		if (!isNil "opf_crate_2") then {ADV_objects_opfClearCargo pushBack opf_crate_2};
 		if (!isNil "opf_crate_3") then {ADV_objects_opfClearCargo pushBack opf_crate_3};
 		if (!isNil "opf_crate_4") then {ADV_objects_opfClearCargo pushBack opf_crate_4};
@@ -110,6 +110,7 @@ if ( isServer ) then {
 		
 		if (!isNil "crate_empty") then {[crate_empty] call ADV_fnc_clearCargo;};
 		if (!isNil "opf_crate_empty") then {[opf_crate_empty] call ADV_fnc_clearCargo;};
+		if (!isNil "ind_crate_empty") then {[ind_crate_empty] call ADV_fnc_clearCargo;};
 	};
 	
 	if (!isNil "flag_1") then {

@@ -15,12 +15,9 @@ L_suppress_active = false;
 	//everything that's only supposed to run on the server:
 	if (isServer) then {
 	// place your custom content here:
-		/*
-		_markerPos1 = getPosASL respawn_helper;
-		"respawn_west" setMarkerPos [_markerPos1 select 0, _markerPos1 select 1, _markerPos1 select 2];
-		"respawn_west" setMarkerDir (getDir respawn_helper);
-		*/
-
+	
+	
+	
 	
 	};
 

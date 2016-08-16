@@ -5,7 +5,10 @@ remove vehicle cargo globally
 if (count _this == 0) exitWith {};
 //removes all content from the target:
 {
-	clearWeaponCargoGlobal _x;clearMagazineCargoGlobal _x;clearBackpackCargoGlobal _x;clearItemCargoGlobal _x;
+	if !(_x isEqualTo objNull) then {
+		private _target = _x;
+		clearWeaponCargoGlobal _target;clearMagazineCargoGlobal _target;clearBackpackCargoGlobal _target;clearItemCargoGlobal _target;
+	};
 } count _this;
 
 if (true) exitWith {true;};

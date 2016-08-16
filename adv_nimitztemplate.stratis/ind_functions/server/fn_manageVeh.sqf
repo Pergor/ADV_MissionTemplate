@@ -47,33 +47,33 @@ ADV_ind_veh_artys = [];
 	_vehicleName = str _x;
 	switch ( true ) do {
 		//helicopters
-		case ( [_vehicleName,0,16] call BIS_fnc_trimString == "ind_air_transport" ): { ADV_ind_veh_airTransport pushBack _vehicleName; };
-		case ( [_vehicleName,0,12] call BIS_fnc_trimString == "ind_air_recon" ): { ADV_ind_veh_airRecon pushBack _vehicleName; };
-		case ( [_vehicleName,0,15] call BIS_fnc_trimString == "ind_air_logistic" ): { ADV_ind_veh_airLogistic pushBack _vehicleName; };
+		case ( _vehicleName select [0,17] == "ind_air_transport" ): { ADV_ind_veh_airTransport pushBack _vehicleName; };
+		case ( _vehicleName select [0,13] == "ind_air_recon" ): { ADV_ind_veh_airRecon pushBack _vehicleName; };
+		case ( _vehicleName select [0,16] == "ind_air_logistic" ): { ADV_ind_veh_airLogistic pushBack _vehicleName; };
 		//fixed wing planes
-		case ( [_vehicleName,0,10] call BIS_fnc_trimString == "ind_air_cas" ): { ADV_ind_veh_airCAS pushBack _vehicleName; };
-		case ( [_vehicleName,0,11] call BIS_fnc_trimString == "ind_air_c130" ): { ADV_ind_veh_airC130 pushBack _vehicleName; };
+		case ( _vehicleName select [0,11] == "ind_air_cas" ): { ADV_ind_veh_airCAS pushBack _vehicleName; };
+		case ( _vehicleName select [0,12] == "ind_air_c130" ): { ADV_ind_veh_airC130 pushBack _vehicleName; };
 		//MRAPs
-		case ( [_vehicleName,0,11] call BIS_fnc_trimString == "ind_MRAP_hmg" ): { ADV_ind_veh_MRAPsHMG pushBack _vehicleName; };
-		case ( [_vehicleName,0,11] call BIS_fnc_trimString == "ind_MRAP_gmg" ): { ADV_ind_veh_MRAPsGMG pushBack _vehicleName; };
-		case ( [_vehicleName,0,7] call BIS_fnc_trimString == "ind_MRAP" ): { ADV_ind_veh_MRAPs pushBack _vehicleName; };
-		case ( [_vehicleName,0,6] call BIS_fnc_trimString == "ind_SUV" ): { ADV_ind_veh_SUV pushBack _vehicleName; };
-		case ( [_vehicleName,0,13] call BIS_fnc_trimString == "ind_OffroadHMG" ): { ADV_ind_veh_OffroadHMG pushBack _vehicleName; };
-		case ( [_vehicleName,0,10] call BIS_fnc_trimString == "ind_Offroad" ): { ADV_ind_veh_Offroad pushBack _vehicleName; };
+		case ( _vehicleName select [0,12] == "ind_MRAP_hmg" ): { ADV_ind_veh_MRAPsHMG pushBack _vehicleName; };
+		case ( _vehicleName select [0,12] == "ind_MRAP_gmg" ): { ADV_ind_veh_MRAPsGMG pushBack _vehicleName; };
+		case ( _vehicleName select [0,8] == "ind_MRAP" ): { ADV_ind_veh_MRAPs pushBack _vehicleName; };
+		case ( _vehicleName select [0,7] == "ind_SUV" ): { ADV_ind_veh_SUV pushBack _vehicleName; };
+		case ( _vehicleName select [0,14] == "ind_OffroadHMG" ): { ADV_ind_veh_OffroadHMG pushBack _vehicleName; };
+		case ( _vehicleName select [0,11] == "ind_Offroad" ): { ADV_ind_veh_Offroad pushBack _vehicleName; };
 		//logistics
-		case ( [_vehicleName,0,6] call BIS_fnc_trimString == "ind_uav" ): { ADV_ind_veh_UAVs pushBack _vehicleName; };
-		case ( [_vehicleName,0,6] call BIS_fnc_trimString == "ind_ugv" ): { ADV_ind_veh_UGVs pushBack _vehicleName; };
-		case ( [_vehicleName,0,13] call BIS_fnc_trimString == "ind_ugv_repair" ): { ADV_ind_veh_UGVs_repair pushBack _vehicleName; };
-		case ( [_vehicleName,0,6] call BIS_fnc_trimString == "ind_ATV" ): { ADV_ind_veh_ATVs pushBack _vehicleName; };
-		case ( [_vehicleName,0,12] call BIS_fnc_trimString == "ind_transport" ): { ADV_ind_veh_transport pushBack _vehicleName; };
-		case ( [_vehicleName,0,16] call BIS_fnc_trimString == "ind_logistic_fuel" ): { ADV_ind_veh_logistic_fuel pushBack _vehicleName; };
-		case ( [_vehicleName,0,16] call BIS_fnc_trimString == "ind_logistic_ammo" ): { ADV_ind_veh_logistic_ammo pushBack _vehicleName; };
-		case ( [_vehicleName,0,18] call BIS_fnc_trimString == "ind_logistic_repair" ): { ADV_ind_veh_logistic_repair pushBack _vehicleName; };
-		case ( [_vehicleName,0,17] call BIS_fnc_trimString == "ind_logistic_medic" ): { ADV_ind_veh_logistic_medic pushBack _vehicleName; };
+		case ( _vehicleName select [0,7] == "ind_uav" ): { ADV_ind_veh_UAVs pushBack _vehicleName; };
+		case ( _vehicleName select [0,7] == "ind_ugv" ): { ADV_ind_veh_UGVs pushBack _vehicleName; };
+		case ( _vehicleName select [0,14] == "ind_ugv_repair" ): { ADV_ind_veh_UGVs_repair pushBack _vehicleName; };
+		case ( _vehicleName select [0,7] == "ind_ATV" ): { ADV_ind_veh_ATVs pushBack _vehicleName; };
+		case ( _vehicleName select [0,13] == "ind_transport" ): { ADV_ind_veh_transport pushBack _vehicleName; };
+		case ( _vehicleName select [0,17] == "ind_logistic_fuel" ): { ADV_ind_veh_logistic_fuel pushBack _vehicleName; };
+		case ( _vehicleName select [0,17] == "ind_logistic_ammo" ): { ADV_ind_veh_logistic_ammo pushBack _vehicleName; };
+		case ( _vehicleName select [0,19] == "ind_logistic_repair" ): { ADV_ind_veh_logistic_repair pushBack _vehicleName; };
+		case ( _vehicleName select [0,18] == "ind_logistic_medic" ): { ADV_ind_veh_logistic_medic pushBack _vehicleName; };
 		//armored
-		case ( [_vehicleName,0,8] call BIS_fnc_trimString == "ind_heavy" ): { ADV_ind_veh_heavys pushBack _vehicleName; };
-		case ( [_vehicleName,0,7] call BIS_fnc_trimString == "ind_tank" ): { ADV_ind_veh_tanks pushBack _vehicleName; };
-		case ( [_vehicleName,0,7] call BIS_fnc_trimString == "ind_arty" ): { ADV_ind_veh_artys pushBack _vehicleName; };
+		case ( _vehicleName select [0,9] == "ind_heavy" ): { ADV_ind_veh_heavys pushBack _vehicleName; };
+		case ( _vehicleName select [0,8] == "ind_tank" ): { ADV_ind_veh_tanks pushBack _vehicleName; };
+		case ( _vehicleName select [0,8] == "ind_arty" ): { ADV_ind_veh_artys pushBack _vehicleName; };
 		default {};
 	};
 	nil;

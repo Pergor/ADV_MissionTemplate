@@ -583,7 +583,7 @@ class ace_ui_ammoCount {
 		force = 1;
 };
 class ace_ui_gunnerAmmoCount {
-        value = 0;
+        value = 1;
         typeName = "BOOL";
         isClientSettable = 0;
 		force = 1;

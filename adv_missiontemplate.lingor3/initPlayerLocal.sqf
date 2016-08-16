@@ -43,19 +43,21 @@ sleep 1;
 [player] call ADV_fnc_applyLoadout;
 sleep 1;
 
-//gearsaving
-ADV_objects_gearSaving = [];
+//logistics menu
 if ( ADV_par_logisticAmount > 0 ) then {
 	if (!isNil "flag_1") then {
-		ADV_handle_logisticAction = flag_1 addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_2_loadoutDialog";},nil,3,false,true,"","side player == west && player distance cursortarget <5"];
+		ADV_handle_logisticAction = flag_1 addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == west",5];
 	};
 	if (!isNil "opf_flag_1") then {
-		ADV_handle_opfLogisticAction_opf = opf_flag_1 addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_2_loadoutDialog";},nil,3,false,true,"","side player == east && player distance cursortarget <5"];
+		ADV_handle_opfLogisticAction_opf = opf_flag_1 addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == east",5];
 	};
 	if (!isNil "ind_flag_1") then {
-		ADV_handle_indLogisticAction_ind = ind_flag_1 addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_2_loadoutDialog";},nil,3,false,true,"","side player == independent && player distance cursortarget <5"];
+		ADV_handle_indLogisticAction_ind = ind_flag_1 addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == independent",5];
 	};
 };
+//gearsaving
+ADV_objects_gearSaving = [];
+if (!isNil "crate_1") then {ADV_objects_gearSaving pushBack crate_1};
 if (!isNil "crate_2") then {ADV_objects_gearSaving pushBack crate_2};
 if (!isNil "crate_3") then {ADV_objects_gearSaving pushBack crate_3};
 if (!isNil "crate_4") then {ADV_objects_gearSaving pushBack crate_4};
@@ -64,8 +66,12 @@ if (!isNil "crate_6") then {ADV_objects_gearSaving pushBack crate_6};
 if (!isNil "crate_7") then {ADV_objects_gearSaving pushBack crate_7};
 if (!isNil "mgCrate") then {ADV_objects_gearSaving pushBack mgCrate};
 
+if (!isNil "ind_crate_1") then {ADV_objects_gearSaving pushBack ind_crate_1};
 if (!isNil "ind_crate_2") then {ADV_objects_gearSaving pushBack ind_crate_2};
+if (!isNil "ind_crate_3") then {ADV_objects_gearSaving pushBack ind_crate_3};
+if (!isNil "ind_crate_4") then {ADV_objects_gearSaving pushBack ind_crate_4};
 
+if (!isNil "opf_crate_1") then {ADV_objects_gearSaving pushBack opf_crate_1};
 if (!isNil "opf_crate_2") then {ADV_objects_gearSaving pushBack opf_crate_2};
 if (!isNil "opf_crate_3") then {ADV_objects_gearSaving pushBack opf_crate_3};
 if (!isNil "opf_crate_4") then {ADV_objects_gearSaving pushBack opf_crate_4};
@@ -100,7 +106,11 @@ if (!isClass(configFile >> "CfgPatches" >> "adv_aimcoeff")) then {
 //move/remove respawn marker:
 //[120 = Time until the respawn marker is moved again, 20 = radius around the group leader to place the marker]
 ADV_scriptVar_initMoveMarker_jump = {
-	(_this select 0) addAction [("<t color=""#00FF00"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJumpSelection},nil,3,false,true,"","player distance cursortarget <5 && player == leader (group player)"];
+	{
+		private _target = _x;
+		_target addAction [("<t color=""#00FF00"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJumpSelection},nil,3,false,true,"","player == leader (group player)",5];
+		nil;
+	} count _this;
 };
 switch ( ADV_par_moveMarker ) do {
 	case 1: {
@@ -122,26 +132,20 @@ switch ( ADV_par_moveMarker ) do {
 	case 0: {};
 };
 
-//adds briefing pictures (00.jpg-05.jpg in \img\) to the specified object:
+//adds briefing pictures (00.jpg-05.jpg in \img\) to the specified object and loadout actions:
 if (!isNil "BriefingBoard1") then {[BriefingBoard1] call ADV_fnc_board;};
 if (!isNil "opf_BriefingBoard1") then {[opf_BriefingBoard1] call ADV_fnc_board;};
 if (!isNil "ind_BriefingBoard1") then {[ind_BriefingBoard1] call ADV_fnc_board;};
-
-//adds an option to choose from different loadouts to the specified object.
 if (ADV_par_ChooseLoad == 1) then {
-	if (!isNil "crate_1") then {
-		ADV_handle_chooseLoadoutAction = crate_1 addAction [("<t color=""#00FF00"">" + ("Loadout-Menü") + "</t>"), {createDialog "adv_1_loadoutDialog";},nil,6,false,true,"","side player == west && player distance cursortarget <5"];
+	if (!isNil "BriefingBoard1") then {
+			ADV_handle_chooseLoadoutAction = BriefingBoard1 addAction [("<t color=""#00FF00"">" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,false,true,"","side player == west",5];
 	};
-	if (!isNil "opf_crate_1") then {
-		ADV_handle_chooseLoadoutAction_opf = opf_crate_1 addAction [("<t color=""#00FF00"">" + ("Loadout-Menü") + "</t>"), {createDialog "adv_1_loadoutDialog";},nil,6,false,true,"","side player == east && player distance cursortarget <5"];
+	if (!isNil "opf_BriefingBoard1") then {
+		ADV_handle_chooseLoadoutAction_opf = opf_BriefingBoard1 addAction [("<t color=""#00FF00"">" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,false,true,"","side player == east",5];
 	};
-	if (!isNil "ind_crate_1") then {
-		ADV_handle_chooseLoadoutAction_ind = ind_crate_1 addAction [("<t color=""#00FF00"">" + ("Loadout-Menü") + "</t>"), {createDialog "adv_1_loadoutDialog";},nil,6,false,true,"","side player == independent && player distance cursortarget <5"];
+	if (!isNil "ind_BriefingBoard1") then {
+		ADV_handle_chooseLoadoutAction_ind = ind_BriefingBoard1 addAction [("<t color=""#00FF00"">" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,false,true,"","side player == independent",5];
 	};
-} else {
-	if (!isNil "crate_1") then {ADV_handle_gearsaving = [crate_1] spawn aeroson_fnc_gearsaving;};
-	if (!isNil "opf_crate_1") then {ADV_handle_gearsaving = [opf_crate_1] spawn aeroson_fnc_gearsaving;};
-	if (!isNil "ind_crate_1") then {ADV_handle_gearsaving = [ind_crate_1] spawn aeroson_fnc_gearsaving;};
 };
 
 //adds action to throw it away if a disposable launcher is shot.

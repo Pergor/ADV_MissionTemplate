@@ -295,7 +295,7 @@ switch (ADV_par_customWeap) do {
 	};
 	case 20: {
 		//APEX HK416
-		_primaryWeapon = ["arifle_SPAR_01_blk_F","arifle_SPAR_01_blk_F"];
+		_primaryWeapon = ["arifle_SPAR_01_blk_F"];
 		switch (true) do {
 			case ((toUpper worldname) in ADV_var_aridMaps): {_primaryWeapon append ["arifle_SPAR_01_snd_F"]};
 			case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon append ["arifle_SPAR_01_khk_F"]};
@@ -462,5 +462,4 @@ switch (ADV_par_customUni) do {
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
 
-_return = getUnitLoadout _player;
-_return;
+nil;

@@ -294,7 +294,7 @@ switch (ADV_par_customWeap) do {
 	};
 	case 20: {
 		//APEX HK416
-		_primaryWeapon = ["arifle_SPAR_01_blk_F","arifle_SPAR_01_blk_F"];
+		_primaryWeapon = ["arifle_SPAR_01_blk_F"];
 		switch (true) do {
 			case ((toUpper worldname) in ADV_var_aridMaps): {_primaryWeapon append ["arifle_SPAR_01_snd_F"]};
 			case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon append ["arifle_SPAR_01_khk_F"]};
@@ -443,18 +443,20 @@ switch (ADV_par_customUni) do {
 ///// No editing necessary below this line /////
 
 _player = _this select 0;
-_prefix = [(str _player),0,-2] call BIS_fnc_trimString;
-if ( (_prefix == "ASSCSW" || _prefix == "ASSCSW_") && !(ADV_par_customUni == 9) ) then { _binocular = "Rangefinder"; };
+if ( ( ((str _player) select [0,6]) == "ASSCSW" || ((str _player) select [0,4]) == "ACSW" ) && !(ADV_par_customUni == 9) ) then { _binocular = "Rangefinder"; };
 [_player] call ADV_fnc_gear;
 switch true do {
-	case (toUpper (_prefix) == "CSW" || toUpper (_prefix) == "CSW_"): { [_player,1] call ADV_fnc_CSW; };
-	case (toUpper (_prefix) == "ASSCSW" || toUpper (_prefix) == "ASSCSW_"): { [_player,2] call ADV_fnc_CSW; };
-	case (toUpper (_prefix) == "MORTAR" || toUpper (_prefix) == "MORTAR_"): { [_player,3] call ADV_fnc_CSW; };
-	case (toUpper (_prefix) == "ASSMORTAR" || toUpper (_prefix) == "ASSMORTAR_"): { [_player,4] call ADV_fnc_CSW; };
-	case (toUpper (_prefix) == "TOW" || toUpper (_prefix) == "TOW_"): { [_player,5] call ADV_fnc_CSW; };
-	case (toUpper (_prefix) == "ASSTOW" || toUpper (_prefix) == "ASSTOW_"): { [_player,6] call ADV_fnc_CSW; };
+	case (toUpper ((str _player) select [0,3]) == "SOL"): { };
+	case (toUpper ((str _player) select [0,3]) == "CSW"): { [_player,1] call ADV_fnc_CSW; };
+	case (toUpper ((str _player) select [0,6]) == "ASSCSW"): { [_player,2] call ADV_fnc_CSW; };
+	case (toUpper ((str _player) select [0,4]) == "ACSW"): { [_player,2] call ADV_fnc_CSW; };
+	case (toUpper ((str _player) select [0,6]) == "MORTAR"): { [_player,3] call ADV_fnc_CSW; };
+	case (toUpper ((str _player) select [0,9]) == "ASSMORTAR"): { [_player,4] call ADV_fnc_CSW; };
+	case (toUpper ((str _player) select [0,7]) == "AMORTAR"): { [_player,4] call ADV_fnc_CSW; };
+	case (toUpper ((str _player) select [0,3]) == "TOW"): { [_player,5] call ADV_fnc_CSW; };
+	case (toUpper ((str _player) select [0,6]) == "ASSTOW"): { [_player,6] call ADV_fnc_CSW; };
+	case (toUpper ((str _player) select [0,4]) == "ATOW"): { [_player,6] call ADV_fnc_CSW; };
 	default {};
 };
 
-_return = getUnitLoadout _player;
-_return;
+nil;

@@ -7,7 +7,9 @@ This function locks one vehicle or multiple vehicles for all but players.
 if (!isServer) exitWith{};
 
 {
-	_x addEventHandler [
+	_target = _x;
+	if (isNil "_target") exitWith {};
+	_target addEventHandler [
 		"GetIn", {
 			_unit = _this select 2;
 			if !(isPlayer _unit) then {

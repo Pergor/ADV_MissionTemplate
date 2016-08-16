@@ -103,7 +103,7 @@
 ///////////////////////////////////////////////////////////////////////////
 /// Base Classes
 ///////////////////////////////////////////////////////////////////////////
-class adv_1_RscText
+class adv_loadouts_RscText
 {
 	deletable = 0;
 	fade = 0;
@@ -165,7 +165,7 @@ class adv_1_RscText
 	};
 };
 
-class adv_1_RscStructuredText
+class adv_loadouts_RscStructuredText
 {
 	deletable = 0;
 	fade = 0;
@@ -196,7 +196,7 @@ class adv_1_RscStructuredText
 	shadow = 1;
 };
 
-class adv_1_RscPicture
+class adv_loadouts_RscPicture
 {
 	deletable = 0;
 	fade = 0;
@@ -251,7 +251,7 @@ class adv_1_RscPicture
 	};
 };
 
-class adv_1_RscEdit
+class adv_loadouts_RscEdit
 {
 	deletable = 0;
 	fade = 0;
@@ -320,7 +320,7 @@ class adv_1_RscEdit
 	};
 };
 
-class adv_1_RscCombo
+class adv_loadouts_RscCombo
 {
 	deletable = 0;
 	fade = 0;
@@ -466,7 +466,7 @@ class adv_1_RscCombo
 	};
 };
 
-class adv_1_RscListBox
+class adv_loadouts_RscListBox
 {
 	deletable = 0;
 	fade = 0;
@@ -617,7 +617,7 @@ class adv_1_RscListBox
 	};
 };
 
-class adv_1_RscButton
+class adv_loadouts_RscButton
 {
 	deletable = 0;
 	fade = 0;
@@ -719,7 +719,7 @@ class adv_1_RscButton
 	borderSize = 0;
 };
 
-class adv_1_RscShortcutButton
+class adv_loadouts_RscShortcutButton
 {
 	deletable = 0;
 	fade = 0;
@@ -859,7 +859,7 @@ class adv_1_RscShortcutButton
 	};
 };
 
-class adv_1_RscShortcutButtonMain
+class adv_loadouts_RscShortcutButtonMain
 {
 	idc = -1;
 	style = 0;
@@ -928,7 +928,7 @@ class adv_1_RscShortcutButtonMain
 	};
 };
 
-class adv_1_RscFrame
+class adv_loadouts_RscFrame
 {
 	type = 0;
 	idc = -1;
@@ -953,7 +953,7 @@ class adv_1_RscFrame
 	text = "";
 };
 
-class adv_1_RscSlider
+class adv_loadouts_RscSlider
 {
 	deletable = 0;
 	fade = 0;
@@ -979,7 +979,7 @@ class adv_1_RscSlider
 	h = 0.025;
 };
 
-class adv_1_IGUIBack
+class adv_loadouts_IGUIBack
 {
 	type = 0;
 	idc = 124;
@@ -1008,7 +1008,7 @@ class adv_1_IGUIBack
 	};
 };
 
-class adv_1_RscCheckBox
+class adv_loadouts_RscCheckBox
 {
 	idc = -1;
 	type = 77;
@@ -1145,7 +1145,7 @@ class adv_1_RscCheckBox
 	};
 };
 
-class adv_1_RscTextCheckBox
+class adv_loadouts_RscTextCheckBox
 {
 	idc = -1;
 	type = 7;
@@ -1245,7 +1245,7 @@ class adv_1_RscTextCheckBox
 	};
 };
 
-class adv_1_RscButtonMenu
+class adv_loadouts_RscButtonMenu
 {
 	idc = -1;
 	type = 16;
@@ -1391,7 +1391,7 @@ class adv_1_RscButtonMenu
 	};
 };
 
-class adv_1_RscButtonMenuOK
+class adv_loadouts_RscButtonMenuOK
 {
 	idc = 1;
 	shortcuts[] = 
@@ -1411,7 +1411,7 @@ class adv_1_RscButtonMenuOK
 	};
 };
 
-class adv_1_RscButtonMenuCancel
+class adv_loadouts_RscButtonMenuCancel
 {
 	idc = 2;
 	shortcuts[] = 
@@ -1421,7 +1421,7 @@ class adv_1_RscButtonMenuCancel
 	text = "Abbrechen";
 };
 
-class adv_1_RscControlsGroup
+class adv_loadouts_RscControlsGroup
 {
 	deletable = 0;
 	fade = 0;

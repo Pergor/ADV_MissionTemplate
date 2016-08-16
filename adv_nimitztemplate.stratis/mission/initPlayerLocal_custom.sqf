@@ -21,8 +21,8 @@ if (isDedicated) exitWith {};
 waitUntil {time > 1};
 //////////////////////////////////////////////////////////////////////////////////
 // place your custom content here:
-adv_evh_nimitzrespawn = player addEventhandler ["respawn","(_this select 0) setPosASL (getPosASL respawn_helper)"];
-ADV_handle_werkbankAction = werkbank_1 addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_2_loadoutDialog";},nil,3,false,true,"","side player == west && player distance cursortarget <5"];
+
+
 
 
 //////////////////////////////////////////////////////////////////////////////////

@@ -1,4 +1,4 @@
-class dummy_settings_ace {
+﻿class dummy_settings_ace {
 	title = "---------------------- ACE-Settings ----------------------";
 	values[] = {-99999};
 	default = -99999;
@@ -11,6 +11,13 @@ class ace_medical_level
 	values[] = {1, 2};
 	default = 2;
 	texts[] =  {"Basic", "Advanced"};
+};
+class param_ace_medical_GivePAK
+{
+	title = "ACE-Medical: Wer soll PAKs verwenden können?";
+	values[] = {0, 1};
+	default = 1;
+	texts[] =  {"Nur der Zugsanitäter", "Zugsanitäter & Gruppensanitäter"};
 };
 class ace_medical_enableAdvancedWounds
 {

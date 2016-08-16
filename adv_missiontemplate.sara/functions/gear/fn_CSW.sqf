@@ -112,7 +112,7 @@ if (!isNil "ADV_par_customWeap") then {
 };
 
 if !(backpack _target == "") then { removeBackpack _target; };
-if ( isClass(configFile >> "CfgPatches" >> "ace_mk6mortar") && (_type == 2 || _type == 3) ) then {
+if ( isClass(configFile >> "CfgPatches" >> "ace_mk6mortar") && (_type == 3 || _type == 4) ) then {
 	_target addItem "ACE_RangeTable_82mm";
 };
 _target addBackpack _backpack;

@@ -24,7 +24,10 @@ if (isNil "ADV_spawnVar") then { ADV_spawnVar = 0; };
 
 //scripts for following mission parts
 ADV_handle_dramaturgy_1 = [] spawn {
-
+	/*
+	private _code_1 = {};
+	[{CONDITION}, _code_1, [PARAMS]] call CBA_fnc_waitUntilAndExecute;
+	*/
 };
 
 //mission end:

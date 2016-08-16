@@ -413,5 +413,4 @@ switch (toUpper ([str (_this select 0),0,6] call BIS_fnc_trimString)) do {
 [_player] call ADV_fnc_gear;
 CL_IE_Module_Enabled = true;
 
-_return = getUnitLoadout _player;
-_return;
+nil;

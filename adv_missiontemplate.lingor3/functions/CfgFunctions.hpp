@@ -67,7 +67,10 @@ class ADV
 		class aceMine {};		
 		class board {};		
 		class changeName {};
+		class changeUnit {};
+		class dialogTeleport {};
 		class dispLaunch {};
+		class execTeleport {};
 		class flag {};
 		class fullHeal {};
 		class moveRespMarker {};

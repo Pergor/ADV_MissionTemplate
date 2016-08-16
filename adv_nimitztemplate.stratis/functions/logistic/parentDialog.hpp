@@ -103,7 +103,7 @@
 ///////////////////////////////////////////////////////////////////////////
 /// Base Classes
 ///////////////////////////////////////////////////////////////////////////
-class adv_2_RscText
+class adv_logistic_RscText
 {
 	deletable = 0;
 	fade = 0;
@@ -165,7 +165,7 @@ class adv_2_RscText
 	};
 };
 
-class adv_2_RscStructuredText
+class adv_logistic_RscStructuredText
 {
 	deletable = 0;
 	fade = 0;
@@ -196,7 +196,7 @@ class adv_2_RscStructuredText
 	shadow = 1;
 };
 
-class adv_2_RscPicture
+class adv_logistic_RscPicture
 {
 	deletable = 0;
 	fade = 0;
@@ -251,7 +251,7 @@ class adv_2_RscPicture
 	};
 };
 
-class adv_2_RscEdit
+class adv_logistic_RscEdit
 {
 	deletable = 0;
 	fade = 0;
@@ -320,7 +320,7 @@ class adv_2_RscEdit
 	};
 };
 
-class adv_2_RscCombo
+class adv_logistic_RscCombo
 {
 	deletable = 0;
 	fade = 0;
@@ -466,7 +466,7 @@ class adv_2_RscCombo
 	};
 };
 
-class adv_2_RscListBox
+class adv_logistic_RscListBox
 {
 	deletable = 0;
 	fade = 0;
@@ -617,7 +617,7 @@ class adv_2_RscListBox
 	};
 };
 
-class adv_2_RscButton
+class adv_logistic_RscButton
 {
 	deletable = 0;
 	fade = 0;
@@ -719,7 +719,7 @@ class adv_2_RscButton
 	borderSize = 0;
 };
 
-class adv_2_RscShortcutButton
+class adv_logistic_RscShortcutButton
 {
 	deletable = 0;
 	fade = 0;
@@ -859,7 +859,7 @@ class adv_2_RscShortcutButton
 	};
 };
 
-class adv_2_RscShortcutButtonMain
+class adv_logistic_RscShortcutButtonMain
 {
 	idc = -1;
 	style = 0;
@@ -928,7 +928,7 @@ class adv_2_RscShortcutButtonMain
 	};
 };
 
-class adv_2_RscFrame
+class adv_logistic_RscFrame
 {
 	type = 0;
 	idc = -1;
@@ -953,7 +953,7 @@ class adv_2_RscFrame
 	text = "";
 };
 
-class adv_2_RscSlider
+class adv_logistic_RscSlider
 {
 	deletable = 0;
 	fade = 0;
@@ -979,7 +979,7 @@ class adv_2_RscSlider
 	h = 0.025;
 };
 
-class adv_2_IGUIBack
+class adv_logistic_IGUIBack
 {
 	type = 0;
 	idc = 124;
@@ -1008,7 +1008,7 @@ class adv_2_IGUIBack
 	};
 };
 
-class adv_2_RscCheckBox
+class adv_logistic_RscCheckBox
 {
 	idc = -1;
 	type = 77;
@@ -1145,7 +1145,7 @@ class adv_2_RscCheckBox
 	};
 };
 
-class adv_2_RscTextCheckBox
+class adv_logistic_RscTextCheckBox
 {
 	idc = -1;
 	type = 7;
@@ -1245,7 +1245,7 @@ class adv_2_RscTextCheckBox
 	};
 };
 
-class adv_2_RscButtonMenu
+class adv_logistic_RscButtonMenu
 {
 	idc = -1;
 	type = 16;
@@ -1391,7 +1391,7 @@ class adv_2_RscButtonMenu
 	};
 };
 
-class adv_2_RscButtonMenuOK
+class adv_logistic_RscButtonMenuOK
 {
 	idc = 1;
 	shortcuts[] = 
@@ -1411,7 +1411,7 @@ class adv_2_RscButtonMenuOK
 	};
 };
 
-class adv_2_RscButtonMenuCancel
+class adv_logistic_RscButtonMenuCancel
 {
 	idc = 2;
 	shortcuts[] = 
@@ -1421,7 +1421,7 @@ class adv_2_RscButtonMenuCancel
 	text = "Abbrechen";
 };
 
-class adv_2_RscControlsGroup
+class adv_logistic_RscControlsGroup
 {
 	deletable = 0;
 	fade = 0;

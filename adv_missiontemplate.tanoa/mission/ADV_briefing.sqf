@@ -6,7 +6,7 @@ Add your mission briefing here.
 For inserting a marker: <marker name='MARKER'>TEXT</marker>
 */
 private _hintergrund = ["Hintergrund",
-		"Was bisher gescha..."];
+		"Was bisher geschah..."];
 private _missionsziel = ["Missionsziel",
 		"Was wir vorhaben..."];
 private _vorgehen = ["Vorgehen",

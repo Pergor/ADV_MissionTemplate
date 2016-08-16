@@ -17,8 +17,9 @@ params [
 	["_isRepairVehicle", false, [0,true]]
 ];
 
-_backpacks = [];
+if (_target isEqualTo objNull) exitWith {};
 
+_backpacks = [];
 //weapons and ammo
 if (_withWeapons) then {
 	switch (true) do {
