@@ -3,7 +3,7 @@ ADV_fnc_fullHeal - by Belbo:
 
 Heals unit completely, with differenct ace_medical-levels and vanilla.
 
-Possible call - has to be called on client the unit is local to:
+Possible call - has to be called on either the client with [player] or on server with the unit's name:
 [player] call ADV_fnc_fullHeal;
 */
 
