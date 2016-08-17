@@ -27,67 +27,96 @@ params [
 	["_UPS", ["LIMITED", "CARELESS", "NOFOLLOW"], [[]]],
 	["_spawn", [], [[]]],
 	["_givenArea", "noAreaGiven", [""]],
-	"_location","_logic","_area","_heading","_skill","_grp","_withVehicles","_vehicles","_movedPosition","_veh","_newVeh","_vehIsLeader"
+	"_area","_grp"
 ];
 
-if (isNil "ADV_patrol_area_name") then { ADV_patrol_area_name = 0 };
+if (isNil "adv_patrol_area_name") then { adv_patrol_area_name = 0 };
 {
-	_location = _x;
+	private _location = _x;
 	if (!isNil "_location") then {
-			if ((typeName (_spawn select 0)) == "OBJECT") then {
-				_logic = getPos _location;
-				_heading = getDir _location;
-				if (_givenArea == "noAreaGiven") then {
-					_area = createMarker [format ["%1%2","ADV_patrol_area_",ADV_patrol_area_name], _logic];
-					ADV_patrol_area_name = ADV_patrol_area_name + 1;
-					_area setMarkerShape "ELLIPSE";
-					_area setMarkerSize [_radius*2,_radius*2];
-					_area setMarkerAlpha 0;
+		//define starting point
+		private _start = call {
+			if (_location isEqualType "") exitWith {getMarkerPos _location};
+			if (_location isEqualType objNull) exitWith {getPosATL _location};
+			nil;
+		};
+		//define direction in which units are headed upon spawn
+		private _heading = call {
+			if (_location isEqualType "") exitWith {markerDir _location};
+			if (_location isEqualType objNull) exitWith {getDir _location};
+			nil;
+		};
+		//if no area has been provided after the spawn array
+		private _areaCreation = {
+			_start = _this select 0;
+			_radius = _this select 1;
+			_area = createMarker [format ["%1%2","adv_patrol_area_",adv_patrol_area_name], _start];
+			adv_patrol_area_name = adv_patrol_area_name + 1;
+			_area setMarkerShape "ELLIPSE";
+			_area setMarkerSize [_radius,_radius];
+			_area setMarkerAlpha 0;
+		};
+		if ((toUpper _givenArea) isEqualTo "NOAREAGIVEN") then {
+			call {
+				if (_location isEqualType objNull) exitWith { [_start,_radius] call _areaCreation };
+				if (_location isEqualType "") exitWith {
+					if !(toUpper (markerShape _location) in ["RECTANGLE","ELLIPSE"]) then {
+						[_start,_radius] call _areaCreation;
+					};
 				};
+				nil;
 			};
-			if ((typeName _radius) == "STRING") then {
-				_area = _radius;
-			};
-			if ((typeName (_spawn select 0)) == "STRING") then {
-				_logic = getMarkerPos _location;
+		};
+		//i really don't know what I wanted to do with that...
+		if (_radius isEqualType "") then {
+			_area = _radius;
+		};
+		//if an area is supplied, it will be used...
+		if !( (toUpper _givenArea) isEqualTo "NOAREAGIVEN" ) then {
+			_area = _givenArea;
+		};
+		//... but only if the spawn isn't a marker and hasn't got a rectangular or elliptic shape
+		if (_location isEqualType "") then {
+			if (toUpper (markerShape _location) in ["RECTANGLE","ELLIPSE"]) then {
 				_area = _location;
-				_heading = markerDir _location;
 			};
-		_skill = [0.6,0.9,0.7];
+		};
+		
+		private _skill = [0.6,0.9,0.7];
 		if (_side == civilian) then { _skill = [0.0,0.0,0.0]; };
 		
-		_withVehicles = false;
-		_vehicles = [];
+		private _withVehicles = false;
+		private _vehicles = [];
 		{
-			if (_x isKindOf "LandVehicle") then {
-				_veh = _x;
+			if ( _x isKindOf "LandVehicle" ) then {
+				private _veh = _x;
 				_withVehicles = true;
 				_units = _units-[_veh];
 				_vehicles pushBack _veh;
 			};
-		} forEach _units;
-		if (_withVehicles) then {
-			_movedPosition = [_logic select 0,(_logic select 1)+10,_logic select 2];
+			nil;
+		} count _units;
+		call {
+			if !(_withVehicles) exitWith {
+				_grp = [_start, _side, _units, [], [], _skill,[],[],_heading] call BIS_fnc_spawnGroup;
+			};
+			
+			private _movedPosition = [_start select 0,(_start select 1)+10,_start select 2];
 			_grp = [_movedPosition, _side, _units, [], [], _skill,[],[],_heading] call BIS_fnc_spawnGroup;
-			_vehIsLeader = false;
+			private _vehIsLeader = false;
 			{
-				_newVeh = [_logic, _heading, _x, _grp] call bis_fnc_spawnVehicle;
-				_logic = [(_logic select 0)+10, _logic select 1, _logic select 2];
+				private _newVeh = [_start, _heading, _x, _grp] call bis_fnc_spawnVehicle;
+				_start = [(_start select 0)+10, _start select 1, _start select 2];
 				if !(_vehIsLeader) then {
 					_grp selectLeader (_newVeh select 0);
 					_vehIsLeader = true;
 				};
-			} forEach _vehicles;
-			_grp setBehaviour "AWARE";
-			_grp setCombatMode "YELLOW";
-		} else {
-			_grp = [_logic, _side, _units, [], [], _skill,[],[],_heading] call BIS_fnc_spawnGroup;
+				nil;
+			} count _vehicles;
 		};
-		
-		if (_givenArea != "noAreaGiven") then {_area = _givenArea;};
+		//what should they do? Walk around:
 		[(leader _grp),_area]+_UPS spawn compile preprocessFileLineNumbers "scripts\upsmon.sqf";
-		
 	};
 } forEach _spawn;
 
-if (true) exitWith { _grp; };
+_grp;
