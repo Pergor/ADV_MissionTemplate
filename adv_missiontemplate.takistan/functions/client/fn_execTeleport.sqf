@@ -14,8 +14,8 @@ adv_var_teleport_ind_target = [];
 switch (toUpper _selection) do {
 	case "TELEPORT_COMMAND": {
 		{
-			_unit = _x;
-			_unitName = str _unit;
+			private _unit = _x;
+			private _unitName = str _unit;
 			if ( [_unitName,0,6] call BIS_fnc_trimString == "command" ) then { adv_var_teleport_target pushBack _unit; };
 			if ( [_unitName,0,10] call BIS_fnc_trimString == "opf_command" ) then { adv_var_teleport_opf_target pushBack _unit; };
 			if ( [_unitName,0,10] call BIS_fnc_trimString == "ind_command" ) then { adv_var_teleport_ind_target pushBack _unit; };
@@ -23,11 +23,12 @@ switch (toUpper _selection) do {
 		} count playableUnits;
 	};
 	case "TELEPORT_GROUP": {
-		_leader = leader _unit;
-		_groupTarget = [];
-		if ( _leader == _unit ) then {
-			_groupTarget = [_leader];
-		} else {
+		private _leader = leader _unit;
+		private _groupTarget = [];
+		call {
+			if !( _unit isEqualTo _leader ) exitWith {
+				_groupTarget = [_leader];
+			};
 			{
 				if ((_unit distance _x) > 50 ) then { _groupTarget pushBack _x };
 				nil;
