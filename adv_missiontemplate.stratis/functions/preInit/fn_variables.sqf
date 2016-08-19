@@ -43,10 +43,6 @@ ADV_var_europeMaps = [
 switch ( ADV_par_customUni ) do {
 	case 1: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_lushMaps) then {2} else {1}; };
 	case 2: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_aridMaps) then {1} else {2}; };
-	case 4: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_aridMaps) then {5} else {4}; };
-	case 5: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_lushMaps) then {4} else {5}; };
-	case 10: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_lushMaps) then {11} else {10}; };
-	case 11: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_aridMaps) then {10} else {11}; };
 	default {};
 };
 
