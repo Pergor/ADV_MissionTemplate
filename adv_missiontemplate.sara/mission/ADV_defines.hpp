@@ -1,5 +1,5 @@
 ﻿#define MISSIONAUTHOR "[SeL] Belbo"
-#define MISSIONNAME "ADV Template Sahrani"
+#define MISSIONNAME "ADV - Template Sahrani by Belbo"
 #define MISSIONSUBTITLE "Viel Spaß beim Spielen!"
 #define MISSIONTEASER "Viel Spaß!"
 #define ONLOADINTRO "Viel Spaß!"
