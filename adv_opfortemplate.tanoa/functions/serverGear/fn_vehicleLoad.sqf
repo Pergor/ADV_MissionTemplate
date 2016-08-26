@@ -135,7 +135,8 @@ if (_withWeapons) then {
 			} else {
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",20];
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag_Tracer",10];
-				_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",2];
+				//_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",2];
+				_target addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer",4];
 			};
 			_target addMagazineCargoGlobal ["130Rnd_338_Mag",2];
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",1];
