@@ -51,6 +51,9 @@ _loadoutList = [
 	"Taucher",
 	"Taucher (Sanitäter)",
 	"Taucher (Pionier)"
+	/*"---- CSW-Loadouts ----",
+	"HMG-Gunner"
+	*/
 ];
 if (side (group player) == east) then {
 	_loadoutList set [1,"Sektionsführer"];
@@ -76,6 +79,7 @@ lbSetData [7377, 12, ""];
 lbSetData [7377, 19, ""];
 lbSetData [7377, 23, ""];
 lbSetData [7377, 27, ""];
+//lbSetData [7377, 33, ""];
 if (side (group player) == west) then {
 	//Loadouts:
 	lbSetData [7377, 1, "ADV_fnc_command"];
@@ -105,6 +109,7 @@ if (side (group player) == west) then {
 	lbSetData [7377, 30, "ADV_fnc_diver"];
 	lbSetData [7377, 31, "ADV_fnc_diver_medic"];
 	lbSetData [7377, 32, "ADV_fnc_diver_spec"];
+	//lbSetData [7377, 34, "CSW"];
 };
 if (side (group player) == independent) then {
 	//Loadouts:
