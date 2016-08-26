@@ -12,7 +12,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=492;
+		nextID=529;
 	};
 	class Camera
 	{
@@ -2728,7 +2728,7 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						rank="LIEUTENANT";
+						rank="SERGEANT";
 						init="this setGroupId [""Luchs""]";
 						name="opf_leader_command";
 						description="Adjutant";
@@ -2772,13 +2772,13 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						rank="CORPORAL";
-						name="opf_uavOp_1";
-						description="UAV-Spezialist";
+						rank="SERGEANT";
+						name="opf_ftleader_command_1";
+						description="ZBV";
 						isPlayable=1;
 					};
 					id=3524;
-					type="O_T_Soldier_UAV_F";
+					type="O_T_Soldier_TL_F";
 				};
 				class Item4
 				{
@@ -2793,13 +2793,13 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						rank="CORPORAL";
-						name="opf_marksman_1";
-						description="Zielfernrohrschütze";
+						rank="SERGEANT";
+						name="opf_ftleader_command_2";
+						description="ZBV";
 						isPlayable=1;
 					};
 					id=3525;
-					type="O_T_Soldier_M_F";
+					type="O_T_Soldier_TL_F";
 				};
 			};
 			class Attributes
@@ -3969,7 +3969,7 @@ class Mission
 			};
 			id=3617;
 			type="I_C_Offroad_02_unarmed_F";
-			atlOffset=0.00028610229;
+			atlOffset=0.097999096;
 		};
 		class Item123
 		{
@@ -5960,31 +5960,8 @@ class Mission
 						isPlayable=1;
 					};
 					id=3866;
-					type="I_Soldier_SL_F";
+					type="I_Soldier_TL_F";
 					atlOffset=-0.044036865;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.95999998;
-								};
-							};
-						};
-						nAttributes=1;
-					};
 				};
 				class Item4
 				{
@@ -6004,31 +5981,8 @@ class Mission
 						isPlayable=1;
 					};
 					id=3867;
-					type="I_Soldier_SL_F";
+					type="I_Soldier_TL_F";
 					atlOffset=-0.011993408;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.95999998;
-								};
-							};
-						};
-						nAttributes=1;
-					};
 				};
 			};
 			class Attributes

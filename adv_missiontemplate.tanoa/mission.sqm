@@ -1930,13 +1930,13 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						rank="LIEUTENANT";
-						name="medic_command";
-						description="Zug-Sanitäter";
+						rank="SERGEANT";
+						name="leader_command";
+						description="Adjutant";
 						isPlayable=1;
 					};
 					id=86;
-					type="B_T_Medic_F";
+					type="B_T_Soldier_SL_F";
 					atlOffset=0.0053329468;
 				};
 				class Item2
@@ -1952,13 +1952,13 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						rank="SERGEANT";
-						name="leader_command";
-						description="Adjutant";
+						rank="LIEUTENANT";
+						name="medic_command";
+						description="Zug-Sanitäter";
 						isPlayable=1;
 					};
 					id=749;
-					type="B_T_Soldier_SL_F";
+					type="B_T_medic_F";
 					atlOffset=0.028999805;
 				};
 				class Item3
@@ -1980,7 +1980,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=750;
-					type="B_T_Soldier_SL_F";
+					type="B_T_Soldier_TL_F";
 				};
 				class Item4
 				{
@@ -2001,7 +2001,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=751;
-					type="B_T_Soldier_SL_F";
+					type="B_T_Soldier_TL_F";
 					atlOffset=0.0029997826;
 				};
 			};
@@ -5208,7 +5208,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=3492;
-					type="I_Soldier_SL_F";
+					type="I_Soldier_TL_F";
 					atlOffset=-0.014678955;
 				};
 				class Item4
@@ -5229,7 +5229,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=3493;
-					type="I_Soldier_SL_F";
+					type="I_Soldier_TL_F";
 					atlOffset=-0.0039978027;
 				};
 			};
