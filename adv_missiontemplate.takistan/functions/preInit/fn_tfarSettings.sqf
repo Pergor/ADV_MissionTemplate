@@ -106,7 +106,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	if (hasInterface) then {
 		[] spawn {
 			waitUntil { time > 1 && call TFAR_fnc_haveSWRadio };
-			switch (toUpper (groupID player)) do{
+			switch (toUpper (groupID group player)) do {
 				case "JUPITER": { [(call TFAR_fnc_activeSwRadio), 8] call TFAR_fnc_setSwChannel; };
 				case "MARS": { [(call TFAR_fnc_activeSwRadio), 1] call TFAR_fnc_setSwChannel; };
 				case "DEIMOS": { [(call TFAR_fnc_activeSwRadio), 2] call TFAR_fnc_setSwChannel; };
