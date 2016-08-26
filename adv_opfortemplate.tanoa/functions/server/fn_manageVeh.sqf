@@ -172,13 +172,29 @@ if (ADV_par_TIEquipment == 2 || ADV_par_TIEquipment == 4) then {
 //replaces MRAPS with mod cars:
 switch (ADV_par_modCarAssets) do {
 	//Bundeswehr sand
-	case 1: {[ADV_veh_MRAPs,["Fennek_Tropen","Fennek_Tropen","Fennek_Tropen","Fennek_Tropen_san"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["BW_Dingo_Des"],west] spawn ADV_fnc_changeVeh;};
+	case 1: {[ADV_veh_MRAPs,["Fennek_Tropen","Fennek_Tropen","Fennek_Tropen","Fennek_Tropen_san"],west] spawn ADV_fnc_changeVeh;
+		//[ADV_veh_MRAPsHMG,["BW_Dingo_Des"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsGMG,["BW_Dingo_GL_Des"],west] spawn ADV_fnc_changeVeh;
+		[ADV_veh_MRAPsHMG,["CUP_B_Dingo_Ger_Des"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsGMG,["CUP_B_Dingo_GL_Ger_Des"],west] spawn ADV_fnc_changeVeh;
+	};
 	//Bundeswehr woodland
-	case 2: {[ADV_veh_MRAPs,["Fennek_Flecktarn","Fennek_Flecktarn","Fennek_Flecktarn","Fennek_Flecktarn_san"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["BW_Dingo_Wdl"],west] spawn ADV_fnc_changeVeh;};
+	case 2: {[ADV_veh_MRAPs,["Fennek_Flecktarn","Fennek_Flecktarn","Fennek_Flecktarn","Fennek_Flecktarn_san"],west] spawn ADV_fnc_changeVeh;
+		//[ADV_veh_MRAPsHMG,["BW_Dingo_Wdl"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsGMG,["BW_Dingo_GL_Wdl"],west] spawn ADV_fnc_changeVeh;
+		[ADV_veh_MRAPsHMG,["CUP_B_Dingo_Ger_Wdl"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsGMG,["CUP_B_Dingo_GL_Ger_Wdl"],west] spawn ADV_fnc_changeVeh;
+	};
 	//BAF sand
-	case 3: {[ADV_veh_MRAPs,["BAF_Offroad_D"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["UK3CB_BAF_Jackal2_L2A1_D","UK3CB_BAF_Coyote_Passenger_L111A1_D"],west] spawn ADV_fnc_changeVeh;};
+	case 3: {
+		[ADV_veh_MRAPs,["CUP_B_LR_Transport_GB_D"],west] spawn ADV_fnc_changeVeh;
+		//[ADV_veh_MRAPs,["BAF_Offroad_D"],west] spawn ADV_fnc_changeVeh;
+		[ADV_veh_MRAPsHMG,["CUP_B_LR_Special_M2_GB_D","CUP_B_Jackal2_L2A1_GB_D","CUP_B_BAF_Coyote_L2A1_D","CUP_B_Ridgback_LMG_GB_D"],west] spawn ADV_fnc_changeVeh;
+		//[ADV_veh_MRAPsHMG,["UK3CB_BAF_Jackal2_L2A1_D","UK3CB_BAF_Coyote_Passenger_L111A1_D"],west] spawn ADV_fnc_changeVeh;
+	};
 	//BAF woodland
-	case 4: {[ADV_veh_MRAPs,["BAF_Offroad_W"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["UK3CB_BAF_Jackal2_L2A1_W","UK3CB_BAF_Coyote_Passenger_L111A1_W"],west] spawn ADV_fnc_changeVeh;};
+	case 4: {
+		[ADV_veh_MRAPs,["CUP_B_LR_Transport_GB_W"],west] spawn ADV_fnc_changeVeh;
+		//[ADV_veh_MRAPs,["BAF_Offroad_W"],west] spawn ADV_fnc_changeVeh;
+		[ADV_veh_MRAPsHMG,["CUP_B_LR_Special_M2_GB_W","CUP_B_LR_MG_GB_W","CUP_B_Jackal2_L2A1_GB_W","CUP_B_BAF_Coyote_L2A1_W","CUP_B_Ridgback_LMG_GB_W"],west] spawn ADV_fnc_changeVeh;
+		//[ADV_veh_MRAPsHMG,["UK3CB_BAF_Jackal2_L2A1_W","UK3CB_BAF_Coyote_Passenger_L111A1_W"],west] spawn ADV_fnc_changeVeh;
+	};
 	//RHS ARMY desert
 	case 5: {[ADV_veh_MRAPs,["rhsusf_m1025_d","rhsusf_m1025_d","rhsusf_m998_d_4dr"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsHMG,["rhsusf_m1025_d_m2"],west] spawn ADV_fnc_changeVeh;};
 	//RHS ARMY woodland
@@ -215,9 +231,15 @@ switch (ADV_par_modTruckAssets) do {
 		[ADV_veh_logistic_fuel,["rhsusf_M978A4_usarmy_wd"],west] spawn ADV_fnc_changeVeh;
 	};
 	//BAF desert
-	case 4: {[ADV_veh_transport,["UK3CB_BAF_Coyote_Logistics_L111A1_D"],west] spawn ADV_fnc_changeVeh;};
+	case 4: {
+		[ADV_veh_transport,["CUP_B_BAF_Coyote_L2A1_D"],west] spawn ADV_fnc_changeVeh;
+		//[ADV_veh_transport,["UK3CB_BAF_Coyote_Logistics_L111A1_D"],west] spawn ADV_fnc_changeVeh;
+	};
 	//BAF woodland
-	case 5: {[ADV_veh_transport,["UK3CB_BAF_Coyote_Logistics_L111A1_W"],west] spawn ADV_fnc_changeVeh;};
+	case 5: {
+		[ADV_veh_transport,["CUP_B_BAF_Coyote_L2A1_W"],west] spawn ADV_fnc_changeVeh;
+		//[ADV_veh_transport,["UK3CB_BAF_Coyote_Logistics_L111A1_W"],west] spawn ADV_fnc_changeVeh;
+	};
 	//no vehicles
 	case 99: {[ADV_veh_transport+ADV_veh_logistic_fuel+ADV_veh_logistic_medic+ADV_veh_logistic_repair+ADV_veh_logistic_ammo,[""],west] spawn ADV_fnc_changeVeh;};
 	default {};
@@ -302,9 +324,23 @@ switch (ADV_par_modTankAssets) do {
 //replaces helis with mod helis:
 switch (ADV_par_modHeliAssets) do {
 	//BWHelis
-	case 1: {[ADV_veh_airTransport,["BW_NH90Armed","BW_NH90Armed","BW_NH90Armed","BW_NH90","EC635_Unarmed_BW","EC635_BW"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airRecon,["EC635_Unarmed_BW","EC635_BW"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airLogistic,["CUP_B_CH53E_BW"],west] spawn ADV_fnc_changeVeh;};
+	case 1: {
+		//[ADV_veh_airTransport,["BW_NH90Armed","BW_NH90Armed","BW_NH90Armed","BW_NH90","EC635_Unarmed_BW","EC635_BW"],west] spawn ADV_fnc_changeVeh;
+		[ADV_veh_airTransport,["BW_NH90Armed","BW_NH90Armed","BW_NH90Armed","BW_NH90","CUP_B_UH1D_GER_KSK","CUP_B_UH1D_GER_KSK"],west] spawn ADV_fnc_changeVeh;
+		//[ADV_veh_airRecon,["EC635_Unarmed_BW","EC635_BW"],west] spawn ADV_fnc_changeVeh;
+		[ADV_veh_airRecon,["CUP_B_UH1D_GER_KSK"],west] spawn ADV_fnc_changeVeh;
+		//[ADV_veh_airLogistic,["CUP_B_CH53E_BW"],west] spawn ADV_fnc_changeVeh;
+		[ADV_veh_airLogistic,["CUP_B_CH53E_GER"],west] spawn ADV_fnc_changeVeh;
+	};
 	//BAFHelis
-	case 2: {[ADV_veh_airTransport,["UK3CB_BAF_Wildcat_Transport_RN_ZZ396"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airRecon,["UK3CB_BAF_Wildcat_Armed_Army_ZZ400"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airLogistic,["UK3CB_BAF_Merlin_RAF_ZJ124"],west] spawn ADV_fnc_changeVeh;};
+	case 2: {
+		[ADV_veh_airTransport,["CUP_B_Merlin_HC3A_Armed_GB","CUP_B_Merlin_HC3_Armed_GB"],west] spawn ADV_fnc_changeVeh;
+		[ADV_veh_airRecon,["CUP_B_AW159_Unarmed_GB"],west] spawn ADV_fnc_changeVeh;
+		[ADV_veh_airLogistic,["CUP_B_CH47F_GB"],west] spawn ADV_fnc_changeVeh;	
+		//[ADV_veh_airTransport,["UK3CB_BAF_Wildcat_Transport_RN_ZZ396"],west] spawn ADV_fnc_changeVeh;
+		//[ADV_veh_airRecon,["UK3CB_BAF_Wildcat_Armed_Army_ZZ400"],west] spawn ADV_fnc_changeVeh;
+		//[ADV_veh_airLogistic,["UK3CB_BAF_Merlin_RAF_ZJ124"],west] spawn ADV_fnc_changeVeh;
+	};
 	//RHS Army
 	case 3: {[ADV_veh_airTransport,["RHS_UH60M_d","RHS_UH60M_d","RHS_UH60M_d","RHS_UH60M_d","RHS_UH60M_MEV_d"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airRecon,["rhs_ah64d","rhs_ah64d_cs"],west] spawn ADV_fnc_changeVeh;[ADV_veh_airLogistic,["RHS_CH_47F","RHS_CH_47F","RHS_CH_47F","RHS_CH_47F_LIGHT"],west] spawn ADV_fnc_changeVeh;};
 	//RHS Marines
@@ -325,7 +361,15 @@ switch (ADV_par_modAirAssets) do {
 	//FA18F
 	case 2: {[ADV_veh_airCAS,["JS_JC_FA18F"],west] spawn ADV_fnc_changeVeh;};
 	//AV8B Hawker Harrier
-	case 3: {[ADV_veh_airCAS,["Cha_AV8B_CAP","Cha_AV8B_GBU12","Cha_AV8B_MK82"],west] spawn ADV_fnc_changeVeh;};
+	case 3: {
+		call {
+			if !(ADV_par_customUni isEqualTo 6) exitWith {
+				[ADV_veh_airCAS,["CUP_B_AV8B_Mk82_USMC","CUP_B_AV8B_AGM_USMC","CUP_B_AV8B_CAP_USMC"],west] spawn ADV_fnc_changeVeh;
+			};
+			[ADV_veh_airCAS,["CUP_B_GR9_Mk82_GB","CUP_B_GR9_AGM_GB","CUP_B_GR9_CAP_GB"],west] spawn ADV_fnc_changeVeh;
+		};
+		//[ADV_veh_airCAS,["Cha_AV8B_CAP","Cha_AV8B_GBU12","Cha_AV8B_MK82"],west] spawn ADV_fnc_changeVeh;
+	};
 	//RHS A-10
 	case 4: {[ADV_veh_airCAS,["RHS_A10"],west] spawn ADV_fnc_changeVeh;};
 	//RHS F-22A
