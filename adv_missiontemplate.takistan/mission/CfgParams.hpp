@@ -335,43 +335,43 @@ class dummy_blu_vehicles {
 class param_modCarAssets
 {
 	title="Sollen leichte Fahrzeuge durch AddOn-Fahrzeuge ersetzt werden?";
-	values[] = {99,10,9,8,7,6,5,4,3,2,1,0};
-	texts[] = {"Keine leichten Fahrzeuge","ADV-Retex Fenneks","RHS Marines - Woodland","RHS Marines - Sand","RHS Army - Plain Green","RHS Army - Woodland","RHS Army - Sand","UK3CB BAF vehicles - Woodland","UK3CB BAF vehicles - Sand","BW-Fahrzeuge - Woodland","BW-Fahrzeuge - Sand","Nein"};
+	values[] = {99,10,8,7,5,3,1,0};
+	texts[] = {"Keine leichten Fahrzeuge","ADV-Retex Fenneks","RHS Marines","RHS Army - Plain Green","RHS Army","CUP BAF","BW-Fahrzeuge","Nein"};
 	default = 0;
 };
 class param_modTruckAssets
 {
 	title="Sollen Trucks durch AddOn-Fahrzeuge ersetzt werden?";
-	values[] = {99,5,4,3,2,1,0};
-	texts[] = {"Keine Trucks","BAF Coyotes - Woodland","BAF Coyotes - Sand","RHS - Woodland","RHS - Sand","DAR MTVR","Nein"};
+	values[] = {99,4,2,6,1,0};
+	texts[] = {"Keine Trucks","CUP BAF Coyotes","RHS - Army","CUP MTVR","DAR MTVR","Nein"};
 	default = 0;
 };
 class param_modHeavyAssets
 {
 	title="Sollen schwere Fahrzeuge durch AddOn-Fahrzeuge ersetzt werden?";
-	values[] = {99,13,12,11,10,9,8,7,6,5,4,3,2,1,0};
-	texts[] = {"Keine schweren Fahrzeuge","Cha LAV25 - Woodland","Cha LAV25 - Sand","RHS MRAP - Woodland","RHS MRAP - Sand","RHS M2 - Woodland","RHS M2 - Sand","stv retexture/ADV-Retex - Marid","stv retexture/ADV-Retex - Warrior/Mora","DAR MaxxPro","Stryker - Woodland","Stryker - Sand","BWmod Puma - Woodland","BWmod Puma - Sand","Nein"};
+	values[] = {99,12,3,10,8,7,6,5,1,0};
+	texts[] = {"Keine schweren Fahrzeuge","CUP Marines","CUP Stryker","RHS RG33","RHS M2A3","stv retexture/ADV-Retex - Marid","stv retexture/ADV-Retex - Warrior/Mora","DAR MaxxPro","BWmod Puma","Nein"};
 	default = 0;
 };
 class param_modTankAssets
 {
 	title="Sollen Panzer durch AddOn-Fahrzeuge ersetzt werden?";
-	values[] = {99,9,8,7,6,5,4,3,2,1,0};
-	texts[] = {"Keine Panzer/Artillerie","Burne's M1A2 - Woodland","Burne's M1A2 - Sand","RHS - Woodland (mit M119-Artillerie)","RHS - Woodland (mit M109A6-Artillerie)","RHS - Sand (mit M119-Artillerie)","RHS - Sand (mit M109A6-Artillerie)","stv retexture - Leopard/Kuma","BWmod Leopard - Woodland","BWmod Leopard - Sand","Nein"};
+	values[] = {99,8,6,4,3,1,0};
+	texts[] = {"Keine Panzer/Artillerie","Burne's M1A2","RHS (mit M119-Artillerie)","RHS (mit M109A6-Artillerie)","stv retexture - Leopard/Kuma","BWmod Leopard","Nein"};
 	default = 0;
 };
 class param_modHeliAssets
 {
 	title="Sollen Helikopter durch AddOn-Helikopter ersetzt werden?";
-	values[] = {99,6,5,4,3,2,1,0};
-	texts[] = {"Keine Helikopter","RHS Army with MELB","RHS Army with RHS AH6/MH6","RHS Marines","UK3CB BAF-Helis","RHS Army","BW-Helis","Nein"};
+	values[] = {99,5,3,4,2,1,0};
+	texts[] = {"Keine Helikopter","RHS Army (mit OH-6-Variants)","RHS Army (mit AH-64)","RHS Marines","CUP BAF-Helis","BW-Helis","Nein"};
 	default = 0;
 };
 class param_modAirAssets
 {
 	title="Sollen Flugzeuge durch AddOn-Flugzeuge ersetzt werden?";
-	values[] = {99,6,5,4,3,2,1,0};
-	texts[] = {"Keine Flugzeuge","FIR F-14D","RHS F-22/C130","RHS A-10/C130","AV-8B Harrier","F/A-18F (Zweisitzer)","F/A-18E (Einsitzer)","Nein"};
+	values[] = {99,7,6,5,4,3,2,1,0};
+	texts[] = {"Keine Flugzeuge","CUP F35","FIR F-14D","RHS F-22/C130","RHS A-10/C130","CUP AV-8B Harrier","F/A-18F (Zweisitzer)","F/A-18E (Einsitzer)","Nein"};
 	default = 0;
 };
 class dummy_opf_vehicles {
