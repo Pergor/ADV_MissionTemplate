@@ -17,7 +17,8 @@ _goggles = "G_Combat";
 _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0]];
 
 //weapons - primary weapon - (string)
-_primaryweapon = "LMG_Mk200_F";
+//_primaryweapon = "LMG_Mk200_F";
+_primaryWeapon = ["arifle_MX_SW_Black_F","arifle_MX_SW_Black_F","arifle_MX_SW_F"];
 
 //primary weapon items - (array)
 _optic = ["optic_ACO","optic_Hamr","optic_MRCO","optic_Holosight"];
@@ -31,7 +32,8 @@ _silencer = "muzzle_snds_H_MG";		//if silencer is added
 _additionalAmmo = [0,0,false];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [3,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+//_primaryweaponAmmo = [3,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_primaryweaponAmmo = [5,0];
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;
