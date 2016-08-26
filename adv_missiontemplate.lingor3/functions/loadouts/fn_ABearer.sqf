@@ -29,7 +29,8 @@ _silencer = "muzzle_snds_H";
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [7,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 _additionalAmmo = [10,"30Rnd_65x39_caseless_mag",true];
-_additionalAmmo1 = [2,"200Rnd_65x39_cased_Box",true];
+//_additionalAmmo1 = [2,"200Rnd_65x39_cased_Box",true];
+_additionalAmmo1 = [4,"100Rnd_65x39_caseless_mag_Tracer",true];
 _additionalAmmo2 = [10,"1Rnd_HE_Grenade_shell",true];
 
 //40mm Grenades - (integer)

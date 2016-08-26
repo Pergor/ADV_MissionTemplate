@@ -190,9 +190,9 @@ switch (ADV_par_opfWeap) do {
 	case 1: {
 		//RHS
 		_primaryweapon = "rhs_weap_ak74m_gp25";
-		_optic = ["rhs_acc_pso1m2","rhs_acc_1p29"];
+		_optic = ["rhs_acc_pso1m2","rhs_acc_pso1m2","rhs_acc_pso1m2","rhs_acc_1p29"];
 		_attachments = ["rhs_acc_dtk"];
-		_silencer = "rhs_acc_tgpa";		//if silencer is added
+		_silencer = "rhs_acc_dtk4short";		//if silencer is added
 		_handgun = "rhs_weap_makarov_pmm";
 		_itemsHandgun = [];
 		_handgunSilencer = "";

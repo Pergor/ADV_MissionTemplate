@@ -191,7 +191,7 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 switch (ADV_par_opfWeap) do {
 	case 1: {
 		//RHS
-		if (ADV_par_opfSilencers > 0) then {_primaryweapon = "rhs_weap_asval";} else {_primaryweapon = "rhs_weap_svds";};
+		_primaryWeapon = if (ADV_par_opfSilencers > 0) then {"rhs_weap_asval"} else {"rhs_weap_svds"};
 		_optic = ["rhs_acc_pso1m2"];
 		_attachments = [""];
 		_handgun = "rhs_weap_makarov_pmm";
@@ -200,7 +200,7 @@ switch (ADV_par_opfWeap) do {
 	};
 	case 2: {
 		//RHS Guerilla
-		if (ADV_par_opfSilencers > 0) then {_primaryweapon = "rhs_weap_vss";} else {_primaryweapon = "rhs_weap_svds";};
+		_primaryWeapon = if (ADV_par_opfSilencers > 0) then {"rhs_weap_vss"} else {"rhs_weap_svds"};
 		_optic = [""];
 		_attachments = [""];
 		_silencer = "";		//if silencer is added		
@@ -210,7 +210,7 @@ switch (ADV_par_opfWeap) do {
 	};
 	case 3: {
 		//CUP
-		if (ADV_par_opfSilencers > 0) then {_primaryweapon = "CUP_srifle_VSSVintorez";} else {_primaryweapon = "CUP_srifle_SVD";};
+		_primaryWeapon = if (ADV_par_opfSilencers > 0) then {"CUP_srifle_VSSVintorez"} else {"CUP_srifle_SVD"};
 		_optic = ["CUP_optic_PSO_3"];
 		_attachments = [""];
 		_handgun = "CUP_hgun_PB6P9";

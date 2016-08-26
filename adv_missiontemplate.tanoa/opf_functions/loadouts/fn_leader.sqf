@@ -194,7 +194,7 @@ switch (ADV_par_opfWeap) do {
 		_primaryweapon = "rhs_weap_ak74m_gp25";
 		_optic = ["rhs_acc_pso1m2"];
 		_attachments = ["rhs_acc_dtk"];
-		_silencer = "rhs_acc_tgpa";		//if silencer is added
+		_silencer = "rhs_acc_dtk4short";		//if silencer is added
 		_primaryweaponAmmo set [1,2];
 		_handgun = "rhs_weap_makarov_pmm";
 		_itemsHandgun = [];

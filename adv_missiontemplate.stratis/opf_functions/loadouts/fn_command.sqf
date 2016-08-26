@@ -188,12 +188,12 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 switch (ADV_par_opfWeap) do {
 	case 1: {
 		//RHS
-		_primaryweapon = "rhs_weap_ak74m_folded";
+		_primaryweapon = "rhs_weap_ak105";
 		_optic = [""];
-		_attachments = ["rhs_acc_dtk"];
+		_attachments = ["rhs_acc_pgs64"];
 		if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "rhs_acc_2dpZenit"; };
 		if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "rhs_acc_perst1ik"; };
-		_silencer = "rhs_acc_tgpa";		//if silencer is added		
+		_silencer = "rhs_acc_dtk4short";		//if silencer is added		
 		_handgun = "rhs_weap_makarov_pmm";
 		_itemsHandgun = [];
 		_handgunSilencer = "";
