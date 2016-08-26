@@ -588,6 +588,12 @@ class ace_ui_gunnerAmmoCount {
         isClientSettable = 0;
 		force = 1;
 };
+class ace_ui_gunnerZeroing {
+        value = 1;
+        typeName = "BOOL";
+        isClientSettable = 0;
+		force = 1;
+};
 class ace_vehiclelock_defaultLockpickStrength {
     value = 10;
     typeName = "SCALAR";
