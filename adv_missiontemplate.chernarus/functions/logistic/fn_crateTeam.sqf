@@ -108,7 +108,8 @@ private ["_target"];
 			if (ADV_par_customWeap == 20) then {
 				_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Red_F",4];
 			} else {
-				_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",4];
+				//_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",4];
+				_target addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer",5];
 			};
 			_target addMagazineCargoGlobal ["11Rnd_45ACP_Mag",8];
 		};

@@ -122,7 +122,8 @@ private ["_target"];
 			} else {
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",40];
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag_Tracer",20];
-				_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",12];
+				//_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",12];
+				_target addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer",12];
 			};
 			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",40];
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",20];

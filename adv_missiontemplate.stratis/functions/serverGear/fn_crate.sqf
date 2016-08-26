@@ -236,7 +236,8 @@ if (!isServer) exitWith {};
 				if (ADV_par_customWeap == 20) then {
 					_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Red_F",20];
 				} else {
-					_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",20];
+					//_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",20];
+					_target addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer",20];
 				};
 				_target addMagazineCargoGlobal ["11Rnd_45ACP_Mag",10];
 				_target addMagazineCargoGlobal ["7Rnd_408_Mag",10];
