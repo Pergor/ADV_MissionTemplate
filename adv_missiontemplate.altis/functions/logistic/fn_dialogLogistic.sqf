@@ -189,7 +189,7 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 		[_target] call ADV_fnc_clearCargo;
 		_target setPosASL (getPosASL player);
 		if ( ADV_par_customLoad == 1 ) then {
-			[_target] remoteExec ["aeroson_fnc_gearsaving",0,true];
+			[_target] remoteExec ["adv_fnc_gearsaving",0,true];
 		};
 		if ( ADV_par_logisticDrop == 1 ) then { [_target] call adv_fnc_dropLogistic; };
 	};
@@ -202,7 +202,7 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 				_box allowDamage false;
 				[_box] call ADV_fnc_clearCargo;
 				if ( ADV_par_customLoad == 1 ) then {
-					[_box] remoteExec ["aeroson_fnc_gearsaving",0,true];
+					[_box] remoteExec ["adv_fnc_gearsaving",0,true];
 				};
 				_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateLarge"];
 				[_box] remoteExecCall [_function,2];
