@@ -43,7 +43,7 @@ switch ( true ) do {
 			default {
 				if ( _givePersonalRadio ) then { _unit linkItem _personalRadioType; };
 				if ( _giveRiflemanRadio && !_givePersonalRadio ) then { _unit linkItem _riflemanRadioType; };
-				if ( _giveRiflemanRadio && _givePersonalRadio ) then { _unit addItem _riflemanRadioType; };
+				//if ( _giveRiflemanRadio && _givePersonalRadio ) then { _unit addItem _riflemanRadioType; };
 				if ( _tfar_microdagr > 0 && _givePersonalRadio ) then { _unit addItem "tf_microdagr"; };
 				if ( _tfar_microdagr > 0 && !_givePersonalRadio ) then { _unit linkItem "tf_microdagr"; };
 			};
@@ -58,21 +58,39 @@ switch ( true ) do {
 		};
 	};
 	case ( isClass (configFile >> "CfgPatches" >> "acre_main") ): {
+		_personalRadioType = switch ( side (group _unit) ) do {
+			case east: { acre_eastPersonalRadio };
+			case independent: { acre_guerPersonalRadio };
+			default { acre_westPersonalRadio };
+		};
+		_riflemanRadioType = switch ( side (group _unit) ) do {
+			case east: { acre_eastRiflemanRadio };
+			case independent: { acre_guerRiflemanRadio };
+			default { acre_westRiflemanRadio };
+		};
+		_backpackRadioType = switch ( side (group _unit) ) do {
+			case east: { acre_eastBackpackRadio };
+			case independent: { acre_guerBackpackRadio };
+			default { acre_westBackpackRadio };
+		};
 		switch ADV_par_Radios do {
 			//everyone gets role specific radio
 			default {
-				{ _unit addItem _x; } count _ACREradios;
+				if ( _giveRiflemanRadio ) then { _unit addItem _riflemanRadioType; };
+				if ( _givePersonalRadio ) then { _unit addItem _personalRadioType; };
+				if ( _giveBackpackRadio ) then { _unit addItem _backpackRadioType; };
 			};
 			//only leaders get Radio
 			case 2: {
 				if ( (toUpper (rank _unit)) in ["SERGEANT","LIEUTENANT","CAPTAIN","MAJOR","COLONEL"] ) then {
-					_ACREradios deleteAt 0; _ACREradios deleteAt 2;
-					{ _unit addItem _x; } count _ACREradios;
+					 _unit addItem _personalRadioType;
 				};
 			};
 			//everyone gets personal radio
 			case 3: {
-				if ( count _ACREradios > 0 ) then { _unit addItem "ACRE_PRC148"; };
+				_unit addItem _riflemanRadioType;
+				_unit addItem _personalRadioType;
+				if ( _giveBackpackRadio ) then { _unit addItem _backpackRadioType; };
 			};
 		};
 	};

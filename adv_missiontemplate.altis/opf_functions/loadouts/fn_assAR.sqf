@@ -110,11 +110,10 @@ if ("MMG_01_tan_F" in _groupWeapons || "MMG_01_hex_F" in _groupWeapons) then {
 	_additionalAmmo2 = nil;
 };
 
-//ACRE radios
-_ACREradios = ["ACRE_PRC343"];		//_this select 0=shortrange radio;_this select 1=leader radio;_this select 2=backpackRadio;
-//TFAR items
-_givePersonalRadio = false;
+//TFAR or ACRE radios
 _giveRiflemanRadio = true;
+_givePersonalRadio = false;
+_giveBackpackRadio = false;
 _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a rifleman radio
 
 //ACE items (if ACE is running on the server) - (integers)
