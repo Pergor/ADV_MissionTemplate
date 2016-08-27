@@ -105,12 +105,13 @@ if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 
 	//CustomMod items//
 	
-//ACRE items
-_acreBackpack = ["B_AssaultPack_blk"];		//for backpack radio in case unit hasn't got a backpack
-_ACREradios = ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC117F"];
-//TFAR items
+//TFAR or ACRE radios
+_giveRiflemanRadio = true;
 _givePersonalRadio = true;
-_giveRiflemanRadio = false;
+_giveBackpackRadio = false;
+if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) then {
+	_giveBackpackRadio = true;
+};
 _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a rifleman radio
 
 //ACE items (if ACE is running on the server) - (integers)
@@ -291,8 +292,6 @@ switch (ADV_par_opfUni) do {
 		_goggles = "";
 		_useProfileGoggles = 0;
 		_binocular = "Binocular";
-		_acreBackpack = ["rhs_sidor"];
-		_ACREradios = ["","ACRE_PRC343","ACRE_PRC77"];
 	};
 	case 20: {
 		//Apex Green Hex
@@ -304,8 +303,31 @@ switch (ADV_par_opfUni) do {
 	default {};
 };
 
+switch (toUpper ([str (_this select 0),3,13] call BIS_fnc_trimString)) do {
+	case "LEADER_LOG": {
+		_ACE_isMedic = 2;
+		_ACE_isEngineer = 2;
+		_ACE_isEOD = true;
+		_tablet = true;
+		_androidDevice = false;
+		_giveBackpackRadio = true;
+	};
+	case "LEADER_COM": {
+		_ACE_isMedic = 2;
+		_tablet = true;
+		_androidDevice = false;
+		_40mmFlareYellow = 0;
+		_ACE_HuntIR_monitor = 1;
+		_ACE_HuntIR = 5;
+		_giveBackpackRadio = true;
+		if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
+			["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;
+		};
+	};
+};
+
 //TFAR-manpacks
-if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) ) then {
+if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
 	_backpack = switch (ADV_par_opfUni) do {
 		case 1: {["tf_mr3000_rhs"]};
 		case 2: {["tf_mr3000_rhs"]};
@@ -315,28 +337,17 @@ if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radio
 		default {["tf_bussole"]};
 	};
 };
-if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3)) then {
-	_backpack = _acreBackpack;
-};
 
-switch (toUpper ([str (_this select 0),3,13] call BIS_fnc_trimString)) do {
-	case "LEADER_LOG": {
-		_ACE_isMedic = 2;
-		_ACE_isEngineer = 2;
-		_ACE_isEOD = true;
-		_tablet = true;
-		_androidDevice = false;
-	};
-	case "LEADER_COM": {
-		_ACE_isMedic = 2;
-		_tablet = true;
-		_androidDevice = false;
-		_40mmFlareYellow = 0;
-		_ACE_HuntIR_monitor = 1;
-		_ACE_HuntIR = 5;
-		if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
-			["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;
-		};
+if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (ADV_par_opfUni) do {
+		case 1: {"rhs_assault_umbts"};
+		case 2: {"rhs_assault_umbts"};
+		case 3: {"rhs_assault_umbts"};
+		case 4: {"rhs_assault_umbts"};
+		case 5: {"B_AssaultPack_blk"};
+		case 6: {"rhs_sidor"};
+		case 20: {"B_AssaultPack_tna_F"};
+		default {"B_AssaultPack_blk"};
 	};
 };
 

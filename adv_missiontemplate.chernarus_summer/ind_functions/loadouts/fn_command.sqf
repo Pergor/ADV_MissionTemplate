@@ -98,12 +98,10 @@ if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 
 	//CustomMod items//
 	
-//ACRE radios
-_acreBackpack = ["B_AssaultPack_blk"];
-_ACREradios = ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC117F"];	//_this select 0=shortrange radio;_this select 1=leader radio;_this select 2=backpackRadio;
-//TFAR items
+//TFAR or ACRE radios
+_giveRiflemanRadio = true;
 _givePersonalRadio = true;
-_giveRiflemanRadio = false;
+_giveBackpackRadio = true;
 _tfar_microdagr = 0;				//adds the tfar microdagr to set the channels for a rifleman radio
 
 //ACE items (if ACE is running on the server) - (integers)
@@ -246,14 +244,19 @@ switch (ADV_par_indUni) do {
 };
 
 //TFAR-manpacks
-if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) ) then {
+if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
 	switch (ADV_par_indUni) do {
 		case 1: { _backpack = ["tf_anprc155"]; };
 		default { _backpack = ["tf_anprc155_coyote"]; };
 	};
 };
-if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) ) then {
-	_backpack = _acreBackpack;
+
+if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (ADV_par_indUni) do {
+		case 1: {"B_AssaultPack_dgtl"};
+		case 20: {"B_AssaultPack_rgr"};
+		default {"B_AssaultPack_blk"};
+	};
 };
 
 ///// No editing necessary below this line /////

@@ -104,12 +104,13 @@ if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 
 	//CustomMod items//
 	
-//ACRE radios
-_acreBackpack = ["B_AssaultPack_blk"];
-_ACREradios = ["ACRE_PRC343","ACRE_PRC152","ACRE_PRC117F"];		//_this select 0=shortrange radio;_this select 1=leader radio;_this select 2=backpackRadio;
-//TFAR items
+//TFAR or ACRE radios
+_giveRiflemanRadio = true;
 _givePersonalRadio = true;
-_giveRiflemanRadio = false;
+_giveBackpackRadio = false;
+if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) then {
+	_giveBackpackRadio = true;
+};
 _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a rifleman radio
 
 //ACE items (if ACE is running on the server) - (integers)
@@ -380,7 +381,6 @@ switch (ADV_par_customUni) do {
 		_uniform = ["rhs_uniform_cu_ocp"];
 		_vest = ["rhsusf_iotv_ocp_Squadleader"];
 		_items pushBack "rhsusf_patrolcap_ocp";
-		_acreBackpack = ["rhsusf_assault_eagleaiii_ocp"];
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};
 	case 8: {
@@ -388,7 +388,6 @@ switch (ADV_par_customUni) do {
 		_uniform = ["rhs_uniform_cu_ucp"];
 		_vest = ["rhsusf_iotv_ucp_Squadleader"];
 		_items pushBack "rhsusf_patrolcap_ucp";
-		_acreBackpack = ["rhsusf_assault_eagleaiii_ucp"];
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};
 	case 10: {
@@ -405,7 +404,6 @@ switch (ADV_par_customUni) do {
 				_items pushBack "rhs_Booniehat_marpatwd";
 			};
 		};
-		_acreBackpack = ["rhsusf_falconii_coy"];
 		_vest = ["rhsusf_spc_teamleader"];
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};	
@@ -417,14 +415,12 @@ switch (ADV_par_customUni) do {
 		_headgear = ["H_Shemag_olive","H_ShemagOpen_tan","H_ShemagOpen_khk","H_Cap_headphones","H_MilCap_mcamo","H_MilCap_gry","H_MilCap_blue","H_Cap_tan_specops_US",
 			"H_Cap_usblack","H_Cap_oli_hs","H_Cap_blk","H_Booniehat_tan","H_Booniehat_oli","H_Booniehat_khk","H_Watchcap_khk","H_Watchcap_cbr","H_Watchcap_camo"];
 		_binocular = "Binocular";
-		_ACREradios = ["","ACRE_PRC343","ACRE_PRC77"];
 	};
 	case 12: {
 		//UK3CB
 		_uniform = ["UK3CB_BAF_U_CombatUniform_MTP_ShortSleeve_RM","UK3CB_BAF_U_CombatUniform_MTP_TShirt","UK3CB_BAF_U_CombatUniform_MTP_TShirt_RM","UK3CB_BAF_U_CombatUniform_MTP_RM","UK3CB_BAF_U_CombatUniform_MTP_ShortSleeve_RM"];
 		_vest = ["UK3CB_BAF_V_Osprey_SL_A","UK3CB_BAF_V_Osprey_SL_B","UK3CB_BAF_V_Osprey_SL_C","UK3CB_BAF_V_Osprey_SL_D"];
 		_headgear = ["UK3CB_BAF_H_Mk7_Camo_A","UK3CB_BAF_H_Mk7_Camo_B","UK3CB_BAF_H_Mk7_Camo_C","UK3CB_BAF_H_Mk7_Camo_D","UK3CB_BAF_H_Mk7_Camo_E","UK3CB_BAF_H_Mk7_Camo_F","UK3CB_BAF_H_Mk7_Net_A","UK3CB_BAF_H_Mk7_Net_B","UK3CB_BAF_H_Mk7_Net_C","UK3CB_BAF_H_Mk7_Net_D"];
-		_acreBackpack = ["UK3CB_BAF_B_Bergen_MTP_Radio_H_A","UK3CB_BAF_B_Bergen_MTP_Radio_H_B"];
 		_items pushBack "UK3CB_BAF_H_Beret_RM_Bootneck";
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["UK3CB_BAF_HMNVS"];
 	};
@@ -455,8 +451,31 @@ switch (ADV_par_customUni) do {
 	default {};
 };
 
+switch (toUpper ([str (_this select 0),0,9] call BIS_fnc_trimString)) do {
+	case "LEADER_LOG": {
+		_ACE_isMedic = 2;
+		_ACE_isEngineer = 2;
+		_ACE_isEOD = true;
+		_tablet = true;
+		_androidDevice = false;
+		_giveBackpackRadio = true;
+	};
+	case "LEADER_COM": {
+		_ACE_isMedic = 2;
+		_tablet = true;
+		_androidDevice = false;
+		_40mmFlareYellow = 0;
+		_ACE_HuntIR_monitor = 1;
+		_ACE_HuntIR = 5;
+		_giveBackpackRadio = true;
+		if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
+			["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;
+		};
+	};
+};
+
 //TFAR-manpacks
-if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) ) then {
+if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
 	_backpack = switch (ADV_par_CustomUni) do {
 		case 1: {["tf_rt1523g_bwmod"]};
 		case 2: {["tf_rt1523g_bwmod"]};
@@ -467,28 +486,14 @@ if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radio
 		default {["tf_rt1523g_rhs"]};
 	};
 };
-if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) ) then {
-	_backpack = _acreBackpack;
-};
 
-switch (toUpper ([str (_this select 0),0,9] call BIS_fnc_trimString)) do {
-	case "LEADER_LOG": {
-		_ACE_isMedic = 2;
-		_ACE_isEngineer = 2;
-		_ACE_isEOD = true;
-		_tablet = true;
-		_androidDevice = false;
-	};
-	case "LEADER_COM": {
-		_ACE_isMedic = 2;
-		_tablet = true;
-		_androidDevice = false;
-		_40mmFlareYellow = 0;
-		_ACE_HuntIR_monitor = 1;
-		_ACE_HuntIR = 5;
-		if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
-			["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;
-		};
+if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (ADV_par_CustomUni) do {
+		case 1: {"BWA3_AssaultPack_Tropen"};
+		case 2: {"BWA3_AssaultPack_Fleck"};
+		case 12: {["UK3CB_BAF_B_Bergen_MTP_Radio_L_A","UK3CB_BAF_B_Bergen_MTP_Radio_L_B"]};
+		case 20: {"B_AssaultPack_tna_F"};
+		default {"B_AssaultPack_blk"};
 	};
 };
 

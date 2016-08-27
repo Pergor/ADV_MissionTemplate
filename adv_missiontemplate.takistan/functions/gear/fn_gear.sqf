@@ -12,7 +12,7 @@ params [
 
 //a lot of arrays and variables
 private _uavTisGiven = if ( { ["UAVTERMINAL",_x] call BIS_fnc_inString } count _itemsLink > 0 ) then {true} else {false};
-private _containterItems = _items+_itemsLink+_itemsUniform+_itemsVest+_itemsBackpack;
+private _allItems = _items+_itemsLink+_itemsUniform+_itemsVest+_itemsBackpack;
 private _medicBackPacks = [
 	"B_AssaultPack_rgr_Medic","B_FieldPack_ocamo_Medic","B_FieldPack_oucamo_Medic","B_AssaultPack_rgr_ReconMedic",
 	"BWA3_AssaultPack_Medic","B_mas_AssaultPack_mul_Medic","B_mas_AssaultPack_des_Medic","B_mas_AssaultPack_black_Medic",
@@ -210,44 +210,11 @@ if !(["diver",_unit getVariable ["ADV_var_playerUnit","ADV_fnc_nil"]] call BIS_f
 		{ _unit removeItems _x; } count _NVGoggles;
 	};
 };
-//tablets & GPS:
-if !( ADV_par_Tablets == 99 ) then {
-	if ( {(toUpper _x) isEqualTo "ITEMGPS"} count _containterItems > 0 ) then {
-		_unit unlinkItem "ItemGPS";_unit removeItems "ItemGPS";
-	};
-};
-//BWmod-specials:
-/*
-if ( isClass(configFile >> "CfgPatches" >> "bwa3_kestrel") && (ADV_par_CustomUni == 1 || ADV_par_CustomUni == 2 || ADV_par_CustomWeap == 1) && ( side _unit == west ) ) then {
-	if ( "ItemGPS" in _itemsLink ) then {
-		_unit linkItem "BWA3_ItemNaviPad";
-	};
-};
-*/
-//cTab-specials:
-if ( ADV_par_Tablets == 1 ) then {
-	if ( isClass (configFile >> "CfgPatches" >> "cTab") ) then {
-		[] call {
-			if ( _uavTisGiven ) exitWith {
-				if ( _tablet ) then {_unit addItem "ItemcTab"};
-				if ( _androidDevice ) then {_unit addItem "ItemAndroid";};
-				if ( _microDagr) then {_unit addItem "ItemMicroDAGR";};
-			};
-			if ( _tablet ) exitWith {
-				_unit linkItem "ItemcTab";
-				if ( _androidDevice ) then {_unit addItem "ItemAndroid";};
-				if ( _microDagr) then {_unit addItem "ItemMicroDAGR";};
-			};
-			if ( _androidDevice ) exitWith {
-				_unit linkItem "ItemAndroid";
-				if ( _microDagr) then {_unit addItem "ItemMicroDAGR";};
-			};
-			if ( _microDagr) exitWith {_unit linkItem "ItemMicroDAGR";};
-		};
-		if ( _helmetCam ) then { _unit addItem "ItemcTabHCam" };
-	};
-};
 
+//tablets & GPS:
+if ( {(toUpper _x) isEqualTo "ITEMGPS"} count _allItems > 0 ) then {
+	[_unit] call ADV_fnc_addGPS;
+};
 //ACE-Items:
 if ( isClass(configFile >> "CfgPatches" >> "ACE_common") ) then {
 	[_unit] call ADV_fnc_aceGear;
@@ -274,6 +241,12 @@ if !(_backpack == "") then {
 	if ( !isNil "_additionalAmmo3" ) then { [_unit,_additionalAmmo3 select 0,0,_additionalAmmo3 select 1,false] call ADV_fnc_addMagazine; };
 	if ( !isNil "_additionalAmmo4" ) then { [_unit,_additionalAmmo4 select 0,0,_additionalAmmo4 select 1,false] call ADV_fnc_addMagazine; };
 	if ( !isNil "_additionalAmmo5" ) then { [_unit,_additionalAmmo5 select 0,0,_additionalAmmo5 select 1,false] call ADV_fnc_addMagazine; };
+};
+
+if (  str _unit in ["z1","z2","z3","z4","z5","opf_z1","opf_z2","opf_z3","opf_z4","opf_z5","ind_z1","ind_z2","ind_z3","ind_z4","ind_z5"] ) then {
+	if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
+		["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;
+	};
 };
 
 _unit setVariable ["ADV_var_hasLoadout",true];

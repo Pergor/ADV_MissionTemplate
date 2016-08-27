@@ -99,12 +99,10 @@ if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 
 	//CustomMod items//
 	
-//ACRE radios
-_acreBackpack = ["B_AssaultPack_blk"];
-_ACREradios = ["ACRE_PRC343","ACRE_PRC152","ACRE_PRC117F"];	//_this select 0=shortrange radio;_this select 1=leader radio;_this select 2=backpackRadio;
-//TFAR items
+//TFAR or ACRE radios
+_giveRiflemanRadio = true;
 _givePersonalRadio = true;
-_giveRiflemanRadio = false;
+_giveBackpackRadio = true;
 _tfar_microdagr = 0;				//adds the tfar microdagr to set the channels for a rifleman radio
 
 //ACE items (if ACE is running on the server) - (integers)
@@ -306,7 +304,6 @@ switch (ADV_par_customUni) do {
 		if (isClass(configFile >> "CfgPatches" >> "German_feldbluse_patches")) then { _uniform = ["PBW_Uniform1_tropen"]; };
 		_vest = ["BWA3_Vest_Leader_Tropen"];
 		_headgear = ["BWA3_Beret_Jaeger"];
-		_acreBackpack = ["BWA3_AssaultPack_Tropen"];
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _items = _items-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
 	};
 	case 2: {
@@ -315,7 +312,6 @@ switch (ADV_par_customUni) do {
 		if (isClass(configFile >> "CfgPatches" >> "German_feldbluse_patches")) then { _uniform = ["PBW_Uniform1_fleck"]; };
 		_vest = ["BWA3_Vest_Leader_Fleck"];
 		_headgear = ["BWA3_Beret_Jaeger"];
-		_acreBackpack = ["BWA3_AssaultPack_Fleck"];
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _items = _items-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
 	};
 	case 3: {
@@ -352,7 +348,6 @@ switch (ADV_par_customUni) do {
 		_vest = ["rhsusf_iotv_ocp_Squadleader"];
 		_headgear = ["rhsusf_patrolcap_ocp"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
-		_acreBackpack = ["rhsusf_falconii"];
 	};
 	case 8: {
 		//RHS UCP:
@@ -360,7 +355,6 @@ switch (ADV_par_customUni) do {
 		_vest = ["rhsusf_iotv_ucp_Squadleader"];
 		_headgear = ["rhsusf_patrolcap_ucp"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
-		_acreBackpack = ["rhsusf_falconii"];
 	};
 	case 10: {
 		//RHS MARPAT
@@ -375,7 +369,6 @@ switch (ADV_par_customUni) do {
 			};
 		};
 		_vest = ["rhsusf_spc_crewman"];
-		_acreBackpack = ["rhsusf_falconii"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};	
 	case 11: {
@@ -386,14 +379,12 @@ switch (ADV_par_customUni) do {
 		_headgear = ["H_Shemag_olive","H_ShemagOpen_tan","H_ShemagOpen_khk","H_Cap_headphones","H_MilCap_mcamo","H_MilCap_gry","H_MilCap_blue","H_Cap_tan_specops_US",
 			"H_Cap_usblack","H_Cap_oli_hs","H_Cap_blk","H_Booniehat_tan","H_Booniehat_oli","H_Booniehat_khk","H_Watchcap_khk","H_Watchcap_cbr","H_Watchcap_camo"];
 		_binocular = "Binocular";
-		_ACREradios = ["","ACRE_PRC343","ACRE_PRC77"];
 	};
 	case 12: {
 		//UK3CB
 		_uniform = ["UK3CB_BAF_U_CombatUniform_MTP_RM"];
 		_vest = ["UK3CB_BAF_V_Osprey_Belt_A","UK3CB_BAF_V_Osprey_Holster"];
 		_headgear = ["UK3CB_BAF_H_Beret_RM_Officer"];
-		_acreBackpack = ["UK3CB_BAF_B_Bergen_MTP_Radio_L_A","UK3CB_BAF_B_Bergen_MTP_Radio_L_B"];
 		_items = _items-["NVGoggles_OPFOR"]+["UK3CB_BAF_HMNVS"];
 	};
 	case 13: {
@@ -420,7 +411,7 @@ switch (ADV_par_customUni) do {
 };
 
 //TFAR-manpacks
-if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) ) then {
+if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
 	_backpack = switch (ADV_par_CustomUni) do {
 		case 0: {["tf_rt1523g_big"]};
 		case 1: {["tf_rt1523g_big_bwmod_tropen"]};
@@ -432,8 +423,14 @@ if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radio
 		default {["tf_rt1523g_big_rhs"]};
 	};
 };
-if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) ) then {
-	_backpack = _acreBackpack;
+if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (ADV_par_CustomUni) do {
+		case 1: {"BWA3_AssaultPack_Tropen"};
+		case 2: {"BWA3_AssaultPack_Fleck"};
+		case 12: {["UK3CB_BAF_B_Bergen_MTP_Radio_L_A","UK3CB_BAF_B_Bergen_MTP_Radio_L_B"]};
+		case 20: {"B_AssaultPack_tna_F"};
+		default {"B_AssaultPack_blk"};
+	};
 };
 
 ///// No editing necessary below this line /////

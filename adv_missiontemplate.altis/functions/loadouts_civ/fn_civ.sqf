@@ -24,7 +24,6 @@ if ( (isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians")) && (toUpper (wo
 _insignium = "";
 _useProfileGoggles = 0;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
-_isLeader = false;
 
 //weapons - primary weapon - (string)
 _primaryweapon = [""];
@@ -117,11 +116,10 @@ if (missionNamespace getVariable ["ADV_par_isTvT",false]) then {
 
 //CustomMod items//
 
-//ACRE radios
-_ACREradios = [""];	//_this select 0=shortrange radio;_this select 1=leader radio;_this select 2=backpackRadio;
-//TFAR items
-_givePersonalRadio = false;
+//TFAR or ACRE radios
 _giveRiflemanRadio = false;
+_givePersonalRadio = false;
+_giveBackpackRadio = false;
 _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a rifleman radio
 
 //ACE items (if ACE is running on the server) - (integers)

@@ -102,12 +102,10 @@ if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 
 	//CustomMod items//
 	
-//ACRE radios
-_acreBackpack = ["B_AssaultPack_blk"];
-_ACREradios = ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC117F"];	//_this select 0=shortrange radio;_this select 1=leader radio;_this select 2=backpackRadio;
-//TFAR items
+//TFAR or ACRE radios
+_giveRiflemanRadio = true;
 _givePersonalRadio = true;
-_giveRiflemanRadio = false;
+_giveBackpackRadio = true;
 _tfar_microdagr = 0;				//adds the tfar microdagr to set the channels for a rifleman radio
 
 //ACE items (if ACE is running on the server) - (integers)
@@ -243,7 +241,6 @@ switch (ADV_par_opfUni) do {
 		_uniform = ["rhs_uniform_emr_patchless"];
 		_vest = ["rhs_6b23_digi_crewofficer","rhs_6b13_Flora_crewofficer","rhs_6b13_crewofficer"];
 		_headgear = ["rhs_beret_milp"];
-		_acreBackpack = ["rhs_assault_umbts"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 2: {
@@ -251,7 +248,6 @@ switch (ADV_par_opfUni) do {
 		_uniform = ["rhs_uniform_flora"];
 		_vest = ["rhs_6b13_Flora_crewofficer","rhs_6b13_crewofficer"];
 		_headgear = ["rhs_beret_milp"];
-		_acreBackpack = ["rhs_assault_umbts"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 3: {
@@ -259,7 +255,6 @@ switch (ADV_par_opfUni) do {
 		_uniform = ["rhs_uniform_m88_patchless"];
 		_vest = ["rhs_6b23_ML_crewofficer"];
 		_headgear = ["rhs_beret_milp"];
-		_acreBackpack = ["rhs_assault_umbts"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};	
 	case 4: {
@@ -267,7 +262,6 @@ switch (ADV_par_opfUni) do {
 		_uniform = ["rhs_uniform_m88_patchless"];
 		_vest = ["rhs_6b23_ML_crewofficer"];
 		_headgear = ["rhs_beret_milp"];
-		_acreBackpack = ["rhs_assault_umbts"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 5: {
@@ -276,7 +270,6 @@ switch (ADV_par_opfUni) do {
 		_headgear = ["H_Watchcap_cbr","H_Watchcap_camo","H_Booniehat_khk","H_Booniehat_oli","H_Cap_blk","H_Cap_oli","H_Cap_tan","H_Cap_brn_SPECOPS","H_MilCap_ocamo",
 			"H_Cap_headphones","H_ShemagOpen_tan"];
 		_binocular = "Binocular";
-		_ACREradios = ["","ACRE_PRC343","ACRE_PRC77"];
 	};
 	case 6: {
 		//Afghan Militia (EricJ's Taliban)
@@ -287,8 +280,6 @@ switch (ADV_par_opfUni) do {
 		_goggles = "";
 		_useProfileGoggles = 0;
 		_binocular = "Binocular";
-		_acreBackpack = ["rhs_sidor"];
-		_ACREradios = ["","ACRE_PRC343","ACRE_PRC77"];
 	};
 	case 20: {
 		//Apex Green Hex
@@ -301,7 +292,7 @@ switch (ADV_par_opfUni) do {
 };
 
 //TFAR-manpacks
-if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) ) then {
+if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
 	_backpack = switch (ADV_par_opfUni) do {
 		case 1: {["tf_mr3000_rhs"]};
 		case 2: {["tf_mr3000_rhs"]};
@@ -311,8 +302,17 @@ if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radio
 		default {["tf_mr3000_rhs"]};
 	};
 };
-if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) ) then {
-	_backpack = _acreBackpack;
+if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (ADV_par_opfUni) do {
+		case 1: {"rhs_assault_umbts"};
+		case 2: {"rhs_assault_umbts"};
+		case 3: {"rhs_assault_umbts"};
+		case 4: {"rhs_assault_umbts"};
+		case 5: {"B_AssaultPack_blk"};
+		case 6: {"rhs_sidor"};
+		case 20: {"B_AssaultPack_tna_F"};
+		default {"B_AssaultPack_blk"};
+	};
 };
 
 ///// No editing necessary below this line /////

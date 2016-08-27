@@ -107,11 +107,10 @@ if (missionNamespace getVariable ["ADV_par_isTvT",false]) then {
 
 //CustomMod items//
 
-//ACRE radios
-_ACREradios = [""];	//_this select 0=shortrange radio;_this select 1=leader radio;_this select 2=backpackRadio;
-//TFAR items
-_givePersonalRadio = false;
+//TFAR or ACRE radios
 _giveRiflemanRadio = false;
+_givePersonalRadio = true;
+_giveBackpackRadio = false;
 _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a rifleman radio
 
 //ACE items (if ACE is running on the server) - (integers)
