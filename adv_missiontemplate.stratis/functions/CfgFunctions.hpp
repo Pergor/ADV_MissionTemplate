@@ -105,6 +105,13 @@ class ADV
 		class setFaction {};
 		class standardWeapon {};
 	};
+	class gearsaving
+	{
+		class gearloading {};
+		class gearsaving {};
+		class saveGear {};
+		class readdGear {};
+	};
 	class loadouts
 	{
 		class AA {};
