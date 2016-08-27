@@ -106,7 +106,7 @@ if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 	
 //ACRE radios
 _acreBackpack = ["B_AssaultPack_blk"];
-_ACREradios = ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC117F"];		//_this select 0=shortrange radio;_this select 1=leader radio;_this select 2=backpackRadio;
+_ACREradios = ["ACRE_PRC343","ACRE_PRC152","ACRE_PRC117F"];		//_this select 0=shortrange radio;_this select 1=leader radio;_this select 2=backpackRadio;
 //TFAR items
 _givePersonalRadio = true;
 _giveRiflemanRadio = false;
@@ -486,6 +486,9 @@ switch (toUpper ([str (_this select 0),0,9] call BIS_fnc_trimString)) do {
 		_40mmFlareYellow = 0;
 		_ACE_HuntIR_monitor = 1;
 		_ACE_HuntIR = 5;
+		if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
+			["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;
+		};
 	};
 };
 

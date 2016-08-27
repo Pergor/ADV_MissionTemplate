@@ -334,6 +334,9 @@ switch (toUpper ([str (_this select 0),3,13] call BIS_fnc_trimString)) do {
 		_40mmFlareYellow = 0;
 		_ACE_HuntIR_monitor = 1;
 		_ACE_HuntIR = 5;
+		if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
+			["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;
+		};
 	};
 };
 
