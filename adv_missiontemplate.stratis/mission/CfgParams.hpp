@@ -114,12 +114,38 @@ class param_TIEquipment
 	texts[] = {"Kein NV- und Thermal-Imaging für alle Fahrzeuge & statische Waffen","Kein NV- und Thermal-Imaging für Spieler-Fahrzeuge","Kein Thermal-Imaging für alle Fahrzeuge & statische Waffen","Kein Thermal-Imaging für Spieler-Fahrzeuge","Nein"};
 	default = 0;
 };
+class dummy_tfar {
+	title = "---------------------- TFAR-Settings ----------------------";
+	values[] = {-99999};
+	default = -99999;
+	texts[] = {""};
+};
 class param_seriousMode
 {
 	title="Soll der TFAR-serious-Mode aktiviert werden?";
 	values[] = {1,0};
 	texts[] = {"Ja","Nein"};
 	default = 1;
+};
+class dummy_acre {
+	title = "---------------------- ACRE-Settings ----------------------";
+	values[] = {-99999};
+	default = -99999;
+	texts[] = {""};
+};
+class param_acreBabel
+{
+	title="Sollen alle Seiten die gleichen Sprachen sprechen?";
+	values[] = {1,0};
+	texts[] = {"Ja","Nein"};
+	default = 0;
+};
+class param_acrePresets
+{
+	title="Sollen alle Seiten im Funk die selben Frequenzen nutzen?";
+	values[] = {1,0};
+	texts[] = {"Ja","Nein"};
+	default = 0;
 };
 class dummy_equipment {
 	title = "---------------------- Ausrüstung (allgemein) ----------------------";
@@ -137,8 +163,8 @@ class param_radios
 class param_tablets
 {
 	title="Mit welchen Tablets sollen die Spieler bei Missionsbeginn ausgerüstet werden?";
-	values[] = {2,1,99,0};
-	texts[] = {"ACE-GPS","cTab","Nur Vanilla-GPS","Keine"};
+	values[] = {3,2,1,99,0};
+	texts[] = {"BWmod Navipad","ACE-GPS","cTab","Nur Vanilla-GPS","Keine"};
 	default = 1;
 };
 class param_customLoad
