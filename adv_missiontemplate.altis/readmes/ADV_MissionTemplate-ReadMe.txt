@@ -72,10 +72,10 @@ Will spawn a big fire at position of fireLogic_1. Possible parameters are: "FIRE
 (Execution on CLIENT only!)
 
 if (!isNil "ADV_respawn_EVH") then {player removeEventhandler ["Respawn",ADV_respawn_EVH]};
-aeroson_loadout = [player] call aeroson_fnc_getLoadout;
-ADV_respawn_EVH = player addEventhandler ["Respawn",{[player, aeroson_loadout] spawn aeroson_fnc_setLoadout;}];
+adv_saveGear_loadout = getUnitLoadout player;
+ADV_respawn_EVH = player addEventhandler ["Respawn",{[(_this select 0), adv_saveGear_loadout] call adv_fnc_readdGear;systemChat "saved loadout applied.";}];
 
-This code will exchange the players saved loadout if any changes have been made to it's gear (in mission\initPlayerLocal_custom.sqf only!)
+This code will exchange the players saved loadout if any changes have been made to its gear (in mission\initPlayerLocal_custom.sqf only!)
 
 [OBJECT] call ADV_fnc_rollDice;
 
@@ -84,11 +84,11 @@ Adds action to an object (not player) that allows dice rolls. The rolled value w
 /////////////////////
 Addaction functions:
 
-OBJECT addAction [("<t color=""#00FF00"">" + ("Loadout-Menü") + "</t>"), {createDialog "adv_1_loadoutDialog";},nil,6,false,true,"","player distance cursortarget <5"];
+OBJECT addAction [("<t color=""#00FF00"">" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,false,true,"","player distance cursortarget <5"];
 
 Adds an action to OBJECT that gives player option to choose loadout. (Execution on CLIENT only!)
 
-OBJECT addAction [("<t color=""#33FFFF"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJump},nil,3,false,true,"","player distance cursortarget <5"];
+OBJECT addAction [("<t color=""#00FF00"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJumpSelection},nil,3,false,true,"","player == leader (group player)",5];
 
 Adds an action to OBJECT that gives player option to choose location for a parajump (parachute will be added to back, but backpack will be readded after landing).
 (Execution on CLIENT only!)
@@ -102,7 +102,7 @@ Adds action to each object provided that gives player option to teleport to his 
 Will add action to VEHICLE to make it a radio relay that boosts radio range with TFAR for each unit of side west, as long as vehicle is not in motion
 and at least 90 meter above sea level. (Execution on SERVER AND CLIENT!)
 
-OBJECT addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_2_loadoutDialog";},nil,3,false,true,"","player distance cursortarget <5"];
+OBJECT addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","true",5];
 
 Adds an action to OBJECT that opens logistic menu to spawn crates with gear (according to weapons selected in MP lobby). (Execution on CLIENT only!)
 
