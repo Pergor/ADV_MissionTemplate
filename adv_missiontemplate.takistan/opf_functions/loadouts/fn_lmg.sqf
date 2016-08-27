@@ -189,22 +189,36 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 switch (ADV_par_opfWeap) do {
 	case 1: {
 		//RHS
-		_primaryweapon = "rhs_weap_pkm";
-		_primaryweaponAmmo set [0,4];
+		[] call {
+			if (isClass(configFile >> "CfgPatches" >> "CUP_weapons_AK")) exitWith {
+				_primaryWeapon = "CUP_arifle_RPK74M";
+				_primaryweaponAmmo set [0,6];
+				_silencer = "CUP_muzzle_Bizon";
+			};
+			_primaryweapon = "rhs_weap_pkm";
+			_primaryweaponAmmo set [0,4];
+			_silencer = "";
+		};
 		_optic = [""];
 		_attachments = [""];
-		_silencer = "";		//if silencer is added
 		_handgun = "rhs_weap_makarov_pmm";
 		_itemsHandgun = [];
 		_handgunSilencer = "";
 	};
 	case 2: {
 		//RHS Guerilla
-		_primaryweapon = ["rhs_weap_pkm"];
-		_primaryweaponAmmo set [0,4];
+		call {
+			if (isClass(configFile >> "CfgPatches" >> "CUP_weapons_AK")) exitWith {
+				_primaryWeapon = "CUP_arifle_RPK74";
+				_primaryweaponAmmo set [1,5];
+				_silencer = "CUP_muzzle_Bizon";
+			};
+			_primaryweapon = "rhs_weap_pkm";
+			_primaryweaponAmmo set [0,4];
+			_silencer = "";		//if silencer is added
+		};
 		_optic = [""];
 		_attachments = [""];
-		_silencer = "";		//if silencer is added
 		_handgun = "";
 		_itemsHandgun = [];
 		_handgunSilencer = "";
