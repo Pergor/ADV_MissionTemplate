@@ -92,6 +92,7 @@ class ADV
 		class aceGear {};
 		class aceGunbag {};
 		class add40mm {};
+		class addGPS {};
 		class addGrenades {};
 		class addMagazine {};
 		class addRadios {};
