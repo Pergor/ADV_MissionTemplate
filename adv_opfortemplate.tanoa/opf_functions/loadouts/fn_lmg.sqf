@@ -106,7 +106,7 @@ if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 	
 //TFAR or ACRE radios
 _giveRiflemanRadio = true;
-_givePersonalRadio = true;
+_givePersonalRadio = false;
 _giveBackpackRadio = false;
 _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a rifleman radio
 
