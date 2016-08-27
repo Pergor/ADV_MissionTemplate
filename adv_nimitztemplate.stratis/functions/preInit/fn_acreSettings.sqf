@@ -24,7 +24,7 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith {
 	acre_eastBackpackRadio = "ACRE_PRC117F";
 	acre_guerBackpackRadio = "ACRE_PRC117F";
 	//channel setup
-	_channelNames = ["VEHICLES","AIR TO AIR","PLTNET 1","PLTNET 2","PLTNET 3","LOG","FAC","CHAN 8","CHAN 9","CHAN 10","CHAN 11","CHAN 12","CHAN 13","CHAN 14","CHAN 15"];
+	_channelNames = ["VEHICLES","AIRNET","PLTNET 1","PLTNET 2","PLTNET 3","LOG","FAC","CHAN 8","CHAN 9","CHAN 10","CHAN 11","CHAN 12","CHAN 13","CHAN 14","CHAN 15"];
 	_148chNames = ["1-VEHICLES","2-AIR TO AIR","3-PLTNET 1","4-PLTNET 2","5-PLTNET 3","6-LOG","7-FAC"];
 	for "_i" from 1 to (count _channelNames) do {
 		["ACRE_PRC152", "default", _i, "description", _channelNames select (_i-1)] call acre_api_fnc_setPresetChannelField;
@@ -137,63 +137,66 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith {
 			waitUntil { [] call acre_api_fnc_isInitialized };
 			sleep 5;
 			//set channels for groups:
-			switch true do {
-				case ( toUpper (groupID group player) in ["JUPITER","NATTER","LUCHS"] ): {
-					if ([player, "ACRE_PRC343"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC152"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 6] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC148"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 6] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC117F"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
+			call {
+				private _has343 = [player, "ACRE_PRC343"] call acre_api_fnc_hasKindOfRadio;
+				private _has152 = [player, "ACRE_PRC152"] call acre_api_fnc_hasKindOfRadio;
+				private _has148 = [player, "ACRE_PRC148"] call acre_api_fnc_hasKindOfRadio;
+				private _has117F = [player, "ACRE_PRC117F"] call acre_api_fnc_hasKindOfRadio;
+				if ( toUpper (groupID group player) in ["JUPITER","NATTER","LUCHS"] ) exitWith {
+					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel; };
+					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 6] call acre_api_fnc_setRadioChannel; };
+					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 6] call acre_api_fnc_setRadioChannel; };
+					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
 				};
-				case ( toUpper (groupID group player) in ["MARS","ANAKONDA","LÖWE"] ): {
-					if ([player, "ACRE_PRC343"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 2] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC152"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC148"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC117F"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
+				if ( toUpper (groupID group player) in ["MARS","ANAKONDA","LÖWE"] ) exitWith {
+					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 2] call acre_api_fnc_setRadioChannel; };
+					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
+					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
+					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
 				};
-				case ( toUpper (groupID group player) in ["DEIMOS","BOA","TIGER"] ): {
-					if ([player, "ACRE_PRC343"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC152"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC148"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC117F"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
+				if ( toUpper (groupID group player) in ["DEIMOS","BOA","TIGER"] ) exitWith {
+					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
+					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
+					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
+					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
 				};
-				case ( toUpper (groupID group player) in ["PHOBOS","COBRA","PANTHER"] ): {
-					if ([player, "ACRE_PRC343"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 4] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC152"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC148"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC117F"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
+				if ( toUpper (groupID group player) in ["PHOBOS","COBRA","PANTHER"] ) exitWith {
+					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 4] call acre_api_fnc_setRadioChannel; };
+					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
+					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
+					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
 				};
-				case ( toUpper (groupID group player) in ["VULKAN","LEOPARD"] ): {
-					if ([player, "ACRE_PRC343"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 5] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC152"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC148"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC117F"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
+				if ( toUpper (groupID group player) in ["VULKAN","LEOPARD"] ) exitWith {
+					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 5] call acre_api_fnc_setRadioChannel; };
+					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
+					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
+					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
 				};
-				case ( toUpper (groupID group player) in ["MERKUR","GEPARD"]) : {
-					if ([player, "ACRE_PRC343"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 6] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC152"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC148"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC117F"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel; };
+				if ( toUpper (groupID group player) in ["MERKUR","GEPARD"]) exitWith {
+					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 6] call acre_api_fnc_setRadioChannel; };
+					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel; };
+					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel; };
+					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel; };
 				};
-				case ( toUpper (groupID group player) in ["DIANA","VIPER","JAGUAR"] ): {
-					if ([player, "ACRE_PRC343"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 7] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC152"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 7] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC148"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 7] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC117F"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
+				if ( toUpper (groupID group player) in ["DIANA","VIPER","JAGUAR"] ) exitWith {
+					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 7] call acre_api_fnc_setRadioChannel; };
+					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 7] call acre_api_fnc_setRadioChannel; };
+					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 7] call acre_api_fnc_setRadioChannel; };
+					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
 				};
-				case ( toUpper (groupID group player) in ["APOLLO","DRACHE","ORCA"] ): {
-					if ([player, "ACRE_PRC343"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 8] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC152"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 2] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC148"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 2] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC117F"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 2] call acre_api_fnc_setRadioChannel; };
+				if ( toUpper (groupID group player) in ["APOLLO","DRACHE","ORCA"] ) exitWith {
+					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 8] call acre_api_fnc_setRadioChannel; };
+					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 2] call acre_api_fnc_setRadioChannel; };
+					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 2] call acre_api_fnc_setRadioChannel; };
+					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 2] call acre_api_fnc_setRadioChannel; };
 				};
-				case ( toUpper (groupID group player) isEqualTo "ZEUS" ): {
-					if ([player, "ACRE_PRC343"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 16] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC152"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 16] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC148"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 16] call acre_api_fnc_setRadioChannel; };
-					if ([player, "ACRE_PRC117F"] call acre_api_fnc_hasKindOfRadio) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
+				if ( toUpper (groupID group player) isEqualTo "ZEUS" ) exitWith {
+					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 16] call acre_api_fnc_setRadioChannel; };
+					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 16] call acre_api_fnc_setRadioChannel; };
+					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 16] call acre_api_fnc_setRadioChannel; };
+					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
 					["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;
 				};
-				default {};
 			};
 		};
 	};
