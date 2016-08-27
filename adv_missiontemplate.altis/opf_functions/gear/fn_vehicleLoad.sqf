@@ -32,7 +32,17 @@ if (_withWeapons) then {
 
 			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_AK",20];
 			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_AK_green",10];
-			_target addMagazineCargoGlobal ["rhs_100Rnd_762x54mmR",5];
+			call {
+				if (isClass(configFile >> "CfgPatches" >> "CUP_weapons_AK")) exitWith {
+					call {
+						if (adv_par_opfWeap == 1) then {
+							_target addMagazineCargoGlobal ["CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M",5];
+						};
+						_target addMagazineCargoGlobal ["CUP_75Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M",5];
+					};
+				};
+				_target addMagazineCargoGlobal ["rhs_100Rnd_762x54mmR_green",5];
+			};
 			_target addMagazineCargoGlobal ["rhs_rpg7_PG7VL_mag",2];
 			
 			_target addMagazineCargoGlobal ["rhs_mag_rgd5",5];
