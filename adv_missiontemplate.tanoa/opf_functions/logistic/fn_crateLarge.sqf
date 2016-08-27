@@ -13,18 +13,22 @@ private ["_target"];
 
 	//weapons & ammo
 	switch (true) do {
-		//BWmod
+		//RHS
 		case (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
 			//ammo
 			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_AK",40];
 			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_7N10_AK",20];
+			if (isClass(configFile >> "CfgPatches" >> "cup_weapons_ak")) then {
+				_target addMagazineCargoGlobal ["CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M",20];
+				_target addMagazineCargoGlobal ["CUP_75Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M",12];
+			};
 			_target addMagazineCargoGlobal ["rhs_100Rnd_762x54mmR",6];
 			_target addMagazineCargoGlobal ["rhs_100Rnd_762x54mmR_green",6];
-			_target addMagazineCargoGlobal ["rhs_45Rnd_545X39_AK",20];
+			//_target addMagazineCargoGlobal ["rhs_45Rnd_545X39_AK",20];
 			if (ADV_par_opfSilencers > 0) then { _target addMagazineCargoGlobal ["rhs_20rnd_9x39mm_SP5",20]; } else { _target addMagazineCargoGlobal ["rhs_10Rnd_762x54mmR_7N1",20]; };
 			_target addMagazineCargoGlobal ["rhs_mag_9x19_17",20];
 		};
-		//SeL RHS
+		//CUP
 		case (ADV_par_opfWeap == 3): {
 			//ammo
 			_target addMagazineCargoGlobal ["CUP_30Rnd_545x39_AK_M",40];

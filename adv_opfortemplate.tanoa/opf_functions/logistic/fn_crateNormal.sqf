@@ -19,7 +19,17 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			//ammo
 			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_AK",20];
 			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_7N10_AK",10];
-			_target addMagazineCargoGlobal ["rhs_100Rnd_762x54mmR",5];
+			call {
+				if (isClass(configFile >> "CfgPatches" >> "CUP_weapons_AK")) exitWith {
+					call {
+						if (adv_par_opfWeap == 1) then {
+							_target addMagazineCargoGlobal ["CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M",5];
+						};
+						_target addMagazineCargoGlobal ["CUP_75Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M",8];
+					};
+				};
+				_target addMagazineCargoGlobal ["rhs_100Rnd_762x54mmR_green",5];
+			};
 			//if (ADV_par_opfSilencers > 0) then { _target addMagazineCargoGlobal ["rhs_20rnd_9x39mm_SP5",10]; } else { _target addMagazineCargoGlobal ["rhs_10Rnd_762x54mmR_7N1",10]; };
 			_target addMagazineCargoGlobal ["rhs_mag_9x19_17",5];
 		};
