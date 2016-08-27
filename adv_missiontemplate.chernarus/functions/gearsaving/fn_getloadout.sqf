@@ -159,13 +159,41 @@ _assignedItems = assignedItems _target;
 _headgear = headgear _target;
 _goggles = goggles _target;
 if((_headgear != "") && !(_headgear in _assignedItems)) then {
-	_assignedItems set [count _assignedItems, _headgear];
+	_assignedItems pushBack _headgear;
 };
 if((_goggles != "") && !(_goggles in _assignedItems)) then {
-	_assignedItems set [count _assignedItems, _goggles];
+	_assignedItems pushBack _goggles;
 };
 
-
+if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
+	{
+		if (["rc154",_x] call BIS_fnc_inString) then {
+			_assignedItems=_assignedItems-[_x];
+			_assignedItems pushBack "tf_anprc154";
+		};
+		if (["rc148",_x] call BIS_fnc_inString) then {
+			_assignedItems=_assignedItems-[_x];
+			_assignedItems pushBack "tf_anprc148jem";
+		};
+		if (["rc152",_x] call BIS_fnc_inString) then {
+			_assignedItems=_assignedItems-[_x];
+			_assignedItems pushBack "tf_anprc152";
+		};
+		if (["fadak",_x] call BIS_fnc_inString) then {
+			_assignedItems=_assignedItems-[_x];
+			_assignedItems pushBack "tf_fadak";
+		};
+		if (["rf780",_x] call BIS_fnc_inString) then {
+			_assignedItems=_assignedItems-[_x];
+			_assignedItems pushBack "tf_rf7800str";
+		};
+		if (["pnr10",_x] call BIS_fnc_inString) then {
+			_assignedItems=_assignedItems-[_x];
+			_assignedItems pushBack "tf_pnr1000a";
+		};
+		nil;
+	} count _assignedItems;
+};
 
 /*
 // use this once magazinesAmmoFull is fixed and shows magazines of assignedItems
@@ -274,7 +302,7 @@ _data = [
 // addAction support
 if(count _this < 4) then {
 	_data;
-} else {  
+} else {
 	loadout = _data;
 	//playSound3D ["A3\Sounds_F\sfx\ZoomOut.wav", _target];
 };   
