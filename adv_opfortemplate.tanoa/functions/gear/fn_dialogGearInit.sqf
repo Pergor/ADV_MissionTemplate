@@ -71,7 +71,7 @@ if ( ADV_par_customWeap == 1 && (side (group player) == west) ) then {
 	_loadoutList set [9,"Schütze (Pzf3)"];
 };
 
-{ lbAdd [7377, _x] } foreach _loadoutList;
+{ lbAdd [7377, _x]; nil; } count _loadoutList;
 
 lbSetData [7377, 0, ""];
 lbSetData [7377, 5, ""];
