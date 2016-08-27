@@ -10,14 +10,6 @@ params [
 //ACE-Items:
 if (!isClass(configFile >> "CfgPatches" >> "ACE_common")) exitWith {};
 
-if (ADV_par_Tablets == 2) then {
-	if ( isClass(configFile >> "CfgPatches" >> "ACE_DAGR") && _ACE_DAGR > 0 ) then {
-		_unit addItem "ACE_DAGR";
-	};
-	if ( isClass(configFile >> "CfgPatches" >> "ACE_microdagr") && _ACE_microDAGR > 0 ) then {
-		_unit addItem "ACE_microDAGR";
-	};
-};
 if ( isClass(configFile >> "CfgPatches" >> "ACE_hearing") && !isNil "_ACE_EarPlugs" ) then {
 	for "_i" from 1 to _ACE_EarPlugs do { _unit addItem "ACE_EarPlugs"; };
 };
