@@ -23,17 +23,18 @@ _primaryWeapon = ["arifle_MX_SW_Black_F","arifle_MX_SW_Black_F","arifle_MX_SW_F"
 //primary weapon items - (array)
 _optic = ["optic_ACO","optic_Hamr","optic_MRCO","optic_Holosight"];
 if (worldName == "TANOA") then {
+	_primaryWeapon = ["arifle_MX_SW_Black_F","arifle_MX_SW_Black_F","arifle_MX_SW_khk_F"];
 	_optic = _optic-["optic_Holosight"]+["optic_Holosight_blk_F"];
 };
 _attachments = ["bipod_01_F_blk"];
 if ( ADV_par_NVGs == 1 ) then { _attachments pushback "acc_flashlight"; };
 if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H_MG";		//if silencer is added
-_additionalAmmo = [0,0,false];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 //_primaryweaponAmmo = [3,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
-_primaryweaponAmmo = [5,0];
+_primaryweaponAmmo = [3,0];
+_additionalAmmo = [2,1,true];
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;
