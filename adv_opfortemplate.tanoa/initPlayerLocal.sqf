@@ -84,8 +84,8 @@ if (!isNil "crate_empty") then {ADV_objects_gearSaving pushBack crate_empty};
 if (!isNil "ind_crate_empty") then {ADV_objects_gearSaving pushBack ind_crate_empty};
 if (!isNil "opf_crate_empty") then {ADV_objects_gearSaving pushBack opf_crate_empty};
 if !(count ADV_objects_gearSaving == 0) then {
-	ADV_objects_gearSaving spawn aeroson_fnc_gearsaving;
-	//ADV_objects_gearSaving spawn aeroson_fnc_gearloading;
+	ADV_objects_gearSaving spawn adv_fnc_gearsaving;
+	//ADV_objects_gearSaving spawn adv_fnc_gearloading;
 };
 
 //disable fatigue if wanted:
