@@ -40,7 +40,8 @@ if (_playerUnit == "ADV_fnc_zeus") then {
 //respawn gear switch
 if (!isNil "ADV_par_CustomLoad") then {
 	if (ADV_par_CustomLoad > 0) then {
-		call compile format ["[%1] call %2;", _target, _playerUnit];
+		//call compile format ["[%1] call %2;", _target, _playerUnit];
+		_target call compile format ["[_this] call %1",_playerUnit];
 
 		[_target] spawn {
 			_target = _this select 0;
@@ -54,8 +55,11 @@ if (!isNil "ADV_par_CustomLoad") then {
 				case 1: {
 					//respawn with saved gear
 					sleep 2;
-					aeroson_loadout = [player] call aeroson_fnc_getLoadout;
-					ADV_respawn_EVH = _target addEventhandler ["Respawn",{[(_this select 0), aeroson_loadout] spawn aeroson_fnc_setLoadout;systemChat "saved loadout applied.";}];
+					//aeroson_loadout = [player] call aeroson_fnc_getLoadout;
+					//ADV_respawn_EVH = _target addEventhandler ["Respawn",{[(_this select 0), aeroson_loadout] spawn aeroson_fnc_setLoadout;systemChat "saved loadout applied.";}];
+					//[_target] call adv_fnc_saveGear;
+					adv_saveGear_loadout = getUnitLoadout _target;
+					ADV_respawn_EVH = _target addEventhandler ["Respawn",{[(_this select 0), adv_saveGear_loadout] call adv_fnc_readdGear;systemChat "saved loadout applied.";}];
 				};
 				case 2: {
 					//respawn with starting gear
@@ -66,7 +70,7 @@ if (!isNil "ADV_par_CustomLoad") then {
 		};
 	};
 } else {
-	call compile format ["[%1] call %2;", _target, _playerUnit];
+	_target call compile format ["[_this] call %1",_playerUnit];
 	if (!isNil "ADV_respawn_EVH") then { _target removeEventhandler ["Respawn",ADV_respawn_EVH]; };
 	ADV_respawn_EVH = _target addEventhandler ["Respawn", {[(_this select 0)] call ADV_fnc_applyLoadout;systemChat "starting gear applied.";}];
 };
