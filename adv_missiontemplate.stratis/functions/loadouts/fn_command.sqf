@@ -371,8 +371,7 @@ switch (ADV_par_customUni) do {
 		_vest = ["rhsusf_spc_crewman"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};	
-	case 11: {
-	};
+	case 11: {};
 	case 9: {
 		//Guerilla
 		_uniform = ["U_BG_leader"];
