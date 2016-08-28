@@ -272,6 +272,8 @@ switch (ADV_par_opfUni) do {
 			_attachments = ["bipod_02_F_blk"];
 			_silencer = "";		//if silencer is added
 		};
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = false;
 	};
 	case 6: {
 		//Afghan Militia (EricJ's Taliban)
@@ -288,6 +290,8 @@ switch (ADV_par_opfUni) do {
 			_attachments = ["bipod_02_F_blk"];
 			_silencer = "";		//if silencer is added
 		};
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = false;
 	};
 	case 20: {
 		//Apex Green Hex

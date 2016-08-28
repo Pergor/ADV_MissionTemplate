@@ -2,8 +2,23 @@
 ADV_fnc_acreSettings by Belbo
 contains all the variables that are important for acre2
 */
+params [
+	["_initState", "", [""]]
+];
+
+if ( hasInterface && !isServer && _initState == "preInit" ) exitWith {
+	adv_radioSettings_exitState = "exit with preInit";
+};
+if ( isServer && _initState == "postInit") exitWith {
+	adv_radioSettings_exitState = "exit with postInit";
+};
 
 if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith {
+	//params needed in case paramsArray not yet defined on client in MP
+	adv_par_customUni = ["param_customUni",0] call BIS_fnc_getParamValue;
+	adv_par_customWeap = ["param_customWeap",0] call BIS_fnc_getParamValue;
+	adv_par_opfUni = ["param_opfUni",0] call BIS_fnc_getParamValue;
+	adv_par_indUni = ["param_indUni",0] call BIS_fnc_getParamValue;
 	//Initialize ACRE radios
 	[true, true] call acre_api_fnc_setupMission;
 	[true] call acre_api_fnc_setRevealToAI;
@@ -20,9 +35,18 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith {
 	acre_eastRiflemanRadio = "ACRE_PRC343";
 	acre_gerRiflemanRadio = "ACRE_PRC343";
 	
-	acre_westBackpackRadio = "ACRE_PRC117F";
-	acre_eastBackpackRadio = "ACRE_PRC117F";
-	acre_guerBackpackRadio = "ACRE_PRC117F";
+	acre_westBackpackRadio = call {
+		if !(adv_par_customUni == 9) exitWith {"ACRE_PRC117F"};
+		if (true) exitWith {"ACRE_PRC77"};
+	};
+	acre_eastBackpackRadio = call {
+		if !(adv_par_opfUni == 5 || adv_par_opfUni == 6) exitWith {"ACRE_PRC117F"};
+		if (true) exitWith {"ACRE_PRC77"};
+	};
+	acre_guerBackpackRadio = call {
+		if !(adv_par_indUni == 20) exitWith {"ACRE_PRC117F"};
+		if (true) exitWith {"ACRE_PRC77"};
+	};
 	//channel setup
 	_channelNames = ["VEHICLES","AIRNET","PLTNET 1","PLTNET 2","PLTNET 3","LOG","FAC","CHAN 8","CHAN 9","CHAN 10","CHAN 11","CHAN 12","CHAN 13","CHAN 14","CHAN 15"];
 	_148chNames = ["1-VEHICLES","2-AIR TO AIR","3-PLTNET 1","4-PLTNET 2","5-PLTNET 3","6-LOG","7-FAC"];
@@ -41,9 +65,10 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith {
 		["ACRE_PRC148", "default2", _i, "label", _148chNames select (_i-1)] call acre_api_fnc_setPresetChannelField;
 		["ACRE_PRC148", "default3", _i, "label", _148chNames select (_i-1)] call acre_api_fnc_setPresetChannelField;
 	};
-	["ACRE_PRC148", format ["default",_i], 16, "label", "16-ADMIN"] call acre_api_fnc_setPresetChannelField;
-	["ACRE_PRC152", format ["default",_i], 16, "description", "ADMIN"] call acre_api_fnc_setPresetChannelField;
-	["ACRE_PRC117F", format ["default",_i], 16, "name", "ADMIN"] call acre_api_fnc_setPresetChannelField;
+	//zeus channel
+	["ACRE_PRC148", "default", 16, "label", "16-ADMIN"] call acre_api_fnc_setPresetChannelField;
+	["ACRE_PRC152", "default", 16, "description", "ADMIN"] call acre_api_fnc_setPresetChannelField;
+	["ACRE_PRC117F", "default", 16, "name", "ADMIN"] call acre_api_fnc_setPresetChannelField;
 	for "_i" from 2 to 3 do {
 		["ACRE_PRC148", format ["default%1",_i], 16, "label", "16-ADMIN"] call acre_api_fnc_setPresetChannelField;
 		["ACRE_PRC152", format ["default%1",_i], 16, "description", "ADMIN"] call acre_api_fnc_setPresetChannelField;
@@ -51,22 +76,9 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith {
 	};
 
 	[] spawn {
-		adv_par_customUni = ["param_customUni",0] call BIS_fnc_getParamValue;
-		adv_par_customWeap = ["param_customWeap",0] call BIS_fnc_getParamValue;
-		adv_par_opfUni = ["param_opfUni",0] call BIS_fnc_getParamValue;
-		adv_par_indUni = ["param_indUni",0] call BIS_fnc_getParamValue;
 		waitUntil {!isNil "ADV_params_defined"};
-		//specific radio types
-		if (adv_par_customUni isEqualTo 9) then {
-			acre_westPersonalRadio = "ACRE_PRC148";
-			acre_westBackpackRadio = "ACRE_PRC77";
-		};
-		if (adv_par_opfUni isEqualTo 5 || adv_par_opfUni isEqualTo 6) then {
-			acre_eastBackpackRadio = "ACRE_PRC77";
-		};
-		if (adv_par_indUni isEqualTo 20) then {
-			acre_guerBackpackRadio = "ACRE_PRC77";
-		};
+		
+		//babel:
 		private _bluforLanguage = call {
 			if (adv_par_customUni == 1 || adv_par_customUni == 2 || adv_par_customWeap == 1) exitWith {"Deutsch"};
 			if (true) exitWith {"English"};
@@ -76,7 +88,6 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith {
 			if (adv_par_opfUni == 20) exitWith {"Chinese"};
 			if (true) exitWith {"Farsi"};
 		};
-		//babel:
 		[[west, _bluforLanguage],[east, _opforLanguage],[independent, _bluforLanguage, _opforLanguage],[civilian, _bluforLanguage, _opforLanguage, "Local Language"]] call acre_api_fnc_babelSetupMission;
 		["en", _bluforLanguage] call acre_api_fnc_babelAddLanguageType;
 		["ru", _opforLanguage] call acre_api_fnc_babelAddLanguageType;
@@ -87,30 +98,10 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith {
 			waitUntil { player == player && time > 1};
 			//presets and languages per side:
 			switch ( side (group player) ) do {
-				case west: {
-					["ACRE_PRC152", "default"] call acre_api_fnc_setPreset;
-					["ACRE_PRC148", "default"] call acre_api_fnc_setPreset;
-					["ACRE_PRC117F", "default"] call acre_api_fnc_setPreset;
-					private _languages = if (adv_par_acreBabel isEqualTo 0) then {["en"]} else {["en","ru","gr"]};
-					_languages call acre_api_fnc_babelSetSpokenLanguages;
-				};
 				case civilian: {
 					["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;
-					["ACRE_PRC152", "default"] call acre_api_fnc_setPreset;
-					["ACRE_PRC148", "default"] call acre_api_fnc_setPreset;
-					["ACRE_PRC117F", "default"] call acre_api_fnc_setPreset;
 				};
 				case east: {
-					call {
-						if (adv_par_acrePresets isEqualTo 0) exitWith {
-							["ACRE_PRC152", "default2"] call acre_api_fnc_setPreset;
-							["ACRE_PRC148", "default2"] call acre_api_fnc_setPreset;
-							["ACRE_PRC117F", "default2"] call acre_api_fnc_setPreset;
-						};
-						["ACRE_PRC152", "default"] call acre_api_fnc_setPreset;
-						["ACRE_PRC148", "default"] call acre_api_fnc_setPreset;
-						["ACRE_PRC117F", "default"] call acre_api_fnc_setPreset;
-					};
 					private _languages = if (adv_par_acreBabel isEqualTo 0) then {["ru"]} else {["en","ru","gr"]};
 					_languages call acre_api_fnc_babelSetSpokenLanguages;
 				};
@@ -119,87 +110,18 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith {
 						if ([independent,west] call BIS_fnc_sideIsFriendly || adv_par_acrePresets isEqualTo 1) exitWith {
 							private _languages = if (adv_par_acreBabel isEqualTo 0) then {["en","gr"]} else {["en","ru","gr"]};
 							_languages call acre_api_fnc_babelSetSpokenLanguages;
-							["ACRE_PRC152", "default"] call acre_api_fnc_setPreset;
-							["ACRE_PRC148", "default"] call acre_api_fnc_setPreset;
-							["ACRE_PRC117F", "default"] call acre_api_fnc_setPreset;
 						};
 						if ([independent,east] call BIS_fnc_sideIsFriendly) exitWith {
 							private _languages = if (adv_par_acreBabel isEqualTo 0) then {["ru","gr"]} else {["en","ru","gr"]};
 							_languages call acre_api_fnc_babelSetSpokenLanguages;
-							["ACRE_PRC152", "default2"] call acre_api_fnc_setPreset;
-							["ACRE_PRC148", "default2"] call acre_api_fnc_setPreset;
-							["ACRE_PRC117F", "default2"] call acre_api_fnc_setPreset;
 						};
 						private _languages = if (adv_par_acreBabel isEqualTo 0) then {["gr"]} else {["en","ru","gr"]};
 						_languages call acre_api_fnc_babelSetSpokenLanguages;
-						["ACRE_PRC152", "default3"] call acre_api_fnc_setPreset;
-						["ACRE_PRC148", "default3"] call acre_api_fnc_setPreset;
-						["ACRE_PRC117F", "default3"] call acre_api_fnc_setPreset;
 					};
 				};
-			};
-			waitUntil { [] call acre_api_fnc_isInitialized };
-			sleep 5;
-			//set channels for groups:
-			call {
-				private _has343 = [player, "ACRE_PRC343"] call acre_api_fnc_hasKindOfRadio;
-				private _has152 = [player, "ACRE_PRC152"] call acre_api_fnc_hasKindOfRadio;
-				private _has148 = [player, "ACRE_PRC148"] call acre_api_fnc_hasKindOfRadio;
-				private _has117F = [player, "ACRE_PRC117F"] call acre_api_fnc_hasKindOfRadio;
-				if ( toUpper (groupID group player) in ["JUPITER","NATTER","LUCHS"] ) exitWith {
-					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel; };
-					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 6] call acre_api_fnc_setRadioChannel; };
-					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 6] call acre_api_fnc_setRadioChannel; };
-					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-				};
-				if ( toUpper (groupID group player) in ["MARS","ANAKONDA","LÖWE"] ) exitWith {
-					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 2] call acre_api_fnc_setRadioChannel; };
-					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-				};
-				if ( toUpper (groupID group player) in ["DEIMOS","BOA","TIGER"] ) exitWith {
-					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-				};
-				if ( toUpper (groupID group player) in ["PHOBOS","COBRA","PANTHER"] ) exitWith {
-					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 4] call acre_api_fnc_setRadioChannel; };
-					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-				};
-				if ( toUpper (groupID group player) in ["VULKAN","LEOPARD"] ) exitWith {
-					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 5] call acre_api_fnc_setRadioChannel; };
-					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-				};
-				if ( toUpper (groupID group player) in ["MERKUR","GEPARD"]) exitWith {
-					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 6] call acre_api_fnc_setRadioChannel; };
-					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel; };
-					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel; };
-					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel; };
-				};
-				if ( toUpper (groupID group player) in ["DIANA","VIPER","JAGUAR"] ) exitWith {
-					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 7] call acre_api_fnc_setRadioChannel; };
-					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 7] call acre_api_fnc_setRadioChannel; };
-					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 7] call acre_api_fnc_setRadioChannel; };
-					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-				};
-				if ( toUpper (groupID group player) in ["APOLLO","DRACHE","ORCA"] ) exitWith {
-					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 8] call acre_api_fnc_setRadioChannel; };
-					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 2] call acre_api_fnc_setRadioChannel; };
-					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 2] call acre_api_fnc_setRadioChannel; };
-					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 2] call acre_api_fnc_setRadioChannel; };
-				};
-				if ( toUpper (groupID group player) isEqualTo "ZEUS" ) exitWith {
-					if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 16] call acre_api_fnc_setRadioChannel; };
-					if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 16] call acre_api_fnc_setRadioChannel; };
-					if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 16] call acre_api_fnc_setRadioChannel; };
-					if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
-					["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;
+				default {
+					private _languages = if (adv_par_acreBabel isEqualTo 0) then {["en"]} else {["en","ru","gr"]};
+					_languages call acre_api_fnc_babelSetSpokenLanguages;
 				};
 			};
 		};

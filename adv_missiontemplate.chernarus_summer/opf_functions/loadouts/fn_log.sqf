@@ -271,7 +271,8 @@ switch (ADV_par_opfUni) do {
 		_uniform = ["U_OG_Guerrilla_6_1","U_OG_Guerilla2_2","U_OG_Guerilla2_1","U_OG_Guerilla2_3","U_OG_Guerilla3_1"];
 		_headgear = ["H_Watchcap_cbr","H_Watchcap_camo","H_Booniehat_khk","H_Booniehat_oli","H_Cap_blk","H_Cap_oli","H_Cap_tan","H_Cap_brn_SPECOPS","H_MilCap_ocamo",
 			"H_Cap_headphones","H_ShemagOpen_tan"];
-		_ACREradios = ["ACRE_PRC343"];
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = false;
 	};
 	case 6: {
 		//Afghan Militia (EricJ's Taliban)
@@ -282,9 +283,8 @@ switch (ADV_par_opfUni) do {
 		_goggles = "";
 		_useProfileGoggles = 0;
 		_backpack = ["rhs_sidor"];
-		_ACREradios = ["ACRE_PRC343"];
-		_givePersonalRadio = false;
 		_giveRiflemanRadio = true;
+		_givePersonalRadio = false;
 	};
 	case 20: {
 		//Apex Green Hex
@@ -296,17 +296,25 @@ switch (ADV_par_opfUni) do {
 	default {};
 };
 
-//TFAR-manpacks
 switch (toUpper ([str (_this select 0),3,10] call BIS_fnc_trimString)) do {
 	case "LOG_COM": {
-		if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) ) then {
-			_backpack = switch (ADV_par_opfUni) do {
-				case 6: {[""]};
-				default {["tf_bussole"]};
-			};
-		};
+		_giveBackpackRadio = true;
 	};
 };
+
+//TFAR-manpacks
+if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (ADV_par_opfUni) do {
+		default {["tf_bussole"]};
+	};
+};
+/*
+if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (ADV_par_CustomUni) do {
+		default {"B_AssaultPack_blk"};
+	};
+};
+*/
 
 ///// No editing necessary below this line /////
 _player = _this select 0;

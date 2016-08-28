@@ -272,7 +272,8 @@ switch (ADV_par_opfUni) do {
 		_headgear = ["H_Watchcap_cbr","H_Watchcap_camo","H_Booniehat_khk","H_Booniehat_oli","H_Cap_blk","H_Cap_oli","H_Cap_tan","H_Cap_brn_SPECOPS","H_MilCap_ocamo",
 			"H_Cap_headphones","H_ShemagOpen_tan"];
 		_binocular = "Binocular";
-		_ACREradios = ["","ACRE_PRC343"];
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = false;
 	};
 	case 6: {
 		//Afghan Militia (EricJ's Taliban)
@@ -283,7 +284,8 @@ switch (ADV_par_opfUni) do {
 		_goggles = "";
 		_useProfileGoggles = 0;
 		_binocular = "Binocular";
-		_ACREradios = ["","ACRE_PRC343"];
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = false;
 	};
 	case 20: {
 		//Apex Green Hex

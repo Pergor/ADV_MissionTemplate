@@ -2,9 +2,23 @@
 ADV_fnc_tfarSettings by Belbo
 contains all the variables that are important for tfar
 */
+params [
+	["_initState", "", [""]]
+];
+
+if ( hasInterface && !isServer && _initState == "preInit" ) exitWith {
+	adv_radioSettings_exitState = "exit with preInit";
+};
+if ( isServer && _initState == "postInit") exitWith {
+	adv_radioSettings_exitState = "exit with postInit";
+};
 
 if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
-	//TFAR:
+	//params needed in case paramsArray not yet defined on client in MP
+	adv_par_customUni = ["param_customUni",0] call BIS_fnc_getParamValue;
+	//if (isNil "ADV_par_customWeap") then { adv_par_customWeap = ["param_customWeap",0] call BIS_fnc_getParamValue; };
+	//if (isNil "ADV_par_opfUni") then { adv_par_opfUni = ["param_opfUni",0] call BIS_fnc_getParamValue; };
+	adv_par_seriousMode = ["param_seriousMode",0] call BIS_fnc_getParamValue;
 	//für zusätzliche variablen/functions: https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Variables
 	compile preprocessFileLineNumbers "\task_force_radio\functions\common.sqf";
 	tf_no_auto_long_range_radio = true;
@@ -27,7 +41,6 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	//tfar serious mode
 	[] spawn {
 		tf_radio_channel_name = "TaskForceRadio";
-		adv_par_customUni = ["param_customUni",0] call BIS_fnc_getParamValue;
 		waitUntil {!isNil "ADV_params_defined"};
 		if (adv_par_customUni isEqualTo 9) then { TF_defaultWestPersonalRadio = "tf_anprc148jem"; };
 		sleep 1;
@@ -84,54 +97,4 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 
 	tf_freq_guer = _settingsSwGuer;
 	tf_freq_guer_lr = _settingsLrGuer;
-	
-	if (hasInterface) then {
-		[] spawn {
-			waitUntil { time > 1 && call TFAR_fnc_haveSWRadio };
-			call {
-				private _activeSWRadio = call TFAR_fnc_activeSwRadio;
-				private _hasLRRadio = call TFAR_fnc_haveLRRadio;			
-				private _activeLRRadio = if (_hasLRRadio) then {call TFAR_fnc_activeLRRadio} else {["",0]};
-				if ( toUpper (groupID group player) in ["JUPITER","NATTER","LUCHS"] ) exitWith {
-					[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-					if (_hasLRRadio) then {
-						[_activeLRRadio select 0, _activeLRRadio select 1, 5] call TFAR_fnc_setAdditionalLrChannel;
-						[_activeLRRadio select 0, _activeLRRadio select 1, 2] call TFAR_fnc_setLRChannel;
-					};
-				};
-				if ( toUpper (groupID group player) in ["MARS","ANAKONDA","LÖWE"] ) exitWith {
-					[_activeSWRadio, 1] call TFAR_fnc_setSwChannel;
-					if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 2] call TFAR_fnc_setLRChannel; };
-				};
-				if ( toUpper (groupID group player) in ["DEIMOS","BOA","TIGER"] ) exitWith {
-					[_activeSWRadio, 2] call TFAR_fnc_setSwChannel;
-					if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 2] call TFAR_fnc_setLRChannel; };
-				};
-				if ( toUpper (groupID group player) in ["PHOBOS","COBRA","PANTHER"] ) exitWith {
-					[_activeSWRadio, 3] call TFAR_fnc_setSwChannel;
-					if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 2] call TFAR_fnc_setLRChannel; };
-				};
-				if ( toUpper (groupID group player) in ["VULKAN","LEOPARD"] ) exitWith {
-					[_activeSWRadio, 4] call TFAR_fnc_setSwChannel;
-					if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 2] call TFAR_fnc_setLRChannel; };
-				};
-				if ( toUpper (groupID group player) in ["DIANA","VIPER","JAGUAR"] ) exitWith {
-					[_activeSWRadio, 5] call TFAR_fnc_setSwChannel;
-					if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 3] call TFAR_fnc_setLRChannel; };
-				};
-				if ( toUpper (groupID group player) in ["APOLLO","DRACHE","ORCA"] ) exitWith {
-					[_activeSWRadio, 6] call TFAR_fnc_setSwChannel;
-					if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 1] call TFAR_fnc_setLRChannel; };
-				};
-				if ( toUpper (groupID group player) in ["MERKUR","GEPARD"]) exitWith {
-					[_activeSWRadio, 7] call TFAR_fnc_setSwChannel;
-					if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 5] call TFAR_fnc_setLRChannel; };
-				};
-				if ( toUpper (groupID group player) isEqualTo "ZEUS" ) exitWith {
-					[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-					if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 2] call TFAR_fnc_setLRChannel; };
-				};
-			};
-		};
-	};
 };

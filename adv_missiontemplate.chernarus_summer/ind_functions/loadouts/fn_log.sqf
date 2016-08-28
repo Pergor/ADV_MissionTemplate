@@ -243,15 +243,30 @@ switch (ADV_par_indUni) do {
 	//Apex Syndikat
 		_uniform = ["U_I_C_Soldier_Bandit_3_F","U_I_C_Soldier_Para_1_F","U_I_C_Soldier_Para_2_F","U_I_C_Soldier_Para_3_F"];
 		_vest = ["V_TacChestrig_grn_F","V_TacChestrig_cbr_F","V_TacChestrig_oli_F","V_HarnessO_brn","V_HarnessO_ghex_F","V_TacVest_oli","V_I_G_resistanceLeader_F"];
+		if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
+			_giveRiflemanRadio = true;
+			_givePersonalRadio = false;
+			_giveBackpackRadio = false;
+		};
+	};
+};
+
+switch (toUpper ([str (_this select 0),3,10] call BIS_fnc_trimString)) do {
+	case "LOG_COM": {
+		_giveBackpackRadio = true;
 	};
 };
 
 //TFAR-manpacks
-switch (toUpper ([str (_this select 0),3,10] call BIS_fnc_trimString)) do {
-	case "LOG_COM": {
-		if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) ) then {
-			_backpack = "tf_rt1523g_rhs";
-		};
+if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (ADV_par_indUni) do {
+		default {["tf_rt1523g_rhs"]};
+	};
+};
+
+if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (ADV_par_CustomUni) do {
+		default {"B_AssaultPack_blk"};
 	};
 };
 

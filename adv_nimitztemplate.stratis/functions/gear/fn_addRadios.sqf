@@ -58,15 +58,27 @@ switch ( true ) do {
 		};
 	};
 	case ( isClass (configFile >> "CfgPatches" >> "acre_main") ): {
+	/*
+			//radios
+			acre_westBackpackRadio = "ACRE_PRC117F";
+			acre_eastBackpackRadio = "ACRE_PRC117F";
+			acre_guerBackpackRadio = "ACRE_PRC117F";
+			//specific radio types
+			if (adv_par_customUni isEqualTo 9) then {
+				acre_westBackpackRadio = "ACRE_PRC77";
+			};
+			if (adv_par_opfUni isEqualTo 5 || adv_par_opfUni isEqualTo 6) then {
+				acre_eastBackpackRadio = "ACRE_PRC77";
+			};
+			if (adv_par_indUni isEqualTo 20) then {
+				acre_guerBackpackRadio = "ACRE_PRC77";
+			};
+			*/
+		_riflemanRadioType = "ACRE_PRC343";
 		_personalRadioType = switch ( side (group _unit) ) do {
 			case east: { acre_eastPersonalRadio };
 			case independent: { acre_guerPersonalRadio };
 			default { acre_westPersonalRadio };
-		};
-		_riflemanRadioType = switch ( side (group _unit) ) do {
-			case east: { acre_eastRiflemanRadio };
-			case independent: { acre_guerRiflemanRadio };
-			default { acre_westRiflemanRadio };
 		};
 		_backpackRadioType = switch ( side (group _unit) ) do {
 			case east: { acre_eastBackpackRadio };
@@ -105,5 +117,7 @@ switch ( true ) do {
 		};
 	};
 };
+
+[_unit] spawn adv_fnc_setFrequencies;
 
 true;

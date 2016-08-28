@@ -178,6 +178,14 @@ switch (ADV_par_opfWeap) do {
 	default {};
 };
 switch (ADV_par_opfUni) do {
+	case 5: {
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = false;	
+	};
+	case 6: {
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = false;	
+	};
 	default {};
 };
 

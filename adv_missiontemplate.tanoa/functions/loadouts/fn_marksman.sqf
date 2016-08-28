@@ -410,6 +410,8 @@ switch (ADV_par_customUni) do {
 			_silencer = "";
 		};
 		_binocular = "Binocular";
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = false;
 	};
 	case 12: {
 		//UK3CB

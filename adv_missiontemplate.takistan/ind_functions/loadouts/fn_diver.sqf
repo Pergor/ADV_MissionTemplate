@@ -199,6 +199,14 @@ switch (ADV_par_customWeap) do {
 	default {};
 };
 
+switch (ADV_par_indUni) do {
+	case 20: {
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = false;
+	};
+	default {};
+};
+
 if (isClass(configFile >> "CfgPatches" >> "tfa_gear")) then {
 	_backpack = ["TFA_assault_Blk"];
 };

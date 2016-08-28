@@ -294,6 +294,10 @@ switch (true) do {
 	};	
 	case (ADV_par_customUni >= 3 && ADV_par_customUni < 7): {
 		//TFA Mixed
+	};	
+	case (ADV_par_customUni == 9): {
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = false;
 	};
 	case (ADV_par_customUni == 12): {
 		//BWmod Fleck

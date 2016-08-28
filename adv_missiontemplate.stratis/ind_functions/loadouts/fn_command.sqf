@@ -240,6 +240,14 @@ switch (ADV_par_indUni) do {
 	//Apex Syndikat
 		_uniform = ["U_I_C_Soldier_Camo_F"];
 		_vest = ["V_TacVest_oli","V_I_G_resistanceLeader_F"];
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = true;
+		_giveBackpackRadio = false;
+		if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
+			_giveRiflemanRadio = true;
+			_givePersonalRadio = false;
+			_giveBackpackRadio = true;
+		};
 	};
 };
 

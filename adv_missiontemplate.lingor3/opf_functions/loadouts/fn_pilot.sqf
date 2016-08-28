@@ -253,6 +253,14 @@ switch (ADV_par_opfUni) do {
 		_headgear = ["rhs_zsh7a"];
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
+	case 5: {
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = false;
+	};
+	case 6: {
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = false;
+	};
 	default {};
 };
 

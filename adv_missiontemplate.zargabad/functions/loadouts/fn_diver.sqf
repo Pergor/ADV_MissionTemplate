@@ -303,6 +303,10 @@ switch (ADV_par_customUni) do {
 		_backpack = ["BWA3_AssaultPack_Fleck"];
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _items = _items-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
 	};
+	case 9: {
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = false;
+	};
 	case 20: {
 		//APEX NATO
 		_headgear = ["H_Helmet_Skate"];

@@ -354,7 +354,8 @@ switch (ADV_par_customUni) do {
 		_uniform = ["U_BG_Guerrilla_6_1","U_BG_Guerilla2_2","U_BG_Guerilla2_1","U_BG_Guerilla2_3","U_BG_Guerilla3_1"];
 		_headgear = ["H_Shemag_olive","H_ShemagOpen_tan","H_ShemagOpen_khk","H_Cap_headphones","H_MilCap_mcamo","H_MilCap_gry","H_MilCap_blue","H_Cap_tan_specops_US",
 			"H_Cap_usblack","H_Cap_oli_hs","H_Cap_blk","H_Booniehat_tan","H_Booniehat_oli","H_Booniehat_khk","H_Watchcap_khk","H_Watchcap_cbr","H_Watchcap_camo"];
-		_ACREradios = ["ACRE_PRC343"];
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = false;
 	};
 	case 12: {
 		//UK3CB
@@ -391,24 +392,38 @@ switch (ADV_par_customUni) do {
 	default {};
 };
 
+switch (toUpper ([str (_this select 0),0,6] call BIS_fnc_trimString)) do {
+	case "LOG_COM": {
+		_giveBackpackRadio = true;
+	};
+};
 
+//TFAR-manpacks
+if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (ADV_par_CustomUni) do {
+		case 1: {["tf_rt1523g_bwmod"]};
+		case 2: {["tf_rt1523g_bwmod"]};
+		case 9: {["tf_rt1523g_rhs"]};
+		case 12: {["UK3CB_BAF_B_Bergen_MTP_Radio_H_A","UK3CB_BAF_B_Bergen_MTP_Radio_H_B"]};
+		case 13: {["tf_rt1523g_bwmod"]};
+		case 14: {["tf_rt1523g_bwmod"]};
+		default {["tf_rt1523g_rhs"]};
+	};
+};
+
+if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (ADV_par_CustomUni) do {
+		case 1: {"BWA3_AssaultPack_Tropen"};
+		case 2: {"BWA3_AssaultPack_Fleck"};
+		case 12: {["UK3CB_BAF_B_Bergen_MTP_Radio_L_A","UK3CB_BAF_B_Bergen_MTP_Radio_L_B"]};
+		case 20: {"B_AssaultPack_tna_F"};
+		default {"B_AssaultPack_blk"};
+	};
+};
 ///// No editing necessary below this line /////
 
 _player = _this select 0;
 //TFAR-manpacks
-switch (toUpper ([str (_this select 0),0,6] call BIS_fnc_trimString)) do {
-	case "LOG_COM": {
-		if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) ) then {
-			_backpack = switch (ADV_par_CustomUni) do {
-				case 1: {["tf_rt1523g_bwmod"]};
-				case 2: {["tf_rt1523g_bwmod"]};
-				case 9: {["tf_rt1523g_rhs"]};
-				case 12: {["UK3CB_BAF_B_Bergen_MTP_Radio_H_A","UK3CB_BAF_B_Bergen_MTP_Radio_H_B"]};
-				default {["tf_rt1523g_big_rhs"]};
-			};
-		};
-	};
-};
 [_player] call ADV_fnc_gear;
 CL_IE_Module_Enabled = true;
 

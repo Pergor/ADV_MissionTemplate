@@ -280,7 +280,6 @@ switch (ADV_par_opfUni) do {
 		_uniform = ["U_OG_Guerrilla_6_1","U_OG_Guerilla2_2","U_OG_Guerilla2_1","U_OG_Guerilla2_3","U_OG_Guerilla3_1"];
 		_headgear = ["H_Watchcap_cbr","H_Watchcap_camo","H_Booniehat_khk","H_Booniehat_oli","H_Cap_blk","H_Cap_oli","H_Cap_tan","H_Cap_brn_SPECOPS","H_MilCap_ocamo",
 			"H_Cap_headphones","H_ShemagOpen_tan"];
-		_ACREradios = ["","ACRE_PRC343","ACRE_PRC77"];
 		_binocular = "Binocular";
 	};
 	case 6: {
@@ -292,6 +291,14 @@ switch (ADV_par_opfUni) do {
 		_goggles = "";
 		_useProfileGoggles = 0;
 		_binocular = "Binocular";
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = true;
+		_giveBackpackRadio = false;
+		if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
+			_giveRiflemanRadio = true;
+			_givePersonalRadio = false;
+			_giveBackpackRadio = true;
+		};
 	};
 	case 20: {
 		//Apex Green Hex
