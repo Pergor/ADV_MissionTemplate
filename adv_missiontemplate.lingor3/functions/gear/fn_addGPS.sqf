@@ -45,7 +45,7 @@ if (ADV_par_Tablets == 2) exitWith {
 };
 
 //BWmod Navipad
-if ( ADV_par_Tablets == 3 && isClass(configFile >> "CfgPatches" >> "bwa3_kestrel") ) exitWith {
+if ( ADV_par_Tablets == 3 && isClass(configFile >> "CfgPatches" >> "bwa3_navipad") ) exitWith {
 	call {
 		if !(_uavTisGiven) exitWith {
 			_unit linkItem "BWA3_ItemNaviPad";
