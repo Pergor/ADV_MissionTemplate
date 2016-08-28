@@ -22,36 +22,35 @@ _arrayCreation = {
 
 call _arrayCreation;
 
-publicVariable "ADV_par_seriousMode";
-publicVariable "ADV_par_headlessClient";
+//publicVariable "ADV_par_seriousMode";
+//publicVariable "ADV_par_headlessClient";
+_variables = {
+	if (isServer) then {
+		switch (adv_par_sideRelations) do {
+			case 0: {west setFriend [resistance, 0];resistance setFriend [west, 0];east setFriend [resistance, 0];resistance setFriend [east, 0];};
+			case 1: {west setFriend [resistance, 1];resistance setFriend [west, 1];east setFriend [resistance, 0];resistance setFriend [east, 0];};
+			case 2: {west setFriend [resistance, 0];resistance setFriend [west, 0];east setFriend [resistance, 1];resistance setFriend [east, 1];};
+			case 3: {west setFriend [resistance, 1];resistance setFriend [west, 1];east setFriend [resistance, 1];resistance setFriend [east, 1];};
+		};
+	};
 
-if (isServer) then {
-	switch (adv_par_sideRelations) do {
-		case 0: {west setFriend [resistance, 0];resistance setFriend [west, 0];east setFriend [resistance, 0];resistance setFriend [east, 0];};
-		case 1: {west setFriend [resistance, 1];resistance setFriend [west, 1];east setFriend [resistance, 0];resistance setFriend [east, 0];};
-		case 2: {west setFriend [resistance, 0];resistance setFriend [west, 0];east setFriend [resistance, 1];resistance setFriend [east, 1];};
-		case 3: {west setFriend [resistance, 1];resistance setFriend [west, 1];east setFriend [resistance, 1];resistance setFriend [east, 1];};
+	adv_par_respWithGear = adv_par_customLoad;
+
+	ADV_par_DLCContent = 1;
+
+	if (ADV_par_Assets_cars == 99) then {ADV_par_modCarAssets = 99;ADV_par_modTruckAssets=99;ADV_par_opfTruckAssets=99;ADV_par_opfCarAssets=99;ADV_par_indCarAssets=99;};
+	if (ADV_par_Assets_heavy == 99) then {ADV_par_modHeavyAssets = 99;ADV_par_opfHeavyAssets=99;};
+	if (ADV_par_Assets_tanks == 99) then {ADV_par_modTankAssets = 99;ADV_par_opfTankAssets=99;};
+	if (ADV_par_Assets_air_helis == 99) then {ADV_par_modHeliAssets = 99;ADV_par_opfHeliAssets=99;};
+	if (ADV_par_Assets_air_fixed == 99) then {ADV_par_modAirAssets = 99;ADV_par_opfAirAssets=99;};
+
+	if (ADV_par_engineArtillery == 0) then {
+		missionNamespace setVariable ["ace_mk6mortar_allowComputerRangefinder",true];
+		missionNamespace setVariable ["ace_mk6mortar_airResistanceEnabled",true];
 	};
 };
 
-adv_par_respWithGear = adv_par_customLoad;
-
-ADV_par_DLCContent = 1;
-
-if (ADV_par_Assets_cars == 99) then {ADV_par_modCarAssets = 99;ADV_par_modTruckAssets=99;ADV_par_opfTruckAssets=99;ADV_par_opfCarAssets=99;ADV_par_indCarAssets=99;};
-if (ADV_par_Assets_heavy == 99) then {ADV_par_modHeavyAssets = 99;ADV_par_opfHeavyAssets=99;};
-if (ADV_par_Assets_tanks == 99) then {ADV_par_modTankAssets = 99;ADV_par_opfTankAssets=99;};
-if (ADV_par_Assets_air_helis == 99) then {ADV_par_modHeliAssets = 99;ADV_par_opfHeliAssets=99;};
-if (ADV_par_Assets_air_fixed == 99) then {ADV_par_modAirAssets = 99;ADV_par_opfAirAssets=99;};
-
-if (ADV_par_engineArtillery == 0) then {
-	missionNamespace setVariable ["ace_mk6mortar_allowComputerRangefinder",true];
-	missionNamespace setVariable ["ace_mk6mortar_airResistanceEnabled",true];
-};
-
-//just to be on the safe side:
-//call _arrayCreation;
+call _variables;
 
 //finalization:
-//ADV_params_defined = true;
-missionNamespace setVariable ["adv_params_defined",true,true];
+ADV_params_defined = true;

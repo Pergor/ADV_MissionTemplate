@@ -3,12 +3,12 @@ class ADV
 	tag = "ADV";
 	class preInit
 	{
-		class missionMarkers { preInit = 1; };
 		class parVariables { preInit = 1; };
+		class missionMarkers { preInit = 1; };
 		class variables { preInit = 1; };
 		class sideMarkers { preInit = 1; };
-		class acreSettings { preInit = 1; };
-		class tfarSettings { preInit = 1; };
+		class acreSettings { preInit = 1; postInit = 1; };
+		class tfarSettings { preInit = 1; postInit = 1; };
 		class fhqTT {
 			file = "scripts\fhqtt2.sqf";
 			preInit = 1;
@@ -104,6 +104,7 @@ class ADV
 		class insignia {};
 		class removeWeapon {};
 		class setFaction {};
+		class setFrequencies {};
 		class standardWeapon {};
 	};
 	class gearsaving
