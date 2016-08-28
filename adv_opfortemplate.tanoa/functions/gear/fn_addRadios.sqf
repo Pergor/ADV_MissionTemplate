@@ -83,7 +83,12 @@ switch ( true ) do {
 			//only leaders get Radio
 			case 2: {
 				if ( (toUpper (rank _unit)) in ["SERGEANT","LIEUTENANT","CAPTAIN","MAJOR","COLONEL"] ) then {
-					 _unit addItem _personalRadioType;
+					call {
+						if (_giveBackpackRadio) exitWith {
+							_unit additem _backpackRadioType
+						};
+						_unit addItem _personalRadioType;
+					};
 				};
 			};
 			//everyone gets personal radio
