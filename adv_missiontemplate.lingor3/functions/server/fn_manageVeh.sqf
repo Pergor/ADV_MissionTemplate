@@ -275,15 +275,15 @@ switch (ADV_par_modTruckAssets) do {
 	case 2: {
 		[] call {
 			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
-				[ADV_veh_transport,["rhsusf_M1083A1P2_d_fmtv_usarmy","rhsusf_M1083A1P2_B_d_fmtv_usarmy"],west] spawn ADV_fnc_changeVeh;
-				[ADV_veh_logistic_repair,["rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_d","rhsusf_M977A4_REPAIR_BKIT_usarmy_d"],west] spawn ADV_fnc_changeVeh;
-				[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_BKIT_M2_usarmy_d","rhsusf_M977A4_AMMO_BKIT_usarmy_d"],west] spawn ADV_fnc_changeVeh;
-				[ADV_veh_logistic_fuel,["rhsusf_M978A4_usarmy_d"],west] spawn ADV_fnc_changeVeh;
+				[ADV_veh_transport,["rhsusf_M1083A1P2_d_fmtv_usarmy","rhsusf_M1083A1P2_B_d_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_d_fmtv_usarmy"],west] spawn ADV_fnc_changeVeh;
+				[ADV_veh_logistic_repair,["rhsusf_M977A4_REPAIR_usarmy_d","rhsusf_M977A4_REPAIR_BKIT_usarmy_d","rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_d"],west] spawn ADV_fnc_changeVeh;
+				[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_usarmy_d","rhsusf_M977A4_AMMO_BKIT_usarmy_d","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_d"],west] spawn ADV_fnc_changeVeh;
+				[ADV_veh_logistic_fuel,["rhsusf_M978A4_usarmy_d","rhsusf_M978A4_BKIT_usarmy_d"],west] spawn ADV_fnc_changeVeh;
 			};
-			[ADV_veh_transport,["rhsusf_M1083A1P2_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_wd_fmtv_usarmy"],west] spawn ADV_fnc_changeVeh;
-			[ADV_veh_logistic_repair,["rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_wd","rhsusf_M977A4_REPAIR_BKIT_usarmy_wd"],west] spawn ADV_fnc_changeVeh;
-			[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_usarmy_wd"],west] spawn ADV_fnc_changeVeh;
-			[ADV_veh_logistic_fuel,["rhsusf_M978A4_usarmy_wd"],west] spawn ADV_fnc_changeVeh;
+			[ADV_veh_transport,["rhsusf_M1083A1P2_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy"],west] spawn ADV_fnc_changeVeh;
+			[ADV_veh_logistic_repair,["rhsusf_M977A4_REPAIR_usarmy_wd","rhsusf_M977A4_REPAIR_BKIT_usarmy_wd","rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_wd"],west] spawn ADV_fnc_changeVeh;
+			[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd"],west] spawn ADV_fnc_changeVeh;
+			[ADV_veh_logistic_fuel,["rhsusf_M978A4_usarmy_wd","rhsusf_M978A4_BKIT_usarmy_wd"],west] spawn ADV_fnc_changeVeh;
 		};
 	};
 	//RHS woodland
