@@ -51,6 +51,10 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith {
 	};
 
 	[] spawn {
+		adv_par_customUni = ["param_customUni",0] call BIS_fnc_getParamValue;
+		adv_par_customWeap = ["param_customWeap",0] call BIS_fnc_getParamValue;
+		adv_par_opfUni = ["param_opfUni",0] call BIS_fnc_getParamValue;
+		adv_par_indUni = ["param_indUni",0] call BIS_fnc_getParamValue;
 		waitUntil {!isNil "ADV_params_defined"};
 		//specific radio types
 		if (adv_par_customUni isEqualTo 9) then {

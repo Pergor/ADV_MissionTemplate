@@ -26,7 +26,7 @@ publicVariable "ADV_par_seriousMode";
 publicVariable "ADV_par_headlessClient";
 
 if (isServer) then {
-	switch (ADV_par_sideRelations) do {
+	switch (adv_par_sideRelations) do {
 		case 0: {west setFriend [resistance, 0];resistance setFriend [west, 0];east setFriend [resistance, 0];resistance setFriend [east, 0];};
 		case 1: {west setFriend [resistance, 1];resistance setFriend [west, 1];east setFriend [resistance, 0];resistance setFriend [east, 0];};
 		case 2: {west setFriend [resistance, 0];resistance setFriend [west, 0];east setFriend [resistance, 1];resistance setFriend [east, 1];};
@@ -34,7 +34,7 @@ if (isServer) then {
 	};
 };
 
-ADV_par_respWithGear = ADV_par_customLoad;
+adv_par_respWithGear = adv_par_customLoad;
 
 ADV_par_DLCContent = 1;
 
@@ -53,6 +53,5 @@ if (ADV_par_engineArtillery == 0) then {
 //call _arrayCreation;
 
 //finalization:
-ADV_params_defined = true;
-
-if (true) exitWith {};
+//ADV_params_defined = true;
+missionNamespace setVariable ["adv_params_defined",true,true];

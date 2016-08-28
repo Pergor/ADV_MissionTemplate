@@ -27,6 +27,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	//tfar serious mode
 	[] spawn {
 		tf_radio_channel_name = "TaskForceRadio";
+		adv_par_customUni = ["param_customUni",0] call BIS_fnc_getParamValue;
 		waitUntil {!isNil "ADV_params_defined"};
 		if (adv_par_customUni isEqualTo 9) then { TF_defaultWestPersonalRadio = "tf_anprc148jem"; };
 		sleep 1;
