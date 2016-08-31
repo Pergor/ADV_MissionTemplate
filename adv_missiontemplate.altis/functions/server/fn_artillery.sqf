@@ -10,20 +10,25 @@ params [
 	["_height", 300, [0]],
 	["_amount", 5, [0]],
 	["_spread", 50, [0]],
-	"_targetType", "_targetPos", "_strike", "_sound", "_soundFile"
+	"_targetPos", "_strike", "_sound", "_soundFile"
 ];
 
 {
 	_target = _x;
 	if (!isNil "_target") then {
-		_targetType = typeName (_target);
 		_targetPos = nil;
 		for "_x" from 1 to _amount do {
-			if (_targetType == "STRING") then {
-				_targetPos = [getMarkerPos _target select 0, getMarkerPos _target select 1, _height];
-			};
-			if (_targetType == "OBJECT") then {
-				_targetPos = [getPos _target select 0, getPos _target select 1, _height];
+			private _targetPos = call {
+				if (_target isEqualType "") exitWith {
+					[getMarkerPos _target select 0, getMarkerPos _target select 1, _height];
+				};
+				if (_target isEqualType objNull) exitWith {
+					[getPosWorld _target select 0, getPosWorld _target select 1, _height];
+				};
+				if (_target isEqualType []) exitWith {
+					[_target select 0,_target select 1, _height];
+				};
+				nil;
 			};
 			_strike = createVehicle [_ammotype, _targetPos, [], _spread, "NONE"];
 			_strike allowdamage false;

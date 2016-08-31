@@ -23,7 +23,7 @@ params [
 	["_side", east, [west]],
 	["_radius", 75, [0]],
 	["_spawn", [], [[]]],
-	["_attack", "", [objNull,""]],
+	["_attack", [0,0,0], [objNull,"",[]]],
 	"_grp"
 ];
 
@@ -33,35 +33,20 @@ params [
 		private _start = call {
 			if (_location isEqualType "") exitWith {getMarkerPos _location};
 			if (_location isEqualType objNull) exitWith {getPosATL _location};
+			if (_location isEqualType []) exitWith {_location};
 			nil;
 		};
 		private _heading = call {
 			if (_location isEqualType "") exitWith {markerDir _location};
 			if (_location isEqualType objNull) exitWith {getDir _location};
-			nil;
+			if (true) exitWith {0};
 		};
 		private _target = call {
 			if (_attack isEqualType "") exitWith {getMarkerPos _attack};
 			if (_attack isEqualType objNull) exitWith {getPosWorld _attack};
+			if (_attack isEqualType []) exitWith {_attack};
 			nil;
 		};
-		/*
-		_start = switch (typeName _location) do {
-			case "STRING":{ getMarkerPos _location };
-			case "OBJECT":{ getPos _location };
-			default {nil};
-		};
-		_heading = switch (typeName _location) do {
-			case "STRING":{ markerDir _location };
-			case "OBJECT":{ getDir _location };
-			default {nil};
-		};
-		_target = switch (typeName _attack) do {
-			case "STRING":{ getMarkerPos _attack };
-			case "OBJECT":{ getPos _attack };
-			default {nil};
-		};
-		*/
 		private _skill = [0.6,0.9,0.7];
 		
 		private _withVehicles = false;
