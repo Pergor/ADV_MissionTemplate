@@ -18,41 +18,41 @@ lbClear _comboBox;
 
 //Loadout-Liste:
 _loadoutList = [
-"---- Kommandoloadouts ----",
-	"Zugführer",
-	"Gruppenführer",
-	"Truppführer",
-	"Sanitäter",
-"---- Manschaftsloadouts ----",
-	"LMG-Schütze",
-	"Grenadier",
-	"Schütze",
-	"Schütze (AT)",
-	"Munitionsträger",
-	"Einsatzersthelfer",
-"---- Supportloadouts ----",
-	"MMG-Schütze",
-	"asst. MMG-Schütze",
-	"AT-Spezialist",
-	"asst. AT-Spezialist",
-	"AA-Spezialist",
-	"asst. AA-Spezialist",
-"---- ZBV-Loadouts ----",
-	"Pionier",
-	"Zielfernrohrschütze",
-	"UAV-Spezialist",
-"---- Logistikloadouts ----",
-	"Logistiker",
-	"Fahrzeugbesatzung",
-	"Pilot",
-"---- SF-Loadouts ----",
-	"Scharfschütze",
-	"Beobachter",
-	"Taucher",
-	"Taucher (Sanitäter)",
-	"Taucher (Pionier)"
-	/*"---- CSW-Loadouts ----",
-	"HMG-Gunner"
+	"---- Kommandoloadouts ----"
+	,"Zugführer"
+	,"Gruppenführer"
+	,"Truppführer"
+	,"Sanitäter"
+	,"---- Manschaftsloadouts ----"
+	,"LMG-Schütze"
+	,"Grenadier"
+	,"Schütze"
+	,"Schütze (AT)"
+	,"Munitionsträger"
+	,"Einsatzersthelfer"
+	,"---- Supportloadouts ----"
+	,"MMG-Schütze"
+	,"asst. MMG-Schütze"
+	,"AT-Spezialist"
+	,"asst. AT-Spezialist"
+	,"AA-Spezialist"
+	,"asst. AA-Spezialist"
+	,"---- ZBV-Loadouts ----"
+	,"Pionier"
+	,"Zielfernrohrschütze"
+	,"UAV-Spezialist"
+	,"---- Logistikloadouts ----"
+	,"Logistiker"
+	,"Fahrzeugbesatzung"
+	,"Pilot"
+	,"---- SF-Loadouts ----"
+	,"Scharfschütze"
+	,"Beobachter"
+	,"Taucher"
+	,"Taucher (Sanitäter)"
+	,"Taucher (Pionier)"
+	/*,"---- CSW-Loadouts ----"
+	,"HMG-Gunner"
 	*/
 ];
 if (side (group player) == east) then {

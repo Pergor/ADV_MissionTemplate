@@ -57,7 +57,7 @@ _start addAction [
 	_actionText,
 	{
 		[_this select 1, (_this select 3) select 0, (_this select 3) select 1, (_this select 3) select 2] spawn adv_scriptfnc_teleport;
-	},[_target,_name,_text],6,false,true,"","player distance cursortarget <5"
+	},[_target,_name,_text],6,false,true,"","true",5
 ];
 	
 if (true) exitWith {};

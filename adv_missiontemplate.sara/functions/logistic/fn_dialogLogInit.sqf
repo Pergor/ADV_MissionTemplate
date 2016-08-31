@@ -40,7 +40,7 @@ switch (ADV_par_logisticTeam) do {
 if (isClass(configFile >> "CfgPatches" >> "ace_repair")) then {
 	_loadoutList append ["Ersatzreifen","Ersatzkette"];
 };
-if (isClass(configFile >> "CfgPatches" >> "scorch_invitems")) then {
+if ( isClass(configFile >> "CfgPatches" >> "scorch_invitems") || isClass(configFile >> "CfgPatches" >> "murshun_cigs") ) then {
 	_loadoutList append ["Rations-Kiste"];
 };
 

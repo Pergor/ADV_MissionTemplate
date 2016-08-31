@@ -38,13 +38,14 @@ if (isNil "adv_patrol_area_name") then { adv_patrol_area_name = 0 };
 		private _start = call {
 			if (_location isEqualType "") exitWith {getMarkerPos _location};
 			if (_location isEqualType objNull) exitWith {getPosATL _location};
+			if (_location isEqualType []) exitWith {_location};
 			nil;
 		};
 		//define direction in which units are headed upon spawn
 		private _heading = call {
 			if (_location isEqualType "") exitWith {markerDir _location};
 			if (_location isEqualType objNull) exitWith {getDir _location};
-			nil;
+			if (true) exitWith {0};
 		};
 		//if no area has been provided after the spawn array
 		private _areaCreation = {

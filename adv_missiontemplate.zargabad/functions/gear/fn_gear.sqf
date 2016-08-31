@@ -107,11 +107,20 @@ if !( isClass (configFile >> "CfgPatches" >> "ACE_Medical") ) then {
 	};
 };
 
-//scorch items
 /*
+//scorch items
 if (isClass(configFile >> "CfgPatches" >> "scorch_invitems")) then {
 	if ( !isNil "_scorchItems" ) then { { _unit addItem _x; } count _scorchItems; };
 	if ( !isNil "_scorchItemsRandom" ) then { _unit addItem (selectRandom  _scorchItemsRandom); };
+};
+*/
+/*
+//Murshun cigs
+if (isClass(configFile >> "CfgPatches" >> "murshun_cigs")) then {
+	if ((floor random 9) > 7) then {
+		_unit addMagazine (selectRandom ["murshun_cigs_lighter","murshun_cigs_matches","murshun_cigs_matches","murshun_cigs_matches"]);
+		_unit addMagazine "murshun_cigs_cigpack";
+	};
 };
 */
 

@@ -120,7 +120,7 @@ adv_ind_manageVeh_codeForAll = {
 	if ( ADV_par_Radios > 0 && (_veh isKindOf 'CAR' || _veh isKindOf 'TANK' || _veh isKindOf 'AIR') ) then {
 		_veh setVariable ['tf_hasRadio', true, true];
 	};
-	if (ADV_par_indUni == 0 && !(worldname == 'TANOA') && (str _veh in ADV_ind_veh_transport+ADV_ind_veh_Offroad+ADV_ind_veh_airRecon)) then {
+	if (ADV_par_indUni == 0 && ADV_par_indCarAssets == 0 && !(worldname == 'TANOA') && (str _veh in ADV_ind_veh_transport+ADV_ind_veh_Offroad+ADV_ind_veh_airRecon)) then {
 		_veh setObjectTextureGlobal [0,'#(rgb,8,8,3)color(1,1,1,0.004)'];
 		if (str _veh in ADV_ind_veh_transport) then {
 			_veh setObjectTextureGlobal [1,'#(rgb,8,8,3)color(1,1,1,0.004)'];
@@ -129,12 +129,12 @@ adv_ind_manageVeh_codeForAll = {
 };
 //application of code:
 {
-	if (str _x in ADV_ind_veh_all) then {
-		call compile format ["%1 spawn %2", _x, adv_ind_manageVeh_codeForAll];
-		[_x,ADV_par_vehicleRespawn, independent, (typeOf _x)] spawn ADV_fnc_respawnVeh;
-	};
+	if (isNil _x) exitWith {};
+	private _vehObj = missionNamespace getVariable [_x,objNull];
+	_vehObj spawn adv_ind_manageVeh_codeForAll;
+	[_vehObj,ADV_par_vehicleRespawn, independent, (typeOf _vehObj)] spawn ADV_fnc_respawnVeh;
 	nil;
-} count vehicles;
+} count ADV_ind_veh_all;
 
 //replaces MRAPS with mod cars:
 switch (ADV_par_indCarAssets) do {

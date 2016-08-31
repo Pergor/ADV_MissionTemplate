@@ -49,8 +49,8 @@ if (_grenSet > 0) then {
 	};
 };
 
-_grenArray = switch ( true ) do {
-	case ( ADV_par_customWeap == 1 && ( side ( group _unit ) == west ) ): {
+_grenArray = call {
+	if ( ADV_par_customWeap == 1 && ( side ( group _unit ) == west ) ) exitWith {
 		[
 			["BWA3_DM51A1",_grenHE],
 			["BWA3_DM25", _grenSmkWht],
@@ -58,7 +58,7 @@ _grenArray = switch ( true ) do {
 			["BWA3_DM32_Yellow", _grenSmkYlw+_grenSmkGrn+_grenSmkBl]
 		];
 	};
-	case ( ((ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4) && ( side ( group _unit ) == west )) || (ADV_par_indWeap == 2 && ( side ( group _unit ) == independent )) ): {
+	if ( ((ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4) && ( side ( group _unit ) == west )) || (ADV_par_indWeap == 2 && ( side ( group _unit ) == independent )) ) exitWith {
 		[
 			["rhs_mag_m67", _grenHE],
 			["rhs_mag_an_m8hc", _grenSmkWht],
@@ -68,7 +68,7 @@ _grenArray = switch ( true ) do {
 			["rhs_mag_m18_red", _grenSmkRd+_grenSmkOrng]
 		];
 	};
-	case ( (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2) && ( side ( group _unit ) == east ) ): {
+	if ( (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2) && ( side ( group _unit ) == east ) ) exitWith {
 		[
 			["rhs_mag_rgd5", _grenHE],
 			["SmokeShell", _grenSmkWht],
@@ -76,27 +76,26 @@ _grenArray = switch ( true ) do {
 			["rhs_mag_nspd", _grenSmkYlw+_grenSmkRd+_grenSmkOrng]
 		];
 	};
-	default {
+	[
+		["HandGrenade", _grenHE],
+		["SmokeShell", _grenSmkWht],
+		["SmokeShellBlue", _grenSmkBl],
+		["SmokeShellGreen", _grenSmkGrn],
+		["SmokeShellOrange", _grenSmkOrng],
+		["SmokeShellPurple", _grenSmkPrpl],
+		["SmokeShellRed", _grenSmkRd],
+		["SmokeShellYellow", _grenSmkYlw]
+	];
+};
+_chemArray = call {
+	if ( ( !(side (group _unit) == east) && ADV_par_NVGs > 0 ) || (side (group _unit) == east && ADV_par_opfNVGs > 0) ) exitWith {
 		[
-			["HandGrenade", _grenHE],
-			["SmokeShell", _grenSmkWht],
-			["SmokeShellBlue", _grenSmkBl],
-			["SmokeShellGreen", _grenSmkGrn],
-			["SmokeShellOrange", _grenSmkOrng],
-			["SmokeShellPurple", _grenSmkPrpl],
-			["SmokeShellRed", _grenSmkRd],
-			["SmokeShellYellow", _grenSmkYlw]
+			["Chemlight_Yellow", _chemYlw],
+			["Chemlight_Red", _chemRd],
+			["Chemlight_Green", _chemGrn],
+			["Chemlight_Blue", _chemBl]
 		];
 	};
-};
-_chemArray = if ( ( !(side (group _unit) == east) && ADV_par_NVGs > 0 ) || (side (group _unit) == east && ADV_par_opfNVGs > 0) ) then {
-	[
-		["Chemlight_Yellow", _chemYlw],
-		["Chemlight_Red", _chemRd],
-		["Chemlight_Green", _chemGrn],
-		["Chemlight_Blue", _chemBl]
-	];
-} else {
 	[["",0]];
 };
 

@@ -112,8 +112,17 @@ switch ( true ) do {
 		};
 	};
 	default {
-		if ( ( {_x == "ITEMRADIO"} count _itemsLink ) > 0 ) then {
-			_unit linkItem "ItemRadio";
+		switch ADV_par_Radios do {
+			//everyone gets role specific radio
+			default {
+				_unit linkItem "ItemRadio";
+			};
+			//only leaders get Radio
+			case 2: {
+				if ( (toUpper (rank _unit)) in ["SERGEANT","LIEUTENANT","CAPTAIN","MAJOR","COLONEL"] ) then {
+					_unit linkItem "ItemRadio";
+				};
+			};
 		};
 	};
 };

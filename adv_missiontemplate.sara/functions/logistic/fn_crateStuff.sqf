@@ -11,16 +11,24 @@ private ["_target"];
 	//makes the crates indestructible:
 	_target allowDamage false;
 
-	_target addItemCargoGlobal ["sc_cigarettepack",10];
-	_target addItemCargoGlobal ["sc_waterbottle",20];
-	_target addItemCargoGlobal ["sc_mre",20];
-	_target addItemCargoGlobal ["sc_charms",20];
-	_target addItemCargoGlobal ["sc_salisbury_steak",10];
-	_target addItemCargoGlobal ["sc_gum",10];
-	_target addItemCargoGlobal ["sc_twinkies",10];
-	_target addItemCargoGlobal ["sc_snack_cakes",10];
-	_target addItemCargoGlobal ["sc_candybar",10];
-	_target addItemCargoGlobal ["sc_lighter",2];
+	if (isClass(configFile >> "CfgPatches" >> "scorch_invitems")) then {
+		_target addItemCargoGlobal ["sc_waterbottle",20];
+		_target addItemCargoGlobal ["sc_mre",20];
+		_target addItemCargoGlobal ["sc_charms",20];
+		_target addItemCargoGlobal ["sc_salisbury_steak",10];
+		_target addItemCargoGlobal ["sc_gum",10];
+		_target addItemCargoGlobal ["sc_twinkies",10];
+		_target addItemCargoGlobal ["sc_snack_cakes",10];
+		_target addItemCargoGlobal ["sc_candybar",10];
+		if !(isClass(configFile >> "CfgPatches" >> "murshun_cigs")) then {
+			_target addItemCargoGlobal ["sc_cigarettepack",10];
+			_target addItemCargoGlobal ["sc_lighter",2];
+		};
+	};
+	if (isClass(configFile >> "CfgPatches" >> "murshun_cigs")) then {
+		_target addItemCargoGlobal ["murshun_cigs_matches",10];
+		_target addItemCargoGlobal ["murshun_cigs_cigpack",20];
+	};
 	
 	_ACE_fieldDressing = 0;
 	_ACE_packingBandage = 0;

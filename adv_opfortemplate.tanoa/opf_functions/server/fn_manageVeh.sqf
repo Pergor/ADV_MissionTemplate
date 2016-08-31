@@ -125,12 +125,12 @@ adv_opf_manageVeh_codeForAll = {
 };
 //application of code:
 {
-	if (str _x in ADV_opf_veh_all) then {
-		call compile format ["%1 spawn %2", _x, adv_opf_manageVeh_codeForAll];
-		[_x,ADV_par_vehicleRespawn, east, (typeOf _x)] spawn ADV_fnc_respawnVeh;
-	};
+	if (isNil _x) exitWith {};
+	private _vehObj = missionNamespace getVariable [_x,objNull];
+	_vehObj spawn adv_opf_manageVeh_codeForAll;
+	[_vehObj,ADV_par_vehicleRespawn, east, (typeOf _vehObj)] spawn ADV_fnc_respawnVeh;
 	nil;
-} count vehicles;
+} count ADV_opf_veh_all;
 
 //replaces MRAPS with mod cars:
 switch (ADV_par_opfCarAssets) do {
