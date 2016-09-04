@@ -160,7 +160,7 @@ _ACE_HuntIR_monitor = 0;
 _ACE_HuntIR = 0;
 _ACE_m84 = 0;
 _ACE_HandFlare_Green = 0;
-_ACE_HandFlare_Red = 0;
+_ACE_HandFlare_Red = 2;
 _ACE_HandFlare_White = 0;
 _ACE_HandFlare_Yellow = 0;
 
@@ -394,6 +394,12 @@ switch (ADV_par_customUni) do {
 
 switch (toUpper ([str (_this select 0),0,6] call BIS_fnc_trimString)) do {
 	case "LOG_COM": {
+		_ACE_isMedic = 2;
+		_tablet = false;
+		_giveBackpackRadio = true;
+	};
+	case "LOG_LEA": {
+		_tablet = false;
 		_giveBackpackRadio = true;
 	};
 };

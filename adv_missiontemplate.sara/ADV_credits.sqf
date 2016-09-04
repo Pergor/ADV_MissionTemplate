@@ -20,10 +20,8 @@ publicVariable "ADV_missionAuthor";
 			"Verwendete Scripts", 
 				"In dieser Mission wurden folgende Scripts verwendet:<br/><br/>
 				FHQ TaskTracker von Varanon,<br/>
-				Get-/set-loadout-script von Aeroson,<br/>
 				IgiLoad von Igi_PL,<br/>
 				RandomWeather von Meatball,<br/>
-				Repetitive CleanUp von Aeroson,<br/>
 				TAW View Distance von Tonic,<br/>
 				TPW CIVS von tpw,<br/>
 				UPSMON von Monsada,<br/>

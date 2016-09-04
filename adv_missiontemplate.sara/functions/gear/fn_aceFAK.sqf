@@ -27,10 +27,18 @@ _ACE_Items = ["ACE_atropine","ACE_adenosine","ACE_fieldDressing","ACE_elasticBan
 switch _FAKtype do {
 	default {
 		if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 ) then {
-			_ACE_fieldDressing = 4;
-			_ACE_elasticBandage = 4;
-			_ACE_packingBandage = 6;
-			_ACE_quikclot = 6;
+			call {
+				if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) exitWith {
+					_ACE_fieldDressing = 8;
+					_ACE_elasticBandage = 4;
+					_ACE_packingBandage = 2;
+					_ACE_quikclot = 6;
+				};
+				_ACE_fieldDressing = 8;
+				_ACE_elasticBandage = 8;
+				_ACE_packingBandage = 2;
+				_ACE_quikclot = 2;
+			};
 			_ACE_morphine = 2;
 			_ACE_tourniquet = 2;
 
@@ -52,10 +60,18 @@ switch _FAKtype do {
 	};
 	case 2: {
 		if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 || (missionnamespace getVariable ["ace_medical_medicSetting",2]) > 1 ) then {
-			_ACE_fieldDressing = 18;
-			_ACE_elasticBandage = 18;
-			_ACE_packingBandage = 36;
-			_ACE_quikclot = 36;
+			call {
+				if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) exitWith {
+					_ACE_fieldDressing = 36;
+					_ACE_elasticBandage = 36;
+					_ACE_packingBandage = 18;
+					_ACE_quikclot = 18;
+				};
+				_ACE_fieldDressing = 36;
+				_ACE_elasticBandage = 36;
+				_ACE_packingBandage = 18;
+				_ACE_quikclot = 18;
+			};
 			_ACE_atropine = 0;
 			_ACE_adenosine = 10;
 			_ACE_epinephrine = 12;

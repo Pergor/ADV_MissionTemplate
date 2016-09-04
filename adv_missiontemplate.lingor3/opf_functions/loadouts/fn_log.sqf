@@ -300,6 +300,10 @@ switch (toUpper ([str (_this select 0),3,10] call BIS_fnc_trimString)) do {
 	case "LOG_COM": {
 		_giveBackpackRadio = true;
 	};
+	case "LOG_LEA": {
+		_tablet = false;
+		_giveBackpackRadio = true;
+	};
 };
 
 //TFAR-manpacks

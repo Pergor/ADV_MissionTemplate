@@ -265,7 +265,7 @@ switch (toUpper ([str (_this select 0),3,13] call BIS_fnc_trimString)) do {
 		_ACE_isEngineer = 2;
 		_ACE_isEOD = true;
 		_tablet = true;
-		_androidDevice = false;
+		_androidDevice = true;
 		_giveBackpackRadio = true;
 	};
 	case "LEADER_COM": {

@@ -48,6 +48,10 @@ if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") && hasInterface 
 			[_activeSWRadio, 7] call TFAR_fnc_setSwChannel;
 			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 5] call TFAR_fnc_setLRChannel; };
 		};
+		if ( toUpper (groupID group _unit) in ["SATURN","OZELOT"]) exitWith {
+			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
+			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 0] call TFAR_fnc_setLRChannel; };
+		};
 		if ( toUpper (groupID group _unit) isEqualTo "ZEUS" ) exitWith {
 			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
 			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 2] call TFAR_fnc_setLRChannel; };
@@ -100,6 +104,7 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") && hasInterface ) exitW
 	};
 	waitUntil { [] call acre_api_fnc_isInitialized };
 	//set channels for groups:
+	//ChannelnameS: ["VEHICLES","AIRNET","PLTNET 1","PLTNET 2","PLTNET 3","LOG","FAC","CHAN 8","CHAN 9","CHAN 10","CHAN 11","CHAN 12","CHAN 13","CHAN 14","CHAN 15"];
 	call {
 		private _has343 = [_unit, "ACRE_PRC343"] call acre_api_fnc_hasKindOfRadio;
 		private _has152 = [_unit, "ACRE_PRC152"] call acre_api_fnc_hasKindOfRadio;
@@ -139,7 +144,7 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") && hasInterface ) exitW
 			if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 6] call acre_api_fnc_setRadioChannel; };
 			if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel; };
 			if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel; };
-			if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel; };
+			if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 5] call acre_api_fnc_setRadioChannel; };
 		};
 		if ( toUpper (groupID group _unit) in ["DIANA","VIPER","JAGUAR"] ) exitWith {
 			if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 7] call acre_api_fnc_setRadioChannel; };
@@ -152,6 +157,12 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") && hasInterface ) exitW
 			if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 2] call acre_api_fnc_setRadioChannel; };
 			if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 2] call acre_api_fnc_setRadioChannel; };
 			if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 2] call acre_api_fnc_setRadioChannel; };
+		};
+		if ( toUpper (groupID group _unit) in ["SATURN","OZELOT"]) exitWith {
+			if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 9] call acre_api_fnc_setRadioChannel; };
+			if (_has152) then { [ (["ACRE_PRC152"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel; };
+			if (_has148) then { [ (["ACRE_PRC148"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel; };
+			if (_has117F) then { [ (["ACRE_PRC117F"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel; };
 		};
 		if ( toUpper (groupID group _unit) isEqualTo "ZEUS" ) exitWith {
 			if (_has343) then { [ (["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 16] call acre_api_fnc_setRadioChannel; };
