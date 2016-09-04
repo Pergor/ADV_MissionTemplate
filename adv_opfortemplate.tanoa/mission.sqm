@@ -5,7 +5,7 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=129;
+	toggles=1;
 	class ItemIDProvider
 	{
 		nextID=4023;
@@ -26,9 +26,9 @@ binarizationWanted=0;
 addons[]=
 {
 	"A3_Ui_F",
+	"A3_Ui_F_Exp",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Structures_F_Mil_Helipads",
-	"A3_Ui_F_Exp",
 	"A3_Boat_F_Exp_Boat_Transport_02",
 	"A3_Structures_F_Exp_Infrastructure_Pavements",
 	"A3_Structures_F_Walls",
@@ -76,22 +76,22 @@ class AddonsMetaData
 		};
 		class Item1
 		{
-			className="A3_Modules_F_Curator";
-			name="Arma 3 Zeus Update - Scripted Modules";
+			className="A3_Ui_F_Exp";
+			name="Arma 3 Apex - User Interface";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
 		class Item2
 		{
-			className="A3_Structures_F_Mil";
-			name="Arma 3 - Military Buildings and Structures";
+			className="A3_Modules_F_Curator";
+			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
 		class Item3
 		{
-			className="A3_Ui_F_Exp";
-			name="Arma 3 Apex - User Interface";
+			className="A3_Structures_F_Mil";
+			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -435,7 +435,7 @@ class Mission
 		class Item2
 		{
 			dataType="Marker";
-			position[]={11763.688,1680.0522,3136.583};
+			position[]={11774.182,1680.0522,3158.5903};
 			name="crates";
 			text="Zusatzausrüstung";
 			type="Select";
@@ -472,7 +472,7 @@ class Mission
 		class Item5
 		{
 			dataType="Marker";
-			position[]={11769.197,4.8699999,3142.5447};
+			position[]={11768.822,4.8699999,3142.2068};
 			name="briefArea";
 			text="Briefing Area";
 			type="Select";
@@ -496,12 +496,13 @@ class Mission
 		class Item7
 		{
 			dataType="Marker";
-			position[]={11680.798,4.9180784,3108.0293};
+			position[]={11680.798,-7.901882e-035,3108.0291};
 			name="base";
-			type="flag_NATO";
+			type="flag_Viper";
 			a=1.7;
 			b=1.5;
 			id=11;
+			atlOffset=-4.9180779;
 		};
 		class Item8
 		{
