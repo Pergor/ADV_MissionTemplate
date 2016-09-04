@@ -292,7 +292,7 @@ class ace_medical_medicSetting_PAK {
     force = 0;
 };
 class ace_medical_medicSetting_SurgicalKit {
-    value = 1;
+    value = 0;
     typeName = "SCALAR";
     force = 0;
 };
