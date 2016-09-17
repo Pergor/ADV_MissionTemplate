@@ -19,10 +19,8 @@ lbClear _comboBox;
 //Loadout-Liste:
 private _teleportList = [
 	"Teleport zu Gruppe"
-	/*
-	"",
-	"Teleport zum Zugführer"
-	*/
+	,""
+	,"Teleport zum Zugführer"
 ];
 
 { lbAdd [7377, _x] } foreach _teleportList;
@@ -30,7 +28,7 @@ private _teleportList = [
 if (side (group player) == west) then {
 	//Loadouts:
 	lbSetData [7377, 0, "TELEPORT_GROUP"];
-	//lbSetData [7377, 2, "TELEPORT_COMMAND"];
+	lbSetData [7377, 2, "TELEPORT_COMMAND"];
 };
 
 if (true) exitWith {};
