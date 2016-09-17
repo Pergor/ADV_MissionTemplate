@@ -48,8 +48,8 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith {
 		if (true) exitWith {"ACRE_PRC77"};
 	};
 	//channel setup
-	_channelNames = ["VEHICLES","AIRNET","PLTNET 1","PLTNET 2","PLTNET 3","LOG","FAC","CHAN 8","CHAN 9","CHAN 10","CHAN 11","CHAN 12","CHAN 13","CHAN 14","CHAN 15"];
-	_148chNames = ["1-VEHICLES","2-AIR TO AIR","3-PLTNET 1","4-PLTNET 2","5-PLTNET 3","6-LOG","7-FAC"];
+	_channelNames = ["VEHICLES","PLTNET 1","LOG","RECON","AIRNET","PLTNET 2","PLTNET 3","PLTNET 4","CHAN 9","CHAN 10","CHAN 11","CHAN 12","CHAN 13","CHAN 14","CHAN 15"];
+	_148chNames = ["1-VEHICLES","2-PLTNET 1","3-LOG","4-RECON","5-AIRNET"];
 	for "_i" from 1 to (count _channelNames) do {
 		["ACRE_PRC152", "default", _i, "description", _channelNames select (_i-1)] call acre_api_fnc_setPresetChannelField;
 		["ACRE_PRC117F", "default", _i, "name", _channelNames select (_i-1)] call acre_api_fnc_setPresetChannelField;

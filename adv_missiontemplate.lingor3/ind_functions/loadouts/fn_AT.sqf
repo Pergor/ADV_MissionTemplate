@@ -145,6 +145,7 @@ _ACE_DefusalKit = 0;
 _ACE_Cellphone = 0;
 _ACE_MapTools = 0;
 _ACE_CableTie = 0;
+_ACE_FlareTripMine = 0;
 _ACE_EntrenchingTool = 0;
 _ACE_sprayPaintColor = "NONE";
 _ACE_gunbag = 0;

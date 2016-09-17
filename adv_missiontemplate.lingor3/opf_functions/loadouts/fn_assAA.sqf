@@ -142,6 +142,7 @@ _ACE_Clacker = 0;
 _ACE_M26_Clacker = 0;
 _ACE_DeadManSwitch = 0;
 _ACE_DefusalKit = 0;
+_ACE_FlareTripMine = 0;
 _ACE_Cellphone = 0;
 _ACE_MapTools = 0;
 _ACE_CableTie = 0;

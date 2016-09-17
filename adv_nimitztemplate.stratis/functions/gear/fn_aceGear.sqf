@@ -135,6 +135,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_explosives") ) then {
 	for "_i" from 1 to _ACE_DeadManSwitch do { _unit addItem "ACE_DeadManSwitch"; };
 	for "_i" from 1 to _ACE_DefusalKit do { _unit addItem "ACE_DefusalKit"; };
 	for "_i" from 1 to _ACE_Cellphone do { _unit addItem "ACE_Cellphone"; };
+	for "_i" from 1 to _ACE_FlareTripMine do { _unit addMagazine "ACE_FlareTripMine_Mag"; };
 };
 if ( isClass(configFile >> "CfgPatches" >> "ACE_kestrel4500") && !isNil "_ACE_Kestrel" ) then {
 	if (_ACE_Kestrel > 0) then { _unit addItem "ACE_Kestrel4500"; };

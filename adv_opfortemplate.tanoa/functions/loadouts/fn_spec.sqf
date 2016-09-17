@@ -83,7 +83,7 @@ _itemsUniform = [];
 _itemsVest = [];
 
 //items added specifically to Backpack: - (array)
-_itemsBackpack = ["ToolKit","MineDetector","DemoCharge_Remote_Mag","DemoCharge_Remote_Mag","DemoCharge_Remote_Mag","DemoCharge_Remote_Mag"];
+_itemsBackpack = ["ToolKit","MineDetector","SatchelCharge_Remote_Mag"];
 
 //linked items (don't put "ItemRadio" in here, as it's set with _equipRadio) - (array)
 _itemsLink = [
@@ -144,6 +144,7 @@ _ACE_M26_Clacker = 1;
 _ACE_DeadManSwitch = 1;
 _ACE_DefusalKit = 1;
 _ACE_Cellphone = 0;
+_ACE_FlareTripMine = 0;
 _ACE_MapTools = 0;
 _ACE_CableTie = 2;
 _ACE_sprayPaintColor = "NONE";
@@ -416,7 +417,8 @@ switch (ADV_par_customUni) do {
 		_ACE_Clacker = 0;
 		_ACE_DeadManSwitch = 0;
 		_ACE_DefusalKit = 1;
-		_ACE_Cellphone = 0;
+		_ACE_Cellphone = 1;
+		_ACE_FlareTripMine = 2;
 	};
 	case 12: {
 		//UK3CB

@@ -53,6 +53,7 @@ _actionText = if (_text isEqualTo "" || isNil "_text") then {
 } else {
 	format ["<t color='#00FF00'>%1</t>",_text];
 };
+
 _start addAction [
 	_actionText,
 	{

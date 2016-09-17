@@ -143,6 +143,7 @@ _ACE_M26_Clacker = 0;
 _ACE_DeadManSwitch = 1;
 _ACE_DefusalKit = 1;
 _ACE_Cellphone = 0;
+_ACE_FlareTripMine = 2;
 _ACE_MapTools = 1;
 _ACE_CableTie = 2;
 _ACE_sprayPaintColor = "NONE";
