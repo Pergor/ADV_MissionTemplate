@@ -46,5 +46,143 @@ private _ace_advancedWounds = if ( (["ace_medical_enableAdvancedWounds",0] call 
 			<br/><br/>- Wenn ihr technische Schwierigkeiten habt, schreibt bitte ausschließlich den Spiel-Admin an (rotes Icon im TS).
 			<br/>- Bitte haltet euch zurück mit out-of-character-Gesprächen. Die anderen Spielerinnen und Spieler werden es euch danken.")]
 ] call FHQ_TT_addBriefing;
+if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) exitWith {
+	[
+		west,
+		[
+			"FUNKFREQUENZEN",
+			"Frequenzen",
+			"Funkfrequenzen:
+			<br/><br/>Shortrange-Funkgeräte:
+			<br/>Jupiter: SW CH1 41MHz
+			<br/>Mars: SW CH2 42MHz
+			<br/>Deimos: SW CH3 43MHz
+			<br/>Phobos: SW CH4 44MHz
+			<br/>Vulkan: SW CH5 45MHz
+			<br/>Merkur, Apollo, Saturn, Diana nach Absprache.
+			<br/><br/>Longrange-Funkgeräte:
+			<br/>Convoyfunk: LR CH1 51MHz
+			<br/>Kampfkreis: LR CH2 52MHz
+			<br/>Logistik: LR CH3 53MHz
+			<br/>Aufklärung: LR CH4 54MHz
+			<br/>Luftfahrzeuge: LR CH5 55MHz
+			<br/>OPZ/Zeus: LR CH9 59MHz
+			"
+		],
+		east,
+		[
+			"FUNKFREQUENZEN",
+			"Frequenzen",
+			"Funkfrequenzen:
+			<br/><br/>Shortrange-Funkgeräte:
+			<br/>Luchs: SW CH1 41MHz
+			<br/>Löwe: SW CH2 42MHz
+			<br/>Tiger: SW CH3 43MHz
+			<br/>Panther: SW CH4 44MHz
+			<br/>Leopard: SW CH5 45MHz
+			<br/>Jaguar, Orca, Gepard, Ozelot nach Absprache.
+			<br/><br/>Longrange-Funkgeräte:
+			<br/>Convoyfunk: LR CH1 51MHz
+			<br/>Kampfkreis: LR CH2 52MHz
+			<br/>Logistik: LR CH3 53MHz
+			<br/>Aufklärung: LR CH4 54MHz
+			<br/>Luftfahrzeuge: LR CH5 55MHz
+			<br/>OPZ/Zeus: LR CH9 59MHz
+			"
+		],
+		independent,
+		[
+			"FUNKFREQUENZEN",
+			"Frequenzen",
+			"Funkfrequenzen:
+			<br/><br/>Shortrange-Funkgeräte:
+			<br/>Natter: SW CH1 61MHz
+			<br/>Anakonda: SW CH2 62MHz
+			<br/>Boa: SW CH3 63MHz
+			<br/>Cobra: SW CH4 64MHz
+			<br/>Viper, Drache nach Absprache.
+			<br/><br/>Longrange-Funkgeräte:
+			<br/>Convoyfunk: LR CH1 71MHz
+			<br/>Kampfkreis: LR CH2 72MHz
+			<br/>Logistik: LR CH3 73MHz
+			<br/>Aufklärung: LR CH4 74MHz
+			<br/>Luftfahrzeuge: LR CH5 75MHz
+			<br/>OPZ/Zeus: LR CH9 79MHz	
+			"
+		]
+	] call FHQ_TT_addBriefing;
+};
+if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith {
+	[
+		west,
+		[
+			"FUNKFREQUENZEN",
+			"Frequenzen",
+			"Funkfrequenzen:
+			<br/><br/>AN/PRC-343:
+			<br/>Jupiter: CH1
+			<br/>Mars: CH2
+			<br/>Deimos: CH3
+			<br/>Phobos: CH4
+			<br/>Vulkan: CH5
+			<br/>Merkur: CH6
+			<br/>Apollo: CH7
+			<br/>Saturn: CH8
+			<br/>Diana: CH9
+			<br/><br/>AN/PRC-152 / AN/PRC-117F:
+			<br/>Convoyfunk: CH1 - ""VEHICLES""
+			<br/>Kampfkreis: CH2 - ""PLTNET 1""
+			<br/>Logistik: CH3 - ""LOG""
+			<br/>Aufklärung: CH4 - ""RECON""
+			<br/>Luftfahrzeuge: CH5 - ""AIRNET""
+			<br/>OPZ/Zeus: CH16 - ""ADMIN""
+			"
+		],
+		east,
+		[
+			"FUNKFREQUENZEN",
+			"Frequenzen",
+			"Funkfrequenzen:
+			<br/><br/>AN/PRC-343:
+			<br/>Luchs: CH1
+			<br/>Löwe: CH2
+			<br/>Tiger: CH3
+			<br/>Panther: CH4
+			<br/>Leopard: CH5
+			<br/>Gepard: CH6
+			<br/>Orca: CH7
+			<br/>Ozelot: CH8
+			<br/>Jaguar: CH9
+			<br/><br/>AN/PRC-148 / AN/PRC-117F:
+			<br/>Convoyfunk: CH1 - ""VEHICLES""
+			<br/>Kampfkreis: CH2 - ""PLTNET 1""
+			<br/>Logistik: CH3 - ""LOG""
+			<br/>Aufklärung: CH4 - ""RECON""
+			<br/>Luftfahrzeuge: CH5 - ""AIRNET""
+			<br/>OPZ/Zeus: CH16 - ""ADMIN""
+			"
+		],
+		independent,
+		[
+			"FUNKFREQUENZEN",
+			"Frequenzen",
+			"Funkfrequenzen:
+			<br/><br/>Shortrange-Funkgeräte:
+			<br/>Natter: SW CH1 61MHz
+			<br/>Anakonda: SW CH2 62MHz
+			<br/>Boa: SW CH3 63MHz
+			<br/>Cobra: SW CH4 64MHz
+			<br/>Viper, Drache nach Absprache.
+			<br/><br/>Longrange-Funkgeräte:
+			<br/>Convoyfunk: LR CH1 71MHz
+			<br/>Kampfkreis: LR CH2 72MHz
+			<br/>Logistik: LR CH3 73MHz
+			<br/>Aufklärung: LR CH4 74MHz
+			<br/>Luftfahrzeuge: LR CH5 75MHz
+			<br/>OPZ/Zeus: LR CH9 79MHz	
+			"
+		]
+	] call FHQ_TT_addBriefing;
+};
 
 if (true) exitWith {};
