@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1790;
+		nextID=1794;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={15163.535,42.91,17226.676};
-		dir[]={0.047709592,-0.66263843,0.74741954};
-		up[]={0.042211939,0.74893928,0.66129315};
-		aside[]={0.99796945,7.3123374e-010,-0.063702814};
+		pos[]={15276.219,101.58126,17185.045};
+		dir[]={0.41370901,-0.86262137,0.29109848};
+		up[]={0.70548218,0.505849,0.49639958};
+		aside[]={0.57545608,-6.3155312e-009,-0.81783682};
 	};
 };
 binarizationWanted=0;
@@ -66,7 +66,8 @@ addons[]=
 	"A3_Modules_F",
 	"A3_Structures_F_Mil_BagFence",
 	"A3_Modules_F_Curator_Curator",
-	"A3_Data_F_Exp_A_Virtual"
+	"A3_Data_F_Exp_A_Virtual",
+	"A3_Data_F_Curator_Virtual"
 };
 class AddonsMetaData
 {
@@ -377,14 +378,14 @@ class Mission
 	};
 	class Entities
 	{
-		items=225;
+		items=229;
 		class Item0
 		{
 			dataType="Marker";
 			position[]={15129.301,17.90008,17272.439};
 			name="respawn_west";
 			type="Empty";
-			angle=225.12454;
+			angle=225.12453;
 			id=0;
 		};
 		class Item1
@@ -9680,6 +9681,255 @@ class Mission
 								};
 							};
 							value=1;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item225
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15296.312,17.781059,17207.574};
+				angles[]={6.2711854,0,0.0026520467};
+			};
+			name="virtual_z1";
+			isPlayable=1;
+			id=1790;
+			type="VirtualCurator_F";
+		};
+		class Item226
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15300.702,17.737001,17203.211};
+				angles[]={6.2671871,0,0.0079935296};
+			};
+			name="virtual_z2";
+			isPlayable=1;
+			id=1791;
+			type="VirtualCurator_F";
+		};
+		class Item227
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15293.093,17.729189,17204.662};
+			};
+			name="virtual_master_1";
+			id=1792;
+			type="ModuleCurator_F";
+			atlOffset=-0.0070018768;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="virtual_z1";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Zeus";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item228
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15297.192,17.680971,17200.465};
+				angles[]={0.017488198,0,0.0075049158};
+			};
+			name="virtual_master_2";
+			id=1793;
+			type="ModuleCurator_F";
+			atlOffset=0.00099754333;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="virtual_z2";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Zeus";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
 						};
 					};
 				};
