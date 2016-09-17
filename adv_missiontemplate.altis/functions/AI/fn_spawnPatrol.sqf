@@ -8,7 +8,7 @@ If one or multiple vehicles and infantry units are spawned, the vehicles will be
 The first vehicle will be the leader of any group.
 
 possible call, has to be executed on either server or headless client:
-[["O_Soldier_TL_F","O_Soldier_GL_F"],"",200,["LIMITED","STAG COLUMN","NOFOLLOW"],[spawnLogic,spawnLogic_1,spawnLogic_2],"UPSAREANAME"] call ADV_fnc_spawnPatrol;
+[["O_Soldier_TL_F","O_Soldier_GL_F"],east,200,["LIMITED","STAG COLUMN","NOFOLLOW"],[spawnLogic,spawnLogic_1,spawnLogic_2],"UPSAREANAME"] call ADV_fnc_spawnPatrol;
 
 _this select 0 = units array - format: ["classname","classname",...]
 _this select 1 = side of the units - can either be west, east, independent or civilian
