@@ -192,7 +192,7 @@ class ace_medical_enableOverdosing {
     force = 0;
 };
 class ace_medical_bleedingCoefficient {
-    value = 0.8;
+    value = 0.6;
     typeName = "SCALAR";
     force = 0;
 };
@@ -227,7 +227,7 @@ class ace_medical_enableScreams {
     force = 0;
 };
 class ace_medical_playerDamageThreshold {
-    value = 1.9;
+    value = 2.2;
     typeName = "SCALAR";
     force = 0;
 };
@@ -852,5 +852,41 @@ class ace_advanced_ballistics_simulationInterval {
 class ace_advanced_ballistics_simulationRadius {
     value = 2000;
     typeName = "SCALAR";
+    force = 0;
+};
+
+class ace_advanced_fatigue_enabled {
+    value = 1;
+    typeName = "BOOL";
+    force = 0;
+};
+class ace_advanced_fatigue_performanceFactor {
+    value = 1;
+    typeName = "SCALAR";
+    force = 0;
+};
+class ace_advanced_fatigue_recoveryFactor {
+    value = 1;
+    typeName = "SCALAR";
+    force = 0;
+};
+class ace_advanced_fatigue_loadFactor {
+    value = 1;
+    typeName = "SCALAR";
+    force = 0;
+};
+class ace_advanced_fatigue_terrainGradientFactor {
+    value = 1;
+    typeName = "SCALAR";
+    force = 0;
+};
+class ace_advanced_throwing_enablePickUp {
+    value = 1;
+    typeName = "BOOL";
+    force = 0;
+};
+class ace_advanced_throwing_enablePickUpAttached {
+    value = 0;
+    typeName = "BOOL";
     force = 0;
 };
