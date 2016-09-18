@@ -866,12 +866,12 @@ class ace_advanced_fatigue_performanceFactor {
     force = 0;
 };
 class ace_advanced_fatigue_recoveryFactor {
-    value = 1;
+    value = 2;
     typeName = "SCALAR";
     force = 0;
 };
 class ace_advanced_fatigue_loadFactor {
-    value = 1;
+    value = 0.8;
     typeName = "SCALAR";
     force = 0;
 };
