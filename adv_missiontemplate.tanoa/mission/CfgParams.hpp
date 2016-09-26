@@ -234,14 +234,14 @@ class param_customUni
 	title="Welche Uniform-Sets sollen an Einheiten ausgegeben werden? (Kann durch worldname beeinflusst werden.)";
 	values[] = {12,10,8,7,6,2,1,9,20,0};
 	texts[] = {"UK3CB - BAF","RHS - MARPAT","RHS - UCP","RHS - OCP","CUP - BAF","BWmod - Flecktarn","BWmod - Tropentarn","Vanilla - Guerilla","Apex - NATO","Vanilla - NATO"};
-	default = 0;
+	default = 20;
 };
 class param_customWeap
 {
 	title="Welche Waffen-Sets sollen an Einheiten ausgegeben werden? (Kann durch worldname beeinflusst werden.)";
 	values[] = {9,8,7,6,5,4,3,2,1,20,0};
 	texts[] = {"FAL, G3 und M60 - größtenteils ohne Optiken, keine Schalldämpfer (benötigt HLC_FAL, HLC_G3, HLC_MP5, HLC_M60)","BAF (benötigt UK3CB-Equipment und -Weapons)","CUP BAF (benötigt CUP)","CUP Arma 2 (benötigt CUP)","CUP Operation Arrowhead (benötigt CUP)","RHS SOF (benötigt RHSUSF)","RHS Marines (benötigt RHSUSF, optional HLC_MP5, HLC_M60)","RHS Army (benötigt RHSUSF, optional HLC_MP5)","BWmod (benötigt BWmod, optional HLC_G36)","Apex NATO","Vanilla NATO"};
-	default = 0;
+	default = 20;
 };
 class dummy_ind_equipment {
 	title = "---------------------- INDFOR-Parameter ----------------------";
@@ -261,7 +261,7 @@ class param_indUni
 	title="Welche Uniformen sollen an INDFOR-Einheiten ausgegeben werden?";
 	values[] = {2,20,1,0};
 	texts[] = {"TFA PMC","Apex Syndikat","Vanilla AAF","Vanilla PMC"};
-	default = 0;
+	default = 20;
 };
 class param_indCarAssets
 {
@@ -302,14 +302,14 @@ class param_opfUni
 	title="Welche Uniform-Sets sollen an OPFOR-Einheiten ausgegeben werden?";
 	values[] = {6,5,4,3,2,1,20,0};
 	texts[] = {"Afghan Militia (EricJ's Afghan Fighters & RHS)","Guerilla","EMR Desert (RHS)","Mountain Flora (RHS)","Flora (RHS)","EMR Summer (RHS)","Apex CSAT","Vanilla CSAT"};
-	default = 0;
+	default = 20;
 };
 class param_opfWeap
 {
 	title="Welche Waffen-Sets sollen an OPFOR-Einheiten ausgegeben werden?";
 	values[] = {4,3,2,1,21,20,0};
 	texts[] = {"HLC AK Pack (no logistic, no ammo in vehicles), am besten mit RHSAFRF","CUP (benötigt CUP)","RHS-Guerillas (benötigt RHSAFRF)","RHS (benötigt RHSAFRF)","Apex AK12","Apex CAR-95","Vanilla CSAT"};
-	default = 0;
+	default = 20;
 };
 class dummy_vehicles {
 	title = "---------------------- Fahrzeuge (Allgemein) ----------------------";
