@@ -861,7 +861,7 @@ class ace_advanced_fatigue_enabled {
     force = 0;
 };
 class ace_advanced_fatigue_performanceFactor {
-    value = 1;
+    value = 1.2;
     typeName = "SCALAR";
     force = 0;
 };
@@ -871,7 +871,7 @@ class ace_advanced_fatigue_recoveryFactor {
     force = 0;
 };
 class ace_advanced_fatigue_loadFactor {
-    value = 0.8;
+    value = 0.7;
     typeName = "SCALAR";
     force = 0;
 };
@@ -880,6 +880,7 @@ class ace_advanced_fatigue_terrainGradientFactor {
     typeName = "SCALAR";
     force = 0;
 };
+
 class ace_advanced_throwing_enablePickUp {
     value = 1;
     typeName = "BOOL";
