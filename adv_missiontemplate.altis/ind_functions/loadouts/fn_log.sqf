@@ -166,7 +166,7 @@ _ACE_HandFlare_White = 0;
 _ACE_HandFlare_Yellow = 0;
 
 //AGM Variables (if AGM is running) - (bool)
-_ACE_isMedic = 1;		//0 = no medic; 1 = medic; 2 = doctor;
+_ACE_isMedic = 0;		//0 = no medic; 1 = medic; 2 = doctor;
 _ACE_isEngineer = 2;	//0 = no specialist; 1 = engineer; 2 = repair specialist;
 _ACE_isEOD = false;
 _ACE_isPilot = true;
