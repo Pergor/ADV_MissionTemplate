@@ -45,9 +45,9 @@ _unit allowDamage false;
 _openingHeight =  if ( _openingHeight < 119 ) then { 120 } else { _openingHeight };
 
 //safety:
-waitUntil {((getPosWorld _unit) select 2) > 500};
+waitUntil {((getPos _unit) select 2) > 500};
 _unit moveTo _targetPos;
-waitUntil {((getPosWorld _unit) select 2) < _openingHeight};
+waitUntil {((getPos _unit) select 2) < _openingHeight};
 if (isClass(configFile >> "CfgPatches" >> "ace_parachute")) then {
 	if !(backpack _unit == "ACE_ReserveParachute") then {
 		_unit action ["openParachute", _unit];
@@ -56,12 +56,12 @@ if (isClass(configFile >> "CfgPatches" >> "ace_parachute")) then {
 	_unit action ["openParachute", _unit];
 };
 _unit moveTo _targetPos;
-waitUntil {((getPosWorld _unit) select 2) < 50};
+waitUntil {((getPos _unit) select 2) < 50};
 _unit allowDamage true;
 _unit setVariable ["ACE_GForceCoef", _ACE_GForceCoef];
 
 //removal of the parachute:
-waitUntil {sleep 0.2; ( isTouchingGround _unit || ((getPosATL _unit) select 2) < 1 )};
+waitUntil {isTouchingGround _unit || ((getPos _unit) select 2) < 2};
 if !(isClass(configFile >> "CfgPatches" >> "ace_parachute")) then { _unit playMove "AinvPercMstpSrasWrflDnon_Putdown_AmovPercMstpSrasWrflDnon"; };
 sleep 1;
 _unit action ["PutBag"];

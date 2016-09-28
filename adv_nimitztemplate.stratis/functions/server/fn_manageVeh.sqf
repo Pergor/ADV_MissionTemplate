@@ -115,15 +115,25 @@ adv_manageVeh_codeForAll = {
 		};
 	};
 	if ( ADV_par_Radios > 0 && (_veh isKindOf 'CAR' || _veh isKindOf 'TANK' || _veh isKindOf 'AIR') ) then {
-		_veh setVariable ['tf_hasRadio', true, true];
+		_veh setVariable ["tf_side", west, true];
+		_veh setVariable ["tf_hasRadio", true, true];
+		call {
+			if (_veh isKindOf 'AIR') exitWith {
+				_veh setVariable ["TF_RadioType", "tf_anarc210", true];
+			};
+			_veh setVariable ["TF_RadioType", "tf_rt1523g", true];
+		};
 	};
 	if (isClass(configFile >> 'CfgPatches' >> 'rhsusf_main')) then {
 		[_veh] call ADV_fnc_rhsDecals;
 	};
 	if ( (toUpper worldname) in ADV_var_lushMaps ) then {
-		if (_veh isKindOf 'B_LSV_01_unarmed_F' || _veh isKindof 'B_T_LSV_01_armed_F') then {
+		if ( toUpper (typeOf _veh) in ['B_T_LSV_01_unarmed_F','B_T_LSV_01_armed_F','B_LSV_01_unarmed_F','B_LSV_01_armed_F'] ) then {
 			[_veh,'OLIVE',nil] call BIS_fnc_initVehicle;
 		};
+	};
+	if ( toUpper (typeOf _veh) in ['O_T_LSV_02_armed_F','O_T_LSV_02_unarmed_F','O_LSV_02_armed_F','O_LSV_02_unarmed_F'] ) then {
+		[_veh,'BLACK',nil] call BIS_fnc_initVehicle;
 	};
 };
 

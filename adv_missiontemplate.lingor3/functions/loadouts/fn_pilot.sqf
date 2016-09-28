@@ -105,6 +105,7 @@ _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a riflem
 
 //ACE items (if ACE is running on the server) - (integers)
 _ACE_EarPlugs = 1;
+_ACE_dogtags = 1;
 
 _ace_FAK = 1;		//overwrites the values for bandages, morphine and tourniquet and adds a specified number of bandages and morphine. Defined in fn_aceFAK.sqf
 _ACE_fieldDressing = 3;
@@ -299,6 +300,7 @@ switch (true) do {
 	case (ADV_par_customUni == 9): {
 		_giveRiflemanRadio = true;
 		_givePersonalRadio = false;
+		_ACE_dogtags = 0;
 	};
 	case (ADV_par_customUni == 12): {
 		//BWmod Fleck

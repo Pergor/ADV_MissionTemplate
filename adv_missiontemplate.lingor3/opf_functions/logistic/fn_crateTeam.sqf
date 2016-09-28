@@ -105,13 +105,21 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 		_target addMagazineCargoGlobal ["O_IR_Grenade",4];
 	};
 
-	_ACE_fieldDressing = 12;
-	_ACE_packingBandage = 24;
-	_ACE_elasticBandage = 24;
-	_ACE_quikclot = 32;
+	call {
+		if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) exitWith {
+			_ACE_fieldDressing = 16;
+			_ACE_packingBandage = 24;
+			_ACE_elasticBandage = 24;
+			_ACE_quikclot = 32;
+		};
+		_ACE_fieldDressing = 40;
+		_ACE_packingBandage = 0;
+		_ACE_elasticBandage = 8;
+		_ACE_quikclot = 0;
+	};
 	_ACE_atropine = 0;
 	_ACE_epinephrine = 2;
-	_ACE_morphine = 8;
+	_ACE_morphine = 4;
 	_ACE_tourniquet = 8;
 	_ACE_bloodIV = 0;
 	_ACE_bloodIV_500 = 0;

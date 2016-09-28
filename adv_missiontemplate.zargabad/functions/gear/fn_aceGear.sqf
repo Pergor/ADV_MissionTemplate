@@ -10,6 +10,9 @@ params [
 //ACE-Items:
 if (!isClass(configFile >> "CfgPatches" >> "ACE_common")) exitWith {};
 
+if ( isClass(configFile >> "CfgPatches" >> "ACE_dogtags") && !isNil "_ACE_dogtags") then {
+	if (_ACE_dogtags > 0) then { _unit addItem "ACE_dogtag"; };
+};
 if ( isClass(configFile >> "CfgPatches" >> "ACE_hearing") && !isNil "_ACE_EarPlugs" ) then {
 	for "_i" from 1 to _ACE_EarPlugs do { _unit addItem "ACE_EarPlugs"; };
 };

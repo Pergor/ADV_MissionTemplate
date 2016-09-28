@@ -117,7 +117,14 @@ adv_opf_manageVeh_codeForAll = {
 		};
 	};
 	if ( ADV_par_Radios > 0 && (_veh isKindOf 'CAR' || _veh isKindOf 'TANK' || _veh isKindOf 'AIR') ) then {
-		_veh setVariable ['tf_hasRadio', true, true];
+		_veh setVariable ["tf_side", east, true];
+		_veh setVariable ["tf_hasRadio", true, true];
+		call {
+			if (_veh isKindOf 'AIR') exitWith {
+				_veh setVariable ["TF_RadioType", "tf_mr6000l", true];
+			};
+			_veh setVariable ["TF_RadioType", "tf_mr3000", true];
+		};
 	};
 	if (isClass(configFile >> 'CfgPatches' >> 'rhs_main')) then {
 		[_veh] call ADV_opf_fnc_rhsDecals;

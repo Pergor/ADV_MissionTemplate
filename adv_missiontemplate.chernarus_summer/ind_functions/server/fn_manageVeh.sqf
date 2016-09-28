@@ -118,7 +118,14 @@ adv_ind_manageVeh_codeForAll = {
 		};
 	};
 	if ( ADV_par_Radios > 0 && (_veh isKindOf 'CAR' || _veh isKindOf 'TANK' || _veh isKindOf 'AIR') ) then {
-		_veh setVariable ['tf_hasRadio', true, true];
+		_veh setVariable ["tf_side", independent, true];
+		_veh setVariable ["tf_hasRadio", true, true];
+		call {
+			if (_veh isKindOf 'AIR') exitWith {
+				_veh setVariable ["TF_RadioType", "tf_anarc164", true];
+			};
+			_veh setVariable ["TF_RadioType", "tf_anprc155", true];
+		};
 	};
 	if (ADV_par_indUni == 0 && ADV_par_indCarAssets == 0 && !(worldname == 'TANOA') && (str _veh in ADV_ind_veh_transport+ADV_ind_veh_Offroad+ADV_ind_veh_airRecon)) then {
 		_veh setObjectTextureGlobal [0,'#(rgb,8,8,3)color(1,1,1,0.004)'];

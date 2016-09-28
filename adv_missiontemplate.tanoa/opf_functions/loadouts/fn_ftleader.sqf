@@ -111,6 +111,7 @@ _tfar_microdagr = 1;				//adds the tfar microdagr to set the channels for a rifl
 
 //ACE items (if ACE is running on the server) - (integers)
 _ACE_EarPlugs = 1;
+_ACE_dogtags = 1;
 
 _ace_FAK = 1;		//overwrites the values for bandages, morphine and tourniquet and adds a specified number of bandages and morphine. Defined in fn_aceFAK.sqf
 _ACE_fieldDressing = 3;
@@ -275,6 +276,7 @@ switch (ADV_par_opfUni) do {
 		_binocular = "Binocular";
 		_giveRiflemanRadio = true;
 		_givePersonalRadio = false;
+		_ACE_dogtags = 0;
 	};
 	case 6: {
 		//Afghan Militia (EricJ's Taliban)
@@ -287,6 +289,7 @@ switch (ADV_par_opfUni) do {
 		_binocular = "Binocular";
 		_giveRiflemanRadio = true;
 		_givePersonalRadio = false;
+		_ACE_dogtags = 0;
 	};
 	case 20: {
 		//Apex Green Hex

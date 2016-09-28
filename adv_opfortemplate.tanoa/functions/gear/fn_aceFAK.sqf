@@ -34,12 +34,12 @@ switch _FAKtype do {
 					_ACE_packingBandage = 2;
 					_ACE_quikclot = 6;
 				};
-				_ACE_fieldDressing = 8;
-				_ACE_elasticBandage = 8;
-				_ACE_packingBandage = 2;
-				_ACE_quikclot = 2;
+				_ACE_fieldDressing = 10;
+				_ACE_elasticBandage = 2;
+				_ACE_packingBandage = 0;
+				_ACE_quikclot = 0;
 			};
-			_ACE_morphine = 2;
+			_ACE_morphine = 1;
 			_ACE_tourniquet = 2;
 
 			for "_i" from 1 to _ACE_fieldDressing do { _unit addItem "ACE_fieldDressing"; };
@@ -52,7 +52,7 @@ switch _FAKtype do {
 			for "_i" from 1 to _ACE_tourniquet do { _unit addItem "ACE_tourniquet"; };
 		} else {
 			_ACE_fieldDressing = 12;
-			_ACE_morphine = 2;
+			_ACE_morphine = 1;
 
 			for "_i" from 1 to _ACE_fieldDressing do { _unit addItem "ACE_fieldDressing"; };
 			for "_i" from 1 to _ACE_morphine do { _unit addItem "ACE_morphine"; };

@@ -148,10 +148,18 @@ if (ADV_par_Radios == 1 || ADV_par_Radios == 3) then {
 	};
 };
 
-_ACE_fieldDressing = 10;
-_ACE_elasticBandage = 10;
-_ACE_packingBandage = 10;
-_ACE_quikclot = 10;
+call {
+	if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) exitWith {
+		_ACE_fieldDressing = 10;
+		_ACE_packingBandage = 10;
+		_ACE_elasticBandage = 10;
+		_ACE_quikclot = 10;
+	};
+	_ACE_fieldDressing = 30;
+	_ACE_packingBandage = 0;
+	_ACE_elasticBandage = 0;
+	_ACE_quikclot = 0;
+};
 _ACE_atropine = 0;
 _ACE_epinephrine = 4;
 _ACE_morphine = 4;
