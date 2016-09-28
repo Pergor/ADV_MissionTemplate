@@ -21,7 +21,11 @@ if (isDedicated) exitWith {};
 waitUntil {time > 1};
 //////////////////////////////////////////////////////////////////////////////////
 // place your custom content here:
-
+adv_evh_respawnMover = player addEventhandler ["RESPAWN",{
+	player setPosATL (getPosATL respawn_helper);
+	player setDir (getDir respawn_helper);
+}];
+ADV_handle_logisticAction = werkbank_1 addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","true",5];
 
 
 
