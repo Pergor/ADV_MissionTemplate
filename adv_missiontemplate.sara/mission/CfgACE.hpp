@@ -159,11 +159,13 @@ class ace_map_gestures_interval {
     force = 0;
 };
 class ace_map_gestures_groupColorConfigurations {
+	value[] = {};
     typeName = "ARRAY";
     force = 0;
 };
 class ace_map_gestures_groupColorConfigurationMapping {
     typeName = "ARRAY";
+	value[] = {{}, {}};
     force = 0;
 };
 class ace_medical_level {	//will be overwritten with CfgACEParams.hpp values or setting in MP lobby!
