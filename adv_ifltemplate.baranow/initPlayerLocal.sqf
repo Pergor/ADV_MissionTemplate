@@ -1,0 +1,191 @@
+﻿// JIP Check (This code should be placed first line of init.sqf file)
+if (!isServer && isNull player) then {isJIP=true;} else {isJIP=false;};
+
+//custom initPlayerLocal (mission specific):
+ADV_handle_initPlayerLocal_custom = [] spawn compile preprocessFileLineNumbers "mission\initPlayerLocal_custom.sqf";
+
+//removes all the mission relevant markers from the map:
+call ADV_fnc_missionMarkers;
+//parameter variables are re-initialized:
+call ADV_fnc_parVariables;
+call ADV_fnc_variables;
+
+//waitUntil-player is initialized:
+waitUntil {player == player && !isNil "ADV_params_defined"};
+
+//defines the player's unit:
+[player] call ADV_fnc_playerUnit;
+
+//prevents the player units from blabbering on their radios
+if (isMultiplayer) then {
+	player setVariable ["BIS_noCoreConversations", true];
+	enableRadio false;
+};
+
+//randomweather:
+if (ADV_par_randomWeather != 99) then {
+	ADV_handle_randomWeather = [] spawn MtB_fnc_randomWeather;
+};
+
+//waitUntil-player is on map
+titleText ["", "BLACK FADED"];
+titleText [format ["%1 \n\n\nThis mission was built by %2 \n\n\n Have Fun! :)", briefingName, missionNamespace getVariable ["ADV_missionAuthor","[SeL] Belbo // Adrian"]], "BLACK FADED"];
+
+//fuck mcc
+if (!isNil "mcc_actionInedx") then { player removeAction mcc_actionInedx; };
+
+//stupid goggles are removed:
+if ( goggles player in ["Mask_M40_OD","Mask_M40","Mask_M50","G_Balaclava_blk","G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_oli","G_Bandanna_aviator","G_Bandanna_beast","G_Bandanna_blk",
+	"G_Bandanna_khk","G_Bandanna_oli","G_Bandanna_shades","G_Bandanna_sport","G_Bandanna_tan","G_Goggles_VR"]
+) then { removeGoggles player; };
+sleep 1;
+//loadouts and RespawnMPEVH are placed on the units on spawn. [target]
+[player] call ADV_fnc_applyLoadout;
+sleep 1;
+
+//logistics menu
+if ( ADV_par_logisticAmount > 0 ) then {
+	if (!isNil "flag_1") then {
+		ADV_handle_logisticAction = flag_1 addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == west",5];
+	};
+	if (!isNil "opf_flag_1") then {
+		ADV_handle_opfLogisticAction_opf = opf_flag_1 addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == east",5];
+	};
+	if (!isNil "ind_flag_1") then {
+		ADV_handle_indLogisticAction_ind = ind_flag_1 addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == independent",5];
+	};
+};
+//gearsaving
+ADV_objects_gearSaving = [];
+if (!isNil "crate_1") then {ADV_objects_gearSaving pushBack crate_1};
+if (!isNil "crate_2") then {ADV_objects_gearSaving pushBack crate_2};
+if (!isNil "crate_3") then {ADV_objects_gearSaving pushBack crate_3};
+if (!isNil "crate_4") then {ADV_objects_gearSaving pushBack crate_4};
+if (!isNil "crate_5") then {ADV_objects_gearSaving pushBack crate_5};
+if (!isNil "crate_6") then {ADV_objects_gearSaving pushBack crate_6};
+if (!isNil "crate_7") then {ADV_objects_gearSaving pushBack crate_7};
+if (!isNil "mgCrate") then {ADV_objects_gearSaving pushBack mgCrate};
+
+if (!isNil "ind_crate_1") then {ADV_objects_gearSaving pushBack ind_crate_1};
+if (!isNil "ind_crate_2") then {ADV_objects_gearSaving pushBack ind_crate_2};
+if (!isNil "ind_crate_3") then {ADV_objects_gearSaving pushBack ind_crate_3};
+if (!isNil "ind_crate_4") then {ADV_objects_gearSaving pushBack ind_crate_4};
+
+if (!isNil "opf_crate_1") then {ADV_objects_gearSaving pushBack opf_crate_1};
+if (!isNil "opf_crate_2") then {ADV_objects_gearSaving pushBack opf_crate_2};
+if (!isNil "opf_crate_3") then {ADV_objects_gearSaving pushBack opf_crate_3};
+if (!isNil "opf_crate_4") then {ADV_objects_gearSaving pushBack opf_crate_4};
+if (!isNil "opf_crate_5") then {ADV_objects_gearSaving pushBack opf_crate_5};
+if (!isNil "opf_crate_6") then {ADV_objects_gearSaving pushBack opf_crate_6};
+if (!isNil "opf_crate_7") then {ADV_objects_gearSaving pushBack opf_crate_7};
+if (!isNil "opf_mgCrate") then {ADV_objects_gearSaving pushBack opf_mgCrate};
+
+if (!isNil "crate_empty") then {ADV_objects_gearSaving pushBack crate_empty};
+if (!isNil "ind_crate_empty") then {ADV_objects_gearSaving pushBack ind_crate_empty};
+if (!isNil "opf_crate_empty") then {ADV_objects_gearSaving pushBack opf_crate_empty};
+if !(count ADV_objects_gearSaving == 0) then {
+	ADV_objects_gearSaving spawn adv_fnc_gearsaving;
+	//ADV_objects_gearSaving spawn adv_fnc_gearloading;
+};
+
+//disable fatigue if wanted:
+if (ADV_par_fatigue == 0) then {
+	player enableFatigue false;
+	player enableStamina false;
+	ADV_fatigue_EVH = player addEventhandler ["Respawn", {player enableFatigue false; player enableStamina false;}]; 
+};
+
+//reduce aim sway coefficient:
+/*
+if (!isClass(configFile >> "CfgPatches" >> "adv_aimcoeff")) then {
+	player setCustomAimCoef 0.8;
+	ADV_setCustomAimCoef_EVH = player addEventhandler ["Respawn",{player setCustomAimCoef 0.8;}];
+};
+*/
+
+//move/remove respawn marker:
+//[120 = Time until the respawn marker is moved again, 20 = radius around the group leader to place the marker]
+ADV_scriptVar_initMoveMarker_jump = {
+	{
+		private _target = _x;
+		_target addAction [("<t color=""#00FF00"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJumpSelection},nil,3,false,true,"","player == leader (group player)",5];
+		nil;
+	} count _this;
+};
+switch ( ADV_par_moveMarker ) do {
+	case 1: {
+		ADV_handle_moveRespMarker = [120,20,ADV_par_remRespWest] spawn ADV_fnc_moveRespMarker;
+	};
+	default {
+		if (!isNil "flag_1") then { [flag_1] call ADV_fnc_flag; };
+		if (!isNil "opf_flag_1") then { [opf_flag_1] call ADV_fnc_flag; };
+		if (!isNil "ind_flag_1") then {	[ind_flag_1] call ADV_fnc_flag;	};
+	};
+	case 3: {
+		if (!isNil "flag_1") then { [flag_1] call ADV_fnc_flag; [flag_1] call ADV_scriptVar_initMoveMarker_jump; };
+		if (!isNil "opf_flag_1") then { [opf_flag_1] call ADV_fnc_flag; [opf_flag_1] call ADV_scriptVar_initMoveMarker_jump; };
+		if (!isNil "ind_flag_1") then {	[ind_flag_1] call ADV_fnc_flag;	[ind_flag_1] call ADV_scriptVar_initMoveMarker_jump; };
+	};
+	case 99: {
+		setPlayerRespawnTime 9999;
+	};
+	case 0: {};
+};
+
+//adds briefing pictures (00.jpg-05.jpg in \img\) to the specified object and loadout actions:
+if (!isNil "BriefingBoard1") then {[BriefingBoard1] call ADV_fnc_board;};
+if (!isNil "opf_BriefingBoard1") then {[opf_BriefingBoard1] call ADV_fnc_board;};
+if (!isNil "ind_BriefingBoard1") then {[ind_BriefingBoard1] call ADV_fnc_board;};
+if (ADV_par_ChooseLoad == 1) then {
+	if (!isNil "BriefingBoard1") then {
+			ADV_handle_chooseLoadoutAction = BriefingBoard1 addAction [("<t color=""#00FF00"">" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,false,true,"","side player == west",5];
+	};
+	if (!isNil "opf_BriefingBoard1") then {
+		ADV_handle_chooseLoadoutAction_opf = opf_BriefingBoard1 addAction [("<t color=""#00FF00"">" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,false,true,"","side player == east",5];
+	};
+	if (!isNil "ind_BriefingBoard1") then {
+		ADV_handle_chooseLoadoutAction_ind = ind_BriefingBoard1 addAction [("<t color=""#00FF00"">" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,false,true,"","side player == independent",5];
+	};
+};
+
+//adds action to throw it away if a disposable launcher is shot.
+if !(isClass (configFile >> "CfgPatches" >> "adv_dropLauncher")) then { ADV_handle_dispLaunch = [] spawn ADV_fnc_dispLaunch; };
+
+if ( toUpper (str player) in ["Z1","Z2","Z3","Z4","Z5","OPF_Z1","OPF_Z2","OPF_Z3","OPF_Z4","OPF_Z5","IND_Z1","IND_Z2","IND_Z3","IND_Z4","IND_Z5"] ) then {
+	if ( isNull (getAssignedCuratorLogic player) ) then { [str player, 3] remoteExecCall ["adv_fnc_createZeus",2]; };
+	if (isClass (configFile >> "CfgWeapons" >> "H_Cap_capPatch_SeL")) then {
+		player addHeadgear "H_Cap_capPatch_SeL";
+	};
+};
+
+//add raise/lower headset-action:
+//[player] spawn ADV_fnc_radioHeadset;
+
+sleep 3;
+titleText ["", "BLACK FADED"];
+sleep 1;
+titleFadeOut 3;
+
+//igi-load
+if !(isClass(configFile >> "CfgPatches" >> "ace_cargo")) then {
+	ADV_handle_igiLoad = [] execVM "scripts\IgiLoad\IgiLoadInit.sqf";
+};
+
+switch (side (group player)) do {
+	case west: { [player,"respawn_west",70] call adv_fnc_safezone; };
+	case east: { [player,"respawn_east",70] call adv_fnc_safezone; };
+	case independent: { [player,"respawn_guerrila",70] call adv_fnc_safezone; };
+	default {};
+};
+
+sleep 4;
+//a little hint stating the date and time
+if ((toUpper worldname) in ["STRATIS","ALTIS"]) then {
+	["Have Fun!"] spawn BIS_fnc_infoText;
+	sleep 4;
+	[] spawn compile preprocessFileLineNumbers "a3\missions_f_epa\Campaign_shared\Functions\Timeline\fn_camp_showOSD.sqf";
+} else {
+	["Have Fun!", "Datum:" + str (date select 2) + "/" + str (date select 1) + "/" + str (date select 0)] spawn BIS_fnc_infoText;
+};
+
+if (true) exitWith {};
