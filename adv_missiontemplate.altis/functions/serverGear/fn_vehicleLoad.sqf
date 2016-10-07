@@ -34,7 +34,11 @@ if (_withWeapons) then {
 				_target addMagazineCargoGlobal ["BWA3_30Rnd_556x45_G36_Tracer",10];
 			};
 			_target addMagazineCargoGlobal ["BWA3_200Rnd_556x45_Tracer",2];
-			_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51_Tracer",2];
+			if (isClass(configFile >> "CfgPatches" >> "hlcweapons_MG3s")) then {
+				_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_M_MG3",2];
+			} else {
+				_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51_Tracer",2];
+			};
 			
 			_target addMagazineCargoGlobal ["BWA3_DM51A1",5];
 			_target addMagazineCargoGlobal ["BWA3_DM25",10];

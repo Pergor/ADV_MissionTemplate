@@ -39,8 +39,13 @@ if (!isServer) exitWith {};
 				};
 				_target addMagazineCargoGlobal ["BWA3_200Rnd_556x45",20];
 				_target addMagazineCargoGlobal ["BWA3_200Rnd_556x45_Tracer",20];
-				_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51",20];
-				_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51_Tracer",20];
+				if (isClass(configFile >> "CfgPatches" >> "hlcweapons_MG3s")) then {
+					_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_M_MG3",20];
+					_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_Barrier_MG3",20];
+				} else {
+					_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51",20];
+					_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51_Tracer",20];
+				};				
 				_target addMagazineCargoGlobal ["BWA3_15Rnd_9x19_P8",20];
 				_target addMagazineCargoGlobal ["BWA3_10Rnd_762x51_G28_LR",30];
 				_target addMagazineCargoGlobal ["BWA3_10Rnd_127x99_G82",10];
