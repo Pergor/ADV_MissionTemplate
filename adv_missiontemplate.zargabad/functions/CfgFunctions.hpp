@@ -33,6 +33,7 @@ class ADV
 		class disableVeh {};
 		class disableVehSelector {};
 		class flare {};
+		class getOppPos {};
 		class HCobjects {};
 		class lockVeh {};
 		class manageVeh { postInit = 1; };

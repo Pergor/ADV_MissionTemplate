@@ -213,6 +213,10 @@ switch (ADV_par_customWeap) do {
 		_handgunSilencer = "";		//if silencer is added
 		_additionalAmmo = [2,"BWA3_120Rnd_762x51",true];
 		_additionalAmmo2 = [3,"BWA3_120Rnd_762x51_Tracer",true];
+		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_MG3s")) then {
+			_additionalAmmo = [2,"hlc_100Rnd_762x51_M_MG3",true];
+			_additionalAmmo2 = [3,"hlc_100Rnd_762x51_M_MG3",true];
+		};
 	};
 	case 2: {
 		//RHS ARMY

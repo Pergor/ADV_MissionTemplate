@@ -104,7 +104,7 @@ if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 _giveRiflemanRadio = true;
 _givePersonalRadio = true;
 _giveBackpackRadio = false;
-_tfar_microdagr = 1;				//adds the tfar microdagr to set the channels for a rifleman radio
+_tfar_microdagr = 0;				//adds the tfar microdagr to set the channels for a rifleman radio
 
 //ACE items (if ACE is running on the server) - (integers)
 _ACE_EarPlugs = 1;

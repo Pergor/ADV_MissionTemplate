@@ -1,8 +1,4 @@
-﻿// Ausrüstungsskript by James, 
-// in Anlehnung an Maeh, Feldhobel
-//hint str(_this);
-
-params [
+﻿params [
 	["_crateSelection", "", [""]],
 	["_forcePlacement", false, [true]]
 ];

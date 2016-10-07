@@ -192,9 +192,21 @@ switch (ADV_par_customWeap) do {
 		//BWmod
 		_primaryweapon = "BWA3_MG5";
 		_optic = ["BWA3_optic_ZO4x30"];
-		if ( ADV_par_NVGs > 0 ) then { _attachments = ["BWA3_acc_VarioRay_irlaser"]; };
 		_additionalAmmo set [0,4];
-		_silencer = "BWA3_muzzle_snds_MG5";		//if silencer is added
+		_silencer = "BWA3_muzzle_snds_MG5";
+		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_MG3s")) then {
+			call {
+				if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+					_primaryweapon = ["hlc_lmg_MG3KWS","hlc_lmg_MG3KWS_b"];
+				};
+					_primaryweapon = "hlc_lmg_MG3KWS_b";
+			};
+			_optic = ["BWA3_optic_Shortdot"];
+			_primaryweaponAmmo = [1,"hlc_100Rnd_762x51_M_MG3"];
+			_additionalAmmo = [5,"hlc_100Rnd_762x51_M_MG3",true];
+			_silencer = "";
+		};
+		if ( ADV_par_NVGs > 0 ) then { _attachments = ["BWA3_acc_VarioRay_irlaser"]; };
 		_handgun = "BWA3_P8";
 		_itemsHandgun = [];
 		_handgunSilencer = "";		//if silencer is added

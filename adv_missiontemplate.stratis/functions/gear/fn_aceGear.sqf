@@ -27,7 +27,12 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_medical") ) then {
 		[_unit,_ace_FAK] call ADV_fnc_aceFAK;
 	} else {
 		if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 || ( (missionnamespace getVariable ["ace_medical_medicSetting",2]) > 1 && _ACE_isMedic > 0 ) ) then {
+			for "_i" from 1 to _ACE_personalAidKit do { _unit addItem "ACE_personalAidKit"; };
+			if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",true]) then {
+				for "_i" from 1 to _ACE_surgicalKit do { _unit addItem "ACE_surgicalKit"; };
+			};
 			if ( !(_backpack == "") && (_mediKit >= 1 || _FirstAidKits >= 5) ) then {
+				
 				_mediBack = unitBackpack _unit;
 				_mediBack addItemCargoGlobal ["ACE_fieldDressing", _ACE_fieldDressing];
 				_mediBack addItemCargoGlobal ["ACE_elasticBandage", _ACE_elasticBandage];
@@ -50,10 +55,6 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_medical") ) then {
 				_mediBack addItemCargoGlobal ["ACE_salineIV_500", _ACE_salineIV_500];
 				_mediBack addItemCargoGlobal ["ACE_salineIV_250", _ACE_salineIV_250];
 				
-				if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",true]) then {
-					for "_i" from 1 to _ACE_surgicalKit do { _unit addItem "ACE_surgicalKit"; };
-				};
-				for "_i" from 1 to _ACE_personalAidKit do { _unit addItem "ACE_personalAidKit"; };
 				_mediBack addItemCargoGlobal ["ACE_bodyBag", _ACE_bodyBag];
 			} else {
 				for "_i" from 1 to _ACE_fieldDressing do { _unit addItem "ACE_fieldDressing"; };
@@ -77,10 +78,6 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_medical") ) then {
 				for "_i" from 1 to _ACE_salineIV_500 do { _unit addItem "ACE_salineIV_500"; };
 				for "_i" from 1 to _ACE_salineIV_250 do { _unit addItem "ACE_salineIV_250"; };
 				
-				if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",true]) then {
-					for "_i" from 1 to _ACE_surgicalKit do { _unit addItem "ACE_surgicalKit"; };
-				};
-				for "_i" from 1 to _ACE_personalAidKit do { _unit addItem "ACE_personalAidKit"; };
 			};
 			//_mediBack addItemCargoGlobal ["ACE_surgicalKit", _ACE_surgicalKit];
 			//_mediBack addItemCargoGlobal ["ACE_personalAidKit", _ACE_personalAidKit];

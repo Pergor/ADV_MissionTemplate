@@ -317,7 +317,7 @@ switch (ADV_par_customUni) do {
 		if (isClass(configFile >> "CfgPatches" >> "example_german_headgear_config")) then {
 			_items pushback "PBW_muetze1_tropen";
 		};
-		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = (_itemsLink-["NVGoggles_OPFOR"]) pushBack "dsk_nsv"; };
+		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
 	};
 	case 2: {
 		//BWmod Fleck
@@ -328,7 +328,7 @@ switch (ADV_par_customUni) do {
 		if (isClass(configFile >> "CfgPatches" >> "example_german_headgear_config")) then {
 			_items pushback "PBW_muetze1_fleck";
 		};
-		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = (_itemsLink-["NVGoggles_OPFOR"]) pushBack "dsk_nsv"; };
+		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
 	};
 	case 3: {
 		//TFA Mixed
