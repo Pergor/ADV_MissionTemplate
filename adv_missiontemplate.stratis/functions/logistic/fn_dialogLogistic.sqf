@@ -261,11 +261,13 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 		case "ADV_LOGISTIC_WHEEL": {
 			if (isClass(configFile >> "CfgPatches" >> "ace_repair")) then {
 				_box = createVehicle ["ACE_Wheel",getPosASL player,[],0,"CAN_COLLIDE"];
+				_box setPosASL (getPosASL player);
 			};
 		};
 		case "ADV_LOGISTIC_TRACK": {
 			if (isClass(configFile >> "CfgPatches" >> "ace_repair")) then {
 				_box = createVehicle ["ACE_Track",getPosASL player,[],0,"CAN_COLLIDE"];
+				_box setPosASL (getPosASL player);
 			};
 		};
 		case "ADV_LOGISTIC_CRATEDELETE": {

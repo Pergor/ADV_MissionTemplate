@@ -23,7 +23,7 @@ _loadoutList = [
 	,"Gruppenführer"
 	,"Truppführer"
 	,"Sanitäter"
-	,"---- Manschaftsloadouts ----"
+	,"---- Mannschaftsloadouts ----"
 	,"LMG-Schütze"
 	,"Grenadier"
 	,"Schütze"

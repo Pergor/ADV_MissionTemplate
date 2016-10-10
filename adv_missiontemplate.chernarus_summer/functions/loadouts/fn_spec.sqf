@@ -193,7 +193,6 @@ switch (ADV_par_customWeap) do {
 			_primaryWeapon = ["hlc_rifle_G36A1"];
 			_optic = ["HLC_Optic_G36dualoptic35x2d"];
 			_attachments = [""];
-			if (isClass(configFile >> "CfgPatches" >> "adv_hlcG36_bwmod")) then { _primaryweaponAmmo set [1,4] };
 		} else {
 			_primaryweapon = ["BWA3_G36"];
 			_optic = ["BWA3_optic_ZO4x30"];

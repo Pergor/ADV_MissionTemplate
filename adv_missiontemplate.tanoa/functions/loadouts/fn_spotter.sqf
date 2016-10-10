@@ -206,10 +206,10 @@ switch (ADV_par_customWeap) do {
 			_40mmSmokeGrenadesWhite = 0;
 			_40mmSmokeGrenadesRed = 0;
 			_40mmSmokeGrenadesGreen = 0;
-			if (isClass(configFile >> "CfgPatches" >> "adv_hlcG36_bwmod")) then { _primaryweaponAmmo set [1,8] };
+			if (isClass(configFile >> "CfgPatches" >> "adv_hlcG36_bwmod")) then { _primaryweaponAmmo set [1,4] };
 		} else {
 			_primaryweapon = "BWA3_G36K_AG";
-			_primaryweaponAmmo set [1,3];
+			_primaryweaponAmmo set [1,4];
 		};
 		_optic = ["BWA3_optic_EOTech_Mag_Off"];
 		_attachments = ["BWA3_muzzle_snds_G36"];

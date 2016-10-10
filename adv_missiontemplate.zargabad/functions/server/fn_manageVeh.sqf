@@ -128,11 +128,11 @@ adv_manageVeh_codeForAll = {
 		[_veh] call ADV_fnc_rhsDecals;
 	};
 	if ( (toUpper worldname) in ADV_var_lushMaps ) then {
-		if ( toUpper (typeOf _veh) in ['B_T_LSV_01_unarmed_F','B_T_LSV_01_armed_F','B_LSV_01_unarmed_F','B_LSV_01_armed_F'] ) then {
+		if ( toUpper (typeOf _veh) in ['B_T_LSV_01_UNARMED_F','B_T_LSV_01_ARMED_F','B_LSV_01_UNARMED_F','B_LSV_01_ARMED_F'] ) then {
 			[_veh,'OLIVE',nil] call BIS_fnc_initVehicle;
 		};
 	};
-	if ( toUpper (typeOf _veh) in ['O_T_LSV_02_armed_F','O_T_LSV_02_unarmed_F','O_LSV_02_armed_F','O_LSV_02_unarmed_F'] ) then {
+	if ( toUpper (typeOf _veh) in ['O_T_LSV_02_ARMED_F','O_T_LSV_02_UNARMED_F','O_LSV_02_ARMED_F','O_LSV_02_UNARMED_F'] ) then {
 		[_veh,'BLACK',nil] call BIS_fnc_initVehicle;
 	};
 };

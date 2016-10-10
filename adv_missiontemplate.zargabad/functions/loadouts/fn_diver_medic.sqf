@@ -188,10 +188,10 @@ switch (ADV_par_customWeap) do {
 		//BWmod
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) then {
 			_primaryWeapon = ["hlc_rifle_g36KTac"];
-			if (isClass(configFile >> "CfgPatches" >> "adv_hlcG36_bwmod")) then { _primaryweaponAmmo = [7,8] };
+			if (isClass(configFile >> "CfgPatches" >> "adv_hlcG36_bwmod")) then { _primaryweaponAmmo = [7,4] };
 		} else {
 			_primaryweapon = "BWA3_G36K";
-			_primaryweaponAmmo = [7,3];
+			_primaryweaponAmmo = [7,4];
 		};
 		_additionalAmmo = nil;
 		_optic = ["BWA3_optic_EOTech_Mag_Off"];
