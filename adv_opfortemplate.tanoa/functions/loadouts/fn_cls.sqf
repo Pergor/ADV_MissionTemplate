@@ -111,10 +111,10 @@ _ACE_EarPlugs = 1;
 _ACE_dogtags = 1;
 
 _ace_FAK = 0;		//overwrites the values for bandages, morphine and tourniquet and adds a specified number of bandages and morphine. Defined in fn_aceFAK.sqf
-_ACE_fieldDressing = 12;
-_ACE_elasticBandage = 12;
-_ACE_packingBandage = 24;
-_ACE_quikclot = 24;
+_ACE_fieldDressing = 24;
+_ACE_elasticBandage = 24;
+_ACE_packingBandage = 12;
+_ACE_quikclot = 12;
 _ACE_atropine = 0;
 _ACE_adenosine = 6;
 _ACE_epinephrine = 8;
@@ -459,10 +459,13 @@ if (isClass(configFile >> "CfgPatches" >> "adv_insignia")) then {
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
 
+/*
 if ( isClass(configFile >> "CfgPatches" >> "ACE_medical") && ADV_par_logisticAmount > 2 ) then {
 	[_player,
-		[("<t color=""#00FF00"">" + ("Replenish Medic Items") + "</t>"), {[(_this select 1),1] call adv_fnc_acefak},nil,6,false,true,"","(player != _target) && !( (['medic',(str player)] call BIS_fnc_inString) || (['cls',(str player)] call BIS_fnc_inString) )",2]
+		[("<t color=""#00FF00"">" + ("Replenish Medic Items") + "</t>"), {[(_this select 1),1] call adv_fnc_acefak},nil,6,false,true,"","(player != _target) && vehicle player == player && !( (['medic',(str player)] call BIS_fnc_inString) || (['cls',(str player)] call BIS_fnc_inString) )",2]
 	] remoteExec ["addAction",0,true];
 };
+*/
+
 
 nil;

@@ -55,7 +55,7 @@ if !(isServer && (isClass(configFile >> "CfgPatches" >> "ACE_common"))) exitWith
 		_target addItemCargoGlobal ["ACE_UAVBattery", _ACE_UAVBattery];
 	};
 	if (isClass(configFile >> "CfgPatches" >> "ACE_sandbag") && !isNil "_ACE_sandbag") then {
-		_target addItemCargoGlobal ["ACE_Sandbag_empty", _ACE_sandbag];
+		//_target addItemCargoGlobal ["ACE_Sandbag_empty", _ACE_sandbag];
 	};	
 	if (isClass(configFile >> "CfgPatches" >> "ACE_logistics_wirecutter") && !isNil "_ACE_wirecutter") then {
 		_target addItemCargoGlobal ["ACE_wirecutter", _ACE_wirecutter];

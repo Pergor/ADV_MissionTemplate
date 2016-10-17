@@ -61,7 +61,7 @@ _unit allowDamage true;
 _unit setVariable ["ACE_GForceCoef", _ACE_GForceCoef];
 
 //removal of the parachute:
-waitUntil {sleep 1;(isTouchingGround _unit || ((getPosATL _unit) select 2) < 1) && !underWater _unit};
+waitUntil {sleep 1; isTouchingGround _unit && !underWater _unit && ((getPosATL _unit) select 2) < 1 };
 if !(isClass(configFile >> "CfgPatches" >> "ace_parachute")) then { _unit playMove "AinvPercMstpSrasWrflDnon_Putdown_AmovPercMstpSrasWrflDnon"; };
 sleep 1;
 _unit action ["PutBag"];
@@ -72,7 +72,7 @@ if !((_unit getVariable "adv_var_parajump_backpack") == "") then {
 	_unit addBackpackGlobal (_unit getVariable "adv_var_parajump_backpack");
 	{ (backpackContainer _unit) addItemCargoGlobal [_x,1] } count (_unit getVariable "adv_var_parajump_backpackItems");
 	*/
-	waitUntil {(isTouchingGround _unit || ((getPosASL _unit) select 2) > 0) && !underwater _unit};
+	waitUntil { isTouchingGround _unit && !underwater _unit && ( ((getPosASL _unit) select 2) > 0 && ((getPosATL _unit) select 2) < 0.5 ) };
 	sleep 1;
 	_unit action ["TakeBag", (firstBackpack (_unit getVariable "adv_var_parajump_gwh"))];
 	sleep 1;

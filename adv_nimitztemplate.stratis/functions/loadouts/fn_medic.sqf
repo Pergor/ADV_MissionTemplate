@@ -472,10 +472,12 @@ switch (toUpper ([str (_this select 0),0,8] call BIS_fnc_trimString)) do {
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
 
+/*
 if ( isClass(configFile >> "CfgPatches" >> "ACE_medical") && ADV_par_logisticAmount > 2 ) then {
 	[_player,
-		[("<t color=""#00FF00"">" + ("Replenish Medic Items") + "</t>"), {[(_this select 1),1] call adv_fnc_acefak},nil,6,false,true,"","(player != _target) && !( (['medic',(str player)] call BIS_fnc_inString) || (['cls',(str player)] call BIS_fnc_inString) )",2]
+		[("<t color=""#00FF00"">" + ("Replenish Medic Items") + "</t>"), {[(_this select 1),1] call adv_fnc_acefak},nil,6,false,true,"","(player != _target) && vehicle player == player && !( (['medic',(str player)] call BIS_fnc_inString) || (['cls',(str player)] call BIS_fnc_inString) )",2]
 	] remoteExec ["addAction",0,true];
 };
+*/
 
 nil;
