@@ -6,12 +6,14 @@ params [
 	["_initState", "", [""]]
 ];
 
+/*
 if ( hasInterface && !isServer && _initState == "preInit" ) exitWith {
 	adv_radioSettings_exitState = "exit with preInit";
 };
 if ( isServer && _initState == "postInit") exitWith {
 	adv_radioSettings_exitState = "exit with postInit";
 };
+*/
 
 if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	//params needed in case paramsArray not yet defined on client in MP
@@ -21,12 +23,12 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	adv_par_seriousMode = ["param_seriousMode",0] call BIS_fnc_getParamValue;
 	//für zusätzliche variablen/functions: https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Variables
 	compile preprocessFileLineNumbers "\task_force_radio\functions\common.sqf";
-	tf_no_auto_long_range_radio = true;
-	tf_give_personal_radio_to_regular_soldier = false;
-	tf_give_microdagr_to_soldier = false;
-	tf_same_sw_frequencies_for_side = true;
-	tf_same_lr_frequencies_for_side = true;
-	tf_same_dd_frequencies_for_side = true;
+	["TF_no_auto_long_range_radio", true, true] call CBA_settings_fnc_set;
+	["TF_give_personal_radio_to_regular_soldier", false, true] call CBA_settings_fnc_set;
+	["TF_give_microdagr_to_soldier", false, true] call CBA_settings_fnc_set;
+	["TF_same_sw_frequencies_for_side", true, true] call CBA_settings_fnc_set;
+	["TF_same_lr_frequencies_for_side", true, true] call CBA_settings_fnc_set;
+	["TF_same_dd_frequencies_for_side", true, true] call CBA_settings_fnc_set;
 	tf_terrain_interception_coefficient = 3.0;
 	tf_speakerDistance = 20;
 
@@ -47,9 +49,11 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 		if ( ADV_par_seriousMode > 0 ) then {
 			tf_radio_channel_name = "Arma3-TFAR";
 			tf_radio_channel_password = "123";
+			/*
 			if (isServer) then {
 				{ publicVariable _x } forEach ["tf_radio_channel_name","tf_radio_channel_password"];
 			};
+			*/
 		};
 	};
 

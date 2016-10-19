@@ -24,6 +24,11 @@ private _respawnHandling = switch _param_moveMarker do {
 };
 private _ace_reviveTime = format ["%1",(["ace_medical_maxReviveTime",1200] call BIS_fnc_getParamValue)/60];
 private _ace_advancedWounds = if ( (["ace_medical_enableAdvancedWounds",0] call BIS_fnc_getParamValue) isEqualTo 0 ) then {
+private _param_advancedFatigue = ["ace_advanced_fatigue_enabled",0] call BIS_fnc_getParamValue;
+private _ace_advancedFatigue = switch _param_advancedFatigue do {
+	case 0: { "Das Standard-Ausdauersystem wird verwendet" };
+	default { "Das ACE-Advanced-Ausdauersystem wird verwendet" };
+};
 	"Wunden öffnen sich nicht"
 } else {
 	"Wunden müssen vernäht werden"
@@ -41,6 +46,7 @@ private _ace_advancedWounds = if ( (["ace_medical_enableAdvancedWounds",0] call 
 			<br/>- Revive-Zeit: ") + _ace_reviveTime + (" Minuten.
 			<br/>- Revive durch PAK überall.
 			<br/>- ") + _ace_advancedWounds + (".
+			<br/>- ") + _ace_advancedFatigue + (".
 			<br/>- Reparatur nur für Pioniere und Logistiker mit Werkzeugkasten.
 			<br/>- Bei Sprengmittelentschärfung besteht ein Restrisiko.
 			<br/><br/>- Wenn ihr technische Schwierigkeiten habt, schreibt bitte ausschließlich den Spiel-Admin an (rotes Icon im TS).
