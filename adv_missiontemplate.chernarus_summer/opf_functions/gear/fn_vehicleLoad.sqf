@@ -96,8 +96,8 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["RPG32_F",2];
 
 			_target addMagazineCargoGlobal ["150Rnd_93x64_Mag",2];
-			_target addMagazineCargoGlobal ["150Rnd_762x51_Box",1];
-			_target addMagazineCargoGlobal ["150Rnd_762x51_Box_Tracer",1];
+			//_target addMagazineCargoGlobal ["150Rnd_762x51_Box",1];
+			//_target addMagazineCargoGlobal ["150Rnd_762x51_Box_Tracer",1];
 			
 			_target addMagazineCargoGlobal ["HandGrenade",5];
 			_target addMagazineCargoGlobal ["SmokeShell",10];

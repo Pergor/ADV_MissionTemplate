@@ -31,14 +31,8 @@ _silencer = "muzzle_snds_H";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [7,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
-_additionalAmmo = [3,"150Rnd_762x54_Box",true];
-_additionalAmmo2 = [2,"150Rnd_762x54_Box_Tracer",true];
-_groupWeapons = [];
-{_groupWeapons pushback (primaryWeapon _x);} forEach units group (_this select 0);
-if ( ("MMG_02_black_F" in _groupWeapons || "MMG_02_camo_F" in _groupWeapons || "MMG_02_sand_F" in _groupWeapons) && ADV_par_DLCContent == 1) then {
-	_additionalAmmo = [4,"130Rnd_338_Mag",true];
-	_additionalAmmo2 = nil;
-};
+_additionalAmmo = [4,"130Rnd_338_Mag",true];
+_additionalAmmo2 = [0,0,false];
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;

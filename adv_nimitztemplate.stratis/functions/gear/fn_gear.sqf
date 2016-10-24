@@ -42,6 +42,7 @@ if (isNil "ADV_params_defined") then {
 
 //removals:
 removeAllAssignedItems _unit;
+player unlinkItem "ItemRadio";
 /*
 removeUniform _unit;
 removeBackpack _unit;

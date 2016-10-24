@@ -12,6 +12,9 @@ call ADV_fnc_variables;
 
 //waitUntil-player is initialized:
 waitUntil {player == player && !isNil "ADV_params_defined"};
+if (adv_par_customLoad > 0) then {
+	player unlinkItem "ItemRadio";
+};
 
 //defines the player's unit:
 [player] call ADV_fnc_playerUnit;
@@ -112,6 +115,14 @@ ADV_scriptVar_initMoveMarker_jump = {
 		nil;
 	} count _this;
 };
+//moves the player to position of object called "respawn_helper", if it's present (for Nimitz for example):
+if (!isNil "respawn_helper") then {
+	adv_evh_respawnMover = player addEventhandler ["RESPAWN",{
+		player setPosATL (getPosATL respawn_helper);
+		player setDir (getDir respawn_helper);
+	}];
+};
+//handling of respawned players:
 switch ( ADV_par_moveMarker ) do {
 	case 1: {
 		ADV_handle_moveRespMarker = [120,20,ADV_par_remRespWest] spawn ADV_fnc_moveRespMarker;

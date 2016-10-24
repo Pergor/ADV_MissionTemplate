@@ -59,6 +59,7 @@ class ADV
 		class setSide {};
 		class spawnPatrol {};
 		class spawnAttack {};
+		class spawnSuppression {};
 		class upsmon {
 			file = "scripts\UPSMON.sqf";
 		};

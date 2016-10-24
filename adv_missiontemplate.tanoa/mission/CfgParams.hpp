@@ -114,6 +114,13 @@ class param_TIEquipment
 	texts[] = {"Kein NV- und Thermal-Imaging für alle Fahrzeuge & statische Waffen","Kein NV- und Thermal-Imaging für Spieler-Fahrzeuge","Kein Thermal-Imaging für alle Fahrzeuge & statische Waffen","Kein Thermal-Imaging für Spieler-Fahrzeuge","Nein"};
 	default = 0;
 };
+class param_l_suppress
+{
+	title="Soll Laxemans Suppression-Script aktiviert werden?";
+	values[] = {1,0};
+	texts[] = {"Ja","Nein"};
+	default = 0;
+};
 class dummy_tfar {
 	title = "---------------------- TFAR-Settings ----------------------";
 	values[] = {-99999};
@@ -254,7 +261,7 @@ class param_indWeap
 	title="Welche Waffen sollen an INDFOR-Einheiten ausgegeben werden?";
 	values[] = {3,2,20,1,0};
 	texts[] = {"FAL, G3 und M60 - größtenteils ohne Optiken, keine Schalldämpfer (benötigt HLC_FAL, HLC_G3, HLC_MP5, HLC_M60)","RHSUSF (benötigt RHSUSF, optional hlc_mp5 und RH-Pistols)","Apex AKs - größtenteils ohne Optiken, keine Schalldämpfer","Vanilla Mk20","Vanilla MX"};
-	default = 0;
+	default = 20;
 };
 class param_indUni
 {

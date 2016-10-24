@@ -8,8 +8,7 @@ Every call, spawn or execVM that's mission specific should be placed in here.
 //////////////////////////////////////////////////////////////////////////////////
 // place your custom content here:
 //Laxeman variables
-L_suppress_active = false;
-
+TTT_disablePPCat = false;
 
 
 	//everything that's only supposed to run on the server:
@@ -37,7 +36,6 @@ L_suppress_active = false;
 	//everything that's only supposed to run on the server:
 	if (isServer) then {
 	// place your custom content here:
-	
 	
 	
 	

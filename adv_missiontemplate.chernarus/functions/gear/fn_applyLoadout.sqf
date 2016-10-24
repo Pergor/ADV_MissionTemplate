@@ -39,7 +39,7 @@ if (_playerUnit == "ADV_fnc_zeus") then {
 
 //respawn gear switch
 if (!isNil "ADV_par_CustomLoad") then {
-	if (ADV_par_CustomLoad > 0) then {
+	if (ADV_par_customLoad > 0) then {
 		//call compile format ["[%1] call %2;", _target, _playerUnit];
 		_target call compile format ["[_this] call %1",_playerUnit];
 

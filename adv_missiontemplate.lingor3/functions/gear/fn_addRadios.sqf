@@ -8,6 +8,8 @@ params [
 	["_unit", player, [objNull]]
 ];
 
+_unit unlinkItem "ItemRadio";
+
 if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) then {
 	_linkedRadios = _unit call TFAR_fnc_radiosList;
 	_actualRadio = [];

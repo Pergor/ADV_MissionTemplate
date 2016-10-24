@@ -61,8 +61,8 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",20];
 			_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",12];
 			_target addMagazineCargoGlobal ["130Rnd_338_Mag",12];
-			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",6];
-			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",6];
+			//_target addMagazineCargoGlobal ["150Rnd_762x54_Box",6];
+			//_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",6];
 		};
 	};
 	//grenades
