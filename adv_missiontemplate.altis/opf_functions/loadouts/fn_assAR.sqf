@@ -32,8 +32,8 @@ if (worldName == "TANOA" || ADV_par_opfWeap == 20) then {
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [7,0];
-_additionalAmmo = [3,"150Rnd_762x54_Box",true];
-_additionalAmmo2 = [2,"150Rnd_762x54_Box_Tracer",true];
+_additionalAmmo = [4,"150Rnd_93x64_Mag",true];
+_additionalAmmo2 = [0,0,false];
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;
@@ -102,12 +102,6 @@ _items = [];
 
 //MarksmenDLC-objects:
 if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
-};
-_groupWeapons = [];
-{_groupWeapons pushback (primaryWeapon _x);} forEach units group (_this select 0);
-if ("MMG_01_tan_F" in _groupWeapons || "MMG_01_hex_F" in _groupWeapons) then {
-	_additionalAmmo = [4,"150Rnd_93x64_Mag",true];
-	_additionalAmmo2 = nil;
 };
 
 //TFAR or ACRE radios
