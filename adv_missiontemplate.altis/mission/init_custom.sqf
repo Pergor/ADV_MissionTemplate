@@ -8,7 +8,7 @@ Every call, spawn or execVM that's mission specific should be placed in here.
 //////////////////////////////////////////////////////////////////////////////////
 // place your custom content here:
 //Laxeman variables
-L_suppress_active = false;
+
 
 
 
