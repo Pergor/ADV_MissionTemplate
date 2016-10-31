@@ -2,16 +2,6 @@
 ADV_fnc_tfarSettings by Belbo
 contains all the variables that are important for tfar
 */
-params [
-	["_initState", "", [""]]
-];
-
-if ( hasInterface && !isServer && _initState == "preInit" ) exitWith {
-	adv_radioSettings_exitState = "exit with preInit";
-};
-if ( isServer && _initState == "postInit") exitWith {
-	adv_radioSettings_exitState = "exit with postInit";
-};
 
 if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	//params needed in case paramsArray not yet defined on client in MP
@@ -41,44 +31,36 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	TF_defaultGuerRiflemanRadio = "tf_anprc154";
 	//tfar serious mode
 	[] spawn {
-		tf_radio_channel_name = "TaskForceRadio";
-		waitUntil {!isNil "ADV_params_defined"};
+		waitUntil {!isNil "ADV_par_seriousMode" && !isNil "adv_par_customUni" };
 		if (adv_par_customUni isEqualTo 9) then { TF_defaultWestPersonalRadio = "tf_anprc148jem"; };
-		sleep 1;
 		if ( ADV_par_seriousMode > 0 ) then {
 			tf_radio_channel_name = "Arma3-TFAR";
 			tf_radio_channel_password = "123";
-			/*
-			if (isServer) then {
-				{ publicVariable _x } forEach ["tf_radio_channel_name","tf_radio_channel_password"];
-			};
-			*/
 		};
 	};
 
 	//frequencies
 	//blufor
-	_settingsSwWest = [false] call TFAR_fnc_generateSwSettings;
-	_settingsSwEast = [false] call TFAR_fnc_generateSwSettings;
-	_settingsSwGuer = [false] call TFAR_fnc_generateSwSettings;
+	_settingsSwWest = false call TFAR_fnc_generateSwSettings;
+	_settingsSwEast = false call TFAR_fnc_generateSwSettings;
+	_settingsSwGuer = false call TFAR_fnc_generateSwSettings;
 	
-	_settingsLrWest = [false] call TFAR_fnc_generateLrSettings;
-	_settingsLrEast = [false] call TFAR_fnc_generateLrSettings;
-	_settingsLrGuer = [false] call TFAR_fnc_generateLrSettings;
+	_settingsLrWest = false call TFAR_fnc_generateLrSettings;
+	_settingsLrEast = false call TFAR_fnc_generateLrSettings;
+	_settingsLrGuer = false call TFAR_fnc_generateLrSettings;
 	
 	_settingsSwWest set [2, ["41","42","43","44","45","46","47","48"]];
 	_settingsLrWest set [2, ["51","52","53","54","55","56","57","58","59"]];
+	_settingsSwWest set [4, "_bluefor"];
+	_settingsLrWest set [4, "_bluefor"];
+	tf_freq_west = _settingsSwWest;
+	tf_freq_west_lr = _settingsLrWest;
 
 	_settingsSwEast set [2, ["41","42","43","44","45","46","47","48"]];
 	_settingsLrEast set [2, ["51","52","53","54","55","56","57","58","59"]];
 
 	_settingsSwGuer set [2, ["61","62","63","64","65","66","67","68"]];
 	_settingsLrGuer set [2, ["71","72","73","74","75","76","77","78","79"]];
-	
-	_settingsSwWest set [4, "_bluefor"];
-	_settingsLrWest set [4, "_bluefor"];
-	tf_freq_west = _settingsSwWest;
-	tf_freq_west_lr = _settingsLrWest;
 	
 	_settingsSwEast set [4, "_opfor"];
 	_settingsLrEast set [4, "_opfor"];
@@ -100,4 +82,10 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 
 	tf_freq_guer = _settingsSwGuer;
 	tf_freq_guer_lr = _settingsLrGuer;
+	
+	/*
+	if (isDedicated) then {
+		{publicVariable _x} count ["tf_freq_west","tf_freq_west_lr","tf_freq_east","tf_freq_east_lr","tf_freq_guer","tf_freq_guer_lr"];
+	};
+	*/
 };

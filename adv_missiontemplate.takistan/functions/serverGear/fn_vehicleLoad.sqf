@@ -24,7 +24,12 @@ _backpacks = [];
 if (_withWeapons) then {
 	switch (true) do {
 		case (ADV_par_customWeap == 1): {
-			_target addWeaponCargoGlobal ["BWA3_G36",1];
+			call {
+				if !(isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) exitWith {
+					_target addWeaponCargoGlobal ["BWA3_G36",1];
+				};
+				_target addWeaponCargoGlobal ["hlc_rifle_G36A1",1];
+			};
 			_target addWeaponCargoGlobal ["BWA3_Pzf3_Loaded",2];
 			
 			if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36") && !(isClass(configFile >> "CfgPatches" >> "adv_hlcG36_bwmod"))) then {
@@ -34,6 +39,7 @@ if (_withWeapons) then {
 				_target addMagazineCargoGlobal ["BWA3_30Rnd_556x45_G36_Tracer",10];
 			};
 			_target addMagazineCargoGlobal ["BWA3_200Rnd_556x45_Tracer",2];
+			_target addMagazineCargoGlobal ["BWA3_10Rnd_762x51_G28_LR",4];
 			if (isClass(configFile >> "CfgPatches" >> "hlcweapons_MG3s")) then {
 				_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_M_MG3",2];
 			} else {
@@ -54,6 +60,7 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_red",10];
 			_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",2];
 			_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51",2];
+			_target addMagazineCargoGlobal ["rhsusf_20Rnd_762x51_m118_special_Mag",4];
 			
 			_target addMagazineCargoGlobal ["rhs_mag_m67",5];
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",10];
@@ -73,6 +80,12 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_red",10];
 			_target addMagazineCargoGlobal ["CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M",2];
 			_target addMagazineCargoGlobal ["CUP_200Rnd_TE4_Red_Tracer_556x45_M249",2];
+			if (ADV_par_customWeap == 5) then {
+				_target addMagazineCargoGlobal ["CUP_20Rnd_762x51_B_M110",4];
+				_target addMagazineCargoGlobal ["CUP_20Rnd_762x51_B_SCAR",4];
+			} else {
+				_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",4];
+			};
 			
 			_target addMagazineCargoGlobal ["HandGrenade",5];
 			_target addMagazineCargoGlobal ["SmokeShell",10];
@@ -87,6 +100,7 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_red",10];
 			_target addMagazineCargoGlobal ["UK3CB_BAF_200Rnd_T",2];
 			_target addMagazineCargoGlobal ["UK3CB_BAF_75Rnd_T",2];
+			_target addMagazineCargoGlobal ["UK3CB_BAF_20Rnd",4];
 			
 			_target addMagazineCargoGlobal ["HandGrenade",5];
 			_target addMagazineCargoGlobal ["SmokeShell",10];
@@ -126,7 +140,7 @@ if (_withWeapons) then {
 				_target addWeaponCargoGlobal ["arifle_MXC_Black_F",1];
 			};
 
-			if (isClass(configFile >> "CfgPatches" >> "ace_disposable")) then {  
+			if (isClass(configFile >> "CfgPatches" >> "ace_disposable")) then {
 				_target addWeaponCargoGlobal ["launch_NLAW_F",2];
 			} else {
 				_target addWeaponCargoGlobal ["launch_NLAW_F",1];
@@ -143,6 +157,7 @@ if (_withWeapons) then {
 				_target addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer",4];
 			};
 			_target addMagazineCargoGlobal ["130Rnd_338_Mag",2];
+			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",4];
 			//_target addMagazineCargoGlobal ["150Rnd_762x54_Box",1];
 			//_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",1];
 			

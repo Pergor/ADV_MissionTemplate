@@ -23,12 +23,12 @@ private _respawnHandling = switch _param_moveMarker do {
 	default { "Teleport zum Gruppenführer über Flagge am Start" };
 };
 private _ace_reviveTime = format ["%1",(["ace_medical_maxReviveTime",1200] call BIS_fnc_getParamValue)/60];
-private _ace_advancedWounds = if ( (["ace_medical_enableAdvancedWounds",0] call BIS_fnc_getParamValue) isEqualTo 0 ) then {
 private _param_advancedFatigue = ["ace_advanced_fatigue_enabled",0] call BIS_fnc_getParamValue;
 private _ace_advancedFatigue = switch _param_advancedFatigue do {
 	case 0: { "Das Standard-Ausdauersystem wird verwendet" };
 	default { "Das ACE-Advanced-Ausdauersystem wird verwendet" };
 };
+private _ace_advancedWounds = if ( (["ace_medical_enableAdvancedWounds",0] call BIS_fnc_getParamValue) isEqualTo 0 ) then {
 	"Wunden öffnen sich nicht"
 } else {
 	"Wunden müssen vernäht werden"

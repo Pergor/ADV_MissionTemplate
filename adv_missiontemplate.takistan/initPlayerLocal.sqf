@@ -9,6 +9,7 @@ call ADV_fnc_missionMarkers;
 //parameter variables are re-initialized:
 call ADV_fnc_parVariables;
 call ADV_fnc_variables;
+call ADV_fnc_tfarSettings;
 
 //waitUntil-player is initialized:
 waitUntil {player == player && !isNil "ADV_params_defined"};

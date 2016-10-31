@@ -61,19 +61,21 @@ switch _FAKtype do {
 	case 2: {
 		if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 || (missionnamespace getVariable ["ace_medical_medicSetting",2]) > 1 ) then {
 			call {
+				/*
 				if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) exitWith {
-					_ACE_fieldDressing = 36;
-					_ACE_elasticBandage = 36;
-					_ACE_packingBandage = 18;
-					_ACE_quikclot = 18;
+					_ACE_fieldDressing = 32;
+					_ACE_elasticBandage = 32;
+					_ACE_packingBandage = 12;
+					_ACE_quikclot = 12;
 				};
-				_ACE_fieldDressing = 36;
-				_ACE_elasticBandage = 36;
-				_ACE_packingBandage = 18;
-				_ACE_quikclot = 18;
+				*/
+				_ACE_fieldDressing = 32;
+				_ACE_elasticBandage = 32;
+				_ACE_packingBandage = 12;
+				_ACE_quikclot = 12;
 			};
 			_ACE_atropine = 0;
-			_ACE_adenosine = 10;
+			_ACE_adenosine = 6;
 			_ACE_epinephrine = 12;
 			_ACE_morphine = 12;
 			_ACE_tourniquet = 6;
@@ -82,14 +84,14 @@ switch _FAKtype do {
 			_ACE_salineIV_250 = 0;
 			_ACE_personalAidKit = 1;
 			if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) > 0 ) then {
-				_ACE_personalAidKit = 4;
+				_ACE_personalAidKit = 5;
 			};
 			if ( (adv_par_ace_medical_GivePAK == 0) && !( (["medic_com",(str _unit)] call BIS_fnc_inString) || (["medic_log",(str _unit)] call BIS_fnc_inString) ) ) then {
 				_ACE_personalAidKit = 0;
 			};
 			_ACE_surgicalKit = 1;
 			if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) > 0 ) then {
-				_ACE_surgicalKit = 4;
+				_ACE_surgicalKit = 5;
 			};
 			
 			if !(_backpack == "") then {

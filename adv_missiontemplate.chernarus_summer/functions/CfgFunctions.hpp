@@ -8,7 +8,7 @@ class ADV
 		class variables { preInit = 1; };
 		class sideMarkers { preInit = 1; };
 		class acreSettings { preInit = 1; postInit = 1; };
-		class tfarSettings { preInit = 1; postInit = 1; };
+		class tfarSettings { preInit = 1; };
 		class fhqTT {
 			file = "scripts\fhqtt2.sqf";
 			preInit = 1;

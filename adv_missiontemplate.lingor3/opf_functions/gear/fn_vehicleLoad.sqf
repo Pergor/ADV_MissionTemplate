@@ -44,6 +44,7 @@ if (_withWeapons) then {
 				_target addMagazineCargoGlobal ["rhs_100Rnd_762x54mmR_green",5];
 			};
 			_target addMagazineCargoGlobal ["rhs_rpg7_PG7VL_mag",2];
+			_target addMagazineCargoGlobal ["rhs_10Rnd_762x54mmR_7N1",4];
 			
 			_target addMagazineCargoGlobal ["rhs_mag_rgd5",5];
 			_target addMagazineCargoGlobal ["rhs_mag_rdg2_white",10];
@@ -60,6 +61,7 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["CUP_30Rnd_545x39_AK_M",20];
 			_target addMagazineCargoGlobal ["CUP_30Rnd_TE1_Green_Tracer_545x39_AK_M",10];
 			_target addMagazineCargoGlobal ["CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Green_M",5];
+			_target addMagazineCargoGlobal ["CUP_10Rnd_762x54_SVD_M",4];
 			
 			_target addMagazineCargoGlobal ["CUP_HandGrenade_RGD5",5];
 			_target addMagazineCargoGlobal ["SmokeShell",10];
@@ -96,6 +98,8 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["RPG32_F",2];
 
 			_target addMagazineCargoGlobal ["150Rnd_93x64_Mag",2];
+			_target addMagazineCargoGlobal ["10Rnd_762x51_Mag",4];
+			_target addMagazineCargoGlobal ["10Rnd_93x64_DMR_05_Mag",4];
 			//_target addMagazineCargoGlobal ["150Rnd_762x51_Box",1];
 			//_target addMagazineCargoGlobal ["150Rnd_762x51_Box_Tracer",1];
 			

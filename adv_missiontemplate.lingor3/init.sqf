@@ -12,6 +12,12 @@ setTerrainGrid 6.25;
 //parameters:
 call ADV_fnc_parVariables;
 call ADV_fnc_variables;
+call ADV_fnc_tfarSettings;
+
+L_suppress_active = false;
+if (adv_par_l_suppress > 0) then {
+	L_suppress_active = true;
+};
 
 if ( hasInterface ) then {
 	titleText [format ["Einen Moment Geduld bitte, %1.\n\n\n Es geht gleich weiter.", profileName], "BLACK FADED"];
