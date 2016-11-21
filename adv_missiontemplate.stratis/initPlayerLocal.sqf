@@ -39,8 +39,8 @@ titleText [format ["%1 \n\n\nThis mission was built by %2 \n\n\n Have Fun! :)", 
 if (!isNil "mcc_actionInedx") then { player removeAction mcc_actionInedx; };
 
 //stupid goggles are removed:
-if ( goggles player in ["Mask_M40_OD","Mask_M40","Mask_M50","G_Balaclava_blk","G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_oli","G_Bandanna_aviator","G_Bandanna_beast","G_Bandanna_blk",
-	"G_Bandanna_khk","G_Bandanna_oli","G_Bandanna_shades","G_Bandanna_sport","G_Bandanna_tan","G_Goggles_VR"]
+if ( (toUpper (goggles player)) in ["MASK_M40_OD","MASK_M40","MASK_M50","G_BALACLAVA_BLK","G_BALACLAVA_COMBAT","G_BALACLAVA_LOWPROFILE","G_BALACLAVA_OLI","G_BANDANNA_AVIATOR","G_BANDANNA_BEAST","G_BANDANNA_BLK",
+	"G_BANDANNA_KHK","G_BANDANNA_OLI","G_BANDANNA_SHADES","G_BANDANNA_SPORT","G_BANDANNA_TAN","G_GOGGLES_VR","MURSHUN_CIGS_CIG0","MURSHUN_CIGS_CIG1","MURSHUN_CIGS_CIG2","MURSHUN_CIGS_CIG3","MURSHUN_CIGS_CIG4"]
 ) then { removeGoggles player; };
 sleep 1;
 //loadouts and RespawnMPEVH are placed on the units on spawn. [target]

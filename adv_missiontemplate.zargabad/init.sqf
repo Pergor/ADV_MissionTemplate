@@ -131,6 +131,9 @@ if ( isServer ) then {
 		ind_flag_1 setFlagTexture "img\flag.paa";
 		ind_flag_1 setFlagSide independent;
 	};
+	
+	//deletes empty groups:
+	adv_handle_emptyGroupsDeleter = addMissionEventHandler ["EntityKilled",{_grp = group (_this select 0);if ( count (units _grp) == 0 ) then { deleteGroup _grp };}];
 };
 
 if ( hasInterface ) then {

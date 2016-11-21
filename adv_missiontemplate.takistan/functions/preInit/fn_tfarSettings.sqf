@@ -10,7 +10,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	//if (isNil "ADV_par_opfUni") then { adv_par_opfUni = ["param_opfUni",0] call BIS_fnc_getParamValue; };
 	adv_par_seriousMode = ["param_seriousMode",0] call BIS_fnc_getParamValue;
 	//für zusätzliche variablen/functions: https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Variables
-	compile preprocessFileLineNumbers "\task_force_radio\functions\common.sqf";
+	call compile preprocessFileLineNumbers "\task_force_radio\functions\common.sqf";
 	
 	["TF_no_auto_long_range_radio", true, true] call CBA_settings_fnc_set;
 	["TF_give_personal_radio_to_regular_soldier", false, true] call CBA_settings_fnc_set;

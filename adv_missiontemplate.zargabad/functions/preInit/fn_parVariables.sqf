@@ -46,7 +46,7 @@ _variables = {
 
 	if (ADV_par_engineArtillery == 0) then {
 		missionNamespace setVariable ["ace_mk6mortar_allowComputerRangefinder",true];
-		missionNamespace setVariable ["ace_mk6mortar_airResistanceEnabled",true];
+		missionNamespace setVariable ["ace_mk6mortar_airResistanceEnabled",false];
 	};
 };
 
