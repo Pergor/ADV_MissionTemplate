@@ -190,11 +190,12 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar",""
 switch (ADV_par_customWeap) do {
 	case 1: {
 		//BWmod
-		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) then {
-			_primaryWeapon = ["hlc_rifle_G36A1"];
-			_optic = ["HLC_Optic_G36dualoptic35x2d"];
-			_attachments = [""];
-		} else {
+		call {
+			if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) exitWith {
+				_primaryWeapon = ["hlc_rifle_G36A1"];
+				_optic = ["HLC_Optic_G36dualoptic35x"];
+				_attachments = [""];
+			};
 			_primaryweapon = ["BWA3_G36"];
 			_optic = ["BWA3_optic_ZO4x30"];
 			if ( ADV_par_NVGs > 0 ) then { _attachments = ["BWA3_acc_LLM01_irlaser"]; };
