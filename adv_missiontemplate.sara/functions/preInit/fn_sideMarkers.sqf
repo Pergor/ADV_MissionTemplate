@@ -20,13 +20,13 @@ called via preInit for server and once for every client in initPlayerLocal.sqf w
 	if (hasInterface) then {
 		waitUntil {player == player};
 		if ((side player) == west) then {
-			{_x setMarkerAlphaLocal 0;} forEach _opforMarker+_indMarker;
+			{deleteMarkerLocal _x; nil;} count _opforMarker+_indMarker;
 		};
 		if ((side player) == east) then {
-			{_x setMarkerAlphaLocal 0;} forEach _bluforMarker+_indMarker;
+			{deleteMarkerLocal _x; nil;} count _bluforMarker+_indMarker;
 		};
 		if ((side player) == independent) then {
-			{_x setMarkerAlphaLocal 0;} forEach _bluforMarker+_opforMarker;
+			{deleteMarkerLocal _x; nil;} count _bluforMarker+_opforMarker;
 			if (!isNil "ADV_par_indUni") then {
 				switch (ADV_par_indUni) do {
 					case 20: {
@@ -44,7 +44,7 @@ called via preInit for server and once for every client in initPlayerLocal.sqf w
 			};
 		};
 		if ((side player) == sideEnemy) then {
-			{_x setMarkerAlphaLocal 0;} forEach _bluforMarker+_opforMarker+_indMarker;
+			{deleteMarkerLocal _x; nil;} count _bluforMarker+_opforMarker+_indMarker;
 		};
 	};
 };

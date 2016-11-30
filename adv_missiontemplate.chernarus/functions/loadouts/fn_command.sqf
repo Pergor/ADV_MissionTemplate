@@ -187,7 +187,7 @@ switch (ADV_par_customWeap) do {
 		//BWmod
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) then {
 			_primaryWeapon = ["hlc_rifle_G36A1"];
-			_optic = ["HLC_Optic_G36dualoptic35x2d"];
+			_optic = ["HLC_Optic_G36dualoptic35x"];
 			_attachments = [""];
 		} else {
 			_primaryweapon = ["BWA3_G36"];

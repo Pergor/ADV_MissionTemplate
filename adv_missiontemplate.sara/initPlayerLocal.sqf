@@ -200,4 +200,17 @@ if ((toUpper worldname) in ["STRATIS","ALTIS"]) then {
 	["Have Fun!", "Datum:" + str (date select 2) + "/" + str (date select 1) + "/" + str (date select 0)] spawn BIS_fnc_infoText;
 };
 
+//TFAR Workaround:
+["unit", {
+    //current unit changed (Curator took control of unit)
+
+    if (player != (_this select 0)) then {
+        player setVariable ["TFAR_controlledUnit",(_this select 0), true];//This tells other players that our position is different
+    } else {
+        player setVariable ["TFAR_controlledUnit",nil, true];
+    };
+
+    TFAR_currentUnit = (_this select 0);
+}] call CBA_fnc_addPlayerEventHandler;
+
 if (true) exitWith {};

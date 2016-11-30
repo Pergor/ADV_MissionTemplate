@@ -255,5 +255,23 @@ switch (ADV_par_indUni) do {
 
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
+if (toUpper ((str _player) select [4,2]) == "FT") exitWith {nil;};
+
+switch ( toUpper ((str _player) select [4,4]) ) do {
+	case "CSW_": { [_player,1] call ADV_fnc_CSW; };
+	case "ACSW": { [_player,2] call ADV_fnc_CSW; };
+	case "MORT": { [_player,3] call ADV_fnc_CSW; };
+	case "AMOR": { [_player,4] call ADV_fnc_CSW; };
+	case "TOW_": { [_player,5] call ADV_fnc_CSW; };
+	case "ATOW": { [_player,6] call ADV_fnc_CSW; };
+	default {
+		switch true do {
+			case (toUpper ((str _player) select [4,6]) == "ASSCSW"): { [_player,2] call ADV_fnc_CSW; };
+			case (toUpper ((str _player) select [4,9]) == "ASSMORTAR"): { [_player,4] call ADV_fnc_CSW; };
+			case (toUpper ((str _player) select [4,6]) == "ASSTOW"): { [_player,6] call ADV_fnc_CSW; };
+			default {};
+		};
+	};
+};
 
 nil;

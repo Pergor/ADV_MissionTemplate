@@ -304,5 +304,23 @@ switch (ADV_par_opfUni) do {
 ///// No editing necessary below this line /////
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
+if (toUpper ((str _player) select [4,2]) == "FT") exitWith {nil;};
+
+switch ( toUpper ((str _player) select [4,4]) ) do {
+	case "CSW_": { [_player,1] call ADV_fnc_CSW; };
+	case "ACSW": { [_player,2] call ADV_fnc_CSW; };
+	case "MORT": { [_player,3] call ADV_fnc_CSW; _giveRiflemanRadio = false;_givePersonalRadio = true; };
+	case "AMOR": { [_player,4] call ADV_fnc_CSW; _giveRiflemanRadio = false;_givePersonalRadio = true; };
+	case "TOW_": { [_player,5] call ADV_fnc_CSW; _giveRiflemanRadio = false;_givePersonalRadio = true; };
+	case "ATOW": { [_player,6] call ADV_fnc_CSW; _giveRiflemanRadio = false;_givePersonalRadio = true; };
+	default {
+		switch true do {
+			case (toUpper ((str _player) select [4,6]) == "ASSCSW"): { [_player,2] call ADV_fnc_CSW; };
+			case (toUpper ((str _player) select [4,9]) == "ASSMORTAR"): { [_player,4] call ADV_fnc_CSW; _giveRiflemanRadio = false;_givePersonalRadio = true; };
+			case (toUpper ((str _player) select [4,6]) == "ASSTOW"): { [_player,6] call ADV_fnc_CSW; _giveRiflemanRadio = false;_givePersonalRadio = true; };
+			default {};
+		};
+	};
+};
 
 nil;

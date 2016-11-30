@@ -186,14 +186,15 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar",""
 switch (ADV_par_customWeap) do {
 	case 1: {
 		//BWmod
-		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) then {
-			_primaryWeapon = ["hlc_rifle_G36A1"];
-			_optic = ["HLC_Optic_G36dualoptic35x2d"];
-			_attachments = [""];
-		} else {
-			_primaryweapon = "BWA3_G36_AG";
+		call {
+			if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) exitWith {
+				_primaryWeapon = ["hlc_rifle_G36A1"];
+				_optic = ["HLC_Optic_G36dualoptic35x"];
+				_attachments = [""];
+			};
+			_primaryweapon = ["BWA3_G36"];
 			_optic = ["BWA3_optic_ZO4x30"];
-			if ( ADV_par_NVGs > 0 ) then { _attachments = ["BWA3_acc_VarioRay_irlaser"]; };
+			if ( ADV_par_NVGs > 0 ) then { _attachments = ["BWA3_acc_LLM01_irlaser"]; };
 		};
 		_silencer = "BWA3_muzzle_snds_G36";
 		_handgun = "BWA3_P8";
@@ -446,5 +447,18 @@ switch (ADV_par_customUni) do {
 
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
+switch true do {
+	case (toUpper ((str _player) select [0,2]) == "FT"): { };
+	case (toUpper ((str _player) select [0,3]) == "CSW"): { [_player,1] call ADV_fnc_CSW;};
+	case (toUpper ((str _player) select [0,6]) == "ASSCSW"): { [_player,2] call ADV_fnc_CSW; };
+	case (toUpper ((str _player) select [0,4]) == "ACSW"): { [_player,2] call ADV_fnc_CSW; };
+	case (toUpper ((str _player) select [0,6]) == "MORTAR"): { [_player,3] call ADV_fnc_CSW; };
+	case (toUpper ((str _player) select [0,9]) == "ASSMORTAR"): { [_player,4] call ADV_fnc_CSW; };
+	case (toUpper ((str _player) select [0,7]) == "AMORTAR"): { [_player,4] call ADV_fnc_CSW; };
+	case (toUpper ((str _player) select [0,3]) == "TOW"): { [_player,5] call ADV_fnc_CSW; };
+	case (toUpper ((str _player) select [0,6]) == "ASSTOW"): { [_player,6] call ADV_fnc_CSW; };
+	case (toUpper ((str _player) select [0,4]) == "ATOW"): { [_player,6] call ADV_fnc_CSW; };
+	default {};
+};
 
 nil;

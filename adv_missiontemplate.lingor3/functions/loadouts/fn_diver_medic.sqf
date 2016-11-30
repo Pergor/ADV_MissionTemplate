@@ -186,16 +186,18 @@ _scorchItemsRandom = [""];
 switch (ADV_par_customWeap) do {
 	case 1: {
 		//BWmod
-		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) then {
-			_primaryWeapon = ["hlc_rifle_g36KTac"];
-			if (isClass(configFile >> "CfgPatches" >> "adv_hlcG36_bwmod")) then { _primaryweaponAmmo = [7,4] };
-		} else {
+		call {
+			if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) exitWith {
+				_primaryWeapon = ["hlc_rifle_g36KTac"];
+				if (isClass(configFile >> "CfgPatches" >> "adv_hlcG36_bwmod")) then { _primaryweaponAmmo = [7,4] };
+				_attachments = ["BWA3_acc_VarioRay_irlaser","hlc_muzzle_556NATO_KAC"];
+			};
 			_primaryweapon = "BWA3_G36K";
 			_primaryweaponAmmo = [7,4];
+			_attachments = ["BWA3_acc_VarioRay_irlaser","BWA3_muzzle_snds_G36"];
 		};
 		_additionalAmmo = nil;
 		_optic = ["BWA3_optic_EOTech_Mag_Off"];
-		_attachments = ["BWA3_acc_VarioRay_irlaser","BWA3_muzzle_snds_G36"];
 		_handgun = "BWA3_P8";
 		_itemsHandgun = [""];
 	};

@@ -12,12 +12,12 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	//für zusätzliche variablen/functions: https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Variables
 	call compile preprocessFileLineNumbers "\task_force_radio\functions\common.sqf";
 	
-	["TF_no_auto_long_range_radio", true, true] call CBA_settings_fnc_set;
-	["TF_give_personal_radio_to_regular_soldier", false, true] call CBA_settings_fnc_set;
-	["TF_give_microdagr_to_soldier", false, true] call CBA_settings_fnc_set;
-	["TF_same_sw_frequencies_for_side", true, true] call CBA_settings_fnc_set;
-	["TF_same_lr_frequencies_for_side", true, true] call CBA_settings_fnc_set;
-	["TF_same_dd_frequencies_for_side", true, true] call CBA_settings_fnc_set;
+	["TF_no_auto_long_range_radio", true, true, "mission"] call CBA_settings_fnc_set;
+	["TF_give_personal_radio_to_regular_soldier", false, true, "mission"] call CBA_settings_fnc_set;
+	["TF_give_microdagr_to_soldier", false, true, "mission"] call CBA_settings_fnc_set;
+	["TF_same_sw_frequencies_for_side", true, true, "mission"] call CBA_settings_fnc_set;
+	["TF_same_lr_frequencies_for_side", true, true, "mission"] call CBA_settings_fnc_set;
+	["TF_same_dd_frequencies_for_side", true, true, "mission"] call CBA_settings_fnc_set;
 	tf_terrain_interception_coefficient = 3.0;
 	tf_speakerDistance = 20;
 
