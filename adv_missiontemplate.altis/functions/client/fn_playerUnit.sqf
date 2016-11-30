@@ -41,12 +41,12 @@ if (side _target == west) then {
 		case "SNI": {"ADV_fnc_sniper"};
 		case "SPO": {"ADV_fnc_spotter"};
 		case "ABE": {"ADV_fnc_ABearer"};
-		case "CSW": {"ADV_fnc_soldier"};	//crew served weapon
-		case "ACS": {"ADV_fnc_soldier"};	//crew served weapon
-		case "MOR": {"ADV_fnc_soldier"};	//mortar gunner
-		case "AMO": {"ADV_fnc_soldier"};	//mortar gunner
-		case "TOW": {"ADV_fnc_soldier"};	//TOW Gunner
-		case "ATO": {"ADV_fnc_soldier"};	//TOW Gunner
+		case "CSW": {"ADV_fnc_ftLeader"};	//crew served weapon
+		case "ACS": {"ADV_fnc_ftLeader"};	//crew served weapon
+		case "MOR": {"ADV_fnc_ftLeader"};	//mortar gunner
+		case "AMO": {"ADV_fnc_ftLeader"};	//mortar gunner
+		case "TOW": {"ADV_fnc_ftLeader"};	//TOW Gunner
+		case "ATO": {"ADV_fnc_ftLeader"};	//TOW Gunner
 		default {
 			switch true do {
 				case ( toUpper (_object select [0,8]) == "FTLEADER" ): {"ADV_fnc_ftLeader"};
@@ -59,9 +59,9 @@ if (side _target == west) then {
 				case ( toUpper (_object select [0,11]) == "DIVER_MEDIC" ): {"ADV_fnc_diver_medic"};
 				case ( toUpper (_object select [0,10]) == "DIVER_SPEC" ): {"ADV_fnc_diver_spec"};
 				case ( toUpper (_object select [0,5]) == "DIVER" ): {"ADV_fnc_diver"};
-				case ( toUpper (_object select [0,6]) == "ASSCSW" ): {"ADV_fnc_soldier"};			//asst. crew served weapon
-				case ( toUpper (_object select [0,9]) == "ASSMORTAR" ): {"ADV_fnc_soldier"};		//asst. mortar gunner
-				case ( toUpper (_object select [0,6]) == "ASSTOW" ): {"ADV_fnc_soldier"};		//asst. mortar gunner
+				case ( toUpper (_object select [0,6]) == "ASSCSW" ): {"ADV_fnc_ftLeader"};			//asst. crew served weapon
+				case ( toUpper (_object select [0,9]) == "ASSMORTAR" ): {"ADV_fnc_ftLeader"};		//asst. mortar gunner
+				case ( toUpper (_object select [0,6]) == "ASSTOW" ): {"ADV_fnc_ftLeader"};		//asst. mortar gunner
 				case ( (toUpper _object) in _zeus ): {"ADV_fnc_zeus"};
 				default {"ADV_fnc_nil"};
 			};
@@ -94,12 +94,12 @@ if (side _target == east) then {
 		case "OPF_SNI": {"ADV_opf_fnc_sniper"};
 		case "OPF_SPO": {"ADV_opf_fnc_spotter"};
 		case "OPF_ABE": {"ADV_opf_fnc_ABearer"};
-		case "OPF_CSW": {"ADV_opf_fnc_soldier"};	//crew served weapon
-		case "OPF_ACS": {"ADV_opf_fnc_soldier"};	//asst. crew served weapon
-		case "OPF_MOR": {"ADV_opf_fnc_soldier"};	//mortar gunner
-		case "OPF_AMO": {"ADV_opf_fnc_soldier"};	//asst. mortar gunner
-		case "OPF_TOW": {"ADV_opf_fnc_soldier"};	//TOW gunner
-		case "OPF_ATO": {"ADV_opf_fnc_soldier"};	//asst. TOW gunner
+		case "OPF_CSW": {"ADV_opf_fnc_ftLeader"};	//crew served weapon
+		case "OPF_ACS": {"ADV_opf_fnc_ftLeader"};	//asst. crew served weapon
+		case "OPF_MOR": {"ADV_opf_fnc_ftLeader"};	//mortar gunner
+		case "OPF_AMO": {"ADV_opf_fnc_ftLeader"};	//asst. mortar gunner
+		case "OPF_TOW": {"ADV_opf_fnc_ftLeader"};	//TOW gunner
+		case "OPF_ATO": {"ADV_opf_fnc_ftLeader"};	//asst. TOW gunner
 		default {
 			_prefix = [_object,0,-2] call BIS_fnc_trimString;
 			switch true do {
@@ -113,9 +113,9 @@ if (side _target == east) then {
 				case ( toUpper (_object select [0,15]) == "OPF_DIVER_MEDIC" ): {"ADV_opf_fnc_diver_medic"};
 				case ( toUpper (_object select [0,14]) == "OPF_DIVER_SPEC" ): {"ADV_opf_fnc_diver_spec"};
 				case ( toUpper (_object select [0,9]) == "OPF_DIVER" ): {"ADV_opf_fnc_diver"};
-				case ( toUpper (_object select [0,10]) == "OPF_ASSCSW" ): {"ADV_opf_fnc_soldier"};			//asst. crew served weapon
-				case ( toUpper (_object select [0,13]) == "OPF_ASSMORTAR" ): {"ADV_opf_fnc_soldier"};		//asst. mortar gunner
-				case ( toUpper (_object select [0,10]) == "OPF_ASSTOW" ): {"ADV_opf_fnc_soldier"};		//asst. mortar gunner
+				case ( toUpper (_object select [0,10]) == "OPF_ASSCSW" ): {"ADV_opf_fnc_ftLeader"};			//asst. crew served weapon
+				case ( toUpper (_object select [0,13]) == "OPF_ASSMORTAR" ): {"ADV_opf_fnc_ftLeader"};		//asst. mortar gunner
+				case ( toUpper (_object select [0,10]) == "OPF_ASSTOW" ): {"ADV_opf_fnc_ftLeader"};		//asst. mortar gunner
 				case ( (toUpper _object) in _zeus ): {"ADV_fnc_zeus"};
 				default {"ADV_fnc_nil"};
 			};
@@ -148,12 +148,12 @@ if (side _target == independent) then {
 		case "IND_SNI": {"ADV_ind_fnc_sniper"};
 		case "IND_SPO": {"ADV_ind_fnc_spotter"};
 		case "IND_ABE": {"ADV_ind_fnc_ABearer"};
-		case "IND_CSW": {"ADV_ind_fnc_soldier"};	//crew served weapon
-		case "IND_ACS": {"ADV_ind_fnc_soldier"};	//asst. crew served weapon
-		case "IND_MOR": {"ADV_ind_fnc_soldier"};	//mortar gunner
-		case "IND_AMO": {"ADV_ind_fnc_soldier"};	//asst. mortar gunner
-		case "IND_TOW": {"ADV_ind_fnc_soldier"};	//TOW gunner
-		case "IND_ATO": {"ADV_ind_fnc_soldier"};	//asst. TOW gunner
+		case "IND_CSW": {"ADV_ind_fnc_ftLeader"};	//crew served weapon
+		case "IND_ACS": {"ADV_ind_fnc_ftLeader"};	//asst. crew served weapon
+		case "IND_MOR": {"ADV_ind_fnc_ftLeader"};	//mortar gunner
+		case "IND_AMO": {"ADV_ind_fnc_ftLeader"};	//asst. mortar gunner
+		case "IND_TOW": {"ADV_ind_fnc_ftLeader"};	//TOW gunner
+		case "IND_ATO": {"ADV_ind_fnc_ftLeader"};	//asst. TOW gunner
 		default {
 			_prefix = [_object,0,-2] call BIS_fnc_trimString;
 			switch true do {
@@ -167,9 +167,9 @@ if (side _target == independent) then {
 				case ( toUpper (_object select [0,15]) == "IND_DIVER_MEDIC" ): {"ADV_ind_fnc_diver_medic"};
 				case ( toUpper (_object select [0,14]) == "IND_DIVER_SPEC" ): {"ADV_ind_fnc_diver_spec"};
 				case ( toUpper (_object select [0,9]) == "IND_DIVER" ): {"ADV_ind_fnc_diver"};
-				case ( toUpper (_object select [0,10]) == "IND_ASSCSW" ): {"ADV_ind_fnc_soldier"};			//asst. crew served weapon
-				case ( toUpper (_object select [0,13]) == "IND_ASSMORTAR" ): {"ADV_ind_fnc_soldier"};		//asst. mortar gunner
-				case ( toUpper (_object select [0,10]) == "IND_ASSTOW" ): {"ADV_ind_fnc_soldier"};		//asst. mortar gunner
+				case ( toUpper (_object select [0,10]) == "IND_ASSCSW" ): {"ADV_ind_fnc_ftLeader"};			//asst. crew served weapon
+				case ( toUpper (_object select [0,13]) == "IND_ASSMORTAR" ): {"ADV_ind_fnc_ftLeader"};		//asst. mortar gunner
+				case ( toUpper (_object select [0,10]) == "IND_ASSTOW" ): {"ADV_ind_fnc_ftLeader"};		//asst. mortar gunner
 				case ( (toUpper _object) in _zeus ): {"ADV_fnc_zeus"};
 				default {"ADV_fnc_nil"};
 			};
