@@ -336,10 +336,25 @@ if (isClass (configFile >> "CfgPatches" >> "ACE_common")) then {
 	if ( isClass (configFile >> "CfgPatches" >> "ACE_repair") && isClass (configFile >> "CfgPatches" >> "ACE_cargo") ) then {
 		if (_isRepairVehicle) then {
 			_target setVariable ["ACE_isRepairVehicle", 1, true];
-			[_target,_amountOfSpareParts-1,"ACE_Track",true] call ACE_repair_fnc_addSpareParts;
-			[_target,_amountOfSpareParts-1,"ACE_Wheel",true] call ACE_repair_fnc_addSpareParts;
+			call {
+				if (_target isKindOf "TANK") then {
+					["ACE_Track", _target, _amountOfSpareParts-1] call ace_cargo_fnc_addCargoItem;
+					["ACE_Wheel", _target, _amountOfSpareParts] call ace_cargo_fnc_addCargoItem;
+				};
+				["ACE_Track", _target, _amountOfSpareParts] call ace_cargo_fnc_addCargoItem;
+				["ACE_Wheel", _target, _amountOfSpareParts-1] call ace_cargo_fnc_addCargoItem;
+			};
+			//[_target,_amountOfSpareParts-1,"ACE_Track",true] call ACE_repair_fnc_addSpareParts;
+			//[_target,_amountOfSpareParts-1,"ACE_Wheel",true] call ACE_repair_fnc_addSpareParts;
 		} else {
-			[_target,_amountOfSpareParts-1,"",true] call ACE_repair_fnc_addSpareParts;
+			call {
+				if (_target isKindOf "CAR") exitWith {
+					["ACE_Wheel", _target, _amountOfSpareParts-1] call ace_cargo_fnc_addCargoItem;
+				};
+				if (_target isKindOf "TANK") exitWith {
+					["ACE_Track", _target, _amountOfSpareParts-1] call ace_cargo_fnc_addCargoItem;
+				};
+			};
 		};
 	};
 	if ( (_target isKindOf "Helicopter") && isClass (configFile >> "CfgPatches" >> "ACE_fastroping") ) then {
