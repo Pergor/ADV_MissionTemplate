@@ -5,10 +5,10 @@ contains all the variables that are important for tfar
 
 if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	//params needed in case paramsArray not yet defined on client in MP
-	adv_par_customUni = ["param_customUni",0] call BIS_fnc_getParamValue;
-	//if (isNil "ADV_par_customWeap") then { adv_par_customWeap = ["param_customWeap",0] call BIS_fnc_getParamValue; };
+	if (isNil "adv_par_customUni") then { adv_par_customUni = ["param_customUni",0] call BIS_fnc_getParamValue; };
+	if (isNil "ADV_par_customWeap") then { adv_par_customWeap = ["param_customWeap",0] call BIS_fnc_getParamValue; };
 	//if (isNil "ADV_par_opfUni") then { adv_par_opfUni = ["param_opfUni",0] call BIS_fnc_getParamValue; };
-	adv_par_seriousMode = ["param_seriousMode",0] call BIS_fnc_getParamValue;
+	if (isNil "adv_par_seriousMode") then { adv_par_seriousMode = ["param_seriousMode",0] call BIS_fnc_getParamValue; };
 	//für zusätzliche variablen/functions: https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Variables
 	call compile preprocessFileLineNumbers "\task_force_radio\functions\common.sqf";
 	
@@ -33,6 +33,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	[] spawn {
 		waitUntil {!isNil "ADV_par_seriousMode" && !isNil "adv_par_customUni" };
 		if (adv_par_customUni isEqualTo 9) then { TF_defaultWestPersonalRadio = "tf_anprc148jem"; };
+		if ( (adv_par_customWeap isEqualTo 1 || adv_par_customUni isEqualTo 2) && isClass(configFile >> "CfgPatches" >> "tfw_sem52sl") ) then { TF_defaultWestPersonalRadio = "tf_sem52sl"; };
 		if ( ADV_par_seriousMode > 0 ) then {
 			tf_radio_channel_name = "Arma3-TFAR";
 			tf_radio_channel_password = "123";

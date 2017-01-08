@@ -1,6 +1,6 @@
 ﻿/*
-ADV_fnc_acreSettings by Belbo
-contains all the variables that are important for acre2
+ADV_fnc_setFrequencies by Belbo
+Sets the frequencies for each group
 */
 params [
 	["_unit", player, [objNull]]

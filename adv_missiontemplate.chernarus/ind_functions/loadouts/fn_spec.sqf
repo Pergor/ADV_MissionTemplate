@@ -145,7 +145,7 @@ _ACE_FlareTripMine = 0;
 _ACE_MapTools = 0;
 _ACE_CableTie = 2;
 _ACE_EntrenchingTool = 1;
-_ACE_sprayPaintColor = "NONE";
+_ACE_sprayPaintColor = "RED";
 _ACE_gunbag = 0;
 
 _ACE_key = 3;	//0 = no key, 1 = side dependant key, 2 = master key, 3 = lockpick

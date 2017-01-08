@@ -475,7 +475,6 @@ switch (toUpper ([str (_this select 0),0,9] call BIS_fnc_trimString)) do {
 	case "LEADER_COM": {
 		_ACE_isMedic = 2;
 		_tablet = true;
-		_androidDevice = false;
 		_40mmFlareYellow = 0;
 		_ACE_HuntIR_monitor = 1;
 		_ACE_HuntIR = 5;

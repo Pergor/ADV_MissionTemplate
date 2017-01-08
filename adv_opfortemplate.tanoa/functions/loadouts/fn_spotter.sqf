@@ -166,7 +166,7 @@ _ACE_key = 3;	//0 = no key, 1 = side dependant key, 2 = master key, 3 = lockpick
 _ACE_flashlight = 1;
 _ACE_kestrel = 1;
 _ACE_altimeter = 0;
-_ACE_ATragMX = 0;
+_ACE_ATragMX = 1;
 _ACE_rangecard = 1;
 _ACE_DAGR = 0;
 _ACE_microDAGR = 1;

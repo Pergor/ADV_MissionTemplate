@@ -49,6 +49,7 @@ if (side _target == west) then {
 		case "ATO": {"ADV_fnc_ftLeader"};	//TOW Gunner
 		default {
 			switch true do {
+				case ( toUpper (_object select [0,3]) == "FTL" ): {"ADV_fnc_ftLeader"};
 				case ( toUpper (_object select [0,8]) == "FTLEADER" ): {"ADV_fnc_ftLeader"};
 				case ( toUpper (_object select [0,9]) == "SOLDIERAT" ): {"ADV_fnc_soldierAT"};
 				case ( toUpper (_object select [0,7]) == "SOLDIER" ): {"ADV_fnc_soldier"};
@@ -103,7 +104,7 @@ if (side _target == east) then {
 		default {
 			_prefix = [_object,0,-2] call BIS_fnc_trimString;
 			switch true do {
-				case ( toUpper (_object select [0,12]) == "OPF_FTLEADER" ): {"ADV_opf_fnc_ftLeader"};
+				case ( toUpper (_object select [0,7]) == "OPF_FTL" ): {"ADV_opf_fnc_ftLeader"};
 				case ( toUpper (_object select [0,13]) == "OPF_SOLDIERAT" ): {"ADV_opf_fnc_soldierAT"};
 				case ( toUpper (_object select [0,11]) == "OPF_SOLDIER" ): {"ADV_opf_fnc_soldier"};
 				case ( toUpper (_object select [0,9]) == "OPF_ASSAR" ): {"ADV_opf_fnc_assAR"};
@@ -157,7 +158,7 @@ if (side _target == independent) then {
 		default {
 			_prefix = [_object,0,-2] call BIS_fnc_trimString;
 			switch true do {
-				case ( toUpper (_object select [0,12]) == "IND_FTLEADER" ): {"ADV_ind_fnc_ftLeader"};
+				case ( toUpper (_object select [0,7]) == "IND_FTL" ): {"ADV_ind_fnc_ftLeader"};
 				case ( toUpper (_object select [0,13]) == "IND_SOLDIERAT" ): {"ADV_ind_fnc_soldierAT"};
 				case ( toUpper (_object select [0,11]) == "IND_SOLDIER" ): {"ADV_ind_fnc_soldier"};
 				case ( toUpper (_object select [0,9]) == "IND_ASSAR" ): {"ADV_ind_fnc_assAR"};

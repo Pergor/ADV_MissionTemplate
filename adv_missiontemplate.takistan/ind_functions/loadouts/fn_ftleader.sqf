@@ -176,7 +176,7 @@ _ACE_isPilot = false;
 _tablet = false;
 _androidDevice = true;
 _microDAGR = false;
-_helmetCam = true;
+_helmetCam = false;
 
 //scorch inv items
 _scorchItems = ["sc_dogtag","sc_mre"];
@@ -254,6 +254,9 @@ switch (ADV_par_indUni) do {
 ///// No editing necessary below this line /////
 
 _player = _this select 0;
+if !(toUpper ((str _player) select [4,2]) == "FT") then {
+	_ACE_sprayPaintColor = "NONE";
+};
 [_player] call ADV_fnc_gear;
 if (toUpper ((str _player) select [4,2]) == "FT") exitWith {nil;};
 

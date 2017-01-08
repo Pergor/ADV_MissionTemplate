@@ -176,7 +176,7 @@ _ACE_isPilot = false;
 _tablet = false;
 _androidDevice = true;
 _microDAGR = false;
-_helmetCam = true;
+_helmetCam = false;
 
 //scorch inv items
 _scorchItems = ["sc_dogtag","sc_mre"];
@@ -446,9 +446,12 @@ switch (ADV_par_customUni) do {
 ///// No editing necessary below this line /////
 
 _player = _this select 0;
+if !(toUpper ((str _player) select [0,2]) == "FT") then {
+	_ACE_sprayPaintColor = "NONE";
+};
 [_player] call ADV_fnc_gear;
+if (toUpper ((str _player) select [0,2]) == "FT") exitWith {nil;};
 switch true do {
-	case (toUpper ((str _player) select [0,2]) == "FT"): { };
 	case (toUpper ((str _player) select [0,3]) == "CSW"): { [_player,1] call ADV_fnc_CSW;};
 	case (toUpper ((str _player) select [0,6]) == "ASSCSW"): { [_player,2] call ADV_fnc_CSW; };
 	case (toUpper ((str _player) select [0,4]) == "ACSW"): { [_player,2] call ADV_fnc_CSW; };
