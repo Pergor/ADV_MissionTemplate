@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=616;
+		nextID=630;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2054.1995,51.718544,5587.4912};
-		dir[]={-0.49681282,-0.86649603,-0.049729466};
-		up[]={-0.86219507,0.49915808,-0.086302415};
-		aside[]={-0.099603646,-2.2663153e-007,0.9950738};
+		pos[]={1899.661,30.079006,5736.3105};
+		dir[]={0.13457514,-0.8216145,0.55404401};
+		up[]={0.19393264,0.57000417,0.79841709};
+		aside[]={0.97179556,-1.0946533e-006,-0.23604414};
 	};
 };
 binarizationWanted=0;
@@ -49,7 +49,6 @@ addons[]=
 	"A3_Soft_F_Offroad_01",
 	"A3_Structures_F_Kart_Mil_Flags",
 	"A3_Characters_F",
-	"A3_Data_F_Curator_Characters",
 	"A3_Characters_F_Exp_Civil",
 	"A3_Modules_F",
 	"A3_Modules_F_Curator_Curator",
@@ -189,36 +188,36 @@ class AddonsMetaData
 		};
 		class Item18
 		{
-			className="A3_Data_F_Curator";
-			name="Arma 3 Zeus Update - Main Configuration";
-			author="Bohemia Interactive";
-			url="http://www.arma3.com";
-		};
-		class Item19
-		{
 			className="A3_Characters_F_Exp";
 			name="Arma 3 Apex - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item20
+		class Item19
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item21
+		class Item20
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item22
+		class Item21
 		{
 			className="A3_Data_F_Exp_A";
 			name="Arma 3 Nexus Update - Main Configuration";
+			author="Bohemia Interactive";
+			url="http://www.arma3.com";
+		};
+		class Item22
+		{
+			className="A3_Data_F_Curator";
+			name="Arma 3 Zeus Update - Main Configuration";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -2761,20 +2760,43 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1908.0664,5.6914387,5755.751};
-						angles[]={0,0.22407223,0};
+						position[]={1908.066,5.6914387,5755.751};
+						angles[]={0,0.22406538,0};
 					};
 					side="West";
 					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
-						name="spec_1";
-						description="Pionier";
+						name="gren_2";
+						description="Grenadier";
 						isPlayable=1;
 					};
-					id=510;
-					type="B_engineer_F";
+					id=616;
+					type="B_Soldier_GL_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.03;
+								};
+							};
+						};
+						nAttributes=1;
+					};
 				};
 				class Item9
 				{
@@ -2900,20 +2922,43 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1900.3878,5.6914387,5752.8618};
-						angles[]={0,0.22407223,0};
+						position[]={1900.3879,5.6914387,5752.8618};
+						angles[]={0,0.22406538,0};
 					};
 					side="West";
 					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
-						name="gren_2";
+						name="gren_3";
 						description="Grenadier";
 						isPlayable=1;
 					};
 					id=517;
 					type="B_Soldier_GL_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=1;
+					};
 				};
 				class Item5
 				{
@@ -2981,20 +3026,43 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1907.017,5.6914387,5751.0942};
-						angles[]={0,0.22407223,0};
+						position[]={1907.017,5.6914387,5751.0938};
+						angles[]={0,0.22406538,0};
 					};
 					side="West";
 					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
-						name="spec_2";
-						description="Pionier";
+						name="gren_4";
+						description="Grenadier";
 						isPlayable=1;
 					};
-					id=521;
-					type="B_engineer_F";
+					id=617;
+					type="B_Soldier_GL_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.97000003;
+								};
+							};
+						};
+						nAttributes=1;
+					};
 				};
 				class Item9
 				{
