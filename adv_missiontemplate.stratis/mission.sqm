@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1899.661,30.079006,5736.3105};
-		dir[]={0.13457514,-0.8216145,0.55404401};
-		up[]={0.19393264,0.57000417,0.79841709};
-		aside[]={0.97179556,-1.0946533e-006,-0.23604414};
+		pos[]={1805.7468,22.913074,6089.3735};
+		dir[]={-0.12788071,-0.36384964,-0.92271042};
+		up[]={-0.049964007,0.93140799,-0.36051023};
+		aside[]={-0.9905895,3.632158e-008,0.13728639};
 	};
 };
 binarizationWanted=0;
@@ -44,6 +44,7 @@ addons[]=
 	"A3_Air_F_Heli_Heli_Transport_03",
 	"A3_Soft_F_Beta_Truck_01",
 	"A3_Soft_F_Gamma_Truck_01",
+	"A3_Air_F_Exp_VTOL_01",
 	"A3_Soft_F_Gamma_Van_01",
 	"A3_Soft_F_Beta_Truck_02",
 	"A3_Soft_F_Offroad_01",
@@ -59,7 +60,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=23;
+		items=24;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -174,47 +175,54 @@ class AddonsMetaData
 		};
 		class Item16
 		{
+			className="A3_Air_F_Exp";
+			name="Arma 3 Apex - Aircrafts";
+			author="Bohemia Interactive";
+			url="http://www.arma3.com";
+		};
+		class Item17
+		{
 			className="A3_Structures_F_Kart";
 			name="Arma 3 Karts - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item17
+		class Item18
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item18
+		class Item19
 		{
 			className="A3_Characters_F_Exp";
 			name="Arma 3 Apex - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item19
+		class Item20
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item20
+		class Item21
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item21
+		class Item22
 		{
 			className="A3_Data_F_Exp_A";
 			name="Arma 3 Nexus Update - Main Configuration";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item22
+		class Item23
 		{
 			className="A3_Data_F_Curator";
 			name="Arma 3 Zeus Update - Main Configuration";
@@ -1610,7 +1618,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1805.5234,7.6801653,6053.4614};
+				position[]={1805.5234,12.347973,6053.4614};
 				angles[]={0,3.3964107,0};
 			};
 			side="Empty";
@@ -1621,7 +1629,7 @@ class Mission
 				name="air_c130_1";
 			};
 			id=80;
-			type="B_Plane_CAS_01_F";
+			type="B_T_VTOL_01_infantry_F";
 		};
 		class Item80
 		{
