@@ -112,6 +112,13 @@ if (_withWeapons) then {
 	};
 	_target addMagazineCargoGlobal ["1Rnd_HE_Grenade_shell",5];
 	_target addMagazineCargoGlobal ["1Rnd_SmokeRed_Grenade_shell",10];
+	
+	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && ADV_par_logisticAmount > 2 ) then {
+		if ( ([_target] call ace_cargo_fnc_getCargoSpaceLeft) > 2) then {
+			_crate = ["ADV_LOGISTIC_CRATENORMAL",true,independent,getPosASL _target] call adv_fnc_dialogLogistic;
+			[_crate,_target] call ace_cargo_fnc_loadItem;
+		};
+	};
 };
 
 //helmets and vests
@@ -215,6 +222,17 @@ if (_isMedic) then {
 	_mediKit = 2;
 	
 	_target setVariable ["ACE_medical_medicClass", 2, true];
+	
+	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && ADV_par_logisticAmount > 2 ) then {
+		call {
+			if ( ([_target] call ace_cargo_fnc_getCargoSpaceLeft) > 4) then {
+				_crate = ["ADV_LOGISTIC_CRATEMEDIC",true,independent,getPosASL _target] call adv_fnc_dialogLogistic;
+				[_crate,_target] call ace_cargo_fnc_loadItem;
+			};
+			_crate = ["ADV_LOGISTIC_CRATEMEDIC",true,independent,getPosASL _target] call adv_fnc_dialogLogistic;
+			[_crate,_target] call ace_cargo_fnc_loadItem;
+		};
+	};
 };
 
 if !(isClass (configFile >> "CfgPatches" >> "ACE_medical")) then {
@@ -265,10 +283,25 @@ if (isClass (configFile >> "CfgPatches" >> "ACE_common")) then {
 	if ( isClass (configFile >> "CfgPatches" >> "ACE_repair") && isClass (configFile >> "CfgPatches" >> "ACE_cargo") ) then {
 		if (_isRepairVehicle) then {
 			_target setVariable ["ACE_isRepairVehicle", 1, true];
-			[_target,_amountOfSpareParts-1,"ACE_Track",true] call ACE_repair_fnc_addSpareParts;
-			[_target,_amountOfSpareParts-1,"ACE_Wheel",true] call ACE_repair_fnc_addSpareParts;
+			call {
+				if (_target isKindOf "TANK") then {
+					["ACE_Track", _target, _amountOfSpareParts-1] call ace_cargo_fnc_addCargoItem;
+					["ACE_Wheel", _target, _amountOfSpareParts] call ace_cargo_fnc_addCargoItem;
+				};
+				["ACE_Track", _target, _amountOfSpareParts] call ace_cargo_fnc_addCargoItem;
+				["ACE_Wheel", _target, _amountOfSpareParts-1] call ace_cargo_fnc_addCargoItem;
+			};
+			//[_target,_amountOfSpareParts-1,"ACE_Track",true] call ACE_repair_fnc_addSpareParts;
+			//[_target,_amountOfSpareParts-1,"ACE_Wheel",true] call ACE_repair_fnc_addSpareParts;
 		} else {
-			[_target,_amountOfSpareParts-1,"",true] call ACE_repair_fnc_addSpareParts;
+			call {
+				if (_target isKindOf "CAR") exitWith {
+					["ACE_Wheel", _target, _amountOfSpareParts-1] call ace_cargo_fnc_addCargoItem;
+				};
+				if (_target isKindOf "TANK") exitWith {
+					["ACE_Track", _target, _amountOfSpareParts-1] call ace_cargo_fnc_addCargoItem;
+				};
+			};
 		};
 	};
 	if ( (_target isKindOf "Helicopter") && isClass (configFile >> "CfgPatches" >> "ACE_fastroping") ) then {

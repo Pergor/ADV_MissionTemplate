@@ -160,7 +160,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 		_ACE_NonSteerableParachute = 0;
 
 		_ACE_key_west = 0;
-		_ACE_key_east = 1;
+		_ACE_key_east = 0;
 		_ACE_key_indp = 0;
 		_ACE_key_civ = 0;
 		_ACE_key_master = 0;

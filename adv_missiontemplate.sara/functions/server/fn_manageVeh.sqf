@@ -512,9 +512,11 @@ call {
 		};
 		[ADV_veh_airC130,["CUP_B_C130J_USMC"],west] spawn ADV_fnc_changeVeh;
 	};
+	/*
 	if !(toUpper worldname == "TANOA") exitWith {
 		[ADV_veh_airC130,[""],west] spawn ADV_fnc_changeVeh;
 	};
+	*/
 };
 
 if (true) exitWith { missionNamespace setVariable ["ADV_var_manageVeh",true,true]; };

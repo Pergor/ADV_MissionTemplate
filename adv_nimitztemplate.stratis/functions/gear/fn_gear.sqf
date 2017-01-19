@@ -29,6 +29,7 @@ if ( isClass(configFile >> "CfgPatches" >> "rhs_main") ) then { _NVGoggles appen
 if ( isClass(configFile >> "CfgPatches" >> "UK3CB_BAF_Equipment") ) then { _NVGoggles append ["UK3CB_BAF_HMNVS"]; };
 if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _NVGoggles append ["dsk_nsv"]; };
 if ( isClass(configFile >> "CfgPatches" >> "CUP_Weapons_NVG") ) then { _NVGoggles append ["CUP_NVG_HMNVS","CUP_NVG_PVS7"]; };
+if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then { [] call adv_fnc_tfarSettings };
 private _disposableLaunchers = ["BWA3_Pzf3","BWA3_RGW90","STI_M136","CUP_launch_M136","rhs_weap_M136","rhs_weap_M136_hedp","rhs_weap_M136_hp","RHS_WEAP_M72A7","RHS_WEAP_RPG26","RHS_WEAP_RSHG2","RHS_WEAP_RPG18"];
 if ( isClass(configFile >> "CfgPatches" >> "ACE_disposable") ) then { _disposableLaunchers append ["launch_NLAW_F"]; };
 if (isNil "ADV_params_defined") then {

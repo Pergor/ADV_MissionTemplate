@@ -17,10 +17,12 @@ _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],
 
 //weapons - primary weapon - (string)
 _primaryweapon = ["arifle_MX_Black_F","arifle_MX_F"];
-if (worldName == "TANOA") then { _primaryweapon = ["arifle_MX_Black_F","arifle_MX_khk_F"]; };
 
 //primary weapon items - (array)
 _optic = ["optic_Hamr","optic_MRCO"];
+if (worldName == "TANOA") then {
+	_primaryweapon = ["arifle_MX_Black_F","arifle_MX_khk_F"];
+};
 _attachments = [""];
 if ( ADV_par_NVGs == 1 ) then { _attachments pushback "acc_flashlight"; };
 if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
