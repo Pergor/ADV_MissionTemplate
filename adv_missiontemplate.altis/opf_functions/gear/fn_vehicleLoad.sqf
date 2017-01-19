@@ -112,6 +112,13 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["1Rnd_SmokeRed_Grenade_shell",10];
 		};
 	};
+	
+	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && ADV_par_logisticAmount > 2 ) then {
+		if ( ([_target] call ace_cargo_fnc_getCargoSpaceLeft) > 2) then {
+			_crate = ["ADV_LOGISTIC_CRATENORMAL",true,east,getPosASL _target] call adv_fnc_dialogLogistic;
+			[_crate,_target] call ace_cargo_fnc_loadItem;
+		};
+	};
 };
 
 //helmets and vests
@@ -224,6 +231,17 @@ if (_isMedic) then {
 	};
 	
 	_target setVariable ["ACE_medical_medicClass", 2, true];
+	
+	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && ADV_par_logisticAmount > 2 ) then {
+		call {
+			if ( ([_target] call ace_cargo_fnc_getCargoSpaceLeft) > 4) then {
+				_crate = ["ADV_LOGISTIC_CRATEMEDIC",true,east,getPosASL _target] call adv_fnc_dialogLogistic;
+				[_crate,_target] call ace_cargo_fnc_loadItem;
+			};
+			_crate = ["ADV_LOGISTIC_CRATEMEDIC",true,east,getPosASL _target] call adv_fnc_dialogLogistic;
+			[_crate,_target] call ace_cargo_fnc_loadItem;
+		};
+	};
 };
 
 if !(isClass (configFile >> "CfgPatches" >> "ACE_medical")) then {
