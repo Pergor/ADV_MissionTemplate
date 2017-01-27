@@ -8,7 +8,7 @@ class EditorData
 	toggles=129;
 	class ItemIDProvider
 	{
-		nextID=304;
+		nextID=305;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={4817.145,407.1113,10185.274};
-		dir[]={-0.87663704,-0.47282311,0.089501955};
-		up[]={-0.47044814,0.88111913,0.048029471};
-		aside[]={0.10156953,2.8162322e-007,0.99486637};
+		pos[]={4474.3477,441.78506,10781.271};
+		dir[]={-0.25476503,-0.91156197,0.32285061};
+		up[]={-0.56469262,0.41113701,0.71560299};
+		aside[]={0.78505534,-2.6669586e-006,0.61950189};
 	};
 };
 binarizationWanted=0;
@@ -50,9 +50,9 @@ addons[]=
 	"A3_Soft_F_Gamma_Truck_01",
 	"A3_Structures_F_Civ_Camping",
 	"A3_Characters_F",
-	"A3_Data_F_Curator_Characters",
 	"A3_Characters_F_Exp_Civil",
-	"A3_Modules_F_Curator_Curator"
+	"A3_Modules_F_Curator_Curator",
+	"A3_Air_F_Exp_VTOL_01"
 };
 class AddonsMetaData
 {
@@ -185,22 +185,22 @@ class AddonsMetaData
 		};
 		class Item18
 		{
-			className="A3_Data_F_Curator";
-			name="Arma 3 Zeus Update - Main Configuration";
-			author="Bohemia Interactive";
-			url="http://www.arma3.com";
-		};
-		class Item19
-		{
 			className="A3_Characters_F_Exp";
 			name="Arma 3 Apex - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item20
+		class Item19
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
+			author="Bohemia Interactive";
+			url="http://www.arma3.com";
+		};
+		class Item20
+		{
+			className="A3_Air_F_Exp";
+			name="Arma 3 Apex - Aircrafts";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -2090,24 +2090,6 @@ class Mission
 		};
 		class Item107
 		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={4436.2744,341.18018,10837.702};
-				angles[]={0,5.360076,0};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				skill=0.60000002;
-				name="air_c130_1";
-			};
-			id=108;
-			type="B_Plane_CAS_01_F";
-		};
-		class Item108
-		{
 			dataType="Group";
 			side="West";
 			class Entities
@@ -2138,7 +2120,7 @@ class Mission
 			};
 			id=111;
 		};
-		class Item109
+		class Item108
 		{
 			dataType="Group";
 			side="East";
@@ -2170,7 +2152,7 @@ class Mission
 			};
 			id=113;
 		};
-		class Item110
+		class Item109
 		{
 			dataType="Group";
 			side="Independent";
@@ -2202,7 +2184,7 @@ class Mission
 			};
 			id=115;
 		};
-		class Item111
+		class Item110
 		{
 			dataType="Group";
 			side="Civilian";
@@ -2234,7 +2216,7 @@ class Mission
 			};
 			id=117;
 		};
-		class Item112
+		class Item111
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -2344,7 +2326,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item113
+		class Item112
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -2454,7 +2436,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item114
+		class Item113
 		{
 			dataType="Group";
 			side="West";
@@ -2575,7 +2557,7 @@ class Mission
 			id=234;
 			atlOffset=0.00030517578;
 		};
-		class Item115
+		class Item114
 		{
 			dataType="Group";
 			side="West";
@@ -2796,7 +2778,7 @@ class Mission
 			id=240;
 			atlOffset=-0.00033569336;
 		};
-		class Item116
+		class Item115
 		{
 			dataType="Group";
 			side="West";
@@ -3014,7 +2996,7 @@ class Mission
 			};
 			id=251;
 		};
-		class Item117
+		class Item116
 		{
 			dataType="Group";
 			side="West";
@@ -3230,7 +3212,7 @@ class Mission
 			};
 			id=262;
 		};
-		class Item118
+		class Item117
 		{
 			dataType="Group";
 			side="West";
@@ -3448,7 +3430,7 @@ class Mission
 			};
 			id=273;
 		};
-		class Item119
+		class Item118
 		{
 			dataType="Group";
 			side="West";
@@ -3554,7 +3536,7 @@ class Mission
 			id=284;
 			atlOffset=0.0023193359;
 		};
-		class Item120
+		class Item119
 		{
 			dataType="Group";
 			side="West";
@@ -3673,7 +3655,7 @@ class Mission
 			};
 			id=287;
 		};
-		class Item121
+		class Item120
 		{
 			dataType="Group";
 			side="West";
@@ -3791,7 +3773,7 @@ class Mission
 			};
 			id=293;
 		};
-		class Item122
+		class Item121
 		{
 			dataType="Group";
 			side="West";
@@ -3873,7 +3855,7 @@ class Mission
 			};
 			id=299;
 		};
-		class Item123
+		class Item122
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -3886,6 +3868,47 @@ class Mission
 			description="Der lustige HC";
 			id=303;
 			type="HeadlessClient_F";
+		};
+		class Item123
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4444.4463,345.84796,10833.441};
+				angles[]={0,5.3600802,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				name="air_c130_1";
+			};
+			id=304;
+			type="B_T_VTOL_01_infantry_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],true]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 };
