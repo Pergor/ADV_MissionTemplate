@@ -80,4 +80,7 @@ tawvd_disablenone = true;
 //finalization:
 ADV_variables_defined = true;
 
+//sthud:
+STHud_NoSquadBarMode = true;
+
 if (true) exitWith {};
