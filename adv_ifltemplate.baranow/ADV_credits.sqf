@@ -2,6 +2,8 @@
 ADV_missionAuthor = "[SeL] Belbo // Adrian";
 publicVariable "ADV_missionAuthor";
 
+
+//////// You are not allowed to change anything below this line! ////////
 [
 	{true},
 		["Credits",

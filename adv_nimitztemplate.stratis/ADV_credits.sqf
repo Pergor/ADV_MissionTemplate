@@ -2,6 +2,8 @@
 ADV_missionAuthor = "[SeL] Belbo // Adrian";
 publicVariable "ADV_missionAuthor";
 
+
+//////// You are not allowed to change anything below this line! ////////
 [
 	{true},
 		["Credits",
@@ -11,6 +13,7 @@ publicVariable "ADV_missionAuthor";
 		["Credits",
 			"ADV_MissionTemplate", 
 				"Dieses Mission-Template wurde von [SeL] Belbo geschrieben und zusammengestellt.<br/>
+				Großer Dank geht an [SeL] LeWarz für viele hitzige Diskussionen über Loadouts, Gruppenzusammensetzungen und Fahrzeuge.<br/>
 				Es steht euch frei, Code daraus zu verwenden,<br/>
 				solange keine sonstigen Lizenzen oder Urheberrechte<br/>
 				dabei verletzt werden (siehe license.txt).<br/><br/>
