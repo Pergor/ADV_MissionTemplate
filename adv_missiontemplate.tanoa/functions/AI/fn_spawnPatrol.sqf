@@ -83,7 +83,7 @@ if (isNil "adv_patrol_area_name") then { adv_patrol_area_name = 0 };
 			};
 		};
 		
-		private _skill = [0.6,0.9,0.7];
+		private _skill = [0.5,0.9,0.65];
 		if (_side == civilian) then { _skill = [0.0,0.0,0.0]; };
 		
 		private _withVehicles = false;

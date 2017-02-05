@@ -382,8 +382,8 @@ class param_modTruckAssets
 class param_modHeavyAssets
 {
 	title="Sollen schwere Fahrzeuge durch AddOn-Fahrzeuge ersetzt werden?";
-	values[] = {99,12,3,10,8,7,6,5,1,0};
-	texts[] = {"Keine schweren Fahrzeuge","CUP Marines","CUP Stryker","RHS RG33","RHS M2A3","stv retexture/ADV-Retex - Marid","stv retexture/ADV-Retex - Warrior/Mora","DAR MaxxPro","BWmod Puma","Nein"};
+	values[] = {99,12,3,10,9,8,7,6,5,1,0};
+	texts[] = {"Keine schweren Fahrzeuge","CUP Marines","CUP Stryker","RHS MRAPs","RHS M113","RHS Bradleys","stv retexture/ADV-Retex - Marid","stv retexture/ADV-Retex - Warrior/Mora","DAR MaxxPro","BWmod Puma","Nein"};
 	default = 0;
 };
 class param_modTankAssets

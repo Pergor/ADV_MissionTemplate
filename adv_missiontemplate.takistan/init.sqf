@@ -14,9 +14,12 @@ call ADV_fnc_parVariables;
 call ADV_fnc_variables;
 call ADV_fnc_tfarSettings;
 
-L_suppress_active = false;
-if (adv_par_l_suppress > 0) then {
-	L_suppress_active = true;
+//laxemann's suppress
+call {
+	if (adv_par_l_suppress > 0) exitWith {
+		L_suppress_active = true;
+	};
+	L_suppress_active = false;
 };
 
 if ( hasInterface ) then {

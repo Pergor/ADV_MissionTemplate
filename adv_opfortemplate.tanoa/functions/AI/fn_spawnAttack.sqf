@@ -47,7 +47,7 @@ params [
 			if (_attack isEqualType []) exitWith {_attack};
 			nil;
 		};
-		private _skill = [0.6,0.9,0.7];
+		private _skill = [0.5,0.9,0.65];
 		
 		private _withVehicles = false;
 		private _vehicles = [];

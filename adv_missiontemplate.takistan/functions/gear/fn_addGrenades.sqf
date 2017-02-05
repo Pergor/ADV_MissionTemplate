@@ -71,7 +71,7 @@ _grenArray = call {
 	if ( (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2) && ( side ( group _unit ) == east ) ) exitWith {
 		[
 			["rhs_mag_rgd5", _grenHE],
-			["SmokeShell", _grenSmkWht],
+			["rhs_mag_rdg2_white", _grenSmkWht],
 			["rhs_mag_rdg2_black", _grenSmkGrn+_grenSmkBl+_grenSmkPrpl],
 			["rhs_mag_nspd", _grenSmkYlw+_grenSmkRd+_grenSmkOrng]
 		];

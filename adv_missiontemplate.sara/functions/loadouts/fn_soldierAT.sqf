@@ -243,7 +243,7 @@ switch (ADV_par_customWeap) do {
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
-		_launcher=["rhs_weap_M136"];
+		_launcher=["rhs_weap_M136","rhs_weap_m72a7"];
 	};
 	case 5: {
 		//SELmods CUP Mk16

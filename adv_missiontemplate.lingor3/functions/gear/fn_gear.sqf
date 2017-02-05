@@ -160,7 +160,11 @@ if (_primaryweaponAmmo select 0 > 0) then {
 	[_unit,_primaryWeapon,_primaryweaponAmmo select 0,_primaryweaponAmmo select 1] call BIS_fnc_addWeapon;
 };
 if ( (typeName (_optic) ) == "ARRAY" ) then { _optic = selectRandom _optic; };
-if ( (!(side (group _unit) == east) && ADV_par_optics == 2) || ((side (group _unit) == east) && ADV_par_opfOptics == 2) ) then { _optic = selectRandom [_optic,""]; };
+if ( (!(side (group _unit) == east) && ADV_par_optics == 2) || ((side (group _unit) == east) && ADV_par_opfOptics == 2) ) then {
+	if (!(leader _unit == _unit) || (count units group _unit == 1)) then {
+		_optic = selectRandom [_optic,""];
+	};
+};
 //silencers and attachments
 if ( (!(side (group _unit) == east) && ADV_par_optics > 0) || (side (group _unit) == east && ADV_par_opfOptics > 0) ) then { _attachments pushBack _optic; };
 if ( (!(side (group _unit) == east) && ADV_par_optics == 0) || (side (group _unit) == east && ADV_par_opfOptics == 0) ) then {

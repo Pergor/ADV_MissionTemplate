@@ -201,16 +201,16 @@ if ((toUpper worldname) in ["STRATIS","ALTIS"]) then {
 };
 
 //TFAR Workaround:
-["unit", {
-    //current unit changed (Curator took control of unit)
+if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
+	["unit", {
+		if (player != (_this select 0)) then {
+			player setVariable ["TFAR_controlledUnit",(_this select 0), true];
+		} else {
+			player setVariable ["TFAR_controlledUnit",nil, true];
+		};
 
-    if (player != (_this select 0)) then {
-        player setVariable ["TFAR_controlledUnit",(_this select 0), true];//This tells other players that our position is different
-    } else {
-        player setVariable ["TFAR_controlledUnit",nil, true];
-    };
-
-    TFAR_currentUnit = (_this select 0);
-}] call CBA_fnc_addPlayerEventHandler;
+		TFAR_currentUnit = (_this select 0);
+	}] call CBA_fnc_addPlayerEventHandler;
+};
 
 if (true) exitWith {};
