@@ -329,7 +329,7 @@ class ace_medical_useCondition_PAK {
     force = 0;
 };
 class ace_medical_useCondition_SurgicalKit {
-    value = 1;
+    value = 0;
     typeName = "SCALAR";
     force = 0;
 };
@@ -489,7 +489,7 @@ class ace_repair_addSpareParts {
     force = 0;
 };
 class ace_repair_wheelRepairRequiredItems {
-    value = 1;
+    value = 0;
     typeName = "SCALAR";
     force = 0;
 };
