@@ -14,14 +14,6 @@ call ADV_fnc_parVariables;
 call ADV_fnc_variables;
 call ADV_fnc_tfarSettings;
 
-//laxemann's suppress
-call {
-	if (adv_par_l_suppress > 0) exitWith {
-		L_suppress_active = true;
-	};
-	L_suppress_active = false;
-};
-
 if ( hasInterface ) then {
 	titleText [format ["Einen Moment Geduld bitte, %1.\n\n\n Es geht gleich weiter.", profileName], "BLACK FADED"];
 };
@@ -42,6 +34,10 @@ if ( isServer ) then {
 	if ( isMultiplayer ) then {
 		{_x setVariable ["BIS_noCoreConversations", true, true]} count allUnits;
 	};
+	
+	//collections:
+	call adv_fnc_collectCrates;
+	call adv_fnc_collectFlags;
 	
 	//ADV_handle_zbeCache = [1200,-1,false,100,1200,1200] spawn compile preprocessFileLineNumbers "scripts\zbe_cache\main.sqf";	
 	
@@ -78,62 +74,16 @@ if ( isServer ) then {
 	
 	//crates and gear related
 	[] spawn {
-		//west crates:
-		ADV_objects_clearCargo = [];
-		if (!isNil "crate_1") then {ADV_objects_clearCargo pushBack crate_1};
-		if (!isNil "crate_2") then {ADV_objects_clearCargo pushBack crate_2};
-		if (!isNil "crate_3") then {ADV_objects_clearCargo pushBack crate_3};
-		if (!isNil "crate_4") then {ADV_objects_clearCargo pushBack crate_4};
-		if (!isNil "crate_5") then {ADV_objects_clearCargo pushBack crate_5};
-		if (!isNil "crate_6") then {ADV_objects_clearCargo pushBack crate_6};
-		if (!isNil "crate_7") then {ADV_objects_clearCargo pushBack crate_7};		
-		if !(count ADV_objects_clearCargo == 0) then {
-			ADV_objects_clearCargo call ADV_fnc_clearCargo;
-			sleep 1;
-			ADV_objects_clearCargo call ADV_fnc_crate;
-		};
-		//indep crates
-		if (!isNil "ind_crate_1") then {[ind_crate_1] call ADV_fnc_clearCargo;[ind_crate_1] call ADV_ind_fnc_crate;};
-		if (!isNil "ind_crate_2") then {[ind_crate_2] call ADV_fnc_clearCargo;[ind_crate_2] call ADV_ind_fnc_crate;};
-		if (!isNil "ind_crate_3") then {[ind_crate_3] call ADV_fnc_clearCargo;[ind_crate_3] call ADV_ind_fnc_crate;};
-		if (!isNil "ind_crate_4") then {[ind_crate_4] call ADV_fnc_clearCargo;[ind_crate_4] call ADV_ind_fnc_crate;};
-		//east crates:
-		ADV_objects_opfClearCargo = [];
-		if (!isNil "opf_crate_1") then {ADV_objects_opfClearCargo pushBack opf_crate_1};
-		if (!isNil "opf_crate_2") then {ADV_objects_opfClearCargo pushBack opf_crate_2};
-		if (!isNil "opf_crate_3") then {ADV_objects_opfClearCargo pushBack opf_crate_3};
-		if (!isNil "opf_crate_4") then {ADV_objects_opfClearCargo pushBack opf_crate_4};
-		if (!isNil "opf_crate_5") then {ADV_objects_opfClearCargo pushBack opf_crate_5};
-		if (!isNil "opf_crate_6") then {ADV_objects_opfClearCargo pushBack opf_crate_6};
-		if (!isNil "opf_crate_7") then {ADV_objects_opfClearCargo pushBack opf_crate_7};
-		if !(count ADV_objects_opfClearCargo == 0) then {
-			ADV_objects_opfClearCargo call ADV_fnc_clearCargo;
-			sleep 1;
-			ADV_objects_opfClearCargo call ADV_opf_fnc_crate;
-		};
-		
-		//additional crates:
-		if (!isNil "mgCrate") then {[mgCrate] call ADV_fnc_clearCargo;};
-		if (!isNil "opf_mgCrate") then {[opf_mgCrate] call ADV_fnc_clearCargo;};
-		if (!isNil "ind_mgCrate") then {[ind_mgCrate] call ADV_fnc_clearCargo;};
-		
-		if (!isNil "crate_empty") then {[crate_empty] call ADV_fnc_clearCargo;};
-		if (!isNil "opf_crate_empty") then {[opf_crate_empty] call ADV_fnc_clearCargo;};
-		if (!isNil "ind_crate_empty") then {[ind_crate_empty] call ADV_fnc_clearCargo;};
+		ADV_objects_clearCargo call ADV_fnc_clearCargo;
+		sleep 2;
+		ADV_objects_westCargo call ADV_fnc_crate;
+		ADV_objects_eastCargo call ADV_opf_fnc_crate;
+		ADV_objects_indCargo call ADV_ind_fnc_crate;
 	};
 	
-	if (!isNil "flag_1") then {
-		flag_1 setFlagTexture "img\flag.paa";
-		flag_1 setFlagSide west;
-	};
-	if (!isNil "opf_flag_1") then {
-		opf_flag_1 setFlagTexture "img\flag.paa";
-		opf_flag_1 setFlagSide east;
-	};
-	if (!isNil "ind_flag_1") then {
-		ind_flag_1 setFlagTexture "img\flag.paa";
-		ind_flag_1 setFlagSide independent;
-	};
+	//collect all the flags:
+	call adv_fnc_collectFlags;
+	{ _x setFlagTexture "img\flag.paa"; nil; } count adv_objects_westflags+adv_objects_eastflags+adv_objects_indflags;
 	
 	//deletes empty groups:
 	adv_handle_emptyGroupsDeleter = addMissionEventHandler ["EntityKilled",{_grp = group (_this select 0);if ( count (units _grp) == 0 ) then { deleteGroup _grp };}];

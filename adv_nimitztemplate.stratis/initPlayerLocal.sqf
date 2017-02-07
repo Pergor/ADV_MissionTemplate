@@ -10,6 +10,9 @@ call ADV_fnc_missionMarkers;
 call ADV_fnc_parVariables;
 call ADV_fnc_variables;
 call ADV_fnc_tfarSettings;
+//collections
+call adv_fnc_collectCrates;
+call adv_fnc_collectFlags;
 
 //waitUntil-player is initialized:
 waitUntil {player == player && !isNil "ADV_params_defined"};
@@ -49,48 +52,13 @@ sleep 1;
 
 //logistics menu
 if ( ADV_par_logisticAmount > 0 ) then {
-	if (!isNil "flag_1") then {
-		ADV_handle_logisticAction = flag_1 addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == west",5];
-	};
-	if (!isNil "opf_flag_1") then {
-		ADV_handle_opfLogisticAction_opf = opf_flag_1 addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == east",5];
-	};
-	if (!isNil "ind_flag_1") then {
-		ADV_handle_indLogisticAction_ind = ind_flag_1 addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == independent",5];
-	};
+	{ nul = _x addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == west",5]; nil; } count adv_objects_westFlags;
+	{ nul = _x addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == east",5]; nil; } count adv_objects_eastFlags;
+	{ nul = _x addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == independent",5]; } count adv_objects_indFlags;
 };
 //gearsaving
-ADV_objects_gearSaving = [];
-if (!isNil "crate_1") then {ADV_objects_gearSaving pushBack crate_1};
-if (!isNil "crate_2") then {ADV_objects_gearSaving pushBack crate_2};
-if (!isNil "crate_3") then {ADV_objects_gearSaving pushBack crate_3};
-if (!isNil "crate_4") then {ADV_objects_gearSaving pushBack crate_4};
-if (!isNil "crate_5") then {ADV_objects_gearSaving pushBack crate_5};
-if (!isNil "crate_6") then {ADV_objects_gearSaving pushBack crate_6};
-if (!isNil "crate_7") then {ADV_objects_gearSaving pushBack crate_7};
-if (!isNil "mgCrate") then {ADV_objects_gearSaving pushBack mgCrate};
-
-if (!isNil "ind_crate_1") then {ADV_objects_gearSaving pushBack ind_crate_1};
-if (!isNil "ind_crate_2") then {ADV_objects_gearSaving pushBack ind_crate_2};
-if (!isNil "ind_crate_3") then {ADV_objects_gearSaving pushBack ind_crate_3};
-if (!isNil "ind_crate_4") then {ADV_objects_gearSaving pushBack ind_crate_4};
-
-if (!isNil "opf_crate_1") then {ADV_objects_gearSaving pushBack opf_crate_1};
-if (!isNil "opf_crate_2") then {ADV_objects_gearSaving pushBack opf_crate_2};
-if (!isNil "opf_crate_3") then {ADV_objects_gearSaving pushBack opf_crate_3};
-if (!isNil "opf_crate_4") then {ADV_objects_gearSaving pushBack opf_crate_4};
-if (!isNil "opf_crate_5") then {ADV_objects_gearSaving pushBack opf_crate_5};
-if (!isNil "opf_crate_6") then {ADV_objects_gearSaving pushBack opf_crate_6};
-if (!isNil "opf_crate_7") then {ADV_objects_gearSaving pushBack opf_crate_7};
-if (!isNil "opf_mgCrate") then {ADV_objects_gearSaving pushBack opf_mgCrate};
-
-if (!isNil "crate_empty") then {ADV_objects_gearSaving pushBack crate_empty};
-if (!isNil "ind_crate_empty") then {ADV_objects_gearSaving pushBack ind_crate_empty};
-if (!isNil "opf_crate_empty") then {ADV_objects_gearSaving pushBack opf_crate_empty};
-if !(count ADV_objects_gearSaving == 0) then {
-	ADV_objects_gearSaving spawn adv_fnc_gearsaving;
-	//ADV_objects_gearSaving spawn adv_fnc_gearloading;
-};
+ADV_objects_clearCargo spawn adv_fnc_gearsaving;
+//ADV_objects_gearSaving spawn adv_fnc_gearloading;
 
 //disable fatigue if wanted:
 if (ADV_par_fatigue == 0) then {
@@ -109,6 +77,7 @@ if (!isClass(configFile >> "CfgPatches" >> "adv_aimcoeff")) then {
 
 //move/remove respawn marker:
 //[120 = Time until the respawn marker is moved again, 20 = radius around the group leader to place the marker]
+/*
 ADV_scriptVar_initMoveMarker_jump = {
 	{
 		private _target = _x;
@@ -116,6 +85,7 @@ ADV_scriptVar_initMoveMarker_jump = {
 		nil;
 	} count _this;
 };
+*/
 //moves the player to position of object called "respawn_helper", if it's present (for Nimitz for example):
 if (!isNil "respawn_helper") then {
 	adv_evh_respawnMover = player addEventhandler ["RESPAWN",{
@@ -129,14 +99,11 @@ switch ( ADV_par_moveMarker ) do {
 		ADV_handle_moveRespMarker = [120,20,ADV_par_remRespWest] spawn ADV_fnc_moveRespMarker;
 	};
 	default {
-		if (!isNil "flag_1") then { [flag_1] call ADV_fnc_flag; };
-		if (!isNil "opf_flag_1") then { [opf_flag_1] call ADV_fnc_flag; };
-		if (!isNil "ind_flag_1") then {	[ind_flag_1] call ADV_fnc_flag;	};
+		adv_objects_flags call ADV_fnc_flag;
 	};
 	case 3: {
-		if (!isNil "flag_1") then { [flag_1] call ADV_fnc_flag; [flag_1] call ADV_scriptVar_initMoveMarker_jump; };
-		if (!isNil "opf_flag_1") then { [opf_flag_1] call ADV_fnc_flag; [opf_flag_1] call ADV_scriptVar_initMoveMarker_jump; };
-		if (!isNil "ind_flag_1") then {	[ind_flag_1] call ADV_fnc_flag;	[ind_flag_1] call ADV_scriptVar_initMoveMarker_jump; };
+		adv_objects_flags call ADV_fnc_flag;
+		{ nul = _x addAction [("<t color=""#00FF00"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJumpSelection},nil,3,false,true,"","player == leader (group player)",5]; nil; } count adv_objects_flags;
 	};
 	case 99: {
 		setPlayerRespawnTime 9999;

@@ -41,6 +41,19 @@ if (isNil "ADV_params_defined") then {
 	ADV_par_Tablets = 1; ADV_par_TIEquipment = 0; ADV_par_Radios = 1;
 };
 
+if ( toUpper ([(str _unit),(count str _unit)-5] call BIS_fnc_trimString)== "RECON" ) then {
+	_unitTraits = [["medic",true],["engineer",true],["explosiveSpecialist",true],["UAVHacker",true],["camouflageCoef",1.5],["audibleCoef",0.5],["loadCoef",0.9]];
+	ADV_par_Silencers = 2;ADV_par_opfSilencers = 2;
+	_giveRiflemanRadio = true;
+	_givePersonalRadio = true;
+	_ACE_isMedic = 1;
+	_ACE_isEngineer = 1;
+	_ACE_isEOD = true;
+	_ACE_isPilot = false;
+	_androidDevice = true;
+	_microDAGR = false;
+};
+
 //removals:
 removeAllAssignedItems _unit;
 player unlinkItem "ItemRadio";
@@ -262,6 +275,11 @@ if (  str _unit in ["z1","z2","z3","z4","z5","opf_z1","opf_z2","opf_z3","opf_z4"
 	if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
 		["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;
 	};
+};
+
+if ( toUpper ([(str _unit),(count str _unit)-5] call BIS_fnc_trimString)== "RECON" ) then {
+	ADV_par_Silencers = ["param_Silencers",0] call BIS_fnc_getParamValue;
+	ADV_par_opfSilencers = ["param_opfSilencers",0] call BIS_fnc_getParamValue;
 };
 
 _unit setVariable ["ADV_var_hasLoadout",true];

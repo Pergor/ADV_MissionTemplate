@@ -13,7 +13,7 @@ if (count _this == 0) exitWith {};
 {
 	if (!isNil "_x") then {
 		_target = _x;
-		_target addAction [
+		nul = _target addAction [
 			"<t color='#00FF00'>Teleport zum Gruppenführer</t>",
 			{
 			createDialog "adv_teleport_mainDialog"

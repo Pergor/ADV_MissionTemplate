@@ -104,8 +104,10 @@ if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_pa
 //creation of vehicle code:
 adv_opf_manageVeh_codeForAll = {
 	_veh = _this;
-	[_veh] call ADV_fnc_clearCargo;
-	[_veh] call ADV_opf_fnc_addVehicleLoad;
+	if (ADV_par_customLoad > 0) then {
+		[_veh] call ADV_fnc_clearCargo;
+		[_veh] call ADV_opf_fnc_addVehicleLoad;
+	};
 	[_veh] call ADV_opf_fnc_disableVehSelector;
 	if (ADV_par_engineArtillery == 1 && str _veh in ADV_opf_veh_artys) then {
 		[_veh] call ADV_fnc_showArtiSetting;

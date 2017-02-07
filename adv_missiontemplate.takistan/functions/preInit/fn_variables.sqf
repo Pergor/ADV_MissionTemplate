@@ -16,6 +16,7 @@ if (isNil "ADV_par_customWeap") then { adv_par_customWeap = ["param_customWeap",
 if (isNil "ADV_par_opfUni") then { adv_par_opfUni = ["param_opfUni",0] call BIS_fnc_getParamValue; };
 if (isNil "ADV_par_indUni") then { adv_par_indUni = ["param_indUni",0] call BIS_fnc_getParamValue; };
 if (isNil "ADV_par_Tablets") then { ADV_par_Tablets = ["param_Tablets",1] call BIS_fnc_getParamValue; };
+if (isNil "adv_par_l_suppress") then { adv_par_l_suppress = ["param_l_suppress",0] call BIS_fnc_getParamValue; };
 		
 //map variables:
 ADV_var_aridMaps = [
@@ -69,6 +70,14 @@ if (isClass (configFile >> "CfgPatches" >> "cTab") && ADV_par_Tablets == 1) then
 } else {
     cTab_vehicleClass_has_FBCB2 = [];
     cTab_vehicleClass_has_TAD = [];
+};
+
+//laxemann's suppress
+call {
+	if (adv_par_l_suppress > 0) exitWith {
+		L_suppress_active = true;
+	};
+	L_suppress_active = false;
 };
 
 //DLP:
