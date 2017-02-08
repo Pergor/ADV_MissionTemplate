@@ -46,6 +46,7 @@ class ADV
 		class manageVeh { postInit = 1; };
 		class nil {};
 		class respawnVeh {};
+		class retexture {};
 		class rhsDecals {};
 		class paraBomb {};
 		class weather { postInit = 1; };
