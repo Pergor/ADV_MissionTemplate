@@ -78,6 +78,11 @@ params [
 				nil;
 			} count _vehicles;
 		};
+		if (_target isEqualTo [0,0,0]) then {
+			private _leader = (units _grp) select 0;
+			private _enemy = [_leader,3000] call adv_fnc_findNearestEnemy;
+			_target = getPos _enemy;
+		};
 		_wp = _grp addWaypoint [_target, _radius];
 		_wp setWaypointType "SAD";
 		_wp setWaypointBehaviour "AWARE";

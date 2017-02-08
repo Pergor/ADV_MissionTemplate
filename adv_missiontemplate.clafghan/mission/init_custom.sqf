@@ -15,14 +15,7 @@ Every call, spawn or execVM that's mission specific should be placed in here.
 	//everything that's only supposed to run on the server:
 	if (isServer) then {
 	// place your custom content here:
-		if (isClass(configFile >> "CfgPatches" >> "adv_retex")) then {
-			{
-				if (_x isKindof "B_MRAP_01_F" || _x isKindof "B_MRAP_01_hmg_F" || _x isKindof "B_MRAP_01_gmg_F") then {
-					[_x] call adv_retex_fnc_setTextureRHSHunter;
-				};
-				nil;
-			} count vehicles;
-		};
+
 
 	
 	

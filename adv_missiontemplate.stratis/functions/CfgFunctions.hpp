@@ -62,6 +62,7 @@ class ADV
 	};
 	class AI
 	{
+		class findNearestEnemy {};
 		class setSide {};
 		class spawnPatrol {};
 		class spawnAttack {};

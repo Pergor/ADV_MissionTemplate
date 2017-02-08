@@ -137,6 +137,22 @@ adv_manageVeh_codeForAll = {
 	if ( toUpper (typeOf _veh) in ['O_T_LSV_02_ARMED_F','O_T_LSV_02_UNARMED_F','O_LSV_02_ARMED_F','O_LSV_02_UNARMED_F'] ) then {
 		[_veh,'BLACK',nil] call BIS_fnc_initVehicle;
 	};
+	if ( toUpper (typeOf _veh) in ['I_MRAP_03_F','I_MRAP_03_HMG_F','I_MRAP_03_GMG_F'] ) then {
+		[_veh,'BLUFOR',true] call BIS_fnc_initVehicle;
+	};
+	if ( isClass(configFile >> "CfgPatches" >> "adv_retex") ) then {
+		call {
+			if ( toUpper (typeOf _veh) in ['B_MRAP_01_F','B_MRAP_01_HMG_F','B_MRAP_01_GMG_F'] && (toUpper worldname) in ADV_var_aridMaps ) exitWith {
+				[_veh] call adv_retex_fnc_setTextureRHSHunter;
+			};
+			if ( toUpper (typeOf _veh) in ['I_APC_WHEELED_03_CANNON_F'] ) exitWith {
+				[_veh] call adv_retex_fnc_setTextureNATOGorgon;
+			};
+			if ( toUpper (typeOf _veh) in ['O_APC_WHEELED_02_RCWS_F'] ) exitWith {
+				[_veh] call adv_retex_fnc_setTextureMarid;
+			};
+		};
+	};
 };
 
 //application of code:
