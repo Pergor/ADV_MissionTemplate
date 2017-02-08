@@ -41,10 +41,10 @@ class ADV
 		class flare {};
 		class getOppPos {};
 		class HCobjects {};
+		class IEDhandler { postInit = 1; };
 		class lockVeh {};
 		class manageVeh { postInit = 1; };
 		class nil {};
-		class radioRelay {};
 		class respawnVeh {};
 		class rhsDecals {};
 		class paraBomb {};
