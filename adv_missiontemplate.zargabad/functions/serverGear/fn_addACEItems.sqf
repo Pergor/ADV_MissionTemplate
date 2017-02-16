@@ -14,28 +14,29 @@ if !(isServer && (isClass(configFile >> "CfgPatches" >> "ACE_common"))) exitWith
 {
 	_target = _x;
 	if (isClass(configFile >> "CfgPatches" >> "ACE_medical")) then {
-		if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 ) then {
-			if (!isNil "_ACE_fieldDressing") then {	_target addItemCargoGlobal ["ACE_fieldDressing", _ACE_fieldDressing]; };
-			if (!isNil "_ACE_elasticBandage") then { _target addItemCargoGlobal ["ACE_elasticBandage", _ACE_elasticBandage]; };
-			if (!isNil "_ACE_packingBandage") then { _target addItemCargoGlobal ["ACE_packingBandage", _ACE_packingBandage]; };
-			if (!isNil "_ACE_quikclot") then { _target addItemCargoGlobal ["ACE_quikclot", _ACE_quikclot]; };
-			if (!isNil "_ACE_morphine") then { _target addItemCargoGlobal ["ACE_morphine", _ACE_morphine]; };
-			if (!isNil "_ACE_epinephrine") then { _target addItemCargoGlobal ["ACE_epinephrine", _ACE_epinephrine]; };
-			if (!isNil "_ACE_atropine") then { _target addItemCargoGlobal ["ACE_atropine", _ACE_atropine]; };
-			if (!isNil "_ACE_adenosine") then { _target addItemCargoGlobal ["ACE_adenosine", _ACE_adenosine]; };
-			if (!isNil "_ACE_tourniquet") then { _target addItemCargoGlobal ["ACE_tourniquet", _ACE_tourniquet]; };
-			if (!isNil "_ACE_bloodIV") then { _target addItemCargoGlobal ["ACE_bloodIV", _ACE_bloodIV]; };
-			if (!isNil "_ACE_bloodIV_500") then { _target addItemCargoGlobal ["ACE_bloodIV_500", _ACE_bloodIV_500]; };
-			if (!isNil "_ACE_bloodIV_250") then { _target addItemCargoGlobal ["ACE_bloodIV_250", _ACE_bloodIV_250]; };
-			if (!isNil "_ACE_plasmaIV") then { _target addItemCargoGlobal ["ACE_plasmaIV", _ACE_plasmaIV]; };
-			if (!isNil "_ACE_plasmaIV_500") then { _target addItemCargoGlobal ["ACE_plasmaIV_500", _ACE_plasmaIV_500]; };
-			if (!isNil "_ACE_plasmaIV_250") then { _target addItemCargoGlobal ["ACE_plasmaIV_250", _ACE_plasmaIV_250]; };
-			if (!isNil "_ACE_salineIV") then { _target addItemCargoGlobal ["ACE_salineIV", _ACE_salineIV]; };
-			if (!isNil "_ACE_salineIV_500") then { _target addItemCargoGlobal ["ACE_salineIV_500", _ACE_salineIV_500]; };
-			if (!isNil "_ACE_salineIV_250") then { _target addItemCargoGlobal ["ACE_salineIV_250", _ACE_salineIV_250]; };
-			if (!isNil "_ACE_personalAidKit") then { _target addItemCargoGlobal ["ACE_personalAidKit", _ACE_personalAidKit]; };
-			if (!isNil "_ACE_surgicalKit") then { _target addItemCargoGlobal ["ACE_surgicalKit", _ACE_surgicalKit]; };
-		} else {
+		call {
+			if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 ) exitWith {
+				if (!isNil "_ACE_fieldDressing") then {	_target addItemCargoGlobal ["ACE_fieldDressing", _ACE_fieldDressing]; };
+				if (!isNil "_ACE_elasticBandage") then { _target addItemCargoGlobal ["ACE_elasticBandage", _ACE_elasticBandage]; };
+				if (!isNil "_ACE_packingBandage") then { _target addItemCargoGlobal ["ACE_packingBandage", _ACE_packingBandage]; };
+				if (!isNil "_ACE_quikclot") then { _target addItemCargoGlobal ["ACE_quikclot", _ACE_quikclot]; };
+				if (!isNil "_ACE_morphine") then { _target addItemCargoGlobal ["ACE_morphine", _ACE_morphine]; };
+				if (!isNil "_ACE_epinephrine") then { _target addItemCargoGlobal ["ACE_epinephrine", _ACE_epinephrine]; };
+				if (!isNil "_ACE_atropine") then { _target addItemCargoGlobal ["ACE_atropine", _ACE_atropine]; };
+				if (!isNil "_ACE_adenosine") then { _target addItemCargoGlobal ["ACE_adenosine", _ACE_adenosine]; };
+				if (!isNil "_ACE_tourniquet") then { _target addItemCargoGlobal ["ACE_tourniquet", _ACE_tourniquet]; };
+				if (!isNil "_ACE_bloodIV") then { _target addItemCargoGlobal ["ACE_bloodIV", _ACE_bloodIV]; };
+				if (!isNil "_ACE_bloodIV_500") then { _target addItemCargoGlobal ["ACE_bloodIV_500", _ACE_bloodIV_500]; };
+				if (!isNil "_ACE_bloodIV_250") then { _target addItemCargoGlobal ["ACE_bloodIV_250", _ACE_bloodIV_250]; };
+				if (!isNil "_ACE_plasmaIV") then { _target addItemCargoGlobal ["ACE_plasmaIV", _ACE_plasmaIV]; };
+				if (!isNil "_ACE_plasmaIV_500") then { _target addItemCargoGlobal ["ACE_plasmaIV_500", _ACE_plasmaIV_500]; };
+				if (!isNil "_ACE_plasmaIV_250") then { _target addItemCargoGlobal ["ACE_plasmaIV_250", _ACE_plasmaIV_250]; };
+				if (!isNil "_ACE_salineIV") then { _target addItemCargoGlobal ["ACE_salineIV", _ACE_salineIV]; };
+				if (!isNil "_ACE_salineIV_500") then { _target addItemCargoGlobal ["ACE_salineIV_500", _ACE_salineIV_500]; };
+				if (!isNil "_ACE_salineIV_250") then { _target addItemCargoGlobal ["ACE_salineIV_250", _ACE_salineIV_250]; };
+				if (!isNil "_ACE_personalAidKit") then { _target addItemCargoGlobal ["ACE_personalAidKit", _ACE_personalAidKit]; };
+				if (!isNil "_ACE_surgicalKit") then { _target addItemCargoGlobal ["ACE_surgicalKit", _ACE_surgicalKit]; };
+			};
 			_target addItemCargoGlobal ["ACE_fieldDressing", _ACE_fieldDressing+_ACE_elasticBandage+_ACE_packingBandage+_ACE_quikclot];
 			_target addItemCargoGlobal ["ACE_bloodIV", _ACE_bloodIV+_ACE_plasmaIV+_ACE_salineIV];
 			_target addItemCargoGlobal ["ACE_bloodIV_500", _ACE_bloodIV_500+_ACE_plasmaIV_500+_ACE_salineIV_500];

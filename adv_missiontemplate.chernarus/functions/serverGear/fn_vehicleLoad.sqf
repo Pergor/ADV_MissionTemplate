@@ -1,6 +1,6 @@
 ﻿if (!isServer) exitWith {};
 
-private ["_target","_weapons","_ammo","_ammoCount","_grenades","_grenadeCount","_items""_isMedic"];
+//private ["_target","_weapons","_ammo","_ammoCount","_grenades","_grenadeCount","_items""_isMedic"];
 
 /*
 _target = _this select 0;
@@ -219,17 +219,15 @@ if (ADV_par_Radios == 1 || ADV_par_Radios == 3) then {
 	};
 };
 
-call {
-	if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) exitWith {
-		_ACE_fieldDressing = 10;
-		_ACE_packingBandage = 10;
-		_ACE_elasticBandage = 10;
-		_ACE_quikclot = 10;
-	};
-	_ACE_fieldDressing = 30;
-	_ACE_packingBandage = 0;
-	_ACE_elasticBandage = 0;
-	_ACE_quikclot = 0;
+_ACE_fieldDressing = 30;
+_ACE_packingBandage = 0;
+_ACE_elasticBandage = 0;
+_ACE_quikclot = 0;
+if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) then {
+	_ACE_fieldDressing = 10;
+	_ACE_packingBandage = 10;
+	_ACE_elasticBandage = 10;
+	_ACE_quikclot = 10;
 };
 _ACE_atropine = 0;
 _ACE_epinephrine = 4;
@@ -245,14 +243,12 @@ _ACE_salineIV = 0;
 _ACE_salineIV_500 = 5;
 _ACE_salineIV_250 = 0;
 _ACE_bodyBag = 2;
-if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) == 0 ) then {
-	_ACE_personalAidKit = 0;
-} else {
+_ACE_personalAidKit = 0;
+if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) > 0 ) then {
 	_ACE_personalAidKit = 2;
 };
-if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) == 0 ) then {
-	_ACE_surgicalKit = 1;
-} else {
+_ACE_surgicalKit = 1;
+if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) > 0 ) then {
 	_ACE_surgicalKit = 10;
 };
 
@@ -279,14 +275,12 @@ if (_isMedic) then {
 	_ACE_salineIV_500 = 15;
 	_ACE_salineIV_250 = 20;
 	_ACE_bodyBag = 10;
-	if (missionNamespace getVariable ["ACE_medical_consumeItem_PAK",0] == 0) then {
-		_ACE_personalAidKit = 1;
-	} else {
+	_ACE_personalAidKit = 1;
+	if (missionNamespace getVariable ["ACE_medical_consumeItem_PAK",0] > 0) then {
 		_ACE_personalAidKit = 10;
 	};
-	if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) == 0 ) then {
-		_ACE_surgicalKit = 1;
-	} else {
+	_ACE_surgicalKit = 1;
+	if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) > 0 ) then {
 		_ACE_surgicalKit = 10;
 	};
 	_FAKs = 30;
@@ -304,6 +298,7 @@ if (_isMedic) then {
 			[_crate,_target] call ace_cargo_fnc_loadItem;
 		};
 	};
+	
 };
 
 if !(isClass (configFile >> "CfgPatches" >> "ACE_medical")) then {
@@ -384,9 +379,12 @@ if (isClass (configFile >> "CfgPatches" >> "ACE_common")) then {
 if (_target isKindOf "Air") then {
 	_parachutes = ["B_Parachute"];
 	_freeSpaces = _target emptyPositions "cargo";
+	/*
 	_freeSpaces = _freeSpaces + (_target emptyPositions "Gunner");
 	_freeSpaces = _freeSpaces + (_target emptyPositions "Driver");
 	_freeSpaces = _freeSpaces + (_target emptyPositions "Commander");
+	*/
+	if (_target isKindOf "B_Heli_Light_01_F") then { _freespaces = 2 };
 	if (_freeSpaces > 8) then {_freespaces = 8};
 	{_target addBackpackCargoGlobal [_x, _freeSpaces];} count _parachutes;
 };

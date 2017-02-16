@@ -104,6 +104,7 @@ adv_manageVeh_codeForAll = {
 	_veh = _this;
 	if (ADV_par_customLoad > 0) then {
 		[_veh] call ADV_fnc_clearCargo;
+		sleep 0.2;
 		[_veh] call ADV_fnc_addVehicleLoad;
 	};
 	[_veh] call ADV_fnc_disableVehSelector;

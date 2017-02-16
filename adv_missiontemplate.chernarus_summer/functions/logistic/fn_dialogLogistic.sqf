@@ -292,4 +292,5 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 if !(_forcePlacement) then {
 	closeDialog 1;
 };
+if ( toUpper (_crateSelection) == "ADV_LOGISTIC_CRATELARGE" ) exitWith {};
 _box;

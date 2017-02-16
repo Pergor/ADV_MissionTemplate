@@ -44,14 +44,12 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	_ACE_salineIV_500 = 5;
 	_ACE_salineIV_250 = 0;
 	_ACE_bodyBag = 5;
-	if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) == 0 ) then {
-		_ACE_personalAidKit = 0;
-	} else {
+	_ACE_personalAidKit = 0;
+	if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) > 0 ) then {
 		_ACE_personalAidKit = 5;
 	};
-	if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) == 0 ) then {
-		_ACE_surgicalKit = 1;
-	} else {
+	_ACE_surgicalKit = 1;
+	if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) > 0 ) then {
 		_ACE_surgicalKit = 10;
 	};
 	

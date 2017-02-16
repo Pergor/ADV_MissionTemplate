@@ -160,16 +160,15 @@ if (ADV_par_Radios == 1 || ADV_par_Radios == 3) then {
 };
 
 call {
-	if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) exitWith {
-		_ACE_fieldDressing = 10;
-		_ACE_packingBandage = 10;
-		_ACE_elasticBandage = 10;
-		_ACE_quikclot = 10;
-	};
-	_ACE_fieldDressing = 30;
-	_ACE_packingBandage = 0;
-	_ACE_elasticBandage = 0;
-	_ACE_quikclot = 0;
+_ACE_fieldDressing = 30;
+_ACE_packingBandage = 0;
+_ACE_elasticBandage = 0;
+_ACE_quikclot = 0;
+if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) then {
+	_ACE_fieldDressing = 10;
+	_ACE_packingBandage = 10;
+	_ACE_elasticBandage = 10;
+	_ACE_quikclot = 10;
 };
 _ACE_atropine = 0;
 _ACE_epinephrine = 4;
@@ -185,15 +184,13 @@ _ACE_salineIV = 0;
 _ACE_salineIV_500 = 5;
 _ACE_salineIV_250 = 0;
 _ACE_bodyBag = 2;
-if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) == 0 ) then {
-	_ACE_personalAidKit = 0;
-} else {
-	_ACE_personalAidKit = 5;
+_ACE_personalAidKit = 0;
+if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) > 0 ) then {
+	_ACE_personalAidKit = 2;
 };
-if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) == 0 ) then {
-	_ACE_surgicalKit = 1;
-} else {
-	_ACE_surgicalKit = 5;
+_ACE_surgicalKit = 1;
+if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) > 0 ) then {
+	_ACE_surgicalKit = 10;
 };
 
 _FAKs = 5;
@@ -219,16 +216,16 @@ if (_isMedic) then {
 	_ACE_salineIV_500 = 15;
 	_ACE_salineIV_250 = 20;
 	_ACE_bodyBag = 10;
-	if (missionNamespace getVariable ["ACE_medical_consumeItem_PAK",0] == 0) then {
-		_ACE_personalAidKit = 1;
-	} else {
+	_ACE_personalAidKit = 1;
+	if (missionNamespace getVariable ["ACE_medical_consumeItem_PAK",0] > 0) then {
 		_ACE_personalAidKit = 10;
 	};
-	if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) == 0 ) then {
-		_ACE_surgicalKit = 1;
-	} else {
+	_ACE_surgicalKit = 1;
+	if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) > 0 ) then {
 		_ACE_surgicalKit = 10;
 	};
+	_FAKs = 30;
+	_mediKit = 2;
 	
 	_target setVariable ["ACE_medical_medicClass", 2, true];
 	

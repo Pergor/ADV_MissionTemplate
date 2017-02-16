@@ -89,17 +89,15 @@ private ["_target"];
 		_target addMagazineCargoGlobal ["I_IR_Grenade",6];
 	};
 
-	call {
-		if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) exitWith {
-			_ACE_fieldDressing = 24;
-			_ACE_packingBandage = 50;
-			_ACE_elasticBandage = 50;
-			_ACE_quikclot = 80;
-		};
-		_ACE_fieldDressing = 100;
-		_ACE_packingBandage = 20;
-		_ACE_elasticBandage = 40;
-		_ACE_quikclot = 20;
+	_ACE_fieldDressing = 100;
+	_ACE_packingBandage = 20;
+	_ACE_elasticBandage = 40;
+	_ACE_quikclot = 20;
+	if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) then {
+		_ACE_fieldDressing = 24;
+		_ACE_packingBandage = 50;
+		_ACE_elasticBandage = 50;
+		_ACE_quikclot = 80;
 	};
 	_ACE_atropine = 10;
 	_ACE_epinephrine = 20;
@@ -115,14 +113,12 @@ private ["_target"];
 	_ACE_bloodIV_500 = 0;
 	_ACE_bloodIV_250 = 0;
 	_ACE_bodyBag = 10;
-	if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) == 0 ) then {
-		_ACE_personalAidKit = 0;
-	} else {
+	_ACE_personalAidKit = 0;
+	if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) > 0 ) then {
 		_ACE_personalAidKit = 5;
 	};
-	if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) == 0 ) then {
-		_ACE_surgicalKit = 1;
-	} else {
+	_ACE_surgicalKit = 1;
+	if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) > 0 ) then {
 		_ACE_surgicalKit = 10;
 	};
 	
