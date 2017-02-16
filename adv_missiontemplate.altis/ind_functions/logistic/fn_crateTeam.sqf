@@ -85,31 +85,29 @@ private ["_target"];
 	};
 	_target addMagazineCargoGlobal ["1Rnd_HE_Grenade_shell",12];
 
-	call {
-		if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) exitWith {
-			_ACE_fieldDressing = 16;
-			_ACE_packingBandage = 24;
-			_ACE_elasticBandage = 24;
-			_ACE_quikclot = 32;
-		};
-		_ACE_fieldDressing = 40;
-		_ACE_packingBandage = 0;
-		_ACE_elasticBandage = 8;
-		_ACE_quikclot = 0;
+	_ACE_fieldDressing = 40;
+	_ACE_packingBandage = 0;
+	_ACE_elasticBandage = 8;
+	_ACE_quikclot = 0;
+	if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) then {
+		_ACE_fieldDressing = 16;
+		_ACE_packingBandage = 24;
+		_ACE_elasticBandage = 24;
+		_ACE_quikclot = 32;
 	};
 	_ACE_atropine = 0;
 	_ACE_epinephrine = 2;
 	_ACE_morphine = 4;
 	_ACE_tourniquet = 8;
+	_ACE_bloodIV = 0;
+	_ACE_bloodIV_500 = 0;
+	_ACE_bloodIV_250 = 0;
 	_ACE_plasmaIV = 0;
 	_ACE_plasmaIV_500 = 0;
 	_ACE_plasmaIV_250 = 0;
 	_ACE_salineIV = 0;
 	_ACE_salineIV_500 = 0;
 	_ACE_salineIV_250 = 0;
-	_ACE_bloodIV = 0;
-	_ACE_bloodIV_500 = 0;
-	_ACE_bloodIV_250 = 0;
 	_ACE_bodyBag = 2;
 	_ACE_personalAidKit = 0;
 	_ACE_surgicalKit = 0;
