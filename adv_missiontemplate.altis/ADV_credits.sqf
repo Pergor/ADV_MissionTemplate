@@ -1,9 +1,9 @@
 ﻿//creator of the mission:
 ADV_missionAuthor = "[SeL] Belbo // Adrian";
-publicVariable "ADV_missionAuthor";
 
 
 //////// You are not allowed to change anything below this line! ////////
+publicVariable "ADV_missionAuthor";
 [
 	{true},
 		["Credits",
