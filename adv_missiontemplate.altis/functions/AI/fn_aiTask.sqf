@@ -1,7 +1,7 @@
 ﻿/*
 adv_fnc_simplePatrol:
 
-Creates a simple patrol around a center with the given radius. Group is being spawned at a random location inside the radius.
+Creates a simple patrol around a center with the given radius. Group is usually being spawned at a random location preferrably inside the radius.
 
 possible call, has to be executed on either server or headless client:
 //regular patrol:
@@ -44,7 +44,7 @@ private _start = call {
 private _dist = random _radius;
 private _dir = random 360;
 private _pos = [(_start select 0) + (sin _dir) * _dist, (_start select 1) + (cos _dir) * _dist, 0];
-private _spawn = [_pos,0,_radius,10,0,0.4,0] call BIS_fnc_findSafePos;
+private _spawn = [_pos,0,50,10,0,0.4,0] call BIS_fnc_findSafePos;
 
 private _grp = [_units,_side,_spawn] call adv_fnc_spawnGroup;
 
