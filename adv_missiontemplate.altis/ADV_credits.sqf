@@ -29,6 +29,7 @@ publicVariable "ADV_missionAuthor";
 				TPW CIVS von tpw,<br/>
 				UPSMON von Monsada,<br/>
 				Werthles' Headless Script von Werthles,<br/>
+				fn_ZenOccupyHouse by Zenophon,<br/>
 				ZBE Caching Script von zorrobyte.<br/><br/>
 				Vielen Dank an die Autoren!"
 		]

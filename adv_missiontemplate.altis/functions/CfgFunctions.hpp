@@ -65,12 +65,15 @@ class ADV
 	{
 		class findNearestEnemy {};
 		class setSide {};
-		class spawnPatrol {};
+		class simplePatrol {};
 		class spawnAttack {};
+		class spawnGroup {};
+		class spawnPatrol {};
 		class spawnSuppression {};
 		class upsmon {
 			file = "scripts\UPSMON.sqf";
 		};
+		class ZenOccupyHouse {};
 	};
 	class client
 	{
