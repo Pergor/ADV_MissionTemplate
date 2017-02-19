@@ -5,9 +5,9 @@ Creates a simple patrol around a center with the given radius. Group is usually 
 
 possible call, has to be executed on either server or headless client:
 //regular patrol:
-[["O_Soldier_TL_F","O_Soldier_GL_F"],east,"spawnMarker",200,0] call ADV_fnc_simplePatrol;
+[["O_Soldier_TL_F","O_Soldier_GL_F"],east,"spawnMarker",200,0] call adv_fnc_aiTask;
 //spawning attack:
-[["O_Soldier_TL_F","O_Soldier_GL_F"],east,"spawnMarker",200,4,[attackLogic,100]] call ADV_fnc_simplePatrol;
+[["O_Soldier_TL_F","O_Soldier_GL_F"],east,"spawnMarker",200,4,[attackLogic,50]] call adv_fnc_aiTask;
 
 _this select 0 = units array - format: array of objects
 _this select 1 = side of the units - format: side
