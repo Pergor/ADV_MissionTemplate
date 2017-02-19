@@ -4,7 +4,7 @@ adv_fnc_simplePatrol:
 Creates a simple patrol around a center with the given radius. Group is being spawned at a random location inside the radius.
 
 possible call, has to be executed on either server or headless client:
-[["O_Soldier_TL_F","O_Soldier_GL_F"],east,"spawnMarker",200] call ADV_fnc_simplePatrol;
+[["O_Soldier_TL_F","O_Soldier_GL_F"],east,"spawnMarker",200,false] call ADV_fnc_simplePatrol;
 
 _this select 0 = units array - format: array of objects
 _this select 1 = side of the units - format: side
