@@ -7,7 +7,7 @@ possible call, has to be executed on either server or headless client:
 //regular patrol:
 [["O_Soldier_TL_F","O_Soldier_GL_F"],east,"spawnMarker",200,0] call ADV_fnc_simplePatrol;
 //spawning attack:
-[["O_Soldier_TL_F","O_Soldier_GL_F"],east,"spawnMarker",200,4,["attackMarker",100]] call ADV_fnc_simplePatrol;
+[["O_Soldier_TL_F","O_Soldier_GL_F"],east,"spawnMarker",200,4,[attackLogic,100]] call ADV_fnc_simplePatrol;
 
 _this select 0 = units array - format: array of objects
 _this select 1 = side of the units - format: side
@@ -15,10 +15,10 @@ _this select 2 = center of the patrol circle - format: object, marker or positio
 _this select 3 = radius of the patrol circle - format: number (optional)
 _this select 4 = behaviour mode:
 	0 = regular patrol,
-	1 = searching buildings near waypoints,
+	1 = patrol with units searching buildings near waypoints,
 	2 = garrison buildings in radius around center,
 	3 = defend area (buildings are being defended, static guns manned and the group leader will patroul around; radius above 150meters will revert to 150 meters),
-	4 = attack location around object, marker or position provided in _this select 5 - if nothing is provided, the next enemy will be targeted,
+	4 = attack location around object, marker or position provided in _this select 5 - if nothing or a missing element is provided, the next enemy will be targeted,
 	- format: number (optional)
 _this select 5 = attack position with radius - format: array of two elements, with first being object, marker or position, second being the spread radius around the first element (optional)
 */
@@ -60,20 +60,24 @@ call {
 		[_grp, _start, _radius, 2, true] call CBA_fnc_taskDefend;
 	};
 	if (_mode == 4) exitWith {
+		private _obj = _attack select 0;
+		private _attackRadius = _attack select 1;
+		_attackRadius = if (isNil "_attackRadius") then { 50 };
 		_target = call {
-			if ((_attack select 0) isEqualType "") exitWith {getMarkerPos (_attack select 0)};
-			if ((_attack select 0) isEqualType objNull) exitWith {getPosWorld (_attack select 0)};
-			if ((_attack select 0) isEqualType []) exitWith {(_attack select 0)};
-			[0,0,0];
+			if (isNil "_obj") exitWith {[0,0,0]};
+			if (_obj isEqualType "") exitWith {getMarkerPos _obj};
+			if (_obj isEqualType objNull) exitWith {getPosWorld _obj};
+			if (_obj isEqualType []) exitWith {_obj};
+			nil;
 		};
-		
 		if (_target isEqualTo [0,0,0]) then {
 			private _leader = (units _grp) select 0;
 			private _enemy = [_leader,3000] call adv_fnc_findNearestEnemy;
 			_target = getPos _enemy;
+			_attackRadius = 50;
 		};
 		
-		_wp = _grp addWaypoint [_target, (_attack select 1)];
+		_wp = _grp addWaypoint [_target, _attackRadius];
 		_wp setWaypointType "SAD";
 		_wp setWaypointBehaviour "AWARE";
 		_wp setWaypointCombatMode "YELLOW";
