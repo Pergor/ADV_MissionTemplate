@@ -45,7 +45,7 @@ params [
 			if (_attack isEqualType "") exitWith {getMarkerPos _attack};
 			if (_attack isEqualType objNull) exitWith {getPosWorld _attack};
 			if (_attack isEqualType []) exitWith {_attack};
-			nil;
+			[0,0,0];
 		};
 		private _skill = [0.5,0.9,0.65];
 		

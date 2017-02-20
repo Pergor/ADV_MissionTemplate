@@ -129,6 +129,8 @@ switch ( true ) do {
 	};
 };
 
-[_unit] spawn adv_fnc_setFrequencies;
+if !(isClass(configFile >> "CfgPatches" >> "tfar_core")) then {
+	[_unit] spawn adv_fnc_setFrequencies;
+};
 
 true;

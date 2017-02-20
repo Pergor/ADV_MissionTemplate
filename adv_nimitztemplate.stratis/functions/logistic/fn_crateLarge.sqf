@@ -70,7 +70,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["CUP_15Rnd_9x19_M9",20];
 		};
 		//SeL CUP L85
-		case (ADV_par_customWeap ==7): {
+		case (ADV_par_customWeap == 7): {
 			//weapons
 			_target addWeaponCargoGlobal ["CUP_launch_M136",5];
 			//ammo

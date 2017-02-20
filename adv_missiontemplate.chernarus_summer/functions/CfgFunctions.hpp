@@ -63,14 +63,17 @@ class ADV
 	};
 	class AI
 	{
+		class aiTask {};
 		class findNearestEnemy {};
 		class setSide {};
-		class spawnPatrol {};
 		class spawnAttack {};
+		class spawnGroup {};
+		class spawnPatrol {};
 		class spawnSuppression {};
 		class upsmon {
 			file = "scripts\UPSMON.sqf";
 		};
+		class ZenOccupyHouse {};
 	};
 	class client
 	{
