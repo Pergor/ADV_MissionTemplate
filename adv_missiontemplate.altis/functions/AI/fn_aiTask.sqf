@@ -43,15 +43,13 @@ private _start = call {
 //private _dist = random _radius;
 //private _dir = random 360;
 //private _pos = [(_start select 0) + (sin _dir) * _dist, (_start select 1) + (cos _dir) * _dist, 0];
-/*
-_pos = [_start, _radius] call CBA_fnc_randPos;
-_spawn = [_pos,1,100,2,0,20,0] call BIS_fnc_findSafePos;
+private _pos = [_start, _radius] call CBA_fnc_randPos;
+//private _spawn = [_pos,5,100,2,0,20,0] call BIS_fnc_findSafePos;
+private _spawn = _pos findEmptyPosition [5,30,(_units select 0)];
 _spawn set [2,0];
 if ((_pos distance _spawn) > 100 ) then {
 	_spawn = _pos;
 };
-*/
-private _spawn = [_start, _radius] call CBA_fnc_randPos;
 
 private _grp = [_units,_side,_spawn] call adv_fnc_spawnGroup;
 
