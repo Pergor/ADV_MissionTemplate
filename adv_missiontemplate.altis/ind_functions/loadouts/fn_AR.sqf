@@ -16,21 +16,15 @@ _goggles = "G_Combat";
 _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0],["loadCoef",0.8]];
 
 //weapons - primary weapon - (string)
-_primaryweapon = "LMG_Zafir_F";
+_primaryweapon = "MMG_02_black_F";
+if ((toUpper worldname) in ADV_var_aridMaps) then {_primaryWeapon pushback "MMG_02_sand_F";};
 
 //primary weapon items - (array)
 _optic = ["optic_MRCO","optic_HAMR"];
 _attachments = ["bipod_01_F_blk"];
 if ( ADV_par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
-_silencer = "muzzle_snds_H";		//if silencer is added
-//MarksmenDLC-objects:
-if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && ADV_par_indWeap != 20 ) then {
-	_primaryWeapon = ["MMG_02_black_F"];
-	if ((toUpper worldname) in ADV_var_aridMaps) then {_primaryWeapon pushback "MMG_02_sand_F";};
-	_optic = ["optic_Hamr"];
-	_silencer = "muzzle_snds_338_black";		//if silencer is added
-};
+_silencer = "muzzle_snds_338_black";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [1,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
