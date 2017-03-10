@@ -20,10 +20,9 @@ _primaryweapon = "MMG_02_black_F";
 if ((toUpper worldname) in ADV_var_aridMaps) then {_primaryWeapon pushback "MMG_02_sand_F";};
 
 //primary weapon items - (array)
-_optic = ["optic_MRCO","optic_HAMR"];
+_optic = [""];
 _attachments = ["bipod_01_F_blk"];
-if ( ADV_par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
-if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
+if ( ADV_par_NVGs > 0 ) then { _attachments pushBack "acc_flashlight"; };
 _silencer = "muzzle_snds_338_black";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)

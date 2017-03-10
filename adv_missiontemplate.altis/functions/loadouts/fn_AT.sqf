@@ -203,7 +203,7 @@ switch (ADV_par_customWeap) do {
 		_handgun = "BWA3_P8";
 		_itemsHandgun = [];
 		_handgunSilencer = "";
-		_launcher = "BWA3_Pzf3";
+		_launcher = "BWA3_Pzf3_Loaded";
 		_launcherAmmo = [1,0];
 	};
 	case 2: {

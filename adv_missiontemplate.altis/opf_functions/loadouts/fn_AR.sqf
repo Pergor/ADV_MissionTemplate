@@ -18,10 +18,9 @@ _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],
 _primaryweapon = "MMG_01_tan_F";
 
 //primary weapon items - (array)
-_optic = ["optic_ARCO"];
+_optic = [""];
 _attachments = ["bipod_02_F_blk"];
-if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
-if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
+if ( ADV_par_opfNVGs > 0 ) then { _attachments pushBack "acc_flashlight"; };
 _silencer = "muzzle_snds_93mmg";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
