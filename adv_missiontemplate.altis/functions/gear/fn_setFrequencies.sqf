@@ -10,12 +10,12 @@ params [
 LR-Kreise:
 1. Landfahrzeuge
 2. Kampfkreis
-3. Logistik
-4. Aufklärung
-5. Air-To-Air
+3. Sonderkreis
+4. Sonderkreis
+5. Sonderkreis
 6. Sonderkreis
-7. Sonderkreis
-8. Sonderkreis
+7. Einsatzunterstützung
+8. Logistik
 9. OPZ/Zeus
 */
 //set frequencies depending on group for tfar
@@ -27,10 +27,7 @@ if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") && hasInterface 
 		private _activeLRRadio = if (_hasLRRadio) then {call TFAR_fnc_activeLRRadio} else {["",0]};
 		if ( toUpper (groupID group _unit) in ["JUPITER","NATTER","LUCHS"] ) exitWith {
 			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then {
-				[_activeLRRadio select 0, _activeLRRadio select 1, 5] call TFAR_fnc_setAdditionalLrChannel;
-				[_activeLRRadio select 0, _activeLRRadio select 1, 1] call TFAR_fnc_setLRChannel;
-			};
+			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 1] call TFAR_fnc_setLRChannel; };
 		};
 		if ( toUpper (groupID group _unit) in ["MARS","ANAKONDA","LÖWE"] ) exitWith {
 			[_activeSWRadio, 1] call TFAR_fnc_setSwChannel;
@@ -50,15 +47,15 @@ if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") && hasInterface 
 		};
 		if ( toUpper (groupID group _unit) in ["APOLLO","DRACHE","ORCA"] ) exitWith {
 			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 4] call TFAR_fnc_setLRChannel; };
+			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 6] call TFAR_fnc_setLRChannel; };
 		};
 		if ( toUpper (groupID group _unit) in ["MERKUR","GEPARD"] ) exitWith {
 			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 2] call TFAR_fnc_setLRChannel; };
+			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 7] call TFAR_fnc_setLRChannel; };
 		};
 		if ( toUpper (groupID group _unit) in ["DIANA","JAGUAR","VIPER"]) exitWith {
 			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 3] call TFAR_fnc_setLRChannel; };
+			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 6] call TFAR_fnc_setLRChannel; };
 		};
 		if ( toUpper (groupID group _unit) in ["SATURN","OZELOT"]) exitWith {
 			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
