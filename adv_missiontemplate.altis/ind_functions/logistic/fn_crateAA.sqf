@@ -16,26 +16,14 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	switch (true) do {
 		//SeL RHS
 		case ( ADV_par_indWeap == 2 || ( ADV_par_indWeap == 3 && isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) ): {
-			//weapons
-			_target addWeaponCargoGlobal ["rhs_weap_M136",2];
-			//ammo
-			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["rhs_m136_mag",3]; };
-			_target addMagazineCargoGlobal ["rhs_fgm148_magazine_AT",3];
+			_target addMagazineCargoGlobal ["rhs_fim92_mag",3];
 		};
 		case ( ADV_par_indWeap == 20 ): {
 			//weapons
-			_target addWeaponCargoGlobal ["launch_RPG7_F",1];
-		
-			_target addMagazineCargoGlobal ["RPG7_F",2];
-
-			_target addMagazineCargoGlobal ["Titan_AT",3];			
+			_target addMagazineCargoGlobal ["Titan_AA",3];
 		};
 		default {
-			//weapons
-			_target addWeaponCargoGlobal ["launch_NLAW_F",2];
-			//ammo
-			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["NLAW_F",2]; };
-			_target addMagazineCargoGlobal ["Titan_AT",3];
+			_target addMagazineCargoGlobal ["Titan_AA",3];
 		};
 	};
 	//grenades

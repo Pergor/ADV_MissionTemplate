@@ -14,41 +14,30 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	
 	//weapons & ammo
 	switch (true) do {
-		//SeL RHS
-		case ( ADV_par_indWeap == 2 || ( ADV_par_indWeap == 3 && isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) ): {
-			//weapons
-			_target addWeaponCargoGlobal ["rhs_weap_M136",2];
-			//ammo
-			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["rhs_m136_mag",3]; };
-			_target addMagazineCargoGlobal ["rhs_fgm148_magazine_AT",3];
+		//RHS
+		case (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
+			_target addMagazineCargoGlobal ["rhs_mag_9k38_rocket",3];
 		};
-		case ( ADV_par_indWeap == 20 ): {
-			//weapons
-			_target addWeaponCargoGlobal ["launch_RPG7_F",1];
-		
-			_target addMagazineCargoGlobal ["RPG7_F",2];
-
-			_target addMagazineCargoGlobal ["Titan_AT",3];			
+		//CUP
+		case (ADV_par_opfWeap == 3): {
+			_target addMagazineCargoGlobal ["CUP_Igla_M",3];
 		};
+		case (ADV_par_opfWeap == 4): {};
 		default {
-			//weapons
-			_target addWeaponCargoGlobal ["launch_NLAW_F",2];
-			//ammo
-			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["NLAW_F",2]; };
-			_target addMagazineCargoGlobal ["Titan_AT",3];
+			_target addMagazineCargoGlobal ["Titan_AA",3];
 		};
 	};
 	//grenades
-	switch (ADV_par_indWeap) do {
-		case 2: {
-			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",2];
+	switch (true) do {
+		case ( ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
+			_target addMagazineCargoGlobal ["rhs_mag_rdg2_white",2];
 		};
 		default {
 			_target addMagazineCargoGlobal ["SmokeShell",2];
 		};
 	};
-	if (ADV_par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
-		_target addMagazineCargoGlobal ["I_IR_Grenade",1];
+	if ( ADV_par_opfNVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
+		_target addMagazineCargoGlobal ["O_IR_Grenade",1];
 	};
 
 	_ACE_fieldDressing = 0;
@@ -81,7 +70,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	};
 	//medical stuff
 	if (isClass (configFile >> "CfgPatches" >> "ACE_common")) then {
-		_ACE_EarPlugs = 2;
+		_ACE_EarPlugs = 4;
 
 		_ACE_SpareBarrel = 0;
 		_ACE_tacticalLadder = 0;
@@ -110,7 +99,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 		_ACE_microDAGR = 0;
 		_ACE_DAGR = 0;
 		_ACE_RangeTable_82mm = 0;
-		_ACE_rangefinder = 0;
+		_ACE_vector = 0;
 		_ACE_NonSteerableParachute = 0;
 		_ACE_IR_Strobe = 1;
 		_ACE_M84 = 0;

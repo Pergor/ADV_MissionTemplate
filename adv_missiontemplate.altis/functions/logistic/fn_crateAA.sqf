@@ -14,41 +14,57 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	
 	//weapons & ammo
 	switch (true) do {
-		//SeL RHS
-		case ( ADV_par_indWeap == 2 || ( ADV_par_indWeap == 3 && isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) ): {
-			//weapons
-			_target addWeaponCargoGlobal ["rhs_weap_M136",2];
-			//ammo
-			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["rhs_m136_mag",3]; };
-			_target addMagazineCargoGlobal ["rhs_fgm148_magazine_AT",3];
+		//BWmod
+		case (ADV_par_customWeap == 1): {
+			_target addWeaponCargoGlobal ["BWA3_Fliegerfaust",1];
+			_target addBackpackCargoGlobal ["BWA3_AssaultPack_Fleck",1];		
+			_target addMagazineCargoGlobal ["BWA3_Fliegerfaust_Mag",3];
 		};
-		case ( ADV_par_indWeap == 20 ): {
-			//weapons
-			_target addWeaponCargoGlobal ["launch_RPG7_F",1];
-		
-			_target addMagazineCargoGlobal ["RPG7_F",2];
-
-			_target addMagazineCargoGlobal ["Titan_AT",3];			
+		//SeL RHS
+		case ( ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4 || ( ADV_par_customWeap == 9 && isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) ): {
+			_target addWeaponCargoGlobal ["rhs_weap_fim92",1];
+			_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
+			_target addMagazineCargoGlobal ["rhs_fim92_mag",3];
+		};
+		//SeL CUP
+		case (ADV_par_customWeap == 5 || ADV_par_customWeap == 6 || ADV_par_customWeap == 7): {
+			_target addWeaponCargoGlobal ["CUP_launch_FIM92Stinger",1];
+			_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
+			_target addMagazineCargoGlobal ["CUP_Stinger_M",3];
+		};
+		//UK3CB
+		case (ADV_par_customWeap == 8): {
+			_target addWeaponCargoGlobal ["launch_B_Titan_F",1];
+			_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
+			_target addMagazineCargoGlobal ["Titan_AA",3];
 		};
 		default {
-			//weapons
-			_target addWeaponCargoGlobal ["launch_NLAW_F",2];
-			//ammo
-			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["NLAW_F",2]; };
-			_target addMagazineCargoGlobal ["Titan_AT",3];
+			_target addWeaponCargoGlobal ["launch_B_Titan_F",1];
+			_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
+			_target addMagazineCargoGlobal ["Titan_AA",3];
 		};
 	};
 	//grenades
-	switch (ADV_par_indWeap) do {
+	switch (ADV_par_customWeap) do {
+		case 1: {
+			_target addMagazineCargoGlobal ["BWA3_DM25",2];		
+		};
 		case 2: {
+			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",2];
+		};
+		case 3: {
+			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",2];
+		};
+		case 4: {
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",2];
 		};
 		default {
 			_target addMagazineCargoGlobal ["SmokeShell",2];
 		};
 	};
-	if (ADV_par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
-		_target addMagazineCargoGlobal ["I_IR_Grenade",1];
+
+	if ( ADV_par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
+		_target addMagazineCargoGlobal ["B_IR_Grenade",1];
 	};
 
 	_ACE_fieldDressing = 0;
