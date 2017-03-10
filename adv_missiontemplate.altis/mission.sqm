@@ -25,55 +25,6 @@ class EditorData
 binarizationWanted=0;
 addons[]=
 {
-	"A3_Ui_F",
-	"A3_Structures_F_Mil_Flags",
-	"A3_Weapons_F_Ammoboxes",
-	"A3_Supplies_F_Heli_CargoNets",
-	"A3_Structures_F_EPA_Mil_Scrapyard",
-	"A3_Soft_F_MRAP_01",
-	"A3_Armor_F_Gamma_MBT_01",
-	"A3_Armor_F_Beta_APC_Wheeled_01",
-	"A3_Armor_F_Beta_APC_Tracked_01",
-	"A3_Air_F_Beta_Heli_Transport_01",
-	"A3_Structures_F_Civ_InfoBoards",
-	"A3_Air_F_Heli_Light_01",
-	"A3_Air_F_EPC_Plane_CAS_01",
-	"A3_Soft_F_Quadbike_01",
-	"A3_Armor_F_EPC_MBT_01",
-	"A3_Supplies_F_Heli_Slingload",
-	"A3_Air_F_Heli_Heli_Transport_03",
-	"A3_Soft_F_Gamma_Truck_01",
-	"A3_Soft_F_MRAP_02",
-	"A3_Armor_F_Gamma_MBT_02",
-	"A3_Armor_F_Beta_APC_Wheeled_02",
-	"A3_Armor_F_Beta_APC_Tracked_02",
-	"A3_Air_F_Heli_Light_02",
-	"A3_Air_F_Heli_Heli_Transport_04",
-	"A3_Soft_F_EPC_Truck_03",
-	"A3_Air_F_EPC_Plane_CAS_02",
-	"A3_Structures_F_Mil_Helipads",
-	"A3_Soft_F_Gamma_Van_01",
-	"A3_Soft_F_Beta_Truck_02",
-	"A3_Soft_F_Offroad_01",
-	"A3_Structures_F_Heli_Ind_Machines",
-	"A3_Soft_F_Gamma_SUV_01",
-	"A3_Structures_F_Kart_Mil_Flags",
-	"A3_Structures_F_Walls",
-	"A3_Air_F_Exp_VTOL_01",
-	"A3_Characters_F",
-	"A3_Characters_F_Exp_Civil",
-	"A3_Modules_F",
-	"A3_Structures_F_Mil_BagFence",
-	"A3_Modules_F_Curator_Curator",
-	"A3_Data_F_Exp_A_Virtual",
-	"A3_Data_F_Curator_Virtual",
-	"A3_Structures_F_Mil_Fortification",
-	"A3_Supplies_F_Exp_Ammoboxes",
-	"A3_Soft_F_Exp_LSV_01",
-	"A3_Structures_F_Heli_Items_Airport",
-	"A3_Structures_F_System",
-	"A3_Soft_F_Beta_Truck_01",
-	"A3_Soft_F_Beta_MRAP_03"
 };
 class AddonsMetaData
 {
@@ -2915,26 +2866,6 @@ class Mission
 			atlOffset=1.9073486e-006;
 			class CustomAttributes
 			{
-				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="[[[[""arifle_MXC_F"",""arifle_MXM_F"",""arifle_MX_F"",""arifle_MX_GL_F"",""arifle_MX_SW_F"",""arifle_SDAR_F"",""hgun_P07_F"",""hgun_Pistol_heavy_01_F"",""launch_NLAW_F"",""launch_Titan_F"",""launch_Titan_short_F"",""SMG_01_F"",""srifle_EBR_F"",""srifle_LRR_camo_F"",""srifle_LRR_F"",""MineDetector""],[4,2,8,4,4,2,2,2,2,2,2,2,2,2,2,1]],[[""100Rnd_65x39_caseless_mag_Tracer"",""11Rnd_45ACP_Mag"",""16Rnd_9x21_Mag"",""1Rnd_HE_Grenade_shell"",""1Rnd_SmokeBlue_Grenade_shell"",""1Rnd_SmokeGreen_Grenade_shell"",""1Rnd_SmokeOrange_Grenade_shell"",""1Rnd_SmokePurple_Grenade_shell"",""1Rnd_SmokeRed_Grenade_shell"",""1Rnd_SmokeYellow_Grenade_shell"",""1Rnd_Smoke_Grenade_shell"",""20Rnd_556x45_UW_mag"",""20Rnd_762x51_Mag"",""30Rnd_45ACP_Mag_SMG_01"",""30Rnd_556x45_Stanag_red"",""30Rnd_65x39_caseless_mag"",""3Rnd_HE_Grenade_shell"",""7Rnd_408_Mag"",""APERSBoundingMine_Range_Mag"",""APERSMine_Range_Mag"",""APERSTripMine_Wire_Mag"",""ATMine_Range_Mag"",""B_IR_Grenade"",""ClaymoreDirectionalMine_Remote_Mag"",""DemoCharge_Remote_Mag"",""HandGrenade"",""Laserbatteries"",""MiniGrenade"",""NLAW_F"",""SatchelCharge_Remote_Mag"",""SLAMDirectionalMine_Wire_Mag"",""SmokeShell"",""SmokeShellBlue"",""SmokeShellGreen"",""SmokeShellOrange"",""SmokeShellPurple"",""SmokeShellRed"",""SmokeShellYellow"",""Titan_AA"",""Titan_AP"",""Titan_AT"",""UGL_FlareGreen_F"",""UGL_FlareWhite_F""],[16,14,14,15,2,2,2,2,2,2,2,6,24,14,6,52,3,12,5,5,5,5,8,5,5,24,5,24,8,5,5,2,2,2,2,2,2,2,6,6,6,2,2]],[[""Binocular"",""Laserdesignator"",""Rangefinder"",""acc_flashlight"",""acc_pointer_IR"",""FirstAidKit"",""ItemGPS"",""Medikit"",""muzzle_snds_acp"",""muzzle_snds_B"",""muzzle_snds_H"",""muzzle_snds_H_SW"",""muzzle_snds_L"",""optic_Aco"",""optic_Aco_smg"",""optic_DMS"",""optic_Hamr"",""optic_Holosight"",""optic_LRPS"",""optic_MRD"",""optic_NVS"",""optic_SOS"",""optic_tws"",""optic_tws_mg"",""ToolKit""],[1,1,1,5,5,10,5,1,5,5,5,1,5,2,2,2,2,2,2,2,2,2,2,2,1]],[[],[]]],false]";
-						};
-					};
-				};
-				nAttributes=1;
 			};
 		};
 		class Item147
@@ -5000,26 +4931,6 @@ class Mission
 					type="B_Soldier_SL_F";
 					class CustomAttributes
 					{
-						class Attribute0
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.99000001;
-								};
-							};
-						};
-						nAttributes=1;
 					};
 				};
 				class Item1
@@ -5044,26 +4955,6 @@ class Mission
 					type="B_medic_F";
 					class CustomAttributes
 					{
-						class Attribute0
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=1.01;
-								};
-							};
-						};
-						nAttributes=1;
 					};
 				};
 				class Item2
@@ -5100,12 +4991,12 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						name="AR_2";
-						description="MMG-Schütze";
+						name="assAR_1";
+						description="asst. MMG-Schütze";
 						isPlayable=1;
 					};
 					id=1637;
-					type="B_soldier_AR_F";
+					type="B_soldier_AAR_F";
 					atlOffset=-1.9073486e-006;
 				};
 				class Item4
@@ -5121,12 +5012,12 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						name="assAR_1";
-						description="asst. MMG-Schütze";
+						name="AR_2";
+						description="MMG-Schütze";
 						isPlayable=1;
 					};
 					id=1638;
-					type="B_soldier_AAR_F";
+					type="B_soldier_AR_F";
 					atlOffset=-1.9073486e-006;
 				};
 				class Item5
@@ -5162,34 +5053,15 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						name="ft_7";
+						rank="CORPORAL";
+						name="assAT_1";
 						description="Truppführer - Vulkan 1";
 						isPlayable=1;
 					};
 					id=1640;
-					type="B_Soldier_TL_F";
+					type="B_soldier_AAT_F";
 					class CustomAttributes
 					{
-						class Attribute0
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.95999998;
-								};
-							};
-						};
-						nAttributes=1;
 					};
 				};
 				class Item7
@@ -5205,12 +5077,12 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						name="lmg_5";
-						description="LMG-Schütze";
+						name="AT_1";
+						description="AT-Spezialist";
 						isPlayable=1;
 					};
 					id=1641;
-					type="B_soldier_AR_F";
+					type="B_soldier_AT_F";
 				};
 				class Item8
 				{
@@ -5225,34 +5097,14 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						name="soldier_7";
-						description="Schütze";
+						name="AR_3";
+						description="MMG-Schütze";
 						isPlayable=1;
 					};
 					id=1642;
-					type="B_Soldier_F";
+					type="B_Soldier_AR_F";
 					class CustomAttributes
 					{
-						class Attribute0
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.95999998;
-								};
-							};
-						};
-						nAttributes=1;
 					};
 				};
 				class Item9
@@ -5268,12 +5120,12 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						name="cls_1";
-						description="Einsatzersthelfer";
+						name="assAR_3";
+						description="asst. MMG-Schütze";
 						isPlayable=1;
 					};
 					id=1643;
-					type="B_medic_F";
+					type="B_Soldier_AAR_F";
 					atlOffset=-1.9073486e-006;
 				};
 			};
