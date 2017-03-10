@@ -89,7 +89,8 @@ call {
 		_wp setWaypointSpeed "NORMAL";
 		_wp setWaypointFormation "WEDGE";
 	};
-	[_grp , _start, _radius] call bis_fnc_taskPatrol;
+	//[_grp , _start, _radius] call bis_fnc_taskPatrol;
+	[_grp, _start, _radius, 7, "MOVE", "SAFE", "GREEN", "LIMITED", "STAG COLUMN", "", [1,1.5,2]] call CBA_fnc_taskPatrol;
 };
 _grp;
 
