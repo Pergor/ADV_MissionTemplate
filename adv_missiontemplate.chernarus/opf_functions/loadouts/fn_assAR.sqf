@@ -18,7 +18,7 @@ _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],
 _primaryweapon = "arifle_Katiba_F";
 
 //primary weapon items - (array)
-_optic = ["optic_Arco","optic_MRCO","optic_Holosight"];
+_optic = ["optic_ACO_grn","optic_Holosight"];
 _attachments = [""];
 if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };

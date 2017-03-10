@@ -22,6 +22,7 @@ _loadoutList = [
 	"Munitions-Kiste",
 	"MG-Kiste",
 	"AT-Kiste",
+	"AA-Kiste",
 	"Granaten-Kiste",
 	"Medic-Kiste",
 	"Support-Kiste",
@@ -47,23 +48,24 @@ if ( isClass(configFile >> "CfgPatches" >> "scorch_invitems") || isClass(configF
 { lbAdd [7377, _x] } foreach _loadoutList;
 
 //Loadouts:
-lbSetData [7377, 0, "ADV_logistic_crateNormal"];
-lbSetData [7377, 1, "ADV_logistic_crateMG"];
-lbSetData [7377, 2, "ADV_logistic_crateAT"];
-lbSetData [7377, 3, "ADV_logistic_crateGrenades"];
-lbSetData [7377, 4, "ADV_logistic_crateMedic"];
-lbSetData [7377, 5, "ADV_logistic_crateSupport"];
-lbSetData [7377, 6, "ADV_logistic_crateEOD"];
-lbSetData [7377, 7, "ADV_logistic_crateEmpty"];
-lbSetData [7377, 8, "ADV_fnc_nil"];
-lbSetData [7377, 9, "ADV_logistic_crateDelete"];
-lbSetData [7377, 10, "ADV_fnc_nil"];
-_lbSetDataCount = 10;
+lbSetData [7377, 0, "ADV_LOGISTIC_CRATENORMAL"];
+lbSetData [7377, 1, "ADV_LOGISTIC_CRATEMG"];
+lbSetData [7377, 2, "ADV_LOGISTIC_CRATEAT"];
+lbSetData [7377, 3, "ADV_LOGISTIC_CRATEAA"];
+lbSetData [7377, 4, "ADV_LOGISTIC_CRATEGRENADES"];
+lbSetData [7377, 5, "ADV_LOGISTIC_CRATEMEDIC"];
+lbSetData [7377, 6, "ADV_LOGISTIC_CRATESUPPORT"];
+lbSetData [7377, 7, "ADV_LOGISTIC_CRATEEOD"];
+lbSetData [7377, 8, "ADV_LOGISTIC_CRATEEMPTY"];
+lbSetData [7377, 9, "ADV_FNC_NIL"];
+lbSetData [7377, 10, "ADV_LOGISTIC_CRATEDELETE"];
+lbSetData [7377, 11, "ADV_FNC_NIL"];
+_lbSetDataCount = 11;
 switch ( ADV_par_logisticTeam ) do {
-	case 1: { _lbSetDataCount = _lbSetDataCount+1; lbSetData [7377, _lbSetDataCount, "ADV_logistic_crateTeam"]; };
+	case 1: { _lbSetDataCount = _lbSetDataCount+1; lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATETEAM"]; };
 	case 2: { _lbSetDataCount = _lbSetDataCount+1; lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATELARGE"]; };
 	case 3: {
-		_lbSetDataCount = _lbSetDataCount+1; lbSetData [7377, _lbSetDataCount, "ADV_logistic_crateTeam"];
+		_lbSetDataCount = _lbSetDataCount+1; lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATETEAM"];
 		_lbSetDataCount = _lbSetDataCount+1; lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATELARGE"]; 
 	};
 	default {};

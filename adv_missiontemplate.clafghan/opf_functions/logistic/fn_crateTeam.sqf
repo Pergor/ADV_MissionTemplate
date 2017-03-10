@@ -69,7 +69,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 				default {
 					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",21];
 					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",7];
-					_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",4];
+					_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",4];
 				};
 			};
 			_target addMagazineCargoGlobal ["10Rnd_762x51_Mag",10];

@@ -14,6 +14,7 @@ if (isNil "ADV_logistic_maxAmount_crateGrenades") then {
 			ADV_logistic_maxAmount_crateGrenades = 1;
 			ADV_logistic_maxAmount_crateNormal = 3;
 			ADV_logistic_maxAmount_crateAT = 1;
+			ADV_logistic_maxAmount_crateAA = 1;
 			ADV_logistic_maxAmount_crateMG = 1;
 			ADV_logistic_maxAmount_crateMedic = 2;
 			ADV_logistic_maxAmount_crateEOD = 1;
@@ -23,6 +24,7 @@ if (isNil "ADV_logistic_maxAmount_crateGrenades") then {
 			ADV_logistic_maxAmount_crateGrenades = 2;
 			ADV_logistic_maxAmount_crateNormal = 6;
 			ADV_logistic_maxAmount_crateAT = 2;
+			ADV_logistic_maxAmount_crateAA = 2;
 			ADV_logistic_maxAmount_crateMG = 2;
 			ADV_logistic_maxAmount_crateMedic = 4;
 			ADV_logistic_maxAmount_crateEOD = 2;
@@ -32,6 +34,7 @@ if (isNil "ADV_logistic_maxAmount_crateGrenades") then {
 			ADV_logistic_maxAmount_crateGrenades = 4;
 			ADV_logistic_maxAmount_crateNormal = 8;
 			ADV_logistic_maxAmount_crateAT = 4;
+			ADV_logistic_maxAmount_crateAA = 4;
 			ADV_logistic_maxAmount_crateMG = 4;
 			ADV_logistic_maxAmount_crateMedic = 6;
 			ADV_logistic_maxAmount_crateEOD = 4;
@@ -41,6 +44,7 @@ if (isNil "ADV_logistic_maxAmount_crateGrenades") then {
 			ADV_logistic_maxAmount_crateGrenades = 999;
 			ADV_logistic_maxAmount_crateNormal = 999;
 			ADV_logistic_maxAmount_crateAT = 999;
+			ADV_logistic_maxAmount_crateAA = 999;
 			ADV_logistic_maxAmount_crateMG = 999;
 			ADV_logistic_maxAmount_crateMedic = 999;
 			ADV_logistic_maxAmount_crateEOD = 999;
@@ -52,7 +56,7 @@ if (isNil "ADV_logistic_maxAmount_crateGrenades") then {
 switch ( _side ) do {
 	case west: {
 		ADV_logistic_crateTypeLarge="B_CargoNet_01_ammo_F";
-		ADV_logistic_crateTypeNormal="Box_NATO_Ammo_F";ADV_logistic_crateTypeAT="Box_NATO_WpsLaunch_F";
+		ADV_logistic_crateTypeNormal="Box_NATO_Ammo_F";ADV_logistic_crateTypeAT="Box_NATO_WpsLaunch_F";ADV_logistic_crateTypeAA="Box_NATO_WpsLaunch_F";
 		ADV_logistic_crateTypeMG="Box_NATO_WpsSpecial_F";
 		ADV_logistic_crateTypeSupport="Box_NATO_Support_F";ADV_logistic_crateTypeEOD="Box_NATO_AmmoOrd_F";
 		ADV_logistic_crateTypeMedic="Box_NATO_Support_F";
@@ -60,7 +64,7 @@ switch ( _side ) do {
 	};
 	case east: {
 		ADV_logistic_crateTypeLarge="O_CargoNet_01_ammo_F";
-		ADV_logistic_crateTypeNormal="Box_East_Ammo_F";ADV_logistic_crateTypeAT="Box_East_WpsLaunch_F";
+		ADV_logistic_crateTypeNormal="Box_East_Ammo_F";ADV_logistic_crateTypeAT="Box_East_WpsLaunch_F";ADV_logistic_crateTypeAA="Box_East_WpsLaunch_F";
 		ADV_logistic_crateTypeMG="Box_EAST_WpsSpecial_F";
 		ADV_logistic_crateTypeSupport="Box_East_Support_F";ADV_logistic_crateTypeEOD="Box_East_AmmoOrd_F";
 		ADV_logistic_crateTypeMedic="Box_East_Support_F";
@@ -69,13 +73,13 @@ switch ( _side ) do {
 	case independent: {
 		if ( ADV_par_indUni > 0) then {
 			ADV_logistic_crateTypeLarge="I_CargoNet_01_ammo_F";
-			ADV_logistic_crateTypeNormal="Box_IND_Ammo_F";ADV_logistic_crateTypeAT="Box_IND_WpsLaunch_F";
+			ADV_logistic_crateTypeNormal="Box_IND_Ammo_F";ADV_logistic_crateTypeAT="Box_IND_WpsLaunch_F";ADV_logistic_crateTypeAA="Box_IND_WpsLaunch_F";
 			ADV_logistic_crateTypeMG="Box_IND_WpsSpecial_F";
 			ADV_logistic_crateTypeSupport="Box_IND_Support_F";ADV_logistic_crateTypeEOD="Box_IND_AmmoOrd_F";
 			ADV_logistic_crateTypeMedic="Box_IND_Support_F";
 		} else {
 			ADV_logistic_crateTypeLarge="B_CargoNet_01_ammo_F";
-			ADV_logistic_crateTypeNormal="Box_NATO_Ammo_F";ADV_logistic_crateTypeAT="Box_NATO_WpsLaunch_F";
+			ADV_logistic_crateTypeNormal="Box_NATO_Ammo_F";ADV_logistic_crateTypeAT="Box_NATO_WpsLaunch_F";ADV_logistic_crateTypeAA="Box_NATO_WpsLaunch_F";
 			ADV_logistic_crateTypeMG="Box_NATO_WpsSpecial_F";
 			ADV_logistic_crateTypeSupport="Box_NATO_Support_F";ADV_logistic_crateTypeEOD="Box_NATO_AmmoOrd_F";
 			ADV_logistic_crateTypeMedic="Box_NATO_Support_F";
@@ -144,6 +148,18 @@ if !(_forcePlacement) then {
 			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateAT];
 			if ( _crateAmount > 0 ) then {
 				hint format ["%1 weitere AT-Kisten stehen zur Verfügung.", _crateAmount - 1];
+				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
+			} else {
+				hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+			};
+			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
+		};
+		//can at boxes be generated?
+		case "ADV_LOGISTIC_CRATEAA": {
+			_crateVariable = format ["ADV_logistic_amount_%1_crateAA",ADV_logistic_var_sidePrefix];
+			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateAA];
+			if ( _crateAmount > 0 ) then {
+				hint format ["%1 weitere AA-Kisten stehen zur Verfügung.", _crateAmount - 1];
 				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
 			} else {
 				hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
@@ -249,6 +265,12 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 			_box = createVehicle [ADV_logistic_crateTypeAT,_position,[],0,"CAN_COLLIDE"];
 			[_box,_position] call _functionForAll;
 			_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateAT"];
+			[_box] remoteExecCall [_function,2];
+		};
+		case "ADV_LOGISTIC_CRATEAA": {
+			_box = createVehicle [ADV_logistic_crateTypeAA,_position,[],0,"CAN_COLLIDE"];
+			[_box,_position] call _functionForAll;
+			_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateAA"];
 			[_box] remoteExecCall [_function,2];
 		};
 		case "ADV_LOGISTIC_CRATEMEDIC": {

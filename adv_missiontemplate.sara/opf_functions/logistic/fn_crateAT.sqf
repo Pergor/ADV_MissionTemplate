@@ -18,19 +18,15 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 		case (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
 			_target addWeaponCargoGlobal ["rhs_weap_rpg7",1];
 			
-			_target addMagazineCargoGlobal ["rhs_rpg7_PG7VL_mag",4];
-			_target addMagazineCargoGlobal ["rhs_rpg7_PG7VR_mag",4];
-			
-			_target addMagazineCargoGlobal ["rhs_mag_9k38_rocket",4];
+			_target addMagazineCargoGlobal ["rhs_rpg7_PG7VL_mag",3];
+			_target addMagazineCargoGlobal ["rhs_rpg7_PG7VR_mag",2];
 		};
 		//CUP
 		case (ADV_par_opfWeap == 3): {
 			_target addWeaponCargoGlobal ["CUP_launch_RPG7V",1];
 
-			_target addMagazineCargoGlobal ["CUP_PG7V_M",4];
-			_target addMagazineCargoGlobal ["CUP_PG7VL_M",4];
-			
-			_target addMagazineCargoGlobal ["CUP_Igla_M",4];
+			_target addMagazineCargoGlobal ["CUP_PG7V_M",3];
+			_target addMagazineCargoGlobal ["CUP_PG7VL_M",2];
 		};
 		case (ADV_par_opfWeap == 4): {};
 		default {
@@ -40,10 +36,8 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 				_target addWeaponCargoGlobal ["launch_RPG32_F",1];
 			};
 			
-			_target addMagazineCargoGlobal ["RPG32_F",3];
-			_target addMagazineCargoGlobal ["Titan_AT",4];
-			
-			_target addMagazineCargoGlobal ["Titan_AA",4];
+			_target addMagazineCargoGlobal ["RPG32_F",2];
+			_target addMagazineCargoGlobal ["Titan_AT",3];
 		};
 	};
 	//grenades

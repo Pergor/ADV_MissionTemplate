@@ -95,7 +95,6 @@ if (!isServer) exitWith {};
 					//ammo
 					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",40];
 					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",40];
-					_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",20];
 				};
 			};
 			_target addMagazineCargoGlobal ["5Rnd_127x108_Mag",10];

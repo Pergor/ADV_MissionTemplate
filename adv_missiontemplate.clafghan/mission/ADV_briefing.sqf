@@ -69,9 +69,8 @@ if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) exitWith {
 			<br/><br/>Longrange-Funkgeräte:
 			<br/>Convoyfunk: LR CH1 51MHz
 			<br/>Kampfkreis: LR CH2 52MHz
-			<br/>Logistik: LR CH3 53MHz
-			<br/>Aufklärung: LR CH4 54MHz
-			<br/>Luftfahrzeuge: LR CH5 55MHz
+			<br/>Einsatzunterstützung: LR CH7 57MHz
+			<br/>Logistik: LR CH8 58MHz
 			<br/>OPZ/Zeus: LR CH9 59MHz
 			"
 		],
@@ -90,9 +89,8 @@ if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) exitWith {
 			<br/><br/>Longrange-Funkgeräte:
 			<br/>Convoyfunk: LR CH1 51MHz
 			<br/>Kampfkreis: LR CH2 52MHz
-			<br/>Logistik: LR CH3 53MHz
-			<br/>Aufklärung: LR CH4 54MHz
-			<br/>Luftfahrzeuge: LR CH5 55MHz
+			<br/>Einsatzunterstützung: LR CH7 57MHz
+			<br/>Logistik: LR CH8 58MHz
 			<br/>OPZ/Zeus: LR CH9 59MHz
 			"
 		],
@@ -110,9 +108,8 @@ if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) exitWith {
 			<br/><br/>Longrange-Funkgeräte:
 			<br/>Convoyfunk: LR CH1 71MHz
 			<br/>Kampfkreis: LR CH2 72MHz
-			<br/>Logistik: LR CH3 73MHz
-			<br/>Aufklärung: LR CH4 74MHz
-			<br/>Luftfahrzeuge: LR CH5 75MHz
+			<br/>Einsatzunterstützung: LR CH7 77MHz
+			<br/>Logistik: LR CH8 78MHz
 			<br/>OPZ/Zeus: LR CH9 79MHz	
 			"
 		]

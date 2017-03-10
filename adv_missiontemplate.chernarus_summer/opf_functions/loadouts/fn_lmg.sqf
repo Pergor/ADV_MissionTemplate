@@ -16,17 +16,17 @@ _goggles = "";
 _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0]];
 
 //weapons - primary weapon - (string)
-_primaryweapon = "LMG_Mk200_F";
+_primaryweapon = "LMG_Zafir_F";
 
 //primary weapon items - (array)
 _optic = ["optic_ACO_grn","optic_ARCO","optic_MRCO","optic_Holosight"];
 _attachments = ["bipod_01_F_blk"];
 if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
-_silencer = "muzzle_snds_H_MG";		//if silencer is added
+_silencer = "";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [3,0];
+_primaryweaponAmmo = [4,0];
 if (worldName == "TANOA" || ADV_par_opfWeap == 20 || ADV_par_opfWeap == 21) then {
 	_primaryweapon = ["arifle_CTARS_blk_F"];
 	_silencer = "muzzle_snds_58_blk_F";

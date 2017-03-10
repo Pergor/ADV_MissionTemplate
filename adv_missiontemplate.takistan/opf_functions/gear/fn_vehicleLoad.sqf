@@ -92,7 +92,7 @@ if (_withWeapons) then {
 					_target addWeaponCargoGlobal ["launch_RPG32_F",2];
 					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",20];
 					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",10];
-					_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",2];
+					_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",2];
 				};
 			};
 			_target addMagazineCargoGlobal ["RPG32_F",2];
