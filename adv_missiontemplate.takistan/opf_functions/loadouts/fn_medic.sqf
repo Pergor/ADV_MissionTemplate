@@ -7,7 +7,7 @@ The kind of ammo a player gets with this loadout does not necessarily have to be
 //clothing - (string)
 _uniform = ["U_O_CombatUniform_ocamo"];
 _vest = ["V_HarnessOSpec_brn"];
-_headgear = ["H_HelmetB_camo","H_HelmetB_desert","H_HelmetB_sand"];
+_headgear = ["H_HelmetSpecO_ocamo","H_HelmetO_ocamo"];
 _backpack = ["B_Carryall_ocamo","B_Carryall_khk","B_Carryall_cbr"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
@@ -30,7 +30,7 @@ if (worldName == "TANOA" || ADV_par_opfWeap == 20) then {
 };
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [7,0];
+_primaryweaponAmmo = [8,0];
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;
@@ -67,9 +67,9 @@ _launcherAmmo = [0,0];
 _binocular = "Binocular";
 
 //throwables - (integer)
-_grenadeSet = 1;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.
-_grenades = [""];		//depending on the custom loadout the colours may be merged. add like this: ["HE","HE","WHITE"] (adds two HE and one white smoke grenade).
-_chemlights = [""];		//add like this: ["RED","RED","GREEN"] (adds two red and one green chemlight).
+_grenadeSet = 0;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.
+_grenades = ["HE","HE","WHITE","WHITE","GREEN","GREEN"];		//depending on the custom loadout the colours may be merged.
+_chemlights = ["RED"];
 _IRgrenade = 0;
 
 //first aid kits and medi kits- (integer)

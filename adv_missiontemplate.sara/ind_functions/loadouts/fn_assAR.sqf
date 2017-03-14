@@ -27,7 +27,7 @@ if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [7,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_primaryweaponAmmo = [8,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 _additionalAmmo = [4,"130Rnd_338_Mag",true];
 _additionalAmmo2 = [0,0,false];
 

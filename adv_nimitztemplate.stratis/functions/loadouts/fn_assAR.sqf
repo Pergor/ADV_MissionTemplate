@@ -19,7 +19,7 @@ _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],
 _primaryweapon = ["arifle_MX_Black_F","arifle_MX_F"];
 
 //primary weapon items - (array)
-_optic = ["optic_Hamr","optic_MRCO","optic_Holosight"];
+_optic = ["optic_ACO","optic_Holosight"];
 if (worldName == "TANOA") then {
 	_primaryweapon = ["arifle_MX_Black_F","arifle_MX_khk_F"];
 	_optic = _optic-["optic_Holosight"]+["optic_Holosight_khk_F"];
@@ -30,7 +30,7 @@ if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [7,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_primaryweaponAmmo = [8,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 _additionalAmmo = [4,"130Rnd_338_Mag",true];
 _additionalAmmo2 = [0,0,false];
 
@@ -333,7 +333,7 @@ switch (ADV_par_customWeap) do {
 		};
 		_silencer = "muzzle_snds_M";
 		_primaryweaponAmmo set [1,2];
-		_optic = ["optic_Arco_blk_F","optic_MRCO","optic_Holosight_blk_F"];
+		_optic = ["optic_ACO","optic_Holosight_blk_F"];
 	};
 	default {};
 };

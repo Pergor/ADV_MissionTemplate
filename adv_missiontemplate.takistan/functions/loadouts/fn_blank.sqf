@@ -24,7 +24,7 @@ _attachments = [""];
 _silencer = "";
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [7,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_primaryweaponAmmo = [8,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;

@@ -49,6 +49,7 @@ class ADV_opf
 	class logistic
 	{
 		file = "opf_functions\logistic";
+		class crateAA {};
 		class crateAT {};
 		class crateEOD {};
 		class crateGrenades {};

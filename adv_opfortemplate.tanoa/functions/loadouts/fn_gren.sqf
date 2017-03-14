@@ -10,7 +10,7 @@ _uniform = ["U_B_CombatUniform_mcam"];
 _vest = ["V_PlateCarrier2_rgr","V_PlateCarrier1_rgr"];
 _headgear = ["H_HelmetB_paint"];
 _backpack = [""];
-if ( ADV_par_NVGs > 0 ) then { _backpack = ["B_AssaultPack_cbr"]; };
+if ( ADV_par_NVGs == 1 ) then { _backpack = ["B_AssaultPack_cbr"]; };
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
@@ -31,7 +31,7 @@ if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [7,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_primaryweaponAmmo = [8,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 12;
@@ -433,7 +433,7 @@ switch (ADV_par_customUni) do {
 		_uniform = ["UK3CB_BAF_U_CombatUniform_MTP_ShortSleeve_RM","UK3CB_BAF_U_CombatUniform_MTP_TShirt","UK3CB_BAF_U_CombatUniform_MTP_TShirt_RM","UK3CB_BAF_U_CombatUniform_MTP_RM","UK3CB_BAF_U_CombatUniform_MTP_ShortSleeve_RM"];
 		_vest = ["UK3CB_BAF_V_Osprey_Grenadier_A","UK3CB_BAF_V_Osprey_Grenadier_B"];
 		_headgear = ["UK3CB_BAF_H_Mk7_Camo_A","UK3CB_BAF_H_Mk7_Camo_B","UK3CB_BAF_H_Mk7_Camo_C","UK3CB_BAF_H_Mk7_Camo_D","UK3CB_BAF_H_Mk7_Camo_E","UK3CB_BAF_H_Mk7_Camo_F","UK3CB_BAF_H_Mk7_Net_A","UK3CB_BAF_H_Mk7_Net_B","UK3CB_BAF_H_Mk7_Net_C","UK3CB_BAF_H_Mk7_Net_D"];
-		if !( ADV_par_customWeap==6 ) then {
+		if !( ADV_par_customWeap == 6 ) then {
 			_backpack = ["UK3CB_BAF_B_Bergen_MTP_Rifleman_L_A","UK3CB_BAF_B_Bergen_MTP_Rifleman_L_B","UK3CB_BAF_B_Bergen_MTP_Rifleman_L_C","UK3CB_BAF_B_Bergen_MTP_Rifleman_L_D"];
 		} else { _backpack = ["backpackdummy"]; };
 		_items pushBack "UK3CB_BAF_H_Beret_RM_Bootneck";
@@ -463,7 +463,7 @@ switch (ADV_par_customUni) do {
 		_uniform = ["U_B_T_Soldier_AR_F","U_B_T_Soldier_SL_F","U_B_T_Soldier_F","U_B_T_Soldier_F"];
 		_vest = ["V_PlateCarrier1_tna_F","V_PlateCarrier2_tna_F"];
 		_headgear = ["H_HelmetB_tna_F","H_HelmetB_Enh_tna_F","H_HelmetB_Light_tna_F"];
-		if ( ADV_par_NVGs > 0 ) then { _backpack = ["B_AssaultPack_tna_F"]; };
+		if ( ADV_par_NVGs == 1 ) then { _backpack = ["B_AssaultPack_tna_F"]; };
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};

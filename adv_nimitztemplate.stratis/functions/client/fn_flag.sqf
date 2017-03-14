@@ -14,7 +14,7 @@ if (count _this == 0) exitWith {};
 	if (!isNil "_x") then {
 		_target = _x;
 		nul = _target addAction [
-			"<t color='#00FF00'>Teleport zum Gruppenführer</t>",
+			"<t color='#00FF00' size='2' align='center'>Teleport</t>",
 			{
 			createDialog "adv_teleport_mainDialog"
 			/*
@@ -38,7 +38,7 @@ if (count _this == 0) exitWith {};
 					};
 				};
 			*/
-			},nil,6,false,false,"","true",5
+			},nil,6,true,true,"","true",5
 		];
 	};
 	nil;

@@ -123,9 +123,17 @@ adv_opf_manageVeh_codeForAll = {
 		_veh setVariable ["tf_hasRadio", true, true];
 		call {
 			if (_veh isKindOf 'AIR') exitWith {
-				_veh setVariable ["TF_RadioType", "tf_mr6000l", true];
+				if (isClass(configFile >> "CfgPatches" >> "tfar_core")) then {
+					_veh setVariable ["TF_RadioType", "tfar_mr6000l", true];
+				} else {
+					_veh setVariable ["TF_RadioType", "tf_mr6000l", true];
+				};
 			};
-			_veh setVariable ["TF_RadioType", "tf_mr3000", true];
+			if (isClass(configFile >> "CfgPatches" >> "tfar_core")) then {
+				_veh setVariable ["TF_RadioType", "tfar_mr3000", true];
+			} else {
+				_veh setVariable ["TF_RadioType", "tf_mr3000", true];
+			};
 		};
 	};
 	if (isClass(configFile >> 'CfgPatches' >> 'rhs_main')) then {

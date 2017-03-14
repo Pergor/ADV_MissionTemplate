@@ -11,33 +11,32 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	//if (isNil "ADV_par_opfUni") then { adv_par_opfUni = ["param_opfUni",0] call BIS_fnc_getParamValue; };
 	if (isNil "adv_par_seriousMode") then { adv_par_seriousMode = ["param_seriousMode",0] call BIS_fnc_getParamValue; };
 	//für zusätzliche variablen/functions: https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Variables
-	call compile preprocessFileLineNumbers "\task_force_radio\functions\common.sqf";
 	
-	["TFAR_giveLongRangeRadioToGroupLeaders", true, true, "mission"] call CBA_settings_fnc_set;
-	["TFAR_givePersonalRadioToRegularSoldier", false, true, "mission"] call CBA_settings_fnc_set;
-	["TFAR_giveMicroDagrToSoldier", false, true, "mission"] call CBA_settings_fnc_set;
-	["TFAR_SameSRFrequenciesForSide", true, true, "mission"] call CBA_settings_fnc_set;
-	["TFAR_SameLRFrequenciesForSide ", true, true, "mission"] call CBA_settings_fnc_set;
-	["TFAR_fullDuplex", false, true, "mission"] call CBA_settings_fnc_set;
-	["TFAR_enableIntercom", true, true, "mission"] call CBA_settings_fnc_set;
-	["TFAR_objectInterceptionEnabled", true, true, "mission"] call CBA_settings_fnc_set;
+	["TFAR_giveLongRangeRadioToGroupLeaders", false, true, "server"] call CBA_settings_fnc_set;
+	["TFAR_givePersonalRadioToRegularSoldier", false, true, "server"] call CBA_settings_fnc_set;
+	["TFAR_giveMicroDagrToSoldier", false, true, "server"] call CBA_settings_fnc_set;
+	["TFAR_SameSRFrequenciesForSide", true, true, "server"] call CBA_settings_fnc_set;
+	["TFAR_SameLRFrequenciesForSide", true, true, "server"] call CBA_settings_fnc_set;
+	["TFAR_fullDuplex", false, true, "server"] call CBA_settings_fnc_set;
+	["TFAR_enableIntercom", true, true, "server"] call CBA_settings_fnc_set;
+	["TFAR_objectInterceptionEnabled", true, true, "server"] call CBA_settings_fnc_set;
 	//general
-	tf_terrain_interception_coefficient = 3.0;
-	tf_speakerDistance = 20;
+	tfar_terrain_interception_coefficient = 3.0;
+	tfar_speakerDistance = 20;
 
 	//radios
-	TFAR_DefaultRadio_Personal_west = "TFAR_anprc154";
-	TFAR_DefaultRadio_Personal_east = "tfar_fadak";
-	TFAR_DefaultRadio_Personal_independent = "tfar_anprc148jem";
+	TFAR_DefaultRadio_Personal_West = "TFAR_anprc152";
+	TFAR_DefaultRadio_Personal_East = "tfar_fadak";
+	TFAR_DefaultRadio_Personal_Independent = "tfar_anprc148jem";
 	
-	TFAR_DefaultRadio_Rifleman_west = "tfar_anprc154";
-	TFAR_DefaultRadio_Rifleman_east = "tfar_pnr1000a";
-	TFAR_DefaultRadio_Rifleman_independent = "tfar_anprc154";
+	TFAR_DefaultRadio_Rifleman_West = "tfar_anprc154";
+	TFAR_DefaultRadio_Rifleman_East = "tfar_pnr1000a";
+	TFAR_DefaultRadio_Rifleman_Independent = "tfar_anprc154";
 	//tfar serious mode
 	[] spawn {
 		waitUntil {!isNil "ADV_par_seriousMode" && !isNil "adv_par_customUni" };
-		if (adv_par_customUni isEqualTo 9) then { TF_defaultWestPersonalRadio = "tf_anprc148jem"; };
-		if ( (adv_par_customWeap isEqualTo 1 || adv_par_customUni isEqualTo 2) && isClass(configFile >> "CfgPatches" >> "tfw_sem52sl") ) then { TF_defaultWestPersonalRadio = "tf_sem52sl"; };
+		if (adv_par_customUni isEqualTo 9) then { TF_defaultWestPersonalRadio = "tfar_anprc148jem"; };
+		//if ( (adv_par_customWeap isEqualTo 1 || adv_par_customUni isEqualTo 2) && isClass(configFile >> "CfgPatches" >> "tfw_sem52sl") ) then { TF_defaultWestPersonalRadio = "tf_sem52sl"; };
 		if ( ADV_par_seriousMode > 0 ) then {
 			tf_radio_channel_name = "Arma3-TFAR";
 			tf_radio_channel_password = "123";
@@ -46,24 +45,28 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 
 	//frequencies
 	//blufor
-	_settingsSwWest = false call TFAR_fnc_generateSwSettings;
-	_settingsSwEast = false call TFAR_fnc_generateSwSettings;
-	_settingsSwGuer = false call TFAR_fnc_generateSwSettings;
+	TFAR_defaultFrequencies_sr_west = ["41","42","43","44","45","46","47","48"];
+	_settingsSwWest = false call TFAR_fnc_generateSRSettings;
+	_settingsSwWest set [2, TFAR_defaultFrequencies_sr_west];
+	_settingsSwWest set [4, "_bluefor"];
+	TFAR_freq_sw_west = _settingsSwWest;
 	
+	
+	TFAR_defaultFrequencies_lr_west = ["51","52","53","54","55","56","57","58","59"];
 	_settingsLrWest = false call TFAR_fnc_generateLrSettings;
-	_settingsLrEast = false call TFAR_fnc_generateLrSettings;
+	_settingsLrWest set [2, TFAR_defaultFrequencies_lr_west];
+	_settingsLrWest set [4, "_bluefor"];
+	TFAR_freq_lr_west = _settingsLrWest;
+	
 	_settingsLrGuer = false call TFAR_fnc_generateLrSettings;
 	
-	_settingsSwWest set [2, ["41","42","43","44","45","46","47","48"]];
-	_settingsLrWest set [2, ["51","52","53","54","55","56","57","58","59"]];
-	_settingsSwWest set [4, "_bluefor"];
-	_settingsLrWest set [4, "_bluefor"];
-	TFAR_freq_sw_west = _settingsSwWest;
-	TFAR_freq_lr_west = _settingsLrWest;
 
+	_settingsSwEast = false call TFAR_fnc_generateSwSettings;
+	_settingsLrEast = false call TFAR_fnc_generateLrSettings;
 	_settingsSwEast set [2, ["41","42","43","44","45","46","47","48"]];
 	_settingsLrEast set [2, ["51","52","53","54","55","56","57","58","59"]];
 
+	_settingsSwGuer = false call TFAR_fnc_generateSwSettings;
 	_settingsSwGuer set [2, ["61","62","63","64","65","66","67","68"]];
 	_settingsLrGuer set [2, ["71","72","73","74","75","76","77","78","79"]];
 	

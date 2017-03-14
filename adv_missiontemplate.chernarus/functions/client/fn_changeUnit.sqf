@@ -4,7 +4,7 @@ adv_fnc_changeUnit by Belbo
 Changes the vehicleVarName of a unit.
 
 Possible call - has to be executed where unit is local:
-[TARGET,"NEWVARNAME"] call ADV_fnc_changeName;
+[TARGET,"NEWVARNAME"] call ADV_fnc_changeUnit;
 
 _this select 0 = unit that has to be renamed (object).
 _this select 1 = new varName (string)

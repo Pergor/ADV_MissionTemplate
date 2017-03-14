@@ -7,7 +7,7 @@ The kind of ammo a player gets with this loadout does not necessarily have to be
 //clothing - (string)
 _uniform = ["U_O_OfficerUniform_ocamo"];
 _vest = ["V_TacVest_khk"];
-_headgear = if (isClass(configFile >> "CfgPatches" >> "ace_hearing") && !isClass(configFile >> "CfgPatches" >> "adv_damnYouAceHearing")) then { ["H_HelmetB_sand"] } else { ["H_HelmetCrew_O"] };
+_headgear = if (isClass(configFile >> "CfgPatches" >> "ace_hearing") && !isClass(configFile >> "CfgPatches" >> "adv_damnYouAceHearing")) then { ["H_HelmetO_ocamo"] } else { ["H_HelmetCrew_O"] };
 _backpack = [""];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).

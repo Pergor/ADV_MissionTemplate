@@ -120,16 +120,27 @@ adv_manageVeh_codeForAll = {
 	if ( ADV_par_Radios > 0 && (_veh isKindOf 'CAR' || _veh isKindOf 'TANK' || _veh isKindOf 'AIR') ) then {
 		_veh setVariable ["tf_side", west, true];
 		_veh setVariable ["tf_hasRadio", true, true];
+		
 		call {
 			if (_veh isKindOf 'AIR') exitWith {
-				_veh setVariable ["TF_RadioType", "tf_anarc210", true];
+				if (isClass(configFile >> "CfgPatches" >> "tfar_core")) then {
+					_veh setVariable ["TF_RadioType", "tfar_anarc210", true];
+				} else {
+					_veh setVariable ["TF_RadioType", "tf_anarc210", true];
+				};
 			};
-			_veh setVariable ["TF_RadioType", "tf_rt1523g", true];
+			if (isClass(configFile >> "CfgPatches" >> "tfar_core")) then {
+				_veh setVariable ["TF_RadioType", "tfar_rt1523g", true];
+			} else {
+				_veh setVariable ["TF_RadioType", "tf_rt1523g", true];
+			};
 		};
 	};
 	if (isClass(configFile >> 'CfgPatches' >> 'rhsusf_main')) then {
 		[_veh] call ADV_fnc_rhsDecals;
 	};
+	//private _init = [_veh] call BIS_fnc_getVehicleCustomization;
+	//[_veh, (_init select 0) select 0, _init select 1] call BIS_fnc_initVehicle
 	[_veh] call adv_fnc_retexture;
 };
 

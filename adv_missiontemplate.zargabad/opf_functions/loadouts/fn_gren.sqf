@@ -7,7 +7,7 @@ The kind of ammo a player gets with this loadout does not necessarily have to be
 //clothing - (string)
 _uniform = ["U_O_CombatUniform_ocamo"];
 _vest = ["V_HarnessOSpec_brn"];
-_headgear = ["H_HelmetB_camo","H_HelmetB_desert","H_HelmetB_sand"];
+_headgear = ["H_HelmetSpecO_ocamo","H_HelmetO_ocamo"];
 _backpack = [""];
 if ( ADV_par_opfWeap > 0 ) then { _backpack = ["B_AssaultPack_ocamo","B_AssaultPack_cbr"]; };
 _insignium = "";
@@ -31,7 +31,7 @@ if (worldName == "TANOA" || ADV_par_opfWeap == 20) then {
 };
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [7,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_primaryweaponAmmo = [8,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 12;

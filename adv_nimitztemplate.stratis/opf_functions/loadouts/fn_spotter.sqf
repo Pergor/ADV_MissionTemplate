@@ -31,9 +31,8 @@ if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "";		//if silencer is added
 
-
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [7,0];
+_primaryweaponAmmo = [8,0];
 _additionalAmmo = [5,"5Rnd_127x108_Mag",true];
 
 //40mm Grenades - (integer)

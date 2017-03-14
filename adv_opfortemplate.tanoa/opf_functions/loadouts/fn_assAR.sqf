@@ -7,7 +7,7 @@ The kind of ammo a player gets with this loadout does not necessarily have to be
 //clothing - (string)
 _uniform = ["U_O_CombatUniform_ocamo"];
 _vest = ["V_HarnessOSpec_brn"];
-_headgear = ["H_HelmetB_camo","H_HelmetB_desert","H_HelmetB_sand"];
+_headgear = ["H_HelmetSpecO_ocamo","H_HelmetO_ocamo"];
 _backpack = ["B_Kitbag_cbr","B_Kitbag_rgr"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
@@ -18,7 +18,7 @@ _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],
 _primaryweapon = "arifle_Katiba_F";
 
 //primary weapon items - (array)
-_optic = ["optic_Arco","optic_MRCO","optic_Holosight"];
+_optic = ["optic_ACO_grn","optic_Holosight"];
 _attachments = [""];
 if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
@@ -29,9 +29,8 @@ if (worldName == "TANOA" || ADV_par_opfWeap == 20) then {
 	_silencer = "muzzle_snds_58_blk_F";
 };
 
-
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [7,0];
+_primaryweaponAmmo = [8,0];
 _additionalAmmo = [4,"150Rnd_93x64_Mag",true];
 _additionalAmmo2 = [0,0,false];
 

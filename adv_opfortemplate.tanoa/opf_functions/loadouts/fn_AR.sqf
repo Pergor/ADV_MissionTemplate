@@ -7,7 +7,7 @@ The kind of ammo a player gets with this loadout does not necessarily have to be
 //clothing - (string)
 _uniform = ["U_O_CombatUniform_ocamo"];
 _vest = ["V_HarnessOSpec_brn"];
-_headgear = ["H_HelmetB_camo","H_HelmetB_desert","H_HelmetB_sand"];
+_headgear = ["H_HelmetSpecO_ocamo","H_HelmetO_ocamo"];
 _backpack = ["B_AssaultPack_ocamo","B_AssaultPack_cbr"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
@@ -15,14 +15,13 @@ _goggles = "";
 _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0],["loadCoef",0.8]];
 
 //weapons - primary weapon - (string)
-_primaryweapon = "LMG_Zafir_F";
+_primaryweapon = "MMG_01_tan_F";
 
 //primary weapon items - (array)
-_optic = ["optic_ARCO","optic_HAMR"];
+_optic = [""];
 _attachments = ["bipod_02_F_blk"];
-if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
-if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
-_silencer = "";		//if silencer is added
+if ( ADV_par_opfNVGs > 0 ) then { _attachments pushBack "acc_flashlight"; };
+_silencer = "muzzle_snds_93mmg";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [1,0];
@@ -95,9 +94,6 @@ _items = [];
 
 //MarksmenDLC-objects:
 if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
-	_primaryWeapon = "MMG_01_tan_F";
-	_optic = ["optic_ARCO"];
-	_silencer = "muzzle_snds_93mmg";		//if silencer is added
 };
 
 //TFAR or ACRE radios

@@ -27,7 +27,7 @@ if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [7,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_primaryweaponAmmo = [8,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;
@@ -243,7 +243,6 @@ switch (ADV_par_indUni) do {
 		_vest = ["V_PlateCarrierIA2_dgtl","V_PlateCarrierIA1_dgtl"];
 		_headgear = ["H_HelmetIA"];
 		_backpack = ["B_Kitbag_rgr"];
-		_ACE_dogtags = 1;
 	};
 	case 2: {
 	//TFA uniforms

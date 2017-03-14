@@ -27,11 +27,11 @@ if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H";
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [7,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
-_additionalAmmo = [10,"30Rnd_65x39_caseless_mag",true];
+_primaryweaponAmmo = [8,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_additionalAmmo = [12,"30Rnd_65x39_caseless_mag",true];
 //_additionalAmmo1 = [2,"200Rnd_65x39_cased_Box",true];
 _additionalAmmo1 = [4,"100Rnd_65x39_caseless_mag_Tracer",true];
-_additionalAmmo2 = [10,"1Rnd_HE_Grenade_shell",true];
+_additionalAmmo2 = [12,"1Rnd_HE_Grenade_shell",true];
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;
@@ -326,9 +326,9 @@ switch (ADV_par_customWeap) do {
 		_silencer = "muzzle_snds_M";
 		_primaryweaponAmmo set [1,2];
 		_optic = ["optic_Arco_blk_F","optic_MRCO"];
-		_additionalAmmo = [10,"30Rnd_556x45_Stanag_red",true];
+		_additionalAmmo = [12,"30Rnd_556x45_Stanag_red",true];
 		_additionalAmmo1 = [2,"200Rnd_556x45_Box_Red_F",true];
-		_additionalAmmo2 = [10,"1Rnd_HE_Grenade_shell",true];
+		_additionalAmmo2 = [12,"1Rnd_HE_Grenade_shell",true];
 	};
 	default {};
 };

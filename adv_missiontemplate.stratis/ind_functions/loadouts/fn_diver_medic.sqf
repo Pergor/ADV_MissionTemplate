@@ -190,7 +190,7 @@ switch (ADV_par_customWeap) do {
 		_optic = ["rhsusf_acc_eotech_552"];
 		_attachments = ["rhsusf_acc_anpeq15","rhsusf_acc_rotex5_grey"];
 		_attachments pushBack (["","rhsusf_acc_grip2"] call BIS_fnc_selectRandom);
-		_primaryweaponAmmo = [7,9];
+		_primaryweaponAmmo = [8,9];
 		_additionalAmmo = nil;
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];

@@ -7,7 +7,7 @@ The kind of ammo a player gets with this loadout does not necessarily have to be
 //clothing - (string)
 _uniform = ["U_O_CombatUniform_ocamo"];
 _vest = ["V_HarnessOSpec_brn"];
-_headgear = ["H_HelmetB_camo","H_HelmetB_desert","H_HelmetB_sand"];
+_headgear = ["H_HelmetSpecO_ocamo","H_HelmetO_ocamo"];
 _backpack = ["B_Carryall_khk"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
@@ -30,10 +30,10 @@ if (worldName == "TANOA" || ADV_par_opfWeap == 20) then {
 };
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [7,0];
-_additionalAmmo = [10,"30Rnd_65x39_caseless_green",true];
-_additionalAmmo1 = [2,"200Rnd_65x39_cased_Box",true];
-_additionalAmmo2 = [10,"1Rnd_HE_Grenade_shell",true];
+_primaryweaponAmmo = [8,0];
+_additionalAmmo = [12,"30Rnd_65x39_caseless_green",true];
+_additionalAmmo1 = [3,"150Rnd_762x54_Box_Tracer",true];
+_additionalAmmo2 = [12,"1Rnd_HE_Grenade_shell",true];
 if (worldName == "TANOA" || ADV_par_opfWeap == 20) then {
 	_additionalAmmo set [1,"30Rnd_580x42_Mag_F"];
 	_additionalAmmo1 = [4,"100Rnd_580x42_Mag_F",true];

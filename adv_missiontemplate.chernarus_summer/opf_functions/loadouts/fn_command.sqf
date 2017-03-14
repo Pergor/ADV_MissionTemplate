@@ -30,7 +30,7 @@ if (worldName == "TANOA" || ADV_par_opfWeap == 20) then {
 };
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [7,0];
+_primaryweaponAmmo = [6,0];
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;

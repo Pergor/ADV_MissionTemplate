@@ -52,9 +52,9 @@ sleep 1;
 
 //logistics menu
 if ( ADV_par_logisticAmount > 0 ) then {
-	{ nul = _x addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == west",5]; nil; } count adv_objects_westFlags;
-	{ nul = _x addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == east",5]; nil; } count adv_objects_eastFlags;
-	{ nul = _x addAction [("<t color=""#33FFFF"">" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == independent",5]; } count adv_objects_indFlags;
+	{ nul = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == west",5]; nil; } count adv_objects_westFlags;
+	{ nul = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == east",5]; nil; } count adv_objects_eastFlags;
+	{ nul = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == independent",5]; } count adv_objects_indFlags;
 };
 //gearsaving
 ADV_objects_clearCargo spawn adv_fnc_gearsaving;
@@ -103,7 +103,7 @@ switch ( ADV_par_moveMarker ) do {
 	};
 	case 3: {
 		adv_objects_flags call ADV_fnc_flag;
-		{ nul = _x addAction [("<t color=""#00FF00"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJumpSelection},nil,3,false,true,"","player == leader (group player)",5]; nil; } count adv_objects_flags;
+		{ nul = _x addAction [("<t color='#00FF00' size='2'>" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJumpSelection},nil,3,false,true,"","player == leader (group player)",5]; nil; } count adv_objects_flags;
 	};
 	case 99: {
 		setPlayerRespawnTime 9999;
@@ -117,13 +117,13 @@ if (!isNil "opf_BriefingBoard1") then {[opf_BriefingBoard1] call ADV_fnc_board;}
 if (!isNil "ind_BriefingBoard1") then {[ind_BriefingBoard1] call ADV_fnc_board;};
 if (ADV_par_ChooseLoad == 1) then {
 	if (!isNil "BriefingBoard1") then {
-			ADV_handle_chooseLoadoutAction = BriefingBoard1 addAction [("<t color=""#00FF00"">" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,false,true,"","side player == west",5];
+			ADV_handle_chooseLoadoutAction = BriefingBoard1 addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,true,true,"","side player == west",5];
 	};
 	if (!isNil "opf_BriefingBoard1") then {
-		ADV_handle_chooseLoadoutAction_opf = opf_BriefingBoard1 addAction [("<t color=""#00FF00"">" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,false,true,"","side player == east",5];
+		ADV_handle_chooseLoadoutAction_opf = opf_BriefingBoard1 addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,true,true,"","side player == east",5];
 	};
 	if (!isNil "ind_BriefingBoard1") then {
-		ADV_handle_chooseLoadoutAction_ind = ind_BriefingBoard1 addAction [("<t color=""#00FF00"">" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,false,true,"","side player == independent",5];
+		ADV_handle_chooseLoadoutAction_ind = ind_BriefingBoard1 addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,true,true,"","side player == independent",5];
 	};
 };
 

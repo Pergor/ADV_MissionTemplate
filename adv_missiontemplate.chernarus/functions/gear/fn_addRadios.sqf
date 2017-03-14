@@ -30,15 +30,31 @@ switch ( true ) do {
 				TF_defaultWestRiflemanRadio = "tf_sem52sl";
 			};
 		};
-		_personalRadioType = switch ( side (group _unit) ) do {
-			case east: { TF_defaultEastPersonalRadio };
-			case independent: { TF_defaultGuerPersonalRadio };
-			default { TF_defaultWestPersonalRadio };
+		_personalRadioType = "";
+		_riflemanRadioType = "";
+		if !(isClass(configFile >> "CfgPatches" >> "tfar_core")) then {
+			_personalRadioType = switch ( side (group _unit) ) do {
+				case east: { TF_defaultEastPersonalRadio };
+				case independent: { TF_defaultGuerPersonalRadio };
+				default { TF_defaultWestPersonalRadio };
+			};
+			_riflemanRadioType = switch ( side (group _unit) ) do {
+				case east: { TF_defaultEastRiflemanRadio };
+				case independent: { TF_defaultGuerRiflemanRadio };
+				default { TF_defaultWestRiflemanRadio };
+			};
 		};
-		_riflemanRadioType = switch ( side (group _unit) ) do {
-			case east: { TF_defaultEastRiflemanRadio };
-			case independent: { TF_defaultGuerRiflemanRadio };
-			default { TF_defaultWestRiflemanRadio };
+		if (isClass(configFile >> "CfgPatches" >> "tfar_core")) then {
+			_personalRadioType = switch ( side (group _unit) ) do {
+				case east: { TFAR_DefaultRadio_Personal_East };
+				case independent: { TFAR_DefaultRadio_Personal_Independent };
+				default { TFAR_DefaultRadio_Personal_West };
+			};
+			_riflemanRadioType = switch ( side (group _unit) ) do {
+				case east: { TFAR_DefaultRadio_Rifleman_East };
+				case independent: { TFAR_DefaultRadio_Rifleman_Independent };
+				default { TFAR_DefaultRadio_Rifleman_West };
+			};
 		};
 		switch ADV_par_Radios do {
 			//everyone gets role specific radio

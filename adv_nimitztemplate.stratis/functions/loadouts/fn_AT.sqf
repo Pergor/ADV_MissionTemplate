@@ -30,7 +30,7 @@ if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [7,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_primaryweaponAmmo = [8,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;
@@ -203,7 +203,7 @@ switch (ADV_par_customWeap) do {
 		_handgun = "BWA3_P8";
 		_itemsHandgun = [];
 		_handgunSilencer = "";
-		_launcher = "BWA3_Pzf3";
+		_launcher = "BWA3_Pzf3_Loaded";
 		_launcherAmmo = [1,0];
 	};
 	case 2: {

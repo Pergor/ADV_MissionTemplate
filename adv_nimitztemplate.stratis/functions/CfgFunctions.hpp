@@ -167,6 +167,7 @@ class ADV
 	};
 	class logistic
 	{
+		class crateAA {};
 		class crateAT {};
 		class crateEOD {};
 		class crateGrenades {};

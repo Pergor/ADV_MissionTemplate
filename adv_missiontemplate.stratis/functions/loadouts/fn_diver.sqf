@@ -191,7 +191,7 @@ switch (ADV_par_customWeap) do {
 				_attachments = ["BWA3_acc_VarioRay_irlaser","hlc_muzzle_556NATO_KAC"];
 			};
 			_primaryweapon = "BWA3_G36K";
-			_primaryweaponAmmo = [7,4];
+			_primaryweaponAmmo = [8,4];
 			_attachments = ["BWA3_acc_VarioRay_irlaser","BWA3_muzzle_snds_G36"];
 		};
 		_additionalAmmo = nil;
@@ -205,7 +205,7 @@ switch (ADV_par_customWeap) do {
 		_optic = ["rhsusf_acc_eotech_552"];
 		_attachments = ["rhsusf_acc_anpeq15","rhsusf_acc_rotex5_grey"];
 		_attachments pushBack (["","rhsusf_acc_grip2"] call BIS_fnc_selectRandom);
-		_primaryweaponAmmo = [7,9];
+		_primaryweaponAmmo = [8,9];
 		_additionalAmmo = nil;
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
@@ -223,10 +223,10 @@ switch (ADV_par_customWeap) do {
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5") && ADV_par_Silencers == 1) then {
 			_primaryweapon = "hlc_smg_mp5sd6"; _silencer = "";
 			_attachments = [""];
-			_primaryweaponAmmo set [1,2];
+			_primaryweaponAmmo = [8,2];
 			_additionalAmmo = nil;
 		} else {
-			_primaryweaponAmmo = [7,9];
+			_primaryweaponAmmo = [8,9];
 			_additionalAmmo = nil;
 			_attachments pushBack (["","rhsusf_acc_grip2"] call BIS_fnc_selectRandom);
 		};
@@ -244,7 +244,7 @@ switch (ADV_par_customWeap) do {
 		_optic = ["rhsusf_acc_eotech_552"];
 		_attachments = ["rhsusf_acc_anpeq15","rhsusf_acc_rotex5_grey"];
 		_attachments pushBack (["","rhsusf_acc_grip2"] call BIS_fnc_selectRandom);
-		_primaryweaponAmmo = [7,9];
+		_primaryweaponAmmo = [8,9];
 		_additionalAmmo = nil;
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
@@ -259,7 +259,7 @@ switch (ADV_par_customWeap) do {
 		_primaryweapon = "CUP_arifle_M4A3_desert";
 		_optic = ["CUP_optic_CompM4"];
 		_attachments = ["CUP_acc_ANPEQ_2_camo","CUP_muzzle_snds_M16_camo"];
-		_primaryweaponAmmo = [7,9];
+		_primaryweaponAmmo = [8,9];
 		_additionalAmmo = nil;
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=["CUP_muzzle_snds_M9"];
@@ -269,7 +269,7 @@ switch (ADV_par_customWeap) do {
 		_primaryweapon = "CUP_arifle_M4A3_desert";
 		_optic = ["CUP_optic_CompM4"];
 		_attachments = ["CUP_acc_ANPEQ_2_camo","CUP_muzzle_snds_M16_camo"];
-		_primaryweaponAmmo = [7,9];
+		_primaryweaponAmmo = [8,9];
 		_additionalAmmo = nil;
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=["CUP_muzzle_snds_M9"];
@@ -279,7 +279,7 @@ switch (ADV_par_customWeap) do {
 		_primaryweapon = "CUP_arifle_M4A3_desert";
 		_optic = ["CUP_optic_CompM4"];
 		_attachments = ["CUP_acc_ANPEQ_2_camo","CUP_muzzle_snds_M16_camo"];
-		_primaryweaponAmmo = [7,9];
+		_primaryweaponAmmo = [8,9];
 		_additionalAmmo = nil;
 		_handgun="CUP_hgun_Glock17";
 		_itemsHandgun=["CUP_acc_Glock17_Flashlight","muzzle_snds_L"];
@@ -289,7 +289,7 @@ switch (ADV_par_customWeap) do {
 		_primaryweapon = ["UK3CB_BAF_L85A2_RIS_AFG","UK3CB_BAF_L85A2_EMAG","UK3CB_BAF_L85A2_RIS"];
 		_optic = ["UK3CB_BAF_SUSAT_3D"];
 		_attachments = ["UK3CB_BAF_LLM_IR_Black","UK3CB_BAF_Silencer_L85"];
-		_primaryweaponAmmo = [7,2];
+		_primaryweaponAmmo = [8,2];
 		_additionalAmmo = nil;
 		_handgun = "UK3CB_BAF_L131A1";
 		_itemsHandgun=["UK3CB_BAF_Flashlight_L131A1","muzzle_snds_L"];

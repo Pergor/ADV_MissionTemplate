@@ -4,6 +4,57 @@ ADV_fnc_execTeleport by Belbo
 
 params [
 	["_unit", player, [objNull]],
+	["_selection", "TELEPORT_GROUP", [""]],
+	"_target","_commander","_closest"
+];
+
+_target = switch (toUpper _selection) do {
+	case "TELEPORT_COMMAND": {
+		_commander = switch (side (group _unit)) do {
+			case west: {
+				(allPlayers select { [str _x,0,6] call BIS_fnc_trimString == "command" }) select 0;
+			};
+			case east: {
+				(allPlayers select { [str _x,0,10] call BIS_fnc_trimString == "opf_command" }) select 0;
+			};
+			case independent: {
+				(allPlayers select { [str _x,0,10] call BIS_fnc_trimString == "ind_command" }) select 0;
+			};
+			default { nil };
+		};
+		if (isNil "_commander") exitWith {nil};
+		_commander;
+	};
+	case "TELEPORT_GROUP": {
+		private _grp = (units (group _unit)) select { (alive _x && !(_x getVariable ["ACE_isUnconscious",false])) && (_x distance _unit) > 500 };
+		private _dist = 100000;
+		{
+			if (_x distance _unit < _dist) then {
+				_closest = _x;
+				_dist = _x distance _unit;
+			};
+		} forEach _grp;
+		if (isNil "_closest") exitWith {nil};
+		_closest;
+	};
+	default {nil};
+};
+
+if (isNil "_target") exitWith {};
+
+if (vehicle _target != _target) then {
+	_vehicle = vehicle _target;
+	_unit moveInCargo _vehicle;
+} else {
+	_unit setPosATL (getPosATL _target);
+};
+
+true;
+
+/*
+
+params [
+	["_unit", player, [objNull]],
 	["_selection", "TELEPORT_GROUP", [""]]
 ];
 
@@ -56,3 +107,4 @@ if (vehicle _target != _target) then {
 };
 
 true;
+*/

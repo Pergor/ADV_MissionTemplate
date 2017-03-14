@@ -6,7 +6,7 @@ magazines one for one in _items.
 */
 
 //clothing - (string)
-_uniform = ["U_B_CombatUniform_mcam_tshirt"];
+_uniform = ["U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam_vest"];
 _vest = ["V_PlateCarrier2_rgr","V_PlateCarrier1_rgr"];
 _headgear = ["H_HelmetB_paint"];
 _backpack = ["B_Kitbag_cbr"];
@@ -30,7 +30,7 @@ if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [7,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_primaryweaponAmmo = [8,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 _additionalAmmo = [2,"Titan_AT"];
 
 //40mm Grenades - (integer)
@@ -105,8 +105,8 @@ if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 	//CustomMod items//
 	
 //TFAR or ACRE radios
-_giveRiflemanRadio = true;
-_givePersonalRadio = false;
+_giveRiflemanRadio = false;
+_givePersonalRadio = true;
 _giveBackpackRadio = false;
 _tfar_microdagr = 0;				//adds the tfar microdagr to set the channels for a rifleman radio
 
@@ -178,8 +178,8 @@ _ACE_isPilot = false;
 
 //Tablet-Items
 _tablet = false;
-_androidDevice = false;
-_microDAGR = true;
+_androidDevice = true;
+_microDAGR = false;
 _helmetCam = false;
 
 //scorch inv items
@@ -204,7 +204,7 @@ switch (ADV_par_customWeap) do {
 		_handgun = "BWA3_P8";
 		_itemsHandgun = [];
 		_handgunSilencer = "";		//if silencer is added
-		_launcher = "BWA3_RGW90";
+		_launcher = "BWA3_Pzf3_Loaded";
 		_launcherAmmo = [1,0];
 		_additionalAmmo = nil;
 	};
@@ -428,6 +428,8 @@ switch (ADV_par_customUni) do {
 			"H_Cap_usblack","H_Cap_oli_hs","H_Cap_blk","H_Booniehat_tan","H_Booniehat_oli","H_Booniehat_khk","H_Watchcap_khk","H_Watchcap_cbr","H_Watchcap_camo"];
 		_binocular = "Binocular";
 		_ACE_dogtags = 0;
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = false;
 	};
 	case 12: {
 		//UK3CB
