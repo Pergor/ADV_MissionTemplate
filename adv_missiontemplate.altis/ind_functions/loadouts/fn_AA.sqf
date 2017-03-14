@@ -243,7 +243,6 @@ switch (ADV_par_indUni) do {
 		_vest = ["V_PlateCarrierIA2_dgtl","V_PlateCarrierIA1_dgtl"];
 		_headgear = ["H_HelmetIA"];
 		_backpack = ["B_Kitbag_rgr"];
-		_ACE_dogtags = 1;
 	};
 	case 2: {
 	//TFA uniforms
