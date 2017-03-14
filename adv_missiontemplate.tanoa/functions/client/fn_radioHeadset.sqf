@@ -50,7 +50,7 @@ adv_script_fnc_headsetOn = {
 	adv_var_headsetOn = true;
 };
 
-if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
+if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) exitWith {
 
 	_lowerHeadset = ["lowerHeadsetSelfAction",("<t color=""#FF0000"">" + ("Lower Headset") + "</t>"),"",{
 	
