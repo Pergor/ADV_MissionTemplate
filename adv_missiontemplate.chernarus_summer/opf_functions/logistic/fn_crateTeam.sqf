@@ -96,7 +96,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			_target addMagazineCargoGlobal ["SmokeShellYellow",4];
 		};
 		default {
-			_target addMagazineCargoGlobal ["HandGrenade",10];
+			_target addMagazineCargoGlobal ["MiniGrenade",100];
 			_target addMagazineCargoGlobal ["SmokeShell",8];
 			_target addMagazineCargoGlobal ["SmokeShellYellow",4];
 		};

@@ -9,7 +9,7 @@ The first vehicle will be the leader of any group.
 Return value: group of spawned units or vehicles.
 
 possible call, has to be executed on either server or headless client:
-[["O_Soldier_TL_F","O_Soldier_GL_F"],east,spawnLogic] call ADV_fnc_spawnPatrol;
+[["O_Soldier_TL_F","O_Soldier_GL_F"],east,spawnLogic] call ADV_fnc_spawnGroup;
 
 _this select 0 = units array - format: ["classname","classname",...]
 _this select 1 = side of the units - can either be west, east, independent or civilian

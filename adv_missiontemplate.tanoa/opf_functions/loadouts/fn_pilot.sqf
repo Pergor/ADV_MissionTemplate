@@ -258,12 +258,10 @@ switch (ADV_par_opfUni) do {
 	case 5: {
 		_giveRiflemanRadio = true;
 		_givePersonalRadio = false;
-		_ACE_dogtags = 0;
 	};
 	case 6: {
 		_giveRiflemanRadio = true;
 		_givePersonalRadio = false;
-		_ACE_dogtags = 0;
 	};
 	default {};
 };

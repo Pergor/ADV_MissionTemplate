@@ -278,7 +278,6 @@ switch (ADV_par_opfUni) do {
 		_headgear = ["H_Watchcap_cbr","H_Watchcap_camo","H_Booniehat_khk","H_Booniehat_oli","H_Cap_blk","H_Cap_oli","H_Cap_tan","H_Cap_brn_SPECOPS","H_MilCap_ocamo",
 			"H_Cap_headphones","H_ShemagOpen_tan"];
 		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag","APERSTripMine_Wire_Mag"];
-		_ACE_dogtags = 0;
 		_ACE_Clacker = 0;
 		_ACE_DeadManSwitch = 0;
 		_ACE_Cellphone = 1;
@@ -294,7 +293,6 @@ switch (ADV_par_opfUni) do {
 		_useProfileGoggles = 0;
 		_backpack = ["B_Carryall_oli"];
 		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag","APERSTripMine_Wire_Mag"];
-		_ACE_dogtags = 0;
 		_ACE_Clacker = 0;
 		_ACE_DeadManSwitch = 0;
 		_ACE_Cellphone = 1;

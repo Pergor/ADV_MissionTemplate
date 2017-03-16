@@ -289,7 +289,6 @@ switch (ADV_par_opfUni) do {
 		_uniform = ["U_OG_Guerrilla_6_1","U_OG_Guerilla2_2","U_OG_Guerilla2_1","U_OG_Guerilla2_3","U_OG_Guerilla3_1"];
 		_headgear = ["H_Watchcap_cbr","H_Watchcap_camo","H_Booniehat_khk","H_Booniehat_oli","H_Cap_blk","H_Cap_oli","H_Cap_tan","H_Cap_brn_SPECOPS","H_MilCap_ocamo",
 			"H_Cap_headphones","H_ShemagOpen_tan"];
-		_ACE_dogtags = 0;
 	};
 	case 6: {
 		//Afghan Militia (EricJ's Taliban)
@@ -302,7 +301,6 @@ switch (ADV_par_opfUni) do {
 		if ( ADV_par_opfWeap > 0 ) then { _backpack = ["rhs_sidor"]; };
 		_goggles = "";
 		_useProfileGoggles = 0;
-		_ACE_dogtags = 0;
 	};
 	case 20: {
 		//Apex Green Hex

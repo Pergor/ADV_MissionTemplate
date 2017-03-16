@@ -7,7 +7,7 @@ magazines one for one in _items.
 
 //clothing - (string)
 _uniform = ["U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam_vest","U_B_CombatUniform_mcam"];
-_vest = ["V_PlateCarrierGL_rgr"];
+_vest = ["V_PlateCarrier1_rgr","V_PlateCarrier2_rgr","V_PlateCarrierGL_rgr","V_PlateCarrierGL_rgr"];
 _headgear = ["H_HelmetSpecB_paint1","H_HelmetSpecB_paint2","H_HelmetB_black","H_HelmetB_desert","H_HelmetB_grass","H_HelmetB_paint"];
 _backpack = ["B_Kitbag_rgr"];
 _insignium = "";
@@ -31,7 +31,7 @@ if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && ADV_par_DLCContent == 1
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [1,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
-_additionalAmmo = [3,0,true];
+_additionalAmmo = [3,0,false];
 _additionalAmmo1 = [0,0,false];
 
 //40mm Grenades - (integer)
@@ -419,7 +419,6 @@ switch (ADV_par_customUni) do {
 		_uniform = ["U_BG_Guerrilla_6_1","U_BG_Guerilla2_2","U_BG_Guerilla2_1","U_BG_Guerilla2_3","U_BG_Guerilla3_1"];
 		_headgear = ["H_Shemag_olive","H_ShemagOpen_tan","H_ShemagOpen_khk","H_Cap_headphones","H_MilCap_mcamo","H_MilCap_gry","H_MilCap_blue","H_Cap_tan_specops_US",
 			"H_Cap_usblack","H_Cap_oli_hs","H_Cap_blk","H_Booniehat_tan","H_Booniehat_oli","H_Booniehat_khk","H_Watchcap_khk","H_Watchcap_cbr","H_Watchcap_camo"];
-		_ACE_dogtags = 0;
 	};
 	case 12: {
 		//UK3CB

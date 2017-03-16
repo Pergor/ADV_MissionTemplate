@@ -300,7 +300,6 @@ switch (true) do {
 	case (ADV_par_customUni == 9): {
 		_giveRiflemanRadio = true;
 		_givePersonalRadio = false;
-		_ACE_dogtags = 0;
 	};
 	case (ADV_par_customUni == 12): {
 		//BWmod Fleck

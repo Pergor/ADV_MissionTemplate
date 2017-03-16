@@ -26,6 +26,10 @@ _target = switch (toUpper _selection) do {
 		_commander;
 	};
 	case "TELEPORT_GROUP": {
+		private _leader = leader _unit;
+		if !( _unit isEqualTo _leader ) exitWith {
+			_leader;
+		};
 		private _grp = (units (group _unit)) select { (alive _x && !(_x getVariable ["ACE_isUnconscious",false])) && (_x distance _unit) > 500 };
 		private _dist = 100000;
 		{

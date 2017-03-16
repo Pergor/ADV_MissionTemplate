@@ -80,12 +80,12 @@ if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) exitWith {
 			"Frequenzen",
 			"Funkfrequenzen:
 			<br/><br/>Shortrange-Funkgeräte:
-			<br/>Luchs: SW CH1 41MHz
-			<br/>Löwe: SW CH2 42MHz
-			<br/>Tiger: SW CH3 43MHz
-			<br/>Panther: SW CH4 44MHz
-			<br/>Leopard: SW CH5 45MHz
-			<br/>Jaguar, Orca, Gepard, Ozelot nach Absprache.
+			<br/>Milan: SW CH1 41MHz
+			<br/>Adler: SW CH2 42MHz
+			<br/>Bussard: SW CH3 43MHz
+			<br/>Condor: SW CH4 44MHz
+			<br/>Drossel: SW CH5 45MHz
+			<br/>Elster, Falke, Greif, Habicht nach Absprache.
 			<br/><br/>Longrange-Funkgeräte:
 			<br/>Convoyfunk: LR CH1 51MHz
 			<br/>Kampfkreis: LR CH2 52MHz

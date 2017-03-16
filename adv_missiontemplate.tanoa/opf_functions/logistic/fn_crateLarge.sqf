@@ -88,7 +88,8 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["CUP_FlareYellow_GP25_M",20];
 		};
 		default {
-			_target addMagazineCargoGlobal ["HandGrenade",20];
+			_target addMagazineCargoGlobal ["HandGrenade",10];
+			_target addMagazineCargoGlobal ["MiniGrenade",10];
 			_target addMagazineCargoGlobal ["SmokeShell",30];
 			_target addMagazineCargoGlobal ["SmokeShellYellow",20];
 			_target addMagazineCargoGlobal ["1Rnd_HE_Grenade_shell",24];

@@ -6,9 +6,9 @@ magazines one for one in _items.
 */
 
 //clothing - (string)
-_uniform = ["U_I_G_Story_Protagonist_F","U_Rangemaster","U_Competitor"];
-_vest = ["V_PlateCarrier1_blk","V_PlateCarrier2_blk"];
-_headgear = ["H_Cap_blk","H_MilCap_gry","H_Cap_headphones"];
+_uniform = ["U_I_CombatUniform","U_I_CombatUniform_shortsleeve"];
+_vest = ["V_PlateCarrierIA2_dgtl","V_PlateCarrierIA1_dgtl","V_PlateCarrierIAGL_dgtl","V_PlateCarrierIAGL_oli"];
+_headgear = ["H_HelmetIA"];
 _backpack = ["B_AssaultPack_blk"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
@@ -16,21 +16,17 @@ _goggles = "";
 _unitTraits = [["medic",true],["engineer",false],["explosiveSpecialist",false],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0]];
 
 //weapons - primary weapon - (string)
-_primaryweapon = "arifle_MX_GL_Black_F";
-if (worldName == "TANOA") then { _primaryweapon = ["arifle_MX_GL_Black_F","arifle_MX_GL_khk_F"]; };
+_primaryWeapon = ["arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F"];
 
 //primary weapon items - (array)
 _optic = ["optic_Hamr"];
 _attachments = [""];
 if ( ADV_par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
-_silencer = "muzzle_snds_H";		//if silencer is added
+_silencer = ["muzzle_snds_M"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [5,1];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
-if ( ADV_par_indUni == 1 ) then {
-	_primaryweaponAmmo set [1,3];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
-};
 _additionalAmmo = [3,0,false];
 
 //40mm Grenades - (integer)
@@ -49,7 +45,7 @@ _40mmFlareGreen = 0;
 _40mmFlareIR = 0;
 
 //weapons - handgun - (string)
-_handgun = "hgun_Pistol_heavy_01_F";
+_handgun = "hgun_ACPC2_F";
 
 //handgun items - (array)
 _itemsHandgun = ["optic_MRD"];
@@ -115,7 +111,6 @@ _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a riflem
 
 //ACE items (if ACE is running on the server) - (integers)
 _ACE_EarPlugs = 1;
-_ACE_dogtags = 0;
 
 _ace_FAK = 1;		//overwrites the values for bandages, morphine and tourniquet and adds a specified number of bandages and morphine. Defined in fn_aceFAK.sqf
 _ACE_fieldDressing = 3;
@@ -192,12 +187,9 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar",""
 //Addon Content:
 switch (ADV_par_indWeap) do {
 	case 1: {
-		//Vanilla Mk20
-		_primaryWeapon = ["arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F"];
+		//Vanilla trg21
+		_primaryWeapon = ["arifle_TRG21_GL_F"];
 		_silencer = ["muzzle_snds_M"];
-		_handgun = ["hgun_ACPC2_F"];
-		_itemsHandgun = [""];
-		_handgunSilencer = [""];
 	};
 	case 2: {
 		//SELmods
@@ -225,24 +217,30 @@ switch (ADV_par_indWeap) do {
 		};
 	};
 	case 20: {
+		//APEX HK416
+		_primaryWeapon = "arifle_SPAR_01_GL_blk_F";
+		_silencer = "muzzle_snds_M";
+		_primaryweaponAmmo set [1,4];
+		_additionalAmmo set [1,1];
+		_optic = ["optic_Arco_blk_F"];
+	};
+	case 21: {
 		//APEX AKM
 		_primaryWeapon = "arifle_AK12_GL_F";
 		_optic = [""];
 		if ( ADV_par_NVGs == 2 ) then { _attachments = _attachments-["acc_pointer_IR"]; };
 		_primaryweaponAmmo set [1,2];
-		_handgun = "hgun_Pistol_01_F";
 	};
 	default {};
 };
 
 switch (ADV_par_indUni) do {
 	case 1: {
-	//AAF uniforms
-		_uniform = ["U_I_CombatUniform","U_I_CombatUniform_shortsleeve"];
-		_vest = ["V_PlateCarrierIA2_dgtl","V_PlateCarrierIA1_dgtl"];
-		_headgear = ["H_HelmetIA"];
+	//PMC uniforms
+		_uniform = ["U_I_G_Story_Protagonist_F","U_Rangemaster","U_Competitor"];
+		_vest = ["V_PlateCarrier1_blk","V_PlateCarrier2_blk"];
+		_headgear = ["H_Cap_blk","H_MilCap_gry","H_Cap_headphones"];
 		_backpack = ["B_AssaultPack_blk"];
-		_ACE_dogtags = 1;
 	};
 	case 2: {
 	//TFA uniforms
@@ -287,16 +285,16 @@ switch (toUpper ([str (_this select 0),3,13] call BIS_fnc_trimString)) do {
 //TFAR-manpacks
 if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
 	switch (ADV_par_indUni) do {
-		case 1: { _backpack = ["tf_anprc155"]; };
 		default { _backpack = ["tf_anprc155_coyote"]; };
+		case 0: { _backpack = ["tf_anprc155"]; };
 	};
 };
 
 if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
 	_backpack = switch (ADV_par_indUni) do {
-		case 1: {"B_AssaultPack_dgtl"};
+		case 1: {"B_AssaultPack_blk"};
 		case 20: {"B_AssaultPack_rgr"};
-		default {"B_AssaultPack_blk"};
+		default {"B_AssaultPack_dgtl"};
 	};
 };
 

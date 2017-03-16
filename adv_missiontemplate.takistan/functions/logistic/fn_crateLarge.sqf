@@ -121,16 +121,16 @@ private ["_target"];
 			_target addWeaponCargoGlobal ["launch_NLAW_F",5];
 			//ammo
 			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["NLAW_F",5]; };
-			if (ADV_par_customWeap == 20) then {
-				_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Red_F",12];
-			} else {
+			call {
+				if (ADV_par_customWeap == 20) exitWith {
+					_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",40];
+					_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",20];
+					_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Red_F",12];
+				};
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",40];
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag_Tracer",20];
-				//_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",12];
 				_target addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer",12];
 			};
-			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",40];
-			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",20];
 			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",20];
 			_target addMagazineCargoGlobal ["130Rnd_338_Mag",12];
 			//_target addMagazineCargoGlobal ["150Rnd_762x54_Box",6];
@@ -153,7 +153,8 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["rhs_mag_m18_red",10];
 		};
 		default {
-			_target addMagazineCargoGlobal ["HandGrenade",20];
+			_target addMagazineCargoGlobal ["HandGrenade",10];
+			_target addMagazineCargoGlobal ["MiniGrenade",10];
 			_target addMagazineCargoGlobal ["SmokeShell",30];
 			_target addMagazineCargoGlobal ["SmokeShellGreen",20];
 		};

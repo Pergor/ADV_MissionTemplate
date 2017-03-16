@@ -134,26 +134,23 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["SmokeShellBlue",5];
 		};
 		default {
-			if (ADV_par_customWeap == 20) then {
-				_target addWeaponCargoGlobal ["arifle_SPAR_01_blk_F",1];
-			} else {
-				_target addWeaponCargoGlobal ["arifle_MXC_Black_F",1];
-			};
-
-			if (isClass(configFile >> "CfgPatches" >> "ace_disposable")) then {
-				_target addWeaponCargoGlobal ["launch_NLAW_F",2];
-			} else {
+			call {
+				if (isClass(configFile >> "CfgPatches" >> "ace_disposable")) exitWith {
+					_target addWeaponCargoGlobal ["launch_NLAW_F",2];
+				};
 				_target addWeaponCargoGlobal ["launch_NLAW_F",1];
 				_target addMagazineCargoGlobal ["NLAW_F",2];
 			};
-			if (ADV_par_customWeap == 20) then {
-				_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_red",20];
-				_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
-				_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Red_F",2];
-			} else {
+			call {
+				if (ADV_par_customWeap == 20) exitWith {
+					_target addWeaponCargoGlobal ["arifle_SPAR_01_blk_F",1];
+					_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_red",20];
+					_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
+					_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Red_F",2];
+				};
+				_target addWeaponCargoGlobal ["arifle_MXC_Black_F",1];
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",20];
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag_Tracer",10];
-				//_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",2];
 				_target addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer",4];
 			};
 			_target addMagazineCargoGlobal ["130Rnd_338_Mag",2];
@@ -161,7 +158,7 @@ if (_withWeapons) then {
 			//_target addMagazineCargoGlobal ["150Rnd_762x54_Box",1];
 			//_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",1];
 			
-			_target addMagazineCargoGlobal ["HandGrenade",5];
+			_target addMagazineCargoGlobal ["MiniGrenade",5];
 			_target addMagazineCargoGlobal ["SmokeShell",10];
 			_target addMagazineCargoGlobal ["SmokeShellRed",5];
 			_target addMagazineCargoGlobal ["SmokeShellBlue",5];
@@ -384,8 +381,8 @@ if (_target isKindOf "Air") then {
 	_freeSpaces = _freeSpaces + (_target emptyPositions "Driver");
 	_freeSpaces = _freeSpaces + (_target emptyPositions "Commander");
 	*/
-	if (_target isKindOf "B_Heli_Light_01_F") then { _freespaces = 2 };
 	if (_freeSpaces > 8) then {_freespaces = 8};
+	if (_target isKindOf "Helicopter") then { _freespaces = 2 };
 	{_target addBackpackCargoGlobal [_x, _freeSpaces];} count _parachutes;
 };
 {_target addBackpackCargoGlobal [_x, 1];} count _backpacks;

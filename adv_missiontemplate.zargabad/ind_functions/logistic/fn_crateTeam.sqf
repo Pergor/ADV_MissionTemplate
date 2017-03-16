@@ -43,14 +43,14 @@ private ["_target"];
 				_target addMagazineCargoGlobal ["11Rnd_45ACP_Mag",8];
 			};
 		};
-		case (ADV_par_indWeap == 20): {
+		case (ADV_par_indWeap == 21): {
 			//weapons
 			_target addWeaponCargoGlobal ["launch_RPG7_F",1];
 			//ammo
 			_target addMagazineCargoGlobal ["RPG7_F",1];
 			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",24];
 			_target addMagazineCargoGlobal ["200Rnd_556x45_Box_F",4];
-			_target addMagazineCargoGlobal ["16Rnd_9x24_Mag",8];
+			_target addMagazineCargoGlobal ["9Rnd_45ACP_Mag",8];
 			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",8];
 		};
 		default {
@@ -58,15 +58,15 @@ private ["_target"];
 			_target addWeaponCargoGlobal ["launch_NLAW_F",1];
 			//ammo
 			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["NLAW_F",1]; };
-			if ( ADV_par_indWeap == 1 ) then {
-				_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",24];
-				_target addMagazineCargoGlobal ["9Rnd_45ACP_Mag",8];
-			} else {
-				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",24];
-				_target addMagazineCargoGlobal ["11Rnd_45ACP_Mag",8];
-			};
+			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",24];
+			_target addMagazineCargoGlobal ["9Rnd_45ACP_Mag",8];
 			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",8];
-			_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",4];
+			call {
+				if (adv_par_indWeap==20) exitWith {
+					_target addMagazineCargoGlobal ["200Rnd_556x45_Box_F",4];
+				};
+				_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",4];
+			};
 		};
 	};
 	//grenades
@@ -78,7 +78,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["rhs_mag_m18_red",4];
 		};
 		default {
-			_target addMagazineCargoGlobal ["HandGrenade",10];
+			_target addMagazineCargoGlobal ["MiniGrenade",10];
 			_target addMagazineCargoGlobal ["SmokeShell",8];
 			_target addMagazineCargoGlobal ["SmokeShellGreen",4];
 		};

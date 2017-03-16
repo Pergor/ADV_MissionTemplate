@@ -16,13 +16,13 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	switch (true) do {
 		//SeL RHS
 		case ( ADV_par_indWeap == 2 || ( ADV_par_indWeap == 3 && isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) ): {
+			_target addWeaponCargoGlobal ["rhs_weap_fim92",1];
+			_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
 			_target addMagazineCargoGlobal ["rhs_fim92_mag",3];
 		};
-		case ( ADV_par_indWeap == 20 ): {
-			//weapons
-			_target addMagazineCargoGlobal ["Titan_AA",3];
-		};
 		default {
+			_target addWeaponCargoGlobal ["launch_I_Titan_F",1];
+			_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
 			_target addMagazineCargoGlobal ["Titan_AA",3];
 		};
 	};

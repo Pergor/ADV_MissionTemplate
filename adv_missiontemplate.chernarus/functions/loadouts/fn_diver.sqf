@@ -310,7 +310,6 @@ switch (ADV_par_customUni) do {
 	case 9: {
 		_giveRiflemanRadio = true;
 		_givePersonalRadio = false;
-		_ACE_dogtags = 0;
 	};
 	case 20: {
 		//APEX NATO

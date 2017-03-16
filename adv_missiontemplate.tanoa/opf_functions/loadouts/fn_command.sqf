@@ -280,7 +280,6 @@ switch (ADV_par_opfUni) do {
 			_givePersonalRadio = false;
 			_giveBackpackRadio = true;
 		};
-		_ACE_dogtags = 0;
 	};
 	case 6: {
 		//Afghan Militia (EricJ's Taliban)
@@ -299,7 +298,6 @@ switch (ADV_par_opfUni) do {
 			_givePersonalRadio = false;
 			_giveBackpackRadio = true;
 		};
-		_ACE_dogtags = 0;
 	};
 	case 20: {
 		//Apex Green Hex

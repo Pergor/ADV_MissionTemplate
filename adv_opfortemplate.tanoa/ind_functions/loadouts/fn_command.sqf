@@ -6,9 +6,9 @@ magazines one for one in _items.
 */
 
 //clothing - (string)
-_uniform = ["U_Marshal"];
-_vest = ["V_Chestrig_blk"];
-_headgear = ["H_Cap_blk","H_Cap_blu","H_Cap_blk_CMMG","H_Cap_grn","H_Cap_oli","H_Cap_oli_hs","H_Cap_red","H_Cap_tan","H_MilCap_blue","H_MilCap_gry","H_Cap_headphones"];
+_uniform = ["U_I_OfficerUniform"];
+_vest = ["V_TacVest_oli"];
+_headgear = ["H_MilCap_dgtl"];
 _backpack = [""];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
@@ -16,14 +16,14 @@ _goggles = "";
 _unitTraits = [["medic",true],["engineer",true],["explosiveSpecialist",false],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0]];
 
 //weapons - primary weapon - (string)
-_primaryweapon = "arifle_MXC_Black_F";
+_primaryWeapon = ["arifle_Mk20C_F","arifle_Mk20C_plain_F"];
 
 //primary weapon items - (array)
 _optic = ["optic_ACO_grn"];
 _attachments = [""];
 if ( ADV_par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
-_silencer = "muzzle_snds_H";		//if silencer is added
+_silencer = ["muzzle_snds_M"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [6,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
@@ -44,7 +44,7 @@ _40mmFlareGreen = 0;
 _40mmFlareIR = 0;
 
 //weapons - handgun - (string)
-_handgun = "hgun_Pistol_heavy_01_F";
+_handgun = "hgun_ACPC2_F";
 
 //handgun items - (array)
 _itemsHandgun = ["optic_MRD"];
@@ -106,7 +106,6 @@ _tfar_microdagr = 0;				//adds the tfar microdagr to set the channels for a rifl
 
 //ACE items (if ACE is running on the server) - (integers)
 _ACE_EarPlugs = 1;
-_ACE_dogtags = 0;
 
 _ace_FAK = 1;		//overwrites the values for bandages, morphine and tourniquet and adds a specified number of bandages and morphine. Defined in fn_aceFAK.sqf
 _ACE_fieldDressing = 3;
@@ -183,12 +182,9 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_charms","sc_candybar","","",""];
 //Addon Content:
 switch (ADV_par_indWeap) do {
 	case 1: {
-		//Vanilla Mk20
-		_primaryWeapon = ["arifle_Mk20C_F","arifle_Mk20C_plain_F"];
+		//Vanilla trg21
+		_primaryWeapon = ["arifle_TRG20_F"];
 		_silencer = ["muzzle_snds_M"];
-		_handgun = ["hgun_ACPC2_F"];
-		_itemsHandgun = [""];
-		_handgunSilencer = [""];
 	};
 	case 2: {
 		//SELmods RHS
@@ -215,23 +211,29 @@ switch (ADV_par_indWeap) do {
 		};
 	};
 	case 20: {
+		//APEX HK416
+		_primaryWeapon = "arifle_SPAR_01_blk_F";
+		_silencer = "muzzle_snds_M";
+		_primaryweaponAmmo set [1,1];
+		_optic = ["optic_Holosight_blk_F"];
+	};
+	case 20: {
 		//APEX AKM
 		_primaryWeapon = ["arifle_AKM_F","arifle_AKM_F","arifle_AKM_F","arifle_AK12_F"];
 		_optic = [""];
 		if ( ADV_par_NVGs == 2 ) then { _attachments = _attachments-["acc_pointer_IR"]; };
 		_silencer = "";
-		_handgun = "hgun_Pistol_01_F";
 	};
 	default {};
 };
 
 switch (ADV_par_indUni) do {
 	case 1: {
-	//AAF uniforms
-		_uniform = ["U_I_OfficerUniform"];
-		_vest = ["V_TacVest_oli"];
-		_headgear = ["H_MilCap_dgtl"];
-		_ACE_dogtags = 1;
+	//PMC uniforms
+		_uniform = ["U_Marshal"];
+		_vest = ["V_Chestrig_blk"];
+		_headgear = ["H_Cap_blk","H_Cap_blu","H_Cap_blk_CMMG","H_Cap_grn","H_Cap_oli","H_Cap_oli_hs","H_Cap_red","H_Cap_tan","H_MilCap_blue","H_MilCap_gry","H_Cap_headphones"];
+		_backpack = [""];
 	};
 	case 2: {
 	//TFA uniforms
@@ -257,14 +259,14 @@ switch (ADV_par_indUni) do {
 //TFAR-manpacks
 if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
 	switch (ADV_par_indUni) do {
-		case 1: { _backpack = ["tf_anprc155"]; };
+		case 0: { _backpack = ["tf_anprc155"]; };
 		default { _backpack = ["tf_anprc155_coyote"]; };
 	};
 };
 
 if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
 	_backpack = switch (ADV_par_indUni) do {
-		case 1: {"B_AssaultPack_dgtl"};
+		case 0: {"B_AssaultPack_dgtl"};
 		case 20: {"B_AssaultPack_rgr"};
 		default {"B_AssaultPack_blk"};
 	};

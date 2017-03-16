@@ -9,7 +9,7 @@ class param_hour
 	title="Startzeit";
 	values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
 	texts[] = {"0 Uhr","1 Uhr","2 Uhr","3 Uhr","4 Uhr","5 Uhr","6 Uhr","7 Uhr","8 Uhr","9 Uhr","10 Uhr","11 Uhr","12 Uhr","13 Uhr","14 Uhr","15 Uhr","16 Uhr","17 Uhr","18 Uhr","19 Uhr","20 Uhr","21 Uhr","22 Uhr","23 Uhr"};
-	default = 6;
+	default = 7;
 };
 class param_minute
 {
@@ -259,22 +259,22 @@ class dummy_ind_equipment {
 class param_indWeap
 {
 	title="Welche Waffen sollen an INDFOR-Einheiten ausgegeben werden?";
-	values[] = {3,2,20,1,0};
-	texts[] = {"FAL, G3 und M60 - größtenteils ohne Optiken, keine Schalldämpfer (benötigt HLC_FAL, HLC_G3, HLC_MP5, HLC_M60)","RHSUSF (benötigt RHSUSF, optional hlc_mp5 und RH-Pistols)","Apex AKs - größtenteils ohne Optiken, keine Schalldämpfer","Vanilla Mk20","Vanilla MX"};
-	default = 20;
+	values[] = {3,2,21,20,1,0};
+	texts[] = {"FAL, G3 und M60 - größtenteils ohne Optiken, keine Schalldämpfer (benötigt HLC_FAL, HLC_G3, HLC_MP5, HLC_M60)","RHSUSF (benötigt RHSUSF, optional hlc_mp5 und RH-Pistols)","Apex AKs - größtenteils ohne Optiken, keine Schalldämpfer","Vanilla TRG","Vanilla Mk20"};
+	default = 21;
 };
 class param_indUni
 {
 	title="Welche Uniformen sollen an INDFOR-Einheiten ausgegeben werden?";
 	values[] = {2,20,1,0};
-	texts[] = {"TFA PMC","Apex Syndikat","Vanilla AAF","Vanilla PMC"};
+	texts[] = {"TFA PMC","Apex Syndikat","Vanilla PMC","Vanilla AAF"};
 	default = 20;
 };
 class param_indCarAssets
 {
 	title="Sollen die INDFOR-Fahrzeuge ersetzt/entfernt werden?";
-	values[] = {99,1,0};
-	texts[] = {"Keine Fahrzeuge","AAF-Fahrzeuge","Nein"};
+	values[] = {99,0};
+	texts[] = {"Keine Fahrzeuge","Nein"};
 	default = 0;
 };
 class dummy_opf_equipment {

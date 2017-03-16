@@ -24,7 +24,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_M_M60E4",10];
 			_target addMagazineCargoGlobal ["hlc_50rnd_762x51_M_FAL",5];
 		};
-		case (ADV_par_indWeap == 20): {
+		case (ADV_par_indWeap == 21): {
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",5];
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",5];
 		};

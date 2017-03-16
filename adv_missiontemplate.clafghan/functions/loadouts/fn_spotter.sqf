@@ -417,7 +417,6 @@ switch (ADV_par_customUni) do {
 		_binocular = "Rangefinder";
 		_giveRiflemanRadio = true;
 		_givePersonalRadio = false;
-		_ACE_dogtags = 0;
 	};
 	case 12: {
 		//UK3CB

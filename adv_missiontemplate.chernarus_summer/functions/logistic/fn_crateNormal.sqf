@@ -68,14 +68,14 @@ private ["_target"];
 			};
 		};
 		default {
-			if (ADV_par_customWeap == 20) then {
-				_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_red",20];
-				_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
-				_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Red_F",5];
-			} else {
+			call {
+				if (ADV_par_customWeap == 20) exitWith {
+					_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_red",20];
+					_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
+					_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Red_F",5];
+				};
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",20];
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag_Tracer",10];
-				//_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",5];
 				_target addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer",10];
 			};
 			//_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",5];
@@ -101,7 +101,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",4];
 		};
 		default {
-			_target addMagazineCargoGlobal ["HandGrenade",4];
+			_target addMagazineCargoGlobal ["MiniGrenade",4];
 			_target addMagazineCargoGlobal ["SmokeShell",4];
 		};
 	};

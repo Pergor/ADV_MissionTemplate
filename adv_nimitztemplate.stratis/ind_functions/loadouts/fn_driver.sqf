@@ -6,9 +6,9 @@ magazines one for one in _items.
 */
 
 //clothing - (string)
-_uniform = ["U_IG_Guerrilla_6_1","U_IG_Guerilla2_2","U_IG_Guerilla2_1","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_C_HunterBody_grn","U_Rangemaster","U_C_Poor_1","U_Competitor"];
-_vest = ["V_PlateCarrier1_blk","V_TacVestIR_blk","V_TacVest_blk","V_TacVest_oli"];
-_headgear = ["H_Cap_blk","H_Cap_blu","H_Cap_blk_CMMG","H_Cap_grn","H_Cap_oli","H_Cap_oli_hs","H_Cap_red","H_Cap_tan","H_MilCap_blue","H_MilCap_gry","H_Cap_headphones"];
+_uniform = ["U_I_CombatUniform","U_I_CombatUniform_shortsleeve"];
+_vest = ["V_BandollierB_oli"];
+_headgear = if (isClass(configFile >> "CfgPatches" >> "ace_hearing") && !isClass(configFile >> "CfgPatches" >> "adv_damnYouAceHearing")) then { ["H_HelmetIA"] } else { ["H_HelmetCrew_I"] };
 _backpack = [""];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
@@ -16,12 +16,12 @@ _goggles = "G_Aviator";
 _unitTraits = [["medic",false],["engineer",true],["explosiveSpecialist",false],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0]];
 
 //weapons - primary weapon - (string)
-_primaryweapon = "SMG_01_F";
+_primaryweapon = "hgun_PDW2000_F";
 
 //primary weapon items - (array)
 _optic = [""];
 _attachments = [""];
-_silencer = "muzzle_snds_acp";		//if silencer is added
+_silencer = "muzzle_snds_L";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [4,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
@@ -42,7 +42,7 @@ _40mmFlareGreen = 0;
 _40mmFlareIR = 0;
 
 //weapons - handgun - (string)
-_handgun = "hgun_Pistol_heavy_01_F";
+_handgun = "hgun_ACPC2_F";
 
 //handgun items - (array)
 _itemsHandgun = ["optic_MRD"];
@@ -105,7 +105,6 @@ _tfar_microdagr = 0;				//adds the tfar microdagr to set the channels for a rifl
 
 //ACE items (if ACE is running on the server) - (integers)
 _ACE_EarPlugs = 1;
-_ACE_dogtags = 0;
 
 _ace_FAK = 1;		//overwrites the values for bandages, morphine and tourniquet and adds a specified number of bandages and morphine. Defined in fn_aceFAK.sqf
 _ACE_fieldDressing = 3;
@@ -181,14 +180,7 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar",""
 
 //Addon Content:
 switch (ADV_par_indWeap) do {
-	case 1: {
-		//Vanilla Mk20
-		_primaryWeapon = ["arifle_Mk20C_F","arifle_Mk20C_plain_F"];
-		_silencer = ["muzzle_snds_M"];
-		_handgun = ["hgun_ACPC2_F"];
-		_itemsHandgun = [""];
-		_handgunSilencer = [""];
-	};
+	case 1: {};
 	case 2: {
 		//SELmods
 		_primaryweapon = ["rhs_weap_m4_carryhandle"];
@@ -219,20 +211,24 @@ switch (ADV_par_indWeap) do {
 		};
 	};
 	case 20: {
+		_primaryweapon = "SMG_05_F";
+		_silencer = "muzzle_snds_L";
+	};
+	case 21: {
 		//APEX AKM
 		_primaryWeapon = "arifle_AKS_F";
-		_handgun = "hgun_Pistol_01_F";
+		_silencer = "";
 	};
 	default {};
 };
 
 switch (ADV_par_indUni) do {
 	case 1: {
-	//AAF uniforms
-		_uniform = ["U_I_CombatUniform","U_I_CombatUniform_shortsleeve"];
-		_vest = ["V_TacVest_oli"];
-		_headgear = if (isClass(configFile >> "CfgPatches" >> "ace_hearing") && !isClass(configFile >> "CfgPatches" >> "adv_damnYouAceHearing")) then { ["H_HelmetIA"] } else { ["H_HelmetCrew_I"] };
-		_ACE_dogtags = 1;
+	//PMC uniforms
+		_uniform = ["U_IG_Guerrilla_6_1","U_IG_Guerilla2_2","U_IG_Guerilla2_1","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_C_HunterBody_grn","U_Rangemaster","U_C_Poor_1","U_Competitor"];
+		_vest = ["V_PlateCarrier1_blk","V_TacVestIR_blk","V_TacVest_blk","V_TacVest_oli"];
+		_headgear = ["H_Cap_blk","H_Cap_blu","H_Cap_blk_CMMG","H_Cap_grn","H_Cap_oli","H_Cap_oli_hs","H_Cap_red","H_Cap_tan","H_MilCap_blue","H_MilCap_gry","H_Cap_headphones"];
+		_backpack = [""];
 	};
 	case 2: {
 	//TFA uniforms

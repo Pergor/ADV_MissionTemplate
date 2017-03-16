@@ -159,6 +159,7 @@ if (!isServer) exitWith {};
 		};
 		default {
 			_target addMagazineCargoGlobal ["HandGrenade",20];
+			_target addMagazineCargoGlobal ["MiniGrenade",20];
 			_target addMagazineCargoGlobal ["SmokeShell",20];
 			_target addMagazineCargoGlobal ["SmokeShellGreen",20];
 			_target addMagazineCargoGlobal ["SmokeShellRed",20];

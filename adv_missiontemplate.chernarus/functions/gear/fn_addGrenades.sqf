@@ -77,7 +77,7 @@ _grenArray = call {
 		];
 	};
 	[
-		["HandGrenade", _grenHE],
+		["MiniGrenade", _grenHE],
 		["SmokeShell", _grenSmkWht],
 		["SmokeShellBlue", _grenSmkBl],
 		["SmokeShellGreen", _grenSmkGrn],

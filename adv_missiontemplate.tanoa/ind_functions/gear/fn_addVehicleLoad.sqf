@@ -35,7 +35,7 @@ if (!isServer) exitWith {};
 		case (str _x in ADV_ind_veh_tanks+ADV_ind_veh_artys): {
 			[_x,false,true,2] call ADV_ind_fnc_vehicleLoad;
 		};
-		case (str _x in ADV_ind_veh_ATVs+ADV_ind_veh_UAVs+ADV_ind_veh_UGVs): {
+		case (str _x in ADV_ind_veh_ATVs+ADV_ind_veh_UGVs): {
 			[_x,false,false,0] call ADV_ind_fnc_vehicleLoad;
 		};
 		case (str _x in ADV_ind_veh_UGVs_repair): {

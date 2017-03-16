@@ -7,7 +7,7 @@ magazines one for one in _items.
 
 //clothing - (string)
 _uniform = ["U_B_CombatUniform_mcam"];
-_vest = ["V_PlateCarrier2_rgr","V_PlateCarrier1_rgr"];
+_vest = ["V_PlateCarrier1_rgr","V_PlateCarrier2_rgr","V_PlateCarrierGL_rgr","V_PlateCarrierGL_rgr"];
 _headgear = ["H_HelmetB_paint"];
 _backpack = [""];
 if ( ADV_par_NVGs == 1 ) then { _backpack = ["B_AssaultPack_cbr"]; };
@@ -426,7 +426,6 @@ switch (ADV_par_customUni) do {
 			"H_Cap_usblack","H_Cap_oli_hs","H_Cap_blk","H_Booniehat_tan","H_Booniehat_oli","H_Booniehat_khk","H_Watchcap_khk","H_Watchcap_cbr","H_Watchcap_camo"];
 		_backpack = ["B_AssaultPack_cbr"];
 		_40mmHeGrenadesAmmo = 10;
-		_ACE_dogtags = 0;
 	};
 	case 12: {
 		//UK3CB

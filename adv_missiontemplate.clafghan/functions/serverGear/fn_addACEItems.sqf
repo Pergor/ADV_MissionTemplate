@@ -35,7 +35,7 @@ if !(isServer && (isClass(configFile >> "CfgPatches" >> "ACE_common"))) exitWith
 				if (!isNil "_ACE_salineIV_500") then { _target addItemCargoGlobal ["ACE_salineIV_500", _ACE_salineIV_500]; };
 				if (!isNil "_ACE_salineIV_250") then { _target addItemCargoGlobal ["ACE_salineIV_250", _ACE_salineIV_250]; };
 				if (!isNil "_ACE_personalAidKit") then { _target addItemCargoGlobal ["ACE_personalAidKit", _ACE_personalAidKit]; };
-				if (!isNil "_ACE_surgicalKit") then { _target addItemCargoGlobal ["ACE_surgicalKit", _ACE_surgicalKit]; };
+				if (!isNil "_ACE_surgicalKit" && (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false])) then { _target addItemCargoGlobal ["ACE_surgicalKit", _ACE_surgicalKit]; };
 			};
 			_target addItemCargoGlobal ["ACE_fieldDressing", _ACE_fieldDressing+_ACE_elasticBandage+_ACE_packingBandage+_ACE_quikclot];
 			_target addItemCargoGlobal ["ACE_bloodIV", _ACE_bloodIV+_ACE_plasmaIV+_ACE_salineIV];

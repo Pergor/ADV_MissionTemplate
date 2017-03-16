@@ -16,14 +16,20 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	switch (true) do {
 		//RHS
 		case (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
+			_target addWeaponCargoGlobal ["rhs_weap_igla",1];
 			_target addMagazineCargoGlobal ["rhs_mag_9k38_rocket",3];
+			_target addBackpackCargoGlobal ["rhs_rpg_empty",1];
 		};
 		//CUP
 		case (ADV_par_opfWeap == 3): {
+			_target addWeaponCargoGlobal ["CUP_launch_Igla",1];
 			_target addMagazineCargoGlobal ["CUP_Igla_M",3];
+			_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
 		};
 		case (ADV_par_opfWeap == 4): {};
 		default {
+			_target addWeaponCargoGlobal ["launch_O_Titan_F",1];
+			_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
 			_target addMagazineCargoGlobal ["Titan_AA",3];
 		};
 	};

@@ -7,23 +7,23 @@ magazines one for one in _items.
 
 //clothing - (string)
 _uniform = ["U_I_GhillieSuit"];
-_vest = ["V_PlateCarrier1_rgr","V_PlateCarrier2_rgr"];
+_vest = ["V_PlateCarrierIA2_dgtl","V_PlateCarrierIA1_dgtl"];
 _headgear = ["H_Watchcap_blk"];
-_backpack = ["B_AssaultPack_rgr"];
+_backpack = ["B_AssaultPack_dgtl"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
 _unitTraits = [["medic",true],["engineer",true],["explosiveSpecialist",true],["UAVHacker",true],["camouflageCoef",1.5],["audibleCoef",0.5]];
 
 //weapons - primary weapon - (string)
-_primaryweapon = "arifle_MX_GL_Black_F";
+_primaryWeapon = ["arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F"];
 
 //primary weapon items - (array)
 _optic = ["optic_Holosight"];
-_attachments = ["muzzle_snds_H"];
+_attachments = ["muzzle_snds_;"];
 if ( ADV_par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
-_silencer = "";		//if silencer is added
+_silencer = "";
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [8,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
@@ -45,7 +45,7 @@ _40mmFlareGreen = 0;
 _40mmFlareIR = 0;
 
 //weapons - handgun - (string)
-_handgun = "hgun_Pistol_heavy_01_F";
+_handgun = "hgun_ACPC2_F";
 
 //handgun items - (array)
 _itemsHandgun = ["optic_MRD","muzzle_snds_acp"];
@@ -114,7 +114,6 @@ _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a riflem
 
 //ACE items (if ACE is running on the server) - (integers)
 _ACE_EarPlugs = 1;
-_ACE_dogtags = 0;
 
 _ace_FAK = 0;		//overwrites the values for bandages, morphine and tourniquet and adds a specified number of bandages and morphine. Defined in fn_aceFAK.sqfs
 _ACE_fieldDressing = 4;
@@ -191,12 +190,9 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar",""
 //Addon Content:
 switch (ADV_par_indWeap) do {
 	case 1: {
-		//Vanilla Mk20
-		_primaryWeapon = ["arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F"];
-		_attachments pushback "muzzle_snds_M";
-		_handgun = ["hgun_ACPC2_F"];
-		_itemsHandgun = [""];
-		_handgunSilencer = [""];
+		//Vanilla trg21
+		_primaryWeapon = ["arifle_TRG21_GL_F"];
+		_silencer = ["muzzle_snds_M"];
 	};
 	case 2: {
 		//SELmods
@@ -228,23 +224,31 @@ switch (ADV_par_indWeap) do {
 		};
 	};
 	case 20: {
+		//APEX HK416
+		_primaryWeapon = "arifle_SPAR_01_GL_blk_F";
+		_attachments pushBack "muzzle_snds_M";
+		_primaryweaponAmmo set [1,1];
+		_optic = ["optic_Holosight_blk_F"];
+		_binocular = "Laserdesignator_01_khk_F";
+	};
+	case 21: {
 		//APEX AKM
 		_primaryWeapon = "arifle_AK12_GL_F";
 		_optic = [""];
 		_attachments = ["muzzle_snds_B"];
 		if ( ADV_par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 		if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
-		_handgun = "hgun_Pistol_01_F";
 	};
 	default {};
 };
 
 switch (ADV_par_indUni) do {
 	case 1: {
-	//AAF uniforms
-		_vest = ["V_PlateCarrierIA2_dgtl","V_PlateCarrierIA1_dgtl"];
-		_headgear = ["H_HelmetIA"];
-		_ACE_dogtags = 1;
+	//PMC uniforms
+		_uniform = ["U_I_GhillieSuit"];
+		_vest = ["V_PlateCarrier1_rgr","V_PlateCarrier2_rgr"];
+		_headgear = ["H_Watchcap_blk"];
+		_backpack = ["B_AssaultPack_rgr"];
 	};
 	case 2: {
 	//TFA uniforms

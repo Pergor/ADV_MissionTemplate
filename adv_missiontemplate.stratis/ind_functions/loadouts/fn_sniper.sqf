@@ -10,9 +10,9 @@ _uniform = switch (true) do {
 	//case ((toUpper worldname) in ADV_var_aridMaps): {};
 	default {["U_I_GhillieSuit"];};
 };
-_vest = ["V_PlateCarrier2_rgr","V_PlateCarrier1_rgr"];
+_vest = ["V_PlateCarrierIA2_dgtl","V_PlateCarrierIA1_dgtl"];
 _headgear = ["H_ShemagOpen_khk","H_ShemagOpen_khk","H_ShemagOpen_tan","H_Shemag_olive_hs"];
-_backpack = ["B_AssaultPack_blk"];
+_backpack = ["B_AssaultPack_dgtl"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
@@ -45,7 +45,7 @@ _40mmFlareGreen = 0;
 _40mmFlareIR = 0;
 
 //weapons - handgun - (string)
-_handgun = "hgun_Pistol_heavy_01_F";
+_handgun = "hgun_ACPC2_F";
 
 //handgun items - (array)
 _itemsHandgun = ["optic_MRD","muzzle_snds_acp"];
@@ -114,7 +114,6 @@ _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a riflem
 
 //ACE items (if ACE is running on the server) - (integers)
 _ACE_EarPlugs = 1;
-_ACE_dogtags = 0;
 
 _ace_FAK = 0;		//overwrites the values for bandages, morphine and tourniquet and adds a specified number of bandages and morphine. Defined in fn_aceFAK.sqf
 _ACE_fieldDressing = 4;
@@ -229,17 +228,23 @@ switch (ADV_par_indWeap) do {
 		};
 	};
 	case 20: {
-		_handgun = "hgun_Pistol_01_F";
+		//APEX HK416
+		switch (true) do {
+			case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon = "srifle_LRR_tna_F"; _attachments = ["optic_LRPS_tna_F"];};
+			default {};
+		};
+		_binocular = "Laserdesignator_01_khk_F";
 	};
+	case 21: {};
 	default {};
 };
 
 switch (ADV_par_indUni) do {
 	case 1: {
-	//AAF uniforms
-		_vest = ["V_PlateCarrierIA2_dgtl","V_PlateCarrierIA1_dgtl"];
-		_headgear = ["H_HelmetIA"];
-		_ACE_dogtags = 1;
+	//PMC uniforms
+		_vest = ["V_PlateCarrier2_rgr","V_PlateCarrier1_rgr"];
+		_headgear = ["H_ShemagOpen_khk","H_ShemagOpen_khk","H_ShemagOpen_tan","H_Shemag_olive_hs"];
+		_backpack = ["B_AssaultPack_blk"];
 	};
 	case 2: {
 	//TFA uniforms

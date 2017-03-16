@@ -10,11 +10,6 @@ params [
 //ACE-Items:
 if (!isClass(configFile >> "CfgPatches" >> "ACE_common")) exitWith {};
 
-/*
-if ( isClass(configFile >> "CfgPatches" >> "ACE_dogtags") && !isNil "_ACE_dogtags") then {
-	if (_ACE_dogtags > 0) then { _unit addItem "ACE_dogtag"; };
-};
-*/
 if ( isClass(configFile >> "CfgPatches" >> "ACE_hearing") && !isNil "_ACE_EarPlugs" ) then {
 	for "_i" from 1 to _ACE_EarPlugs do { _unit addItem "ACE_EarPlugs"; };
 };
@@ -30,7 +25,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_medical") ) then {
 	} else {
 		if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 || ( (missionnamespace getVariable ["ace_medical_medicSetting",2]) > 1 && _ACE_isMedic > 0 ) ) then {
 			for "_i" from 1 to _ACE_personalAidKit do { _unit addItem "ACE_personalAidKit"; };
-			if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",true]) then {
+			if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) then {
 				for "_i" from 1 to _ACE_surgicalKit do { _unit addItem "ACE_surgicalKit"; };
 			};
 			if ( !(_backpack == "") && (_mediKit >= 1 || _FirstAidKits >= 5) ) then {

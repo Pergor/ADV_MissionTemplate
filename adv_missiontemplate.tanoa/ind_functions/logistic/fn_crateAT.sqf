@@ -22,7 +22,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["rhs_m136_mag",3]; };
 			_target addMagazineCargoGlobal ["rhs_fgm148_magazine_AT",3];
 		};
-		case ( ADV_par_indWeap == 20 ): {
+		case ( ADV_par_indWeap == 21 ): {
 			//weapons
 			_target addWeaponCargoGlobal ["launch_RPG7_F",1];
 		

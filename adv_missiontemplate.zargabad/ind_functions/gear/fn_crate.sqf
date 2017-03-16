@@ -81,14 +81,15 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["hlc_50rnd_762x51_M_FAL",20];
 			_target addMagazineCargoGlobal ["hlc_30Rnd_9x19_B_MP5",20];
 		};
-		case (ADV_par_indWeap == 20): {
+		case (ADV_par_indWeap == 21): {
 			//weapons
 			_target addWeaponCargoGlobal ["launch_RPG7_F",5];
+			_target addWeaponCargoGlobal ["launch_I_Titan_F",5];
 			//ammo
 			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",40];
 			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_Tracer_F",40];
 			_target addMagazineCargoGlobal ["30Rnd_545x39_Mag_F",40];
-			_target addMagazineCargoGlobal ["11Rnd_45ACP_Mag",10];
+			_target addMagazineCargoGlobal ["9Rnd_45ACP_Mag",10];
 			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",40];
 			_target addMagazineCargoGlobal ["200Rnd_556x45_Box_F",20];
 			_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Tracer_Red_F",20];
@@ -96,7 +97,8 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",10];
 			_target addMagazineCargoGlobal ["7Rnd_408_Mag",10];		
 			
-			_target addMagazineCargoGlobal ["RPG7_F",10];		
+			_target addMagazineCargoGlobal ["RPG7_F",10];
+			_target addMagazineCargoGlobal ["Titan_AA",5];
 		};
 		default {
 			//weapons
@@ -104,20 +106,20 @@ private ["_target"];
 			_target addWeaponCargoGlobal ["launch_I_Titan_F",5];
 			_target addWeaponCargoGlobal ["launch_I_Titan_short_F",5];
 			//ammo
-			if ( ADV_par_indWeap == 1 ) then {
-				_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",40];
-				_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Yellow",20];
-				_target addMagazineCargoGlobal ["9Rnd_45ACP_Mag",10];
-			} else {
-				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",40];
-				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag_Tracer",40];
-				_target addMagazineCargoGlobal ["11Rnd_45ACP_Mag",10];
-			};
+			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",40];
+			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Yellow",20];
+			_target addMagazineCargoGlobal ["9Rnd_45ACP_Mag",10];
 			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",40];
-			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",10];
-			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",10];
 			_target addMagazineCargoGlobal ["130Rnd_338_Mag",10];
-			_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",20];
+			call {
+				if (adv_par_indWeap==20) exitWith {
+					_target addMagazineCargoGlobal ["200Rnd_556x45_Box_F",20];
+					_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Tracer_F",20];
+					_target addMagazineCargoGlobal ["30Rnd_9x21_Mag_SMG_02",20];
+				};
+				_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",20];
+				_target addMagazineCargoGlobal ["30Rnd_9x21_Mag",20];
+			};
 			_target addMagazineCargoGlobal ["7Rnd_408_Mag",10];
 			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["NLAW_F",5]; };
 			_target addMagazineCargoGlobal ["Titan_AA",5];
@@ -152,6 +154,7 @@ private ["_target"];
 		};
 		default {
 			_target addMagazineCargoGlobal ["HandGrenade",20];
+			_target addMagazineCargoGlobal ["MiniGrenade",20];
 			_target addMagazineCargoGlobal ["SmokeShell",20];
 			_target addMagazineCargoGlobal ["SmokeShellGreen",20];
 			_target addMagazineCargoGlobal ["SmokeShellRed",20];
@@ -170,13 +173,12 @@ private ["_target"];
 	
 	//uniform items
 	switch (ADV_par_indUni) do {
-		//BWmod Tropen
 		case 1: {
-			_target addItemCargoGlobal ["H_HelmetIA",5];		
-			_target addBackpackCargoGlobal ["B_AssaultPack_rgr",3];		
+			_target addItemCargoGlobal ["H_HelmetSpecB",5];
+			_target addBackpackCargoGlobal ["B_AssaultPack_rgr",3];
 		};
 		default {
-			_target addItemCargoGlobal ["H_HelmetSpecB",5];
+			_target addItemCargoGlobal ["H_HelmetIA",5];
 			_target addBackpackCargoGlobal ["B_AssaultPack_rgr",3];
 		};
 	};

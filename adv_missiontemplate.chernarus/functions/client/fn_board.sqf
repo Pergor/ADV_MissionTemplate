@@ -14,6 +14,7 @@ if (count _this == 0) exitWith {};
 	if (!isNil "_x") then {
 		ADV_board = _x;
 		ADV_board addEventHandler ["HandleDamage", {false}];
+		ADV_board allowDamage false;
 		ADV_board setObjectTextureGlobal [0,"img\00.paa"];
 
 		/*

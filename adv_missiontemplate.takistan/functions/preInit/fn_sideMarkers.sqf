@@ -11,9 +11,9 @@ called via preInit for server and once for every client in initPlayerLocal.sqf w
 
 [] spawn {
 	//startMarkers:
-	_bluforMarker = ["base","flagMarker","briefArea","crates","garage_1","garage_2","garage_heavy_1","garage_heavy_2","garage_heavy_3","garage_air_1","garage_air_2"];
+	_bluforMarker = ["base","base_1","flagMarker","flagMarker_1","briefArea","briefArea_1","crates","crates_1","garage_1","garage_2","garage_heavy_1","garage_heavy_2","garage_heavy_3","garage_air_1","garage_air_2"];
 	_opforMarker = ["opf_base","opf_base_1","opf_flagMarker","opf_flagMarker_1","opf_briefArea","opf_briefArea_1","opf_crates","opf_crates_1","opf_garage_1","opf_garage_2","opf_garage_heavy_1","opf_garage_heavy_2","opf_garage_heavy_3","opf_garage_air_1","opf_garage_air_2"];
-	_indMarker = ["ind_base","ind_flagMarker","ind_briefArea","ind_crates","ind_garage_1"];
+	_indMarker = ["ind_base","ind_base_1","ind_flagMarker","ind_flagMarker_1","ind_briefArea","ind_briefArea_1","ind_crates","ind_crates_1","ind_garage_1","ind_garage_2","ind_garage_heavy_1","ind_garage_heavy_2","ind_garage_heavy_3","ind_garage_air_1","ind_garage_air_2"];
 
 	///// No editing necessary below this line /////
 
@@ -35,9 +35,9 @@ called via preInit for server and once for every client in initPlayerLocal.sqf w
 						//{_x setMarkerColorLocal "ColorBrown"} forEach _indMarker;
 					};
 					case 1: {
-						"ind_base" setMarkerColorLocal "Default";
-						"ind_base" setMarkerTypeLocal "flag_AAF";
-						"ind_base" setMarkerTextLocal "";
+						"ind_base" setMarkerTypeLocal "Ioc_WaterTower";
+						"ind_base" setMarkerTextLocal "Brackwasser Security Consulting";
+						"ind_base" setMarkerColorLocal "ColorGUER";
 					};
 					default {};
 				};

@@ -387,7 +387,6 @@ switch (ADV_par_customUni) do {
 			_givePersonalRadio = false;
 			_giveBackpackRadio = true;
 		};
-		_ACE_dogtags = 0;
 	};
 	case 12: {
 		//UK3CB

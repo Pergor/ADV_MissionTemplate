@@ -103,7 +103,7 @@ if (_withWeapons) then {
 			//_target addMagazineCargoGlobal ["150Rnd_762x51_Box",1];
 			//_target addMagazineCargoGlobal ["150Rnd_762x51_Box_Tracer",1];
 			
-			_target addMagazineCargoGlobal ["HandGrenade",5];
+			_target addMagazineCargoGlobal ["MiniGrenade",5];
 			_target addMagazineCargoGlobal ["SmokeShell",10];
 			_target addMagazineCargoGlobal ["SmokeShellRed",5];
 			_target addMagazineCargoGlobal ["SmokeShellBlue",5];
@@ -319,10 +319,8 @@ if (isClass (configFile >> "CfgPatches" >> "ACE_common")) then {
 if (_target isKindOf "Air") then {
 	_parachutes = ["B_Parachute"];
 	_freeSpaces = _target emptyPositions "cargo";
-	_freeSpaces = _freeSpaces + (_target emptyPositions "Gunner");
-	_freeSpaces = _freeSpaces + (_target emptyPositions "Driver");
-	_freeSpaces = _freeSpaces + (_target emptyPositions "Commander");
 	if (_freeSpaces > 8) then {_freespaces = 8};
+	if (_target isKindOf "Helicopter") then { _freespaces = 2 };
 	{_target addBackpackCargoGlobal [_x, _freeSpaces];} count _parachutes;
 };
 {_target addBackpackCargoGlobal [_x, 1];} count _backpacks;

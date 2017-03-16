@@ -6,10 +6,10 @@ magazines one for one in _items.
 */
 
 //clothing - (string)
-_uniform = ["U_IG_Guerrilla_6_1","U_IG_Guerilla2_2","U_IG_Guerilla2_1","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_C_HunterBody_grn","U_Rangemaster","U_C_Poor_1","U_Competitor"];
-_vest = ["V_PlateCarrierIAGL_oli","V_PlateCarrierGL_blk"];
-_headgear = ["H_Cap_blk","H_Cap_blu","H_Cap_blk_CMMG","H_Cap_grn","H_Cap_oli","H_Cap_oli_hs","H_Cap_red","H_Cap_tan","H_MilCap_blue","H_MilCap_gry","H_Cap_headphones"];
-_backpack = ["B_AssaultPack_dgtl","B_AssaultPack_khk","B_AssaultPack_rgr","B_AssaultPack_cbr","B_AssaultPack_mcamo"];
+_uniform = ["U_I_CombatUniform","U_I_CombatUniform_shortsleeve"];
+_vest = ["V_PlateCarrierIA2_dgtl","V_PlateCarrierIA1_dgtl"];
+_headgear = ["H_HelmetIA"];
+_backpack = [""];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "G_Combat";
@@ -45,7 +45,7 @@ _40mmFlareGreen = 0;
 _40mmFlareIR = 0;
 
 //weapons - handgun - (string)
-_handgun = "hgun_Pistol_heavy_01_F";
+_handgun = "hgun_ACPC2_F";
 
 //handgun items - (array)
 _itemsHandgun = [];
@@ -108,7 +108,6 @@ _tfar_microdagr = 0;				//adds the tfar microdagr to set the channels for a rifl
 
 //ACE items (if ACE is running on the server) - (integers)
 _ACE_EarPlugs = 1;
-_ACE_dogtags = 0;
 
 _ace_FAK = 1;		//overwrites the values for bandages, morphine and tourniquet and adds a specified number of bandages and morphine. Defined in fn_aceFAK.sqf
 _ACE_fieldDressing = 3;
@@ -184,12 +183,7 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar",""
 
 //Addon Content:
 switch (ADV_par_indWeap) do {
-	case 1: {
-		//Vanilla Mk20
-		_handgun = ["hgun_ACPC2_F"];
-		_itemsHandgun = [""];
-		_handgunSilencer = [""];
-	};
+	case 1: {};
 	case 2: {
 		//SELmods
 		_primaryWeapon = ["rhs_weap_m249_pip_S_vfg","rhs_weap_m249_pip_S"];
@@ -213,23 +207,28 @@ switch (ADV_par_indWeap) do {
 		};
 	};
 	case 20: {
+		//APEX HK416
+		_primaryWeapon = "LMG_03_F";
+		_silencer = "";
+		_optic = ["optic_ACO","optic_Arco_blk_F","optic_MRCO","optic_Holosight_blk_F"];
+	};
+	case 21: {
 		//APEX AKM
 		_primaryWeapon = "LMG_03_F";
 		_optic = [""];
+		_silencer = "";
 		if ( ADV_par_NVGs == 2 ) then { _attachments = _attachments-["acc_pointer_IR"]; };
-		_handgun = "hgun_Pistol_01_F";
 	};
 	default {};
 };
 
 switch (ADV_par_indUni) do {
 	case 1: {
-	//AAF uniforms
-		_uniform = ["U_I_CombatUniform","U_I_CombatUniform_shortsleeve"];
-		_vest = ["V_PlateCarrierIA2_dgtl","V_PlateCarrierIA1_dgtl"];
-		_headgear = ["H_HelmetIA"];
-		_backpack = ["B_AssaultPack_dgtl"];
-		_ACE_dogtags = 1;
+	//PMC uniforms
+		_uniform = ["U_IG_Guerrilla_6_1","U_IG_Guerilla2_2","U_IG_Guerilla2_1","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_C_HunterBody_grn","U_Rangemaster","U_C_Poor_1","U_Competitor"];
+		_vest = ["V_PlateCarrierIAGL_oli","V_PlateCarrierGL_blk"];
+		_headgear = ["H_Cap_blk","H_Cap_blu","H_Cap_blk_CMMG","H_Cap_grn","H_Cap_oli","H_Cap_oli_hs","H_Cap_red","H_Cap_tan","H_MilCap_blue","H_MilCap_gry","H_Cap_headphones"];
+		_backpack = ["B_AssaultPack_dgtl","B_AssaultPack_khk","B_AssaultPack_rgr","B_AssaultPack_cbr","B_AssaultPack_mcamo"];
 	};
 	case 2: {
 	//TFA uniforms

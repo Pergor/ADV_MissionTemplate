@@ -146,10 +146,11 @@ adv_manageVeh_codeForAll = {
 
 //application of code:
 {
-	if (isNil _x) exitWith {};
 	private _vehObj = missionNamespace getVariable [_x,objNull];
-	_vehObj spawn adv_manageVeh_codeForAll;
-	[_vehObj,ADV_par_vehicleRespawn, west, (typeOf _vehObj)] spawn ADV_fnc_respawnVeh;
+	if (!isNull _vehObj) then {
+		_vehObj spawn adv_manageVeh_codeForAll;
+		[_vehObj,ADV_par_vehicleRespawn, west, (typeOf _vehObj)] spawn ADV_fnc_respawnVeh;
+	};
 	nil;
 } count ADV_veh_all;
 

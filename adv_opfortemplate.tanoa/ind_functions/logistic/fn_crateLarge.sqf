@@ -37,44 +37,44 @@ private ["_target"];
 				_target addMagazineCargoGlobal ["11Rnd_45ACP_Mag",20];
 			};
 		};
-		case (ADV_par_indWeap == 20): {
+		case (ADV_par_indWeap == 21): {
 			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",40];
 			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_Tracer_F",20];
 			_target addMagazineCargoGlobal ["30Rnd_545x39_Mag_F",10];
 			_target addMagazineCargoGlobal ["200Rnd_556x45_Box_F",12];
-			_target addMagazineCargoGlobal ["16Rnd_9x21_Mag",20];
+			_target addMagazineCargoGlobal ["9Rnd_45ACP_Mag",20];
 
 			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",20];
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box",6];
 			_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",6];		
 		};
 		default {
-			if ( ADV_par_indWeap == 1 ) then {
-				_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",40];
-				_target addMagazineCargoGlobal ["30rnd_556x45_STANAG_Tracer_Yellow",20];
-				_target addMagazineCargoGlobal ["9Rnd_45ACP_Mag",20];
-			} else {
-				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",40];
-				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag_Tracer",20];
-				_target addMagazineCargoGlobal ["11Rnd_45ACP_Mag",20];
-			};
+			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",40];
+			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG_Tracer_Yellow",20];
 			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",20];
-			_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",12];
+			call {
+				if (adv_par_indWeap==20) exitWith {
+					_target addMagazineCargoGlobal ["200Rnd_556x45_Box_F",12];
+				};
+				_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",12];
+			};
 			_target addMagazineCargoGlobal ["130Rnd_338_Mag",12];
+			_target addMagazineCargoGlobal ["9Rnd_45ACP_Mag",20];
 			//_target addMagazineCargoGlobal ["150Rnd_762x54_Box",6];
 			//_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",6];
 		};
 	};
 	//grenades
 	switch (ADV_par_indWeap) do {
-		case 1: {
+		case 2: {
 			_target addMagazineCargoGlobal ["rhs_mag_m67",20];
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",30];
 			_target addMagazineCargoGlobal ["rhs_mag_m18_green",10];
 			_target addMagazineCargoGlobal ["rhs_mag_m18_red",10];
 		};
 		default {
-			_target addMagazineCargoGlobal ["HandGrenade",20];
+			_target addMagazineCargoGlobal ["HandGrenade",10];
+			_target addMagazineCargoGlobal ["MiniGrenade",10];
 			_target addMagazineCargoGlobal ["SmokeShell",30];
 			_target addMagazineCargoGlobal ["SmokeShellGreen",20];
 		};

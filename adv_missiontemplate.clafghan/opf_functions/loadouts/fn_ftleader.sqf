@@ -276,7 +276,6 @@ switch (ADV_par_opfUni) do {
 		_binocular = "Binocular";
 		_giveRiflemanRadio = true;
 		_givePersonalRadio = false;
-		_ACE_dogtags = 0;
 	};
 	case 6: {
 		//Afghan Militia (EricJ's Taliban)
@@ -289,7 +288,6 @@ switch (ADV_par_opfUni) do {
 		_binocular = "Binocular";
 		_giveRiflemanRadio = true;
 		_givePersonalRadio = false;
-		_ACE_dogtags = 0;
 	};
 	case 20: {
 		//Apex Green Hex

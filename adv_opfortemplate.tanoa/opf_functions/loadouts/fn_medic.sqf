@@ -279,7 +279,6 @@ switch (ADV_par_opfUni) do {
 			"H_Cap_headphones","H_ShemagOpen_tan"];
 		_giveRiflemanRadio = true;
 		_givePersonalRadio = false;
-		_ACE_dogtags = 0;
 	};
 	case 6: {
 		//Afghan Militia (EricJ's Taliban)
@@ -292,7 +291,6 @@ switch (ADV_par_opfUni) do {
 		_backpack = ["rhs_assault_umbts"];
 		_giveRiflemanRadio = true;
 		_givePersonalRadio = false;
-		_ACE_dogtags = 0;
 	};
 	case 20: {
 		//Apex Green Hex

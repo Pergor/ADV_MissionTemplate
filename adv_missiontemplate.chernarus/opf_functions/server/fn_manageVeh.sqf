@@ -106,6 +106,7 @@ adv_opf_manageVeh_codeForAll = {
 	_veh = _this;
 	if (ADV_par_customLoad > 0) then {
 		[_veh] call ADV_fnc_clearCargo;
+		sleep 0.2;
 		[_veh] call ADV_opf_fnc_addVehicleLoad;
 	};
 	[_veh] call ADV_opf_fnc_disableVehSelector;
@@ -142,10 +143,11 @@ adv_opf_manageVeh_codeForAll = {
 };
 //application of code:
 {
-	if (isNil _x) exitWith {};
 	private _vehObj = missionNamespace getVariable [_x,objNull];
-	_vehObj spawn adv_opf_manageVeh_codeForAll;
-	[_vehObj,ADV_par_vehicleRespawn, east, (typeOf _vehObj)] spawn ADV_fnc_respawnVeh;
+	if (!isNull _vehObj) then {
+		_vehObj spawn adv_opf_manageVeh_codeForAll;
+		[_vehObj,ADV_par_vehicleRespawn, east, (typeOf _vehObj)] spawn ADV_fnc_respawnVeh;
+	};
 	nil;
 } count ADV_opf_veh_all;
 
