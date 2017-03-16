@@ -102,12 +102,12 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	call compile preprocessFileLineNumbers "\task_force_radio\functions\common.sqf";
 	
 	//tfar 0.9.12
-	["TF_no_auto_long_range_radio", true, true, "mission"] call CBA_settings_fnc_set;
-	["TF_give_personal_radio_to_regular_soldier", false, true, "mission"] call CBA_settings_fnc_set;
-	["TF_give_microdagr_to_soldier", false, true, "mission"] call CBA_settings_fnc_set;
-	["TF_same_sw_frequencies_for_side", true, true, "mission"] call CBA_settings_fnc_set;
-	["TF_same_lr_frequencies_for_side", true, true, "mission"] call CBA_settings_fnc_set;
-	["TF_same_dd_frequencies_for_side", true, true, "mission"] call CBA_settings_fnc_set;
+	["TF_no_auto_long_range_radio", true, true, "server"] call CBA_settings_fnc_set;
+	["TF_give_personal_radio_to_regular_soldier", false, true, "server"] call CBA_settings_fnc_set;
+	["TF_give_microdagr_to_soldier", false, true, "server"] call CBA_settings_fnc_set;
+	["TF_same_sw_frequencies_for_side", true, true, "server"] call CBA_settings_fnc_set;
+	["TF_same_lr_frequencies_for_side", true, true, "server"] call CBA_settings_fnc_set;
+	["TF_same_dd_frequencies_for_side", true, true, "server"] call CBA_settings_fnc_set;
 	//general
 	tf_terrain_interception_coefficient = 3.0;
 	tf_speakerDistance = 20;
