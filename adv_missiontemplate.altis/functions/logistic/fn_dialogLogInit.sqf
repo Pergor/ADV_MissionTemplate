@@ -19,11 +19,11 @@ lbClear _comboBox;
 
 //Loadout-Liste:
 _loadoutList = [
-	"Munitions-Kiste",
-	"MMG-Kiste",
-	"AT-Kiste",
-	"AA-Kiste",
-	"Granaten-Kiste",
+	"Infanterie-Munition",
+	"MMG-Munition",
+	"AT-Raketen",
+	"AA-Raketen",
+	"Granaten",
 	"Medic-Kiste",
 	"Support-Kiste",
 	"EOD-Kiste",
