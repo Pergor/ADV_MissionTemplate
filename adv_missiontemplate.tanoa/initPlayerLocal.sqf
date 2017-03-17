@@ -132,6 +132,11 @@ if !(isClass (configFile >> "CfgPatches" >> "adv_dropLauncher")) then { ADV_hand
 
 if ( toUpper (str player) in ["Z1","Z2","Z3","Z4","Z5","OPF_Z1","OPF_Z2","OPF_Z3","OPF_Z4","OPF_Z5","IND_Z1","IND_Z2","IND_Z3","IND_Z4","IND_Z5"] ) then {
 	if ( isNull (getAssignedCuratorLogic player) ) then { [str player, 3] remoteExecCall ["adv_fnc_createZeus",2]; };
+	if (isNil "adv_evh_createZeusRespawn") then {
+		adv_evh_createZeusRespawn = player addEventhandler ["RESPAWN",{
+			if ( isNull (getAssignedCuratorLogic player) ) then { [str player, 3] remoteExecCall ["adv_fnc_createZeus",2]; };
+		}];
+	};
 	if (isClass (configFile >> "CfgWeapons" >> "H_Cap_capPatch_SeL")) then {
 		player addHeadgear "H_Cap_capPatch_SeL";
 	};
@@ -168,6 +173,7 @@ if ((toUpper worldname) in ["STRATIS","ALTIS"]) then {
 };
 
 //TFAR Workaround:
+/*
 if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 	["unit", {
 		if (player != (_this select 0)) then {
@@ -179,5 +185,6 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 		TFAR_currentUnit = (_this select 0);
 	}] call CBA_fnc_addPlayerEventHandler;
 };
+*/
 
 if (true) exitWith {};

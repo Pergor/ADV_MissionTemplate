@@ -21,15 +21,26 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 		};
 	};
 	
+	adv_scriptfnc_setFrequencies = {
+		private _unit = _this select 0;
+		private _veh = _this select 2;
+		private _vehLR = _unit call TFAR_fnc_VehicleLR;
+		private _slot = _vehLR select 1;
+		if ( !(_slot in (_veh getVariable ["adv_vehRadioSet",[]])) && ((_veh getVariable ["tf_side", west]) isEqualTo (side group _unit)) ) then {
+			[_vehLR, adv_evh_radioSettings select 1] call TFAR_fnc_setLrSettings;
+			private _radiosSet = _veh getVariable ["adv_vehRadioSet",[]];
+			_radiosSet pushBack _slot;
+			_veh setVariable ["adv_vehRadioSet",_radiosSet,true];
+		};	
+	};
+	
 	if (isNil "adv_evh_tfarVehicle") then {
 		adv_evh_radioSettings = _settings;
 		adv_evh_tfarVehicle = _unit addEventhandler ["GetInMan",{
-			private _unit = _this select 0;
-			private _veh = _this select 2;
-			if ( !(_veh getVariable ["adv_vehRadioSet",false]) && ((_veh getVariable ["tf_side", west]) isEqualTo (side group _unit)) ) then {
-				[_unit call TFAR_fnc_VehicleLR, adv_evh_radioSettings select 1] call TFAR_fnc_setLrSettings;
-				_veh setVariable ["adv_vehRadioSet",true,true];
-			};
+			_this call adv_scriptfnc_setFrequencies;
+		}];
+		adv_evh_tfarSeatSwitched = _unit addEventhandler ["SeatSwitchedMan",{
+			_this call adv_scriptfnc_setFrequencies;
 		}];
 	};
 	
