@@ -87,6 +87,19 @@ if ( isServer ) then {
 	
 	//deletes empty groups:
 	adv_handle_emptyGroupsDeleter = addMissionEventHandler ["EntityKilled",{_grp = group (_this select 0);if ( count (units _grp) == 0 ) then { deleteGroup _grp };}];
+	
+	//spawns large crate right at the beginning:
+	if (ADV_par_logisticTeam > 1) then {
+		if !(getMarkerPos "ADV_locationCrateLarge" isEqualTo [0,0,0]) then {
+			["ADV_LOGISTIC_CRATELARGE",true,west] call adv_fnc_dialogLogistic;
+		};
+		if !(getMarkerPos "ADV_ind_locationCrateLarge" isEqualTo [0,0,0]) then {
+			["ADV_LOGISTIC_CRATELARGE",true,independent] call adv_fnc_dialogLogistic;
+		};
+		if !(getMarkerPos "ADV_opf_locationCrateLarge" isEqualTo [0,0,0]) then {
+			["ADV_LOGISTIC_CRATELARGE",true,east] call adv_fnc_dialogLogistic;
+		};
+	};
 };
 
 if ( hasInterface ) then {
