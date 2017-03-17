@@ -27,6 +27,7 @@ class ADV
 		class collectCrates {};
 		class collectFlags {};
 		class radioRelay {};
+		
 	};
 	class server
 	{
@@ -94,6 +95,7 @@ class ADV
 		class radioHeadset {};
 		class rollDice {};
 		class safeZone {};
+		class setFrequencies {};
 		class showArtiSetting {};
 		class spawnFire {};
 		class teleport {};
@@ -116,8 +118,8 @@ class ADV
 		class gear {};
 		class insignia {};
 		class removeWeapon {};
+		class setChannels {};
 		class setFaction {};
-		class setFrequencies {};
 		class standardWeapon {};
 	};
 	class gearsaving

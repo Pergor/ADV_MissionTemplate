@@ -398,7 +398,10 @@ switch (ADV_par_customUni) do {
 		};
 		_vest = ["rhsusf_spc_iar"];
 		_backpack = [""];
-		if ( _primaryWeapon == "rhs_weap_m27iar" ) then { _backpack = ["rhsusf_assault_eagleaiii_coy"]; };
+		call {
+			if ( _primaryWeapon isEqualType [] ) exitWith {};
+			if ( _primaryWeapon == "rhs_weap_m27iar" ) then { _backpack = ["rhsusf_assault_eagleaiii_coy"]; };
+		};
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};	
 	case 11: {
