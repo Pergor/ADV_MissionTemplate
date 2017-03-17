@@ -61,21 +61,19 @@ switch _FAKtype do {
 	case 2: {
 		if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 || (missionnamespace getVariable ["ace_medical_medicSetting",2]) > 1 ) then {
 			call {
-				/*
 				if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) exitWith {
 					_ACE_fieldDressing = 32;
 					_ACE_elasticBandage = 32;
 					_ACE_packingBandage = 12;
 					_ACE_quikclot = 12;
 				};
-				*/
 				_ACE_fieldDressing = 32;
 				_ACE_elasticBandage = 32;
-				_ACE_packingBandage = 12;
-				_ACE_quikclot = 12;
+				_ACE_packingBandage = 24;
+				_ACE_quikclot = 0;
 			};
 			_ACE_atropine = 0;
-			_ACE_adenosine = 6;
+			_ACE_adenosine = 4;
 			_ACE_epinephrine = 12;
 			_ACE_morphine = 12;
 			_ACE_tourniquet = 6;

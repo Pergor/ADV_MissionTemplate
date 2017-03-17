@@ -1,6 +1,6 @@
 ﻿/*
-ADV_fnc_setFrequencies by Belbo
-Sets the frequencies for each group
+ADV_fnc_setChannels by Belbo
+Sets the channels for each group
 */
 params [
 	["_unit", player, [objNull]]
@@ -19,6 +19,56 @@ LR-Kreise:
 9. OPZ/Zeus
 */
 //set frequencies depending on group for tfar
+if ( isClass (configFile >> "CfgPatches" >> "tfar_core") && hasInterface ) exitWith {
+	waitUntil { time > 1 && call TFAR_fnc_haveSWRadio };
+	call {
+		private _activeSWRadio = call TFAR_fnc_activeSwRadio;
+		private _hasLRRadio = call TFAR_fnc_haveLRRadio;
+		private _activeLRRadio = if (_hasLRRadio) then {call TFAR_fnc_activeLRRadio} else {[""]};
+		[_unit] call adv_fnc_setFrequencies;
+		if ( toUpper (groupID group _unit) in ["JUPITER","NATTER","LUCHS","MILAN"] ) exitWith {
+			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
+			if (_hasLRRadio) then { [_activeLRRadio, 1] call TFAR_fnc_setLRChannel; };
+		};
+		if ( toUpper (groupID group _unit) in ["MARS","ANAKONDA","LÖWE","ADLER"] ) exitWith {
+			[_activeSWRadio, 1] call TFAR_fnc_setSwChannel;
+			if (_hasLRRadio) then { [_activeLRRadio, 1] call TFAR_fnc_setLRChannel; };
+		};
+		if ( toUpper (groupID group _unit) in ["DEIMOS","BOA","TIGER","BUSSARD"] ) exitWith {
+			[_activeSWRadio, 2] call TFAR_fnc_setSwChannel;
+			if (_hasLRRadio) then { [_activeLRRadio, 1] call TFAR_fnc_setLRChannel; };
+		};
+		if ( toUpper (groupID group _unit) in ["PHOBOS","COBRA","PANTHER","CONDOR"] ) exitWith {
+			[_activeSWRadio, 3] call TFAR_fnc_setSwChannel;
+			if (_hasLRRadio) then { [_activeLRRadio, 1] call TFAR_fnc_setLRChannel; };
+		};
+		if ( toUpper (groupID group _unit) in ["VULKAN","LEOPARD","DROSSEL"] ) exitWith {
+			[_activeSWRadio, 4] call TFAR_fnc_setSwChannel;
+			if (_hasLRRadio) then { [_activeLRRadio, 1] call TFAR_fnc_setLRChannel; };
+		};
+		if ( toUpper (groupID group _unit) in ["APOLLO","DRACHE","ORCA","FALKE"] ) exitWith {
+			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
+			if (_hasLRRadio) then { [_activeLRRadio, 6] call TFAR_fnc_setLRChannel; };
+		};
+		if ( toUpper (groupID group _unit) in ["MERKUR","GEPARD","ELSTER"] ) exitWith {
+			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
+			if (_hasLRRadio) then { [_activeLRRadio, 7] call TFAR_fnc_setLRChannel; };
+		};
+		if ( toUpper (groupID group _unit) in ["DIANA","JAGUAR","VIPER","HABICHT"]) exitWith {
+			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
+			if (_hasLRRadio) then { [_activeLRRadio, 6] call TFAR_fnc_setLRChannel; };
+		};
+		if ( toUpper (groupID group _unit) in ["SATURN","OZELOT","GREIF"]) exitWith {
+			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
+			if (_hasLRRadio) then { [_activeLRRadio, 0] call TFAR_fnc_setLRChannel; };
+		};
+		if ( toUpper (groupID group _unit) isEqualTo "ZEUS" ) exitWith {
+			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
+			if (_hasLRRadio) then { [_activeLRRadio, 8] call TFAR_fnc_setLRChannel; };
+		};
+	};
+};
+
 if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") && hasInterface ) exitWith {
 	waitUntil { time > 1 && call TFAR_fnc_haveSWRadio };
 	call {

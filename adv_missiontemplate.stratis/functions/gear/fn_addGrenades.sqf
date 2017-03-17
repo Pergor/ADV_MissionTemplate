@@ -54,8 +54,8 @@ _grenArray = call {
 		[
 			["BWA3_DM51A1",_grenHE],
 			["BWA3_DM25", _grenSmkWht],
-			["BWA3_DM32_Orange", _grenSmkOrng+_grenSmkPrpl+_grenSmkRd],
-			["BWA3_DM32_Yellow", _grenSmkYlw+_grenSmkGrn+_grenSmkBl]
+			["BWA3_DM32_Orange", _grenSmkOrng+_grenSmkGrn+_grenSmkRd],
+			["BWA3_DM32_Yellow", _grenSmkYlw+_grenSmkPrpl+_grenSmkBl]
 		];
 	};
 	if ( ((ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4) && ( side ( group _unit ) == west )) || (ADV_par_indWeap == 2 && ( side ( group _unit ) == independent )) ) exitWith {

@@ -46,34 +46,41 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	//frequencies
 	//blufor
 	TFAR_defaultFrequencies_sr_west = ["41","42","43","44","45","46","47","48"];
-	_settingsSwWest = false call TFAR_fnc_generateSRSettings;
+	TFAR_defaultFrequencies_lr_west = ["51","52","53","54","55","56","57","58","59"];
+	
+	TFAR_defaultFrequencies_sr_east = ["41","42","43","44","45","46","47","48"];
+	TFAR_defaultFrequencies_lr_east = ["51","52","53","54","55","56","57","58","59"];
+	
+	TFAR_defaultFrequencies_sr_independent = ["61","62","63","64","65","66","67","68"];
+	TFAR_defaultFrequencies_lr_independent = ["71","72","73","74","75","76","77","78","79"];
+	
+	_settingsSwWest = [false] call TFAR_fnc_generateSRSettings;
+	_settingsLrWest = [false] call TFAR_fnc_generateLrSettings;
+	
+	_settingsSwEast = [false] call TFAR_fnc_generateSRSettings;
+	_settingsLrEast = [false] call TFAR_fnc_generateLrSettings;
+	
+	_settingsSwGuer = [false] call TFAR_fnc_generateSwSettings;
+	_settingsLrGuer = [false] call TFAR_fnc_generateLrSettings;
+	
 	_settingsSwWest set [2, TFAR_defaultFrequencies_sr_west];
 	_settingsSwWest set [4, "_bluefor"];
 	TFAR_freq_sw_west = _settingsSwWest;
 	
-	
-	TFAR_defaultFrequencies_lr_west = ["51","52","53","54","55","56","57","58","59"];
-	_settingsLrWest = false call TFAR_fnc_generateLrSettings;
 	_settingsLrWest set [2, TFAR_defaultFrequencies_lr_west];
 	_settingsLrWest set [4, "_bluefor"];
 	TFAR_freq_lr_west = _settingsLrWest;
 	
-	_settingsLrGuer = false call TFAR_fnc_generateLrSettings;
-	
-
-	_settingsSwEast = false call TFAR_fnc_generateSwSettings;
-	_settingsLrEast = false call TFAR_fnc_generateLrSettings;
-	_settingsSwEast set [2, ["41","42","43","44","45","46","47","48"]];
-	_settingsLrEast set [2, ["51","52","53","54","55","56","57","58","59"]];
-
-	_settingsSwGuer = false call TFAR_fnc_generateSwSettings;
-	_settingsSwGuer set [2, ["61","62","63","64","65","66","67","68"]];
-	_settingsLrGuer set [2, ["71","72","73","74","75","76","77","78","79"]];
-	
+	_settingsSwEast set [2, TFAR_defaultFrequencies_sr_east];
 	_settingsSwEast set [4, "_opfor"];
-	_settingsLrEast set [4, "_opfor"];
 	TFAR_freq_sw_east = _settingsSwEast;
-	TFAR_freq_lr_east = _settingsLrEast;	
+	
+	_settingsLrEast set [2, TFAR_defaultFrequencies_lr_east];
+	_settingsLrEast set [4, "_opfor"];
+	TFAR_freq_lr_east = _settingsLrEast;
+	
+	_settingsSwGuer set [2, TFAR_defaultFrequencies_sr_independent];
+	_settingsLrGuer set [2, TFAR_defaultFrequencies_lr_independent];
 
 	call {
 		if ([independent,west] call BIS_fnc_sideIsFriendly) exitWith {
@@ -102,12 +109,12 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	call compile preprocessFileLineNumbers "\task_force_radio\functions\common.sqf";
 	
 	//tfar 0.9.12
-	["TF_no_auto_long_range_radio", true, true, "mission"] call CBA_settings_fnc_set;
-	["TF_give_personal_radio_to_regular_soldier", false, true, "mission"] call CBA_settings_fnc_set;
-	["TF_give_microdagr_to_soldier", false, true, "mission"] call CBA_settings_fnc_set;
-	["TF_same_sw_frequencies_for_side", true, true, "mission"] call CBA_settings_fnc_set;
-	["TF_same_lr_frequencies_for_side", true, true, "mission"] call CBA_settings_fnc_set;
-	["TF_same_dd_frequencies_for_side", true, true, "mission"] call CBA_settings_fnc_set;
+	["TF_no_auto_long_range_radio", true, true, "server"] call CBA_settings_fnc_set;
+	["TF_give_personal_radio_to_regular_soldier", false, true, "server"] call CBA_settings_fnc_set;
+	["TF_give_microdagr_to_soldier", false, true, "server"] call CBA_settings_fnc_set;
+	["TF_same_sw_frequencies_for_side", true, true, "server"] call CBA_settings_fnc_set;
+	["TF_same_lr_frequencies_for_side", true, true, "server"] call CBA_settings_fnc_set;
+	["TF_same_dd_frequencies_for_side", true, true, "server"] call CBA_settings_fnc_set;
 	//general
 	tf_terrain_interception_coefficient = 3.0;
 	tf_speakerDistance = 20;

@@ -87,22 +87,27 @@ private ["_target"];
 		case 1: {
 			_target addMagazineCargoGlobal ["BWA3_DM51A1",4];
 			_target addMagazineCargoGlobal ["BWA3_DM25",4];
+			_target addMagazineCargoGlobal ["BWA3_DM32_Orange",4];
 		};
 		case 2: {
 			_target addMagazineCargoGlobal ["rhs_mag_m67",4];
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",4];
+			_target addMagazineCargoGlobal ["rhs_mag_m18_green",4];
 		};
 		case 3: {
 			_target addMagazineCargoGlobal ["rhs_mag_m67",4];
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",4];
+			_target addMagazineCargoGlobal ["rhs_mag_m18_green",4];
 		};
 		case 4: {
 			_target addMagazineCargoGlobal ["rhs_mag_m67",4];
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",4];
+			_target addMagazineCargoGlobal ["rhs_mag_m18_green",4];
 		};
 		default {
 			_target addMagazineCargoGlobal ["MiniGrenade",4];
 			_target addMagazineCargoGlobal ["SmokeShell",4];
+			_target addMagazineCargoGlobal ["SmokeShellGreen",4];
 		};
 	};
 	
