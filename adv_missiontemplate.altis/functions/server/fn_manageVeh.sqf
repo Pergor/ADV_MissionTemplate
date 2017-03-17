@@ -384,7 +384,7 @@ switch (ADV_par_modHeavyAssets) do {
 			};
 			[ADV_veh_heavys,["rhsusf_m113_usarmy","rhsusf_m113_usarmy_M240","rhsusf_m113_usarmy_MK19"],west] spawn ADV_fnc_changeVeh;
 			if (ADV_par_modTruckAssets isEqualTo 2) then {
-				[ADV_veh_logistic_medic,["rhsusf_m113d_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
+				[ADV_veh_logistic_medic,["rhsusf_m113_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
 			};
 		};
 	};
@@ -399,7 +399,7 @@ switch (ADV_par_modHeavyAssets) do {
 			};
 			[ADV_veh_heavys,["rhsusf_M1232_M2_usarmy_wd","rhsusf_M1237_M2_usarmy_wd"],west] spawn ADV_fnc_changeVeh;
 			if (ADV_par_modTruckAssets isEqualTo 2) then {
-				[ADV_veh_logistic_medic,["rhsusf_m113d_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
+				[ADV_veh_logistic_medic,["rhsusf_m113_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
 			};
 		};
 	};
