@@ -6,6 +6,8 @@
 	"_box"
 ];
 
+_box = true;
+
 if (_crateSelection == "") exitWith { hint "Keine Aktion ausgewählt"; };
 
 if (isNil "ADV_logistic_maxAmount_crateGrenades") then {
@@ -59,30 +61,50 @@ switch ( _side ) do {
 		ADV_logistic_crateTypeNormal="Box_NATO_Ammo_F";ADV_logistic_crateTypeAT="Box_NATO_WpsLaunch_F";ADV_logistic_crateTypeAA="Box_NATO_WpsLaunch_F";
 		ADV_logistic_crateTypeMG="Box_NATO_WpsSpecial_F";
 		ADV_logistic_crateTypeSupport="Box_NATO_Support_F";ADV_logistic_crateTypeEOD="Box_NATO_AmmoOrd_F";
+		ADV_logistic_crateTypeGrenades="Box_NATO_Grenades_F";
 		ADV_logistic_crateTypeMedic="Box_NATO_Support_F";
 		ADV_logistic_var_sidePrefix = "";
+		if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) then {
+			ADV_logistic_crateTypeAT="adv_Box_NATO_AT_F";ADV_logistic_crateTypeAA="adv_Box_NATO_AA_F";
+			ADV_logistic_crateTypeMG="adv_Box_NATO_MMG_F";
+		};
 	};
 	case east: {
 		ADV_logistic_crateTypeLarge="O_CargoNet_01_ammo_F";
 		ADV_logistic_crateTypeNormal="Box_East_Ammo_F";ADV_logistic_crateTypeAT="Box_East_WpsLaunch_F";ADV_logistic_crateTypeAA="Box_East_WpsLaunch_F";
 		ADV_logistic_crateTypeMG="Box_EAST_WpsSpecial_F";
 		ADV_logistic_crateTypeSupport="Box_East_Support_F";ADV_logistic_crateTypeEOD="Box_East_AmmoOrd_F";
+		ADV_logistic_crateTypeGrenades="Box_East_Grenades_F";
 		ADV_logistic_crateTypeMedic="Box_East_Support_F";
 		ADV_logistic_var_sidePrefix = "opf_";
+		if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) then {
+			ADV_logistic_crateTypeAT="adv_Box_EAST_AT_F";ADV_logistic_crateTypeAA="adv_Box_EAST_AA_F";
+			ADV_logistic_crateTypeMG="adv_Box_EAST_MMG_F";
+		};
 	};
 	case independent: {
-		if ( ADV_par_indUni > 0) then {
+		if ( ADV_par_indUni == 0) then {
 			ADV_logistic_crateTypeLarge="I_CargoNet_01_ammo_F";
 			ADV_logistic_crateTypeNormal="Box_IND_Ammo_F";ADV_logistic_crateTypeAT="Box_IND_WpsLaunch_F";ADV_logistic_crateTypeAA="Box_IND_WpsLaunch_F";
 			ADV_logistic_crateTypeMG="Box_IND_WpsSpecial_F";
 			ADV_logistic_crateTypeSupport="Box_IND_Support_F";ADV_logistic_crateTypeEOD="Box_IND_AmmoOrd_F";
+			ADV_logistic_crateTypeGrenades="Box_Ind_Grenades_F";
 			ADV_logistic_crateTypeMedic="Box_IND_Support_F";
+			if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) then {
+				ADV_logistic_crateTypeAT="adv_Box_IND_AT_F";ADV_logistic_crateTypeAA="adv_Box_IND_AA_F";
+				ADV_logistic_crateTypeMG="adv_Box_IND_MMG_F";
+			};
 		} else {
 			ADV_logistic_crateTypeLarge="B_CargoNet_01_ammo_F";
 			ADV_logistic_crateTypeNormal="Box_NATO_Ammo_F";ADV_logistic_crateTypeAT="Box_NATO_WpsLaunch_F";ADV_logistic_crateTypeAA="Box_NATO_WpsLaunch_F";
 			ADV_logistic_crateTypeMG="Box_NATO_WpsSpecial_F";
 			ADV_logistic_crateTypeSupport="Box_NATO_Support_F";ADV_logistic_crateTypeEOD="Box_NATO_AmmoOrd_F";
+			ADV_logistic_crateTypeGrenades="Box_NATO_Grenades_F";
 			ADV_logistic_crateTypeMedic="Box_NATO_Support_F";
+			if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) then {
+				ADV_logistic_crateTypeAT="adv_Box_NATO_AT_F";ADV_logistic_crateTypeAA="adv_Box_NATO_AA_F";
+				ADV_logistic_crateTypeMG="adv_Box_NATO_MMG_F";
+			};
 		};
 		ADV_logistic_var_sidePrefix = "ind_";
 	};
@@ -225,7 +247,7 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 			};
 		};		
 		case "ADV_LOGISTIC_CRATEGRENADES": {
-			_box = createVehicle [ADV_logistic_crateTypeEOD,_position,[],0,"CAN_COLLIDE"];
+			_box = createVehicle [ADV_logistic_crateTypeGrenades,_position,[],0,"CAN_COLLIDE"];
 			[_box,_position] call _functionForAll;
 			_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateGrenades"];
 			[_box] remoteExecCall [_function,2];
@@ -314,5 +336,4 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 if !(_forcePlacement) then {
 	closeDialog 1;
 };
-if ( toUpper (_crateSelection) == "ADV_LOGISTIC_CRATELARGE" ) exitWith {};
 _box;
