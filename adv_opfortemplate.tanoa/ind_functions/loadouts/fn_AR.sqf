@@ -9,7 +9,7 @@ magazines one for one in _items.
 _uniform = ["U_I_CombatUniform","U_I_CombatUniform_shortsleeve"];
 _vest = ["V_PlateCarrierIA2_dgtl","V_PlateCarrierIA1_dgtl","V_PlateCarrierIAGL_dgtl","V_PlateCarrierIAGL_oli"];
 _headgear = ["H_HelmetIA"];
-_backpack = ["B_Kitbag_sgg","B_Kitbag_rgr"];
+_backpack = ["B_AssaultPack_rgr","B_AssaultPack_dgtl"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "G_Combat";

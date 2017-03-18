@@ -196,7 +196,7 @@ if (!isServer) exitWith {};
 			_target addBackpackCargoGlobal ["B_AssaultPack_cbr",3];
 		};
 		default {
-			_target addItemCargoGlobal ["H_HelmetB_camo",5];
+			_target addItemCargoGlobal ["H_HelmetO_ocamo",5];
 			_target addBackpackCargoGlobal ["B_AssaultPack_cbr",3];
 		};
 	};

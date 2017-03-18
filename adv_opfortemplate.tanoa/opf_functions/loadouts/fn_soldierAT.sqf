@@ -67,7 +67,7 @@ if (worldName == "TANOA" || ADV_par_opfWeap == 20) then {
 _launcherAmmo = [1,0];
 
 //binocular - (string)
-_binocular = "Binocular";
+_binocular = "";
 
 //throwables - (integer)
 _grenadeSet = 1;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.

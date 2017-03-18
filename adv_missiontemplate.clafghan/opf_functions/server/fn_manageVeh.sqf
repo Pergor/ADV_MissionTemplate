@@ -19,8 +19,8 @@ _veh_fixedMarkers = ["opf_garage_air_2"];
 ADV_opf_veh_airTransport = [];
 ADV_opf_veh_airRecon = [];
 ADV_opf_veh_airLogistic = [];
-ADV_opf_veh_airContainerMedic = ["opf_air_container_medical_1","opf_air_container_medical_2","opf_air_container_medical_3","opf_air_container_medical_4","opf_air_container_medical_5"];
-ADV_opf_veh_airContainerTransport = ["opf_air_container_transport_1","opf_air_container_transport_2","opf_air_container_transport_3","opf_air_container_transport_4","opf_air_container_transport_5"];
+ADV_opf_veh_airContainerMedic = [];
+ADV_opf_veh_airContainerTransport = [];
 
 ADV_opf_veh_airCAS = [];
 ADV_opf_veh_airC130 = [];
@@ -73,6 +73,9 @@ ADV_opf_veh_artys = [];
 		case ( _vehicleName select [0,9] == "opf_heavy" ): { ADV_opf_veh_heavys pushBack _vehicleName; };
 		case ( _vehicleName select [0,8] == "opf_tank" ): { ADV_opf_veh_tanks pushBack _vehicleName; };
 		case ( _vehicleName select [0,8] == "opf_arty" ): { ADV_opf_veh_artys pushBack _vehicleName; };
+		//container
+		case ( _vehicleName select [0,25] == "opf_air_container_medical" ): { ADV_opf_veh_airContainerMedic pushBack _vehicleName; };
+		case ( _vehicleName select [0,27] == "opf_air_container_transport" ): { ADV_opf_veh_airContainerTransport pushBack _vehicleName; };
 		default {};
 	};
 	nil;
@@ -144,7 +147,7 @@ adv_opf_manageVeh_codeForAll = {
 //application of code:
 {
 	private _vehObj = missionNamespace getVariable [_x,objNull];
-	if (!isNull _vehObj) then {
+	if !(isNull _vehObj) then {
 		_vehObj spawn adv_opf_manageVeh_codeForAll;
 		[_vehObj,ADV_par_vehicleRespawn, east, (typeOf _vehObj)] spawn ADV_fnc_respawnVeh;
 	};

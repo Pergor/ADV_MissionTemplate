@@ -1,10 +1,4 @@
-﻿/*
-[vehiclename,false,true,2,false] call ADV_opf_fnc_vehicleLoad;
-*/
-
-if (!isServer) exitWith {};
-
-private ["_target","_weapons","_ammo","_ammoCount","_grenades","_grenadeCount","_items","_bandages","_morphine","_epipen","_bloodbag","_isMedic","_AGM_items","_jerryCan","_sparewheel"];
+﻿if (!isServer) exitWith {};
 
 /*
 _target = _this select 0;
@@ -13,6 +7,7 @@ _withWeapons = [_this, 2, false, [true]] call BIS_fnc_param;
 _amountOfSpareParts = [_this, 3, 1, [0]] call BIS_fnc_param;
 _isRepairVehicle = [_this, 4, false, [0,true]] call BIS_fnc_param;
 */
+
 params [
 	["_target", objNull, [objNull]], 
 	["_isMedic", false, [true]], 
@@ -22,7 +17,6 @@ params [
 ];
 
 _backpacks = [];
-
 //weapons and ammo
 if (_withWeapons) then {
 	switch (true) do {
@@ -113,12 +107,14 @@ if (_withWeapons) then {
 		};
 	};
 	
+	/*
 	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && ADV_par_logisticAmount > 2 ) then {
 		if ( ([_target] call ace_cargo_fnc_getCargoSpaceLeft) > 2) then {
 			_crate = ["ADV_LOGISTIC_CRATENORMAL",true,east,getPosASL _target] call adv_fnc_dialogLogistic;
 			[_crate,_target] call ace_cargo_fnc_loadItem;
 		};
 	};
+	*/
 };
 
 //helmets and vests
@@ -142,7 +138,7 @@ switch (true) do {
 		_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
 	};
 	default {
-		_target addItemCargoGlobal ["H_HelmetB_sand",1];
+		_target addItemCargoGlobal ["H_HelmetO_ocamo",1];
 		_target addItemCargoGlobal ["V_TacVest_khk",1];
 		_target addBackpackCargoGlobal ["B_AssaultPack_ocamo",1];
 	};
@@ -159,7 +155,6 @@ if (ADV_par_Radios == 1 || ADV_par_Radios == 3) then {
 	};
 };
 
-call {
 _ACE_fieldDressing = 30;
 _ACE_packingBandage = 0;
 _ACE_elasticBandage = 0;
@@ -230,11 +225,7 @@ if (_isMedic) then {
 	_target setVariable ["ACE_medical_medicClass", 2, true];
 	
 	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && ADV_par_logisticAmount > 2 ) then {
-		call {
-			if ( ([_target] call ace_cargo_fnc_getCargoSpaceLeft) > 4) then {
-				_crate = ["ADV_LOGISTIC_CRATEMEDIC",true,east,getPosASL _target] call adv_fnc_dialogLogistic;
-				[_crate,_target] call ace_cargo_fnc_loadItem;
-			};
+		if ( ([_target] call ace_cargo_fnc_getCargoSpaceLeft) > 2) then {
 			_crate = ["ADV_LOGISTIC_CRATEMEDIC",true,east,getPosASL _target] call adv_fnc_dialogLogistic;
 			[_crate,_target] call ace_cargo_fnc_loadItem;
 		};

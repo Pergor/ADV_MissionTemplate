@@ -88,7 +88,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	_ACE_surgicalKit = 0;
 	_ACE_bodyBag = 0;
 	
-	_FAKs = 2;
+	_FAKs = 0;
 	_mediKit = 0;
 	
 	if !(isClass (configFile >> "CfgPatches" >> "ACE_Medical")) then {

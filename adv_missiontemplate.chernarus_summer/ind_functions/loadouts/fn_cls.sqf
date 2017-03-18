@@ -61,7 +61,7 @@ _launcher = "";
 _launcherAmmo = [0,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //binocular - (string)
-_binocular = "Binocular";
+_binocular = "";
 
 //throwables - (integer)
 _grenadeSet = 1;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.
@@ -116,7 +116,7 @@ _ACE_packingBandage = 6;
 _ACE_quikclot = 0;
 _ACE_atropine = 0;
 _ACE_adenosine = 0;
-_ACE_epinephrine = 6;
+_ACE_epinephrine = 4;
 _ACE_morphine = 6;
 _ACE_tourniquet = 3;
 _ACE_bloodIV = 0;

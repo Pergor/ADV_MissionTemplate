@@ -60,10 +60,12 @@ private ["_target"];
 		case 2: {
 			_target addMagazineCargoGlobal ["rhs_mag_m67",4];
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",4];
+			_target addMagazineCargoGlobal ["rhs_mag_m18_green",4];
 		};
 		default {
 			_target addMagazineCargoGlobal ["HandGrenade",4];
 			_target addMagazineCargoGlobal ["SmokeShell",4];
+			_target addMagazineCargoGlobal ["SmokeShellGreen",4];
 		};
 	};
 	
@@ -95,7 +97,7 @@ private ["_target"];
 	_ACE_surgicalKit = 0;
 	_ACE_bodyBag = 0;
 	
-	_FAKs = 2;
+	_FAKs = 0;
 	_mediKit = 0;
 	
 	if !(isClass (configFile >> "CfgPatches" >> "ACE_Medical")) then {

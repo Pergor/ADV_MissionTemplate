@@ -60,7 +60,7 @@ _launcher = "launch_NLAW_F";
 _launcherAmmo = [1,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //binocular - (string)
-_binocular = "Binocular";
+_binocular = "";
 
 //throwables - (integer)
 _grenadeSet = 1;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.

@@ -38,7 +38,10 @@ _target = switch (toUpper _selection) do {
 				_dist = _x distance _unit;
 			};
 		} forEach _grp;
-		if (isNil "_closest") exitWith {nil};
+		if (isNil "_closest") exitWith {
+			systemChat "All your group members are in close distance.";
+			systemChat "You will not be teleported.";
+		};
 		_closest;
 	};
 	default {nil};

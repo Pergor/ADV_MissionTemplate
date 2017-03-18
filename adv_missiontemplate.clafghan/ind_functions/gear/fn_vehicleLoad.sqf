@@ -1,7 +1,5 @@
 ﻿if (!isServer) exitWith {};
 
-private ["_target","_weapons","_ammo","_ammoCount","_grenades","_grenadeCount","_items""_isMedic"];
-
 /*
 _target = _this select 0;
 _isMedic = [_this, 1, false, [true]] call BIS_fnc_param;
@@ -113,12 +111,14 @@ if (_withWeapons) then {
 	_target addMagazineCargoGlobal ["1Rnd_HE_Grenade_shell",5];
 	_target addMagazineCargoGlobal ["1Rnd_SmokeRed_Grenade_shell",10];
 	
+	/*
 	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && ADV_par_logisticAmount > 2 ) then {
 		if ( ([_target] call ace_cargo_fnc_getCargoSpaceLeft) > 2) then {
 			_crate = ["ADV_LOGISTIC_CRATENORMAL",true,independent,getPosASL _target] call adv_fnc_dialogLogistic;
 			[_crate,_target] call ace_cargo_fnc_loadItem;
 		};
 	};
+	*/
 };
 
 //helmets and vests
@@ -217,11 +217,7 @@ if (_isMedic) then {
 	_target setVariable ["ACE_medical_medicClass", 2, true];
 	
 	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && ADV_par_logisticAmount > 2 ) then {
-		call {
-			if ( ([_target] call ace_cargo_fnc_getCargoSpaceLeft) > 4) then {
-				_crate = ["ADV_LOGISTIC_CRATEMEDIC",true,independent,getPosASL _target] call adv_fnc_dialogLogistic;
-				[_crate,_target] call ace_cargo_fnc_loadItem;
-			};
+		if ( ([_target] call ace_cargo_fnc_getCargoSpaceLeft) > 2) then {
 			_crate = ["ADV_LOGISTIC_CRATEMEDIC",true,independent,getPosASL _target] call adv_fnc_dialogLogistic;
 			[_crate,_target] call ace_cargo_fnc_loadItem;
 		};

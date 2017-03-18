@@ -73,21 +73,21 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 		case ( ADV_par_opfWeap == 1 && ADV_par_opfWeap == 2): {
 			_target addMagazineCargoGlobal ["rhs_mag_rgd5",4];
 			_target addMagazineCargoGlobal ["rhs_mag_rdg2_white",4];
-			//_target addMagazineCargoGlobal ["rhs_mag_rdg2_black",0];
+			_target addMagazineCargoGlobal ["rhs_mag_rdg2_black",4];
 			_target addMagazineCargoGlobal ["rhs_VOG25",10];
 			_target addMagazineCargoGlobal ["rhs_VG40OP_white",4];
 		};
 		case ( ADV_par_opfWeap == 3): {
 			_target addMagazineCargoGlobal ["CUP_HandGrenade_RGD5",4];
 			_target addMagazineCargoGlobal ["SmokeShell",4];
-			_target addMagazineCargoGlobal ["SmokeShellYellow",0];
+			_target addMagazineCargoGlobal ["SmokeShellGreen",4];
 			_target addMagazineCargoGlobal ["CUP_1Rnd_HE_GP25_M",10];
 			_target addMagazineCargoGlobal ["CUP_FlareYellow_GP25_M",4];
 		};
 		default {
 			_target addMagazineCargoGlobal ["HandGrenade",4];
 			_target addMagazineCargoGlobal ["SmokeShell",4];
-			_target addMagazineCargoGlobal ["SmokeShellYellow",0];
+			_target addMagazineCargoGlobal ["SmokeShellGreen",4];
 			_target addMagazineCargoGlobal ["1Rnd_HE_Grenade_shell",10];
 			_target addMagazineCargoGlobal ["UGL_FlareYellow_F",4];
 		};
@@ -117,7 +117,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	_ACE_surgicalKit = 0;
 	_ACE_bodyBag = 0;
 	
-	_FAKs = 2;
+	_FAKs = 0;
 	_mediKit = 0;
 	
 	if !(isClass (configFile >> "CfgPatches" >> "ACE_Medical")) then {
