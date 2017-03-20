@@ -14,15 +14,15 @@ private ["_target"];
 	//grenades
 	switch (ADV_par_indWeap) do {
 		case 2: {
-			_target addMagazineCargoGlobal ["rhs_mag_m67",10];
+			_target addMagazineCargoGlobal ["rhs_mag_m67",20];
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",20];
 			_target addMagazineCargoGlobal ["rhs_mag_m18_green",10];
 			_target addMagazineCargoGlobal ["rhs_mag_m18_red",10];
 			_target addMagazineCargoGlobal ["rhs_mag_m18_yellow",10];
 		};
 		default {
-			_target addMagazineCargoGlobal ["HandGrenade",5];
-			_target addMagazineCargoGlobal ["MiniGrenade",5];
+			_target addMagazineCargoGlobal ["HandGrenade",10];
+			_target addMagazineCargoGlobal ["MiniGrenade",10];
 			_target addMagazineCargoGlobal ["SmokeShell",20];
 			_target addMagazineCargoGlobal ["SmokeShellGreen",10];
 			_target addMagazineCargoGlobal ["SmokeShellRed",10];
@@ -30,9 +30,9 @@ private ["_target"];
 		};
 	};
 	_target addMagazineCargoGlobal ["1Rnd_HE_Grenade_shell",20];
-	_target addMagazineCargoGlobal ["1Rnd_SmokeRed_Grenade_shell",10];
-	_target addMagazineCargoGlobal ["1Rnd_SmokePurple_Grenade_shell",10];
-	_target addMagazineCargoGlobal ["1Rnd_SmokeYellow_Grenade_shell",10];
+	_target addMagazineCargoGlobal ["1Rnd_SmokeRed_Grenade_shell",5];
+	_target addMagazineCargoGlobal ["1Rnd_SmokePurple_Grenade_shell",5];
+	_target addMagazineCargoGlobal ["1Rnd_SmokeYellow_Grenade_shell",5];
 	_target addMagazineCargoGlobal ["UGL_FlareGreen_F",10];
 
 	if ( ADV_par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
