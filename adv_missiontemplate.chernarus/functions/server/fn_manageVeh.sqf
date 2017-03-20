@@ -117,7 +117,7 @@ adv_manageVeh_codeForAll = {
 			_veh disableNVGEquipment true;
 		};
 	};
-	if ( ADV_par_Radios > 0 && (_veh isKindOf 'CAR' || _veh isKindOf 'TANK' || _veh isKindOf 'AIR') ) then {
+	if ( ADV_par_Radios > 0 && (_veh isKindOf 'CAR' || _veh isKindOf 'TANK' || _veh isKindOf 'AIR') && !(_veh isKindOf "Quadbike_01_base_F") ) then {
 		_veh setVariable ["tf_side", west, true];
 		_veh setVariable ["tf_hasRadio", true, true];
 		
