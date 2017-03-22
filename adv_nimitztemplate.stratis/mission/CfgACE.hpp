@@ -18,6 +18,26 @@ class ace_common_checkPBOsWhitelist {
     typeName = "STRING";
     force = 0;
 };
+class ace_cookoff_enable {
+    value = 1;
+    typeName = "BOOL";
+    force = 0;
+};
+class ace_cookoff_enableAmmobox {
+    value = 1;
+    typeName = "BOOL";
+    force = 0;
+};
+class ace_cookoff_enableAmmoCookoff {
+    value = 1;
+    typeName = "BOOL";
+    force = 0;
+};
+class ace_cookoff_ammoCookoffDuration {
+    value = 1;
+    typeName = "SCALAR";
+    force = 0;
+};
 class ace_finger_enabled {
     value = 1;
     typeName = "BOOL";
@@ -63,6 +83,11 @@ class ace_gforces_enabledFor {
     typeName = "SCALAR";
     force = 0;
 };
+class ace_goggles_effects {
+    value = 0;
+    typeName = "SCALAR";
+    force = 0;
+};
 class ace_hitreactions_minDamageToTrigger {
     value = 0.1;
     typeName = "SCALAR";
@@ -71,6 +96,11 @@ class ace_hitreactions_minDamageToTrigger {
 class ace_interaction_enableTeamManagement {
     value = 1;
     typeName = "BOOL";
+    force = 0;
+};
+class ace_laser_dispersionCount {
+    value = 2;
+    typeName = "SCALAR";
     force = 0;
 };
 class ace_laserpointer_enabled {
@@ -119,7 +149,7 @@ class ace_map_mapIllumination {
     force = 0;
 };
 class ace_map_mapGlow {
-    value = 0;
+    value = 1;
     typeName = "BOOL";
     force = 0;
 };
@@ -139,7 +169,7 @@ class ace_map_mapShowCursorCoordinates {
     force = 0;
 };
 class ace_map_defaultChannel {
-    value = 1;
+    value = -1;
     typeName = "SCALAR";
     force = 0;
 };
@@ -158,14 +188,9 @@ class ace_map_gestures_interval {
     typeName = "SCALAR";
     force = 0;
 };
-class ace_map_gestures_groupColorConfigurations {
-	value[] = {};
-    typeName = "ARRAY";
-    force = 0;
-};
-class ace_map_gestures_groupColorConfigurationMapping {
-    typeName = "ARRAY";
-	value[] = {{}, {}};
+class ace_medical_blood_enabledFor {
+    value = 2;
+    typeName = "SCALAR";
     force = 0;
 };
 class ace_medical_level {	//will be overwritten with CfgACEParams.hpp values or setting in MP lobby!
@@ -229,7 +254,7 @@ class ace_medical_enableScreams {
     force = 0;
 };
 class ace_medical_playerDamageThreshold {
-    value = 2.0;
+    value = 2;
     typeName = "SCALAR";
     force = 0;
 };
@@ -278,13 +303,18 @@ class ace_medical_allowLitterCreation {
     typeName = "BOOL";
     force = 0;
 };
+class ace_medical_litterSimulationDetail {
+    value = 1;
+    typeName = "SCALAR";
+    force = 0;
+};
 class ace_medical_litterCleanUpDelay {
     value = 300;
     typeName = "SCALAR";
     force = 0;
 };
 class ace_medical_medicSetting_basicEpi {
-    value = 0;
+    value = 1;
     typeName = "SCALAR";
     force = 0;
 };
@@ -294,7 +324,7 @@ class ace_medical_medicSetting_PAK {
     force = 0;
 };
 class ace_medical_medicSetting_SurgicalKit {
-    value = 0;
+    value = 1;
     typeName = "SCALAR";
     force = 0;
 };
@@ -363,6 +393,11 @@ class ace_medical_delayUnconCaptive {
     typeName = "SCALAR";
     force = 0;
 };
+class ace_medical_ai_enabledFor {
+    value = 2;
+    typeName = "SCALAR";
+    force = 0;
+};
 class ace_medical_menu_allow {
     value = 1;
     typeName = "SCALAR";
@@ -373,8 +408,13 @@ class ace_medical_menu_maxRange {
     typeName = "SCALAR";
     force = 0;
 };
-class ace_microdagr_MapDataAvailable {
+class ace_microdagr_mapDataAvailable {
     value = 1;
+    typeName = "SCALAR";
+    force = 0;
+};
+class ace_missileguidance_enabled {
+    value = 2;
     typeName = "SCALAR";
     force = 0;
 };
@@ -383,7 +423,7 @@ class ace_mk6mortar_airResistanceEnabled {
     typeName = "BOOL";
     force = 0;
 };
-class ace_mk6mortar_allowComputerRangefinder {	//NEEDS to be set to 0 if ace_mk6mortar_airResistanceEnabled == 1!
+class ace_mk6mortar_allowComputerRangefinder {	//will be overwritten with CfgACEParams.hpp values or setting in MP lobby!
     value = 0;
     typeName = "BOOL";
     force = 0;
@@ -419,7 +459,7 @@ class ace_nightvision_disableNVGsWithSights {
     force = 0;
 };
 class ace_overheating_overheatingDispersion {
-    value = 0;
+    value = 1;
     typeName = "BOOL";
     force = 0;
 };
@@ -436,6 +476,11 @@ class ace_overheating_unJamFailChance {
 class ace_overheating_enabled {
     value = 1;
     typeName = "BOOL";
+    force = 0;
+};
+class ace_overpressure_distanceCoefficient {
+    value = 1;
+    typeName = "SCALAR";
     force = 0;
 };
 class ace_rearm_level {		//will be overwritten with CfgACEParams.hpp values or setting in MP lobby!
@@ -459,12 +504,12 @@ class ace_repair_engineerSetting_wheel {
     force = 0;
 };
 class ace_repair_repairDamageThreshold {
-    value = 0.6;
+    value = 0.8;
     typeName = "SCALAR";
     force = 0;
 };
 class ace_repair_repairDamageThreshold_engineer {
-    value = 0.4;
+    value = 0.5;
     typeName = "SCALAR";
     force = 0;
 };
@@ -474,7 +519,7 @@ class ace_repair_consumeItem_toolKit {
     force = 0;
 };
 class ace_repair_fullRepairLocation {
-    value = 3;
+    value = 0;
     typeName = "SCALAR";
     force = 0;
 };
@@ -513,8 +558,48 @@ class ace_respawn_bodyRemoveTimer {
     typeName = "SCALAR";
     force = 0;
 };
-class ace_sitting_enable {
+class ace_scopes_enabled {
     value = 1;
+    typeName = "BOOL";
+    force = 0;
+};
+class ace_scopes_forceUseOfAdjustmentTurrets {
+    value = 0;
+    typeName = "BOOL";
+    force = 0;
+};
+class ace_scopes_correctZeroing {
+    value = 1;
+    typeName = "BOOL";
+    force = 0;
+};
+class ace_scopes_overwriteZeroRange {
+    value = 0;
+    typeName = "BOOL";
+    force = 0;
+};
+class ace_scopes_defaultZeroRange {
+    value = 100;
+    typeName = "SCALAR";
+    force = 0;
+};
+class ace_scopes_zeroReferenceTemperature {
+    value = 55;
+    typeName = "SCALAR";
+    force = 0;
+};
+class ace_scopes_zeroReferenceBarometricPressure {
+    value = 1013.25;
+    typeName = "SCALAR";
+    force = 0;
+};
+class ace_scopes_zeroReferenceHumidity {
+    value = 0.5;
+    typeName = "SCALAR";
+    force = 0;
+};
+class ace_scopes_deduceBarometricPressureFromTerrainAltitude {
+    value = 0;
     typeName = "BOOL";
     force = 0;
 };
@@ -572,29 +657,6 @@ class ace_switchunits_safeZoneRadius {
     value = 100;
     typeName = "SCALAR";
     force = 0;
-};
-class ace_ui_allowSelectiveUI {
-    value = 0;
-    typeName = "BOOL";
-    force = 0;
-};
-class ace_ui_ammoCount {
-        value = 0;
-        typeName = "BOOL";
-        isClientSettable = 0;
-		force = 1;
-};
-class ace_ui_gunnerAmmoCount {
-        value = 1;
-        typeName = "BOOL";
-        isClientSettable = 0;
-		force = 1;
-};
-class ace_ui_gunnerZeroing {
-        value = 1;
-        typeName = "BOOL";
-        isClientSettable = 0;
-		force = 1;
 };
 class ace_vehiclelock_defaultLockpickStrength {
     value = 10;
@@ -657,7 +719,7 @@ class ace_winddeflection_enabled {
     force = 0;
 };
 class ace_winddeflection_vehicleEnabled {
-    value = 0;
+    value = 1;
     typeName = "BOOL";
     force = 0;
 };
@@ -667,7 +729,7 @@ class ace_winddeflection_simulationInterval {
     force = 0;
 };
 class ace_winddeflection_simulationRadius {
-    value = 2000;
+    value = 3000;
     typeName = "SCALAR";
     force = 0;
 };
@@ -731,6 +793,41 @@ class acex_viewrestriction_modeSelectiveSea {
     typeName = "SCALAR";
     force = 0;
 };
+class ace_advanced_fatigue_enabled {
+    value = 1;
+    typeName = "BOOL";
+    force = 0;
+};
+class ace_advanced_fatigue_performanceFactor {
+    value = 1.2;
+    typeName = "SCALAR";
+    force = 0;
+};
+class ace_advanced_fatigue_recoveryFactor {
+    value = 2;
+    typeName = "SCALAR";
+    force = 0;
+};
+class ace_advanced_fatigue_loadFactor {
+    value = 0.7;
+    typeName = "SCALAR";
+    force = 0;
+};
+class ace_advanced_fatigue_terrainGradientFactor {
+    value = 1;
+    typeName = "SCALAR";
+    force = 0;
+};
+class ace_advanced_throwing_enablePickUp {
+    value = 1;
+    typeName = "BOOL";
+    force = 0;
+};
+class ace_advanced_throwing_enablePickUpAttached {
+    value = 0;
+    typeName = "BOOL";
+    force = 0;
+};
 class ace_captives_allowHandcuffOwnSide {
     value = 0;
     typeName = "BOOL";
@@ -771,7 +868,7 @@ class ace_hearing_enableCombatDeafness {
     typeName = "BOOL";
     force = 0;
 };
-class ace_hearing_EarplugsVolume {
+class ace_hearing_earplugsVolume {
     value = 1.0;
     typeName = "SCALAR";
     force = 0;
@@ -782,7 +879,7 @@ class ace_hearing_unconsciousnessVolume {
     force = 0;
 };
 class ace_hearing_enabledForZeusUnits {
-    value = 0;
+    value = 1;
     typeName = "BOOL";
     force = 0;
 };
@@ -791,17 +888,22 @@ class ace_hearing_autoAddEarplugsToUnits {
     typeName = "BOOL";
     force = 0;
 };
-class acex_headless_Enabled {
+class acex_headless_enabled {
     value = 0;
     typeName = "BOOL";
     force = 0;
 };
-class acex_headless_Delay {
+class acex_headless_delay {
     value = 15;
     typeName = "SCALAR";
     force = 0;
 };
-class acex_headless_Log {
+class acex_headless_endMission {
+    value = 0;
+    typeName = "SCALAR";
+    force = 0;
+};
+class acex_headless_log {
     value = 0;
     typeName = "BOOL";
     force = 0;
@@ -832,12 +934,12 @@ class ace_advanced_ballistics_disabledInFullAutoMode {
     force = 0;
 };
 class ace_advanced_ballistics_ammoTemperatureEnabled {
-    value = 0;
+    value = 1;
     typeName = "BOOL";
     force = 0;
 };
 class ace_advanced_ballistics_barrelLengthInfluenceEnabled {
-    value = 0;
+    value = 1;
     typeName = "BOOL";
     force = 0;
 };
@@ -855,41 +957,28 @@ class ace_advanced_ballistics_simulationRadius {
     value = 3000;
     typeName = "SCALAR";
     force = 0;
-};
+}
 
-class ace_advanced_fatigue_enabled {
-    value = 1;
-    typeName = "BOOL";
-    force = 0;
-};
-class ace_advanced_fatigue_performanceFactor {
-    value = 1.2;
-    typeName = "SCALAR";
-    force = 0;
-};
-class ace_advanced_fatigue_recoveryFactor {
-    value = 2;
-    typeName = "SCALAR";
-    force = 0;
-};
-class ace_advanced_fatigue_loadFactor {
-    value = 0.7;
-    typeName = "SCALAR";
-    force = 0;
-};
-class ace_advanced_fatigue_terrainGradientFactor {
-    value = 1;
-    typeName = "SCALAR";
-    force = 0;
-};
-
-class ace_advanced_throwing_enablePickUp {
-    value = 1;
-    typeName = "BOOL";
-    force = 0;
-};
-class ace_advanced_throwing_enablePickUpAttached {
+class ace_ui_allowSelectiveUI {
     value = 0;
     typeName = "BOOL";
-    force = 0;
+    force = 1;
+};
+class ace_ui_ammoCount {
+        value = 0;
+        typeName = "BOOL";
+        isClientSettable = 0;
+		force = 1;
+};
+class ace_ui_gunnerAmmoCount {
+        value = 1;
+        typeName = "BOOL";
+        isClientSettable = 0;
+		force = 1;
+};
+class ace_ui_gunnerZeroing {
+        value = 1;
+        typeName = "BOOL";
+        isClientSettable = 0;
+		force = 1;
 };
