@@ -91,5 +91,6 @@ ADV_variables_defined = true;
 
 //sthud:
 STHud_NoSquadBarMode = true;
+STHud_ShowBearingInVehicle = false;
 
 if (true) exitWith {};

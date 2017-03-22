@@ -13,19 +13,9 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	adv_evh_radioSettings = _settings;
 	if (call TFAR_fnc_haveSWRadio) then {
 		[(call TFAR_fnc_activeSwRadio), _settings select 0] call TFAR_fnc_setSwSettings;
-		/*
-		for "_i" from 0 to (count _sw)-1 do {
-			[(call TFAR_fnc_activeSwRadio), _i+1, _sw select _i] call TFAR_fnc_SetChannelFrequency;
-		};
-		*/
 	};
 	if (call TFAR_fnc_haveLRRadio) then {
 		[(call TFAR_fnc_activeLrRadio), _settings select 1] call TFAR_fnc_setLrSettings;
-		/*
-		for "_i" from 0 to (count _lr)-1 do {
-			[(call TFAR_fnc_activeLRRadio), _i+1, _lr select _i] call TFAR_fnc_SetChannelFrequency;
-		};
-		*/
 	};
 	
 	adv_scriptfnc_setFrequencies = {
