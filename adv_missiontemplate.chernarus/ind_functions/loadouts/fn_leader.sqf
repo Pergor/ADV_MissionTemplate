@@ -282,7 +282,8 @@ switch (toUpper ([str (_this select 0),3,13] call BIS_fnc_trimString)) do {
 	};
 };
 
-//TFAR-manpacks
+//LRRadios
+if (missionNamespace getVariable ["adv_par_noLRRadios",false]) then { _giveBackpackRadio = false };
 if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
 	switch (ADV_par_indUni) do {
 		default { _backpack = ["tf_anprc155_coyote"]; };

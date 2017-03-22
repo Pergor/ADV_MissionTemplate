@@ -22,7 +22,6 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	["TFAR_objectInterceptionEnabled", true, true, "server"] call CBA_settings_fnc_set;
 	//general
 	tfar_terrain_interception_coefficient = 3.0;
-	tfar_speakerDistance = 20;
 
 	//radios
 	TFAR_DefaultRadio_Personal_West = "TFAR_anprc152";
@@ -117,7 +116,6 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	["TF_same_dd_frequencies_for_side", true, true, "server"] call CBA_settings_fnc_set;
 	//general
 	tf_terrain_interception_coefficient = 3.0;
-	tf_speakerDistance = 20;
 
 	//radios
 	TF_defaultWestPersonalRadio = "tf_anprc152";

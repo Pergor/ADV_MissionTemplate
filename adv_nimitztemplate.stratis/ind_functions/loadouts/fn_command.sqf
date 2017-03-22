@@ -256,7 +256,8 @@ switch (ADV_par_indUni) do {
 	};
 };
 
-//TFAR-manpacks
+//LRRadios
+if (missionNamespace getVariable ["adv_par_noLRRadios",false]) then { _giveBackpackRadio = false };
 if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
 	switch (ADV_par_indUni) do {
 		case 0: { _backpack = ["tf_anprc155"]; };

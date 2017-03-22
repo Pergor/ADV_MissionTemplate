@@ -484,7 +484,8 @@ switch (toUpper ([str (_this select 0),0,9] call BIS_fnc_trimString)) do {
 	};
 };
 
-//TFAR-manpacks
+//LRRadios
+if (missionNamespace getVariable ["adv_par_noLRRadios",false]) then { _giveBackpackRadio = false };
 if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
 	_backpack = switch (ADV_par_CustomUni) do {
 		case 1: {["tf_rt1523g_bwmod"]};

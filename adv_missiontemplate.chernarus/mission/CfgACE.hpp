@@ -847,12 +847,12 @@ class ace_advanced_ballistics_bulletTraceEnabled {
     force = 0;
 };
 class ace_advanced_ballistics_simulationInterval {
-    value = 0.1;
+    value = 0.05;
     typeName = "SCALAR";
     force = 0;
 };
 class ace_advanced_ballistics_simulationRadius {
-    value = 2000;
+    value = 3000;
     typeName = "SCALAR";
     force = 0;
 };

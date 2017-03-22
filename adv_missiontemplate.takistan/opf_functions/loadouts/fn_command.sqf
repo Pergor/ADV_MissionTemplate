@@ -309,7 +309,8 @@ switch (ADV_par_opfUni) do {
 	default {};
 };
 
-//TFAR-manpacks
+//LRRadios
+if (missionNamespace getVariable ["adv_par_noLRRadios",false]) then { _giveBackpackRadio = false };
 if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
 	_backpack = switch (ADV_par_opfUni) do {
 		case 1: {["tf_mr3000_rhs"]};

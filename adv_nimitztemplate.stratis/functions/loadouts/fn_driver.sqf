@@ -45,7 +45,7 @@ _40mmFlareIR = 0;
 _handgun = "hgun_Pistol_heavy_01_F";
 
 //handgun items - (array)
-_itemsHandgun = ["optic_MRD"];
+_itemsHandgun = [""];
 _handgunSilencer = "muzzle_snds_acp";			//if silencer is added
 
 //handgun ammo (if a handgun is given) - (integer)
@@ -394,6 +394,13 @@ switch (ADV_par_customUni) do {
 	};
 	default {};
 };
+
+switch (toUpper ([str (_this select 0),0,9] call BIS_fnc_trimString)) do {
+	case "DRIVER_LEA": {
+		_binocular = "Rangefinder";
+	};
+};
+
 
 ///// No editing necessary below this line /////
 
