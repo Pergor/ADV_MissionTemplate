@@ -65,7 +65,7 @@ if (isClass (configFile >> "CfgPatches" >> "cTab") && ADV_par_Tablets == 1) then
 		};
 	};
 	cTab_encryptionKey_civ = "c";
-    cTab_vehicleClass_has_FBCB2 = ["Car","Armored"];
+    cTab_vehicleClass_has_FBCB2 = ["Car","Tank"];
     cTab_vehicleClass_has_TAD = ["Helicopter","Plane"];
 } else {
     cTab_vehicleClass_has_FBCB2 = [];
