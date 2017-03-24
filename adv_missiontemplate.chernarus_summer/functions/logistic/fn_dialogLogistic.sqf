@@ -233,16 +233,21 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 	};
 	switch ( toUpper (_crateSelection) ) do {
 		case "ADV_LOGISTIC_CRATELARGE": {
-			{deleteVehicle _x} count (nearestObjects [(getMarkerPos ADV_logistic_locationCrateLarge), ["ReammoBox_F"], 3]);
-			[] spawn {
+			{deleteVehicle _x} count (nearestObjects [(getMarkerPos ADV_logistic_locationCrateLarge), ["ReammoBox_F"], 5]);
+			[ADV_logistic_crateTypeLarge, getMarkerPos ADV_logistic_locationCrateLarge, ADV_logistic_var_sidePrefix] spawn {
+				params [
+					["_type", "", [""]]
+					,["_location", [0,0,0], [[]]]
+					,["_prefix", "", [""]]
+				];
 				sleep 1;
-				_box = createVehicle [ADV_logistic_crateTypeLarge,getMarkerPos ADV_logistic_locationCrateLarge,[],0,"CAN_COLLIDE"];
+				_box = createVehicle [_type,_location,[],0,"CAN_COLLIDE"];
 				_box allowDamage false;
 				[_box] call ADV_fnc_clearCargo;
 				if ( ADV_par_customLoad == 1 ) then {
 					[_box] remoteExec ["adv_fnc_gearsaving",0,true];
 				};
-				_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateLarge"];
+				_function = format ["adv_%1%2",_prefix,"fnc_crateLarge"];
 				[_box] remoteExecCall [_function,2];
 			};
 		};		

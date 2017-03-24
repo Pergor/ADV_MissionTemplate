@@ -50,6 +50,9 @@ sleep 1;
 [player] call ADV_fnc_applyLoadout;
 sleep 1;
 
+//the view distance is updated to the saved variables:
+[] call TAWVD_fnc_updateViewDistance;
+
 //logistics menu
 if ( ADV_par_logisticAmount > 0 ) then {
 	{ nul = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == west",5]; nil; } count adv_objects_westFlags;

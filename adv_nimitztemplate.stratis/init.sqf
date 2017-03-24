@@ -2,10 +2,6 @@
 if (!isServer && isNull player) then {isJIP=true;} else {isJIP=false;};
 enableSaving [false, false];
 
-//view distance options
-setViewDistance 3000;
-setTerrainGrid 6.25;
-
 //UpsMon-Init:
 //for the server upsmon is called via preInit!
 

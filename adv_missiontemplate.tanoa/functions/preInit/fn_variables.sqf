@@ -85,6 +85,7 @@ call {
 
 //tawVD:
 tawvd_disablenone = true;
+tawvd_maxRange = 12000;
 
 //finalization:
 ADV_variables_defined = true;

@@ -38,12 +38,12 @@ class FSM
        "_droneState = UAVControl (getConnectedUAV player) select 1;" \n
        "tawvd_addon_disable = true;" \n
        "" \n
-       "if(isNil {profileNamespace getVariable ""tawvd_foot""}) then {" \n
+       "if (isNil {profileNamespace getVariable ""tawvd_foot""}) then {" \n
        "	profileNamespace setVariable [""tawvd_foot"",viewDistance];" \n
        "	profileNamespace setVariable [""tawvd_car"",viewDistance];" \n
        "	profileNamespace setVariable [""tawvd_air"",viewDistance];" \n
        "	profileNamespace setVariable [""tawvd_drone"",viewDistance];" \n
-       "	profileNamespace setVariable [""tawvd_object"",viewDistance];" \n
+       "	profileNamespace setVariable [""tawvd_object"",(getObjectViewDistance select 0)];" \n
        "	saveProfileNamespace;" \n
        "};" \n
        "" \n
@@ -51,7 +51,7 @@ class FSM
        "tawvd_car = profileNamespace getVariable [""tawvd_car"",viewDistance];" \n
        "tawvd_air = profileNamespace getVariable [""tawvd_air"",viewDistance];" \n
        "tawvd_drone = profileNamespace getVariable [""tawvd_drone"",viewDistance];" \n
-       "tawvd_object = profileNamespace getVariable [""tawvd_object"",viewDistance];" \n
+       "tawvd_object = profileNamespace getVariable [""tawvd_object"",(getObjectViewDistance select 0)];" \n
        "" \n
        "tawvd_syncObject = false;" \n
        "_actionID = player addAction[""<t color='#FF0000'>View Settings</t>"",TAWVD_fnc_openMenu,[],-99,false,false,"""",''];"/*%FSM</STATEINIT""">*/;
