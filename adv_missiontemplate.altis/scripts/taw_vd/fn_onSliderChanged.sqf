@@ -33,3 +33,22 @@ if(tawvd_syncObject) then {
 	sliderSetPosition[OBJECT_SLIDER, tawvd_object];
 	ctrlSetText[OBJECT_EDIT,str(tawvd_object)];
 };
+
+_value = round(_value);
+switch (_mode) do {
+	case 0: {
+		profileNamespace setVariable ["tawvd_foot",_value];
+	};
+	case 1: {
+		profileNamespace setVariable ["tawvd_car",_value];
+	};
+	case 2: {
+		profileNamespace setVariable ["tawvd_air",_value];
+	};
+	case 3: {
+		profileNamespace setVariable ["tawvd_object",_value];
+	};
+	case 4: {
+		profileNamespace setVariable ["tawvd_drone",_value];
+	};
+};
