@@ -50,6 +50,9 @@ if ((toUpper worldname) isEqualTo "TANOA") then {
 if (isClass(configFile >> "CfgPatches" >> "ace_rearm") && (ADV_par_modTankAssets == 1 || ADV_par_modTankAssets == 2)) then {
 	missionNamespace setVariable ["ace_rearm_level",0];
 };
+if (isClass(configFile >> "CfgPatches" >> "adv_aceCPR")) then {
+	missionNamespace setVariable ["ace_medical_useCondition_PAK",0];
+};
 
 //cTab-specials:
 if (isClass (configFile >> "CfgPatches" >> "cTab") && ADV_par_Tablets == 1) then {

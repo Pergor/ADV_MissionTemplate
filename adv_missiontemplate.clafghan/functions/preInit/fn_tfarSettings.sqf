@@ -6,10 +6,10 @@ contains all the variables that are important for tfar
 if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 
 	//params needed in case paramsArray not yet defined on client in MP
-	if (isNil "adv_par_customUni") then { adv_par_customUni = ["param_customUni",0] call BIS_fnc_getParamValue; };
-	if (isNil "ADV_par_customWeap") then { adv_par_customWeap = ["param_customWeap",0] call BIS_fnc_getParamValue; };
+	//if (isNil "adv_par_customUni") then { adv_par_customUni = ["param_customUni",0] call BIS_fnc_getParamValue; };
+	//if (isNil "ADV_par_customWeap") then { adv_par_customWeap = ["param_customWeap",0] call BIS_fnc_getParamValue; };
 	//if (isNil "ADV_par_opfUni") then { adv_par_opfUni = ["param_opfUni",0] call BIS_fnc_getParamValue; };
-	if (isNil "adv_par_seriousMode") then { adv_par_seriousMode = ["param_seriousMode",0] call BIS_fnc_getParamValue; };
+	//if (isNil "adv_par_seriousMode") then { adv_par_seriousMode = ["param_seriousMode",0] call BIS_fnc_getParamValue; };
 	//für zusätzliche variablen/functions: https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Variables
 	
 	["TFAR_giveLongRangeRadioToGroupLeaders", false, true, "server"] call CBA_settings_fnc_set;
@@ -22,6 +22,7 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	["TFAR_objectInterceptionEnabled", true, true, "server"] call CBA_settings_fnc_set;
 	//general
 	tfar_terrain_interception_coefficient = 3.0;
+	tfar_speakerDistance = 10;
 
 	//radios
 	TFAR_DefaultRadio_Personal_West = "TFAR_anprc152";
@@ -35,7 +36,6 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	[] spawn {
 		waitUntil {!isNil "ADV_par_seriousMode" && !isNil "adv_par_customUni" };
 		if (adv_par_customUni isEqualTo 9) then { TF_defaultWestPersonalRadio = "tfar_anprc148jem"; };
-		//if ( (adv_par_customWeap isEqualTo 1 || adv_par_customUni isEqualTo 2) && isClass(configFile >> "CfgPatches" >> "tfw_sem52sl") ) then { TF_defaultWestPersonalRadio = "tf_sem52sl"; };
 		if ( ADV_par_seriousMode > 0 ) then {
 			tf_radio_channel_name = "Arma3-TFAR";
 			tf_radio_channel_password = "123";
@@ -44,14 +44,14 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 
 	//frequencies
 	//blufor
-	TFAR_defaultFrequencies_sr_west = ["41","42","43","44","45","46","47","48"];
-	TFAR_defaultFrequencies_lr_west = ["51","52","53","54","55","56","57","58","59"];
+	TFAR_defaultFrequencies_sr_west = ["41.0","42.0","43.0","44.0","45.0","46.0","47.0","48.0"];
+	TFAR_defaultFrequencies_lr_west = ["51.0","52.0","53.0","54.0","55.0","56.0","57.0","58.0","59.0"];
 	
-	TFAR_defaultFrequencies_sr_east = ["41","42","43","44","45","46","47","48"];
-	TFAR_defaultFrequencies_lr_east = ["51","52","53","54","55","56","57","58","59"];
+	TFAR_defaultFrequencies_sr_east = ["41.0","42.0","43.0","44.0","45.0","46.0","47.0","48.0"];
+	TFAR_defaultFrequencies_lr_east = ["51.0","52.0","53.0","54.0","55.0","56.0","57.0","58.0","59.0"];
 	
-	TFAR_defaultFrequencies_sr_independent = ["61","62","63","64","65","66","67","68"];
-	TFAR_defaultFrequencies_lr_independent = ["71","72","73","74","75","76","77","78","79"];
+	TFAR_defaultFrequencies_sr_independent = ["61.0","62.0","63.0","64.0","65.0","66.0","67.0","68.0"];
+	TFAR_defaultFrequencies_lr_independent = ["71.0","72.0","73.0","74.0","75.0","76.0","77.0","78.0","79.0"];
 	
 	_settingsSwWest = [false] call TFAR_fnc_generateSRSettings;
 	_settingsLrWest = [false] call TFAR_fnc_generateLrSettings;
@@ -116,6 +116,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	["TF_same_dd_frequencies_for_side", true, true, "server"] call CBA_settings_fnc_set;
 	//general
 	tf_terrain_interception_coefficient = 3.0;
+	tf_speakerDistance = 10;
 
 	//radios
 	TF_defaultWestPersonalRadio = "tf_anprc152";

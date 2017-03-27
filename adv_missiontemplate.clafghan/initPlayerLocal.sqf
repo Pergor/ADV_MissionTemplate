@@ -46,10 +46,8 @@ if ( (toUpper (goggles player)) in ["MASK_M40_OD","MASK_M40","MASK_M50","G_BALAC
 	"G_BANDANNA_KHK","G_BANDANNA_OLI","G_BANDANNA_SHADES","G_BANDANNA_SPORT","G_BANDANNA_TAN","G_GOGGLES_VR","MURSHUN_CIGS_CIG0","MURSHUN_CIGS_CIG1","MURSHUN_CIGS_CIG2","MURSHUN_CIGS_CIG3","MURSHUN_CIGS_CIG4"]
 ) then { removeGoggles player; };
 sleep 1;
-//loadouts and RespawnMPEVH are placed on the units on spawn. [target]
-[player] call ADV_fnc_applyLoadout;
-sleep 1;
 
+waitUntil {time > 0};
 //the view distance is updated to the saved variables:
 [] call TAWVD_fnc_updateViewDistance;
 
@@ -70,14 +68,6 @@ if (ADV_par_fatigue == 0) then {
 	ADV_fatigue_EVH = player addEventhandler ["Respawn", {player enableFatigue false; player enableStamina false;}]; 
 };
 
-//reduce aim sway coefficient:
-/*
-if (!isClass(configFile >> "CfgPatches" >> "adv_aimcoeff")) then {
-	player setCustomAimCoef 0.8;
-	ADV_setCustomAimCoef_EVH = player addEventhandler ["Respawn",{player setCustomAimCoef 0.8;}];
-};
-*/
-
 //move/remove respawn marker:
 //[120 = Time until the respawn marker is moved again, 20 = radius around the group leader to place the marker]
 /*
@@ -89,13 +79,6 @@ ADV_scriptVar_initMoveMarker_jump = {
 	} count _this;
 };
 */
-//moves the player to position of object called "respawn_helper", if it's present (for Nimitz for example):
-if (!isNil "respawn_helper") then {
-	adv_evh_respawnMover = player addEventhandler ["RESPAWN",{
-		player setPosATL (getPosATL respawn_helper);
-		player setDir (getDir respawn_helper);
-	}];
-};
 //handling of respawned players:
 switch ( ADV_par_moveMarker ) do {
 	case 1: {
@@ -145,9 +128,9 @@ if ( toUpper (str player) in ["Z1","Z2","Z3","Z4","Z5","OPF_Z1","OPF_Z2","OPF_Z3
 	};
 };
 
-//add raise/lower headset-action:
-//[player] spawn ADV_fnc_radioHeadset;
-
+sleep 1;
+//loadouts and RespawnMPEVH are placed on the units on spawn. [target]
+[player] call ADV_fnc_applyLoadout;
 sleep 3;
 titleText ["", "BLACK FADED"];
 sleep 1;
@@ -165,7 +148,9 @@ switch (side (group player)) do {
 	default {};
 };
 
-sleep 4;
+sleep 2;
+[player] spawn adv_fnc_setChannels;
+sleep 2;
 //a little hint stating the date and time
 if ((toUpper worldname) in ["STRATIS","ALTIS"]) then {
 	["Have Fun!"] spawn BIS_fnc_infoText;
@@ -175,19 +160,26 @@ if ((toUpper worldname) in ["STRATIS","ALTIS"]) then {
 	["Have Fun!", "Datum:" + str (date select 2) + "/" + str (date select 1) + "/" + str (date select 0)] spawn BIS_fnc_infoText;
 };
 
-//TFAR Workaround:
-/*
-if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
-	["unit", {
-		if (player != (_this select 0)) then {
-			player setVariable ["TFAR_controlledUnit",(_this select 0), true];
-		} else {
-			player setVariable ["TFAR_controlledUnit",nil, true];
-		};
-
-		TFAR_currentUnit = (_this select 0);
-	}] call CBA_fnc_addPlayerEventHandler;
+//moves the player to position of object called "respawn_helper", if it's present (for Nimitz for example):
+call {
+	if (side player == east && !isNil "respawn_helper_east") exitWith {
+		adv_evh_respawnMover = player addEventhandler ["RESPAWN",{
+			player setPosATL (getPosATL respawn_helper_east);
+			player setDir (getDir respawn_helper_east);
+		}];
+	};
+	if (side player == independent && !isNil "respawn_helper_independent") exitWith {
+		adv_evh_respawnMover = player addEventhandler ["RESPAWN",{
+			player setPosATL (getPosATL respawn_helper_independent);
+			player setDir (getDir respawn_helper_independent);
+		}];
+	};
+	if (!isNil "respawn_helper") exitWith {
+		adv_evh_respawnMover = player addEventhandler ["RESPAWN",{
+			player setPosATL (getPosATL respawn_helper);
+			player setDir (getDir respawn_helper);
+		}];
+	};
 };
-*/
 
 if (true) exitWith {};

@@ -47,6 +47,9 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	_ACE_personalAidKit = 0;
 	if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) > 0 ) then {
 		_ACE_personalAidKit = 5;
+		if (isClass(configFile >> "CfgPatches" >> "adv_aceCPR")) then {
+			_ACE_personalAidKit = 2;
+		};
 	};
 	_ACE_surgicalKit = 1;
 	if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) > 0 ) then {

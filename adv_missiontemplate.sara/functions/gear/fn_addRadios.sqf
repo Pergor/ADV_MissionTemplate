@@ -24,12 +24,6 @@ if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) then {
 
 switch ( true ) do {
 	case ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ): {
-		if ( isClass(configFile >> "CfgPatches" >> "tfw_sem52sl") ) then {
-			if ( ADV_par_customUni == 1 || ADV_par_customUni == 2 || ADV_par_customWeap == 1 ) then {
-				TF_defaultWestPersonalRadio = "tf_sem52sl";
-				TF_defaultWestRiflemanRadio = "tf_sem52sl";
-			};
-		};
 		_personalRadioType = "";
 		_riflemanRadioType = "";
 		if !(isClass(configFile >> "CfgPatches" >> "tfar_core")) then {
@@ -145,6 +139,8 @@ switch ( true ) do {
 	};
 };
 
-[_unit] spawn adv_fnc_setChannels;
+if (isPlayer _unit) then {
+	[_unit] spawn adv_fnc_setChannels;
+};
 
 true;

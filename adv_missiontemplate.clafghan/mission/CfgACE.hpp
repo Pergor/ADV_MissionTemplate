@@ -319,7 +319,7 @@ class ace_medical_medicSetting_basicEpi {
     force = 0;
 };
 class ace_medical_medicSetting_PAK {
-    value = 1;
+    value = 2;
     typeName = "SCALAR";
     force = 0;
 };

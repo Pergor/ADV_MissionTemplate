@@ -16,7 +16,7 @@ class param_ace_medical_GivePAK
 {
 	title = "ACE-Medical: Wer soll PAKs verwenden können?";
 	values[] = {0, 1};
-	default = 1;
+	default = 0;
 	texts[] =  {"Nur der Zugsanitäter", "Zugsanitäter & Gruppensanitäter"};
 };
 class ace_medical_enableAdvancedWounds

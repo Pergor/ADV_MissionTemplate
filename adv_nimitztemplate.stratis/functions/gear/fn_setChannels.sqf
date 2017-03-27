@@ -25,7 +25,7 @@ if ( isClass (configFile >> "CfgPatches" >> "tfar_core") && hasInterface ) exitW
 		private _activeSWRadio = call TFAR_fnc_activeSwRadio;
 		private _hasLRRadio = call TFAR_fnc_haveLRRadio;
 		private _activeLRRadio = if (_hasLRRadio) then {call TFAR_fnc_activeLRRadio} else {[""]};
-		//[_unit] call adv_fnc_setFrequencies;
+		[_unit] call adv_fnc_setFrequencies;
 		
 		if ( toUpper (groupID group _unit) in ["JUPITER","NATTER","LUCHS","MILAN"] ) exitWith {
 			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;

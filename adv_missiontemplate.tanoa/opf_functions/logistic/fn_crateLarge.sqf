@@ -130,7 +130,7 @@ private ["_target"];
 	_ACE_bodyBag = 10;
 	_ACE_personalAidKit = 0;
 	if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) > 0 ) then {
-		_ACE_personalAidKit = 5;
+		_ACE_personalAidKit = 2;
 	};
 	_ACE_surgicalKit = 1;
 	if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) > 0 ) then {

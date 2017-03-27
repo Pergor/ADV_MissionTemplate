@@ -354,7 +354,6 @@ if (!isServer) exitWith {};
 			_ACE_bodyBag = 10;
 			_ACE_epinephrine = 30;
 			_ACE_morphine = 30;
-			_ACE_personalAidKit = 20;
 			_ACE_plasmaIV = 10;
 			_ACE_plasmaIV_500 = 10;
 			_ACE_plasmaIV_250 = 20;
@@ -362,6 +361,10 @@ if (!isServer) exitWith {};
 			_ACE_salineIV_500 = 20;
 			_ACE_salineIV_250 = 20;
 			_ACE_surgicalKit = 10;
+			_ACE_personalAidKit = 20;
+			if (isClass(configFile >> "CfgPatches" >> "adv_aceCPR")) then {
+				_ACE_personalAidKit = 5;
+			};
 			_ACE_tourniquet = 20;
 
 			_ACE_SpareBarrel = 5;

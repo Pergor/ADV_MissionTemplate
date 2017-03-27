@@ -181,7 +181,7 @@ _ACE_salineIV_250 = 0;
 _ACE_bodyBag = 2;
 _ACE_personalAidKit = 0;
 if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) > 0 ) then {
-	_ACE_personalAidKit = 2;
+	_ACE_personalAidKit = 1;
 };
 _ACE_surgicalKit = 1;
 if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) > 0 ) then {
@@ -212,8 +212,11 @@ if (_isMedic) then {
 	_ACE_salineIV_250 = 20;
 	_ACE_bodyBag = 10;
 	_ACE_personalAidKit = 1;
+	if (isClass(configFile >> "CfgPatches" >> "adv_aceCPR")) then {
+		_ACE_personalAidKit = 0;
+	};
 	if (missionNamespace getVariable ["ACE_medical_consumeItem_PAK",0] > 0) then {
-		_ACE_personalAidKit = 10;
+		_ACE_personalAidKit = 5;
 	};
 	_ACE_surgicalKit = 1;
 	if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) > 0 ) then {
