@@ -19,6 +19,14 @@ class param_ace_medical_GivePAK
 	default = 0;
 	texts[] =  {"Nur der Zugsanitäter", "Zugsanitäter & Gruppensanitäter"};
 };
+class ace_medical_consumeItem_PAK
+{
+	title = "ACE-Medical Consume Item PAK";
+	ACE_setting = 1;
+	values[] = {0, 1};
+	default = 0;
+	texts[] =  {"Disabled", "Enabled"};
+};
 class ace_medical_enableAdvancedWounds
 {
 	title = "ACE-Medical Enable Advanced Wounds";
