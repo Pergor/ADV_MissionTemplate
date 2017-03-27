@@ -35,6 +35,11 @@ _silencer = "muzzle_snds_H_MG";		//if silencer is added
 //_primaryweaponAmmo = [3,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 _primaryweaponAmmo = [3,0];
 _additionalAmmo = [3,1,true];
+if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) then {
+	_primaryWeapon = ["LMG_Mk200_F"];
+	_primaryweaponAmmo = if (isClass(configFile >> "CfgPatches" >> "ace_ballistics")) then {[3,4]} else {[3,3]};
+	_additionalAmmo = if (isClass(configFile >> "CfgPatches" >> "ace_ballistics")) then {[3,3,true]} else {[3,2,true]};
+};
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;

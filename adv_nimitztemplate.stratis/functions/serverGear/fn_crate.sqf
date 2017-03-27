@@ -235,13 +235,15 @@ if (!isServer) exitWith {};
 				_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",40];
 				_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",40];
 				_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",40];
-				_target addMagazineCargoGlobal ["150Rnd_762x54_Box",10];
-				_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",10];
 				_target addMagazineCargoGlobal ["130Rnd_338_Mag",10];
 				if (ADV_par_customWeap == 20) then {
 					_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Red_F",20];
 				} else {
 					//_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",20];
+					if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) then {
+						_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box_red",20];
+						_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box_Tracer_red",20];
+					};
 					_target addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer",20];
 				};
 				_target addMagazineCargoGlobal ["11Rnd_45ACP_Mag",10];

@@ -129,7 +129,12 @@ private ["_target"];
 				};
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",40];
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag_Tracer",20];
-				_target addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer",12];
+				call {
+					if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) exitWith {
+						_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box_Tracer_red",12];
+					};
+					_target addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer",12];
+				};
 			};
 			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",20];
 			_target addMagazineCargoGlobal ["130Rnd_338_Mag",12];
@@ -194,7 +199,7 @@ private ["_target"];
 	_ACE_bodyBag = 10;
 	_ACE_personalAidKit = 0;
 	if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) > 0 ) then {
-		_ACE_personalAidKit = 5;
+		_ACE_personalAidKit = 2;
 	};
 	_ACE_surgicalKit = 1;
 	if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) > 0 ) then {

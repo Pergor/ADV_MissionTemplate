@@ -151,7 +151,12 @@ if (_withWeapons) then {
 				_target addWeaponCargoGlobal ["arifle_MXC_Black_F",1];
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",20];
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag_Tracer",10];
-				_target addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer",4];
+				call {
+					if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) exitWith {
+						_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box_Tracer_red",2];
+					};
+					_target addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer",4];
+				};
 			};
 			_target addMagazineCargoGlobal ["130Rnd_338_Mag",2];
 			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",4];

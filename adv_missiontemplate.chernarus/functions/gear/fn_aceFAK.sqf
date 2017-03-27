@@ -82,7 +82,7 @@ switch _FAKtype do {
 			_ACE_salineIV_250 = 0;
 			_ACE_personalAidKit = 1;
 			if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) > 0 ) then {
-				_ACE_personalAidKit = 5;
+				_ACE_personalAidKit = 2;
 			};
 			if ( (adv_par_ace_medical_GivePAK == 0) && !( (["medic_com",(str _unit)] call BIS_fnc_inString) || (["medic_log",(str _unit)] call BIS_fnc_inString) ) ) then {
 				_ACE_personalAidKit = 0;

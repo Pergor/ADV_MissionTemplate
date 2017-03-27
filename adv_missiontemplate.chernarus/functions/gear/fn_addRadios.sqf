@@ -139,6 +139,8 @@ switch ( true ) do {
 	};
 };
 
-[_unit] spawn adv_fnc_setChannels;
+if (isPlayer _unit) then {
+	[_unit] spawn adv_fnc_setChannels;
+};
 
 true;

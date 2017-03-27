@@ -76,7 +76,12 @@ private ["_target"];
 				};
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",20];
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag_Tracer",10];
-				_target addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer",10];
+				call {
+					if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) exitWith {
+						_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box_Tracer_red",5];
+					};
+					_target addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer",10];
+				};
 			};
 			//_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",5];
 			_target addMagazineCargoGlobal ["11Rnd_45ACP_Mag",5];
