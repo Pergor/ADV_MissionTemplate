@@ -14,11 +14,11 @@ _this select 1 = set of items (1 - small amount (soldier's individual pack); 2 -
 if !( isClass(configFile >> "CfgPatches" >> "ACE_medical") ) exitWith {};
 
 params [
-	["_unit", player, [objNull]],
-	["_FAKtype", 1, [0]],
-	"_ACE_Items","_ACE_fieldDressing","_ACE_packingBandage","_ACE_elasticBandage","_ACE_quikclot","_ACE_morphine","_ACE_tourniquet",
-	"_ACE_epinephrine","_ACE_salineIV","_ACE_salineIV_500","_ACE_salineIV_250","_ACE_surgicalKit","_ACE_personalAidKit","_medicBack",
-	"_ACE_bloodIV","_ACE_bloodIV_500","_ACE_bloodIV_250"
+	["_unit", player, [objNull]]
+	,["_FAKtype", 1, [0]]
+	,"_ACE_Items","_ACE_fieldDressing","_ACE_packingBandage","_ACE_elasticBandage","_ACE_quikclot","_ACE_morphine","_ACE_tourniquet"
+	,"_ACE_epinephrine","_ACE_salineIV","_ACE_salineIV_500","_ACE_salineIV_250","_ACE_surgicalKit","_ACE_personalAidKit","_medicBack"
+	,"_ACE_bloodIV","_ACE_bloodIV_500","_ACE_bloodIV_250"
 ];
 
 _ACE_Items = ["ACE_atropine","ACE_adenosine","ACE_fieldDressing","ACE_elasticBandage","ACE_quikclot","ACE_bloodIV","ACE_bloodIV_500","ACE_bloodIV_250","ACE_bodyBag","ACE_epinephrine","ACE_morphine","ACE_packingBandage","ACE_personalAidKit","ACE_plasmaIV","ACE_plasmaIV_500","ACE_plasmaIV_250","ACE_salineIV","ACE_salineIV_500","ACE_salineIV_250","ACE_surgicalKit","ACE_tourniquet"];
@@ -41,6 +41,10 @@ switch _FAKtype do {
 			};
 			_ACE_morphine = 1;
 			_ACE_tourniquet = 2;
+			_ACE_salineIV_500 = 0;
+			if ( isClass(configFile >> "CfgPatches" >> "adv_aceCPR") ) then {
+				_ACE_salineIV_500 = 1;
+			};
 
 			for "_i" from 1 to _ACE_fieldDressing do { _unit addItem "ACE_fieldDressing"; };
 			for "_i" from 1 to _ACE_elasticBandage do { _unit addItem "ACE_elasticBandage"; };
@@ -50,6 +54,7 @@ switch _FAKtype do {
 			for "_i" from 1 to _ACE_morphine do { _unit addItem "ACE_morphine"; };
 
 			for "_i" from 1 to _ACE_tourniquet do { _unit addItem "ACE_tourniquet"; };
+			for "_i" from 1 to _ACE_salineIV_500 do { _unit addItem "ACE_salineIV_500"; };
 		} else {
 			_ACE_fieldDressing = 12;
 			_ACE_morphine = 1;
