@@ -31,6 +31,9 @@ _primaryweaponAmmo = [8,0];		//first number: Amount of magazines, second number:
 _additionalAmmo = [12,"30Rnd_65x39_caseless_mag",true];
 //_additionalAmmo1 = [2,"200Rnd_65x39_cased_Box",true];
 _additionalAmmo1 = [4,"100Rnd_65x39_caseless_mag_Tracer",true];
+if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) then {
+	_additionalAmmo1 = [2,"200Rnd_65x39_cased_Box_Tracer_red",true];
+};
 _additionalAmmo2 = [12,"1Rnd_HE_Grenade_shell",true];
 
 //40mm Grenades - (integer)
