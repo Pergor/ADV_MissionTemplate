@@ -108,7 +108,7 @@ _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a riflem
 //ACE items (if ACE is running on the server) - (integers)
 _ACE_EarPlugs = 1;
 
-_ace_FAK = 2;		//Adds a standard amount of medical items. Defined in fn_aceFAK.sqf
+_ace_FAK = 3;		//Adds a standard amount of medical items. Defined in fn_aceFAK.sqf
 _ACE_fieldDressing = 0;
 _ACE_packingBandage = 0;
 _ACE_elasticBandage = 0;
@@ -259,12 +259,14 @@ switch (toUpper ([str (_this select 0),3,12] call BIS_fnc_trimString)) do {
 		_androidDevice = true;
 		_microDAGR = false;
 		_ACE_MapTools = 1;
-		_ACE_isMedic = 2;
+	};
+	case "MEDIC_LEA": {
+		_androidDevice = true;
+		_microDAGR = false;
 	};
 	case "MEDIC_LOG": {
 		_androidDevice = true;
 		_microDAGR = false;
-		_ACE_isMedic = 2;
 	};
 };
 

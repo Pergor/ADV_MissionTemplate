@@ -130,7 +130,7 @@ _ACE_salineIV_500 = 10;
 _ACE_salineIV_250 = 0;
 _ACE_bodyBag = 0;
 _ACE_surgicalKit = 1;
-_ACE_personalAidKit = 1;
+_ACE_personalAidKit = 2;
 
 _ACE_SpareBarrel = 0;
 _ACE_UAVBattery = 0;
