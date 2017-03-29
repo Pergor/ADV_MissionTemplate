@@ -111,18 +111,17 @@ _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a riflem
 
 //ACE items (if ACE is running on the server) - (integers)
 _ACE_EarPlugs = 1;
-_ACE_dogtags = 1;
 
-_ace_FAK = 2;		//overwrites the values for medical items and adds a specified number of medical items. Defined in fn_aceFAK.sqf
-_ACE_fieldDressing = 18;
-_ACE_elasticBandage = 18;
-_ACE_packingBandage = 32;
-_ACE_quikclot = 32;
+_ace_FAK = 2;		//Adds a standard amount of medical items. Defined in fn_aceFAK.sqf
+_ACE_fieldDressing = 0;
+_ACE_packingBandage = 0;
+_ACE_elasticBandage = 0;
+_ACE_quikclot = 0;
 _ACE_atropine = 0;
-_ACE_adenosine = 10;
-_ACE_epinephrine = 12;
-_ACE_morphine = 12;
-_ACE_tourniquet = 6;
+_ACE_adenosine = 0;
+_ACE_epinephrine = 0;
+_ACE_morphine = 0;
+_ACE_tourniquet = 0;
 _ACE_bloodIV = 0;
 _ACE_bloodIV_500 = 0;
 _ACE_bloodIV_250 = 0;
@@ -130,11 +129,11 @@ _ACE_plasmaIV = 0;
 _ACE_plasmaIV_500 = 0;
 _ACE_plasmaIV_250 = 0;
 _ACE_salineIV = 0;
-_ACE_salineIV_500 = 12;
+_ACE_salineIV_500 = 0;
 _ACE_salineIV_250 = 0;
 _ACE_bodyBag = 0;
-_ACE_surgicalKit = 1;
-_ACE_personalAidKit = 1;
+_ACE_personalAidKit = 0;
+_ACE_surgicalKit = 0;
 
 _ACE_SpareBarrel = 0;
 _ACE_UAVBattery = 0;
@@ -311,25 +310,26 @@ if !( ADV_par_opfUni==6 ) then {
 	switch (toUpper ([str (_this select 0),3,12] call BIS_fnc_trimString)) do {
 		case "MEDIC_COM": {
 			_binocular = "Rangefinder";
-			_givePersonalRadio = true;
-			_giveRiflemanRadio = false;
 			_androidDevice = true;
 			_microDAGR = false;
 			_ACE_MapTools = 1;
+			_ACE_isMedic = 2;
+		};
+		case "MEDIC_LOG": {
+			_androidDevice = true;
+			_microDAGR = false;
+			_ACE_isMedic = 2;
 		};
 	};
 };
+
+if ( {[_this select 0,_x] call adv_fnc_inGroup} count ["MILAN","LUCHS","ORCA","FALKE","GEPARD","ELSTER"] > 0 ) then {
+	_ACE_isMedic = 2;
+	_ACE_personalAidKit = 1;
+};
+
 ///// No editing necessary below this line /////
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
-
-/*
-if ( isClass(configFile >> "CfgPatches" >> "ACE_medical") && ADV_par_logisticAmount > 2 ) then {
-	[_player,
-		[("<t color=""#00FF00"">" + ("Replenish Medic Items") + "</t>"), {[(_this select 1),1] call adv_fnc_acefak},nil,6,false,true,"","(player != _target) && vehicle player == player && !( (['medic',(str player)] call BIS_fnc_inString) || (['cls',(str player)] call BIS_fnc_inString) )",2]
-	] remoteExec ["addAction",0,true];
-};
-*/
-
 
 nil;

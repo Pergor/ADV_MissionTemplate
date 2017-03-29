@@ -19,6 +19,13 @@ class param_ace_medical_GivePAK
 	default = 0;
 	texts[] =  {"Nur der Zugsanitäter", "Zugsanitäter & Gruppensanitäter"};
 };
+class param_adv_aceCPR_onlyDoctors
+{
+	title = "ACE-Medical: Sollen ausschließlich Zug- und MEDEVAC-Sanitäter durch CPR wiederbeleben können? (Nur im Zusammenhang mit adv_aceCPR.)";
+	values[] = {0, 1};
+	default = 0;
+	texts[] =  {"Nein", "Ja"};
+};
 class ace_medical_consumeItem_PAK
 {
 	title = "ACE-Medical Consume Item PAK";

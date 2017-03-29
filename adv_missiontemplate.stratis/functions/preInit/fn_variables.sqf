@@ -41,7 +41,6 @@ switch ( ADV_par_customUni ) do {
 	case 2: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_aridMaps) then {1} else {2}; };
 	default {};
 };
-
 if ((toUpper worldname) isEqualTo "TANOA") then {
 	if ( ADV_par_customUni == 0 ) then { ADV_par_customUni = 20 };
 	if ( ADV_par_opfUni == 0 ) then { ADV_par_opfUni = 20 };
@@ -49,9 +48,6 @@ if ((toUpper worldname) isEqualTo "TANOA") then {
 
 if (isClass(configFile >> "CfgPatches" >> "ace_rearm") && (ADV_par_modTankAssets == 1 || ADV_par_modTankAssets == 2)) then {
 	missionNamespace setVariable ["ace_rearm_level",0];
-};
-if (isClass(configFile >> "CfgPatches" >> "adv_aceCPR")) then {
-	missionNamespace setVariable ["ace_medical_useCondition_PAK",0];
 };
 
 //cTab-specials:

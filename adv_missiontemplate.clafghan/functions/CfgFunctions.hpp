@@ -87,8 +87,9 @@ class ADV
 		class execTeleport {};
 		class flag {};
 		class fullHeal {};
-		class moveRespMarker {};
+		class inGroup {};
 		class mileage {};
+		class moveRespMarker {};
 		class paraJump {};
 		class paraJumpSelection {};
 		class playerUnit {};

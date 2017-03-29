@@ -117,7 +117,7 @@ _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a riflem
 _ACE_EarPlugs = 1;
 _ACE_dogtags = 1;
 
-_ace_FAK = 0;		//overwrites the values for bandages, morphine and tourniquet and adds a specified number of bandages and morphine. Defined in fn_aceFAK.sqf
+_ace_FAK = 0;		//Adds a standard amount of medical items. Defined in fn_aceFAK.sqf
 _ACE_fieldDressing = 4;
 _ACE_packingBandage = 8;
 _ACE_elasticBandage = 8;

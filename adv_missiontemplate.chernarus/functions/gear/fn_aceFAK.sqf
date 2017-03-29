@@ -16,13 +16,15 @@ if !( isClass(configFile >> "CfgPatches" >> "ACE_medical") ) exitWith {};
 params [
 	["_unit", player, [objNull]]
 	,["_FAKtype", 1, [0]]
-	,"_ACE_Items","_ACE_fieldDressing","_ACE_packingBandage","_ACE_elasticBandage","_ACE_quikclot","_ACE_morphine","_ACE_tourniquet"
-	,"_ACE_epinephrine","_ACE_salineIV","_ACE_salineIV_500","_ACE_salineIV_250","_ACE_surgicalKit","_ACE_personalAidKit","_medicBack"
+	,"_ACE_Items","_ACE_fieldDressing","_ACE_packingBandage","_ACE_elasticBandage","_ACE_quikclot","_ACE_tourniquet","_ACE_morphine","_ACE_epinephrine"
+	,"_ACE_salineIV","_ACE_salineIV_500","_ACE_salineIV_250"
+	,"_ACE_plasmaIV","_ACE_plasmaIV_500","_ACE_plasmaIV_250"
 	,"_ACE_bloodIV","_ACE_bloodIV_500","_ACE_bloodIV_250"
+	,"_ACE_surgicalKit","_ACE_personalAidKit","_ACE_bodyBag","_medicBack"
 ];
 
 _ACE_Items = ["ACE_atropine","ACE_adenosine","ACE_fieldDressing","ACE_elasticBandage","ACE_quikclot","ACE_bloodIV","ACE_bloodIV_500","ACE_bloodIV_250","ACE_bodyBag","ACE_epinephrine","ACE_morphine","ACE_packingBandage","ACE_personalAidKit","ACE_plasmaIV","ACE_plasmaIV_500","ACE_plasmaIV_250","ACE_salineIV","ACE_salineIV_500","ACE_salineIV_250","ACE_surgicalKit","ACE_tourniquet"];
-{ _unit removeItems _x } forEach _ACE_Items;
+{ _unit removeItems _x; nil;} count _ACE_Items;
 
 switch _FAKtype do {
 	default {
@@ -82,22 +84,22 @@ switch _FAKtype do {
 			_ACE_epinephrine = 12;
 			_ACE_morphine = 12;
 			_ACE_tourniquet = 6;
-			_ACE_salineIV = 0;
-			_ACE_salineIV_500 = 12;
-			_ACE_salineIV_250 = 0;
-			_ACE_personalAidKit = 1;
-			if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) > 0 ) then {
-				_ACE_personalAidKit = 2;
-			};
-			if ( (adv_par_ace_medical_GivePAK == 0) && !( (["medic_com",(str _unit)] call BIS_fnc_inString) || (["medic_log",(str _unit)] call BIS_fnc_inString) ) ) then {
-				_ACE_personalAidKit = 0;
+			_ACE_plasmaIV = 0;
+			_ACE_plasmaIV_500 = 12;
+			_ACE_plasmaIV_250 = 0;
+			_ACE_personalAidKit = 0;
+			if ( adv_par_ace_medical_GivePAK == 1 ) then {
+				_ACE_personalAidKit = 1;
+				if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) > 0 ) then {
+					_ACE_personalAidKit = 2;
+				};
 			};
 			_ACE_surgicalKit = 1;
 			if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) > 0 ) then {
 				_ACE_surgicalKit = 5;
 			};
 			
-			if !(_backpack == "") then {
+			if !(backpack _unit == "") then {
 				_mediBack = unitBackpack _unit;
 				
 				if ( missionnamespace getVariable ["ace_medical_enableAdvancedWounds",true] ) then {
@@ -116,9 +118,9 @@ switch _FAKtype do {
 				_mediBack addItemCargoGlobal ["ACE_atropine", _ACE_atropine];
 				_mediBack addItemCargoGlobal ["ACE_tourniquet", _ACE_tourniquet];
 				
-				_mediBack addItemCargoGlobal ["ACE_salineIV", _ACE_salineIV];
-				_mediBack addItemCargoGlobal ["ACE_salineIV_500", _ACE_salineIV_500];
-				_mediBack addItemCargoGlobal ["ACE_salineIV_250", _ACE_salineIV_250];
+				_mediBack addItemCargoGlobal ["ACE_plasmaIV", _ACE_plasmaIV];
+				_mediBack addItemCargoGlobal ["ACE_plasmaIV_500", _ACE_plasmaIV_500];
+				_mediBack addItemCargoGlobal ["ACE_plasmaIV_250", _ACE_plasmaIV_250];
 				
 			} else {
 				for "_i" from 1 to _ACE_fieldDressing do { _unit addItem "ACE_fieldDressing"; };
@@ -133,9 +135,9 @@ switch _FAKtype do {
 				
 				for "_i" from 1 to _ACE_tourniquet do { _unit addItem "ACE_tourniquet"; };
 				
-				for "_i" from 1 to _ACE_salineIV do { _unit addItem "ACE_salineIV"; };
-				for "_i" from 1 to _ACE_salineIV_500 do { _unit addItem "ACE_salineIV_500"; };
-				for "_i" from 1 to _ACE_salineIV_250 do { _unit addItem "ACE_salineIV_250"; };
+				for "_i" from 1 to _ACE_salineIV do { _unit addItem "ACE_plasmaIV"; };
+				for "_i" from 1 to _ACE_salineIV_500 do { _unit addItem "ACE_plasmaIV_500"; };
+				for "_i" from 1 to _ACE_salineIV_250 do { _unit addItem "ACE_plasmaIV_250"; };
 				
 				if ( missionnamespace getVariable ["ace_medical_enableAdvancedWounds",true] ) then {
 					for "_i" from 1 to _ACE_surgicalKit do { _unit addItem "ACE_surgicalKit"; };

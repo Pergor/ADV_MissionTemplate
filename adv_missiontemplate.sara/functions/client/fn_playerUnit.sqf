@@ -50,7 +50,6 @@ if (side _target == west) then {
 		default {
 			switch true do {
 				case ( toUpper (_object select [0,3]) == "FTL" ): {"ADV_fnc_ftLeader"};
-				case ( toUpper (_object select [0,8]) == "FTLEADER" ): {"ADV_fnc_ftLeader"};
 				case ( toUpper (_object select [0,9]) == "SOLDIERAT" ): {"ADV_fnc_soldierAT"};
 				case ( toUpper (_object select [0,7]) == "SOLDIER" ): {"ADV_fnc_soldier"};
 				case ( toUpper (_object select [0,5]) == "ASSAR" ): {"ADV_fnc_assAR"};

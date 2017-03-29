@@ -104,9 +104,9 @@ _giveBackpackRadio = false;
 _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a rifleman radio
 
 //ACE items (if ACE is running on the server) - (integers)
-_ACE_EarPlugs = 0;
+_ACE_EarPlugs = 1;
 
-_ace_FAK = 0;		//overwrites the values for bandages, morphine and tourniquet and adds a specified number of bandages and morphine. Defined in fn_aceFAK.sqf
+_ace_FAK = 0;		//Adds a standard amount of medical items. Defined in fn_aceFAK.sqf
 _ACE_fieldDressing = 0;
 _ACE_elasticBandage = 0;
 _ACE_packingBandage = 0;
@@ -126,8 +126,8 @@ _ACE_salineIV = 0;
 _ACE_salineIV_500 = 0;
 _ACE_salineIV_250 = 0;
 _ACE_bodyBag = 0;
-_ACE_personalAidKit = 0;
 _ACE_surgicalKit = 0;
+_ACE_personalAidKit = 0;
 
 _ACE_SpareBarrel = 0;
 _ACE_EntrenchingTool = 0;
