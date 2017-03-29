@@ -18,7 +18,7 @@ waitUntil {!isNil "ADV_params_defined"};
 [] spawn compile preprocessFileLineNumbers "mission\init_custom.sqf";
 
 if ( isServer ) then {
-	BIS_initRespawn_disconnect = -1;
+	//BIS_initRespawn_disconnect = -1;
 	//time and date:
 	setDate [2016, 8, ADV_par_day, ADV_par_hour, ADV_par_minute];
 

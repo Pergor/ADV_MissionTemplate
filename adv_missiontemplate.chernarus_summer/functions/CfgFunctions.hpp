@@ -107,6 +107,7 @@ class ADV
 		class aceFAK {};
 		class aceGear {};
 		class aceGunbag {};
+		class aceMedicalItems {};
 		class add40mm {};
 		class addGPS {};
 		class addGrenades {};

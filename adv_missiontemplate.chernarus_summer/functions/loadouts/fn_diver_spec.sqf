@@ -111,16 +111,16 @@ _tfar_microdagr = 0;				//adds the tfar microdagr to set the channels for a rifl
 //ACE items (if ACE is running on the server) - (integers)
 _ACE_EarPlugs = 1;
 
-_ace_FAK = 0;		//Adds a standard amount of medical items. Defined in fn_aceFAK.sqf
-_ACE_fieldDressing = 3;
-_ACE_packingBandage = 8;
-_ACE_elasticBandage = 8;
+_ace_FAK = 1;		//Adds a standard amount of medical items. Defined in fn_aceFAK.sqf
+_ACE_fieldDressing = 0;
+_ACE_packingBandage = 0;
+_ACE_elasticBandage = 0;
 _ACE_quikclot = 6;
 _ACE_atropine = 0;
 _ACE_adenosine = 0;
-_ACE_epinephrine = 0;
-_ACE_morphine = 2;
-_ACE_tourniquet = 2;
+_ACE_epinephrine = 2;
+_ACE_morphine = 1;
+_ACE_tourniquet = 0;
 _ACE_bloodIV = 0;
 _ACE_bloodIV_500 = 0;
 _ACE_bloodIV_250 = 0;

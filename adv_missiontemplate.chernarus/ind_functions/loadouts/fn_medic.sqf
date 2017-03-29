@@ -259,14 +259,12 @@ switch (toUpper ([str (_this select 0),3,12] call BIS_fnc_trimString)) do {
 		_androidDevice = true;
 		_microDAGR = false;
 		_ACE_MapTools = 1;
-	};
-	case "MEDIC_LEA": {
-		_androidDevice = true;
-		_microDAGR = false;
+		_ACE_isMedic = 2;
 	};
 	case "MEDIC_LOG": {
 		_androidDevice = true;
 		_microDAGR = false;
+		_ACE_isMedic = 2;
 	};
 };
 

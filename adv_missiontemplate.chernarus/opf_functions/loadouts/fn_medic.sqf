@@ -306,21 +306,19 @@ if (isClass(configFile >> "CfgPatches" >> "adv_insignia")) then {
 	_insignium = "ADV_insignia_medic";
 };
 
-if !( ADV_par_opfUni == 6 ) then {
+if !( ADV_par_opfUni==6 ) then {
 	switch (toUpper ([str (_this select 0),3,12] call BIS_fnc_trimString)) do {
 		case "MEDIC_COM": {
 			_binocular = "Rangefinder";
 			_androidDevice = true;
 			_microDAGR = false;
 			_ACE_MapTools = 1;
-		};
-		case "MEDIC_LEA": {
-			_androidDevice = true;
-			_microDAGR = false;
+			_ACE_isMedic = 2;
 		};
 		case "MEDIC_LOG": {
 			_androidDevice = true;
 			_microDAGR = false;
+			_ACE_isMedic = 2;
 		};
 	};
 };
