@@ -36,7 +36,7 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	//tfar serious mode
 	[] spawn {
 		waitUntil {!isNil "ADV_par_seriousMode" && !isNil "adv_par_customUni" };
-		if (adv_par_customUni isEqualTo 9) then { TF_defaultWestPersonalRadio = "tfar_anprc148jem"; };
+		if (adv_par_customUni isEqualTo 9) then { TFAR_DefaultRadio_Personal_West = "tfar_anprc148jem"; };
 		if ( ADV_par_seriousMode > 0 ) then {
 			tf_radio_channel_name = "Arma3-TFAR";
 			tf_radio_channel_password = "123";

@@ -54,11 +54,11 @@ ADV_ind_veh_artys = [];
 		case ( _vehicleName select [0,12] == "ind_air_c130" ): { ADV_ind_veh_airC130 pushBack _vehicleName; };
 		//MRAPs
 		case ( _vehicleName select [0,12] == "ind_MRAP_hmg" ): { ADV_ind_veh_MRAPsHMG pushBack _vehicleName; };
+		case ( _vehicleName select [0,14] == "ind_OffroadHMG" ): { ADV_ind_veh_MRAPsHMG pushBack _vehicleName; };
 		case ( _vehicleName select [0,12] == "ind_MRAP_gmg" ): { ADV_ind_veh_MRAPsGMG pushBack _vehicleName; };
 		case ( _vehicleName select [0,8] == "ind_MRAP" ): { ADV_ind_veh_MRAPs pushBack _vehicleName; };
-		case ( _vehicleName select [0,7] == "ind_SUV" ): { ADV_ind_veh_SUV pushBack _vehicleName; };
-		case ( _vehicleName select [0,14] == "ind_OffroadHMG" ): { ADV_ind_veh_OffroadHMG pushBack _vehicleName; };
-		case ( _vehicleName select [0,11] == "ind_Offroad" ): { ADV_ind_veh_Offroad pushBack _vehicleName; };
+		case ( _vehicleName select [0,7] == "ind_SUV" ): { ADV_ind_veh_MRAPs pushBack _vehicleName; };
+		case ( _vehicleName select [0,11] == "ind_Offroad" ): { ADV_ind_veh_MRAPs pushBack _vehicleName; };
 		//logistics
 		case ( _vehicleName select [0,7] == "ind_uav" ): { ADV_ind_veh_UAVs pushBack _vehicleName; };
 		case ( _vehicleName select [0,7] == "ind_ugv" ): { ADV_ind_veh_UGVs pushBack _vehicleName; };

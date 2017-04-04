@@ -1,4 +1,8 @@
-﻿//_iedTypes = ["IEDLANDBIG_REMOTE_AMMO","IEDURBANBIG_REMOTE_AMMO","IEDLANDSMALL_REMOTE_AMMO","IEDURBANSMALL_REMOTE_AMMO"];
+﻿/*
+adv_fnc_IEDhandler;
+
+[] call adv_fnc_IEDhandler
+*/
 
 if !(isClass(configFile >> "CfgPatches" >> "ace_explosives")) exitWith {};
 
@@ -22,14 +26,3 @@ if !(isClass(configFile >> "CfgPatches" >> "ace_explosives")) exitWith {};
 	};
 	nil;
 } count allMines;
-
-/*
-{
-	private _mine = _x;
-	private _pos = getPos _mine;
-	private _trg createTrigger ["EmptyDetector", _pos, false];
-	_trg setTriggerArea [0.8, 0.8, 0, false];
-	_trg setTriggerActivation ["ANY", "PRESENT", false];
-	_trg setTriggerStatements ["this && !isNull"+_mine, ""+_mine+" setDamage 1;", ""];
-} count allMines;
-*/

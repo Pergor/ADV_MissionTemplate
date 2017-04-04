@@ -86,11 +86,11 @@ call {
 tawvd_disablenone = true;
 tawvd_maxRange = 12000;
 
-//finalization:
-ADV_variables_defined = true;
-
 //sthud:
 STHud_NoSquadBarMode = true;
 STHud_ShowBearingInVehicle = false;
+
+//finalization:
+ADV_variables_defined = true;
 
 if (true) exitWith {};
