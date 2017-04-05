@@ -71,6 +71,12 @@ call {
 		};
 		nil;
 	} count _vehicles;
+	if (_side == civilian) then {
+		_grp setBehaviour "CARELESS";
+		_grp setCombatMode "BLUE";
+		_grp setSpeedMode "LIMITED";
+		{ _x disableAI "AUTOCOMBAT"; _x setUnitPos "UP"; } count (units _grp);
+	};
 };
 
 _grp;

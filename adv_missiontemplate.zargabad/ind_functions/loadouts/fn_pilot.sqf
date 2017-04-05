@@ -233,6 +233,7 @@ switch (ADV_par_indUni) do {
 	case 20: {
 	//Apex Syndikat
 		_uniform = ["U_I_C_Soldier_Camo_F","U_I_C_Soldier_Para_1_F","U_I_C_Soldier_Para_2_F","U_I_C_Soldier_Para_3_F"];
+		_headgear = ["H_Cap_headphones","H_Shemag_olive","H_MilCap_gry","H_MilCap_blue","H_Cap_oli","H_Cap_grn","H_Booniehat_oli","H_Bandanna_khk","","","",""];
 		_giveRiflemanRadio = true;
 		_givePersonalRadio = false;
 	};

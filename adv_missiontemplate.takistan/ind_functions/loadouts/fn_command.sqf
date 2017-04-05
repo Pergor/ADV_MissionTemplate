@@ -217,7 +217,7 @@ switch (ADV_par_indWeap) do {
 		_primaryweaponAmmo set [1,1];
 		_optic = ["optic_Holosight_blk_F"];
 	};
-	case 20: {
+	case 21: {
 		//APEX AKM
 		_primaryWeapon = ["arifle_AKM_F","arifle_AKM_F","arifle_AKM_F","arifle_AK12_F"];
 		_optic = [""];
@@ -245,9 +245,7 @@ switch (ADV_par_indUni) do {
 	//Apex Syndikat
 		_uniform = ["U_I_C_Soldier_Camo_F"];
 		_vest = ["V_TacVest_oli","V_I_G_resistanceLeader_F"];
-		_giveRiflemanRadio = true;
-		_givePersonalRadio = true;
-		_giveBackpackRadio = false;
+		_headgear = ["H_Cap_headphones","H_Shemag_olive","H_MilCap_gry","H_MilCap_blue","H_Cap_oli","H_Cap_grn","H_Booniehat_oli","H_Bandanna_khk","","","",""];
 		if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
 			_giveRiflemanRadio = true;
 			_givePersonalRadio = false;
