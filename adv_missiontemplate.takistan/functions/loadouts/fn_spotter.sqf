@@ -344,6 +344,10 @@ switch (ADV_par_customUni) do {
 		_vest = ["BWA3_Vest_Marksman_Tropen"];
 		_backpack = ["BWA3_PatrolPack_Tropen"];
 		_headgear = ["BWA3_Booniehat_Tropen"];
+		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
+			_vest = ["pbw_koppel_grpfhr"];
+			_items pushback "PBW_muetze1_tropen";
+		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _items = _items-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
 	};
 	case 2: {
@@ -352,6 +356,10 @@ switch (ADV_par_customUni) do {
 		_vest = ["BWA3_Vest_Marksman_Fleck"];
 		_backpack = ["BWA3_PatrolPack_Fleck"];
 		_headgear = ["BWA3_Booniehat_Fleck"];
+		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
+			_vest = ["pbw_koppel_grpfhr"];
+			_items pushback "PBW_muetze1_fleck";
+		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _items = _items-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
 	};
 	case 3: {

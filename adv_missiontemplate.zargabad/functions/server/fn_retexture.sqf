@@ -27,3 +27,9 @@ if ( isClass(configFile >> "CfgPatches" >> "adv_retex") ) exitWith {
 		[_target] call adv_retex_fnc_setTextureMora;
 	};
 };
+if ( toUpper (typeOf _target) in ['BWA3_EAGLE_TROPEN'] ) exitWith {
+	[_target,['Tropen', 0.5, 'Tropen3', 0.5],["backpack_back",1]] call BIS_fnc_initVehicle;
+};
+if ( toUpper (typeOf _target) in ['BWA3_EAGLE_FLW100_TROPEN'] ) exitWith {
+	[_target,['Tropen2', 0.5, 'Tropen6', 0.5],["backpack_back",1]] call BIS_fnc_initVehicle;
+};

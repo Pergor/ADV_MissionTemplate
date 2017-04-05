@@ -276,10 +276,11 @@ switch (ADV_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
 		_uniform = ["BWA3_Uniform_Crew_Tropen"];
-		if (isClass(configFile >> "CfgPatches" >> "German_feldbluse_patches")) then { _uniform = ["PBW_Uniform1_tropen","PBW_Uniform1H_tropen"]; };
 		_vest = ["BWA3_Vest_Tropen"];
 		_headgear = ["BWA3_CrewmanKSK_Tropen_Headset"];
-		if (isClass(configFile >> "CfgPatches" >> "example_german_headgear_config")) then {
+		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
+			_uniform = ["PBW_Uniform1_tropen","PBW_Uniform3_tropen"];
+			_vest = ["pbw_koppel_grpfhr"];
 			_items pushback "PBW_muetze1_tropen";
 		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
@@ -287,10 +288,11 @@ switch (ADV_par_customUni) do {
 	case 2: {
 		//BWmod Fleck
 		_uniform = ["BWA3_Uniform_Crew_Fleck"];
-		if (isClass(configFile >> "CfgPatches" >> "German_feldbluse_patches")) then { _uniform = ["PBW_Uniform1_fleck","PBW_Uniform1H_fleck"]; };
 		_vest = ["BWA3_Vest_Fleck"];
 		_headgear = ["BWA3_CrewmanKSK_Fleck_Headset"];
-		if (isClass(configFile >> "CfgPatches" >> "example_german_headgear_config")) then {
+		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
+			_uniform = ["PBW_Uniform1_fleck","PBW_Uniform3_fleck"];
+			_vest = ["pbw_koppel_grpfhr"];
 			_items pushback "PBW_muetze1_fleck";
 		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };

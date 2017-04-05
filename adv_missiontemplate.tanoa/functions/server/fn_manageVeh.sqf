@@ -160,22 +160,20 @@ if (ADV_par_TIEquipment == 2 || ADV_par_TIEquipment == 4) then {
 
 //replaces MRAPS with mod cars:
 switch (ADV_par_modCarAssets) do {
-	//Bundeswehr
+	//BW-Fahrzeuge
 	case 1: {
 		[] call {
 			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
-				[ADV_veh_MRAPs,["Fennek_Tropen","Fennek_Tropen","Fennek_Tropen","Fennek_Tropen_san"],west] spawn ADV_fnc_changeVeh;
-				[ADV_veh_MRAPsHMG,["CUP_B_Dingo_Ger_Des"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsGMG,["CUP_B_Dingo_GL_Ger_Des"],west] spawn ADV_fnc_changeVeh;
+				[ADV_veh_MRAPs,["Fennek_Tropen","BWA3_Eagle_Tropen"],west] spawn ADV_fnc_changeVeh;
+				[ADV_veh_MRAPsHMG,["CUP_B_Dingo_Ger_Des","BWA3_Eagle_FLW100_Tropen"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsGMG,["CUP_B_Dingo_GL_Ger_Des"],west] spawn ADV_fnc_changeVeh;
 			};
-			[ADV_veh_MRAPs,["Fennek_Flecktarn","Fennek_Flecktarn","Fennek_Flecktarn","Fennek_Flecktarn_san"],west] spawn ADV_fnc_changeVeh;
-			[ADV_veh_MRAPsHMG,["CUP_B_Dingo_Ger_Wdl"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsGMG,["CUP_B_Dingo_GL_Ger_Wdl"],west] spawn ADV_fnc_changeVeh;
+			[ADV_veh_MRAPs,["Fennek_Flecktarn","BWA3_Eagle_Fleck"],west] spawn ADV_fnc_changeVeh;
+			[ADV_veh_MRAPsHMG,["CUP_B_Dingo_Ger_Wdl","BWA3_Eagle_FLW100_Fleck"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsGMG,["CUP_B_Dingo_GL_Ger_Wdl"],west] spawn ADV_fnc_changeVeh;
 		};
 		//[ADV_veh_MRAPsHMG,["BW_Dingo_Des"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsGMG,["BW_Dingo_GL_Des"],west] spawn ADV_fnc_changeVeh;
 	};
-	//Bundeswehr woodland
-	case 2: {
-		//[ADV_veh_MRAPsHMG,["BW_Dingo_Wdl"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsGMG,["BW_Dingo_GL_Wdl"],west] spawn ADV_fnc_changeVeh;
-	};
+	//Bundeswehr Eagles
+	case 2: {};
 	//CUP BAF
 	case 3: {
 		[] call {
@@ -473,7 +471,7 @@ switch (ADV_par_modHeliAssets) do {
 	case 1: {
 		[ADV_veh_airTransport,["BW_NH90Armed","BW_NH90Armed","BW_NH90Armed","BW_NH90","CUP_B_UH1D_GER_KSK","CUP_B_UH1D_GER_KSK"],west] spawn ADV_fnc_changeVeh;
 		//[ADV_veh_airRecon,["EC635_Unarmed_BW","EC635_BW"],west] spawn ADV_fnc_changeVeh;
-		[ADV_veh_airRecon,["CUP_B_UH1D_GER_KSK"],west] spawn ADV_fnc_changeVeh;
+		[ADV_veh_airRecon,["BWA3_Tiger_Gunpod_Heavy","BWA3_Tiger_Gunpod_PARS","CUP_B_UH1D_GER_KSK","CUP_B_UH1D_GER_KSK"],west] spawn ADV_fnc_changeVeh;
 		[ADV_veh_airLogistic,["CUP_B_CH53E_GER"],west] spawn ADV_fnc_changeVeh;
 	};
 	//BAFHelis

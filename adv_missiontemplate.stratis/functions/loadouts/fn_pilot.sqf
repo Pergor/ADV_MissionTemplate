@@ -285,12 +285,18 @@ switch (true) do {
 		//BWmod Tropen
 		_uniform = ["BWA3_Uniform_Helipilot"];
 		_vest = ["BWA3_Vest_Tropen"];
+		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
+			_items pushback "PBW_muetze1_tropen";
+		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
 	};
 	case (ADV_par_customUni == 2): {
 		//BWmod Fleck
 		_uniform = ["BWA3_Uniform_Helipilot"];
 		_vest = ["BWA3_Vest_Fleck"];
+		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
+			_items pushback "PBW_muetze1_fleck";
+		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
 	};	
 	case (ADV_par_customUni >= 3 && ADV_par_customUni < 7): {
