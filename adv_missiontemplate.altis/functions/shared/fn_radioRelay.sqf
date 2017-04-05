@@ -6,7 +6,7 @@ The distance multiplicator is applied to all units of the side provided if at le
 If a radio repeater is destroyed, damaged beyond 60% or descended below the given minimum height it will stop working as a radio repeater.
 If the last radio repeater is deactivated, the distance multiplicator is removed for all units of the side provided.
 
-Possible call - has to be executed on client and server:
+Possible call - has to be executed globally:
 
 in init.sqf:
 [VEHICLE, west, 90] spawn ADV_fnc_radioRelay;
