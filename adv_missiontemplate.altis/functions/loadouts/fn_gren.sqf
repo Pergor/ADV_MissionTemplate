@@ -315,7 +315,7 @@ switch (ADV_par_customUni) do {
 		_uniform = ["BWA3_Uniform_idz_Tropen"];
 		_vest = ["BWA3_Vest_Grenadier_Tropen"];
 		_headgear = ["BWA3_MICH_Tropen"];
-		_backpack = [""];
+		_backpack = ["BWA3_Assaultpack_Tropen"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_tropen","PBW_Uniform3_tropen","PBW_Uniform3K_tropen"];
 			_vest = ["pbw_splitter_mg_h","pbw_splitter_schtz"];
@@ -329,7 +329,7 @@ switch (ADV_par_customUni) do {
 		_uniform = ["BWA3_Uniform_idz_Fleck"];
 		_vest = ["BWA3_Vest_Grenadier_Fleck"];
 		_headgear = ["BWA3_MICH_Fleck"];
-		_backpack = [""];
+		_backpack = ["BWA3_Assaultpack_Fleck"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_fleck","PBW_Uniform3_fleck","PBW_Uniform3K_fleck"];
 			_vest = ["pbw_splitter_mg_h"];
