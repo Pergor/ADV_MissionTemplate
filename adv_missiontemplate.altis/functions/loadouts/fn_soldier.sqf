@@ -310,10 +310,12 @@ switch (ADV_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
 		_uniform = ["BWA3_Uniform_idz_Tropen"];
-		if (isClass(configFile >> "CfgPatches" >> "German_feldbluse_patches")) then { _uniform = ["PBW_Uniform1_tropen","PBW_Uniform1H_tropen","PBW_Uniform3_tropen","PBW_Uniform3K_tropen"]; };
 		_vest = ["BWA3_Vest_Rifleman1_Tropen"];
 		_headgear = ["BWA3_MICH_Tropen"];
-		if (isClass(configFile >> "CfgPatches" >> "example_german_headgear_config")) then {
+		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
+			_uniform = ["PBW_Uniform1_tropen","PBW_Uniform3_tropen","PBW_Uniform3K_tropen"];
+			_vest = ["pbw_splitter_schtz"];
+			_headgear = ["PBW_Helm4_tropen","PBW_Helm1_tropen"];
 			_items pushback "PBW_muetze1_tropen";
 		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
@@ -321,10 +323,12 @@ switch (ADV_par_customUni) do {
 	case 2: {
 		//BWmod Fleck
 		_uniform = ["BWA3_Uniform_idz_Fleck"];
-		if (isClass(configFile >> "CfgPatches" >> "German_feldbluse_patches")) then { _uniform = ["PBW_Uniform1_fleck","PBW_Uniform1H_fleck","PBW_Uniform3_fleck","PBW_Uniform3K_fleck"]; };
 		_vest = ["BWA3_Vest_Rifleman1_Fleck"];
 		_headgear = ["BWA3_MICH_Fleck"];
-		if (isClass(configFile >> "CfgPatches" >> "example_german_headgear_config")) then {
+		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
+			_uniform = ["PBW_Uniform1_fleck","PBW_Uniform3_fleck","PBW_Uniform3K_fleck"];
+			_vest = ["pbw_splitter_schtz"];
+			_headgear = ["PBW_Helm4_fleck","PBW_Helm1_fleck"];
 			_items pushback "PBW_muetze1_fleck";
 		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
