@@ -160,6 +160,11 @@ if ((toUpper worldname) in ["STRATIS","ALTIS"]) then {
 	["Have Fun!", "Datum:" + str (date select 2) + "/" + str (date select 1) + "/" + str (date select 0)] spawn BIS_fnc_infoText;
 };
 
+//hint if cba is not run:
+if !(isClass(configFile >> "CfgPatches" >> "cba_main")) then {
+	hintC "<t align='center'>This mission needs CBA_A3 in order to run properly.</t>";
+};
+
 //moves the player to position of object called "respawn_helper", if it's present (for Nimitz for example):
 call {
 	if (side player == east && !isNil "respawn_helper_east") exitWith {
