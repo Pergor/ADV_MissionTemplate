@@ -162,7 +162,7 @@ if ((toUpper worldname) in ["STRATIS","ALTIS"]) then {
 
 //hint if cba is not run:
 if !(isClass(configFile >> "CfgPatches" >> "cba_main")) then {
-	hintC "<t align='center'>This mission needs CBA_A3 in order to run properly.</t>";
+	hintC "This mission needs CBA_A3 in order to run properly.";
 };
 
 //moves the player to position of object called "respawn_helper", if it's present (for Nimitz for example):
