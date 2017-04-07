@@ -1,4 +1,4 @@
-﻿test_fnc_speedlimiter = {
+﻿adv_speedLimiter_fnc_speedlimiter = {
 	params ["_driver", "_vehicle"];
 
 	if (ace_vehicles_isSpeedLimiter) exitWith {
@@ -51,7 +51,7 @@ ace_vehicles_isSpeedLimiter = false;
     if ((_uavControll select 1) == "DRIVER") then {
         if !(_connectedUAV isKindOf "UGV_01_base_F") exitWith {false};
         ace_vehicles_isUAV = true;
-        [_uavControll select 0, _connectedUAV] call test_fnc_speedlimiter;
+        [_uavControll select 0, _connectedUAV] call adv_speedLimiter_fnc_speedlimiter;
         true
     } else {
         if !([ACE_player, objNull, ["isnotinside"]] call ace_common_fnc_canInteractWith) exitWith {false};
@@ -59,7 +59,7 @@ ace_vehicles_isSpeedLimiter = false;
         {vehicle ACE_player isKindOf 'Car' ||
             {vehicle ACE_player isKindOf 'Tank'}}) exitWith {false};
         ace_vehicles_isUAV = false;
-        [ACE_player, vehicle ACE_player] call test_fnc_speedlimiter;
+        [ACE_player, vehicle ACE_player] call adv_speedLimiter_fnc_speedlimiter;
         true
     };
 
