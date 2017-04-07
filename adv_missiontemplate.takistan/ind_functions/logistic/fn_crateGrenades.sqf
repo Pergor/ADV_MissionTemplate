@@ -111,4 +111,4 @@ private ["_target"];
 	nil;
 } count _this;
 
-if (true) exitWith {true;};
+true;

@@ -27,6 +27,7 @@ if (!isServer) exitWith{};
 			};
 		}
 	];
-} forEach _this;
+	nil;
+} count _this;
 
-if (true) exitWith {};
+true;

@@ -279,4 +279,4 @@ switch ( toUpper ((str _player) select [4,4]) ) do {
 	};
 };
 
-nil;
+true;

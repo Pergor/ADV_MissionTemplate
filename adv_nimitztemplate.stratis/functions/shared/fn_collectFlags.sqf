@@ -17,3 +17,5 @@ adv_objects_indFlags = [];
 	nil;
 } count (allMissionObjects "FlagCarrier");
 adv_objects_flags = adv_objects_westFlags+adv_objects_eastFlags+adv_objects_indFlags;
+
+true;

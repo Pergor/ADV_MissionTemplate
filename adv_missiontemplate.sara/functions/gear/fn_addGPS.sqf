@@ -54,4 +54,4 @@ if ( ADV_par_Tablets == 3 && isClass(configFile >> "CfgPatches" >> "bwa3_navipad
 	};
 };
 
-nil;
+true;

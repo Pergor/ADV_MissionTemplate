@@ -70,22 +70,6 @@ switch ( true ) do {
 		};
 	};
 	case ( isClass (configFile >> "CfgPatches" >> "acre_main") ): {
-	/*
-			//radios
-			acre_westBackpackRadio = "ACRE_PRC117F";
-			acre_eastBackpackRadio = "ACRE_PRC117F";
-			acre_guerBackpackRadio = "ACRE_PRC117F";
-			//specific radio types
-			if (adv_par_customUni isEqualTo 9) then {
-				acre_westBackpackRadio = "ACRE_PRC77";
-			};
-			if (adv_par_opfUni isEqualTo 5 || adv_par_opfUni isEqualTo 6) then {
-				acre_eastBackpackRadio = "ACRE_PRC77";
-			};
-			if (adv_par_indUni isEqualTo 20) then {
-				acre_guerBackpackRadio = "ACRE_PRC77";
-			};
-			*/
 		_riflemanRadioType = "ACRE_PRC343";
 		_personalRadioType = switch ( side (group _unit) ) do {
 			case east: { acre_eastPersonalRadio };

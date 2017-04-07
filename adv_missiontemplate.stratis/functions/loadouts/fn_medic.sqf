@@ -475,7 +475,7 @@ switch (toUpper ([str (_this select 0),0,8] call BIS_fnc_trimString)) do {
 	};
 };
 
-if ( {[_this select 0,_x] call adv_fnc_inGroup} count ["JUPITER","ÄSKULAP","MERKUR","APOLLO"] > 0 ) then {
+if ( {[_this select 0,_x] call adv_fnc_inGroup} count ["JUPITER","ÄSKULAP","MERKUR","APOLLO"] > 0 || [_this select 0,"command"] call adv_fnc_findInGroup ) then {
 	_ACE_isMedic = 2;
 	_ACE_personalAidKit = 1;
 };
@@ -485,4 +485,4 @@ if ( {[_this select 0,_x] call adv_fnc_inGroup} count ["JUPITER","ÄSKULAP","MER
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
 
-nil;
+true;

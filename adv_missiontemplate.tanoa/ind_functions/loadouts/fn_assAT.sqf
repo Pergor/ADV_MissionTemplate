@@ -263,4 +263,4 @@ if (ADV_par_customWeap == 1) then { _backpack = ["backpackdummy"]; };
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
 
-nil;
+true;

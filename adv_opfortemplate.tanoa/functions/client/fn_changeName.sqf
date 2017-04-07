@@ -11,12 +11,6 @@ _this select 1 = first name.
 _this select 2 = last name.
 */
 
-/*
-_target = _this select 0;
-_firstName = _this select 1;
-_lastName = _this select 2;
-*/
-
 params [
 	["_target", objNull, [objNull]],
 	["_firstName", "Peter", [""]],
@@ -24,8 +18,9 @@ params [
 	"_wholeName"
 ];
 _wholeName = format ["%1 %2",_firstName,_lastName];
+_return = [_firstName,_lastName,_wholeName];
 
-(driver _target) setName [_firstName,_lastName,_wholeName];
-_target setName [_firstName,_lastName,_wholeName];
+(driver _target) setName _return;
+_target setName _return;
 
-if (true) exitWith {};
+_return;

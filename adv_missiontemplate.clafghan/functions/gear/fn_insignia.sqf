@@ -21,6 +21,7 @@ if ( side (group _target) == west && (isClass (configFile >> "CfgPatches" >> "bw
 	};
 	_insignium = selectRandom _insigniumArray;
 	[_target,_insignium] remoteExecCall ["BIS_fnc_setUnitInsignia",0,true];
+	true;
 };
 
 //simple rank patches insignia
@@ -35,6 +36,7 @@ if ( side (group _target) == west && (isClass (configFile >> "CfgPatches" >> "si
 		case "COLONEL": {"COLONEL_SimpleRP";};
 	};
 	[_target,_insignium] remoteExecCall ["BIS_fnc_setUnitInsignia",0,true];
+	true;
 };
 
 //adv insignia
@@ -51,6 +53,7 @@ if (isClass (configFile >> "CfgPatches" >> "adv_insignia")) then {
 		};
 		_insignium = selectRandom _insigniumArray;
 		[_target,_insignium] remoteExecCall ["BIS_fnc_setUnitInsignia",0,true];
+		true;
 	};
 	if ( side (group _target) == east && !(ADV_par_opfUni == 4 || ADV_par_opfUni == 5) ) exitWith {
 		_insigniumArray = switch (rank _target) do {
@@ -64,7 +67,8 @@ if (isClass (configFile >> "CfgPatches" >> "adv_insignia")) then {
 		};
 		_insignium = selectRandom _insigniumArray;
 		[_target,_insignium] remoteExecCall ["BIS_fnc_setUnitInsignia",0,true];
+		true;
 	};
 };
 
-true;
+false;

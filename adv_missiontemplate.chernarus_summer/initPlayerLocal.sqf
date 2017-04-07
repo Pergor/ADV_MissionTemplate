@@ -55,7 +55,7 @@ waitUntil {time > 0};
 if ( ADV_par_logisticAmount > 0 ) then {
 	{ nul = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == west",5]; nil; } count adv_objects_westFlags;
 	{ nul = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == east",5]; nil; } count adv_objects_eastFlags;
-	{ nul = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == independent",5]; } count adv_objects_indFlags;
+	{ nul = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == independent",5]; nil; } count adv_objects_indFlags;
 };
 //gearsaving
 ADV_objects_clearCargo spawn adv_fnc_gearsaving;
@@ -148,9 +148,7 @@ switch (side (group player)) do {
 	default {};
 };
 
-sleep 2;
-[player] spawn adv_fnc_setChannels;
-sleep 2;
+sleep 4;
 //a little hint stating the date and time
 if ((toUpper worldname) in ["STRATIS","ALTIS"]) then {
 	["Have Fun!"] spawn BIS_fnc_infoText;

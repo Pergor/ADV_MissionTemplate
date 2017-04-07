@@ -14,8 +14,8 @@ private ["_target"];
 	//grenades
 	switch (true) do {
 		case (ADV_par_customWeap == 1): {
-			_target addMagazineCargoGlobal ["BWA3_DM51A1",20];		
-			_target addMagazineCargoGlobal ["BWA3_DM25",20];		
+			_target addMagazineCargoGlobal ["BWA3_DM51A1",20];
+			_target addMagazineCargoGlobal ["BWA3_DM25",20];
 			_target addMagazineCargoGlobal ["BWA3_DM32_Orange",20];
 			_target addMagazineCargoGlobal ["BWA3_DM32_Yellow",10];
 		};
@@ -117,4 +117,4 @@ private ["_target"];
 	nil;
 } count _this;
 
-if (true) exitWith {true;};
+true;

@@ -1,1 +1,1 @@
-﻿if (true) exitWith { nil };
+﻿nil;

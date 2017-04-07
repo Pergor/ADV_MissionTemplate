@@ -10,3 +10,5 @@ if ( !isClass(configFile >> "CfgPatches" >> "ace_explosives") || !hasInterface )
 	};
 	nil;
 } count allMines;
+
+true;

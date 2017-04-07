@@ -5,6 +5,8 @@ defines a zone around an object, marker or position in the given radius that all
 
 Possible call - has to be executed on each client locally:
 [TARGET,OBJECT,RADIUS] call adv_fnc_safezone;
+
+Return: Handle of fired-EVH.
 */
 
 params [
@@ -37,7 +39,7 @@ adv_safezone_targetPos = switch (typeName _object) do {
 
 adv_safezone_radius = _radius;
 
-_target addEventhandler [
+_handle = _target addEventhandler [
 	"fired",
 	{
 		if (_this select 1 == "THROW") then {
@@ -45,3 +47,5 @@ _target addEventhandler [
 		};
 	}
 ];
+
+_handle;

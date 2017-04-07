@@ -466,4 +466,4 @@ switch true do {
 	default {};
 };
 
-nil;
+true;

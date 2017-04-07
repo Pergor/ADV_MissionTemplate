@@ -310,4 +310,4 @@ switch (ADV_par_opfUni) do {
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
 
-nil;
+true;

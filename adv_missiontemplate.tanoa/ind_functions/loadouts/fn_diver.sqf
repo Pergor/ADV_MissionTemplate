@@ -218,4 +218,4 @@ if (isClass(configFile >> "CfgPatches" >> "tfa_gear")) then {
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
 
-nil;
+true;

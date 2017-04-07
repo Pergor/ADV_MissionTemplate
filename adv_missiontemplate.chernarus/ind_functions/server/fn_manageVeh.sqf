@@ -164,4 +164,4 @@ switch (ADV_par_indCarAssets) do {
 	default {};
 };
 
-if (true) exitWith { missionNamespace setVariable ["ADV_var_manageVeh_ind",true,true]; };
+if (true) exitWith { missionNamespace setVariable ["ADV_var_manageVeh_ind",true,true]; true; };

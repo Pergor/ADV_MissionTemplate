@@ -1,13 +1,5 @@
 ﻿if (!isServer) exitWith {};
 
-/*
-_target = _this select 0;
-_isMedic = [_this, 1, false, [true]] call BIS_fnc_param;
-_withWeapons = [_this, 2, false, [true]] call BIS_fnc_param;
-_amountOfSpareParts = [_this, 3, 1, [0]] call BIS_fnc_param;
-_isRepairVehicle = [_this, 4, false, [0,true]] call BIS_fnc_param;
-*/
-
 params [
 	["_target", objNull, [objNull]], 
 	["_isMedic", false, [true]], 
@@ -319,4 +311,4 @@ if (_target isKindOf "Air") then {
 };
 {_target addBackpackCargoGlobal [_x, 1];} count _backpacks;
 
-if (true) exitWith {true;};
+true;

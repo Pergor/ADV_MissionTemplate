@@ -71,4 +71,4 @@ _light = createVehicle ["Chemlight_red", (getPosATL _crate), [], 0, "NONE"];
 _IRlight = createVehicle ["B_IRStrobe", (getPosATL _crate), [], 0, "NONE"];
 {_x attachTo [_crate, [0, 0, 1.3]];} forEach [_light,_IRlight];
 
-if (true) exitWith {};
+_crate;

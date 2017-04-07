@@ -27,4 +27,4 @@ if (_unit == leader group _unit) then {
 */
 };
 
-if (true) exitWith {};
+true;

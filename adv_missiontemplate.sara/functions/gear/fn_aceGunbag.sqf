@@ -22,4 +22,4 @@ _mass = getNumber (configFile >> "CfgWeapons" >> _weapon >> "WeaponSlotsInfo" >>
 [_unit, _gunbag, _mass] call ace_movement_fnc_addLoadToUnitContainer;
 _gunbag setVariable ["ace_gunbag_gunbagWeapon", [_weapon, _items, [_magazines]], true];
 
-nil;
+true;
