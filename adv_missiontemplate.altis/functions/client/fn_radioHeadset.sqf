@@ -92,4 +92,4 @@ while { true } do {
 	_unit removeAction adv_handle_headsetActionOn;
 };
 
-nil;
+true;

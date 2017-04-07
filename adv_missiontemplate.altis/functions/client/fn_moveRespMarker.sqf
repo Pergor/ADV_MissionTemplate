@@ -54,4 +54,4 @@ while { ADV_var_moveRespMarker == 1 } do {
 	sleep _moveTimer;
 };
 
-nil;
+true;

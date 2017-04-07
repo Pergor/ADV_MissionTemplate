@@ -127,4 +127,4 @@ if (isPlayer _unit) then {
 	[_unit] spawn adv_fnc_setChannels;
 };
 
-nil;
+true;

@@ -19,4 +19,4 @@ while { ADV_par_TIEquipment > 0 } do {
 
 if (ADV_par_TIEquipment == 0) exitWith { { _x disableTIEquipment false; _x disableNVGEquipment false; } count vehicles; };
 
-nil;
+true;

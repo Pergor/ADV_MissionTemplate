@@ -117,4 +117,4 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_mk6mortar") && (_type == 3 || _t
 };
 _target addBackpack _backpack;
 
-nil;
+true;

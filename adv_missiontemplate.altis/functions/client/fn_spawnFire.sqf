@@ -111,4 +111,4 @@ if (_lightsource) then {
 	};
 };
 
-nil;
+true;

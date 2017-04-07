@@ -25,4 +25,4 @@ ADV_objects_indCargo = [];
 	nil;
 } count (entities "ReammoBox_F");
 
-nil;
+true;

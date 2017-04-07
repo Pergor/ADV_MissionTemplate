@@ -541,4 +541,4 @@ call {
 	*/
 };
 
-if (true) exitWith { missionNamespace setVariable ["ADV_var_manageVeh",true,true]; nil; };
+if (true) exitWith { missionNamespace setVariable ["ADV_var_manageVeh",true,true]; true; };

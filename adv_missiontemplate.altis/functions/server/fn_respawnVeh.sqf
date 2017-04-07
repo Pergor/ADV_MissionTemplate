@@ -15,12 +15,6 @@ call via:
 if (!isServer) exitWith {};
 waitUntil {time > 20};
 
-/*
-private ["_veh","_delay","_name","_markerName","_respawnPos","_vehType"];
-_veh = [_this, 0, ObjNull, [ObjNull]] call BIS_fnc_param;
-_delay = [_this, 1, 5, [0]] call BIS_fnc_param;
-*/
-
 params [
 	["_veh", objNull, [objNull]],
 	["_delay", 5, [0]],
@@ -102,5 +96,3 @@ while {true} do {
 	call compile format ["%1 call compile %2",_veh,str _initLine];
 	_veh setVariable ["adv_vehicleinit",str _initLine];
 };
-	
-nil;

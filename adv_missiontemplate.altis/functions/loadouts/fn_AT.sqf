@@ -475,4 +475,4 @@ if (ADV_par_customWeap == 1 || ADV_par_customWeap == 6) then { _backpack = ["bac
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
 
-nil;
+true;

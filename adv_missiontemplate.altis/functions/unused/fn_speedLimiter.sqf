@@ -67,4 +67,4 @@ ace_vehicles_isSpeedLimiter = false;
 {false},
 [211, [false, false, false]], false] call CBA_fnc_addKeybind;
 
-nil;
+true;

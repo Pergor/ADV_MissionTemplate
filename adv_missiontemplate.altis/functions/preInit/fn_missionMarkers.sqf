@@ -38,4 +38,4 @@ _opacity = 0.7;
 //mission markers with lower opacity:
 {_x setmarkeralpha _opacity;} count _opacMarker;
 
-nil;
+true;

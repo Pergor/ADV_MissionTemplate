@@ -195,4 +195,4 @@ private ["_target"];
 	nil;
 } count _this;
 
-nil;
+true;

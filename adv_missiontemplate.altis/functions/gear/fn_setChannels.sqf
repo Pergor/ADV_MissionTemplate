@@ -68,6 +68,7 @@ if ( isClass (configFile >> "CfgPatches" >> "tfar_core") && hasInterface ) exitW
 			if (_hasLRRadio) then { [_activeLRRadio, 8] call TFAR_fnc_setLRChannel; };
 		};
 	};
+	true;
 };
 
 if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") && hasInterface ) exitWith {
@@ -117,6 +118,7 @@ if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") && hasInterface 
 			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 8] call TFAR_fnc_setLRChannel; };
 		};
 	};
+	true;
 };
 //set frequencies depending on group for acre
 if ( isClass (configFile >> "CfgPatches" >> "acre_main") && hasInterface ) exitWith {
@@ -232,6 +234,7 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") && hasInterface ) exitW
 			["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;
 		};
 	};
+	true;
 };
 
-nil;
+false;

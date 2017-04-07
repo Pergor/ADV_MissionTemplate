@@ -60,4 +60,4 @@ while {true} do {
 	waitUntil {sleep 1; ADV_var_mileageActions == 0;};
 };
 
-nil;
+true;

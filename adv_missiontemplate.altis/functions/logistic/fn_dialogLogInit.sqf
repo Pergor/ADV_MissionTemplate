@@ -81,4 +81,4 @@ if (isClass(configFile >> "CfgPatches" >> "scorch_invitems")) then {
 	lbSetData [7377, _lbSetDataCount, "ADV_logistic_crateStuff"];
 };
 
-nil;
+true;

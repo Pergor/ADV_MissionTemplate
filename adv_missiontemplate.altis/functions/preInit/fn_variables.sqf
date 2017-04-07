@@ -93,4 +93,4 @@ STHud_ShowBearingInVehicle = false;
 //finalization:
 ADV_variables_defined = true;
 
-nil;
+true;

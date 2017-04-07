@@ -65,4 +65,4 @@ if (count _vehicleType == 0) exitWith {};
 	nil;
 } count _vehicleType;
 	
-nil;
+true;

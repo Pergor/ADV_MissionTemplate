@@ -159,4 +159,4 @@ if ( _ACE_isPilot ) then {
 	_unit setVariable ["ACE_GForceCoef", 0.7];
 };
 	
-nil;
+true;

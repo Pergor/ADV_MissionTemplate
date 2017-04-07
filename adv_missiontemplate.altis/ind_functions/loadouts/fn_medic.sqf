@@ -278,4 +278,4 @@ if ( {[_this select 0,_x] call adv_fnc_inGroup} count ["NATTER","DRACHE"] > 0 ||
 _player = _this select 0;
 [_player] call ADV_fnc_gear;
 
-nil;
+true;

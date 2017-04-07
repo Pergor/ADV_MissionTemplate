@@ -123,4 +123,4 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	nil;
 } count _this;
 
-nil;
+true;

@@ -75,4 +75,4 @@ if (!isNil "ADV_par_CustomLoad") then {
 	ADV_respawn_EVH = _target addEventhandler ["Respawn", {[(_this select 0)] call ADV_fnc_applyLoadout;systemChat "starting gear applied.";}];
 };
 
-nil;
+true;

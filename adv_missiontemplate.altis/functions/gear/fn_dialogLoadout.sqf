@@ -31,4 +31,4 @@ if ((toUpper _loadout) in ["CSW","ACSW","MORTAR","AMORTAR","TOW","ATOW"] ) then 
 
 closeDialog 1; // OK
 
-nil;
+true;

@@ -35,4 +35,4 @@
 	];
 } forEach _this;
 
-nil;
+true;

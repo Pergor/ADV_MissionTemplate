@@ -25,4 +25,4 @@ params [
 	nil;
 } count _units;
 
-nil;
+true;

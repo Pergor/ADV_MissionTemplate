@@ -172,4 +172,4 @@ if (side (group player) == east) then {
 	lbSetData [7377, 32, "ADV_opf_fnc_diver_spec"];
 };
 
-nil;
+true;

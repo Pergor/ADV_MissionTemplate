@@ -111,4 +111,4 @@ if ( !isClass(configFile >> "CfgPatches" >> "ACE_attach") && (( !(side (group _u
 	_unit addMagazines [_IR_GrenType, _IRgrenade];
 };
 
-nil;
+true;

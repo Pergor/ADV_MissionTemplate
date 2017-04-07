@@ -15,6 +15,12 @@ if (isNil "FHQ_TT_addTasks") exitWith {};
 
 civKill = 0;
 
+[] spawn {
+	waitUntil {time > 1};
+	waitUntil {sleep 2; civKill == 1};
+	["task_civ", "failed"] call FHQ_TT_setTaskState;
+};
+
 while {true} do {
 	{
 		_hasEventhandler = _x getVariable ["ADV_EH_civKill",false];
@@ -27,10 +33,4 @@ while {true} do {
 	sleep 10;
 };
 
-[] spawn {
-	waitUntil {time > 1};
-	waitUntil {sleep 2; civKill == 1};
-	["task_civ", "failed"] call FHQ_TT_setTaskState;
-};
-
-nil;
+true;

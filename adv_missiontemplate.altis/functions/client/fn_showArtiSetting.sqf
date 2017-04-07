@@ -36,4 +36,4 @@ _this = artillery vehicles or mortars the notification should be applied to.
 	nil;
 } count _this;
 
-nil;
+true;

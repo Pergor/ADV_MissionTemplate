@@ -60,4 +60,4 @@ while {ADV_var_undercover} do {
 _unit setCaptive false;
 */
 
-nil;
+true;

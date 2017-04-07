@@ -98,7 +98,7 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	TFAR_freq_sw_independent = _settingsSwGuer;
 	TFAR_freq_lr_independent = _settingsLrGuer;
 
-	nil;
+	true;
 };
 if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	//params needed in case paramsArray not yet defined on client in MP
@@ -183,5 +183,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	tf_freq_guer = _settingsSwGuer;
 	tf_freq_guer_lr = _settingsLrGuer;
 	
-	nil;
+	true;
 };
+
+false;

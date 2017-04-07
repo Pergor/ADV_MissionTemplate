@@ -284,4 +284,4 @@ if ( toUpper ([(str _unit),(count str _unit)-5] call BIS_fnc_trimString)== "RECO
 
 _unit setVariable ["ADV_var_hasLoadout",true];
 	
-nil;
+true;

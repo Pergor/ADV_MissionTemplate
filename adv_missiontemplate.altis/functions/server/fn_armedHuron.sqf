@@ -35,4 +35,4 @@ private ["_huron","_gun"];
 	_gun addaction ["Reload HMG",{[(_this select 0)] call ADV_fnc_reloadHuronGun;}];
 } forEach _this;
 
-nil;
+true;

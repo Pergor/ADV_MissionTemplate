@@ -11,7 +11,7 @@ if (ADV_par_respWithGear == 1 && count _this > 0) exitWith {
 			nil;
 		};
 	} count _this;
-	nil;
+	true;
 };
 
 false;

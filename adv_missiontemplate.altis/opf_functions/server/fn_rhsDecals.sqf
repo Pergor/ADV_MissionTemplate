@@ -112,4 +112,4 @@ _veh setObjectTextureGlobal [2,"rhsafrf\addons\rhs_bmp3_camo\data\rhs_bmp3_03_sa
 _veh setObjectTextureGlobal [3,"rhsafrf\addons\rhs_bmp3_camo\data\rhs_bmp3_04_sand_co.paa"];
 */
 
-nil;
+true;

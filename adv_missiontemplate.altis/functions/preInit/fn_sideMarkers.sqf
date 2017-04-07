@@ -49,4 +49,4 @@ called via preInit for server and once for every client in initPlayerLocal.sqf w
 	};
 };
 
-nil;
+true;
