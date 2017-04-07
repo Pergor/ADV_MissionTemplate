@@ -85,6 +85,7 @@ class ADV
 		class dialogTeleport {};
 		class dispLaunch {};
 		class execTeleport {};
+		class findInGroup {};
 		class flag {};
 		class fullHeal {};
 		class inGroup {};

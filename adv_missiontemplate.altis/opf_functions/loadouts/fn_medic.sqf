@@ -323,7 +323,7 @@ if !( ADV_par_opfUni==6 ) then {
 	};
 };
 
-if ( {[_this select 0,_x] call adv_fnc_inGroup} count ["MILAN","LUCHS","ORCA","FALKE","GEPARD","ELSTER"] > 0 ) then {
+if ( {[_this select 0,_x] call adv_fnc_inGroup} count ["MILAN","LUCHS","ORCA","FALKE","GEPARD","ELSTER"] > 0 || [_this select 0,"command"] call adv_fnc_findInGroup ) then {
 	_ACE_isMedic = 2;
 	_ACE_personalAidKit = 1;
 };

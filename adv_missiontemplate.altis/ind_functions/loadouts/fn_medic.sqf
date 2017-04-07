@@ -269,7 +269,7 @@ switch (toUpper ([str (_this select 0),3,12] call BIS_fnc_trimString)) do {
 	};
 };
 
-if ( {[_this select 0,_x] call adv_fnc_inGroup} count ["NATTER","DRACHE"] > 0 ) then {
+if ( {[_this select 0,_x] call adv_fnc_inGroup} count ["NATTER","DRACHE"] > 0 || [_this select 0,"command"] call adv_fnc_findInGroup ) then {
 	_ACE_isMedic = 2;
 	_ACE_personalAidKit = 1;
 };
