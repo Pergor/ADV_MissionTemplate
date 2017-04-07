@@ -39,8 +39,8 @@ if (side (group _unit) == east) then {
 };
 if (side (group _unit) == independent) then {
 	_faction = switch (true) do {
-		case (adv_par_indUni == 1): {"IND_F"};
-		default {"IND_G_F"};
+		case (adv_par_indUni == 1): {"IND_G_F"};
+		default {"IND_F"};
 	};
 };
 
