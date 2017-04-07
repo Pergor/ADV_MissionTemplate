@@ -18,6 +18,7 @@ class ADV
 	class client
 	{
 		file = "adv_loadouts\client";
+		class findInGroup {};
 		class inGroup {};
 		class playerUnit {};
 		class setFrequencies {};
