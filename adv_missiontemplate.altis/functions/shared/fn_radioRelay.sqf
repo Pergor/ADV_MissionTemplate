@@ -9,9 +9,9 @@ If the last radio repeater is deactivated, the distance multiplicator is removed
 Possible call - has to be executed globally:
 
 in init.sqf:
-[VEHICLE, west, 90] spawn ADV_fnc_radioRelay;
+_handle = [VEHICLE, west, 90] call ADV_fnc_radioRelay;
 or
-[VEHICLE, west, 90] spawn compile preprocessFileLineNumbers "fn_radioRelay.sqf";
+_handle = [VEHICLE, west, 90] call compile preprocessFileLineNumbers "fn_radioRelay.sqf";
 
 or from a local client:
 [VEHICLE, west, 90] remoteExec ["ADV_fnc_radioRelay",0];

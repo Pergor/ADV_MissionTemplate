@@ -2,9 +2,9 @@
 zeus script by Belbo
 Makes most units placed in the editor and playable units editable by Zeus.
 Call from init.sqf via:
-if (isServer) then {[CURATORMODULENAME] spawn compile preprocessFileLineNumbers "fn_zeus.sqf";};
+if (isServer) then {_handle = [CURATORMODULENAME] call compile preprocessFileLineNumbers "fn_zeus.sqf";};
 or:
-if (isServer) then {[] spawn compile preprocessFileLineNumbers "fn_zeus.sqf";};
+if (isServer) then {_handle = [] call compile preprocessFileLineNumbers "fn_zeus.sqf";};
 */
 
 if (!isServer) exitWith {};
