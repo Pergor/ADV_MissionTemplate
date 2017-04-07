@@ -97,7 +97,6 @@ class ADV
 		class radioHeadset {};
 		class rollDice {};
 		class safeZone {};
-		class setFrequencies {};
 		class showArtiSetting {};
 		class spawnFire {};
 		class teleport {};
@@ -123,6 +122,7 @@ class ADV
 		class removeWeapon {};
 		class setChannels {};
 		class setFaction {};
+		class setFrequencies {};
 		class standardWeapon {};
 	};
 	class gearsaving
