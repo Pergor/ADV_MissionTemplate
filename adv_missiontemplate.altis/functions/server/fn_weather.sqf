@@ -39,4 +39,4 @@ if ( ADV_par_randomWeather != 99 || ADV_par_weather == 99 ) exitWith {};
 	skipTime -24;
 };
 
-true;
+nil;

@@ -56,7 +56,7 @@ if (vehicle _target != _target) then {
 	_unit setPosATL (getPosATL _target);
 };
 
-true;
+nil;
 
 /*
 

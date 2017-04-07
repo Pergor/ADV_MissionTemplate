@@ -30,3 +30,5 @@ if ((toUpper _loadout) in ["CSW","ACSW","MORTAR","AMORTAR","TOW","ATOW"] ) then 
 [player] call ADV_fnc_applyLoadout;
 
 closeDialog 1; // OK
+
+nil;

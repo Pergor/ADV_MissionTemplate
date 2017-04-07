@@ -36,4 +36,4 @@ if (ADV_par_Assets_air_fixed == 0) then {
 	};
 };
 	
-if (true) exitWith{};
+nil;

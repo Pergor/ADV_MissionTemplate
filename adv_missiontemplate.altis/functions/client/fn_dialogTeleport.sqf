@@ -31,4 +31,4 @@ if (side (group player) == west) then {
 	lbSetData [7377, 2, "TELEPORT_COMMAND"];
 };
 
-if (true) exitWith {};
+nil;

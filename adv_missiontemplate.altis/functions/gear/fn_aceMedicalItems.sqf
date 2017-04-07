@@ -115,4 +115,4 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_medical") ) exitWith {
 	};
 };
 	
-true;
+nil;

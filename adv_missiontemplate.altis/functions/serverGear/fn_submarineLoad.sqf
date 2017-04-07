@@ -82,4 +82,4 @@ private ["_target"];
 
 } forEach _this;
 
-if (true) exitWith {};
+nil;

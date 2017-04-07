@@ -103,4 +103,4 @@ while {true} do {
 	_veh setVariable ["adv_vehicleinit",str _initLine];
 };
 	
-if (true) exitWith {};
+nil;

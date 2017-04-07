@@ -13,4 +13,4 @@ switch true do {
 	default {};
 };
 
-true;
+nil;

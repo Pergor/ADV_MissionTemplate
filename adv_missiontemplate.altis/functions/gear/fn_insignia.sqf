@@ -67,4 +67,4 @@ if (isClass (configFile >> "CfgPatches" >> "adv_insignia")) then {
 	};
 };
 
-true;
+nil;

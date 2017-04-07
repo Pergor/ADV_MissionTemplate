@@ -79,4 +79,4 @@ if (typeName (_magazineClassType) == "STRING") then {
 	};
 };
 
-if (true) exitWith {};
+nil;

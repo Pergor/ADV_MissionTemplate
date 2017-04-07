@@ -14,4 +14,4 @@
 	nil;
 } count _this;
 
-if (true) exitWith {};
+nil;

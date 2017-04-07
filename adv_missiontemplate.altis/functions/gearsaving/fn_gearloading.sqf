@@ -4,4 +4,7 @@ if (ADV_par_respWithGear == 1) then {
 	{
 		_x addAction ["<t color='#ffff00'>Load loadout</t>", {[(_this select 1),adv_saveGear_loadout] call adv_fnc_readdGear;systemChat "loading loadout...";},nil,1.5,false,false,"","true",5];
 	} forEach _this;
+	nil;
 };
+
+false;

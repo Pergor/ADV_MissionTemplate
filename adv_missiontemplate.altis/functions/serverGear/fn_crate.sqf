@@ -447,4 +447,4 @@ if (!isServer) exitWith {};
 	nil;
 } count _this;
 
-if (true) exitWith {true;};
+nil;

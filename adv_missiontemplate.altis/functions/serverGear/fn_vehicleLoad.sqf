@@ -393,4 +393,4 @@ if (_target isKindOf "Air") then {
 };
 {_target addBackpackCargoGlobal [_x, 1];} count _backpacks;
 
-if (true) exitWith {true;};
+nil;

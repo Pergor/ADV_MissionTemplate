@@ -33,4 +33,4 @@ while {true} do {
 	["task_civ", "failed"] call FHQ_TT_setTaskState;
 };
 
-if (true) exitWith {};
+nil;

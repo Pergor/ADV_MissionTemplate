@@ -35,4 +35,4 @@
 	];
 } forEach _this;
 
-if (true) exitWith {};
+nil;

@@ -57,3 +57,5 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
 		sleep 1;
 	};
 };
+
+nil;

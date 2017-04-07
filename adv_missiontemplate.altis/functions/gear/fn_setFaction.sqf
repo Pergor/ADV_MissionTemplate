@@ -45,4 +45,5 @@ if (side (group _unit) == independent) then {
 };
 
 _unit setVariable ["ace_nametags_faction", _faction, true];
-true;
+
+_faction;

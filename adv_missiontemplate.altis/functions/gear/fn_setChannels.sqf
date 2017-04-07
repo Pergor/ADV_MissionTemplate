@@ -233,3 +233,5 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") && hasInterface ) exitW
 		};
 	};
 };
+
+nil;

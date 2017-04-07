@@ -160,4 +160,4 @@ if !(isServer && (isClass(configFile >> "CfgPatches" >> "ACE_common"))) exitWith
 	nil;
 } count _this;
 
-if (true) exitWith {};
+nil;

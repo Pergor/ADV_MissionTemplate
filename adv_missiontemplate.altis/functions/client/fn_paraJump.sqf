@@ -80,4 +80,4 @@ if !((_unit getVariable "adv_var_parajump_backpack") == "") then {
 	systemChat "Backpack readded.";
 };
 
-if (true) exitWith {};
+nil;

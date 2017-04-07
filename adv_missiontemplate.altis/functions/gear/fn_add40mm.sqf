@@ -103,4 +103,4 @@ if ( ( !(side (group _unit) == east) && ADV_par_NVGs == 2 ) || (side (group _uni
 	{ _unit addMagazines [_x select 0, _x select 1]; } forEach _40mmIR;
 };
 
-true;
+nil;
