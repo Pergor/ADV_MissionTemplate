@@ -89,7 +89,6 @@ class ADV
 		class flag {};
 		class fullHeal {};
 		class inGroup {};
-		class mileage {};
 		class moveRespMarker {};
 		class paraJump {};
 		class paraJumpSelection {};

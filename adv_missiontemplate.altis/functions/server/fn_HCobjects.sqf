@@ -1,9 +1,22 @@
-﻿if (!isServer) exitWith {};
+﻿/*
+ * Author: Belbo
+ *
+ * Changes ownership of units to HC
+ *
+ * Arguments:
+ * 0: HC - <OBJECT>
+ * 1: Array of units (optional) - <ARRAY> of <OBJECTS>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [HC1, allUnits] call adv_fnc_HCobjects;
+ *
+ * Public: Yes
+ */
 
-/*
-_HC = [_this, 0, ObjNull, [ObjNull]] call BIS_fnc_param;
-_units = [_this, 1, allUnits, [[]]] call BIS_fnc_param;
-*/
+if (!isServer) exitWith {};
 
 params [
 	["_HC", objNull, [objNull]],
