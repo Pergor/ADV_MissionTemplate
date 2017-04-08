@@ -58,8 +58,8 @@ if ( ADV_par_logisticAmount > 0 ) then {
 	{ nul = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == independent",5]; nil; } count adv_objects_indFlags;
 };
 //gearsaving
-ADV_objects_clearCargo spawn adv_fnc_gearsaving;
-//ADV_objects_gearSaving spawn adv_fnc_gearloading;
+ADV_objects_clearCargo call adv_fnc_gearsaving;
+//ADV_objects_gearSaving call adv_fnc_gearloading;
 
 //disable fatigue if wanted:
 if (ADV_par_fatigue == 0) then {
@@ -82,7 +82,7 @@ ADV_scriptVar_initMoveMarker_jump = {
 //handling of respawned players:
 switch ( ADV_par_moveMarker ) do {
 	case 1: {
-		ADV_handle_moveRespMarker = [120,20,ADV_par_remRespWest] spawn ADV_fnc_moveRespMarker;
+		ADV_handle_moveRespMarker = [120,20,ADV_par_remRespWest] call ADV_fnc_moveRespMarker;
 	};
 	default {
 		adv_objects_flags call ADV_fnc_flag;
