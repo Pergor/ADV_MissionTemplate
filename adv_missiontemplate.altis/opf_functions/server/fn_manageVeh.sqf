@@ -248,4 +248,4 @@ switch (ADV_par_opfAirAssets) do {
 	default {};
 };
 
-if (true) exitWith { missionNamespace setVariable ["ADV_var_manageVeh_opf",true,true]; true; };
+true;
