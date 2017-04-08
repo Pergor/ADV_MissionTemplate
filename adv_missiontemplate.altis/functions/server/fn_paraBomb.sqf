@@ -14,7 +14,7 @@
  * Example:
  * _bomb = [spawnLocation,500,"Bo_GBU12_LGB"] call adv_fnc_paraBomb;
  *
- * Public: No
+ * Public: Yes
  */
 
 if !(isServer || hasInterface) exitWith {};

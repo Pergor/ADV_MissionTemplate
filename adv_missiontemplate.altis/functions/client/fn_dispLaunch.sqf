@@ -12,7 +12,7 @@
  * Example:
  * _index = [] call adv_fnc_dispLaunch;
  *
- * Public: No
+ * Public: Yes
  */
 
 ADV_array_dropLaunch = [];

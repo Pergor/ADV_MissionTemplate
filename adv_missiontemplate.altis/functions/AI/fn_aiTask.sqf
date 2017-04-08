@@ -25,7 +25,7 @@
  * or
  * [["O_Soldier_TL_F","O_Soldier_GL_F"],east,"spawnMarker",200,4,[attackLogic,50]] call adv_fnc_aiTask;
  *
- * Public: No
+ * Public: Yes
  */
 
 if (!isServer && hasInterface) exitWith {};

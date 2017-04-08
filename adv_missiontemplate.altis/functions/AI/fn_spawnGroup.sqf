@@ -17,7 +17,7 @@
  * Example:
  * [["O_Soldier_TL_F","O_Soldier_GL_F"],east,spawnLogic] call ADV_fnc_spawnGroup;
  *
- * Public: No
+ * Public: Yes
  */
 
 if (!isServer && hasInterface) exitWith {};

@@ -13,7 +13,7 @@
  * Example:
  * ["zeus_1",3] call adv_fnc_createZeus;
  *
- * Public: No
+ * Public: Yes
  */
 
 if (!isServer) exitWith {};

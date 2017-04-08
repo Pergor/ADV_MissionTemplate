@@ -16,7 +16,7 @@
  * Example:
  * [player, [0,0,0]] call adv_fnc_paraJump;
  *
- * Public: No
+ * Public: Yes
  */
 
 params [

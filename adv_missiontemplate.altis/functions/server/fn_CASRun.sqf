@@ -15,7 +15,7 @@
  * Example:
  * [attackLogic,0,"B_Plane_CAS_01_F",0] call ADV_fnc_CASRun;
  *
- * Public: No
+ * Public: Yes
  */
 
 if !(isServer || hasInterface) exitWith {};

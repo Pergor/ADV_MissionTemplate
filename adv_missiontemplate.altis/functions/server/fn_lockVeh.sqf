@@ -12,7 +12,7 @@
  * Example:
  * [MRAP_1, MRAP_2, ..., MRAP_n] call adv_fnc_lockVeh;
  *
- * Public: No
+ * Public: Yes
  */
 
 if (!isServer) exitWith{};

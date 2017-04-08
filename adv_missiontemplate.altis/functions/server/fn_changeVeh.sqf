@@ -13,22 +13,9 @@
  * Example:
  * [[MRAP_1, MRAP_2, ..., MRAP_n], ["B_MRAP_1_F"]] call adv_fnc_changeVeh;
  *
- * Public: No
+ * Public: Ye
  */
 
-/*
-Vehicle Change Script by belbo
-Ersetzt ein Fahrzeug durch ein anderes
-defined in cfgFunctions (functions\server\fn_changeVeh.sqf)
-
-_this select 0 = Fahrzeugtyp (arry with vehicle names)
-_this select 1 = ersetzende Fahrzeuge (array!)
-
-call via:
-
-[[VEHICLEARRAY],["classname"]] call ADV_fnc_changeVeh;
-
-*/
 if (!isServer) exitWith {};
 
 params [

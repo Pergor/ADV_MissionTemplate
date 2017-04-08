@@ -12,7 +12,7 @@
  * Example:
  * [] call adv_fnc_IEDhandler;
  *
- * Public: No
+ * Public: Yes
  */
 
 if !(isClass(configFile >> "CfgPatches" >> "ace_explosives")) exitWith {};

@@ -12,7 +12,7 @@
  * Example:
  * [MRAP_1] call adv_fnc_retexture;
  *
- * Public: No
+ * Public: Yes
  */
 
 params [

@@ -12,7 +12,7 @@
  * Example:
  * _handle = [] call adv_fnc_weather;
  *
- * Public: Yes
+ * Public: No
  */
  
 if (isNil "ADV_par_randomWeather") then {ADV_par_randomWeather = 99};

@@ -17,7 +17,7 @@
  * Example:
  * _handle = [MRAP_1, west, 50] call adv_fnc_radioRelay;
  *
- * Public: Yes
+ * Public: Yes/No
  */
 
 if !(isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {};

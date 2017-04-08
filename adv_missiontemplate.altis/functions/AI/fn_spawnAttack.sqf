@@ -19,7 +19,7 @@
  * Example:
  * [["O_Soldier_TL_F","O_Soldier_GL_F"],east,75,[spawnLogic,spawnLogic_1,spawnLogic_2],attackLogic] call ADV_fnc_spawnAttack;
  *
- * Public: No
+ * Public: Yes
  */
 
 if (!isServer && hasInterface) exitWith {};

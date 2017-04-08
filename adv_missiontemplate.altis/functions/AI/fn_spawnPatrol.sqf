@@ -21,7 +21,7 @@
  * Example:
  * [["O_Soldier_TL_F","O_Soldier_GL_F"],east,200,["LIMITED","STAG COLUMN","NOFOLLOW"],[spawnLogic,spawnLogic_1,spawnLogic_2],"UPSAREANAME"] call ADV_fnc_spawnPatrol;
  *
- * Public: No
+ * Public: Yes
  */
 
 if (!isServer && hasInterface) exitWith {};

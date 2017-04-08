@@ -12,7 +12,7 @@
  * Example:
  * [MRAP_1] call adv_fnc_rhsDecals;
  *
- * Public: No
+ * Public: Yes
  */
 
 if !(isClass(configFile >> "CfgPatches" >> "rhs_main")) exitWith {};

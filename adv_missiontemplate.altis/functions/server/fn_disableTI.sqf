@@ -12,7 +12,7 @@
  * Example:
  * _handle = [] call adv_fnc_disableTI;
  *
- * Public: No
+ * Public: Yes
  */
 
 if (!isServer) exitWith {};

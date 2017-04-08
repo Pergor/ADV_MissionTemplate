@@ -12,7 +12,7 @@
  * Example:
  * call adv_fnc_undercover
  *
- * Public: No
+ * Public: Yes
  */
 
 private _weapon = currentWeapon player;

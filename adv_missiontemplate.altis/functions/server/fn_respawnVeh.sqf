@@ -14,7 +14,7 @@
  * Example:
  * _handle = [MRAP_1, 30] call adv_fnc_respawnVeh;
  *
- * Public: No
+ * Public: Yes
  */
 
 if (!isServer) exitWith {};
