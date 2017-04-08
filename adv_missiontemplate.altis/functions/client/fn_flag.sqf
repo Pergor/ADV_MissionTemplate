@@ -1,14 +1,21 @@
 ﻿/*
-ADV_fnc_flag by Belbo
+ * Author: Belbo
+ *
+ * Adds teleport menu/action to objects.
+ *
+ * Arguments:
+ * Array of objects - <ARRAY> of <OBJECTS>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [flag_1, flag_2, ..., flag_n] call adv_fnc_flag;
+ *
+ * Public: No
+ */
 
-Attaches an action to an object that allows teleport to the current group leader (or the next member in group for group leaders).
-
-Possible call - has to be executed on each client locally:
-[FLAGNAME_1,FLAGNAME_2] spawn ADV_fnc_flag;
-
-_this = objects the action should be attached to.
-*/
-if (count _this == 0) exitWith {};
+ if (count _this == 0) exitWith {};
 
 {
 	if (!isNil "_x") then {

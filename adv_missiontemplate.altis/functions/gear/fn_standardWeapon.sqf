@@ -1,10 +1,19 @@
 ﻿/*
-adv_fnc_standardWeapon by BlauBaer/Belbo
-
-_this select 0 = side to check for regular weapon.
-
-Return: array in format ["WEAPON", MAGAZINEINDEX (can be integer or string), "SILENCER"]
-*/
+ * Author: Belbo
+ *
+ * Returns a standard weapon for the provided side depending on adv_missiontemplate-variables.
+ *
+ * Arguments:
+ * 0: side to check for standard weapon - <SIDE>
+ *
+ * Return Value:
+ * Array in format ["WEAPON", MAGAZINEINDEX (can be integer or string), "SILENCER"] - <ARRAY>
+ *
+ * Example:
+ * _standardWeapon = [west] call adv_fnc_standardWeapon;
+ *
+ * Public: No
+ */
 
 params [
 	["_side", west, [west]]

@@ -1,13 +1,19 @@
 ﻿/*
-ADV_fnc_showArtiSetting by Belbo
-Shows artillery setting (propellant setting).
-
-Possible call - has to be executed locally on each client:
-[artiObject_1,artiObject_2] call ADV_fnc_showArtiSetting;
-
-_this = artillery vehicles or mortars the notification should be applied to.
-*/
-//if (isClass(configFile >> "CfgPatches" >> "ACE_mk6mortar")) exitWith {};
+ * Author: Belbo
+ *
+ * Adds action to show artillery setting (propellant setting) for all provided vehicles.
+ *
+ * Arguments:
+ * Array of objects - <ARRAY> of <OBJECTS>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [arty_1, arty_2, ..., arty_n] call adv_fnc_showArtiSetting;
+ *
+ * Public: No
+ */
 
 {
 	if (!isNil "_x") then {

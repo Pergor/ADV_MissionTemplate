@@ -1,8 +1,19 @@
 ﻿/*
-ADV_fnc_lockVehicle
-
-This function locks one vehicle or multiple vehicles for all but players.
-*/
+ * Author: Belbo
+ *
+ * Locks one or multiple vehicles for AI and not for players.
+ *
+ * Arguments:
+ * Array of vehicles - <ARRAY> of <OBJECTS>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [MRAP_1, MRAP_2, ..., MRAP_n] call adv_fnc_lockVeh;
+ *
+ * Public: No
+ */
 
 if (!isServer) exitWith{};
 

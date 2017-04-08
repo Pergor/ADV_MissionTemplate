@@ -1,15 +1,19 @@
 ﻿/*
-ADV_fnc_applyLoadout by Belbo:
-
-Adds a predefined loadout from ADV_MissionTemplate to the units that are named according to adv_fnc_playerUnit.
-
-Possible call - has to be executed on the client locally:
-[object] call ADV_fnc_applyLoadout;
-
-_this select 0 = object - target the loadout is applied to.
-*/
-
-///// No editing necessary below this line /////
+ * Author: Belbo
+ *
+ * Adds a predefined loadout from ADV_MissionTemplate to the units that are named according to adv_fnc_playerUnit.
+ *
+ * Arguments:
+ * 0: target - <OBJECT>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [player] call adv_fnc_applyLoadout;
+ *
+ * Public: No
+ */
 
 params [
 	["_target", player, [objNull]],

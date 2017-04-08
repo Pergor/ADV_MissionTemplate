@@ -1,4 +1,21 @@
-﻿ADV_sriptfnc_dropLogistic = {
+﻿/*
+ * Author: Belbo
+ *
+ * Adds action to an ammo box so it can be dropped at a location selected via map.
+ *
+ * Arguments:
+ * Array of ammo boxes - <ARRAY> of <OBJECTS>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [crate_1, crate_2, ..., crate_n] call adv_fnc_dropLogistic;
+ *
+ * Public: No
+ */
+
+ADV_sriptfnc_dropLogistic = {
 	params [
 		["_crate", objNull, [objNull]],
 		["_targetPos", [0,0,0], [[]]]

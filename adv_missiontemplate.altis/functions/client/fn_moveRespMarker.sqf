@@ -1,15 +1,21 @@
 ﻿/*
-ADV_fnc_moveRespMarker by Belbo
-
-Creates respawn markers that follow the current group leader every x seconds in a y radius.
-
-Possible call - has to be executed on each client locally:
-[TIME,RADIUS,0] spawn ADV_fnc_moveRespMarker;
-
-_this select 0 = TIME;
-_this select 1 = Radius;
-_this select 2 = remove start marker ? 1/0;
-*/
+ * Author: Belbo
+ *
+ * Creates respawn markers that follow the current group leader every x seconds in a y radius. Additionally it can delete respawn markers at start.
+ *
+ * Arguments:
+ * 0: timer for marker movement (optional) - <NUMBER>
+ * 1: radius around player to move the marker to (optional) - <NUMBER>
+ * 2: Should respawn markers from start be deleted? 0/1 (optional) - <NUMBER>
+ *
+ * Return Value:
+ * Script handle - <HANDLE>
+ *
+ * Example:
+ * _handle = [120, 20, 0] spawn adv_fnc_moveRespMarker;
+ *
+ * Public: No
+ */
 
 params [
 	["_moveTimer", 120, [0]],
@@ -53,5 +59,3 @@ while { ADV_var_moveRespMarker == 1 } do {
 	_RespMarker setMarkerTextLocal "Respawn on group leader";
 	sleep _moveTimer;
 };
-
-true;

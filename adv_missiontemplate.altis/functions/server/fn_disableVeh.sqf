@@ -1,4 +1,21 @@
 ﻿/*
+ * Author: Belbo
+ *
+ * Disables provided vehicles
+ *
+ * Arguments:
+ * Array of vehicles - <ARRAY> of <OBJECTS>
+ *
+ * Return Value:
+ * Function executed <BOOL>
+ *
+ * Example:
+ * [MRAP_1, MRAP_2, ..., MRAP_n] call adv_fnc_disableVeh;
+ *
+ * Public: No
+ */
+
+/*
 Vehicle disabling Script by belbo
 Ersetzt ein Fahrzeug durch ein anderes
 _this = vehicles

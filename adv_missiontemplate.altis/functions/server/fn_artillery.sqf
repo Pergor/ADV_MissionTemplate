@@ -1,7 +1,22 @@
 ﻿/*
-Based on the Artillery-Script by Nyaan (edited by Belbo)
-[[target_1,target_2],"Sh_155mm_AMOS",[3,7],300,5,50] spawn ADV_fnc_artillery;
-*/
+ * Author: Nyaan, Belbo
+ *
+ * Creates artillery strike on targets
+ *
+ * Arguments:
+ * 0: target positions - <ARRAY> of <POSITIONS>, <OBJECTS>, <STRINGS>
+ * 1: class of artillery shell (optional) - <STRING>
+ * 2: class of attack plane (optional) - <STRING>
+ * 3: type of attack run - 0 = gun only, 1 = rockets only, 2 = gun and rockets (optional) - <NUMBER>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [[target_1,"targetMarker_2"],"Sh_155mm_AMOS",[3,7],300,5,50] spawn ADV_fnc_artillery;
+ *
+ * Public: No
+ */
 
 params [
 	["_targetArray", [], [[]]],

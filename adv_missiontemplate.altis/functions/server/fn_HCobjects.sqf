@@ -1,11 +1,4 @@
-﻿/*
-zeus script by Belbo
-Makes most units placed in the editor and playable units editable by Zeus.
-Call from init.sqf via:
-if (isServer) then {[CURATORMODULENAME,true] execVM "fn_zeus.sqf";};
-*/
-
-if (!isServer) exitWith {};
+﻿if (!isServer) exitWith {};
 
 /*
 _HC = [_this, 0, ObjNull, [ObjNull]] call BIS_fnc_param;

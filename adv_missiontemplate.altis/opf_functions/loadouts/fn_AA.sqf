@@ -1,8 +1,18 @@
 ﻿/*
-unit loadout script by Belbo
-creates a specific loadout for playable units. Add the items to their respective variables. (expected data type is given).
-The kind of ammo a player gets with this loadout does not necessarily have to be specified.
-*/
+ * Author: Belbo
+ * Loadout function
+ *
+ * Arguments:
+ * 0: target - <OBJECT>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [player] call adv_opf_fnc_AA;
+ *
+ * Public: No
+ */
 
 //clothing - (string)
 _uniform = ["U_O_CombatUniform_ocamo"];
