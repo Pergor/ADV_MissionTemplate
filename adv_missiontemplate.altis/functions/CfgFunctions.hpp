@@ -27,7 +27,7 @@ class ADV
 		class collectCrates {};
 		class collectFlags {};
 		class radioRelay {};
-		
+		class weather { postInit = 1; };
 	};
 	class server
 	{
@@ -50,7 +50,6 @@ class ADV
 		class retexture {};
 		class rhsDecals {};
 		class paraBomb {};
-		class weather { postInit = 1; };
 		class zeusObjects {};
 	};
 	class serverGear
@@ -59,6 +58,7 @@ class ADV
 		class addVehicleLoad {};
 		class clearCargo {};
 		class crate {};
+		class removeWeapon {};
 		class submarineLoad {};
 		class vehicleLoad {};
 	};
@@ -94,8 +94,6 @@ class ADV
 		class paraJump {};
 		class paraJumpSelection {};
 		class playerUnit {};
-		class radioHeadset {};
-		class rollDice {};
 		class safeZone {};
 		class showArtiSetting {};
 		class spawnFire {};
@@ -119,7 +117,6 @@ class ADV
 		class dialogLoadout {};
 		class gear {};
 		class insignia {};
-		class removeWeapon {};
 		class setChannels {};
 		class setFaction {};
 		class setFrequencies {};
