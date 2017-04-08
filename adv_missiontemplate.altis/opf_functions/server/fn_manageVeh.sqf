@@ -151,13 +151,15 @@ adv_opf_manageVeh_codeForAll = {
 	if (isClass(configFile >> 'CfgPatches' >> 'rhs_main')) then {
 		[_veh] call ADV_opf_fnc_rhsDecals;
 	};
+	if !( ADV_par_vehicleRespawn isEqualTo 9999 ) then {
+		[_veh,ADV_par_vehicleRespawn, east] call ADV_fnc_respawnVeh;
+	};
 };
 //application of code:
 {
 	private _vehObj = missionNamespace getVariable [_x,objNull];
 	if !(isNull _vehObj) then {
 		_vehObj spawn adv_opf_manageVeh_codeForAll;
-		[_vehObj,ADV_par_vehicleRespawn, east, (typeOf _vehObj)] spawn ADV_fnc_respawnVeh;
 	};
 	nil;
 } count ADV_opf_veh_all;

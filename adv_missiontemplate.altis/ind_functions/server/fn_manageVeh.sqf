@@ -154,13 +154,15 @@ adv_ind_manageVeh_codeForAll = {
 			_veh setObjectTextureGlobal [1,'#(rgb,8,8,3)color(1,1,1,0.004)'];
 		};
 	};
+	if !( ADV_par_vehicleRespawn isEqualTo 9999 ) then {
+		[_veh,ADV_par_vehicleRespawn, independent] call ADV_fnc_respawnVeh;
+	};
 };
 //application of code:
 {
 	private _vehObj = missionNamespace getVariable [_x,objNull];
 	if (!isNull _vehObj) then {
 		_vehObj spawn adv_ind_manageVeh_codeForAll;
-		[_vehObj,ADV_par_vehicleRespawn, independent, (typeOf _vehObj)] spawn ADV_fnc_respawnVeh;
 	};
 	nil;
 } count ADV_ind_veh_all;

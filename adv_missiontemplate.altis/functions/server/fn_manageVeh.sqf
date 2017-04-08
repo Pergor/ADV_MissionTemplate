@@ -147,9 +147,11 @@ adv_manageVeh_codeForAll = {
 	if (isClass(configFile >> 'CfgPatches' >> 'rhsusf_main')) then {
 		[_veh] call ADV_fnc_rhsDecals;
 	};
-	//private _init = [_veh] call BIS_fnc_getVehicleCustomization;
-	//[_veh, (_init select 0) select 0, _init select 1] call BIS_fnc_initVehicle
 	[_veh] call adv_fnc_retexture;
+	
+	if !( ADV_par_vehicleRespawn isEqualTo 9999 ) then {
+		[_veh,ADV_par_vehicleRespawn, west] call ADV_fnc_respawnVeh;
+	};
 };
 
 //application of code:
@@ -157,7 +159,6 @@ adv_manageVeh_codeForAll = {
 	private _vehObj = missionNamespace getVariable [_x,objNull];
 	if (!isNull _vehObj) then {
 		_vehObj spawn adv_manageVeh_codeForAll;
-		[_vehObj,ADV_par_vehicleRespawn, west, (typeOf _vehObj)] spawn ADV_fnc_respawnVeh;
 	};
 	nil;
 } count ADV_veh_all;
