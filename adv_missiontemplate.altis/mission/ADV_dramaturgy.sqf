@@ -1,58 +1,57 @@
-﻿if (!isServer && hasInterface) exitWith {};
+﻿/*
+ * Author: Belbo
+ *
+ * Contains the "dramaturgy" of the mission.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * Script handle - <HANDLE>
+ *
+ * Example:
+ * _handle = execVM "mission\adv_dramaturgy.sqf";
+ *
+ * Public: No
+ */
 
-if !(isServer || hasInterface) then {ADV_HCpresent = 1;};
-if (isServer) then {ADV_HCpresent = 0;};
-publicVariable "ADV_HCpresent";
-
+if (!isServer && hasInterface) exitWith {};
 if (isNil "ADV_taskVar") then { ADV_taskVar = 0; };
 if (isNil "ADV_spawnVar") then { ADV_spawnVar = 0; };
+if !(isServer || hasInterface) then {
+	missionNamespace setVariable ["ADV_HCpresent",1,true];
+};
+if (isServer) then {
+	missionNamespace setVariable ["ADV_HCpresent",0,true];
+};
 
-//upsmon arrays for editor placed units (for HC-compatibility)
-/*
-[] spawn {
-	_upsmonCalls = [
-		//[opf_group_1,"area","CARELESS","LIMITED"]
-	];
-	if (count _upsmonCalls != 0) then {
-		{_x execVM "scripts\upsmon.sqf"} forEach _upsmonCalls;
+//failsafe for finishing the mission:
+[{adv_taskVar == 99}, { [] spawn { ["task_1", "succeeded"] remoteExec ["FHQ_TT_setTaskState",2]; sleep 20; ["End2",true,8] remoteExec ["BIS_fnc_endMission",0]; }] call CBA_fnc_waitUntilAndExecute;
+
+//Use CBA_fnc_waitUntilAndExecute for the following mission parts:
+
+private _taskVar_1_code = {
+	_this spawn {
 	};
 };
-*/
+[ {adv_taskVar==1}, _taskVar_1_code, []] call CBA_fnc_waitUntilAndExecute;
 
-//scripts for first mission part
-//waitUntil {sleep 1; ADV_taskVar == 1};
-
-//scripts for following mission parts
-/*
-ADV_handle_dramaturgy_1 = [] spawn {
-	private _code_1 = {};
-	[{CONDITION}, _code_1, [PARAMS]] call CBA_fnc_waitUntilAndExecute;
-};
-*/
-
-//mission end:
-ADV_handle_dramaturgy_end = [] spawn {
-	waitUntil {sleep 1; ADV_taskVar == 99};
-	["task_1", "succeeded"] remoteExec ["FHQ_TT_setTaskState",2];
-	sleep 20;
-	["End2",true,8] remoteExec ["BIS_fnc_endMission",0];
-};
 
 /*
 //for adding new tasks, create a new case in ADV_tasks.sqf, a new task within this case and call like this:
 [2] remoteExec ["adv_fnc_tasks",2];
 
 //possible spawn calls:
-[["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"],east,spawnLogic,200,0] call adv_fnc_aiTask;
-[["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"],east,spawnLogic,100,2] call adv_fnc_aiTask;
-[["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"],east,spawnLogic,200,4,["attackMarker",50]] call adv_fnc_aiTask;
+[spawnLogic,["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"],east,0,200] call adv_fnc_aiTask;
+[spawnLogic,["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"],east,2,100] call adv_fnc_aiTask;
+[spawnLogic,["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"],east,4,200,["attackMarker",50]] call adv_fnc_aiTask;
 
 	//or (deprecated):
-	[["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"],east,50,["LIMITED","CARELESS","STAG COLUMN"],[spawnLogic_1]] call ADV_fnc_spawnPatrol;
-	[["I_Soldier_TL_F","I_Soldier_AR_F","I_Soldier_F","I_soldier_GL_F","I_medic_F"],independent,50,["LIMITED","CARELESS","STAG COLUMN"],[spawnLogic_1,spawnLogic_2],"area_1"] call ADV_fnc_spawnPatrol;
-	[["I_Soldier_TL_F","I_Soldier_AR_F","I_Soldier_F","I_soldier_GL_F","I_medic_F"],independent,50,[spawnLogic_1],attackLogic_1] call ADV_fnc_spawnAttack;
+	[[spawnLogic_1],["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"],east,50,["LIMITED","CARELESS","STAG COLUMN"]] call ADV_fnc_spawnPatrol;
+	[[spawnLogic_1,spawnLogic_2],["I_Soldier_TL_F","I_Soldier_AR_F","I_Soldier_F","I_soldier_GL_F","I_medic_F"],independent,50,["LIMITED","CARELESS","STAG COLUMN"],"area_1"] call ADV_fnc_spawnPatrol;
+	[[spawnLogic_1],["I_Soldier_TL_F","I_Soldier_AR_F","I_Soldier_F","I_soldier_GL_F","I_medic_F"],independent,50,attackLogic_1] call ADV_fnc_spawnAttack;
 	//for calling custom loadouts on last group spawned (just add one spawnLogic/Marker):
-	_grp = [["B_Sniper_F","B_Spotter_F"],west,200,["LIMITED","STAG COLUMN","NOFOLLOW"],[spawnLogic_1]] call ADV_fnc_spawnPatrol;
+	_grp = [[spawnLogic_1],["B_Sniper_F","B_Spotter_F"],west,200,["LIMITED","STAG COLUMN","NOFOLLOW"]] call ADV_fnc_spawnPatrol;
 	[(units _grp) select 0] call ADV_fnc_sniper;
 	[(units _grp) select 1] call ADV_fnc_spotter;
 */

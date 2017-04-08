@@ -23,12 +23,12 @@ Most settings for this template can be altered in the MP lobby or in mission\Cfg
 /////////////////////
 The following functions might proove helpful while creating a mission:
 
-[["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"],east,50,["LIMITED","CARELESS","STAG COLUMN"],[spawnLogic_1]] call ADV_fnc_spawnPatrol;
+[[spawnLogic_1],["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"],east,50,["LIMITED","CARELESS","STAG COLUMN"]] call ADV_fnc_spawnPatrol;
 
 Will spawn a group of OPFOR-soldiers with the side east at the position of spawnLogic_1. The units will patrol within a 50 meter radius around the spawn location
 with the UPSMON-parameters provided. (Execution on SERVER or HC only!)
 
-[["I_Soldier_TL_F","I_Soldier_AR_F","I_Soldier_F","I_soldier_GL_F","I_medic_F"],independent,50,[spawnLogic_1],attackLogic_1] call ADV_fnc_spawnAttack;
+[[spawnLogic_1],["I_Soldier_TL_F","I_Soldier_AR_F","I_Soldier_F","I_soldier_GL_F","I_medic_F"],independent,attackLogic_1,50] call ADV_fnc_spawnAttack;
 
 Will spawn a group of INDFOR-soldiers with the side independent at the position of spawnLogic_1. The units will attack an area of 50 meter radius around
 the position of attackLogic_1. (Execution on SERVER or HC only!)
