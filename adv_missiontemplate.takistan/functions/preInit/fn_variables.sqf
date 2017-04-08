@@ -1,9 +1,19 @@
 ﻿/*
-ADV_Variables by Belbo
-contains all the variables that are important for a mission
-call from init.sqf AND initPlayerLocal.sqf via (as early as possible):
-call compile preprocessfilelinenumbers "ADV_Setup\ADV_Variables.sqf";
-*/
+ * Author: Belbo
+ *
+ * Contains or creates all the variables that are important for adv_missiontemplate.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [] call adv_fnc_variables;
+ *
+ * Public: No
+ */
 
 //standard Variables:
 if ( isNil "ADV_taskVar" ) then { ADV_taskVar = 0; };

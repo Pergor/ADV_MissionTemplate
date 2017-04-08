@@ -1,16 +1,21 @@
 ﻿/*
-ADV_fnc_tfarSettings by Belbo
-contains all the variables that are important for tfar
-*/
+ * Author: Belbo
+ *
+ * Contains all the variables important for tfar.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * tfar present and set? - <BOOL>
+ *
+ * Example:
+ * [] call adv_fnc_tfarSettings;
+ *
+ * Public: No
+ */
 
 if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
-
-	//params needed in case paramsArray not yet defined on client in MP
-	//if (isNil "adv_par_customUni") then { adv_par_customUni = ["param_customUni",0] call BIS_fnc_getParamValue; };
-	//if (isNil "ADV_par_customWeap") then { adv_par_customWeap = ["param_customWeap",0] call BIS_fnc_getParamValue; };
-	//if (isNil "ADV_par_opfUni") then { adv_par_opfUni = ["param_opfUni",0] call BIS_fnc_getParamValue; };
-	//if (isNil "adv_par_seriousMode") then { adv_par_seriousMode = ["param_seriousMode",0] call BIS_fnc_getParamValue; };
-	//für zusätzliche variablen/functions: https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Variables
 	
 	["TFAR_giveLongRangeRadioToGroupLeaders", false, true, "server"] call CBA_settings_fnc_set;
 	["TFAR_givePersonalRadioToRegularSoldier", false, true, "server"] call CBA_settings_fnc_set;

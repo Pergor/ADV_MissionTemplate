@@ -1,7 +1,20 @@
 ﻿/*
-ADV_fnc_setChannels by Belbo
-Sets the channels for each group
-*/
+ * Author: Belbo
+ *
+ * Sets the player's radio (with acre and tfar) to a certain channel depending on his group. Frequencies will be reset to the standard from adv_fnc_tfarSettings.
+ *
+ * Arguments:
+ * 0: target - <OBJECT>
+ *
+ * Return Value:
+ * tfar/acre present and set? - <BOOL>
+ *
+ * Example:
+ * [player] call adv_fnc_setChannels;
+ *
+ * Public: No
+ */
+
 params [
 	["_unit", player, [objNull]]
 ];

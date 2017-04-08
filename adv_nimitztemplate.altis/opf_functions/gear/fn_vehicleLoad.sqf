@@ -1,4 +1,25 @@
-﻿if (!isServer) exitWith {};
+﻿/*
+ * Author: Belbo
+ *
+ * Adds items to vehicle for OPFOR.
+ *
+ * Arguments:
+ * 0: vehicle - <OBJECT>
+ * 1: should the vehicle be a medical vehicle? (optional) - <BOOL>
+ * 2: should the vehicle carry weapons and ammunition (optional) - <BOOL>
+ * 3: amount of ace-spare parts for the vehicle (optional) - <NUMBER>
+ * 5: should the vehicle be a repair vehicle? (optional) - <BOOL>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [MRAP_1, false, true, 2, false] call adv_opf_fnc_vehicleLoad;
+ *
+ * Public: Yes
+ */
+
+if (!isServer) exitWith {};
 
 params [
 	["_target", objNull, [objNull]], 
@@ -8,7 +29,10 @@ params [
 	["_isRepairVehicle", false, [0,true]]
 ];
 
+if (_target isEqualTo objNull) exitWith {};
+
 _backpacks = [];
+
 //weapons and ammo
 if (_withWeapons) then {
 	switch (true) do {

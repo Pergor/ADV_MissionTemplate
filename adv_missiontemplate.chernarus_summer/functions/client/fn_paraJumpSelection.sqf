@@ -1,13 +1,19 @@
 ﻿/*
-ADV_fnc_paraJump - by Belbo:
-
-Allows player to jump with a parachute over a position that's defined by mapclick (or by position of group leader of the player)
-
-Possible call - has to be executed where unit is local:
-	[player] call ADV_fnc_paraJump;
-Or, with an addaction:
-	ADV_handle_paraJumpAction = OBJECT addAction [("<t color=""#33FFFF"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJump},nil,3,false,true,"","true",5];
-*/
+ * Author: Belbo
+ *
+ * Allows selection of a target position for adv_fnc_paraJump.
+ *
+ * Arguments:
+ * 0: target - <OBJECT>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * flag_1 addAction [("<t color='#00FF00' size='2'>" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJumpSelection},nil,3,false,true,"","player == leader (group player)",5];
+ *
+ * Public: No
+ */
 
 params [
 	["_unit",player,[objNull]]

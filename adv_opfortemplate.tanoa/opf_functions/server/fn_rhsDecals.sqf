@@ -1,4 +1,21 @@
-﻿if !(isClass(configFile >> "CfgPatches" >> "rhs_main")) exitWith {};
+﻿/*
+ * Author: Belbo
+ *
+ * Adds rhs decals to OPFOR vehicle
+ *
+ * Arguments:
+ * 0: vehicle - <OBJECT>
+ *
+ * Return Value:
+ * decal applied - <BOOL>
+ *
+ * Example:
+ * [MRAP_1] call adv_opf_fnc_rhsDecals;
+ *
+ * Public: No
+ */
+
+if !(isClass(configFile >> "CfgPatches" >> "rhs_main")) exitWith {};
 
 params [
 	["_veh", objNull, [objNull]]
@@ -8,6 +25,7 @@ switch true do {
 	case (_veh isKindOf "rhs_tigr_base"): {
 		[_veh,[["Number", [5,6,7], "Default",537]]] spawn rhs_fnc_decalsInit; 
 		[_veh,[["Label", [8,9,10], "Army", [19,0]]]] spawn rhs_fnc_decalsInit;
+		true;
 	};
 	case (_veh isKindOf "rhs_gaz66_vmf" || _veh isKindOf "RHS_Ural_BaseTurret" || _veh isKindOf "RHS_UAZ_Base"): {
 		[_veh,[["Number", [3,4,5], "Default",537]]] spawn rhs_fnc_decalsInit; 
@@ -27,6 +45,7 @@ switch true do {
 		//(gaz66):
 		_veh setObjectTextureGlobal [0,"rhsafrf\addons\rhs_gaz66_camo\data\gaz66_sand_co.paa"];
 		*/
+		true;
 	};
 	case (_veh isKindOf "rhs_btr_base"): {
 		[_veh,[["Number", [10,11,12], "DefaultRed",537]]] spawn rhs_fnc_decalsInit; 
@@ -48,6 +67,7 @@ switch true do {
 			};
 		};
 		*/
+		true;
 	};
 	case (_veh isKindOf "rhs_bmp1tank_base"): {
 		[_veh,[["Number", [6,7,8], "DefaultRed",537]]] spawn rhs_fnc_decalsInit; 
@@ -60,6 +80,7 @@ switch true do {
 		_veh setObjectTextureGlobal [4,"rhsafrf\addons\rhs_bmp_camo\data\bmp_5_desert_co.paa"];
 		_veh setObjectTextureGlobal [5,"rhsafrf\addons\rhs_bmp_camo\data\bmp_6_desert_co.paa"];
 		*/
+		true;
 	};
 	case (_veh isKindOf "rhs_a3t72tank_base" || _veh isKindOf "rhs_tank_base") : {
 		//[_veh,[["Number", [5,6,7], "DefaultRed",537]]] spawn rhs_fnc_decalsInit;
@@ -74,6 +95,7 @@ switch true do {
 		//t90 zusätzlich:
 		_veh setObjectTextureGlobal [5,"rhsafrf\addons\rhs_t72_camo\data\rhs_t90parts__sand_co.paa"];
 		
+		true;
 		*/
 	};
 	case (_veh isKindOf "rhs_2s3tank_base") : {
@@ -83,6 +105,7 @@ switch true do {
 		_veh setObjectTextureGlobal [1,"rhsafrf\addons\rhs_2s3_camo\data\rhs_2s3_02_des_co.paa"];
 		_veh setObjectTextureGlobal [2,"rhsafrf\addons\rhs_2s3_camo\data\rhs_art_wheels_des_co.paa"];
 		*/
+		true;
 	};
 	case (_veh isKindOf "rhs_bmd_base") : {
 		[_veh,[["Number", [3,4,5], "DefaultRed",537]]] spawn rhs_fnc_decalsInit;
@@ -93,16 +116,19 @@ switch true do {
 		_veh setObjectTextureGlobal [1,"rhsafrf\addons\rhs_bmd_camo\data\sa_bmd2_02_rus1_co.paa"];
 		_veh setObjectTextureGlobal [2,"rhsafrf\addons\rhs_bmd_camo\data\sa_bmd2_03_rus1_co.paa"];
 		*/
+		true;
 	};
 	case (_veh isKindOf "rhs_a3spruttank_base") : {
 		[_veh,[["Number", [5,6,7], "DefaultRed",537]]] spawn rhs_fnc_decalsInit;
 		[_veh,[["Label", [8], "Army", [19,0]]]] spawn rhs_fnc_decalsInit;
+		true;
 	};
 	case (_veh isKindOf "rhs_brm1k_vdv") : {
 		[_veh,[["Number", [6,7,8], "DefaultRed",537]]] spawn rhs_fnc_decalsInit;
 		[_veh,[["Label", [9], "Army", [19,0]]]] spawn rhs_fnc_decalsInit;
+		true;
 	};
-	default {};
+	default {false};
 };
 /*
 //bmp3

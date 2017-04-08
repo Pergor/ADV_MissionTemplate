@@ -1,13 +1,22 @@
 ﻿/*
-ADV_fnc_playerUnit by Belbo
+ * Author: Belbo
+ *
+ * Combines the target if it as a certain vehicleVarName with a certain adv_fnc_-loadout function which can be applied by adv_fnc_applyloadout.
+ * Sets _target setVariable ["ADV_var_playerUnit","loadout function from adv_fnc_playerUnit"];
+ *
+ * Arguments:
+ * 0: target - <OBJECT>
+ *
+ * Return Value:
+ * targets new loadout function - <STRING>
+ *
+ * Example:
+ * [player] call adv_fnc_playerUnit;
+ *
+ * Public: No
+ */
 
-Possible call - has to be executed on each client at mission startup:
-[object] call ADV_fnc_applyLoadout;
-
-_this select 0 = object - target the loadout is applied to.
-*/
-
-params [
+ params [
 	["_target", player, [objNull]],
 	"_object","_zeus","_prefix","_playerUnit"
 ];

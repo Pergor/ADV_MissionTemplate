@@ -41,9 +41,9 @@ if ( isServer ) then {
 	sleep 1;
 	
 	//custom vehicles:
-	//[] spawn ADV_fnc_manageVeh;
-	//[] spawn ADV_opf_fnc_manageVeh;
-	//[] spawn ADV_ind_fnc_manageVeh;
+	//[] call ADV_fnc_manageVeh;
+	//[] call ADV_opf_fnc_manageVeh;
+	//[] call ADV_ind_fnc_manageVeh;
 	
 	/*	
 	//dead body and vehicle removery
@@ -65,7 +65,7 @@ if ( isServer ) then {
 	if ( ADV_par_headlessClient == 1 && !(missionnamespace getVariable ["ace_zeus_autoAddObjects",false]) ) then {
 		[] spawn {
 			waitUntil {time > 1};
-			ADV_handle_zeusObjects = [true] spawn ADV_fnc_zeusObjects;
+			ADV_handle_zeusObjects = [true] call ADV_fnc_zeusObjects;
 		};
 	};
 	

@@ -1,4 +1,21 @@
-﻿params [
+﻿/*
+ * Author: Belbo
+ *
+ * Retextures vehicle if some conditions are met.
+ *
+ * Arguments:
+ * 0: vehicle - <OBJECT>
+ *
+ * Return Value:
+ * texture applied - <BOOL>
+ *
+ * Example:
+ * [MRAP_1] call adv_fnc_retexture;
+ *
+ * Public: Yes
+ */
+
+params [
 	["_target", objNull, [objNull]]
 ];
 

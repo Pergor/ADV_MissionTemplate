@@ -1,13 +1,19 @@
 ﻿/*
-mission markers removal script by Belbo
-removes UPS-/mission markers (numbers, areaX, area_X, upsmarker_X, missionMarker_X) from briefing or controls their opacity.
-call from init.sqf and initPlayerLocal.sqf (as early as possible) via:
-defined in cfgFunctions (functions\preInit\fn_missionMarkers.sqf)
-called via preInit for server and once for every client in initPlayerLocal.sqf with:
-
-	[] call ADV_fnc_sideMarkers;
-
-*/	
+ * Author: Belbo
+ *
+ * Hides markers from each side in adv_missiontemplate to the enemy sides on map
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [] call adv_fnc_sideMarkers;
+ *
+ * Public: No
+ */
 
 [] spawn {
 	//startMarkers:

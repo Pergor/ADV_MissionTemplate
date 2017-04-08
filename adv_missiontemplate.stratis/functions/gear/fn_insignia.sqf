@@ -1,7 +1,19 @@
 ﻿/*
-private ["_target","_insigniumArray","_insignium"];
-_target = [_this, 0, player] call BIS_fnc_param;
-*/
+ * Author: Belbo
+ *
+ * Adds insignium to the unit depending on adv_missiontemplate-variables, side and rank of unit.
+ *
+ * Arguments:
+ * 0: target - <OBJECT>
+ *
+ * Return Value:
+ * Insignium applied? - <BOOL>
+ *
+ * Example:
+ * [player] call adv_fnc_insignia;
+ *
+ * Public: Yes
+ */
 
 params [
 	["_target", player, [objNull]],

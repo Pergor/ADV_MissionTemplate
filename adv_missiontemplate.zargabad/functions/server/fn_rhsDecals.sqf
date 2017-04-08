@@ -1,4 +1,21 @@
-﻿if !(isClass(configFile >> "CfgPatches" >> "rhs_main")) exitWith {};
+﻿/*
+ * Author: Belbo
+ *
+ * Adds rhs decals to BLUFOR vehicle
+ *
+ * Arguments:
+ * 0: vehicle - <OBJECT>
+ *
+ * Return Value:
+ * decal applied - <BOOL>
+ *
+ * Example:
+ * [MRAP_1] call adv_fnc_rhsDecals;
+ *
+ * Public: Yes
+ */
+
+if !(isClass(configFile >> "CfgPatches" >> "rhs_main")) exitWith {};
 
 params [
 	["_veh", objNull, [objNull]]

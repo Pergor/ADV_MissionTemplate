@@ -1,13 +1,19 @@
 ﻿/*
-ADV_fnc_addACEItems by Belbo
-
-Adds ace items to a crate or vehicle. Local variables have to be defined within script that calls this function.
-
-Possible call - has to be executed on server.
-[CRATE_1,VEHICLE_1] call ADV_fnc_addACEItems;
-
-_this = objects to add items to.
-*/
+ * Author: Belbo
+ *
+ * Adds ace items to a crate or vehicle. Local variables have to be defined within script that calls this function.
+ *
+ * Arguments:
+ * Array of vehicles - <ARRAY> of <OBJECTS>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [MRAP_1, MRAP_2, ..., MRAP_n] call adv_fnc_addACEItems;
+ *
+ * Public: Yes
+ */
 
 if !(isServer && (isClass(configFile >> "CfgPatches" >> "ACE_common"))) exitWith {};
 

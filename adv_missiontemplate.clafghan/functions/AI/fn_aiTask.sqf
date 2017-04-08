@@ -1,27 +1,32 @@
 ﻿/*
-adv_fnc_simplePatrol:
-
-Creates a simple patrol around a center with the given radius. Group is usually being spawned at a random location preferrably inside the radius.
-
-possible call, has to be executed on either server or headless client:
-//regular patrol:
-[["O_Soldier_TL_F","O_Soldier_GL_F"],east,"spawnMarker",200,0] call adv_fnc_aiTask;
-//spawning attack:
-[["O_Soldier_TL_F","O_Soldier_GL_F"],east,"spawnMarker",200,4,[attackLogic,50]] call adv_fnc_aiTask;
-
-_this select 0 = units array - format: array of objects
-_this select 1 = side of the units - format: side
-_this select 2 = center of the patrol circle - format: object, marker or position
-_this select 3 = radius of the patrol circle - format: number (optional)
-_this select 4 = behaviour mode:
-	0 = regular patrol,
-	1 = patrol with units searching buildings near waypoints,
-	2 = garrison buildings in radius around center,
-	3 = defend area (buildings are being defended, static guns manned and the group leader will patroul around; radius above 150meters will revert to 200 meters),
-	4 = attack location around object, marker or position provided in _this select 5 - if nothing or a missing element is provided, the next enemy will be targeted,
-	- format: number (optional)
-_this select 5 = attack position with radius - format: array of two elements, with first being object, marker or position, second being the spread radius around the first element (optional)
-*/
+ * Author: Belbo
+ *
+ * Creates a simple patrol around a center with the given radius. Group is usually being spawned at a random location preferrably inside the radius.
+ * Group will receive a provided task.
+ *
+ * Arguments:
+ * 0: unit classnames array - <ARRAY> of <STRINGS>
+ * 1: side of the units - <SIDE>
+ * 2: location for spawn (can be position, object or marker) - <ARRAY>, <OBJECT>, <STRING>
+ * 3: radius around the spawn position for the group task (optional) - <NUMBER>
+ * 4: behaviour mode - <NUMBER>
+ * 		0 = regular patrol.
+ *		1 = patrol with units searching buildings near waypoints.
+ *		2 = garrison buildings in radius around center.
+ *		3 = defend area (buildings are being defended, static guns manned and the group leader will patroul around; radius above 150meters will revert to 200 meters).
+ * 		4 = attack location around object, marker or position provided in _this select 5 - if nothing or a missing element is provided, the next enemy will be targeted.
+ * 5: attack position/object/marker with radius (optional - only necessary with behaviour mode 4) - <ARRAY> in format [position, <NUMBER>]
+ *
+ * Return Value:
+ * Spawned group - <GROUP>
+ *
+ * Example:
+ * [["O_Soldier_TL_F","O_Soldier_GL_F"],east,"spawnMarker",200,0] call adv_fnc_aiTask;
+ * or
+ * [["O_Soldier_TL_F","O_Soldier_GL_F"],east,"spawnMarker",200,4,[attackLogic,50]] call adv_fnc_aiTask;
+ *
+ * Public: Yes
+ */
 
 if (!isServer && hasInterface) exitWith {};
 

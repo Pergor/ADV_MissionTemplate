@@ -1,11 +1,19 @@
 ﻿/*
-zeus script by Belbo
-Makes most units placed in the editor and playable units editable by Zeus.
-Call from init.sqf via:
-if (isServer) then {_handle = [CURATORMODULENAME] call compile preprocessFileLineNumbers "fn_zeus.sqf";};
-or:
-if (isServer) then {_handle = [] call compile preprocessFileLineNumbers "fn_zeus.sqf";};
-*/
+ * Author: Belbo
+ *
+ * Adds objects dynamically to curator interface.
+ *
+ * Arguments:
+ * 0: name of curator module (optional). If left empty or <BOOL> objects will be added to all curator modules - <OBJECT>
+ *
+ * Return Value:
+ * Script handle - <HANDLE>
+ *
+ * Example:
+ * _handle = [] call adv_fnc_zeusObjects;
+ *
+ * Public: Yes
+ */
 
 if (!isServer) exitWith {};
 _handle = _this spawn {

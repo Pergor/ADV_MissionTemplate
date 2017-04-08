@@ -1,14 +1,20 @@
 ﻿/*
-ADV_fnc_CSW by Belbo:
-
-Adds crew served weapon packs to a unit.
-
-Possible call - has to be executed on the client the unit is local to.
-[player,1] call ADV_fnc_CSW
-
-_this select 0 = unit the weapon will be added to.
-_this select 1 = kind of weapon pack (1 = HMG weapon backpack; 2 = HMG tripod; 3 = Mortar tube; 4 = Mortar base plate;)
-*/
+ * Author: Belbo
+ *
+ * Adds crew served weapon packs to a unit. Can be called after (_unit getVariable "ADV_var_hasLoadout").
+ *
+ * Arguments:
+ * 0: target - <OBJECT>
+ * 1: Kind of weapon pack (1 = HMG weapon backpack; 2 = HMG tripod; 3 = Mortar tube; 4 = Mortar base plate;) - <NUMBER>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [player,1] call adv_fnc_CSW;
+ *
+ * Public: No
+ */
 
 params [
 	["_target", player, [objNull]],

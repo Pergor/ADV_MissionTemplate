@@ -1,8 +1,19 @@
 ﻿/*
-cratefiller script by Belbo
-put this into init-line of the crate that's supposed to contain the items specified below:
-nul = [[this],true,true] call ADV_fnc_resupplyCrate;
-*/
+ * Author: Belbo
+ *
+ * Fills a crate with grenades for BLUFOR
+ *
+ * Arguments:
+ * Array of objects - <ARRAY> of <OBJECTS>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [this] call adv_fnc_crateGrenades;
+ *
+ * Public: Yes
+ */
 
 if (!isServer) exitWith {};
 private ["_target"];

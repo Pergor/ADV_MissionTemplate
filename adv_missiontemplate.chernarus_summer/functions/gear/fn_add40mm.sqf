@@ -1,8 +1,19 @@
 ﻿/*
-fn_addGrenades: adds grenades to a unit.
-call like this:
-[_unit,[["CLASSNAME",5]]] call ADV_fnc_addGrenades;
-*/
+ * Author: Belbo
+ *
+ * Adds 40mm grenades to to unit depending on adv_missiontemplate-variables - has to be called by adv_fnc_gear;
+ *
+ * Arguments:
+ * 0: target - <OBJECT>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [player] call adv_fnc_add40mm;
+ *
+ * Public: No
+ */
 
 params [
 	["_unit", player, [objNull]]

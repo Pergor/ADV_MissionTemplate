@@ -1,20 +1,26 @@
 ﻿/*
-ADV_fnc_spawnAttack:
-
-Creates attack groups of any side at multiple locations that attack at one given location.
-If multiple vehicles are spawned, they are placed 10 meters apart.
-If one or multiple vehicles and infantry units are spawned, the vehicles will be placed 10 meters apart and the infantry in a safe distance to the vehicles. 
-The first vehicle will be the leader of any group.
-
-possible call, has to be executed on either server or headless client:
-[["O_Soldier_TL_F","O_Soldier_GL_F"],east,75,[spawnLogic,spawnLogic_1,spawnLogic_2],attackLogic] call ADV_fnc_spawnAttack;
-
-_this select 0 = units array - format: ["classname","classname",...]
-_this select 1 = side of the units - can either be west, east, independent or civilian
-_this select 2 = radius around the attack location - format: number
-_this select 3 = object at the spawn location - format: object
-_this select 4 = target location - format: object
-*/
+ * Author: Belbo
+ *
+ * Creates attack groups of any side at multiple locations that attack at one given location.
+ * If multiple vehicles are spawned, they are placed 10 meters apart.
+ * If one or multiple vehicles and infantry units are spawned, the vehicles will be placed 10 meters apart and the infantry in a safe distance to the vehicles. 
+ * The first vehicle will be the leader of any group.
+ *
+ * Arguments:
+ * 0: unit classnames array - <ARRAY> of <STRINGS>
+ * 1: side of the units - <SIDE>
+ * 2: radius around the attack location for waypoint (optional) - <NUMBER>
+ * 3: locations for spawns (can be positions, objects or markers) - <ARRAY> of <ARRAYS>, <OBJECTS>, <STRINGS>
+ * 4: attack location (can be position, object or marker) - <ARRAY>, <OBJECT>, <STRING>
+ *
+ * Return Value:
+ * Last spawned group - <GROUP>
+ *
+ * Example:
+ * [["O_Soldier_TL_F","O_Soldier_GL_F"],east,75,[spawnLogic,spawnLogic_1,spawnLogic_2],attackLogic] call ADV_fnc_spawnAttack;
+ *
+ * Public: Yes
+ */
 
 if (!isServer && hasInterface) exitWith {};
 

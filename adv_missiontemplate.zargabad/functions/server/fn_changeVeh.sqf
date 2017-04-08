@@ -1,16 +1,21 @@
 ﻿/*
-Vehicle Change Script by belbo
-Ersetzt ein Fahrzeug durch ein anderes
-defined in cfgFunctions (functions\server\fn_changeVeh.sqf)
+ * Author: Belbo
+ *
+ * Changes vehicles into randomly selected classes from provided classnames
+ *
+ * Arguments:
+ * 0: Vehicles - <ARRAY> of <OBJECTS>
+ * 1: Classnames - <ARRAY> of <STRINGS>
+ *
+ * Return Value:
+ * Function executed <BOOL>
+ *
+ * Example:
+ * [[MRAP_1, MRAP_2, ..., MRAP_n], ["B_MRAP_1_F"]] call adv_fnc_changeVeh;
+ *
+ * Public: Ye
+ */
 
-_this select 0 = Fahrzeugtyp (arry with vehicle names)
-_this select 1 = ersetzende Fahrzeuge (array!)
-
-call via:
-
-[[VEHICLEARRAY],["classname"]] call ADV_fnc_changeVeh;
-
-*/
 if (!isServer) exitWith {};
 
 params [

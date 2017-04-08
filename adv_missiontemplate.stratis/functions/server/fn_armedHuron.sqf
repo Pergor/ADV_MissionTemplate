@@ -1,11 +1,19 @@
 ﻿/*
-adding a hmg to the back of the huron script by Belbo, inspired by Easy Redbeard
-defined in cfgFunctions (functions\server\fn_armedHuron.sqf)
-Call from vehicle init via:
-[this] call ADV_fnc_armedHuron;
-or from init.sqf:
-[VEHICLENAME] call ADV_fnc_armedHuron - array can contain as much vehicles as wanted.
-*/
+ * Author: Belbo
+ *
+ * Adds HMG to the back ramp of a Huron.
+ *
+ * Arguments:
+ * Arry of hurons - <ARRAY> of <OBJECTS>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [huron_1, huron_2, ..., huron_n] call adv_fnc_armedHuron;
+ *
+ * Public: Yes
+ */
 
 if (!isServer) exitWith {};
 private ["_huron","_gun"];

@@ -1,4 +1,24 @@
-﻿params [
+﻿/*
+ * Author: Belbo
+ *
+ * Function executed by logistic dialog
+ *
+ * Arguments:
+ * 0: crate selection - <STRING>
+ * 1: force placement - <BOOL>
+ * 2: side of inventory function to call for ammo box - <SIDE>
+ * 3: position - <ARRAY>
+ *
+ * Return Value:
+ * spawned ammo box - <OBJECT>
+ *
+ * Example:
+ * None
+ *
+ * Public: Yes
+ */
+
+params [
 	["_crateSelection", "", [""]],
 	["_forcePlacement", false, [true]],
 	["_side", side (group player), [west]],

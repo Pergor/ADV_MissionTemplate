@@ -1,8 +1,19 @@
 ﻿/*
-fn_aceGear: adds ACE³ gear to a unit.
-call like this:
-[_unit] call ADV_fnc_aceGear;
-*/
+ * Author: Belbo
+ *
+ * Adds a ace gear to unit depending on adv_missiontemplate-variables. Has to be called by adv_fnc_gear.
+ *
+ * Arguments:
+ * 0: target - <OBJECT>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [player] call adv_fnc_aceGear;
+ *
+ * Public: No
+ */
 
 params [
 	["_unit", player, [objNull]]

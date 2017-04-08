@@ -1,8 +1,20 @@
 ﻿/*
-Vehicle disabling selector by belbo
-Ersetzt ein Fahrzeug durch ein anderes
-vehicle = _this select 0
-*/
+ * Author: Belbo
+ *
+ * Selects vehicle to disable for OPFOR.
+ *
+ * Arguments:
+ * 0: Vehicle - OBJECT;
+ *
+ * Return Value:
+ * Function executed <BOOL>
+ *
+ * Example:
+ * [MRAP_1] call adv_opf_fnc_disableVehSelector;
+ *
+ * Public: No
+ */
+ 
 if (!isServer) exitWith {};
 
 params [

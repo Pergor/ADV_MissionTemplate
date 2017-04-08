@@ -1,9 +1,19 @@
 ﻿/*
-unit loadout script by Belbo
-creates a specific loadout for playable units. Add the items to their respective variables. (expected data type is given).
-The kind of ammo a player gets with this loadout does not necessarily have to be specified. If tracer ammo is supposed to be used, you should set _primaryweaponAmmo to 0 and add those
-magazines one for one in _items.
-*/
+ * Author: Belbo
+ *
+ * Loadout function
+ *
+ * Arguments:
+ * 0: target - <OBJECT>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [player] call adv_fnc_AR;
+ *
+ * Public: No
+ */
 
 //clothing - (string)
 _uniform = ["U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam_vest","U_B_CombatUniform_mcam"];

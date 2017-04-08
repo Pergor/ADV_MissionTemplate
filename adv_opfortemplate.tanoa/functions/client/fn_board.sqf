@@ -1,13 +1,20 @@
 ﻿/*
-ADV_fnc_board by Belbo
+ * Author: Belbo
+ *
+ * Adds a predefined objectTexture to all given objects.
+ *
+ * Arguments:
+ * Array of objects - <ARRAY> of <OBJECTS>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [board_1, board_2, ..., board_n] call adv_fnc_board;
+ *
+ * Public: Yes
+ */
 
-Adds a defined objectTexture to all given objects.
-
-Possible call, has to be executed locally on each client (that's supposed to have control over the whiteboard): 
-[WHITEBOARDNAME] call ADV_fnc_board;
-
-_this = all boards this is applied to.
-*/
 if (count _this == 0) exitWith {};
 
 {

@@ -1,12 +1,22 @@
 ﻿/*
-gear-adding function by belbo
-adds the loadouts from ADV_Setup\gear\west\*.sqf to the units
-If custom content is added to the units, they possibly have to be added to _glrfls (if there are rifles with grenade launchers).
-define per cfgFunctions or from init.sqf or initPlayerLocal.sqf as early as possible via
-ADV_fnc_gear = compile preprocessFileLineNumbers "ADV_Setup\gear\ADV_fnc_gear.sqf";
-*/
+ * Author: Belbo
+ *
+ * The core of adv_missiontemplate's loadout system. Adds the items defined in the loadout function to the unit and calls the necessary functions.
+ * Should only be called by loadout function.
+ *
+ * Arguments:
+ * 0: target - <OBJECT>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [player] call adv_fnc_gear;
+ *
+ * Public: No
+ */
 
-params [
+ params [
 	["_unit", player, [objNull]]
 ];
 

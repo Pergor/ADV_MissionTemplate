@@ -1,8 +1,19 @@
 ﻿/*
-fn_addRadios: adds radios to a unit.
-call like this:
-[_unit] call ADV_fnc_addRadios;
-*/
+ * Author: Belbo
+ *
+ * Adds radio items to to unit depending on adv_missiontemplate-variables - has to be called by adv_fnc_gear;
+ *
+ * Arguments:
+ * 0: target - <OBJECT>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [player] call adv_fnc_addRadios;
+ *
+ * Public: No
+ */
 
 params [
 	["_unit", player, [objNull]]

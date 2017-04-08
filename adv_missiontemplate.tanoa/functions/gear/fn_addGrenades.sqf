@@ -1,12 +1,22 @@
 ﻿/*
-fn_addGrenades: adds grenades to a unit.
-call like this:
-[_unit,0,["HE","HE","WHITE"],["RED"]] call ADV_fnc_addGrenades;
-_this select 0 = object
-_this select 1 = define if a predefined grenade set of two HE grenades, one white and on coloured smoke grenade and a red chemlight should be added.
-_this select 2 = array of grenades "HE" for HE-Grenades, "WHITE", "RED" etc. for coloured smoke.
-_this select 3 = array of chemlights.
-*/
+ * Author: Belbo
+ *
+ * Adds grenades to to unit depending on adv_missiontemplate-variables - has to be called by adv_fnc_gear;
+ *
+ * Arguments:
+ * 0: target - <OBJECT>
+ * 1: Should a pre defined grenade set (2x HE, 1x Smoke White, 1x Smoke Green, 1x red chemlight) be added? - <NUMBER>
+ * 2: Array of grenade types (not classnames!), can be "HE", "WHITE", "GREEN", "RED" etc. - <ARRAY> of <STRINGS>
+ * 3: Array of chemlight types (not classnames!), can be "GREEN", "RED" etc. - <ARRAY> of <STRINGS>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [player] call adv_fnc_addGrenades;
+ *
+ * Public: No
+ */
 
 params [
 	["_unit", player, [objNull]],

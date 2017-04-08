@@ -1,6 +1,20 @@
 ﻿/*
-ADV_fnc_execTeleport by Belbo
-*/
+ * Author: Belbo
+ *
+ * Executes teleport from teleport menu.
+ *
+ * Arguments:
+ * 0: unit - <OBJECT>
+ * 1: teleport selection (can be "TELEPORT_GROUP" or "TELEPORT_COMMAND") (optional) - <STRING>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [player, "TELEPORT_GROUP"] call adv_fnc_execTeleport;
+ *
+ * Public: Yes
+ */
 
 params [
 	["_unit", player, [objNull]],

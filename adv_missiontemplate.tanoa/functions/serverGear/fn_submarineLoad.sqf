@@ -1,4 +1,21 @@
-﻿if (!isServer) exitWith {};
+﻿/*
+ * Author: Belbo
+ *
+ * Adds items to submarine.
+ *
+ * Arguments:
+ * Array of vehicles - <ARRAY> of <OBJECTS>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [sub_1, sub_2, ..., sub_n] call adv_fnc_submarineLoad;
+ *
+ * Public: Yes
+ */
+
+if (!isServer) exitWith {};
 
 private ["_target"];
 

@@ -1,10 +1,19 @@
 ﻿/*
-ADV_par_Variables by Belbo
-contains all the variables that are put into description.ext via params.hpp
-call from init.sqf AND initPlayerLocal.sqf via (as early as possible):
-call compile preprocessfilelinenumbers "ADV_Setup\ADV_par_Variables.sqf";
-or per preInit via cfgFunctions
-*/
+ * Author: Belbo
+ *
+ * Creates all the variables that are put into description.ext via params.hpp
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [] call adv_fnc_parVariables;
+ *
+ * Public: No
+ */
 
 private ["_arrayCreation","_param","_suffix","_value","_var"];
 

@@ -1,22 +1,28 @@
 ﻿/*
-ADV_fnc_spawnPatrol:
-
-Creates a patrol at all given locations either patroling within one given area or one area for each location.
-Uses UPSMON for the patrole settings.
-If multiple vehicles are spawned, they are placed 10 meters apart.
-If one or multiple vehicles and infantry units are spawned, the vehicles will be placed 10 meters apart and the infantry in a safe distance to the vehicles. 
-The first vehicle will be the leader of any group.
-
-possible call, has to be executed on either server or headless client:
-[["O_Soldier_TL_F","O_Soldier_GL_F"],east,200,["LIMITED","STAG COLUMN","NOFOLLOW"],[spawnLogic,spawnLogic_1,spawnLogic_2],"UPSAREANAME"] call ADV_fnc_spawnPatrol;
-
-_this select 0 = units array - format: ["classname","classname",...]
-_this select 1 = side of the units - can either be west, east, independent or civilian
-_this select 2 = radius of the patrol circle - format: number
-_this select 3 = UPSMON-Settings - format: ["LIMITED","COLUMN"]
-_this select 4 = object at the center of the patrol circle/spawn object or UPSarea for the patrol
-_this select 5 = area for UPSmarker - (optional)
-*/
+ * Author: Belbo
+ *
+ * Creates a patrol at all given locations either patroling within one given area or one area for each location.
+ * Uses UPSMON for the patrole settings.
+ * If multiple vehicles are spawned, they are placed 10 meters apart.
+ * If one or multiple vehicles and infantry units are spawned, the vehicles will be placed 10 meters apart and the infantry in a safe distance to the vehicles. 
+ * The first vehicle will be the leader of any group.
+ *
+ * Arguments:
+ * 0: unit classnames array - <ARRAY> of <STRINGS>
+ * 1: side of the units - <SIDE>
+ * 2: radius of the patrol circle (optional) - <NUMBER>
+ * 3: UPSMON-Settings - <ARRAY> of <STRINGS>
+ * 4: locations for spawns (can be positions, objects or markers) - <ARRAY> of <ARRAYS>, <OBJECTS>, <STRINGS>
+ * 5: area for UPSmarker (optional) - <STRING>
+ *
+ * Return Value:
+ * Last spawned group - <GROUP>
+ *
+ * Example:
+ * [["O_Soldier_TL_F","O_Soldier_GL_F"],east,200,["LIMITED","STAG COLUMN","NOFOLLOW"],[spawnLogic,spawnLogic_1,spawnLogic_2],"UPSAREANAME"] call ADV_fnc_spawnPatrol;
+ *
+ * Public: Yes
+ */
 
 if (!isServer && hasInterface) exitWith {};
 

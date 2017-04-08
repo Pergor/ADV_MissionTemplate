@@ -1,14 +1,26 @@
-﻿if (!isServer) exitWith {};
+﻿/*
+ * Author: Belbo
+ *
+ * Adds items to vehicle for BLUFOR.
+ *
+ * Arguments:
+ * 0: vehicle - <OBJECT>
+ * 1: should the vehicle be a medical vehicle? (optional) - <BOOL>
+ * 2: should the vehicle carry weapons and ammunition (optional) - <BOOL>
+ * 3: amount of ace-spare parts for the vehicle (optional) - <NUMBER>
+ * 5: should the vehicle be a repair vehicle? (optional) - <BOOL>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [MRAP_1, false, true, 2, false] call adv_fnc_vehicleLoad;
+ *
+ * Public: Yes
+ */
 
-//private ["_target","_weapons","_ammo","_ammoCount","_grenades","_grenadeCount","_items""_isMedic"];
+if (!isServer) exitWith {};
 
-/*
-_target = _this select 0;
-_isMedic = [_this, 1, false, [true]] call BIS_fnc_param;
-_withWeapons = [_this, 2, false, [true]] call BIS_fnc_param;
-_amountOfSpareParts = [_this, 3, 1, [0]] call BIS_fnc_param;
-_isRepairVehicle = [_this, 4, false, [0,true]] call BIS_fnc_param;
-*/
 params [
 	["_target", objNull, [objNull]], 
 	["_isMedic", false, [true]], 
@@ -20,6 +32,7 @@ params [
 if (_target isEqualTo objNull) exitWith {};
 
 _backpacks = [];
+
 //weapons and ammo
 if (_withWeapons) then {
 	switch (true) do {

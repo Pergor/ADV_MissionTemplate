@@ -1,8 +1,19 @@
 ﻿/*
-fn_addGPS: adds selected GPS to a unit.
-call like this:
-[_unit] call ADV_fnc_addGPS;
-*/
+ * Author: Belbo
+ *
+ * Adds GPS items to to unit depending on adv_missiontemplate-variables - has to be called by adv_fnc_gear;
+ *
+ * Arguments:
+ * 0: target - <OBJECT>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [player] call adv_fnc_addGPS;
+ *
+ * Public: No
+ */
 
 params [
 	["_unit", player, [objNull]]

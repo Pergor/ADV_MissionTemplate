@@ -1,18 +1,23 @@
 ﻿/*
-ADV_fnc_addMagazine - by Belbo:
-
-Adds given amount of magazines for the provided weapon of a unit to it's inventory.
-
-Possible call - has to be executed on client the unit is local to:
-[player,6,0,1,false] call ADV_fnc_addMagazine; //adds 6 magazine with the index of 1 for the primary weapon to the player at any free space in inventory.
-
-_this select 0 = unit that should receive the magazines
-_this select 1 = amount of magazines to be added. (When _this select 1 is empty, only one magazine will be added for each call.)
-_this select 2 = weapon slot for which the magazines should be selected. (0 = primary Weapon, 1 = handgun, 2 = secondary weapon; Primary Weapon is selected if _this select 2 is empty.)
-_this select 3 = magazine index number. (Depending on the weapon. If _this select 3 is nil, the same magazine as the current magazine will be added. If no magazine is currently loaded into the weapon, 
-the index will be 0 and a standard magazine will be added.)
-_this select 4 = Boolean if magazines should be added to backpack of unit or not, if backpack is present.
-*/
+ * Author: Belbo
+ *
+ * Adds given amount of magazines for the provided weapon of a unit to it's inventory.
+ *
+ * Arguments:
+ * 0: target - <OBJECT>
+ * 1: Amount of magazines to be added (optional) - <NUMBER>
+ * 2: Weapon slot (0 = primaryWeapon, 1 = handgun, 2 = secondary wepaon) (optional) - <NUMBER>
+ * 3: Magazine index number  (depending on the weapons config) or classname (optional) - <NUMBER> or <STRING>
+ * 4: Should magazines be added to backpack if the unit has one? (optional) - <BOOL>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [player] call adv_fnc_addMagazine;
+ *
+ * Public: No
+ */
 
 params [
 	["_unit", objNull, [objNull]],

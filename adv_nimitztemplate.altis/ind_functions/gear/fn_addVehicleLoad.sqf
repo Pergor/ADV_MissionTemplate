@@ -1,8 +1,19 @@
 ﻿/*
-ADV_fnc_addVehicleLoad by Belbo:
-
-Adds vehicle loadouts to preplaced vehicles in ADV_MissionTemplate.
-*/
+ * Author: Belbo
+ *
+ * Executes adv_ind_fnc_vehicleLoad on vehicles when applicable.
+ *
+ * Arguments:
+ * Array of vehicles - <ARRAY> of <OBJECTS>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [MRAP_1, MRAP_2, ..., MRAP_n] call adv_ind_fnc_addVehicleLoad;
+ *
+ * Public: No
+ */
 
 if (!isServer) exitWith {};
 

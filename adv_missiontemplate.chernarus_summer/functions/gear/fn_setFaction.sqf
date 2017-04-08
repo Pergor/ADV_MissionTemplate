@@ -1,12 +1,20 @@
 ﻿/*
-adv_fnc_setFaction by Belbo
-
-Possible call - has to be executed where unit is local:
-[object,"faction"] call adv_fnc_setFaction;
-
-_this select 0 = object - target that'll change the faction.
-_this select 0 = object - target the loadout is applied to.
-*/
+ * Author: Belbo
+ *
+ * Sets ace_nametags_faction to the provided faction or depending on adv_missiontemplate-variables.
+ *
+ * Arguments:
+ * 0: target - <OBJECT>
+ * 1: New faction (optional) - <STRING>
+ *
+ * Return Value:
+ * New faction - <STRING>
+ *
+ * Example:
+ * [player, "RHS_FACTION_USARMY_WD"] call adv_fnc_setFaction;
+ *
+ * Public: Yes
+ */
 
 params [
 	["_unit", player, [objNull]],
@@ -15,7 +23,7 @@ params [
 
 if !(_faction isEqualTo "") exitWith {
 	_unit setVariable ["ace_nametags_faction", _faction, true];
-	true;
+	_faction;
 };
 
 if (side (group _unit) == west) then {

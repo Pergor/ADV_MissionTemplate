@@ -1,16 +1,23 @@
 ﻿/*
-ADV_fnc_paraJump - by Belbo:
-
-Allows player to jump with a parachute over a position that's defined by mapclick (or by position of group leader of the player).
-If you want to change the altitudes of the jump and the forced opening, set these variables globally:
-adv_parajump_start -> starting altitude
-adv_parajump_opening -> forced opening altitude
-
-Possible call - has to be executed where unit is local:
-	[player] call ADV_fnc_paraJump;
-Or, with an addaction:
-	ADV_handle_paraJumpAction = OBJECT addAction [("<t color=""#33FFFF"">" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJump},nil,3,false,true,"","player distance cursortarget <5"];
-*/
+ * Author: Belbo
+ *
+ * Parachutes target over specified position. Backpack will be saved and readded after landing.
+ * If you want to change the altitudes of the jump and the forced opening, set these variables globally:
+ * adv_parajump_start -> starting altitude
+ * adv_parajump_opening -> forced opening altitude
+ *
+ * Arguments:
+ * 0: unit - <OBJECT>
+ * 1: position - <ARRAY>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [player, [0,0,0]] call adv_fnc_paraJump;
+ *
+ * Public: Yes
+ */
 
 params [
 	["_unit",player,[objNull]],

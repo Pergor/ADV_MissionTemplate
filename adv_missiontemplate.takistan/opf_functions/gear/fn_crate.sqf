@@ -1,8 +1,19 @@
 ﻿/*
-cratefiller script by Belbo
-put this into init-line of the crate that's supposed to contain the items specified below:
-nul = [this] call ADV_fnc_target;
-*/
+ * Author: Belbo
+ *
+ * Fills inventory of an object or objects with most items available in the mission for OPFFOR
+ *
+ * Arguments:
+ * Array of vehicles - <ARRAY> of <OBJECTS>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [crate_1, crate_2, ..., crate_n] call adv_opf_fnc_crate;
+ *
+ * Public: Yes
+ */
 
 if (!isServer) exitWith {};
 {

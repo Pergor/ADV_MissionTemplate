@@ -1,11 +1,19 @@
 ﻿/*
-disable Vehicles script by Belbo
-disables all preplaced air and/or ground vehicles and their garage-markers.
-defined in cfgFunctions (functions\server\fn_manageVeh.sqf)
-Call from init.sqf (as early as possible) via:
-
-[] call ADV_fnc_manageVeh;
-*/
+ * Author: Belbo
+ *
+ * Handles all vehicles for side BLUFOR in adv_missiontemplate
+ *
+ * Arguments:
+ * None.
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [] call adv_fnc_manageVeh;
+ *
+ * Public: Yes
+ */
 
 if (!isServer) exitWith {};
 
@@ -541,4 +549,4 @@ call {
 	*/
 };
 
-if (true) exitWith { missionNamespace setVariable ["ADV_var_manageVeh",true,true]; true; };
+true;

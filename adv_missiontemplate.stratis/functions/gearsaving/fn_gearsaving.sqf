@@ -1,4 +1,20 @@
-﻿// Add save/load loadout actions to all ammo boxes
+﻿/*
+ * Author: Belbo
+ *
+ * Adds gear saving action to object.
+ *
+ * Arguments:
+ * Array of objects - <ARRAY> of <OBJECTS>
+ *
+ * Return Value:
+ * Is gearsaving even available? - <BOOL>
+ *
+ * Example:
+ * [this] call adv_fnc_gearsaving;
+ *
+ * Public: No
+ */
+
 if (ADV_par_respWithGear == 1 && count _this > 0) exitWith {
 	{
 		if (!isNil "_x") then {

@@ -1,13 +1,24 @@
 ﻿/*
-Author: SENSEI
-Last modified: 7/24/2015
-Description: switches an array of units to another side and groups them
-             returns group
-__________________________________________________________________*/
+ * Author: SENSEI, Belbo
+ *
+ * Sets side of group or array of units (groups units afterwards).
+ *
+ * Arguments:
+ * 0: group/units - <OBJECT> or <ARRAY> of <OBJECTS>
+ * 1: new side - <SIDE>
+ *
+ * Return Value:
+ * new group - <GROUP>
+ *
+ * Example:
+ * [(group this), west] call adv_fnc_setSide;
+ *
+ * Public: Yes
+ */
 
 params [
 	["_units", [], [[],grpNull]],
-	["_side", SEN_enemySide],
+	["_side", west, [west]],
 	"_newgrp"
 ];
 

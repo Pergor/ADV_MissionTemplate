@@ -1,24 +1,29 @@
 ﻿/*
-ADV_fnc_spawnFire:
+ * Author: Belbo
+ *
+ * Creates a fire, light or smoke effect at a given object.
+ *
+ * Arguments:
+ * 0: object to attach the effect to - <OBJECT>
+ * 1: type of effect, can be: "FIRE_SMALL", "FIRE_MEDIUM", "FIRE_BIG", "SMOKE_SMALL", "SMOKE_MEDIUM", "SMOKE_BIG", "LIGHT_SMALL" (optional) - <STRING>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [wreck_1, "FIRE_SMALL"] call adv_fnc_spawnFire;
+ *
+ * Public: No
+ */
 
-Creates a fire or smoke effect at a given object.
+params [
+	["_object", objNull, [objNull]]
+	,["_effect", "FIRE_MEDIUM", [""]]
+	,"_pos","_fire","_smoke"
+	,"_light","_brightness","_color","_ambient","_intensity","_attenuation"
+];
 
-Possible calls - has to be executed on each client locally:
-
-[OBJECT,"FIRE_SMALL"] call ADV_fnc_spawnFire;
-[OBJECT,"FIRE_MEDIUM"] call ADV_fnc_spawnFire;
-[OBJECT,"FIRE_BIG"] call ADV_fnc_spawnFire;
-[OBJECT,"SMOKE_SMALL"] call ADV_fnc_spawnFire;
-[OBJECT,"SMOKE_MEDIUM"] call ADV_fnc_spawnFire;
-[OBJECT,"SMOKE_BIG"] call ADV_fnc_spawnFire;
-*/
-
-private["_effect","_pos","_fire","_smoke"];
-private["_light","_brightness","_color","_ambient","_intensity","_attenuation"];
-
-_object = _this select 0;
 _pos = getPosATL _object;
-_effect = _this select 1;
 
 _fire = "";
 _smoke = "";

@@ -1,12 +1,27 @@
 ﻿/*
-ADV_fnc_weather
-*/
+ * Author: Belbo
+ *
+ * Creates pre set weather conditions for whole mission.
+ *
+ * Arguments:
+ * None.
+ *
+ * Return Value:
+ * Script handle <HANDLE>
+ *
+ * Example:
+ * _handle = [] call adv_fnc_weather;
+ *
+ * Public: No
+ */
+ 
 if (isNil "ADV_par_randomWeather") then {ADV_par_randomWeather = 99};
 if (isNil "ADV_par_weather") then {ADV_par_weather = 99};
 if ( ADV_par_randomWeather != 99 || ADV_par_weather == 99 ) exitWith {};
 
-_handle = [] spawn {
-	_weatherValue = if (ADV_par_weather == 98) then { (floor (random 9))+1 } else { ADV_par_weather };
+_handle = [ADV_par_weather] spawn {
+	params ["_weather"];
+	_weatherValue = if (_weather == 98) then { (floor (random 9))+1 } else { _weather };
 
 	_weatherArray = switch (_weatherValue) do {
 		case 1: {[0, 0, [0, 0, 0], [1, 1, true]]};	//sunny

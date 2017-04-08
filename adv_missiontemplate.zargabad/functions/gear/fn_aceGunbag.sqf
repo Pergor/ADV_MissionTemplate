@@ -1,11 +1,22 @@
 ﻿/*
-adv_fnc_aceGunbag by BlauBaer/Belbo
-
-_this select 0 = unit that will have the weapon in its gunbag.
-_this select 1 = weapon to be put in the gunbag
-
-Return: Nothing
-*/
+ * Author: BlauBaer, Belbo
+ *
+ * Adds a weapon to the ace_gunbag backpack of target.
+ *
+ * Arguments:
+ * 0: target - <OBJECT>
+ * 1: classname of weapon to add to ace_gunbag - <STRING>
+ * 2: weaponItems to be added to the weapon in the bag - <ARRAY> of <STRINGS>
+ * 3: Magazines to be added to the weapon in the bag - <ARRAY> in format of [<STRING>,<NUMBER>]
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [player] call adv_fnc_aceGunbag;
+ *
+ * Public: Yes
+ */
 
 params [
 	["_unit", player, [objNull]],
