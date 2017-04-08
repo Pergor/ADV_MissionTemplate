@@ -131,6 +131,7 @@ if ( toUpper (str player) in ["Z1","Z2","Z3","Z4","Z5","OPF_Z1","OPF_Z2","OPF_Z3
 sleep 1;
 //loadouts and RespawnMPEVH are placed on the units on spawn. [target]
 [player] call ADV_fnc_applyLoadout;
+if ( toUpper ([(str player),(count str player)-5] call BIS_fnc_trimString)== "RECON" ) then {player setUnitPos "MIDDLE";};
 sleep 3;
 titleText ["", "BLACK FADED"];
 sleep 1;
