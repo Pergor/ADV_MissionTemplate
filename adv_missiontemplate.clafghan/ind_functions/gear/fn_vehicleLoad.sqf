@@ -31,12 +31,20 @@ params [
 
 if (_target isEqualTo objNull) exitWith {};
 
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+
 _backpacks = [];
 
 //weapons and ammo
 if (_withWeapons) then {
 	switch (true) do {
-		case (ADV_par_indWeap == 2): {
+		case (_par_indWeap == 2): {
 			_target addWeaponCargoGlobal ["rhs_weap_mk18",1];
 			_target addWeaponCargoGlobal ["rhs_weap_M136",2];
 			
@@ -52,7 +60,7 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["rhs_mag_m18_red",5];
 			_target addMagazineCargoGlobal ["rhs_mag_m18_green",5];
 		};
-		case (ADV_par_indWeap == 3): {
+		case (_par_indWeap == 3): {
 			_target addWeaponCargoGlobal ["hlc_smg_mp5a2",1];
 			
 			if (isClass(configFile >> "CfgPatches" >> "rhsusf_main")) then {
@@ -79,7 +87,7 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["SmokeShellRed",5];
 			_target addMagazineCargoGlobal ["SmokeShellBlue",5];
 		};
-		case (ADV_par_indWeap == 21): {
+		case (_par_indWeap == 21): {
 			_target addWeaponCargoGlobal ["launch_RPG7_F",1];
 			_target addMagazineCargoGlobal ["RPG7_F",2];
 			_target addWeaponCargoGlobal ["arifle_AKS_F",1];
@@ -106,7 +114,7 @@ if (_withWeapons) then {
 				_target addMagazineCargoGlobal ["NLAW_F",2];
 			};
 			call {
-				if (adv_par_indWeap==20) exitWith {
+				if (_par_indWeap==20) exitWith {
 					_target addWeaponCargoGlobal ["arifle_SPAR_01_blk_F",1];
 					_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Tracer_F",2];
 				};
@@ -128,7 +136,7 @@ if (_withWeapons) then {
 	_target addMagazineCargoGlobal ["1Rnd_SmokeRed_Grenade_shell",10];
 	
 	/*
-	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && ADV_par_logisticAmount > 2 ) then {
+	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && _par_logisticAmount > 2 ) then {
 		if ( ([_target] call ace_cargo_fnc_getCargoSpaceLeft) > 2) then {
 			_crate = ["ADV_LOGISTIC_CRATENORMAL",true,independent,getPosASL _target] call adv_fnc_dialogLogistic;
 			[_crate,_target] call ace_cargo_fnc_loadItem;
@@ -139,7 +147,7 @@ if (_withWeapons) then {
 
 //helmets and vests
 switch (true) do {
-	case (ADV_par_indUni == 1): {
+	case (_par_indUni == 1): {
 		_target addItemCargoGlobal ["H_HelmetB",1];
 		_target addItemCargoGlobal ["V_TacVest_blk",1];
 		_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
@@ -156,7 +164,7 @@ _target addItemCargoGlobal ["ToolKit",1];
 if (_isRepairVehicle) then { (firstBackpack _target) addItemCargoGlobal ["Toolkit",1] ; };
 
 //radios
-if (ADV_par_Radios == 1 || ADV_par_Radios == 3) then {
+if (_par_Radios == 1 || _par_Radios == 3) then {
 	_target addItemCargoGlobal ["ItemRadio",2];
 	if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
 		_target addItemCargoGlobal [acre_guerBackpackRadio,1];
@@ -235,7 +243,7 @@ if (_isMedic) then {
 	
 	_target setVariable ["ACE_medical_medicClass", 2, true];
 	
-	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && ADV_par_logisticAmount > 2 ) then {
+	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && _par_logisticAmount > 2 ) then {
 		if ( ([_target] call ace_cargo_fnc_getCargoSpaceLeft) > 2) then {
 			_crate = ["ADV_LOGISTIC_CRATEMEDIC",true,independent,getPosASL _target] call adv_fnc_dialogLogistic;
 			[_crate,_target] call ace_cargo_fnc_loadItem;

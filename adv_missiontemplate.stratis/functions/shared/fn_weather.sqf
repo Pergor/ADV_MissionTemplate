@@ -15,11 +15,11 @@
  * Public: No
  */
  
-if (isNil "ADV_par_randomWeather") then {ADV_par_randomWeather = 99};
-if (isNil "ADV_par_weather") then {ADV_par_weather = 99};
-if ( ADV_par_randomWeather != 99 || ADV_par_weather == 99 ) exitWith {};
+_parWeather = missionNamespace getVariable ["adv_par_weather",99];
+_parRandomWeather = missionNamespace getVariable ["adv_par_randomWeather",99];
+if ( _parRandomWeather != 99 || _parWeather == 99 ) exitWith {};
 
-_handle = [ADV_par_weather] spawn {
+_handle = [_parWeather] spawn {
 	params ["_weather"];
 	_weatherValue = if (_weather == 98) then { (floor (random 9))+1 } else { _weather };
 

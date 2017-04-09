@@ -15,26 +15,33 @@
  * Public: Yes
  */
 if (!isServer) exitWith {};
-private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediKit"];
+
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 
 {
-	_target = _x;
+	private _target = _x;
 	//makes the crates indestructible:
 	_target allowDamage false;
 	
 	//grenades
 	switch (true) do {
-		case ( ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
+		case ( _par_opfWeap == 1 || _par_opfWeap == 2): {
 			_target addMagazineCargoGlobal ["rhs_mag_rdg2_white",10];
 		};
-		case ( ADV_par_opfWeap == 3): {
+		case ( _par_opfWeap == 3): {
 			_target addMagazineCargoGlobal ["SmokeShell",10];
 		};
 		default {
 			_target addMagazineCargoGlobal ["SmokeShell",10];
 		};
 	};
-	if ( ADV_par_opfNVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
+	if ( _par_opfNVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
 		_target addMagazineCargoGlobal ["O_IR_Grenade",1];
 	};
 	

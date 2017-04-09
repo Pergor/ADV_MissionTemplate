@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -102,7 +109,7 @@ _itemsLink = [
 _items = [];
 
 //MarksmenDLC-objects:
-if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 };
 
 	//CustomMod items//
@@ -189,7 +196,7 @@ _scorchItems = ["sc_dogtag"];
 _scorchItemsRandom = ["sc_cigarettepack","sc_candybar",""];
 
 //Addon Content:
-switch (ADV_par_indWeap) do {
+switch (_par_indWeap) do {
 	case 1: {};
 	case 2: {
 		//SELmods
@@ -200,7 +207,7 @@ switch (ADV_par_indWeap) do {
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
 			_primaryweapon = ["hlc_smg_MP5N","hlc_smg_mp5k_PDW","hlc_smg_mp5a3"];
 			_silencer = "hlc_muzzle_Tundra";
-			if (ADV_par_Silencers == 1) then { _primaryweapon = "hlc_smg_mp5sd6"; _silencer = ""; _primaryweaponAmmo set [1,2];};
+			if (_par_Silencers == 1) then { _primaryweapon = "hlc_smg_mp5sd6"; _silencer = ""; _primaryweaponAmmo set [1,2];};
 		} else {
 			_handgunAmmo = [5,0]
 		};
@@ -233,7 +240,7 @@ switch (ADV_par_indWeap) do {
 	default {};
 };
 
-switch (ADV_par_indUni) do {
+switch (_par_indUni) do {
 	case 1: {
 	//PMC uniforms
 		_uniform = ["U_I_pilotCoveralls"];

@@ -16,6 +16,15 @@
  */
 
 if (!isServer) exitWith {};
+
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+
 {
 	if !(_x isEqualTo objNull) then {
 		private _target = _x;
@@ -24,7 +33,7 @@ if (!isServer) exitWith {};
 		
 		//weapons & ammo
 		switch (true) do {
-			case (ADV_par_indWeap == 2): {
+			case (_par_indWeap == 2): {
 				//SeL RHS
 				//weapons
 				_target addWeaponCargoGlobal ["rhs_weap_M136",5];
@@ -60,7 +69,7 @@ if (!isServer) exitWith {};
 					_target addItemCargoGlobal ["rhsusf_acc_LEUPOLDMK4",1];
 				};
 			};
-			case (ADV_par_indWeap == 3): {
+			case (_par_indWeap == 3): {
 				//HLC
 				if (isClass(configFile >> "CfgPatches" >> "rhsusf_main")) then {
 					//weapons
@@ -92,7 +101,7 @@ if (!isServer) exitWith {};
 				_target addMagazineCargoGlobal ["hlc_50rnd_762x51_M_FAL",20];
 				_target addMagazineCargoGlobal ["hlc_30Rnd_9x19_B_MP5",20];
 			};
-			case (ADV_par_indWeap == 21): {
+			case (_par_indWeap == 21): {
 				//weapons
 				_target addWeaponCargoGlobal ["launch_RPG7_F",5];
 				_target addWeaponCargoGlobal ["launch_I_Titan_F",5];
@@ -123,7 +132,7 @@ if (!isServer) exitWith {};
 				_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",40];
 				_target addMagazineCargoGlobal ["130Rnd_338_Mag",10];
 				call {
-					if (adv_par_indWeap==20) exitWith {
+					if (_par_indWeap==20) exitWith {
 						_target addMagazineCargoGlobal ["200Rnd_556x45_Box_F",20];
 						_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Tracer_F",20];
 						_target addMagazineCargoGlobal ["30Rnd_9x21_Mag_SMG_02",20];
@@ -138,7 +147,7 @@ if (!isServer) exitWith {};
 				_target addMagazineCargoGlobal ["Titan_AP",5];
 				//items
 				_target addItemCargoGlobal ["bipod_01_F_blk",3];
-				if (ADV_par_optics > 0) then {
+				if (_par_optics > 0) then {
 					_target addItemCargoGlobal ["optic_MRD",5];
 					_target addItemCargoGlobal ["optic_Aco_grn",5];
 					_target addItemCargoGlobal ["optic_Holosight",5];
@@ -154,7 +163,7 @@ if (!isServer) exitWith {};
 		//_target addItemCargoGlobal ["optic_LRPS",2];
 			
 		//grenades
-		switch (ADV_par_indWeap) do {
+		switch (_par_indWeap) do {
 			case 2: {
 				_target addMagazineCargoGlobal ["rhs_mag_m67",20];
 				_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",20];
@@ -183,7 +192,7 @@ if (!isServer) exitWith {};
 		_target addMagazineCargoGlobal ["1Rnd_SmokeYellow_Grenade_shell",20];
 		
 		//uniform items
-		switch (ADV_par_indUni) do {
+		switch (_par_indUni) do {
 			case 1: {
 				_target addItemCargoGlobal ["H_HelmetSpecB",5];
 				_target addBackpackCargoGlobal ["B_AssaultPack_rgr",3];
@@ -195,10 +204,10 @@ if (!isServer) exitWith {};
 		};
 
 		//radios
-		if (isClass (configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3)) then {
+		if (isClass (configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3)) then {
 			_target addBackpackCargoGlobal ["tf_anprc155_coyote",2];
 		};
-		if (ADV_par_Radios == 1 || ADV_par_Radios == 3) then {
+		if (_par_Radios == 1 || _par_Radios == 3) then {
 			_target addItemCargoGlobal ["ItemRadio",4];
 		};
 
@@ -280,7 +289,7 @@ if (!isServer) exitWith {};
 		_target addItemCargoGlobal ["FirstAidKit",20];
 		_target addItemCargoGlobal ["MediKit",5];	
 		};
-		switch ( ADV_par_Tablets ) do {
+		switch ( _par_Tablets ) do {
 			case 1: {
 				if (isClass (configFile >> "CfgPatches" >> "cTab")) then {
 					_target addItemCargoGlobal ["ItemAndroid",5];

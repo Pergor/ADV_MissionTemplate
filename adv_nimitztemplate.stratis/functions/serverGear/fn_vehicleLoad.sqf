@@ -31,12 +31,20 @@ params [
 
 if (_target isEqualTo objNull) exitWith {};
 
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+
 _backpacks = [];
 
 //weapons and ammo
 if (_withWeapons) then {
 	switch (true) do {
-		case (ADV_par_customWeap == 1): {
+		case (_par_customWeap == 1): {
 			call {
 				if !(isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) exitWith {
 					_target addWeaponCargoGlobal ["BWA3_G36",1];
@@ -64,7 +72,7 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["BWA3_DM32_Orange",5];
 			_target addMagazineCargoGlobal ["BWA3_DM32_Yellow",5];
 		};
-		case (ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4): {
+		case (_par_customWeap == 2 || _par_customWeap == 3 || _par_customWeap == 4): {
 			_target addWeaponCargoGlobal ["rhs_weap_m4_carryhandle",1];
 			_target addWeaponCargoGlobal ["rhs_weap_M136",2];
 			
@@ -80,8 +88,8 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["rhs_mag_m18_red",5];
 			_target addMagazineCargoGlobal ["rhs_mag_m18_green",5];
 		};
-		case (ADV_par_customWeap >= 5 && ADV_par_customWeap <= 7): {
-			if (ADV_par_customWeap == 7) then {
+		case (_par_customWeap >= 5 && _par_customWeap <= 7): {
+			if (_par_customWeap == 7) then {
 				_target addWeaponCargoGlobal ["CUP_arifle_L85A2",1];
 			} else {
 				_target addWeaponCargoGlobal ["CUP_arifle_M4A1",1];
@@ -93,7 +101,7 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_red",10];
 			_target addMagazineCargoGlobal ["CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M",2];
 			_target addMagazineCargoGlobal ["CUP_200Rnd_TE4_Red_Tracer_556x45_M249",2];
-			if (ADV_par_customWeap == 5) then {
+			if (_par_customWeap == 5) then {
 				_target addMagazineCargoGlobal ["CUP_20Rnd_762x51_B_M110",4];
 				_target addMagazineCargoGlobal ["CUP_20Rnd_762x51_B_SCAR",4];
 			} else {
@@ -105,7 +113,7 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["SmokeShellRed",5];
 			_target addMagazineCargoGlobal ["SmokeShellBlue",5];
 		};
-		case (ADV_par_customWeap == 8): {
+		case (_par_customWeap == 8): {
 			_target addWeaponCargoGlobal ["UK3CB_BAF_L85A2",1];
 			_target addWeaponCargoGlobal ["UK3CB_BAF_AT4_AP_Launcher",2];
 
@@ -120,7 +128,7 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["SmokeShellRed",5];
 			_target addMagazineCargoGlobal ["SmokeShellBlue",5];
 		};
-		case (ADV_par_customWeap == 9): {
+		case (_par_customWeap == 9): {
 			_target addWeaponCargoGlobal ["hlc_smg_mp5a2",1];
 			if (isClass(configFile >> "CfgPatches" >> "rhsusf_main")) then {
 				_target addWeaponCargoGlobal ["rhs_weap_M136",2];
@@ -155,7 +163,7 @@ if (_withWeapons) then {
 				_target addMagazineCargoGlobal ["NLAW_F",2];
 			};
 			call {
-				if (ADV_par_customWeap == 20) exitWith {
+				if (_par_customWeap == 20) exitWith {
 					_target addWeaponCargoGlobal ["arifle_SPAR_01_blk_F",1];
 					_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_red",20];
 					_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
@@ -186,7 +194,7 @@ if (_withWeapons) then {
 	_target addMagazineCargoGlobal ["1Rnd_SmokeRed_Grenade_shell",10];
 	
 	/*
-	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && ADV_par_logisticAmount > 2 ) then {
+	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && _par_logisticAmount > 2 ) then {
 		if ( ([_target] call ace_cargo_fnc_getCargoSpaceLeft) > 2) then {
 			_crate = ["ADV_LOGISTIC_CRATENORMAL",true,west,getPosASL _target] call adv_fnc_dialogLogistic;
 			[_crate,_target] call ace_cargo_fnc_loadItem;
@@ -197,22 +205,22 @@ if (_withWeapons) then {
 
 //helmets and vests
 switch (true) do {
-	case (ADV_par_customUni == 1 || ADV_par_customUni == 2): {
+	case (_par_customUni == 1 || _par_customUni == 2): {
 		_target addItemCargoGlobal ["BWA3_M92_Fleck",1];
 		_target addItemCargoGlobal ["BWA3_Vest_Fleck",1];
 		_target addBackpackCargoGlobal ["BWA3_AssaultPack_Fleck",1];
 	};
-	case (ADV_par_customUni == 6): {
+	case (_par_customUni == 6): {
 		_target addItemCargoGlobal ["CUP_H_BAF_Helmet_3_DPM",1];
 		_target addItemCargoGlobal ["CUP_V_BAF_Osprey_Mk2_DPM_Empty",1];
 		_target addBackpackCargoGlobal ["CUP_B_Bergen_BAF",1];
 	};
-	case (ADV_par_customUni == 7 || ADV_par_customUni == 8 || ADV_par_customUni == 10): {
+	case (_par_customUni == 7 || _par_customUni == 8 || _par_customUni == 10): {
 		_target addItemCargoGlobal ["rhsusf_ach_bare",1];
 		_target addItemCargoGlobal ["rhsusf_spc",1];
 		_target addBackpackCargoGlobal ["rhsusf_falconii",1];
 	};
-	case (ADV_par_customUni == 12): {
+	case (_par_customUni == 12): {
 		_target addItemCargoGlobal ["UK3CB_BAF_H_Mk7_Camo_A",1];
 		_target addItemCargoGlobal ["UK3CB_BAF_V_Osprey",1];
 		_target addBackpackCargoGlobal ["UK3CB_BAF_B_Bergen_MTP_Rifleman_L_A",1];	
@@ -229,7 +237,7 @@ _target addItemCargoGlobal ["ToolKit",1];
 if (_isRepairVehicle) then { (firstBackpack _target) addItemCargoGlobal ["Toolkit",1] ; };
 
 //radios
-if (ADV_par_Radios == 1 || ADV_par_Radios == 3) then {
+if (_par_Radios == 1 || _par_Radios == 3) then {
 	_target addItemCargoGlobal ["ItemRadio",2];
 	if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
 		_target addItemCargoGlobal [acre_westBackpackRadio,1];
@@ -308,7 +316,7 @@ if (_isMedic) then {
 	
 	_target setVariable ["ACE_medical_medicClass", 2, true];
 	
-	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && ADV_par_logisticAmount > 2 ) then {
+	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && _par_logisticAmount > 2 ) then {
 		if ( ([_target] call ace_cargo_fnc_getCargoSpaceLeft) > 2) then {
 			_crate = ["ADV_LOGISTIC_CRATEMEDIC",true,west,getPosASL _target] call adv_fnc_dialogLogistic;
 			[_crate,_target] call ace_cargo_fnc_loadItem;

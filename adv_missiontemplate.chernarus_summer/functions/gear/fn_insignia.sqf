@@ -20,8 +20,16 @@ params [
 	"_insigniumArray","_insignium"
 ];
 
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+
 //BWmod-Insignia
-if ( side (group _target) == west && (isClass (configFile >> "CfgPatches" >> "bwa3_common")) && (ADV_par_customUni == 1 || ADV_par_customUni == 2) ) exitWith {
+if ( side (group _target) == west && (isClass (configFile >> "CfgPatches" >> "bwa3_common")) && (_par_customUni == 1 || _par_customUni == 2) ) exitWith {
 	_insigniumArray = switch (rank _target) do {
 		case "PRIVATE": {["BWA3_insignia_01_gefreiter","BWA3_insignia_02_obergefreiter","BWA3_insignia_03_hauptgefreiter"];};
 		case "CORPORAL": {["BWA3_insignia_04_stabsgefreiter","BWA3_insignia_05_oberstabsgefreiter","BWA3_insignia_06_unteroffizier","BWA3_insignia_07_stabsunteroffizier"];};
@@ -37,7 +45,7 @@ if ( side (group _target) == west && (isClass (configFile >> "CfgPatches" >> "bw
 };
 
 //simple rank patches insignia
-if ( side (group _target) == west && (isClass (configFile >> "CfgPatches" >> "simple_rp")) && !(ADV_par_customUni == 1 || ADV_par_customUni == 2) ) exitWith {
+if ( side (group _target) == west && (isClass (configFile >> "CfgPatches" >> "simple_rp")) && !(_par_customUni == 1 || _par_customUni == 2) ) exitWith {
 	_insignium = switch (rank _target) do {
 		case "PRIVATE": {"PRIVATE_SimpleRP";};
 		case "CORPORAL": {"CORPORAL_SimpleRP";};
@@ -53,7 +61,7 @@ if ( side (group _target) == west && (isClass (configFile >> "CfgPatches" >> "si
 
 //adv insignia
 if (isClass (configFile >> "CfgPatches" >> "adv_insignia")) then {
-	if ( ( side (group _target) == west && !(ADV_par_customUni == 1 || ADV_par_customUni == 2 || ADV_par_customUni == 9) ) || ( (side (group _target) == independent) && ADV_par_indUni == 1 ) ) exitWith {
+	if ( ( side (group _target) == west && !(_par_customUni == 1 || _par_customUni == 2 || _par_customUni == 9) ) || ( (side (group _target) == independent) && _par_indUni == 1 ) ) exitWith {
 		_insigniumArray = switch (rank _target) do {
 			case "PRIVATE": {["ADV_insignia_usarmy_00","ADV_insignia_usarmy_01","ADV_insignia_usarmy_02","ADV_insignia_usarmy_02"];};
 			case "CORPORAL": {["ADV_insignia_usarmy_03"];};
@@ -67,7 +75,7 @@ if (isClass (configFile >> "CfgPatches" >> "adv_insignia")) then {
 		[_target,_insignium] remoteExecCall ["BIS_fnc_setUnitInsignia",0,true];
 		true;
 	};
-	if ( side (group _target) == east && !(ADV_par_opfUni == 4 || ADV_par_opfUni == 5) ) exitWith {
+	if ( side (group _target) == east && !(_par_opfUni == 4 || _par_opfUni == 5) ) exitWith {
 		_insigniumArray = switch (rank _target) do {
 			case "PRIVATE": {["ADV_insignia_rus_00"];};
 			case "CORPORAL": {["ADV_insignia_rus_01"];};

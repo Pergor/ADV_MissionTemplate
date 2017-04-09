@@ -11,7 +11,7 @@ disableSerialization;
 _display = _this select 0;
 _listBox = _display displayCtrl 7377;
 _comboBox = _display displayCtrl 7977;
-if (isNil "ADV_par_logisticTeam") then {ADV_par_logisticTeam = 1;};
+_par_logisticTeam = missionNamespace getVariable ["ADV_par_logisticTeam",1];
 
 // LBs leeren
 lbClear _listBox;
@@ -32,7 +32,7 @@ _loadoutList = [
 	"Kisten in der Nähe löschen",
 	""
 ];
-switch (ADV_par_logisticTeam) do {
+switch ( _par_logisticTeam ) do {
 	case 1: { _loadoutList append ["Fire Team-Kiste"]; };
 	case 2: { _loadoutList append ["Slingloading-Ausrüstungskiste"]; };
 	case 3: { _loadoutList append ["Fire Team-Kiste","Slingloading-Ausrüstungskiste"]; };
@@ -61,7 +61,7 @@ lbSetData [7377, 9, "ADV_FNC_NIL"];
 lbSetData [7377, 10, "ADV_LOGISTIC_CRATEDELETE"];
 lbSetData [7377, 11, "ADV_FNC_NIL"];
 _lbSetDataCount = 11;
-switch ( ADV_par_logisticTeam ) do {
+switch ( _par_logisticTeam ) do {
 	case 1: { _lbSetDataCount = _lbSetDataCount+1; lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATETEAM"]; };
 	case 2: { _lbSetDataCount = _lbSetDataCount+1; lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATELARGE"]; };
 	case 3: {

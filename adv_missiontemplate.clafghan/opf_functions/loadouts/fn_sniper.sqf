@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -30,14 +37,14 @@ _unitTraits = [["medic",true],["engineer",true],["explosiveSpecialist",true],["U
 
 //weapons - primary weapon - (string)
 _primaryweapon = ["srifle_GM6_F"];
-if ((toUpper worldname) in ADV_var_aridMaps) then { _primaryweapon pushBack "srifle_GM6_camo_F"; };
+if ((toUpper worldname) in _var_aridMaps) then { _primaryweapon pushBack "srifle_GM6_camo_F"; };
 
 //primary weapon items - (array)
 _optic = [""];
 _attachments = ["optic_LRPS"];
 _silencer = "";		//if silencer is added
 switch (true) do {
-	case (worldname == "TANOA" || ADV_par_opfWeap == 20 || ADV_par_opfWeap == 21): {_primaryWeapon append ["srifle_GM6_ghex_F","srifle_GM6_ghex_F"]; _attachments = ["optic_LRPS_tna_F"];};
+	case (worldname == "TANOA" || _par_opfWeap == 20 || _par_opfWeap == 21): {_primaryWeapon append ["srifle_GM6_ghex_F","srifle_GM6_ghex_F"]; _attachments = ["optic_LRPS_tna_F"];};
 	default {};
 };
 
@@ -109,13 +116,13 @@ _itemsLink = [
 _items = ["NVGoggles_OPFOR"];
 
 //MarksmenDLC-objects:
-if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 	_uniform = switch (true) do {
 		case ((toUpper worldname) == "ALTIS"): {["U_O_FullGhillie_ard","U_O_FullGhillie_sard"]};
 		case ((toUpper worldname) == "TANOA"): {["U_O_T_FullGhillie_tna_F"]};
-		case ((toUpper worldname) in ADV_var_aridMaps): {["U_O_FullGhillie_ard"]};
-		case ((toUpper worldname) in ADV_var_sAridMaps): {["U_O_FullGhillie_sard"]};
-		case ((toUpper worldname) in ADV_var_lushMaps): {["U_O_FullGhillie_lsh"]};
+		case ((toUpper worldname) in _var_aridMaps): {["U_O_FullGhillie_ard"]};
+		case ((toUpper worldname) in _var_sAridMaps): {["U_O_FullGhillie_sard"]};
+		case ((toUpper worldname) in _var_lushMaps): {["U_O_FullGhillie_lsh"]};
 		default {["U_O_FullGhillie_lsh","U_O_FullGhillie_sard"]};
 	};
 };
@@ -204,7 +211,7 @@ _scorchItems = [""];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 
 //Addon Content:
-switch (ADV_par_opfWeap) do {
+switch (_par_opfWeap) do {
 	case 1: {
 		//RHS
 		_primaryweapon = ["rhs_weap_svdp"];
@@ -257,7 +264,7 @@ switch (ADV_par_opfWeap) do {
 	};
 	default {};
 };
-switch (ADV_par_opfUni) do {
+switch (_par_opfUni) do {
 	case 1: {
 		//RHS EMR-Summer
 		_vest = ["rhs_6b23_digi_sniper","rhs_6b23_sniper"];
@@ -310,7 +317,7 @@ switch (ADV_par_opfUni) do {
 	default {};
 };
 
-if (ADV_par_opfScopes < 1)  then { _optic = [""]; };
+if (_par_opfScopes < 1)  then { _optic = [""]; };
 
 ///// No editing necessary below this line /////
 _player = _this select 0;

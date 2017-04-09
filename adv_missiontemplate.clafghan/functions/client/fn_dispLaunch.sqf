@@ -20,10 +20,11 @@ if (isClass(configFile >> "CfgPatches" >> "ace_disposable")) then {
 	ADV_array_dropLaunch pushBack "LAUNCH_NLAW_F";
 };
 ADV_array_dropLaunch append [
-	"BWA3_Pzf3","BWA3_RGW90"
+	"BWA3_PZF3","BWA3_RGW90"
 	,"BWA3_PZF3_LOADED","BWA3_RGW90_LOADED"
 	,"STI_M136"
-	,"CUP_launch_NLAW","CUP_launch_RPG18","CUP_launch_M136"
+	,"UK3CB_BAF_AT4_AP_LAUNCHER","UK3CB_BAF_AT4_CS_AP_LAUNCHER","UK3CB_BAF_NLAW_LAUNCHER"
+	,"CUP_LAUNCH_NLAW","CUP_LAUNCH_RPG18","CUP_LAUNCH_M136"
 ];
 
 //the actual dropping of the launcher:

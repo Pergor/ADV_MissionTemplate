@@ -5,25 +5,25 @@
  * Group will receive a provided task.
  *
  * Arguments:
- * 0: unit classnames array - <ARRAY> of <STRINGS>
- * 1: side of the units - <SIDE>
- * 2: location for spawn (can be position, object or marker) - <ARRAY>, <OBJECT>, <STRING>
- * 3: radius around the spawn position for the group task (optional) - <NUMBER>
- * 4: behaviour mode - <NUMBER>
+ * 0: location for spawn (can be position, object or marker) - <ARRAY>, <OBJECT>, <STRING>
+ * 1: unit classnames array - <ARRAY> of <STRINGS>
+ * 2: side of the units - <SIDE>
+ * 3: behaviour mode - <NUMBER>
  * 		0 = regular patrol.
  *		1 = patrol with units searching buildings near waypoints.
  *		2 = garrison buildings in radius around center.
  *		3 = defend area (buildings are being defended, static guns manned and the group leader will patroul around; radius above 150meters will revert to 200 meters).
  * 		4 = attack location around object, marker or position provided in _this select 5 - if nothing or a missing element is provided, the next enemy will be targeted.
+ * 4: radius around the spawn position for the group task (optional) - <NUMBER>
  * 5: attack position/object/marker with radius (optional - only necessary with behaviour mode 4) - <ARRAY> in format [position, <NUMBER>]
  *
  * Return Value:
  * Spawned group - <GROUP>
  *
  * Example:
- * [["O_Soldier_TL_F","O_Soldier_GL_F"],east,"spawnMarker",200,0] call adv_fnc_aiTask;
+ * ["spawnMarker",["O_Soldier_TL_F","O_Soldier_GL_F"],east,0,200] call adv_fnc_aiTask;
  * or
- * [["O_Soldier_TL_F","O_Soldier_GL_F"],east,"spawnMarker",200,4,[attackLogic,50]] call adv_fnc_aiTask;
+ * ["spawnMarker",["O_Soldier_TL_F","O_Soldier_GL_F"],east,4,200,[attackLogic,50]] call adv_fnc_aiTask;
  *
  * Public: Yes
  */
@@ -31,11 +31,11 @@
 if (!isServer && hasInterface) exitWith {};
 
 params [
-	["_units", ["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"], [[]]]
+	["_location", [0,0,0], [[],"",objNull]]
+	,["_units", ["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"], [[]]]
 	,["_side", east, [west]]
-	,["_location", [0,0,0], [[],"",objNull]]
-	,["_radius", 300, [0]]
 	,["_mode", 0, [0]]
+	,["_radius", 300, [0]]
 	,["_attack", [objNull,[0,0,0]], [[]]]
 ];
 
@@ -49,30 +49,28 @@ private _start = call {
 //private _dir = random 360;
 //private _pos = [(_start select 0) + (sin _dir) * _dist, (_start select 1) + (cos _dir) * _dist, 0];
 private _pos = [_start, _radius] call CBA_fnc_randPos;
-//private _spawn = [_pos,5,100,2,0,20,0] call BIS_fnc_findSafePos;
-private _spawn = _pos findEmptyPosition [5,30,(_units select 0)];
+//private _spawn = [_pos,5,30,2,0,20,0] call BIS_fnc_findSafePos;
+private _spawn = _pos findEmptyPosition [5,30];
 _spawn set [2,0];
-if ((_pos distance _spawn) > 100 ) then {
+if ((_pos distance _spawn) > 50 ) then {
 	_spawn = _pos;
 };
 
-private _grp = [_units,_side,_spawn] call adv_fnc_spawnGroup;
+private _grp = [_spawn,_units,_side] call adv_fnc_spawnGroup;
 
 call {
-	if (_mode == 1) exitWith {
+	if (_mode isEqualTo 1) exitWith {
 		[_grp, _start, _radius, 5, "MOVE", "SAFE", "GREEN", "LIMITED", "STAG COLUMN", "this spawn CBA_fnc_searchNearby", [3,6,9]] call CBA_fnc_taskPatrol;
 	};
-	if (_mode == 2) exitWith {
+	if (_mode isEqualTo 2) exitWith {
 		[_start, units _grp, _radius, true, false] call adv_fnc_ZenOccupyHouse;
 	};
-	if (_mode == 3) exitWith {
+	if (_mode isEqualTo 3) exitWith {
 		if (_radius > 200) then { _radius = 200 };
 		[_grp, _start, _radius, 2, true] call CBA_fnc_taskDefend;
 	};
-	if (_mode == 4) exitWith {
-		private _obj = _attack select 0;
-		private _attackRadius = _attack select 1;
-		_attackRadius = if (isNil "_attackRadius") then { 50 };
+	if (_mode isEqualTo 4) exitWith {
+		_attack params [ ["_obj", objNull], ["_attackRadius", 50] ];
 		_target = call {
 			if (isNil "_obj") exitWith {[0,0,0]};
 			if (_obj isEqualType "") exitWith {getMarkerPos _obj};

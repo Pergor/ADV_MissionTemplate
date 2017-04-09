@@ -7,15 +7,15 @@
  * The first vehicle will be the leader of any group.
  *
  * Arguments:
- * 0: unit classnames array - <ARRAY> of <STRINGS>
- * 1: side of the units - <SIDE>
- * 2: spawn location (can be position, object or marker) - <ARRAY> , <OBJECT>, <STRING>
+ * 0: spawn location (can be position, object or marker) - <ARRAY>, <OBJECT>, <STRING>
+ * 1: unit classnames array - <ARRAY> of <STRINGS>
+ * 2: side of the units - <SIDE>
  *
  * Return Value:
  * spawned group - <GROUP>
  *
  * Example:
- * [["O_Soldier_TL_F","O_Soldier_GL_F"],east,spawnLogic] call ADV_fnc_spawnGroup;
+ * [spawnLogic,["O_Soldier_TL_F","O_Soldier_GL_F"],east] call ADV_fnc_spawnGroup;
  *
  * Public: Yes
  */
@@ -23,9 +23,9 @@
 if (!isServer && hasInterface) exitWith {};
 
 params [
-	["_units", ["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"], [[]]]
+	["_location", [0,0,0], [[],"",objNull]]
+	,["_units", ["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"], [[]]]
 	,["_side", east, [west]]
-	,["_location", [0,0,0], [[],"",objNull]]
 	,"_grp"
 ];
 

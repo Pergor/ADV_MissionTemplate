@@ -8,10 +8,10 @@
  * 1: type of effect, can be: "FIRE_SMALL", "FIRE_MEDIUM", "FIRE_BIG", "SMOKE_SMALL", "SMOKE_MEDIUM", "SMOKE_BIG", "LIGHT_SMALL" (optional) - <STRING>
  *
  * Return Value:
- * Function executed - <BOOL>
+ * Array of created effects, in order: 0: fire effect - <OBJECT>; 1: smoke effect - <OBJECT>; 2: light effect - <OBJECT>. Entry will be objNull if specific effect not present. - <ARRAY>
  *
  * Example:
- * [wreck_1, "FIRE_SMALL"] call adv_fnc_spawnFire;
+ * _effects = [wreck_1, "FIRE_SMALL"] call adv_fnc_spawnFire;
  *
  * Public: No
  */
@@ -33,6 +33,7 @@ _color = [1,0.85,0.6];
 _ambient = [1,0.3,0];
 _lightsource = false;
 _particleFire = [1,1,1];
+_return = [objNull,objNull,objNull];
 
 switch (toUpper _effect) do {
 	case "FIRE_SMALL" : {
@@ -88,12 +89,14 @@ if !(_fire isEqualTo "") then {
 	if (_object isKindOf "AllVehicles") then {
 		_eFire attachTo [_object];
 	};
+	_return set [0,_eFire];
 };
 
 if ( !(_smoke isEqualTo "") && !(_object isKindOf "AllVehicles") ) then {
 	_eSmoke = "#particlesource" createVehicleLocal _pos;
 	_eSmoke setParticleClass _smoke;
 	_eSmoke setPosATL _pos;
+	_return set [1,_eSmoke];
 };
 
 //create lightsource
@@ -114,6 +117,7 @@ if (_lightsource) then {
 	} else {
 		_light setLightDayLight true;
 	};
+	_return set [2,_light];
 };
 
-true;
+_return;

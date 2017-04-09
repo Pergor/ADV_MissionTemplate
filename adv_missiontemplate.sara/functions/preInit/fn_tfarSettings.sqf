@@ -31,7 +31,7 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	tfar_speakerDistance = 10;
 
 	//radios
-	TFAR_DefaultRadio_Personal_West = "TFAR_anprc152";
+	TFAR_DefaultRadio_Personal_West = "tfar_anprc152";
 	TFAR_DefaultRadio_Personal_East = "tfar_fadak";
 	TFAR_DefaultRadio_Personal_Independent = "tfar_anprc148jem";
 	
@@ -40,7 +40,7 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	TFAR_DefaultRadio_Rifleman_Independent = "tfar_anprc154";
 	//tfar serious mode
 	[] spawn {
-		waitUntil {!isNil "ADV_par_seriousMode" && !isNil "adv_par_customUni" };
+		waitUntil {!isNil "adv_par_seriousMode" && !isNil "adv_par_customUni" };
 		if (adv_par_customUni isEqualTo 9) then { TFAR_DefaultRadio_Personal_West = "tfar_anprc148jem"; };
 		if ( ADV_par_seriousMode > 0 ) then {
 			tf_radio_channel_name = "Arma3-TFAR";
@@ -106,11 +106,6 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	true;
 };
 if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
-	//params needed in case paramsArray not yet defined on client in MP
-	if (isNil "adv_par_customUni") then { adv_par_customUni = ["param_customUni",0] call BIS_fnc_getParamValue; };
-	if (isNil "ADV_par_customWeap") then { adv_par_customWeap = ["param_customWeap",0] call BIS_fnc_getParamValue; };
-	//if (isNil "ADV_par_opfUni") then { adv_par_opfUni = ["param_opfUni",0] call BIS_fnc_getParamValue; };
-	if (isNil "adv_par_seriousMode") then { adv_par_seriousMode = ["param_seriousMode",0] call BIS_fnc_getParamValue; };
 	//für zusätzliche variablen/functions: https://github.com/michail-nikolaev/task-force-arma-3-radio/wiki/API:-Variables
 	call compile preprocessFileLineNumbers "\task_force_radio\functions\common.sqf";
 	
@@ -135,7 +130,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {
 	TF_defaultGuerRiflemanRadio = "tf_anprc154";
 	//tfar serious mode
 	[] spawn {
-		waitUntil {!isNil "ADV_par_seriousMode" && !isNil "adv_par_customUni" };
+		waitUntil {!isNil "adv_par_seriousMode" && !isNil "adv_par_customUni" };
 		if (adv_par_customUni isEqualTo 9) then { TF_defaultWestPersonalRadio = "tf_anprc148jem"; };
 		if ( (adv_par_customWeap isEqualTo 1 || adv_par_customUni isEqualTo 2) && isClass(configFile >> "CfgPatches" >> "tfw_sem52sl") ) then { TF_defaultWestPersonalRadio = "tf_sem52sl"; };
 		if ( ADV_par_seriousMode > 0 ) then {

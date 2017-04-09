@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -31,8 +38,8 @@ _primaryWeapon = ["arifle_Mk20C_F","arifle_Mk20C_plain_F"];
 //primary weapon items - (array)
 _optic = [""];
 _attachments = [""];
-if ( ADV_par_NVGs == 1 ) then { _attachments pushback "acc_flashlight"; };
-if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
+if ( _par_NVGs == 1 ) then { _attachments pushback "acc_flashlight"; };
+if ( _par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "";
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
@@ -104,7 +111,7 @@ _itemsLink = [
 _items = [];
 
 //MarksmenDLC-objects:
-if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 };
 
 	//CustomMod items//
@@ -191,7 +198,7 @@ _scorchItems = ["sc_dogtag"];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar","","",""];
 
 //Addon Content:
-switch (ADV_par_indWeap) do {
+switch (_par_indWeap) do {
 	case 1: {
 		//Vanilla trg21
 		_primaryWeapon = ["arifle_TRG20_F"];
@@ -204,7 +211,7 @@ switch (ADV_par_indWeap) do {
 		_attachments = [""];
 		_silencer = "";
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
-			if (ADV_par_Silencers == 1) then { _primaryweapon = "hlc_smg_mp5sd6"; _silencer = ""; _primaryweaponAmmo set [1,2];};
+			if (_par_Silencers == 1) then { _primaryweapon = "hlc_smg_mp5sd6"; _silencer = ""; _primaryweaponAmmo set [1,2];};
 		} else {
 			_primaryweaponAmmo set [1,9];
 		};
@@ -239,7 +246,7 @@ switch (ADV_par_indWeap) do {
 	default {};
 };
 
-switch (ADV_par_indUni) do {
+switch (_par_indUni) do {
 	case 1: {
 	//PMC uniforms
 		_uniform = ["U_C_WorkerCoveralls"];
@@ -277,14 +284,14 @@ switch (toUpper ([str (_this select 0),3,10] call BIS_fnc_trimString)) do {
 };
 
 //TFAR-manpacks
-if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = switch (ADV_par_indUni) do {
+if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (_par_indUni) do {
 		default {["tf_rt1523g_rhs"]};
 	};
 };
 
-if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = switch (ADV_par_CustomUni) do {
+if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (_par_CustomUni) do {
 		default {"B_AssaultPack_blk"};
 	};
 };

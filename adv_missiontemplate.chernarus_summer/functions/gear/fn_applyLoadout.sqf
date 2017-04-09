@@ -23,6 +23,14 @@ if (side _target == sideLogic) exitWith {};
 _playerUnit = _target getVariable ["ADV_var_playerUnit","ADV_fnc_nil"];
 if ( _playerUnit == "ADV_fnc_nil") exitWith {};
 
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+
 //special stuff for zeus
 if (_playerUnit == "ADV_fnc_zeus") then {
 	_playerUnit = switch (side _target) do {
@@ -31,12 +39,10 @@ if (_playerUnit == "ADV_fnc_zeus") then {
 		case independent: {"ADV_ind_fnc_command"};
 	};
 	//makes the playable zeus unit always immortal.
-	if (!isNil "ADV_par_invinciZeus") then {
-		if (ADV_par_invinciZeus == 1) then {
-			_target allowDamage false;
-			if (isNil "ADV_invinciZeus_EVH") then {
-				ADV_invinciZeus_EVH = _target addEventhandler ["Respawn", {(_this select 0) allowDamage false;}];
-			};
+	if (_par_invinciZeus == 1) then {
+		_target allowDamage false;
+		if (isNil "ADV_invinciZeus_EVH") then {
+			ADV_invinciZeus_EVH = _target addEventhandler ["Respawn", {(_this select 0) allowDamage false;}];
 		};
 	};
 };

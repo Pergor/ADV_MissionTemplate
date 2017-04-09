@@ -19,18 +19,18 @@ if (count _this == 0) exitWith {};
 
 {
 	if (!isNil "_x") then {
-		ADV_board = _x;
-		ADV_board addEventHandler ["HandleDamage", {false}];
-		ADV_board allowDamage false;
-		ADV_board setObjectTextureGlobal [0,"img\00.paa"];
+		private _board = _x;
+		_board addEventHandler ["HandleDamage", {false}];
+		_board allowDamage false;
+		_board setObjectTextureGlobal [0,"img\00.paa"];
 
 		/*
-		ADV_board addAction ["<t color='#ffff11'>Whiteboard -> Start</t>",{ADV_board setObjectTextureGlobal [0,"img\00.jpg"];},nil,1,false,false,"","player distance cursortarget <3"];    
-		ADV_board addAction ["<t color='#ffff11'>Whiteboard -> Rufnamen</t>",{ADV_board setObjectTextureGlobal [0,"img\01.jpg"];},nil,1,false,false,"","player distance cursortarget <3"];
-		ADV_board addAction ["<t color='#ffff11'>Whiteboard -> Bewegung 1</t>",{ADV_board setObjectTextureGlobal [0,"img\02.jpg"];},nil,1,false,false,"","player distance cursortarget <3"];
-		ADV_board addAction ["<t color='#ffff11'>Whiteboard -> Bewegung 2</t>",{ADV_board setObjectTextureGlobal [0,"img\03.jpg"];},nil,1,false,false,"","player distance cursortarget <3"];
-		ADV_board addAction ["<t color='#ffff11'>Whiteboard -> Bewegung 3</t>",{ADV_board setObjectTextureGlobal [0,"img\04.jpg"];},nil,1,false,false,"","player distance cursortarget <3"];
-		ADV_board addAction ["<t color='#ffff11'>Whiteboard -> Viel Erfolg!</t>",{ADV_board setObjectTextureGlobal [0,"img\05.jpg"];},nil,1,false,false,"","player distance cursortarget <3"];
+		_board addAction ["<t color='#ffff11'>Whiteboard -> Start</t>",{params ["_board"]; _board setObjectTextureGlobal [0,"img\00.jpg"];},nil,1,false,false,"","true",3];    
+		_board addAction ["<t color='#ffff11'>Whiteboard -> Rufnamen</t>",{params ["_board"]; _board setObjectTextureGlobal [0,"img\01.jpg"];},nil,1,false,false,"","true",3];
+		_board addAction ["<t color='#ffff11'>Whiteboard -> Bewegung 1</t>",{params ["_board"]; _board setObjectTextureGlobal [0,"img\02.jpg"];},nil,1,false,false,"","true",3];
+		_board addAction ["<t color='#ffff11'>Whiteboard -> Bewegung 2</t>",{params ["_board"]; _board setObjectTextureGlobal [0,"img\03.jpg"];},nil,1,false,false,"","true",3];
+		_board addAction ["<t color='#ffff11'>Whiteboard -> Bewegung 3</t>",{params ["_board"]; _board setObjectTextureGlobal [0,"img\04.jpg"];},nil,1,false,false,"","true",3];
+		_board addAction ["<t color='#ffff11'>Whiteboard -> Viel Erfolg!</t>",{params ["_board"]; _board setObjectTextureGlobal [0,"img\05.jpg"];},nil,1,false,false,"","true",3];
 		*/
 	};
 	nil;

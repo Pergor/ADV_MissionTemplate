@@ -22,7 +22,7 @@
 			"<t color='#00cc00'>Artillerie-Einstellung anzeigen</t>",
 			{
 				ADV_artiVar = 1;
-				while {player == gunner (_this select 0) && ADV_artiVar == 1} do {
+				while {player == gunner (_this select 0) && ADV_artiVar isEqualTo 1} do {
 					//hint str (getArtilleryComputerSettings select 0);
 					hint format ["Currently selected range:\n %1 \n\nTo change the artillery-range press 'F'",getArtilleryComputerSettings select 0];
 					sleep 0.5;

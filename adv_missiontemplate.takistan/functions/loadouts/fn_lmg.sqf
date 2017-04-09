@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -20,7 +27,7 @@ _uniform = ["U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam_tshirt","U_B
 _vest = ["V_PlateCarrier2_rgr","V_PlateCarrier1_rgr"];
 _headgear = ["H_HelmetSpecB_paint1","H_HelmetSpecB_paint2","H_HelmetB_desert","H_HelmetB_grass","H_HelmetB_paint"];
 _backpack = [""];
-if ( ADV_par_NVGs > 0 ) then { _backpack = ["B_AssaultPack_dgtl","B_AssaultPack_khk","B_AssaultPack_rgr","B_AssaultPack_cbr","B_AssaultPack_mcamo"]; };
+if ( _par_NVGs > 0 ) then { _backpack = ["B_AssaultPack_dgtl","B_AssaultPack_khk","B_AssaultPack_rgr","B_AssaultPack_cbr","B_AssaultPack_mcamo"]; };
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "G_Combat";
@@ -37,8 +44,8 @@ if (worldName == "TANOA") then {
 	_optic = _optic-["optic_Holosight"]+["optic_Holosight_blk_F"];
 };
 _attachments = ["bipod_01_F_blk"];
-if ( ADV_par_NVGs == 1 ) then { _attachments pushback "acc_flashlight"; };
-if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
+if ( _par_NVGs == 1 ) then { _attachments pushback "acc_flashlight"; };
+if ( _par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H_MG";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
@@ -117,7 +124,7 @@ _itemsLink = [
 _items = [];
 
 //MarksmenDLC-objects:
-if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && ADV_par_DLCContent == 1) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 };
 
 	//CustomMod items//
@@ -204,13 +211,13 @@ _scorchItems = ["sc_dogtag","sc_mre"];
 _scorchItemsRandom = [""];
 
 //Addon Content:
-switch (ADV_par_customWeap) do {
+switch (_par_customWeap) do {
 	case 1: {
 		//BWmod
 		_backpack = [""];
 		_primaryweapon = "BWA3_MG4";
 		_optic = ["BWA3_optic_RSAS","BWA3_optic_EOTech"];
-		if ( ADV_par_NVGs > 0 ) then { _attachments = ["BWA3_acc_VarioRay_irlaser"]; };
+		if ( _par_NVGs > 0 ) then { _attachments = ["BWA3_acc_VarioRay_irlaser"]; };
 		_silencer = "BWA3_muzzle_snds_MG4";		//if silencer is added
 		_handgun = "BWA3_P8";
 		_itemsHandgun = [""];
@@ -220,9 +227,9 @@ switch (ADV_par_customWeap) do {
 		//RHS Army
 		_primaryWeapon = ["rhs_weap_m249_pip_S_vfg","rhs_weap_m249_pip_S"];
 		_optic = ["rhsusf_acc_compm4","rhsusf_acc_eotech_552","rhsusf_acc_eotech_552"];
-		if (ADV_par_customUni == 10 || ADV_par_customUni == 11) then {};
-		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
-		if ( ADV_par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		if (_par_customUni == 10 || _par_customUni == 11) then {};
+		if ( _par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
+		if ( _par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_silencer = "";
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
@@ -236,8 +243,8 @@ switch (ADV_par_customWeap) do {
 			_primaryweaponAmmo = [7,9];
 			_additionalAmmo = [14,"30rnd_556x45_STANAG",true];
 		};
-		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
-		if ( ADV_par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		if ( _par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
+		if ( _par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_silencer = "";
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
@@ -247,8 +254,8 @@ switch (ADV_par_customWeap) do {
 		//RHS SOF
 		_primaryWeapon = ["rhs_weap_m249_pip_S_vfg","rhs_weap_m249_pip_S"];
 		_optic = ["rhsusf_acc_eotech_552"];
-		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
-		if ( ADV_par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		if ( _par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
+		if ( _par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_silencer = "";
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
@@ -258,7 +265,7 @@ switch (ADV_par_customWeap) do {
 		//SELmods CUP Mk16
 		_primaryWeapon = ["CUP_lmg_M249_para"];
 		_optic = ["CUP_optic_CompM4"];
-		if ( ADV_par_NVGs > 0 ) then { _attachments = ["CUP_acc_ANPEQ_15"]; };
+		if ( _par_NVGs > 0 ) then { _attachments = ["CUP_acc_ANPEQ_15"]; };
 		_silencer = "";		//if silencer is added
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=[""];
@@ -268,7 +275,7 @@ switch (ADV_par_customWeap) do {
 		//SELmods CUP M4
 		_primaryWeapon = ["CUP_lmg_M249_para"];
 		_optic = ["CUP_optic_CompM4"];
-		if ( ADV_par_NVGs > 0 ) then { _attachments = ["CUP_acc_ANPEQ_15"]; };
+		if ( _par_NVGs > 0 ) then { _attachments = ["CUP_acc_ANPEQ_15"]; };
 		_silencer = "";		//if silencer is added
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=[""];
@@ -278,7 +285,7 @@ switch (ADV_par_customWeap) do {
 		//BAF
 		_primaryweapon = ["CUP_lmg_L110A1"];
 		_optic = ["CUP_optic_SUSAT"];
-		if ( ADV_par_NVGs > 0 ) then { _attachments = ["CUP_acc_ANPEQ_15"]; };
+		if ( _par_NVGs > 0 ) then { _attachments = ["CUP_acc_ANPEQ_15"]; };
 		_silencer = "";		//if silencer is added
 		_handgun = "CUP_hgun_Glock17";
 		_itemsHandgun = ["CUP_acc_Glock17_Flashlight"];
@@ -288,7 +295,7 @@ switch (ADV_par_customWeap) do {
 		//UK3CB
 		_primaryweapon = ["UK3CB_BAF_L110A2","UK3CB_BAF_L110A2_FIST"];
 		_optic = ["UK3CB_BAF_SUSAT_3D"];
-		if ( ADV_par_NVGs > 0 ) then { _attachments = ["UK3CB_BAF_LLM_IR_Black"]; };
+		if ( _par_NVGs > 0 ) then { _attachments = ["UK3CB_BAF_LLM_IR_Black"]; };
 		_silencer = "UK3CB_BAF_Silencer_L110";
 		_primaryweaponAmmo set [1,2];
 		_handgun = "UK3CB_BAF_L131A1";
@@ -316,7 +323,7 @@ switch (ADV_par_customWeap) do {
 	};
 	default {};
 };
-switch (ADV_par_customUni) do {
+switch (_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
 		_uniform = ["BWA3_Uniform_idz_Tropen"];
@@ -357,13 +364,13 @@ switch (ADV_par_customUni) do {
 	case 6: {
 		//CUP BAF
 		switch (true) do {
-			case ((toUpper worldname) in ADV_var_aridMaps): {
+			case ((toUpper worldname) in _var_aridMaps): {
 				_uniform = ["CUP_U_B_BAF_DDPM_S1_RolledUp","CUP_U_B_BAF_DDPM_Tshirt"];
 				_vest = ["CUP_V_BAF_Osprey_Mk2_DDPM_Soldier1","CUP_V_BAF_Osprey_Mk2_DDPM_Soldier2","CUP_V_BAF_Osprey_Mk2_DDPM_Officer","CUP_V_BAF_Osprey_Mk2_DDPM_Sapper"];
 				_headgear = ["CUP_H_BAF_Helmet_1_DDPM","CUP_H_BAF_Helmet_Net_2_DDPM","CUP_H_BAF_Helmet_4_DDPM"];
 				_backpack = ["CUP_B_Bergen_BAF"];
 			};
-			case ((toUpper worldname) in ADV_var_lushMaps): {
+			case ((toUpper worldname) in _var_lushMaps): {
 				_uniform = ["CUP_U_B_BAF_DPM_S1_RolledUp","CUP_U_B_BAF_DPM_S1_RolledUp","CUP_U_B_BAF_DPM_Tshirt"];
 				_vest = ["CUP_V_BAF_Osprey_Mk2_DPM_Soldier1","CUP_V_BAF_Osprey_Mk2_DPM_Soldier2","CUP_V_BAF_Osprey_Mk2_DPM_Officer","CUP_V_BAF_Osprey_Mk2_DPM_Sapper"];
 				_headgear = ["CUP_H_BAF_Helmet_1_DPM","CUP_H_BAF_Helmet_Net_2_DPM","CUP_H_BAF_Helmet_4_DPM"];
@@ -385,7 +392,7 @@ switch (ADV_par_customUni) do {
 		_headgear = ["rhsusf_ach_helmet_ocp","rhsusf_ach_helmet_headset_ocp","rhsusf_ach_helmet_ESS_ocp","rhsusf_ach_helmet_headset_ess_ocp",
 			"rhsusf_mich_bare_tan","rhsusf_mich_bare_tan_headset","rhsusf_ach_bare_tan_ess","rhsusf_ach_bare_tan_headset_ess"];
 		_backpack = [""];
-		if ( ADV_par_customWeap == 7 ) then { _backpack = ["rhsusf_falconii"]; };
+		if ( _par_customWeap == 7 ) then { _backpack = ["rhsusf_falconii"]; };
 		_items pushBack "rhsusf_patrolcap_ocp";
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};
@@ -396,14 +403,14 @@ switch (ADV_par_customUni) do {
 		_headgear = ["rhsusf_ach_helmet_ucp","rhsusf_ach_helmet_headset_ucp","rhsusf_ach_helmet_ESS_ucp","rhsusf_ach_helmet_headset_ess_ucp",
 			"rhsusf_mich_bare_norotos_alt","rhsusf_mich_bare_headset","rhsusf_ach_bare_ess","rhsusf_ach_bare_headset_ess"];
 		_backpack = [""];
-		if ( ADV_par_customWeap == 7 ) then { _backpack = ["rhsusf_falconii"]; };
+		if ( _par_customWeap == 7 ) then { _backpack = ["rhsusf_falconii"]; };
 		_items pushBack "rhsusf_patrolcap_ucp";
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};
 	case 10: {
 		//RHS MARPAT
 		switch (true) do {
-			case ((toUpper worldname) in ADV_var_aridMaps): {
+			case ((toUpper worldname) in _var_aridMaps): {
 				_uniform = ["rhs_uniform_FROG01_d"];
 				_headgear = ["rhsusf_lwh_helmet_marpatd","rhsusf_mich_helmet_marpatd","rhsusf_mich_helmet_marpatd_alt","rhsusf_mich_helmet_marpatd_norotos"];
 				_items pushBack "rhs_Booniehat_marpatd";
@@ -463,7 +470,7 @@ switch (ADV_par_customUni) do {
 		_uniform = ["U_B_T_Soldier_AR_F","U_B_T_Soldier_AR_F","U_B_T_Soldier_SL_F","U_B_T_Soldier_F"];
 		_vest = ["V_PlateCarrier1_tna_F","V_PlateCarrier2_tna_F"];
 		_headgear = ["H_HelmetB_tna_F","H_HelmetB_Enh_tna_F","H_HelmetB_Light_tna_F"];
-		if ( ADV_par_NVGs > 0 ) then { _backpack = ["B_AssaultPack_tna_F"]; };
+		if ( _par_NVGs > 0 ) then { _backpack = ["B_AssaultPack_tna_F"]; };
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};

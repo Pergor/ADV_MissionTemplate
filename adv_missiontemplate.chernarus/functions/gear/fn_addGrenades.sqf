@@ -26,6 +26,14 @@ params [
 	["_IRgrenade", 0, [0]]
 ];
 
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+
 _grenHE = {_x == "HE"} count _grenades;
 _grenSmkWht = {_x == "WHITE"} count _grenades;
 _grenSmkGrn = {_x == "GREEN"} count _grenades;
@@ -60,7 +68,7 @@ if (_grenSet > 0) then {
 };
 
 _grenArray = call {
-	if ( ADV_par_customWeap == 1 && ( side ( group _unit ) == west ) ) exitWith {
+	if ( _par_customWeap == 1 && ( side ( group _unit ) == west ) ) exitWith {
 		[
 			["BWA3_DM51A1",_grenHE],
 			["BWA3_DM25", _grenSmkWht],
@@ -68,7 +76,7 @@ _grenArray = call {
 			["BWA3_DM32_Yellow", _grenSmkYlw+_grenSmkPrpl+_grenSmkBl]
 		];
 	};
-	if ( ((ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4) && ( side ( group _unit ) == west )) || (ADV_par_indWeap == 2 && ( side ( group _unit ) == independent )) ) exitWith {
+	if ( ((_par_customWeap == 2 || _par_customWeap == 3 || _par_customWeap == 4) && ( side ( group _unit ) == west )) || (_par_indWeap == 2 && ( side ( group _unit ) == independent )) ) exitWith {
 		[
 			["rhs_mag_m67", _grenHE],
 			["rhs_mag_an_m8hc", _grenSmkWht],
@@ -78,7 +86,7 @@ _grenArray = call {
 			["rhs_mag_m18_red", _grenSmkRd+_grenSmkOrng]
 		];
 	};
-	if ( (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2) && ( side ( group _unit ) == east ) ) exitWith {
+	if ( (_par_opfWeap == 1 || _par_opfWeap == 2) && ( side ( group _unit ) == east ) ) exitWith {
 		[
 			["rhs_mag_rgd5", _grenHE],
 			["rhs_mag_rdg2_white", _grenSmkWht],
@@ -98,7 +106,7 @@ _grenArray = call {
 	];
 };
 _chemArray = call {
-	if ( ( !(side (group _unit) == east) && ADV_par_NVGs > 0 ) || (side (group _unit) == east && ADV_par_opfNVGs > 0) ) exitWith {
+	if ( ( !(side (group _unit) == east) && _par_NVGs > 0 ) || (side (group _unit) == east && _par_opfNVGs > 0) ) exitWith {
 		[
 			["Chemlight_Yellow", _chemYlw],
 			["Chemlight_Red", _chemRd],
@@ -111,7 +119,7 @@ _chemArray = call {
 
 { _unit addMagazines [_x select 0, _x select 1]; } count _grenArray+_chemArray;
 
-if ( !isClass(configFile >> "CfgPatches" >> "ACE_attach") && (( !(side (group _unit) == east) && ADV_par_NVGs == 2 ) || (side (group _unit) == east && ADV_par_opfNVGs == 2)) ) then {
+if ( !isClass(configFile >> "CfgPatches" >> "ACE_attach") && (( !(side (group _unit) == east) && _par_NVGs == 2 ) || (side (group _unit) == east && _par_opfNVGs == 2)) ) then {
 	_IR_GrenType = switch (side (group _unit)) do {
 		case west: {"B_IR_Grenade"};
 		case east: {"O_IR_Grenade"};

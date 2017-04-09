@@ -17,6 +17,14 @@
 
 if (!isServer) exitWith {};
 
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+
 {
 	if !(_x isEqualTo objNull) then {
 		private _target = _x;
@@ -26,7 +34,7 @@ if (!isServer) exitWith {};
 		//weapons & ammo
 		switch (true) do {
 			//BWmod
-			case (ADV_par_customWeap == 1): {
+			case (_par_customWeap == 1): {
 				//weapons
 				_target addWeaponCargoGlobal ["BWA3_Fliegerfaust",5];
 				_target addWeaponCargoGlobal ["BWA3_Pzf3_Loaded",5];
@@ -62,13 +70,13 @@ if (!isServer) exitWith {};
 				_target addMagazineCargoGlobal ["BWA3_10Rnd_127x99_G82",10];
 				//items
 				_target addItemCargoGlobal ["BWA3_acc_LLM01_irlaser",5];
-				if (ADV_par_optics == 1) then {
+				if (_par_optics == 1) then {
 					_target addItemCargoGlobal ["BWA3_optic_RSAS",5];
 					_target addItemCargoGlobal ["BWA3_optic_ZO4x30",5];
 				};
 			};
 			//SeL RHS
-			case (ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4): {
+			case (_par_customWeap == 2 || _par_customWeap == 3 || _par_customWeap == 4): {
 				//weapons
 				_target addWeaponCargoGlobal ["rhs_weap_M136",5];
 				_target addWeaponCargoGlobal ["rhs_weap_M136_hedp",5];
@@ -88,7 +96,7 @@ if (!isServer) exitWith {};
 				_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51",20];
 				_target addMagazineCargoGlobal ["rhsusf_100Rnd_762x51_m80a1epr",20];
 				_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",20];
-				if (ADV_par_customWeap == 3) then {
+				if (_par_customWeap == 3) then {
 					if (isClass(configFile >> "CfgPatches" >> "hlcweapons_m60e4")) then {
 						_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_M_M60E4",20];
 					};
@@ -99,7 +107,7 @@ if (!isServer) exitWith {};
 				if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then { _target addMagazineCargoGlobal ["hlc_30Rnd_9x19_B_MP5",10]; };
 				//items
 				_target addItemCargoGlobal ["rhsusf_acc_harris_bipod",3];
-				if (ADV_par_optics > 0) then {
+				if (_par_optics > 0) then {
 					_target addItemCargoGlobal ["rhsusf_acc_compm4",5];
 					_target addItemCargoGlobal ["rhsusf_acc_eotech_552",5];
 					_target addItemCargoGlobal ["rhsusf_acc_ELCAN",5];
@@ -113,7 +121,7 @@ if (!isServer) exitWith {};
 				};
 			};
 			//SeL CUP MK16
-			case (ADV_par_customWeap == 5 || ADV_par_customWeap == 6): {
+			case (_par_customWeap == 5 || _par_customWeap == 6): {
 				//weapons
 				_target addWeaponCargoGlobal ["CUP_launch_M136",5];
 				_target addWeaponCargoGlobal ["CUP_launch_Javelin",2];
@@ -123,7 +131,7 @@ if (!isServer) exitWith {};
 				//Rifles
 				_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",40];
 				_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",40];
-				if (ADV_par_customWeap == 5) then {
+				if (_par_customWeap == 5) then {
 					_target addMagazineCargoGlobal ["CUP_20Rnd_762x51_B_M110",40];
 					_target addMagazineCargoGlobal ["CUP_20Rnd_762x51_B_SCAR",30];
 				} else {
@@ -140,7 +148,7 @@ if (!isServer) exitWith {};
 				_target addMagazineCargoGlobal ["CUP_18Rnd_9x19_Phantom",10];
 				_target addMagazineCargoGlobal ["CUP_30Rnd_9x19_MP5",10];
 				//items
-				if (ADV_par_optics > 0) then {
+				if (_par_optics > 0) then {
 					_target addItemCargoGlobal ["CUP_optic_CompM4",5];
 					_target addItemCargoGlobal ["CUP_optic_CompM2_Black",5];
 					_target addItemCargoGlobal ["CUP_optic_CompM2_Woodland",5];
@@ -150,7 +158,7 @@ if (!isServer) exitWith {};
 				};
 			};
 			//SeL CUP L85
-			case (ADV_par_customWeap == 7): {
+			case (_par_customWeap == 7): {
 				//weapons
 				_target addWeaponCargoGlobal ["CUP_launch_M136",5];
 				_target addWeaponCargoGlobal ["CUP_launch_Javelin",2];
@@ -171,14 +179,14 @@ if (!isServer) exitWith {};
 				_target addMagazineCargoGlobal ["CUP_18Rnd_9x19_Phantom",10];
 				_target addMagazineCargoGlobal ["CUP_30Rnd_9x19_MP5",10];
 				//items
-				if (ADV_par_optics > 0) then {
+				if (_par_optics > 0) then {
 					_target addItemCargoGlobal ["CUP_optic_SUSAT",5];
 					_target addItemCargoGlobal ["CUP_optic_RCO_desert",5];
 					_target addItemCargoGlobal ["CUP_optic_RCO",5];
 					_target addItemCargoGlobal ["CUP_optic_LeupoldMk4",1];
 				};
 			};
-			case (ADV_par_customWeap == 8): {
+			case (_par_customWeap == 8): {
 				//weapons
 				_target addWeaponCargoGlobal ["UK3CB_BAF_AT4_AP_Launcher",5];
 				_target addWeaponCargoGlobal ["UK3CB_BAF_Javelin_Slung_Tube",3];
@@ -196,14 +204,14 @@ if (!isServer) exitWith {};
 				_target addMagazineCargoGlobal ["UK3CB_BAF_17Rnd_9mm",20];
 				_target addMagazineCargoGlobal ["UK3CB_BAF_30Rnd_9mm",10];
 				//items
-				if (ADV_par_optics > 0) then {
+				if (_par_optics > 0) then {
 					_target addItemCargoGlobal ["UK3CB_BAF_SUSAT_3D",5];
 					_target addItemCargoGlobal ["UK3CB_BAF_TA31F_3D",5];
 					_target addItemCargoGlobal ["UK3CB_BAF_SpecterLDS_3D",5];
 					_target addItemCargoGlobal ["UK3CB_BAF_Eotech",5];
 				};
 			};
-			case (ADV_par_customWeap == 9): {
+			case (_par_customWeap == 9): {
 				//HLC
 				if (isClass(configFile >> "CfgPatches" >> "rhsusf_main")) then {
 					//weapons
@@ -247,7 +255,7 @@ if (!isServer) exitWith {};
 				_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",40];
 				_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",40];
 				_target addMagazineCargoGlobal ["130Rnd_338_Mag",10];
-				if (ADV_par_customWeap == 20) then {
+				if (_par_customWeap == 20) then {
 					_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Red_F",20];
 				} else {
 					//_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",20];
@@ -265,7 +273,7 @@ if (!isServer) exitWith {};
 				_target addMagazineCargoGlobal ["Titan_AP",5];
 				//items
 				_target addItemCargoGlobal ["bipod_01_F_blk",3];
-				if (ADV_par_optics > 0) then {
+				if (_par_optics > 0) then {
 					_target addItemCargoGlobal ["optic_MRD",5];
 					_target addItemCargoGlobal ["optic_Aco",5];
 					_target addItemCargoGlobal ["optic_Holosight",5];
@@ -282,13 +290,13 @@ if (!isServer) exitWith {};
 			
 		//grenades
 		switch (true) do {
-			case (ADV_par_customWeap == 1): {
+			case (_par_customWeap == 1): {
 				_target addMagazineCargoGlobal ["BWA3_DM51A1",20];		
 				_target addMagazineCargoGlobal ["BWA3_DM25",20];		
 				_target addMagazineCargoGlobal ["BWA3_DM32_Orange",20];		
 				_target addMagazineCargoGlobal ["BWA3_DM32_Yellow",20];		
 			};
-			case (ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4): {
+			case (_par_customWeap == 2 || _par_customWeap == 3 || _par_customWeap == 4): {
 				_target addMagazineCargoGlobal ["rhs_mag_m67",20];
 				_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",20];
 				_target addMagazineCargoGlobal ["rhs_mag_m18_green",20];
@@ -316,7 +324,7 @@ if (!isServer) exitWith {};
 		_target addMagazineCargoGlobal ["1Rnd_SmokeYellow_Grenade_shell",20];
 		
 		//uniform items
-		switch (ADV_par_customUni) do {
+		switch (_par_customUni) do {
 			//BWmod Tropen
 			case 1: {
 				_target addItemCargoGlobal ["BWA3_M92_Tropen",5];		
@@ -344,10 +352,10 @@ if (!isServer) exitWith {};
 		};
 
 		//radios
-		if (isClass (configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3)) then {
+		if (isClass (configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3)) then {
 			_target addBackpackCargoGlobal ["tf_rt1523g",2];
 		};
-		if (ADV_par_Radios == 1 || ADV_par_Radios == 3) then {
+		if (_par_Radios == 1 || _par_Radios == 3) then {
 			_target addItemCargoGlobal ["ItemRadio",4];
 		};
 
@@ -429,7 +437,7 @@ if (!isServer) exitWith {};
 		_target addItemCargoGlobal ["FirstAidKit",20];
 		_target addItemCargoGlobal ["MediKit",5];	
 		};
-		switch ( ADV_par_Tablets ) do {
+		switch ( _par_Tablets ) do {
 			case 1: {
 				if (isClass (configFile >> "CfgPatches" >> "cTab")) then {
 					_target addItemCargoGlobal ["ItemAndroid",5];

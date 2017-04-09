@@ -19,6 +19,14 @@ params [
 	["_unit", player, [objNull]]
 ];
 
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+
 if (isNil "_40mmHeGrenadesAmmo") then {_40mmHeGrenadesAmmo = 0;};
 if (isNil "_40mmSmokeGrenadesWhite") then {_40mmSmokeGrenadesWhite = 0;};
 if (isNil "_40mmSmokeGrenadesGreen") then {_40mmSmokeGrenadesGreen = 0;};
@@ -34,7 +42,7 @@ if (isNil "_40mmFlareRed") then {_40mmFlareRed = 0;};
 if (isNil "_40mmFlareIR") then {_40mmFlareIR = 0;};
 
 _40mmGrens = switch ( true ) do {
-	case ( (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2) && ( side ( group _unit ) == east ) ): {
+	case ( (_par_opfWeap == 1 || _par_opfWeap == 2) && ( side ( group _unit ) == east ) ): {
 		[
 			["rhs_VOG25", _40mmHeGrenadesAmmo],
 			["rhs_GRD40_White", _40mmSmokeGrenadesWhite],
@@ -42,7 +50,7 @@ _40mmGrens = switch ( true ) do {
 			["rhs_GRD40_Red", _40mmSmokeGrenadesRed+_40mmSmokeGrenadesOrange+_40mmSmokeGrenadesPurple]
 		];
 	};
-	case ( ADV_par_opfWeap == 3 && ( side ( group _unit ) == east ) ): {
+	case ( _par_opfWeap == 3 && ( side ( group _unit ) == east ) ): {
 		[
 			["CUP_1Rnd_HE_GP25_M", _40mmHeGrenadesAmmo],
 			["CUP_1Rnd_SMOKE_GP25_M", _40mmSmokeGrenadesWhite],
@@ -51,7 +59,7 @@ _40mmGrens = switch ( true ) do {
 			["CUP_1Rnd_SmokeYellow_GP25_M", _40mmSmokeGrenadesYellow]
 		];
 	};
-	case ( ADV_par_opfWeap == 4 && ( side ( group _unit ) == east ) ): {
+	case ( _par_opfWeap == 4 && ( side ( group _unit ) == east ) ): {
 		[
 			["hlc_VOG25_AK", _40mmHeGrenadesAmmo],
 			["hlc_GRD_White", _40mmSmokeGrenadesWhite+_40mmSmokeGrenadesYellow],
@@ -78,16 +86,16 @@ _40mmGrens = switch ( true ) do {
 
 { _unit addMagazines [_x select 0, _x select 1]; } forEach _40mmGrens;
 
-if ( ( !(side (group _unit) == east) && ADV_par_NVGs == 1 ) || (side (group _unit) == east && ADV_par_opfNVGs == 1) ) then {
+if ( ( !(side (group _unit) == east) && _par_NVGs == 1 ) || (side (group _unit) == east && _par_opfNVGs == 1) ) then {
 	_40mmFlares = switch ( true ) do {
-		case ( (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2) && ( side ( group _unit ) == east ) ): {
+		case ( (_par_opfWeap == 1 || _par_opfWeap == 2) && ( side ( group _unit ) == east ) ): {
 			[
 				["rhs_VG40OP_white", _40mmFlareWhite+_40mmFlareYellow],
 				["rhs_VG40OP_green", _40mmFlareGreen],
 				["rhs_VG40OP_red", _40mmFlareRed]
 			];
 		};
-		case ( ADV_par_opfWeap == 3 && ( side ( group _unit ) == east ) ): {
+		case ( _par_opfWeap == 3 && ( side ( group _unit ) == east ) ): {
 			[
 				["CUP_FlareWhite_GP25_M", _40mmFlareWhite],
 				["CUP_FlareGreen_GP25_M", _40mmFlareGreen],
@@ -95,7 +103,7 @@ if ( ( !(side (group _unit) == east) && ADV_par_NVGs == 1 ) || (side (group _uni
 				["CUP_FlareYellow_GP25_M", _40mmFlareYellow]
 			];
 		};
-		case ( ADV_par_opfWeap == 4 && ( side ( group _unit ) == east ) ): {
+		case ( _par_opfWeap == 4 && ( side ( group _unit ) == east ) ): {
 		};
 		default {
 			[
@@ -109,7 +117,7 @@ if ( ( !(side (group _unit) == east) && ADV_par_NVGs == 1 ) || (side (group _uni
 	{ _unit addMagazines [_x select 0, _x select 1]; } forEach _40mmFlares;
 };
 
-if ( ( !(side (group _unit) == east) && ADV_par_NVGs == 2 ) || (side (group _unit) == east && ADV_par_opfNVGs == 2 && !(ADV_par_opfWeap > 0)) ) then {
+if ( ( !(side (group _unit) == east) && _par_NVGs == 2 ) || (side (group _unit) == east && _par_opfNVGs == 2 && !(_par_opfWeap > 0)) ) then {
 	_40mmIR = [["UGL_FlareCIR_F", _40mmFlareIR]];
 	{ _unit addMagazines [_x select 0, _x select 1]; } forEach _40mmIR;
 };

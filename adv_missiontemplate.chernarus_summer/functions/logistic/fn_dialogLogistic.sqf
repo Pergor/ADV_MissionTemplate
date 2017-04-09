@@ -28,10 +28,15 @@ params [
 
 _box = true;
 
-if (_crateSelection == "") exitWith { hint "Keine Aktion ausgewählt"; };
+if (_crateSelection isEqualTo "") exitWith { hint "Keine Aktion ausgewählt"; };
+
+_par_logisticAmount = missionNamespace getVariable ["adv_par_logisticAmount",99];
+_par_customLoad = missionNamespace getVariable ["adv_par_customLoad",1];
+_par_logisticDrop = missionNamespace getVariable ["adv_par_logisticDrop",1];
+_par_indUni = missionNamespace getVariable ["adv_par_indUni",0];
 
 if (isNil "ADV_logistic_maxAmount_crateGrenades") then {
-	switch ( ADV_par_logisticAmount ) do {
+	switch ( _par_logisticAmount ) do {
 		case 1: {
 			ADV_logistic_maxAmount_crateGrenades = 1;
 			ADV_logistic_maxAmount_crateNormal = 3;
@@ -103,7 +108,7 @@ switch ( _side ) do {
 		};
 	};
 	case independent: {
-		if ( ADV_par_indUni == 0) then {
+		if ( _par_indUni isEqualTo 0) then {
 			ADV_logistic_crateTypeLarge="I_CargoNet_01_ammo_F";
 			ADV_logistic_crateTypeNormal="Box_IND_Ammo_F";ADV_logistic_crateTypeAT="Box_IND_WpsLaunch_F";ADV_logistic_crateTypeAA="Box_IND_WpsLaunch_F";
 			ADV_logistic_crateTypeMG="Box_IND_WpsSpecial_F";
@@ -246,10 +251,10 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 		_target allowDamage false;
 		[_target] call ADV_fnc_clearCargo;
 		_target setPosASL _pos;
-		if ( ADV_par_customLoad == 1 ) then {
+		if ( _par_customLoad isEqualTo 1 ) then {
 			[_target] remoteExec ["adv_fnc_gearsaving",0,true];
 		};
-		if ( ADV_par_logisticDrop == 1 ) then { [_target] call adv_fnc_dropLogistic; };
+		if ( _par_logisticDrop isEqualTo 1 ) then { [_target] call adv_fnc_dropLogistic; };
 	};
 	switch ( toUpper (_crateSelection) ) do {
 		case "ADV_LOGISTIC_CRATELARGE": {
@@ -264,7 +269,7 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 				_box = createVehicle [_type,_location,[],0,"CAN_COLLIDE"];
 				_box allowDamage false;
 				[_box] call ADV_fnc_clearCargo;
-				if ( ADV_par_customLoad == 1 ) then {
+				if ( missionNamespace getVariable ["adv_par_customLoad",1] isEqualTo 1 ) then {
 					[_box] remoteExec ["adv_fnc_gearsaving",0,true];
 				};
 				_function = format ["adv_%1%2",_prefix,"fnc_crateLarge"];

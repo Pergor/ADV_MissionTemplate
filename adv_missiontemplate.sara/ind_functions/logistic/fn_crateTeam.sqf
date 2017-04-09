@@ -16,16 +16,24 @@
  */
 
 if (!isServer) exitWith {};
-private ["_target"];
+
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+
 {
-	_target = _x;
+	private _target = _x;
 	//makes the crates indestructible:
 	_target allowDamage false;
 
 	//weapons & ammo
 	switch (true) do {
 		//SeL RHS
-		case (ADV_par_indWeap == 2): {
+		case (_par_indWeap == 2): {
 			//weapons
 			_target addWeaponCargoGlobal ["rhs_weap_M136",1];
 			//ammo
@@ -35,7 +43,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",4];
 			_target addMagazineCargoGlobal ["rhsusf_mag_7x45acp_MHP",8];
 		};
-		case (ADV_par_indWeap == 3): {
+		case (_par_indWeap == 3): {
 			//weapons
 			if (isClass(configFile >> "CfgPatches" >> "rhsusf_main")) then {
 				_target addWeaponCargoGlobal ["rhs_weap_M136",1];
@@ -54,7 +62,7 @@ private ["_target"];
 				_target addMagazineCargoGlobal ["11Rnd_45ACP_Mag",8];
 			};
 		};
-		case (ADV_par_indWeap == 21): {
+		case (_par_indWeap == 21): {
 			//weapons
 			_target addWeaponCargoGlobal ["launch_RPG7_F",1];
 			//ammo
@@ -73,7 +81,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["9Rnd_45ACP_Mag",8];
 			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",8];
 			call {
-				if (adv_par_indWeap==20) exitWith {
+				if (_par_indWeap==20) exitWith {
 					_target addMagazineCargoGlobal ["200Rnd_556x45_Box_F",4];
 				};
 				_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",4];
@@ -81,7 +89,7 @@ private ["_target"];
 		};
 	};
 	//grenades
-	switch (ADV_par_indWeap) do {
+	switch (_par_indWeap) do {
 		case 2: {
 			_target addMagazineCargoGlobal ["rhs_mag_m67",10];
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",8];

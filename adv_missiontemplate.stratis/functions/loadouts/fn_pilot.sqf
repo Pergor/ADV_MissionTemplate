@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -102,7 +109,7 @@ _itemsLink = [
 _items = [];
 
 //MarksmenDLC-objects:
-if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 };
 
 	//CustomMod items//
@@ -190,7 +197,7 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_candybar",""];
 
 //Addon Content:
 switch (true) do {
-	case (ADV_par_customWeap == 1): {
+	case (_par_customWeap == 1): {
 		//BWmod
 		_primaryweapon = "";
 		_optic = [""];
@@ -198,11 +205,11 @@ switch (true) do {
 		_silencer = "";		//if silencer is added
 		_primaryweaponAmmo = [0,0];
 		_handgun = "BWA3_MP7";
-		if ( ADV_par_optics == 1 ) then { _itemsHandgun = ["BWA3_optic_RSAS"]; } else { _itemsHandgun = [""]; };
+		if ( _par_optics == 1 ) then { _itemsHandgun = ["BWA3_optic_RSAS"]; } else { _itemsHandgun = [""]; };
 		_handgunSilencer = "BWA3_muzzle_snds_MP7";		//if silencer is added
 		_handgunAmmo set [0,5];
 	};
-	case (ADV_par_customWeap == 2 || ADV_par_customWeap == 3): {
+	case (_par_customWeap == 2 || _par_customWeap == 3): {
 		//SELmods
 		_primaryweapon = "";
 		_optic = [""];
@@ -211,16 +218,16 @@ switch (true) do {
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
 			_primaryweapon = ["hlc_smg_MP5N","hlc_smg_mp5k_PDW","hlc_smg_mp5a3"];
 			_silencer = "hlc_muzzle_Tundra";
-			if (ADV_par_Silencers == 1) then { _primaryweapon = "hlc_smg_mp5sd6"; _silencer = ""; _primaryweaponAmmo set [1,2]; };
+			if (_par_Silencers == 1) then { _primaryweapon = "hlc_smg_mp5sd6"; _silencer = ""; _primaryweaponAmmo set [1,2]; };
 		} else {
 			_handgunAmmo = [5,0]
 		};
 		_handgun = "rhsusf_weap_m9";
-		if (ADV_par_customWeap == 3) then { _handgun = "rhsusf_weap_m1911a1"; };
+		if (_par_customWeap == 3) then { _handgun = "rhsusf_weap_m1911a1"; };
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_customWeap == 4): {
+	case (_par_customWeap == 4): {
 		//SELmods
 		_primaryweapon = "";
 		_optic = [""];
@@ -229,7 +236,7 @@ switch (true) do {
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
 			_primaryweapon = ["hlc_smg_MP5N","hlc_smg_mp5k_PDW","hlc_smg_mp5a3"];
 			_silencer = "hlc_muzzle_Tundra";
-			if (ADV_par_Silencers == 1) then { _primaryweapon = "hlc_smg_mp5sd6"; _silencer = ""; _primaryweaponAmmo set [1,2]; };
+			if (_par_Silencers == 1) then { _primaryweapon = "hlc_smg_mp5sd6"; _silencer = ""; _primaryweaponAmmo set [1,2]; };
 		} else {
 			_handgunAmmo = [5,0]
 		};
@@ -237,32 +244,32 @@ switch (true) do {
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_customWeap == 5 || ADV_par_customWeap == 6): {
+	case (_par_customWeap == 5 || _par_customWeap == 6): {
 		//CUP
 		_primaryweapon = "CUP_smg_MP5A5";
 		_optic = [""];
 		_attachments = [""];
 		_silencer = "";		//if silencer is added
-		if (ADV_par_Silencers == 1) then {_primaryweapon="CUP_smg_MP5SD6"};
+		if (_par_Silencers == 1) then {_primaryweapon="CUP_smg_MP5SD6"};
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=[];
 		_handgunSilencer = "CUP_muzzle_snds_M9";		//if silencer is added
 	};
-	case (ADV_par_customWeap == 7): {
+	case (_par_customWeap == 7): {
 		//CUP BAF
 		_primaryweapon = "CUP_smg_MP5A5";
 		_optic = [""];
 		_attachments = [""];
 		_silencer = "";		//if silencer is added
-		if (ADV_par_Silencers == 1) then { _primaryweapon="CUP_smg_MP5SD6"; };
+		if (_par_Silencers == 1) then { _primaryweapon="CUP_smg_MP5SD6"; };
 		_handgun="CUP_hgun_Glock17";
 		_itemsHandgun=["CUP_acc_Glock17_Flashlight"];
 		_handgunSilencer = "muzzle_snds_L";		//if silencer is added
 	};
-	case (ADV_par_customWeap == 8): {
+	case (_par_customWeap == 8): {
 		//UK3CB
 		_primaryweapon = "UK3CB_BAF_L91A1";
-		if (ADV_par_Silencers == 1) then { _primaryweapon = "UK3CB_BAF_L92A1" };
+		if (_par_Silencers == 1) then { _primaryweapon = "UK3CB_BAF_L92A1" };
 		_optic = [""];
 		_attachments = [""];
 		_silencer = "";
@@ -270,7 +277,7 @@ switch (true) do {
 		_itemsHandgun=["UK3CB_BAF_Flashlight_L131A1"];
 		_handgunSilencer = "muzzle_snds_L";
 	};
-	case (ADV_par_customWeap == 9): {
+	case (_par_customWeap == 9): {
 		//HLC
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
 			_primaryweapon = ["hlc_smg_mp5a2","hlc_smg_mp510","hlc_smg_mp5a4"];
@@ -284,14 +291,14 @@ switch (true) do {
 			_handgunSilencer = "";
 		};
 	};
-	case (ADV_par_customWeap == 20): {
+	case (_par_customWeap == 20): {
 		_primaryweapon = "SMG_05_F";
 		_silencer = "muzzle_snds_L";
 	};
 	default {};
 };
 switch (true) do {
-	case (ADV_par_customUni == 1) : {
+	case (_par_customUni == 1) : {
 		//BWmod Tropen
 		_uniform = ["BWA3_Uniform_Helipilot"];
 		_vest = ["BWA3_Vest_Tropen"];
@@ -300,7 +307,7 @@ switch (true) do {
 		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
 	};
-	case (ADV_par_customUni == 2): {
+	case (_par_customUni == 2): {
 		//BWmod Fleck
 		_uniform = ["BWA3_Uniform_Helipilot"];
 		_vest = ["BWA3_Vest_Fleck"];
@@ -309,20 +316,20 @@ switch (true) do {
 		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
 	};	
-	case (ADV_par_customUni >= 3 && ADV_par_customUni < 7): {
+	case (_par_customUni >= 3 && _par_customUni < 7): {
 		//TFA Mixed
 	};	
-	case (ADV_par_customUni == 9): {
+	case (_par_customUni == 9): {
 		_giveRiflemanRadio = true;
 		_givePersonalRadio = false;
 	};
-	case (ADV_par_customUni == 12): {
+	case (_par_customUni == 12): {
 		//BWmod Fleck
 		_uniform = ["UK3CB_BAF_U_HeliPilotCoveralls_RN"];
 		_vest = ["UK3CB_BAF_V_Pilot_A"];
 		_headgear = ["UK3CB_BAF_H_PilotHelmetHeli_A"];
 	};
-	case (ADV_par_customUni == 13 && ADV_par_customUni == 14): {
+	case (_par_customUni == 13 && _par_customUni == 14): {
 		//Tryks
 		_uniform = ["TRYK_HRP_USMC"];
 		_vest = ["TRYK_Hrp_vest_od"];

@@ -1,81 +1,78 @@
 ﻿/*
  * Author: Belbo
  *
- * Respawn handler for vehicles
+ * Respawn handler for vehicles.
  *
  * Arguments:
  * 0: vehicle - <OBJECT>
  * 1: respawn delay in seconds (optional) - <NUMBER>
- * 2: vehicle will be replaced with this new classname (optional) - <STRING>
+ * 2: side of the vehicle (optional) - <SIDE>
  *
  * Return Value:
- * Script handle - <HANDLE>
+ * Index of killed-Eventhandler - <HANDLE>
  *
  * Example:
- * _handle = [MRAP_1, 30] call adv_fnc_respawnVeh;
+ * _index = [MRAP_1, 30, west] call adv_fnc_respawnVeh;
  *
  * Public: Yes
  */
 
 if (!isServer) exitWith {};
 
-_handle = _this spawn {
+params [
+	["_veh", objNull, [objNull]],
+	["_delay", 5, [0]],
+	["_side", west, [west]]
+];
 
-	waitUntil {time > 20};
+//delay
+if (_delay < 5) then {_delay = 5};
+if (_delay == 9999 || isNull _veh) exitWith {};
 
-	params [
-		["_veh", objNull, [objNull]],
-		["_delay", 5, [0]],
-		["_side", west, [west]],
-		"_name","_newVehicleName","_markerName","_respawnPos","_vehType"
-	];
+//vehicle side
+private _sidePrefix = switch (_side) do {
+	default {""};
+	case east: {"opf_" };
+	case independent: {"ind_"};
+};
 
-	//delay
-	if (_delay < 5) then {_delay = 5};
-	if (_delay == 9999) exitWith {};
-	//vehicle side
-	_sidePrefix = switch (_side) do {
-		default {""};
-		case east: {"opf_" };
-		case independent: {"ind_"};
-	};
-	//vehicle classname
-	if (count _this > 3) then {_vehType = _this select 3;} else {_vehType = typeOf _veh;};
+//vehiclname:
+private _name = vehicleVarname _veh;
+if (_name isEqualTo "") then {
+	if (isNil "ADV_respawnVeh_newNameNumber") then {ADV_respawnVeh_newNameNumber=1;};
+	private _newVehicleName = format ["%1%2","newVehicle_",ADV_respawnVeh_newNameNumber];
+	[_veh,_newVehicleName] call adv_fnc_changeUnit;
+	_name = _newVehicleName;
+	ADV_respawnVeh_newNameNumber = ADV_respawnVeh_newNameNumber+1;
+};
 
-	//initial respawn position
-	_name = vehicleVarname _veh;
-	if (_name == "") then {
-		if (isNil "ADV_respawnVeh_newNameNumber") then {ADV_respawnVeh_newNameNumber=1;};
-		_newVehicleName = format ["%1%2","newVehicle_",ADV_respawnVeh_newNameNumber];
-		_veh setVehicleVarname _newVehicleName;
-		_name = _newVehicleName;
-		ADV_respawnVeh_newNameNumber = ADV_respawnVeh_newNameNumber+1;
-	};
-	_markerName = format ["%1%2","respPos_",_name];
-	_respawnPos = createMarkerLocal [_markerName, getPosASL _veh];
-	_respawnPos setMarkerDirLocal (getDir _veh);
-	_respHeightPos = getPosASL _veh;
-	_objectTextures = getObjectTextures _veh;
-	_initLine = _veh getVariable ["adv_vehicleinit",""];
+//initial respawn position
+private _respPos = getPosASL _veh;
+private _respDir = getDir _veh;
 
-	while {true} do {
-		waitUntil {sleep 1; !alive _veh};
-		_objectTextures = getObjectTextures _veh;
-		sleep 1;
-		if (isNull _veh) exitWith {
-			deleteMarkerLocal _respawnPos;
-		};
+//store/get variables in vehicle so they can be recalled on respawn:
+private _initLine = _veh getVariable ["adv_vehicleinit",""];
+_veh setVariable ["adv_respawnevh_vehicleVars",[_delay,_side,_sidePrefix,_name,_initLine,_respPos,_respDir]];
+
+private _respawnEVHCode = {
+	_this spawn {
+
+		//basic variables:
+		params ["_veh", "_killer", "_instigator", "_useEffects"];
+		private _vehicleVars = _veh getVariable ["adv_respawnevh_vehicleVars", [10,west,"",vehicleVarname _veh,"",getPosASL _veh,0]];
+		_vehicleVars params ["_delay","_side","_sidePrefix","_name","_initLine","_respPos","_respDir"];
+		private _objectTextures = getObjectTextures _veh;
+		private _vehType = typeOf _veh;
+
 		sleep _delay-2;
 		{detach _x; deleteVehicle _x} count attachedObjects _veh;
-		if (_veh distance2D (getMarkerPos _respawnPos) < 100) then { deleteVehicle _veh; };
+		if (_veh distance2D _respPos < 100) then { deleteVehicle _veh; };
 		_veh enableSimulation false;
 		sleep 2;
-		_veh = createVehicle [_vehType, (getMarkerPos _respawnPos), [], 0, "NONE"];
+		_veh = createVehicle [_vehType, _respPos, [], 0, "NONE"];
 		_veh allowDamage false;
-		_veh setPosASL _respHeightPos;
-		_veh setDir (markerDir _respawnPos);
-		//[_veh,_name] remoteExec ["setVehicleVarName",0];
-		//_veh call compile format ["%1 = _this; publicVariable '%1'", _name];
+		_veh setPosASL _respPos;
+		_veh setDir _respDir;
 		[_veh,_name] call adv_fnc_changeUnit;
 		sleep 2;
 		_veh allowDamage true;
@@ -99,6 +96,7 @@ _handle = _this spawn {
 			if (_veh isKindOf "Car") then { call compile format ["%1 call ADV_%2%3",[_veh,false,false,1,false],_sidePrefix,"fnc_vehicleLoad"]; };
 			if (_veh isKindOf "Motorcycle") then { call compile format ["%1 call ADV_%2%3",[_veh,false,false,1,false],_sidePrefix,"fnc_vehicleLoad"]; };
 			if (_veh isKindOf "UGV_01_base_F") then { call compile format ["%1 call ADV_%2%3",[_veh,false,false,0,false],_sidePrefix,"fnc_vehicleLoad"]; };
+			[_veh, _delay, _side] call adv_fnc_respawnVeh;
 		};
 		sleep 1;
 		call compile format ["%1 call compile %2",_veh,str _initLine];
@@ -106,4 +104,8 @@ _handle = _this spawn {
 	};
 };
 
-_handle;
+//add EVH:
+_index = _veh addEventHandler ["killed",_respawnEVHCode];
+_veh setVariable ["adv_respawnVeh_hasEVH",true,true];
+
+_index;

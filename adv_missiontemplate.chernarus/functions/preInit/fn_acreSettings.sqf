@@ -30,10 +30,10 @@ if ( isServer && _initState == "postInit") exitWith {
 
 if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith {
 	//params needed in case paramsArray not yet defined on client in MP
-	adv_par_customUni = ["param_customUni",0] call BIS_fnc_getParamValue;
-	adv_par_customWeap = ["param_customWeap",0] call BIS_fnc_getParamValue;
-	adv_par_opfUni = ["param_opfUni",0] call BIS_fnc_getParamValue;
-	adv_par_indUni = ["param_indUni",0] call BIS_fnc_getParamValue;
+	missionNamespace getVariable ["adv_par_customUni", ["param_customUni",0] call BIS_fnc_getParamValue];
+	missionNamespace getVariable ["adv_par_customWeap", ["param_customWeap",0] call BIS_fnc_getParamValue];
+	missionNamespace getVariable ["adv_par_opfUni", ["param_opfUni",0] call BIS_fnc_getParamValue];
+	missionNamespace getVariable ["adv_par_opfWeap", ["param_opfWeap",0] call BIS_fnc_getParamValue];
 	//Initialize ACRE radios
 	[true, true] call acre_api_fnc_setupMission;
 	[true] call acre_api_fnc_setRevealToAI;
@@ -51,15 +51,15 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith {
 	acre_gerRiflemanRadio = "ACRE_PRC343";
 	
 	acre_westBackpackRadio = call {
-		if !(adv_par_customUni == 9) exitWith {"ACRE_PRC117F"};
+		if !(adv_par_customUni isEqualTo 9) exitWith {"ACRE_PRC117F"};
 		if (true) exitWith {"ACRE_PRC77"};
 	};
 	acre_eastBackpackRadio = call {
-		if !(adv_par_opfUni == 5 || adv_par_opfUni == 6) exitWith {"ACRE_PRC117F"};
+		if !(adv_par_opfUni isEqualTo 5 || adv_par_opfUni isEqualTo 6) exitWith {"ACRE_PRC117F"};
 		if (true) exitWith {"ACRE_PRC77"};
 	};
 	acre_guerBackpackRadio = call {
-		if !(adv_par_indUni == 20) exitWith {"ACRE_PRC117F"};
+		if !(adv_par_indUni isEqualTo 20) exitWith {"ACRE_PRC117F"};
 		if (true) exitWith {"ACRE_PRC77"};
 	};
 	//channel setup
@@ -95,12 +95,12 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith {
 		
 		//babel:
 		private _bluforLanguage = call {
-			if (adv_par_customUni == 1 || adv_par_customUni == 2 || adv_par_customWeap == 1) exitWith {"Deutsch"};
+			if (adv_par_customUni isEqualTo 1 || adv_par_customUni isEqualTo 2 || adv_par_customWeap isEqualTo 1) exitWith {"Deutsch"};
 			if (true) exitWith {"English"};
 		};
 		private _opforLanguage = call {
 			if (adv_par_opfUni > 0 && adv_par_opfUni < 5) exitWith {"Russian"};
-			if (adv_par_opfUni == 20) exitWith {"Chinese"};
+			if (adv_par_opfUni isEqualTo 20) exitWith {"Chinese"};
 			if (true) exitWith {"Farsi"};
 		};
 		[[west, _bluforLanguage],[east, _opforLanguage],[independent, _bluforLanguage, _opforLanguage],[civilian, _bluforLanguage, _opforLanguage, "Local Language"]] call acre_api_fnc_babelSetupMission;

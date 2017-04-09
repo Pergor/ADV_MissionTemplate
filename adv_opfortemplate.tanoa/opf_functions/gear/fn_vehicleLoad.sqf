@@ -31,12 +31,20 @@ params [
 
 if (_target isEqualTo objNull) exitWith {};
 
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+
 _backpacks = [];
 
 //weapons and ammo
 if (_withWeapons) then {
 	switch (true) do {
-		case (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
+		case (_par_opfWeap == 1 || _par_opfWeap == 2): {
 			_target addWeaponCargoGlobal ["rhs_weap_ak74m_folded",1];
 			_target addWeaponCargoGlobal ["rhs_weap_rpg7",1];
 
@@ -45,7 +53,7 @@ if (_withWeapons) then {
 			call {
 				if (isClass(configFile >> "CfgPatches" >> "CUP_weapons_AK")) exitWith {
 					call {
-						if (adv_par_opfWeap == 1) then {
+						if (_par_opfWeap == 1) then {
 							_target addMagazineCargoGlobal ["CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M",5];
 						};
 						_target addMagazineCargoGlobal ["CUP_75Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M",5];
@@ -63,7 +71,7 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["rhs_VOG25",5];
 			_target addMagazineCargoGlobal ["rhs_GRD40_White",10];
 		};
-		case (ADV_par_opfWeap == 3): {
+		case (_par_opfWeap == 3): {
 			_target addWeaponCargoGlobal ["CUP_arifle_AKS74U",1];
 			_target addWeaponCargoGlobal ["CUP_launch_RPG18",2];
 
@@ -80,17 +88,17 @@ if (_withWeapons) then {
 			_target addMagazineCargoGlobal ["CUP_1Rnd_HE_GP25_M",5];
 			_target addMagazineCargoGlobal ["CUP_1Rnd_SMOKE_GP25_M",10];
 		};
-		case (ADV_par_opfWeap == 4): { };
+		case (_par_opfWeap == 4): { };
 		default {
 			switch (true) do {
-				case (ADV_par_opfWeap == 21): {
+				case (_par_opfWeap == 21): {
 					_target addWeaponCargoGlobal ["arifle_AK12_F",1];
 					_target addWeaponCargoGlobal ["launch_RPG32_ghex_F",2];
 					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",20];
 					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_Tracer_F",10];
 					_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",4];
 				};
-				case (worldName == "TANOA" || ADV_par_opfWeap == 20): {
+				case (worldName == "TANOA" || _par_opfWeap == 20): {
 					_target addWeaponCargoGlobal ["arifle_CTAR_blk_F",1];
 					_target addWeaponCargoGlobal ["launch_RPG32_ghex_F",2];
 					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_F",20];
@@ -124,7 +132,7 @@ if (_withWeapons) then {
 	};
 	
 	/*
-	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && ADV_par_logisticAmount > 2 ) then {
+	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && _par_logisticAmount > 2 ) then {
 		if ( ([_target] call ace_cargo_fnc_getCargoSpaceLeft) > 2) then {
 			_crate = ["ADV_LOGISTIC_CRATENORMAL",true,east,getPosASL _target] call adv_fnc_dialogLogistic;
 			[_crate,_target] call ace_cargo_fnc_loadItem;
@@ -135,20 +143,20 @@ if (_withWeapons) then {
 
 //helmets and vests
 switch (true) do {
-	case (ADV_par_opfUni == 1 || ADV_par_opfUni == 2 || ADV_par_opfUni == 3): {
+	case (_par_opfUni == 1 || _par_opfUni == 2 || _par_opfUni == 3): {
 		_target addItemCargoGlobal ["rhs_6b27m",1];
 		_target addItemCargoGlobal ["rhs_6b23_6sh92",1];
 		_target addBackpackCargoGlobal ["rhs_6b23_6sh92",1];
 	};
-	case (ADV_par_opfUni == 4): {
+	case (_par_opfUni == 4): {
 		_target addItemCargoGlobal ["V_TacVest_khk",1];
 		_target addBackpackCargoGlobal ["rhs_sidor",1];
 	};
-	case (ADV_par_opfUni == 5): {
+	case (_par_opfUni == 5): {
 		_target addItemCargoGlobal ["V_TacVest_khk",1];
 		_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
 	};
-	case (ADV_par_opfUni == 20): {
+	case (_par_opfUni == 20): {
 		_target addItemCargoGlobal ["H_HelmetSpecO_ghex_F",1];
 		_target addItemCargoGlobal ["V_TacVest_oli",1];
 		_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
@@ -164,10 +172,10 @@ _target addMagazineCargoGlobal ["Chemlight_red",5];
 _target addItemCargoGlobal ["ToolKit",1];
 
 //radios
-if (ADV_par_Radios == 1 || ADV_par_Radios == 3) then {
+if (_par_Radios == 1 || _par_Radios == 3) then {
 	_target addItemCargoGlobal ["ItemRadio",2];
 	if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
-		_target addItemCargoGlobal [acre_westBackpackRadio,1];
+		_target addItemCargoGlobal [acre_eastBackpackRadio,1];
 	};
 };
 
@@ -243,7 +251,7 @@ if (_isMedic) then {
 	
 	_target setVariable ["ACE_medical_medicClass", 2, true];
 	
-	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && ADV_par_logisticAmount > 2 ) then {
+	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") && _par_logisticAmount > 2 ) then {
 		if ( ([_target] call ace_cargo_fnc_getCargoSpaceLeft) > 2) then {
 			_crate = ["ADV_LOGISTIC_CRATEMEDIC",true,east,getPosASL _target] call adv_fnc_dialogLogistic;
 			[_crate,_target] call ace_cargo_fnc_loadItem;

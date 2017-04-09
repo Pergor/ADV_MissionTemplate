@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -104,13 +111,13 @@ _itemsLink = [
 _items = ["NVGoggles_OPFOR"];
 
 //MarksmenDLC-objects:
-if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 	_uniform = switch (true) do {
-		case ((toUpper worldname) == "ALTIS"): {["U_B_FullGhillie_ard","U_B_FullGhillie_sard"]};
+		case ((toUpper worldname) == "ALTIS"): {["U_B_FullGhillie_ard","U_B_FullGhillie_sard","U_B_FullGhillie_sard"]};
 		case ((toUpper worldname) == "TANOA"): {["U_B_T_FullGhillie_tna_F"]};
-		case ((toUpper worldname) in ADV_var_aridMaps): {["U_B_FullGhillie_ard"]};
-		case ((toUpper worldname) in ADV_var_sAridMaps): {["U_B_FullGhillie_sard"]};
-		case ((toUpper worldname) in ADV_var_lushMaps): {["U_B_FullGhillie_lsh"]};
+		case ((toUpper worldname) in _var_aridMaps): {["U_B_FullGhillie_ard"]};
+		case ((toUpper worldname) in _var_sAridMaps): {["U_B_FullGhillie_sard"]};
+		case ((toUpper worldname) in _var_lushMaps): {["U_B_FullGhillie_lsh"]};
 		default {["U_B_FullGhillie_lsh","U_B_FullGhillie_sard"]};
 	};
 };
@@ -200,7 +207,7 @@ _scorchItems = ["sc_dogtag","sc_mre"];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar","","",""];
 
 //Addon Content:
-switch (ADV_par_customWeap) do {
+switch (_par_customWeap) do {
 	case 1: {
 		//BWmod
 		_primaryweapon = "BWA3_G82_equipped";
@@ -213,8 +220,8 @@ switch (ADV_par_customWeap) do {
 		_primaryweapon = ["rhs_weap_XM2010"];
 		_attachments = ["rhsusf_acc_LEUPOLDMK4_2"];
 		switch (true) do {
-			case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon append ["rhs_weap_XM2010_wd"];};
-			case ((toUpper worldname) in ADV_var_aridMaps): {
+			case ((toUpper worldname) in _var_lushMaps): {_primaryWeapon append ["rhs_weap_XM2010_wd"];};
+			case ((toUpper worldname) in _var_aridMaps): {
 				_primaryWeapon append ["rhs_weap_XM2010_d","rhs_weap_XM2010_d","rhs_weap_XM2010_d"];
 				_attachments = ["rhsusf_acc_LEUPOLDMK4_2_d"];
 			};
@@ -235,8 +242,8 @@ switch (ADV_par_customWeap) do {
 		/*
 		_primaryweapon = ["rhs_weap_M107"];
 		switch (true) do {
-			case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon append ["rhs_weap_M107_w"];};
-			case ((toUpper worldname) in ADV_var_aridMaps): {_primaryWeapon append ["rhs_weap_M107_d"];};
+			case ((toUpper worldname) in _var_lushMaps): {_primaryWeapon append ["rhs_weap_M107_w"];};
+			case ((toUpper worldname) in _var_aridMaps): {_primaryWeapon append ["rhs_weap_M107_d"];};
 			default {};
 		};
 		*/
@@ -255,8 +262,8 @@ switch (ADV_par_customWeap) do {
 		//RHS SOF
 		_primaryweapon = ["rhs_weap_M107"];
 		switch (true) do {
-			case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon append ["rhs_weap_M107_w"];};
-			case ((toUpper worldname) in ADV_var_aridMaps): {_primaryWeapon append ["rhs_weap_M107_d"];};
+			case ((toUpper worldname) in _var_lushMaps): {_primaryWeapon append ["rhs_weap_M107_w"];};
+			case ((toUpper worldname) in _var_aridMaps): {_primaryWeapon append ["rhs_weap_M107_d"];};
 			default {};
 		};
 		_attachments = ["rhsusf_acc_premier"];
@@ -327,14 +334,14 @@ switch (ADV_par_customWeap) do {
 	case 20: {
 		//APEX HK416
 		switch (true) do {
-			case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon = "srifle_LRR_tna_F"; _attachments = ["optic_LRPS_tna_F"];};
+			case ((toUpper worldname) in _var_lushMaps): {_primaryWeapon = "srifle_LRR_tna_F"; _attachments = ["optic_LRPS_tna_F"];};
 			default {};
 		};
 		_binocular = "Laserdesignator_01_khk_F";
 	};
 	default {};
 };
-switch (ADV_par_customUni) do {
+switch (_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
 		_uniform = ["BWA3_Uniform_Ghillie_idz_Tropen"];
@@ -371,7 +378,7 @@ switch (ADV_par_customUni) do {
 	case 6: {
 		//CUP BAF
 		switch (true) do {
-			case ((toUpper worldname) in ADV_var_aridMaps): {
+			case ((toUpper worldname) in _var_aridMaps): {
 				//_uniform = ["CUP_U_B_USArmy_Ghillie"];
 				_vest = ["CUP_V_BAF_Osprey_Mk2_DDPM_Soldier1","CUP_V_BAF_Osprey_Mk2_DDPM_Soldier2","CUP_V_BAF_Osprey_Mk2_DDPM_Officer","CUP_V_BAF_Osprey_Mk2_DDPM_Sapper"];
 				_headgear = ["CUP_H_FR_BandanaWdl"];
@@ -401,7 +408,7 @@ switch (ADV_par_customUni) do {
 	case 10: {
 		//RHS MARPAT
 		switch (true) do {
-			case ((toUpper worldname) in ADV_var_aridMaps): {
+			case ((toUpper worldname) in _var_aridMaps): {
 				_headgear = ["rhs_Booniehat_marpatd"];
 			};
 			default {

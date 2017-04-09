@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -32,8 +39,8 @@ _primaryweapon = "arifle_MXC_Black_F";
 _optic = ["optic_ACO"];
 if (worldname == "TANOA") then {_optic = ["optic_Holosight_blk_F"];};
 _attachments = [""];
-if ( ADV_par_NVGs == 1 ) then { _attachments pushback "acc_flashlight"; };
-if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
+if ( _par_NVGs == 1 ) then { _attachments pushback "acc_flashlight"; };
+if ( _par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
@@ -104,7 +111,7 @@ _itemsLink = [
 _items = ["NVGoggles_OPFOR"];
 
 //MarksmenDLC-objects:
-if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 };
 
 	//CustomMod items//
@@ -191,7 +198,7 @@ _scorchItems = ["sc_dogtag"];
 _scorchItemsRandom = ["sc_cigarettepack","sc_charms","sc_candybar","","",""];
 
 //Addon Content:
-switch (ADV_par_customWeap) do {
+switch (_par_customWeap) do {
 	case 1: {
 		//BWmod
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) then {
@@ -212,8 +219,8 @@ switch (ADV_par_customWeap) do {
 		//RHS ARMY
 		_primaryweapon = ["rhs_weap_m4_carryhandle","rhs_weap_m4_grip2","rhs_weap_m4a1_carryhandle"];
 		_optic = ["rhsusf_acc_eotech_552","rhsusf_acc_ACOG","rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR_OD"];
-		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
-		if ( ADV_par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		if ( _par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
+		if ( _par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_attachments pushBack (["","","","","rhsusf_acc_grip1","rhsusf_acc_grip2","rhsusf_acc_grip2_tan","rhsusf_acc_grip3"] call BIS_fnc_selectRandom);
 		_silencer = "rhsusf_acc_rotex5_grey";
 		_primaryweaponAmmo set [1,9];
@@ -225,8 +232,8 @@ switch (ADV_par_customWeap) do {
 		//RHS Marines
 		_primaryweapon = ["rhs_weap_m16a4_carryhandle"];
 		_optic = ["rhsusf_acc_eotech_552","rhsusf_acc_ACOG","rhsusf_acc_ACOG3"];
-		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
-		if ( ADV_par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		if ( _par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
+		if ( _par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_silencer = "rhsusf_acc_rotex5_grey";
 		_primaryweaponAmmo set [1,9];
 		_handgun = "rhsusf_weap_m1911a1";
@@ -237,8 +244,8 @@ switch (ADV_par_customWeap) do {
 		//RHS SOF
 		_primaryweapon = ["rhs_weap_hk416d145","rhs_weap_hk416d145","rhs_weap_hk416d10","rhs_weap_hk416d10_LMT","rhs_weap_m4a1_blockII_KAC","rhs_weap_m4_carryhandle"];
 		_optic = ["rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR_OD"];
-		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
-		if ( ADV_par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		if ( _par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
+		if ( _par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_attachments pushBack (["","","rhsusf_acc_grip2","rhsusf_acc_grip2_tan","rhsusf_acc_grip3"] call BIS_fnc_selectRandom);
 		_silencer = "rhsusf_acc_rotex5_grey";
 		_primaryweaponAmmo set [1,9];
@@ -280,7 +287,7 @@ switch (ADV_par_customWeap) do {
 		//UK3CB
 		_primaryweapon = ["UK3CB_BAF_L85A2","UK3CB_BAF_L85A2_RIS_AFG","UK3CB_BAF_L85A2_EMAG","UK3CB_BAF_L85A2_RIS"];
 		_optic = ["UK3CB_BAF_SpecterLDS"];
-		if ( ADV_par_NVGs > 0 ) then { _attachments = ["UK3CB_BAF_LLM_IR_Black"]; };
+		if ( _par_NVGs > 0 ) then { _attachments = ["UK3CB_BAF_LLM_IR_Black"]; };
 		_silencer = "UK3CB_BAF_Silencer_L85";
 		_primaryweaponAmmo set [1,2];
 		_handgun = "UK3CB_BAF_L131A1";
@@ -307,7 +314,7 @@ switch (ADV_par_customWeap) do {
 	};
 	default {};
 };
-switch (ADV_par_customUni) do {
+switch (_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
 		_uniform = ["BWA3_Uniform_idz_Tropen"];
@@ -343,11 +350,11 @@ switch (ADV_par_customUni) do {
 	case 6: {
 		//CUP BAF
 		switch (true) do {
-			case ((toUpper worldname) in ADV_var_aridMaps): {
+			case ((toUpper worldname) in _var_aridMaps): {
 				_uniform = ["CUP_U_B_BAF_DDPM_S2_UnRolled","CUP_U_B_BAF_DDPM_S1_RolledUp","CUP_U_B_BAF_DDPM_Tshirt"];
 				_vest = ["CUP_V_BAF_Osprey_Mk2_DDPM_Officer"];
 			};
-			case ((toUpper worldname) in ADV_var_lushMaps): {
+			case ((toUpper worldname) in _var_lushMaps): {
 				_uniform = ["CUP_U_B_BAF_DPM_S2_UnRolled","CUP_U_B_BAF_DPM_S1_RolledUp","CUP_U_B_BAF_DPM_S1_RolledUp","CUP_U_B_BAF_DPM_Tshirt"];
 				_vest = ["CUP_V_BAF_Osprey_Mk2_DPM_Officer"];
 			};
@@ -376,7 +383,7 @@ switch (ADV_par_customUni) do {
 	case 10: {
 		//RHS MARPAT
 		switch (true) do {
-			case ((toUpper worldname) in ADV_var_aridMaps): {
+			case ((toUpper worldname) in _var_aridMaps): {
 				_uniform = ["rhs_uniform_FROG01_d"];
 				_headgear = ["rhs_8point_marpatd"];
 			};
@@ -435,9 +442,9 @@ switch (ADV_par_customUni) do {
 };
 
 //LRRadios
-if (missionNamespace getVariable ["adv_par_noLRRadios",false]) then { _giveBackpackRadio = false };
-if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = switch (ADV_par_CustomUni) do {
+if (missionNamespace getVariable ["_par_noLRRadios",false]) then { _giveBackpackRadio = false };
+if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (_par_CustomUni) do {
 		case 0: {["tf_rt1523g_big"]};
 		case 1: {["tf_rt1523g_big_bwmod_tropen"]};
 		case 2: {["tf_rt1523g_big_bwmod"]};
@@ -448,8 +455,8 @@ if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radio
 		default {["tf_rt1523g_big_rhs"]};
 	};
 };
-if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = switch (ADV_par_CustomUni) do {
+if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (_par_CustomUni) do {
 		case 1: {"BWA3_AssaultPack_Tropen"};
 		case 2: {"BWA3_AssaultPack_Fleck"};
 		case 12: {["UK3CB_BAF_B_Bergen_MTP_Radio_L_A","UK3CB_BAF_B_Bergen_MTP_Radio_L_B"]};

@@ -7,17 +7,17 @@
  * The first vehicle will be the leader of any group.
  *
  * Arguments:
- * 0: unit classnames array - <ARRAY> of <STRINGS>
- * 1: side of the units - <SIDE>
- * 2: radius around the attack location for waypoint (optional) - <NUMBER>
- * 3: locations for spawns (can be positions, objects or markers) - <ARRAY> of <ARRAYS>, <OBJECTS>, <STRINGS>
- * 4: attack location (can be position, object or marker) - <ARRAY>, <OBJECT>, <STRING>
+ * 0: locations for spawns (can be positions, objects or markers) - <ARRAY> of <ARRAYS>, <OBJECTS>, <STRINGS>
+ * 1: unit classnames array - <ARRAY> of <STRINGS>
+ * 2: side of the units - <SIDE>
+ * 3: attack location (can be position, object or marker) - <ARRAY>, <OBJECT>, <STRING>
+ * 4: radius around the attack location for waypoint (optional) - <NUMBER>
  *
  * Return Value:
  * Last spawned group - <GROUP>
  *
  * Example:
- * [["O_Soldier_TL_F","O_Soldier_GL_F"],east,75,[spawnLogic,spawnLogic_1,spawnLogic_2],attackLogic] call ADV_fnc_spawnAttack;
+ * [[spawnLogic,spawnLogic_1,spawnLogic_2],["O_Soldier_TL_F","O_Soldier_GL_F"],east,attackLogic,75] call ADV_fnc_spawnAttack;
  *
  * Public: Yes
  */
@@ -25,12 +25,12 @@
 if (!isServer && hasInterface) exitWith {};
 
 params [
-	["_units", ["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"], [[]]],
-	["_side", east, [west]],
-	["_radius", 75, [0]],
-	["_spawn", [], [[]]],
-	["_attack", [0,0,0], [objNull,"",[]]],
-	"_grp"
+	["_spawn", [], [[]]]
+	,["_units", ["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"], [[]]]
+	,["_side", east, [west]]
+	,["_attack", [0,0,0], [objNull,"",[]]]
+	,["_radius", 75, [0]]
+	,"_grp"
 ];
 
 {

@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -31,8 +38,8 @@ _primaryWeapon = ["arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F"];
 //primary weapon items - (array)
 _optic = ["optic_Holosight"];
 _attachments = ["muzzle_snds_;"];
-if ( ADV_par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
-if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
+if ( _par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
+if ( _par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "";
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
@@ -104,12 +111,12 @@ _itemsLink = [
 _items = ["NVGoggles_OPFOR"];
 
 //MarksmenDLC-objects:
-if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 	_uniform = switch (true) do {
 		case ((toUpper worldname) == "ALTIS"): {["U_I_FullGhillie_ard","U_I_FullGhillie_sard"]};
-		case ((toUpper worldname) in ADV_var_aridMaps): {["U_I_FullGhillie_ard"]};
-		case ((toUpper worldname) in ADV_var_sAridMaps): {["U_I_FullGhillie_sard"]};
-		case ((toUpper worldname) in ADV_var_lushMaps): {["U_I_FullGhillie_lsh"]};
+		case ((toUpper worldname) in _var_aridMaps): {["U_I_FullGhillie_ard"]};
+		case ((toUpper worldname) in _var_sAridMaps): {["U_I_FullGhillie_sard"]};
+		case ((toUpper worldname) in _var_lushMaps): {["U_I_FullGhillie_lsh"]};
 		default {["U_I_FullGhillie_lsh","U_I_FullGhillie_sard"]};
 	};
 };
@@ -198,7 +205,7 @@ _scorchItems = ["sc_dogtag","sc_mre"];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar","","",""];
 
 //Addon Content:
-switch (ADV_par_indWeap) do {
+switch (_par_indWeap) do {
 	case 1: {
 		//Vanilla trg21
 		_primaryWeapon = ["arifle_TRG21_GL_F"];
@@ -209,8 +216,8 @@ switch (ADV_par_indWeap) do {
 		_primaryweapon = ["rhs_weap_m4a1_blockII_M203","rhs_weap_m4a1_blockII_M203","rhs_weap_m4a1_m320"];
 		_optic = ["rhsusf_acc_SpecterDR_CX_3D","rhsusf_acc_SpecterDR_3d","rhsusf_acc_SpecterDR_OD_3D","rhsusf_acc_SpecterDR_D_3D"];
 		_attachments = ["rhsusf_acc_rotex5_grey"];
-		if ( ADV_par_NVGs == 1 ) then { _attachments pushback "rhsusf_acc_M952V"; };
-		if ( ADV_par_NVGs == 2 ) then { _attachments pushback "rhsusf_acc_anpeq15side_bk"; };
+		if ( _par_NVGs == 1 ) then { _attachments pushback "rhsusf_acc_M952V"; };
+		if ( _par_NVGs == 2 ) then { _attachments pushback "rhsusf_acc_anpeq15side_bk"; };
 		_attachments pushBack (["","rhsusf_acc_grip2"] call BIS_fnc_selectRandom);
 		_primaryweaponAmmo set [1,9];
 		_handgun = "rhsusf_weap_m9";
@@ -246,13 +253,13 @@ switch (ADV_par_indWeap) do {
 		_primaryWeapon = "arifle_AK12_GL_F";
 		_optic = [""];
 		_attachments = ["muzzle_snds_B"];
-		if ( ADV_par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
-		if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
+		if ( _par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
+		if ( _par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 	};
 	default {};
 };
 
-switch (ADV_par_indUni) do {
+switch (_par_indUni) do {
 	case 1: {
 	//PMC uniforms
 		_uniform = ["U_I_GhillieSuit"];

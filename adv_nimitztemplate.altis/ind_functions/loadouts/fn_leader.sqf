@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -31,8 +38,8 @@ _primaryWeapon = ["arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F"];
 //primary weapon items - (array)
 _optic = ["optic_Hamr"];
 _attachments = [""];
-if ( ADV_par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
-if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
+if ( _par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
+if ( _par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = ["muzzle_snds_M"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
@@ -105,7 +112,7 @@ _itemsLink = [
 _items = [];
 
 //MarksmenDLC-objects:
-if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 };
 
 	//CustomMod items//
@@ -195,7 +202,7 @@ _scorchItems = ["sc_dogtag","sc_mre"];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar","","",""];
 
 //Addon Content:
-switch (ADV_par_indWeap) do {
+switch (_par_indWeap) do {
 	case 1: {
 		//Vanilla trg21
 		_primaryWeapon = ["arifle_TRG21_GL_F"];
@@ -205,8 +212,8 @@ switch (ADV_par_indWeap) do {
 		//SELmods
 		_primaryweapon = ["rhs_weap_m4a1_m320","rhs_weap_m4_m320"];
 		_optic = ["rhsusf_acc_ACOG","rhsusf_acc_ACOG3","rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR_OD"];
-		if ( ADV_par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
-		if ( ADV_par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
+		if ( _par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
+		if ( _par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_attachments pushBack (["","","","","rhsusf_acc_grip1","rhsusf_acc_grip2","rhsusf_acc_grip2_tan","rhsusf_acc_grip3"] call BIS_fnc_selectRandom);
 		_silencer = "rhsusf_acc_rotex5_grey";
 		_primaryweaponAmmo set [1,10];
@@ -238,13 +245,13 @@ switch (ADV_par_indWeap) do {
 		//APEX AKM
 		_primaryWeapon = "arifle_AK12_GL_F";
 		_optic = [""];
-		if ( ADV_par_NVGs == 2 ) then { _attachments = _attachments-["acc_pointer_IR"]; };
+		if ( _par_NVGs == 2 ) then { _attachments = _attachments-["acc_pointer_IR"]; };
 		_primaryweaponAmmo set [1,2];
 	};
 	default {};
 };
 
-switch (ADV_par_indUni) do {
+switch (_par_indUni) do {
 	case 1: {
 	//PMC uniforms
 		_uniform = ["U_I_G_Story_Protagonist_F","U_Rangemaster","U_Competitor"];
@@ -294,16 +301,16 @@ switch (toUpper ([str (_this select 0),3,13] call BIS_fnc_trimString)) do {
 };
 
 //LRRadios
-if (missionNamespace getVariable ["adv_par_noLRRadios",false]) then { _giveBackpackRadio = false };
-if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
-	switch (ADV_par_indUni) do {
+if (missionNamespace getVariable ["_par_noLRRadios",false]) then { _giveBackpackRadio = false };
+if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	switch (_par_indUni) do {
 		default { _backpack = ["tf_anprc155_coyote"]; };
 		case 0: { _backpack = ["tf_anprc155"]; };
 	};
 };
 
-if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = switch (ADV_par_indUni) do {
+if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (_par_indUni) do {
 		case 1: {"B_AssaultPack_blk"};
 		case 20: {"B_AssaultPack_rgr"};
 		default {"B_AssaultPack_dgtl"};

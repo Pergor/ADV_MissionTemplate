@@ -33,20 +33,18 @@
 		};
 		if ((side player) == independent) then {
 			{deleteMarkerLocal _x; nil;} count _bluforMarker+_opforMarker;
-			if (!isNil "ADV_par_indUni") then {
-				switch (ADV_par_indUni) do {
-					case 20: {
-						"ind_base" setMarkerTypeLocal "flag_Syndicat";
-						"ind_base" setMarkerTextLocal "Syndikat";
-						//{_x setMarkerColorLocal "ColorBrown"} forEach _indMarker;
-					};
-					case 1: {
-						"ind_base" setMarkerTypeLocal "Ioc_WaterTower";
-						"ind_base" setMarkerTextLocal "Brackwasser Security Consulting";
-						"ind_base" setMarkerColorLocal "ColorGUER";
-					};
-					default {};
+			switch ( missionNamespace getVariable ["ADV_par_indUni",0] ) do {
+				case 20: {
+					"ind_base" setMarkerTypeLocal "flag_Syndicat";
+					"ind_base" setMarkerTextLocal "Syndikat";
+					//{_x setMarkerColorLocal "ColorBrown"} forEach _indMarker;
 				};
+				case 1: {
+					"ind_base" setMarkerTypeLocal "Ioc_WaterTower";
+					"ind_base" setMarkerTextLocal "Brackwasser Security Consulting";
+					"ind_base" setMarkerColorLocal "ColorGUER";
+				};
+				default {};
 			};
 		};
 		if ((side player) == sideEnemy) then {

@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -27,16 +34,16 @@ _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],
 
 //weapons - primary weapon - (string)
 _primaryWeapon = ["MMG_02_black_F"];
-if ((toUpper worldname) in ADV_var_aridMaps) then {_primaryWeapon pushback "MMG_02_sand_F";};
+if ((toUpper worldname) in _var_aridMaps) then {_primaryWeapon pushback "MMG_02_sand_F";};
 	
 //primary weapon items - (array)
 _optic = [""];
 _attachments = ["bipod_01_F_blk"];
-if ( ADV_par_NVGs > 0 ) then { _attachments pushback "acc_flashlight"; };
+if ( _par_NVGs > 0 ) then { _attachments pushback "acc_flashlight"; };
 _silencer = "muzzle_snds_338_black";		//if silencer is added
 
 //MarksmenDLC-objects:
-if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && ADV_par_DLCContent == 1) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 };
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
@@ -193,7 +200,7 @@ _scorchItems = ["sc_dogtag","sc_mre"];
 _scorchItemsRandom = [""];
 
 //Addon Content:
-switch (ADV_par_customWeap) do {
+switch (_par_customWeap) do {
 	case 1: {
 		//BWmod
 		_primaryweapon = "BWA3_MG5";
@@ -202,7 +209,7 @@ switch (ADV_par_customWeap) do {
 		_silencer = "BWA3_muzzle_snds_MG5";
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_MG3s")) then {
 			call {
-				if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+				if ((toUpper worldname) in _var_aridMaps) exitWith {
 					_primaryweapon = ["hlc_lmg_MG3KWS","hlc_lmg_MG3KWS_b"];
 				};
 					_primaryweapon = "hlc_lmg_MG3KWS_b";
@@ -212,7 +219,7 @@ switch (ADV_par_customWeap) do {
 			_additionalAmmo = [5,"hlc_100Rnd_762x51_M_MG3",true];
 			_silencer = "";
 		};
-		if ( ADV_par_NVGs > 0 ) then { _attachments = ["BWA3_acc_VarioRay_irlaser"]; };
+		if ( _par_NVGs > 0 ) then { _attachments = ["BWA3_acc_VarioRay_irlaser"]; };
 		_handgun = "BWA3_P8";
 		_itemsHandgun = [];
 		_handgunSilencer = "";		//if silencer is added
@@ -263,8 +270,8 @@ switch (ADV_par_customWeap) do {
 	case 5: {
 		//SELmods CUP Mk16
 		_primaryweapon = switch (true) do {
-			case ((toUpper worldname) in ADV_var_lushMaps): {"CUP_lmg_Mk48_wdl"};
-			case ((toUpper worldname) in ADV_var_aridMaps): {"CUP_lmg_Mk48_des"};
+			case ((toUpper worldname) in _var_lushMaps): {"CUP_lmg_Mk48_wdl"};
+			case ((toUpper worldname) in _var_aridMaps): {"CUP_lmg_Mk48_des"};
 			default {"CUP_lmg_M240"};
 		};
 		_optic = ["CUP_optic_ElcanM145"];
@@ -277,8 +284,8 @@ switch (ADV_par_customWeap) do {
 	case 6: {
 		//SELmods CUP M4
 		_primaryweapon = switch (true) do {
-			case ((toUpper worldname) in ADV_var_lushMaps): {"CUP_lmg_Mk48_wdl"};
-			case ((toUpper worldname) in ADV_var_aridMaps): {"CUP_lmg_Mk48_des"};
+			case ((toUpper worldname) in _var_lushMaps): {"CUP_lmg_Mk48_wdl"};
+			case ((toUpper worldname) in _var_aridMaps): {"CUP_lmg_Mk48_des"};
 			default {"CUP_lmg_M240"};
 		};
 		_optic = ["CUP_optic_ElcanM145"];
@@ -327,7 +334,7 @@ switch (ADV_par_customWeap) do {
 	};
 	default {};
 };
-switch (ADV_par_customUni) do {
+switch (_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
 		_uniform = ["BWA3_Uniform_idz_Tropen"];
@@ -368,12 +375,12 @@ switch (ADV_par_customUni) do {
 	case 6: {
 		//CUP BAF
 		switch (true) do {
-			case ((toUpper worldname) in ADV_var_aridMaps): {
+			case ((toUpper worldname) in _var_aridMaps): {
 				_uniform = ["CUP_U_B_BAF_DDPM_S1_RolledUp","CUP_U_B_BAF_DDPM_Tshirt"];
 				_vest = ["CUP_V_BAF_Osprey_Mk2_DDPM_Soldier1","CUP_V_BAF_Osprey_Mk2_DDPM_Soldier2","CUP_V_BAF_Osprey_Mk2_DDPM_Officer","CUP_V_BAF_Osprey_Mk2_DDPM_Sapper"];
 				_headgear = ["CUP_H_BAF_Helmet_1_DDPM","CUP_H_BAF_Helmet_Net_2_DDPM","CUP_H_BAF_Helmet_4_DDPM"];
 			};
-			case ((toUpper worldname) in ADV_var_lushMaps): {
+			case ((toUpper worldname) in _var_lushMaps): {
 				_uniform = ["CUP_U_B_BAF_DPM_S1_RolledUp","CUP_U_B_BAF_DPM_Tshirt"];
 				_vest = ["CUP_V_BAF_Osprey_Mk2_DPM_Soldier1","CUP_V_BAF_Osprey_Mk2_DPM_Soldier2","CUP_V_BAF_Osprey_Mk2_DPM_Officer","CUP_V_BAF_Osprey_Mk2_DPM_Sapper"];
 				_headgear = ["CUP_H_BAF_Helmet_1_DPM","CUP_H_BAF_Helmet_Net_2_DPM","CUP_H_BAF_Helmet_4_DPM"];
@@ -410,7 +417,7 @@ switch (ADV_par_customUni) do {
 	case 10: {
 		//RHS MARPAT
 		switch (true) do {
-			case ((toUpper worldname) in ADV_var_aridMaps): {
+			case ((toUpper worldname) in _var_aridMaps): {
 				_uniform = ["rhs_uniform_FROG01_d"];
 				_headgear = ["rhsusf_lwh_helmet_marpatd","rhsusf_mich_helmet_marpatd","rhsusf_mich_helmet_marpatd_alt","rhsusf_mich_helmet_marpatd_norotos"];
 				_items pushBack "rhs_Booniehat_marpatd";

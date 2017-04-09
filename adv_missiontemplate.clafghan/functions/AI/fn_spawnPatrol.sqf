@@ -8,18 +8,18 @@
  * The first vehicle will be the leader of any group.
  *
  * Arguments:
- * 0: unit classnames array - <ARRAY> of <STRINGS>
- * 1: side of the units - <SIDE>
- * 2: radius of the patrol circle (optional) - <NUMBER>
- * 3: UPSMON-Settings - <ARRAY> of <STRINGS>
- * 4: locations for spawns (can be positions, objects or markers) - <ARRAY> of <ARRAYS>, <OBJECTS>, <STRINGS>
+ * 0: locations for spawns (can be positions, objects or markers) - <ARRAY> of <ARRAYS>, <OBJECTS>, <STRINGS>
+ * 1: unit classnames array - <ARRAY> of <STRINGS>
+ * 2: side of the units - <SIDE>
+ * 3: radius of the patrol circle (optional) - <NUMBER>
+ * 4: UPSMON-Settings - <ARRAY> of <STRINGS>
  * 5: area for UPSmarker (optional) - <STRING>
  *
  * Return Value:
  * Last spawned group - <GROUP>
  *
  * Example:
- * [["O_Soldier_TL_F","O_Soldier_GL_F"],east,200,["LIMITED","STAG COLUMN","NOFOLLOW"],[spawnLogic,spawnLogic_1,spawnLogic_2],"UPSAREANAME"] call ADV_fnc_spawnPatrol;
+ * [[spawnLogic,spawnLogic_1,spawnLogic_2],["O_Soldier_TL_F","O_Soldier_GL_F"],east,200,["LIMITED","STAG COLUMN","NOFOLLOW"],"UPSAREANAME"] call ADV_fnc_spawnPatrol;
  *
  * Public: Yes
  */
@@ -27,13 +27,13 @@
 if (!isServer && hasInterface) exitWith {};
 
 params [
-	["_units", ["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"], [[]]],
-	["_side", east, [west]],
-	["_radius", 300, [0,""]],
-	["_UPS", ["LIMITED", "CARELESS", "NOFOLLOW"], [[]]],
-	["_spawn", [], [[]]],
-	["_givenArea", "noAreaGiven", [""]],
-	"_area","_grp"
+	["_spawn", [], [[]]]
+	,["_units", ["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"], [[]]]
+	,["_side", east, [west]]
+	,["_radius", 300, [0,""]]
+	,["_UPS", ["LIMITED", "CARELESS", "NOFOLLOW"], [[]]]
+	,["_givenArea", "noAreaGiven", [""]]
+	,"_area","_grp"
 ];
 
 if (isNil "adv_patrol_area_name") then { adv_patrol_area_name = 0 };

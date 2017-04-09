@@ -1,17 +1,35 @@
-﻿adv_speedLimiter_fnc_speedlimiter = {
+﻿/*
+ * Author: commy2, Belbo
+ *
+ * Overwrites ace_fnc_speedLimiter with a lower maxspeed (5km/h) and adds two new keybinds to raise/lower maxspeed (default: Shift+Del/Ctrl+Del)
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [player] call adv_fnc_speedLimiter;
+ *
+ * Public: No
+ */
+
+adv_speedLimiter_fnc_speedlimiter = {
 	params ["_driver", "_vehicle"];
 
 	if (ace_vehicles_isSpeedLimiter) exitWith {
 		["Speedlimiter off"] call ace_common_fnc_displayTextStructured;
 		playSound "ACE_Sound_Click";
 		ace_vehicles_isSpeedLimiter = false;
+		_vehicle setVariable ["adv_speedlimiter_changedSpeed",nil];
 	};
 
 	["Speedlimiter on"] call ace_common_fnc_displayTextStructured;
 	playSound "ACE_Sound_Click";
 	ace_vehicles_isSpeedLimiter = true;
 
-	private _maxSpeed = speed _vehicle max 5;
+	private _maxSpeed = (_vehicle getVariable ["adv_speedlimiter_changedSpeed",speed _vehicle]) max 5;
 
 	[{
 		params ["_args", "_idPFH"];
@@ -33,6 +51,7 @@
 		};
 
 		private _speed = speed _vehicle;
+		_maxSpeed = _vehicle getVariable ["adv_speedlimiter_changedSpeed", _maxSpeed];
 
 		if (_speed > _maxSpeed) then {
 			_vehicle setVelocity ((velocity _vehicle) vectorMultiply ((_maxSpeed / _speed) - 0.00001));
@@ -62,9 +81,24 @@ ace_vehicles_isSpeedLimiter = false;
         [ACE_player, vehicle ACE_player] call adv_speedLimiter_fnc_speedlimiter;
         true
     };
-
 },
 {false},
 [211, [false, false, false]], false] call CBA_fnc_addKeybind;
+
+["ACE3 Vehicles", "ace_vehicles_speedLimiter_UP", "Speed Limiter Up",
+{
+	private _vehicle = vehicle ACE_player;
+	_vehicle setVariable ["adv_speedlimiter_changedSpeed", (speed _vehicle)+1];
+},
+{false},
+[211, [true, false, false]], false] call CBA_fnc_addKeybind;
+
+["ACE3 Vehicles", "ace_vehicles_speedLimiter_DN", "Speed Limiter Down",
+{
+	private _vehicle = vehicle ACE_player;
+	_vehicle setVariable ["adv_speedlimiter_changedSpeed", (speed _vehicle)-1];
+},
+{false},
+[211, [false, true, false]], false] call CBA_fnc_addKeybind;
 
 true;

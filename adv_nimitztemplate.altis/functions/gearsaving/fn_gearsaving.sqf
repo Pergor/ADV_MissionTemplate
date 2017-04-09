@@ -15,7 +15,7 @@
  * Public: No
  */
 
-if (ADV_par_respWithGear == 1 && count _this > 0) exitWith {
+if ( (missionNamespace getVariable ["ADV_par_respWithGear",1]) isEqualTo 1 && count _this > 0) exitWith {
 	{
 		if (!isNil "_x") then {
 			_target = _x;

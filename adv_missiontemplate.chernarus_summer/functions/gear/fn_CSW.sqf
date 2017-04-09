@@ -21,6 +21,15 @@ params [
 	["_type", 1, [0]],
 	"_backpack"
 ];
+
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+
 switch (side (group _target)) do {
 	case west: {
 		_backpack = switch ( _type ) do {
@@ -63,56 +72,29 @@ switch (side (group _target)) do {
 	};
 };
 
-if (!isNil "ADV_par_customWeap") then {
-	if ( ADV_par_customWeap > 0 ) then {
-		if !(side (group _target) == east) then {
-			if ( isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) then {
-				_backpack = switch ( _type ) do {
-					case 1: {"RHS_M2_Gun_Bag"};
-					case 2: {"RHS_M2_MiniTripod_Bag"};
-					case 3: {"rhs_M252_Gun_Bag"};
-					case 4: {"rhs_M252_Bipod_Bag"};
-					case 5: {"rhs_Tow_Gun_Bag"};
-					case 6: {"rhs_TOW_Tripod_Bag"};
-					default {""};
-				};
-			};
-		} else {
-			if ( isClass(configFile >> "CfgPatches" >> "rhs_main") ) then {
-				_backpack = switch ( _type ) do {
-					case 1: {"RHS_Kord_Gun_Bag"};
-					case 2: {"RHS_Kord_Tripod_Bag"};
-					case 3: {"RHS_Podnos_Gun_Bag"};
-					case 4: {"RHS_Podnos_Bipod_Bag"};
-					case 5: {"RHS_SPG9_Gun_Bag"};
-					case 6: {"RHS_SPG9_Tripod_Bag"};
-					default {""};
-				};
-			};
+if ( isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) then {
+	if !(side (group _target) == east) then {
+		_backpack = switch ( _type ) do {
+			case 1: {"RHS_M2_Gun_Bag"};
+			case 2: {"RHS_M2_MiniTripod_Bag"};
+			case 3: {"rhs_M252_Gun_Bag"};
+			case 4: {"rhs_M252_Bipod_Bag"};
+			case 5: {"rhs_Tow_Gun_Bag"};
+			case 6: {"rhs_TOW_Tripod_Bag"};
+			default {""};
 		};
 	};
-} else {
-	if !(side (group _target) == east) then {
-		if ( isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) then {
-			_backpack = switch ( _type ) do {
-				case 1: {"RHS_M2_Gun_Bag"};
-				case 2: {"RHS_M2_MiniTripod_Bag"};
-				case 3: {"rhs_M252_Gun_Bag"};
-				case 4: {"rhs_M252_Bipod_Bag"};
-				case 5: {"rhs_Tow_Gun_Bag"};
-				case 6: {"rhs_TOW_Tripod_Bag"};
-			};
-		};
-	} else {
-		if ( isClass(configFile >> "CfgPatches" >> "rhs_main") ) then {
-			_backpack = switch ( _type ) do {
-				case 1: {"RHS_Kord_Gun_Bag"};
-				case 2: {"RHS_Kord_Tripod_Bag"};
-				case 3: {"RHS_Podnos_Gun_Bag"};
-				case 4: {"RHS_Podnos_Bipod_Bag"};
-				case 5: {"RHS_SPG9_Gun_Bag"};
-				case 6: {"RHS_SPG9_Tripod_Bag"};
-			};
+};
+if ( isClass(configFile >> "CfgPatches" >> "rhs_main") ) then {
+	if ( _par_opfWeap > 0 && (side (group _target) == east) ) then {
+		_backpack = switch ( _type ) do {
+			case 1: {"RHS_Kord_Gun_Bag"};
+			case 2: {"RHS_Kord_Tripod_Bag"};
+			case 3: {"RHS_Podnos_Gun_Bag"};
+			case 4: {"RHS_Podnos_Bipod_Bag"};
+			case 5: {"RHS_SPG9_Gun_Bag"};
+			case 6: {"RHS_SPG9_Tripod_Bag"};
+			default {""};
 		};
 	};
 };

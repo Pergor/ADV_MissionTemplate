@@ -18,6 +18,15 @@
 params [
 	["_unit", player, [objNull]]
 ];
+
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+
 //ACE-Items:
 if (!isClass(configFile >> "CfgPatches" >> "ACE_common")) exitWith {};
 
@@ -80,7 +89,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_Parachute") && !isNil "_ACE_Alti
 	if (_ACE_Altimeter > 0) then { _unit linkItem "ACE_Altimeter"; };
 };
 if ( isClass(configFile >> "CfgPatches" >> "ACE_Grenades") ) then {
-	if ( ( !(side (group _unit) == east) && ADV_par_NVGs == 1 ) || (side (group _unit) == east && ADV_par_opfNVGs == 1) ) then {
+	if ( ( !(side (group _unit) == east) && _par_NVGs == 1 ) || (side (group _unit) == east && _par_opfNVGs == 1) ) then {
 		_unit addMagazines ["ACE_HandFlare_Green", _ACE_HandFlare_Green];
 		_unit addMagazines ["ACE_HandFlare_Red", _ACE_HandFlare_Red];
 		_unit addMagazines ["ACE_HandFlare_White", _ACE_HandFlare_White];
@@ -112,7 +121,7 @@ if ( isClass (configFile >> "CfgPatches" >> "ACE_huntir") && !isNil "_ACE_HuntIR
 		_unit addMagazines ["ACE_HuntIR_M203",_ACE_HuntIR];
 	};
 };
-if ( ( !(side (group _unit) == east) && ADV_par_NVGs == 2) || (side (group _unit) == east && ADV_par_opfNVGs == 2) ) then {
+if ( ( !(side (group _unit) == east) && _par_NVGs == 2) || (side (group _unit) == east && _par_opfNVGs == 2) ) then {
 	if ( isClass (configFile >> "CfgPatches" >> "ACE_attach") && !isNil "_IRgrenade" ) then {
 		for "_i" from 1 to _IRgrenade do {_unit addItem "ACE_IR_Strobe_Item";};
 	};
@@ -139,11 +148,11 @@ if ( ( !(side (group _unit) == east) && ADV_par_NVGs == 2) || (side (group _unit
 		[_unit,"ACE_VectorDay",1] call BIS_fnc_addWeapon;
 	};
 };
-if ( isClass(configFile >> "CfgPatches" >> "ACE_mx2a") && ADV_par_TIEquipment == 0 && !isNil "_ACE_MX2A") then {
+if ( isClass(configFile >> "CfgPatches" >> "ACE_mx2a") && _par_TIEquipment == 0 && !isNil "_ACE_MX2A") then {
 	if (_ACE_MX2A > 0) then { [_unit,"ACE_MX2A",1] call BIS_fnc_addWeapon; };
 };
 if ( isClass(configFile >> "CfgPatches" >> "ACE_flashlights") && !isNil "_ACE_flashlight") then {
-	if ( _ACE_flashlight > 0 && ( (!(side (group _unit) == east) && ADV_par_NVGs > 0 ) || (side (group _unit) == east && ADV_par_opfNVGs > 0) ) ) then {
+	if ( _ACE_flashlight > 0 && ( (!(side (group _unit) == east) && _par_NVGs > 0 ) || (side (group _unit) == east && _par_opfNVGs > 0) ) ) then {
 		_flashlight = ["ACE_Flashlight_MX991","ACE_Flashlight_KSF1","ACE_Flashlight_XL50"] call BIS_fnc_selectRandom;
 		_unit addItem _flashlight;
 	};

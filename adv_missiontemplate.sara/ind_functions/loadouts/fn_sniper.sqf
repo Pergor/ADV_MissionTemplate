@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -104,12 +111,12 @@ _itemsLink = [
 _items = ["NVGoggles_OPFOR"];
 
 //MarksmenDLC-objects:
-if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 	_uniform = switch (true) do {
 		case ((toUpper worldname) == "ALTIS"): {["U_I_FullGhillie_ard","U_I_FullGhillie_sard"]};
-		case ((toUpper worldname) in ADV_var_aridMaps): {["U_I_FullGhillie_ard"]};
-		case ((toUpper worldname) in ADV_var_sAridMaps): {["U_I_FullGhillie_sard"]};
-		case ((toUpper worldname) in ADV_var_lushMaps): {["U_I_FullGhillie_lsh"]};
+		case ((toUpper worldname) in _var_aridMaps): {["U_I_FullGhillie_ard"]};
+		case ((toUpper worldname) in _var_sAridMaps): {["U_I_FullGhillie_sard"]};
+		case ((toUpper worldname) in _var_lushMaps): {["U_I_FullGhillie_lsh"]};
 		default {["U_I_FullGhillie_lsh","U_I_FullGhillie_sard"]};
 	};
 };
@@ -198,7 +205,7 @@ _scorchItems = ["sc_dogtag","sc_mre"];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar","","",""];
 
 //Addon Content:
-switch (ADV_par_indWeap) do {
+switch (_par_indWeap) do {
 	case 1: {
 		//Vanilla Mk20
 		_handgun = ["hgun_ACPC2_F"];
@@ -208,12 +215,12 @@ switch (ADV_par_indWeap) do {
 	case 2: {
 		//SELmods
 		_primaryWeapon = switch (true) do {
-			case ((toUpper worldname) in ADV_var_lushMaps): {"rhs_weap_XM2010_wd";};
-			case ((toUpper worldname) in ADV_var_aridMaps): {"rhs_weap_XM2010_d"};
+			case ((toUpper worldname) in _var_lushMaps): {"rhs_weap_XM2010_wd";};
+			case ((toUpper worldname) in _var_aridMaps): {"rhs_weap_XM2010_d"};
 			default {["rhs_weap_XM2010","rhs_weap_XM2010_sa"]};
 		};
 		_attachments = switch (true) do {
-			case ((toUpper worldname) in ADV_var_aridMaps): {["rhsusf_acc_LEUPOLDMK4_2_d"]};
+			case ((toUpper worldname) in _var_aridMaps): {["rhsusf_acc_LEUPOLDMK4_2_d"]};
 			default {["rhsusf_acc_LEUPOLDMK4_2"]};
 		};
 		_attachments pushback "rhsusf_acc_harris_bipod";
@@ -240,7 +247,7 @@ switch (ADV_par_indWeap) do {
 	case 20: {
 		//APEX HK416
 		switch (true) do {
-			case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon = "srifle_LRR_tna_F"; _attachments = ["optic_LRPS_tna_F"];};
+			case ((toUpper worldname) in _var_lushMaps): {_primaryWeapon = "srifle_LRR_tna_F"; _attachments = ["optic_LRPS_tna_F"];};
 			default {};
 		};
 		_binocular = "Laserdesignator_01_khk_F";
@@ -249,7 +256,7 @@ switch (ADV_par_indWeap) do {
 	default {};
 };
 
-switch (ADV_par_indUni) do {
+switch (_par_indUni) do {
 	case 1: {
 	//PMC uniforms
 		_vest = ["V_PlateCarrier2_rgr","V_PlateCarrier1_rgr"];

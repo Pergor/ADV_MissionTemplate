@@ -98,39 +98,48 @@ ADV_ind_veh_light = ADV_ind_veh_ATVs+ADV_ind_veh_UGVs+ADV_ind_veh_UGVs_repair+AD
 
 ADV_ind_veh_all = ADV_ind_veh_light+ADV_ind_veh_armored+ADV_ind_veh_air;
 
+//lobby params:
+private _par_assets_cars = missionNamespace getVariable ["ADV_par_Assets_cars",1];
+private _par_assets_tanks = missionNamespace getVariable ["ADV_par_Assets_tanks",1];
+private _par_assets_air_helis = missionNamespace getVariable ["ADV_par_Assets_air_helis",1];
+private _par_assets_air_fixed = missionNamespace getVariable ["ADV_par_Assets_air_fixed",1];
+private _par_indCarAssets = missionNamespace getVariable ["ADV_par_indCarAssets",0];
+
 //removes the markers according to the lobby params
-if (ADV_par_Assets_cars == 0 || ADV_par_Assets_cars == 99 || ADV_par_indCarAssets == 99) then {
+if ( _par_Assets_cars isEqualTo 0 || _par_Assets_cars isEqualTo 99 || _par_indCarAssets isEqualTo 99 ) then {
 	{_x setMarkerAlpha 0;} count _veh_lightMarkers
 };
-if (ADV_par_Assets_tanks == 0 || ADV_par_Assets_tanks == 99) then {
+if ( _par_Assets_tanks isEqualTo 0 || _par_Assets_tanks isEqualTo 99 ) then {
 	{_x setMarkerAlpha 0;} count _veh_heavyMarkers;
 };
-if (ADV_par_Assets_air_helis == 0 || ADV_par_Assets_air_helis == 99) then {
+if ( _par_Assets_air_helis isEqualTo 0 ||  _par_Assets_air_helis isEqualTo 99 ) then {
 	{_x setMarkerAlpha 0;} count _veh_heliMarkers;
 };
-if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_par_Assets_air_fixed == 99 && ADV_par_Assets_air_helis == 99)) then {
+if ( (_par_Assets_air_fixed isEqualTo 0 && _par_Assets_air_helis isEqualTo 0) || (_par_Assets_air_fixed isEqualTo 99 && _par_Assets_air_helis isEqualTo 99)) then {
 	{_x setMarkerAlpha 0;} count _veh_fixedMarkers;
 };
 
 //manages disablement and load.
 adv_ind_manageVeh_codeForAll = {
 	_veh = _this;
-	if (ADV_par_customLoad > 0) then {
+	private _isChanged = _veh getVariable ["adv_var_vehicleIsChanged",false];
+	_veh setVariable ["adv_var_vehicleIsChanged",_isChanged,true];
+	if ( (missionNamespace getVariable ["adv_par_customLoad",1]) > 0 ) then {
 		[_veh] call ADV_fnc_clearCargo;
 		sleep 0.2;
 		[_veh] call ADV_ind_fnc_addVehicleLoad;
 	};
 	[_veh] call ADV_ind_fnc_disableVehSelector;
-	if (ADV_par_engineArtillery == 1 && str _veh in ADV_ind_veh_artys) then {
+	if ( (missionNamespace getVariable ["ADV_par_engineArtillery",0]) isEqualTo 1 && str _veh in ADV_ind_veh_artys) then {
 		[_veh] call ADV_fnc_showArtiSetting;
 	};
-	if (ADV_par_TIEquipment > 0) then {
+	if ( (missionNamespace getVariable ["ADV_par_TIEquipment",0]) > 0 ) then {
 		_veh disableTIEquipment true;
-		if (ADV_par_TIEquipment > 2) then {
+		if ( (missionNamespace getVariable ["ADV_par_TIEquipment",0]) > 2 ) then {
 			_veh disableNVGEquipment true;
 		};
 	};
-	if ( ADV_par_Radios > 0 && (_veh isKindOf 'CAR' || _veh isKindOf 'TANK' || _veh isKindOf 'AIR') && !(_veh isKindOf "Quadbike_01_base_F") ) then {
+	if ( (missionNamespace getVariable ["ADV_par_Radios",1]) > 0 && (_veh isKindOf 'CAR' || _veh isKindOf 'TANK' || _veh isKindOf 'AIR') && !(_veh isKindOf "Quadbike_01_base_F") ) then {
 		_veh setVariable ["tf_side", independent, true];
 		_veh setVariable ["tf_hasRadio", true, true];
 		call {
@@ -148,11 +157,14 @@ adv_ind_manageVeh_codeForAll = {
 			};
 		};
 	};
-	if (ADV_par_indUni == 1 && ADV_par_indCarAssets == 1 && !(worldname == 'TANOA') && (str _veh in ADV_ind_veh_transport+ADV_ind_veh_airRecon)) then {
+	if ( (missionNamespace getVariable ["ADV_par_indUni",0]) isEqualTo 1 && (missionNamespace getVariable ["ADV_par_indCarAssets",0]) isEqualTo 1 && !(worldname == 'TANOA') && (str _veh in ADV_ind_veh_transport+ADV_ind_veh_airRecon)) then {
 		_veh setObjectTextureGlobal [0,'#(rgb,8,8,3)color(1,1,1,0.004)'];
 		if (str _veh in ADV_ind_veh_transport) then {
 			_veh setObjectTextureGlobal [1,'#(rgb,8,8,3)color(1,1,1,0.004)'];
 		};
+	};
+	if !( (missionNamespace getVariable ["ADV_par_vehicleRespawn",300]) isEqualTo 9999 ) then {
+		[_veh,ADV_par_vehicleRespawn, independent] call ADV_fnc_respawnVeh;
 	};
 };
 //application of code:
@@ -160,15 +172,14 @@ adv_ind_manageVeh_codeForAll = {
 	private _vehObj = missionNamespace getVariable [_x,objNull];
 	if (!isNull _vehObj) then {
 		_vehObj spawn adv_ind_manageVeh_codeForAll;
-		[_vehObj,ADV_par_vehicleRespawn, independent, (typeOf _vehObj)] spawn ADV_fnc_respawnVeh;
 	};
 	nil;
 } count ADV_ind_veh_all;
 
 //replaces MRAPS with mod cars:
-switch (ADV_par_indCarAssets) do {
+switch ( _par_indCarAssets ) do {
 	case 1: {};
-	case 99: {[ADV_ind_veh_all,[""],independent] spawn ADV_fnc_changeVeh;};
+	case 99: {[ADV_ind_veh_all,[""],independent] call ADV_fnc_changeVeh;};
 	default {};
 };
 

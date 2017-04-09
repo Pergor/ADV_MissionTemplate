@@ -47,7 +47,7 @@ _handle = _this spawn {
 		default {"No_Respawn_99"};
 	};
 	// creates, moves and deletes a respawn-marker for every player
-	ADV_var_moveRespMarker = if (!isNil "ADV_par_moveMarker") then { ADV_par_moveMarker } else { 1 };
+	ADV_var_moveRespMarker = missionNamespace getVariable ["ADV_par_moveMarker",0];
 
 	while { ADV_var_moveRespMarker == 1 } do {
 		if !(isNil _RespMarker) then {deleteMarkerLocal _RespMarker;};

@@ -16,17 +16,19 @@
  */
 
 //standard Variables:
-if ( isNil "ADV_taskVar" ) then { ADV_taskVar = 0; };
-if ( isNil "ADV_spawnVar" ) then { ADV_spawnVar = 0; };
-if ( isNil "ADV_var_useDLCContent" ) then { ADV_par_useDLCContent = 1; };
+missionNamespace getVariable ["ADV_taskVar",0];
+missionNamespace getVariable ["ADV_spawnVar",0];
+missionNamespace getVariable ["ADV_var_useDLCContent",1];
 
 missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true];
-if (isNil "ADV_par_customUni") then { adv_par_customUni = ["param_customUni",0] call BIS_fnc_getParamValue; };
-if (isNil "ADV_par_customWeap") then { adv_par_customWeap = ["param_customWeap",0] call BIS_fnc_getParamValue; };
-if (isNil "ADV_par_opfUni") then { adv_par_opfUni = ["param_opfUni",0] call BIS_fnc_getParamValue; };
-if (isNil "ADV_par_indUni") then { adv_par_indUni = ["param_indUni",0] call BIS_fnc_getParamValue; };
-if (isNil "ADV_par_Tablets") then { ADV_par_Tablets = ["param_Tablets",1] call BIS_fnc_getParamValue; };
-if (isNil "adv_par_l_suppress") then { adv_par_l_suppress = ["param_l_suppress",0] call BIS_fnc_getParamValue; };
+
+missionNamespace getVariable ["adv_par_customUni", ["param_customUni",0] call BIS_fnc_getParamValue];
+missionNamespace getVariable ["adv_par_customWeap", ["param_customWeap",0] call BIS_fnc_getParamValue];
+missionNamespace getVariable ["adv_par_opfUni", ["param_opfUni",0] call BIS_fnc_getParamValue];
+missionNamespace getVariable ["adv_par_opfWeap", ["param_opfWeap",0] call BIS_fnc_getParamValue];
+missionNamespace getVariable ["adv_par_indUni", ["param_indUni",0] call BIS_fnc_getParamValue];
+missionNamespace getVariable ["adv_par_tablets", ["param_tablets",1] call BIS_fnc_getParamValue];
+missionNamespace getVariable ["adv_par_l_suppress", ["param_l_suppress",0] call BIS_fnc_getParamValue];
 		
 //map variables:
 ADV_var_aridMaps = [
@@ -46,22 +48,22 @@ ADV_var_europeMaps = [
 	"SARA","SARALITE","SARA_DBE1","INTRO","CHERNARUS","CHERNARUS_SUMMER",
 	"FDF_ISLE1_A","MBG_CELLE2","WOODLAND_ACR","BOOTCAMP_ACR","THIRSK","BORNHOLM","UTES","ANIM_HELVANTIS_V2","ABRAMIA","PANTHERA3","VT5"
 ];
-switch ( ADV_par_customUni ) do {
+switch ( missionNamespace getVariable ["adv_par_customUni", ["param_customUni",0] call BIS_fnc_getParamValue] ) do {
 	case 1: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_lushMaps) then {2} else {1}; };
 	case 2: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_aridMaps) then {1} else {2}; };
 	default {};
 };
 if ((toUpper worldname) isEqualTo "TANOA") then {
-	if ( ADV_par_customUni == 0 ) then { ADV_par_customUni = 20 };
-	if ( ADV_par_opfUni == 0 ) then { ADV_par_opfUni = 20 };
+	if ( (missionNamespace getVariable ["adv_par_customUni", 0]) isEqualTo 0 ) then { ADV_par_customUni = 20 };
+	if ( (missionNamespace getVariable ["adv_par_opfUni", 0]) isEqualTo 0 ) then { ADV_par_opfUni = 20 };
 };
 
-if (isClass(configFile >> "CfgPatches" >> "ace_rearm") && (ADV_par_modTankAssets == 1 || ADV_par_modTankAssets == 2)) then {
+if (isClass(configFile >> "CfgPatches" >> "ace_rearm") && ( (missionNamespace getVariable ["ADV_par_modTankAssets",0]) isEqualTo 1 || (missionNamespace getVariable ["ADV_par_modTankAssets",0]) isEqualTo 2 )) then {
 	missionNamespace setVariable ["ace_rearm_level",0];
 };
 
 //cTab-specials:
-if (isClass (configFile >> "CfgPatches" >> "cTab") && ADV_par_Tablets == 1) then {
+if ( isClass (configFile >> "CfgPatches" >> "cTab") && (missionNamespace getVariable ["ADV_par_Tablets",1]) isEqualTo 1 ) then {
 	cTab_encryptionKey_west = "b";
 	cTab_encryptionKey_east = "o";
 	if ( [independent,west] call BIS_fnc_sideIsFriendly ) then {
@@ -83,7 +85,7 @@ if (isClass (configFile >> "CfgPatches" >> "cTab") && ADV_par_Tablets == 1) then
 
 //laxemann's suppress
 call {
-	if (adv_par_l_suppress > 0) exitWith {
+	if ( (missionNamespace getVariable ["adv_par_l_suppress",0]) > 0 ) exitWith {
 		L_suppress_active = true;
 	};
 	L_suppress_active = false;

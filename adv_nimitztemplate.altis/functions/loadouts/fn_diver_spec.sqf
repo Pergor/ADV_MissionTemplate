@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -104,10 +111,7 @@ _items = [
 ];
 
 //MarksmenDLC-objects:
-if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
-};
-
-if (missionNamespace getVariable ["ADV_par_isTvT",false]) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 };
 
 	//CustomMod items//
@@ -194,7 +198,7 @@ _scorchItems = ["sc_dogtag"];
 _scorchItemsRandom = [""];
 
 //Addon Content:
-switch (ADV_par_customWeap) do {
+switch (_par_customWeap) do {
 	case 1: {
 		//BWmod
 		call {
@@ -233,7 +237,7 @@ switch (ADV_par_customWeap) do {
 		_primaryweapon = ["rhs_weap_mk18_grip2","rhs_weap_mk18_grip2_KAC","rhs_weap_mk18_KAC"];
 		_optic = ["rhsusf_acc_eotech_552"];
 		_attachments = ["rhsusf_acc_anpeq15","rhsusf_acc_rotex5_grey"];
-		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5") && ADV_par_Silencers == 1) then {
+		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5") && _par_Silencers == 1) then {
 			_primaryweapon = "hlc_smg_mp5sd6"; _silencer = "";
 			_attachments = [""];
 			_primaryweaponAmmo = [8,2];
@@ -272,27 +276,27 @@ switch (ADV_par_customWeap) do {
 		_primaryweapon = "CUP_arifle_M4A3_desert";
 		_optic = ["CUP_optic_CompM4"];
 		_attachments = ["CUP_acc_ANPEQ_2_camo","CUP_muzzle_snds_M16_camo"];
-		_primaryweaponAmmo = [8,9];
+		_primaryweaponAmmo = [8,0];
 		_additionalAmmo = nil;
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=["CUP_muzzle_snds_M9"];
 	};
 	case 6: {
 		//SELmods CUP M4
-		_primaryweapon = "CUP_arifle_M4A3_desert";
+		_primaryweapon = "CUP_arifle_M4A1_camo";
 		_optic = ["CUP_optic_CompM4"];
 		_attachments = ["CUP_acc_ANPEQ_2_camo","CUP_muzzle_snds_M16_camo"];
-		_primaryweaponAmmo = [8,9];
+		_primaryweaponAmmo = [8,0];
 		_additionalAmmo = nil;
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=["CUP_muzzle_snds_M9"];
 	};
 	case 7: {
 		//BAF
-		_primaryweapon = "CUP_arifle_M4A3_desert";
+		_primaryweapon = "CUP_arifle_M4A1_camo";
 		_optic = ["CUP_optic_CompM4"];
 		_attachments = ["CUP_acc_ANPEQ_2_camo","CUP_muzzle_snds_M16_camo"];
-		_primaryweaponAmmo = [8,9];
+		_primaryweaponAmmo = [8,0];
 		_additionalAmmo = nil;
 		_handgun="CUP_hgun_Glock17";
 		_itemsHandgun=["CUP_acc_Glock17_Flashlight","muzzle_snds_L"];
@@ -309,7 +313,7 @@ switch (ADV_par_customWeap) do {
 	};
 	default {};
 };
-switch (ADV_par_customUni) do {
+switch (_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
 		_backpack = ["BWA3_Kitbag_Fleck"];

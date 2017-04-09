@@ -1,4 +1,10 @@
-﻿/*
+﻿private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -20,11 +26,11 @@ _uniform = ["U_BG_Guerilla2_2","U_BG_Guerilla2_1","U_BG_Guerilla2_3","U_BG_Gueri
 _vest = [""]; 
 _headgear = ["H_Cap_oli","H_Cap_blk","H_Cap_grn","H_Cap_tan","","","","","","","",""];
 _backpack = [""];
-if ( (isClass(configFile >> "CfgPatches" >> "lop_c_men")) && (toUpper (worldname) in ADV_var_aridMaps) ) then {
+if ( (isClass(configFile >> "CfgPatches" >> "lop_c_men")) && (toUpper (worldname) in _var_aridMaps) ) then {
 	_uniform = ["LOP_U_TAK_Civ_Fatigue_01","LOP_U_TAK_Civ_Fatigue_02","LOP_U_TAK_Civ_Fatigue_04"];
 	_headgear = ["LOP_H_Pakol","LOP_H_Turban","H_ShemagOpen_khk","",""];
 };
-if ( (isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians")) && (toUpper (worldname) in ADV_var_europeMaps) ) then {
+if ( (isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians")) && (toUpper (worldname) in _var_europeMaps) ) then {
 	if ( toUpper (worldname) == "CHERNARUS" || toUpper (worldname) == "CHERNARUS_SUMMER" ) then {
 		_uniform = ["rds_uniform_citizen1","rds_uniform_citizen2","rds_uniform_citizen3","rds_uniform_citizen4","U_Marshal",
 			"rds_uniform_Profiteer3","rds_uniform_Profiteer4","rds_uniform_schoolteacher","rds_uniform_Villager1","rds_uniform_Woodlander1","rds_uniform_Woodlander2"];
@@ -118,10 +124,7 @@ _itemsLink = [
 _items = [];
 
 //MarksmenDLC-objects:
-if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
-};
-
-if (missionNamespace getVariable ["ADV_par_isTvT",false]) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 };
 
 //CustomMod items//

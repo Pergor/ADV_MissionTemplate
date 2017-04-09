@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -32,8 +39,8 @@ if (worldName == "TANOA") then { _primaryweapon = ["arifle_MXC_Black_F","arifle_
 //primary weapon items - (array)
 _optic = [""];
 _attachments = [""];
-if ( ADV_par_NVGs == 1 ) then { _attachments pushback "acc_flashlight"; };
-if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
+if ( _par_NVGs == 1 ) then { _attachments pushback "acc_flashlight"; };
+if ( _par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
@@ -105,7 +112,7 @@ _itemsLink = [
 _items = [];
 
 //MarksmenDLC-objects:
-if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 };
 
 	//CustomMod items//
@@ -193,32 +200,32 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar",""
 
 //Addon Content:
 switch (true) do {
-	case (ADV_par_customWeap == 1): {
+	case (_par_customWeap == 1): {
 		//BWmod
 		_primaryweapon = [""];
 		_optic = [""];
 		_primaryweaponAmmo = [0,0];
 		_handgun = "BWA3_MP7";
-		if ( ADV_par_optics == 1 ) then { _itemsHandgun = ["BWA3_optic_RSAS"]; } else { _itemsHandgun = [""]; };
+		if ( _par_optics == 1 ) then { _itemsHandgun = ["BWA3_optic_RSAS"]; } else { _itemsHandgun = [""]; };
 		_handgunAmmo = [5,0];
 	};
-	case (ADV_par_customWeap == 2 || ADV_par_customWeap == 3): {
+	case (_par_customWeap == 2 || _par_customWeap == 3): {
 		//RHS Army & Marines
 		_primaryweapon = ["rhs_weap_m4_carryhandle"];
 		_optic = [""];
 		_attachments = [""];
 		_silencer = "";
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
-			if (ADV_par_Silencers == 1) then { _primaryweapon = "hlc_smg_mp5sd6"; _silencer = ""; _primaryweaponAmmo set [1,2];};
+			if (_par_Silencers == 1) then { _primaryweapon = "hlc_smg_mp5sd6"; _silencer = ""; _primaryweaponAmmo set [1,2];};
 		} else {
 			_primaryweaponAmmo set [1,9];
 		};
 		_handgun = "rhsusf_weap_m9";
-		if (ADV_par_customWeap == 3) then { _handgun = "rhsusf_weap_m1911a1"; };
+		if (_par_customWeap == 3) then { _handgun = "rhsusf_weap_m1911a1"; };
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_customWeap == 4): {
+	case (_par_customWeap == 4): {
 		//RHS SOF
 		_primaryweapon = ["rhs_weap_hk416d10_LMT","rhs_weap_m4a1_blockII_KAC","rhs_weap_m4_carryhandle"];
 		_optic = [""];
@@ -227,21 +234,21 @@ switch (true) do {
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
 	};
-	case (ADV_par_customWeap == 5 || ADV_par_customWeap == 6): {
+	case (_par_customWeap == 5 || _par_customWeap == 6): {
 		//CUP
 		_primaryweapon = "CUP_smg_MP5A5";
 		_optic = [""];
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=[];
 	};
-	case (ADV_par_customWeap == 7): {
+	case (_par_customWeap == 7): {
 		//CUP BAF
 		_primaryweapon = "CUP_smg_MP5A5";
 		_optic = [""];
 		_handgun="CUP_hgun_Glock17";
 		_itemsHandgun=["CUP_acc_Glock17_Flashlight"];
 	};
-	case (ADV_par_customWeap == 8): {
+	case (_par_customWeap == 8): {
 		//UK3CB
 		_primaryweapon = ["UK3CB_BAF_L85A2"];
 		_optic = [""];
@@ -249,7 +256,7 @@ switch (true) do {
 		_handgun = "UK3CB_BAF_L131A1";
 		_itemsHandgun=["UK3CB_BAF_Flashlight_L131A1"];
 	};
-	case (ADV_par_customWeap == 9): {
+	case (_par_customWeap == 9): {
 		//HLC
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
 			_primaryweapon = ["hlc_smg_mp5a2","hlc_smg_mp510","hlc_smg_mp5a4"];
@@ -263,7 +270,7 @@ switch (true) do {
 			_handgunSilencer = "";
 		};
 	};
-	case (ADV_par_customWeap == 20): {
+	case (_par_customWeap == 20): {
 		//APEX HK416
 		_primaryWeapon = "arifle_SPAR_01_blk_F";
 		_silencer = "muzzle_snds_M";
@@ -271,7 +278,7 @@ switch (true) do {
 	};
 	default {};
 };
-switch (ADV_par_customUni) do {
+switch (_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
 		_uniform = ["BWA3_Uniform_Crew_Tropen"];
@@ -310,12 +317,12 @@ switch (ADV_par_customUni) do {
 	case 6: {
 		//CUP BAF
 		switch (true) do {
-			case ((toUpper worldname) in ADV_var_aridMaps): {
+			case ((toUpper worldname) in _var_aridMaps): {
 				_uniform = ["CUP_U_B_BAF_DDPM_S2_UnRolled","CUP_U_B_BAF_DDPM_S1_RolledUp","CUP_U_B_BAF_DDPM_Tshirt"];
 				_vest = ["CUP_V_BAF_Osprey_Mk2_DDPM_Empty"];
 				_headgear = ["CUP_H_BAF_Helmet_1_DDPM","CUP_H_BAF_Helmet_Net_2_DDPM","CUP_H_BAF_Helmet_4_DDPM"];
 			};
-			case ((toUpper worldname) in ADV_var_lushMaps): {
+			case ((toUpper worldname) in _var_lushMaps): {
 				_uniform = ["CUP_U_B_BAF_DPM_S2_UnRolled","CUP_U_B_BAF_DPM_S1_RolledUp","CUP_U_B_BAF_DPM_S1_RolledUp","CUP_U_B_BAF_DPM_Tshirt"];
 				_vest = ["CUP_V_BAF_Osprey_Mk2_DPM_Empty"];
 				_headgear = ["CUP_H_BAF_Helmet_1_DPM","CUP_H_BAF_Helmet_Net_2_DPM","CUP_H_BAF_Helmet_4_DPM"];
@@ -349,7 +356,7 @@ switch (ADV_par_customUni) do {
 	case 10: {
 		//RHS MARPAT
 		switch (true) do {
-			case ((toUpper worldname) in ADV_var_aridMaps): {
+			case ((toUpper worldname) in _var_aridMaps): {
 				_uniform = ["rhs_uniform_FROG01_d"];
 				_headgear = ["rhsusf_bowman_cap"];
 			};
@@ -420,8 +427,8 @@ switch (toUpper ([str (_this select 0),0,6] call BIS_fnc_trimString)) do {
 };
 
 //TFAR-manpacks
-if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = switch (ADV_par_CustomUni) do {
+if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (_par_CustomUni) do {
 		case 1: {["tf_rt1523g_bwmod"]};
 		case 2: {["tf_rt1523g_bwmod"]};
 		case 9: {["tf_rt1523g_rhs"]};
@@ -432,8 +439,8 @@ if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radio
 	};
 };
 
-if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = switch (ADV_par_CustomUni) do {
+if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (_par_CustomUni) do {
 		case 1: {"BWA3_AssaultPack_Tropen"};
 		case 2: {"BWA3_AssaultPack_Fleck"};
 		case 12: {["UK3CB_BAF_B_Bergen_MTP_Radio_L_A","UK3CB_BAF_B_Bergen_MTP_Radio_L_B"]};

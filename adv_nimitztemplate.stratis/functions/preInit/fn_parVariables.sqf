@@ -31,8 +31,6 @@ _arrayCreation = {
 
 call _arrayCreation;
 
-//publicVariable "ADV_par_seriousMode";
-//publicVariable "ADV_par_headlessClient";
 _variables = {
 	if (isServer) then {
 		switch (adv_par_sideRelations) do {
