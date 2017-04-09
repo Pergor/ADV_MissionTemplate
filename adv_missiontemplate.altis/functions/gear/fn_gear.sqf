@@ -32,24 +32,25 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 private _uavTisGiven = if ( { ["UAVTERMINAL",_x] call BIS_fnc_inString } count _itemsLink > 0 ) then {true} else {false};
 private _allItems = _items+_itemsLink+_itemsUniform+_itemsVest+_itemsBackpack;
 private _medicBackPacks = [
-	"B_AssaultPack_rgr_Medic","B_FieldPack_ocamo_Medic","B_FieldPack_oucamo_Medic","B_AssaultPack_rgr_ReconMedic",
-	"BWA3_AssaultPack_Medic","B_mas_AssaultPack_mul_Medic","B_mas_AssaultPack_des_Medic","B_mas_AssaultPack_black_Medic",
-	"B_mas_AssaultPack_wint_Medic","B_mas_AssaultPack_rng_Medic","O_mas_AssaultPack_flo_Medic","O_mas_AssaultPack_blk_Medic"
+	"B_ASSAULTPACK_RGR_MEDIC","B_FIELDPACK_OCAMO_MEDIC","B_FIELDPACK_OUCAMO_MEDIC","B_ASSAULTPACK_RGR_RECONMEDIC",
+	"BWA3_ASSAULTPACK_MEDIC","B_MAS_ASSAULTPACK_MUL_MEDIC","B_MAS_ASSAULTPACK_DES_MEDIC","B_MAS_ASSAULTPACK_BLACK_MEDIC",
+	"B_MAS_ASSAULTPACK_WINT_MEDIC","B_MAS_ASSAULTPACK_RNG_MEDIC","O_MAS_ASSAULTPACK_FLO_MEDIC","O_MAS_ASSAULTPACK_BLK_MEDIC"
 ];
-private _manPacks = ["tf_mr3000","tf_anprc155","tf_rt1523g","clf_prc117g_ap_multi","clf_nicecomm2_multi","clf_nicecomm2_coy","clf_nicecomm2_prc117g_multi",
-	"clf_nicecomm2_prc117g_coy","ACRE_PRC117F","ACRE_PRC77"
+private _manPacks = ["TF_MR3000","TF_ANPRC155","TF_RT1523G","CLF_PRC117G_AP_MULTI","CLF_NICECOMM2_MULTI","CLF_NICECOMM2_COY","CLF_NICECOMM2_PRC117G_MULTI",
+	"CLF_NICECOMM2_PRC117G_COY","ACRE_PRC117F","ACRE_PRC77"
 ];
 private _bwmodG36 = ["BWA3_G36","BWA3_G36_LMG","BWA3_G36_AG","BWA3_G36K","BWA3_G36K_AG"];
-private _NVGoggles = ["NVGoggles","NVGoggles_OPFOR","NVGoggles_INDEP"];//"NVGoggles_tna_F","O_NVGoggles_ghex_F","O_NVGoggles_hex_F","O_NVGoggles_urb_F","NVGogglesB_blk_F","NVGogglesB_grn_F","NVGogglesB_gry_F"
-if ( isClass(configFile >> "CfgPatches" >> "tfa_units") ) then { _NVGoggles append ["TFA_NVGoggles","TFA_NVGoggles2"]; };
-if ( isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) then { _NVGoggles append ["rhsusf_ANPVS_14","rhsusf_ANPVS_15"]; };
-if ( isClass(configFile >> "CfgPatches" >> "rhs_main") ) then { _NVGoggles append ["rhs_1PN138"]; };
+private _NVGoggles = ["NVGOGGLES","NVGOGGLES_OPFOR","NVGOGGLES_INDEP"];//"NVGOGGLES_TNA_F","O_NVGOGGLES_GHEX_F","O_NVGOGGLES_HEX_F","O_NVGOGGLES_URB_F","NVGOGGLESB_BLK_F","NVGOGGLESB_GRN_F","NVGOGGLESB_GRY_F"
+if ( isClass(configFile >> "CfgPatches" >> "tfa_units") ) then { _NVGoggles append ["TFA_NVGOGGLES","TFA_NVGOGGLES2"]; };
+if ( isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) then { _NVGoggles append ["RHSUSF_ANPVS_14","RHSUSF_ANPVS_15"]; };
+if ( isClass(configFile >> "CfgPatches" >> "rhs_main") ) then { _NVGoggles append ["RHS_1PN138"]; };
 if ( isClass(configFile >> "CfgPatches" >> "UK3CB_BAF_Equipment") ) then { _NVGoggles append ["UK3CB_BAF_HMNVS"]; };
-if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _NVGoggles append ["dsk_nsv"]; };
+if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _NVGoggles append ["DSK_NSV"]; };
 if ( isClass(configFile >> "CfgPatches" >> "CUP_Weapons_NVG") ) then { _NVGoggles append ["CUP_NVG_HMNVS","CUP_NVG_PVS7"]; };
 if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) then { [] call adv_fnc_tfarSettings };
-private _disposableLaunchers = ["BWA3_Pzf3","BWA3_RGW90","STI_M136","CUP_launch_M136","rhs_weap_M136","rhs_weap_M136_hedp","rhs_weap_M136_hp","RHS_WEAP_M72A7","RHS_WEAP_RPG26","RHS_WEAP_RSHG2","RHS_WEAP_RPG18"];
-if ( isClass(configFile >> "CfgPatches" >> "ACE_disposable") ) then { _disposableLaunchers append ["launch_NLAW_F"]; };
+private _disposableLaunchers = [];
+if ( isClass(configFile >> "CfgPatches" >> "ACE_disposable") ) then { _disposableLaunchers pushBack "LAUNCH_NLAW_F"; };
+_disposableLaunchers append ["BWA3_PZF3","BWA3_RGW90","STI_M136","CUP_LAUNCH_M136","RHS_WEAP_M136","RHS_WEAP_M136_HEDP","RHS_WEAP_M136_HP","RHS_WEAP_M72A7","RHS_WEAP_RPG26","RHS_WEAP_RSHG2","RHS_WEAP_RPG18"];
 
 if ( toUpper ([(str _unit),(count str _unit)-5] call BIS_fnc_trimString) isEqualTo "RECON" ) then {
 	_unitTraits = [["medic",true],["engineer",true],["explosiveSpecialist",true],["UAVHacker",true],["camouflageCoef",1.5],["audibleCoef",0.5],["loadCoef",0.9]];
@@ -165,7 +166,7 @@ if ( _handgun isEqualType [] ) then { _handgun = selectRandom _handgun; };
 [_unit,_handgun,_handgunAmmo select 0,_handgunAmmo select 1] call BIS_fnc_addWeapon;
 if ( (side (group _unit) isEqualTo west && _par_Silencers > 0) || (side (group _unit) isEqualTo east && _par_opfSilencers > 0) ) then { _itemsHandgun pushback _handgunSilencer; };
 { _unit addHandgunItem _x } count _itemsHandgun;
-if ( _launcher in _disposableLaunchers ) then {
+if ( (toUpper _launcher) in _disposableLaunchers ) then {
 	_launcherAmmo set [0,1];
 };
 if ( _launcher isEqualType [] ) then { _launcher = selectRandom _launcher; };
