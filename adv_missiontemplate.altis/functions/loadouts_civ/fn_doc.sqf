@@ -112,9 +112,6 @@ _items = [];
 if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
 };
 
-if (missionNamespace getVariable ["ADV_par_isTvT",false]) then {
-};
-
 //CustomMod items//
 
 //TFAR or ACRE radios
