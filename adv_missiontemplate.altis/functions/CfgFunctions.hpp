@@ -1,4 +1,4 @@
-class ADV 
+class ADV
 {	
 	tag = "ADV";
 	class preInit
