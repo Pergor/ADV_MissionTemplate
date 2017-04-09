@@ -53,6 +53,7 @@ To clear the cargo of a crate just use
 
 //If you just need to quickly create prefilled logistic crates (with weapon parameter specific gear for the side of the player's unit) call 'em locally like this:
 //The crates will appear at the position of the calling player. No counter will be reduced with these commands. Does not work for the large crate.
+
 ["ADV_LOGISTIC_CRATENORMAL",true] call ADV_fnc_dialogLogistic;
 ["ADV_LOGISTIC_CRATEMEDIC",true] call ADV_fnc_dialogLogistic;
 ["ADV_LOGISTIC_CRATEMG",true] call ADV_fnc_dialogLogistic;

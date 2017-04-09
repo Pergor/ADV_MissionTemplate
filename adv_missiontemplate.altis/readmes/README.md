@@ -24,28 +24,35 @@ Most settings for this template can be altered in the MP lobby or in mission\Cfg
 Important variables:
 
 //Turns true as soon as player has received his first loadout:
-player getVariable ["ADV_var_hasLoadout",false];
+
+	player getVariable ["ADV_var_hasLoadout",false];
 
 //turns true if a vehicle has been changed via lobby params:
-VEHICLE getVariable ["adv_var_vehicleIsChanged",false];
+
+	VEHICLE getVariable ["adv_var_vehicleIsChanged",false];
 
 /////////////////////
 Useful other commands:
 
 //Put in init-line of unit to have it removed from garbage collection:
-removeFromRemainsCollector [this];
+
+	removeFromRemainsCollector [this];
 
 //Put in init-line of unit or vehicle to define it as ace_medical-doctor:
-this setVariable ["ACE_medical_medicClass", 2];
+
+	this setVariable ["ACE_medical_medicClass", 2];
 
 //Put in init-line of building to define it as ace_medical-medical-facility:
-this setVariable ["ACE_medical_isMedicalFacility", true];
+
+	this setVariable ["ACE_medical_isMedicalFacility", true];
 
 //Put in init-line of vehicle to define it as ace_repair-repair-vehicle:
-this setVariable ["ACE_isRepairVehicle", 1];
+
+	this setVariable ["ACE_isRepairVehicle", 1];
 
 //Put in init-line of vehicle to define it as ace_repair-repair-facility:
-OBJECT setVariable ["ACE_isRepairFacility", 1];
+
+	this setVariable ["ACE_isRepairFacility", 1];
 
 /////////////////////
 Have Fun!
