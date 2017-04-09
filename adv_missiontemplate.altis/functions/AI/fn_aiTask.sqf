@@ -70,7 +70,7 @@ call {
 		[_grp, _start, _radius, 2, true] call CBA_fnc_taskDefend;
 	};
 	if (_mode isEqualTo 4) exitWith {
-		_attack params [["_obj",nil],["_attackRadius", 50 [0]]];
+		_attack params [ ["_obj", objNull], ["_attackRadius", 50] ];
 		_target = call {
 			if (isNil "_obj") exitWith {[0,0,0]};
 			if (_obj isEqualType "") exitWith {getMarkerPos _obj};
