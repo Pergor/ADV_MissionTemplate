@@ -117,22 +117,22 @@ adv_ind_manageVeh_codeForAll = {
 	_veh = _this;
 	private _isChanged = _veh getVariable ["adv_var_vehicleIsChanged",false];
 	_veh setVariable ["adv_var_vehicleIsChanged",_isChanged,true];
-	if (ADV_par_customLoad > 0) then {
+	if ( (missionNamespace getVariable ["adv_par_customLoad",1]) > 0 ) then {
 		[_veh] call ADV_fnc_clearCargo;
 		sleep 0.2;
 		[_veh] call ADV_ind_fnc_addVehicleLoad;
 	};
 	[_veh] call ADV_ind_fnc_disableVehSelector;
-	if (ADV_par_engineArtillery == 1 && str _veh in ADV_ind_veh_artys) then {
+	if ( (missionNamespace getVariable ["ADV_par_engineArtillery",0]) isEqualTo 1 && str _veh in ADV_ind_veh_artys) then {
 		[_veh] call ADV_fnc_showArtiSetting;
 	};
-	if (ADV_par_TIEquipment > 0) then {
+	if ( (missionNamespace getVariable ["ADV_par_TIEquipment",0]) > 0 ) then {
 		_veh disableTIEquipment true;
-		if (ADV_par_TIEquipment > 2) then {
+		if ( (missionNamespace getVariable ["ADV_par_TIEquipment",0]) > 2 ) then {
 			_veh disableNVGEquipment true;
 		};
 	};
-	if ( ADV_par_Radios > 0 && (_veh isKindOf 'CAR' || _veh isKindOf 'TANK' || _veh isKindOf 'AIR') && !(_veh isKindOf "Quadbike_01_base_F") ) then {
+	if ( (missionNamespace getVariable ["ADV_par_Radios",1]) > 0 && (_veh isKindOf 'CAR' || _veh isKindOf 'TANK' || _veh isKindOf 'AIR') && !(_veh isKindOf "Quadbike_01_base_F") ) then {
 		_veh setVariable ["tf_side", independent, true];
 		_veh setVariable ["tf_hasRadio", true, true];
 		call {
@@ -150,13 +150,13 @@ adv_ind_manageVeh_codeForAll = {
 			};
 		};
 	};
-	if (ADV_par_indUni == 1 && ADV_par_indCarAssets == 1 && !(worldname == 'TANOA') && (str _veh in ADV_ind_veh_transport+ADV_ind_veh_airRecon)) then {
+	if ( (missionNamespace getVariable ["ADV_par_indUni",0]) isEqualTo 1 && (missionNamespace getVariable ["ADV_par_indCarAssets",0]) isEqualTo 1 && !(worldname == 'TANOA') && (str _veh in ADV_ind_veh_transport+ADV_ind_veh_airRecon)) then {
 		_veh setObjectTextureGlobal [0,'#(rgb,8,8,3)color(1,1,1,0.004)'];
 		if (str _veh in ADV_ind_veh_transport) then {
 			_veh setObjectTextureGlobal [1,'#(rgb,8,8,3)color(1,1,1,0.004)'];
 		};
 	};
-	if !( ADV_par_vehicleRespawn isEqualTo 9999 ) then {
+	if !( (missionNamespace getVariable ["ADV_par_vehicleRespawn",300]) isEqualTo 9999 ) then {
 		[_veh,ADV_par_vehicleRespawn, independent] call ADV_fnc_respawnVeh;
 	};
 };
@@ -170,7 +170,7 @@ adv_ind_manageVeh_codeForAll = {
 } count ADV_ind_veh_all;
 
 //replaces MRAPS with mod cars:
-switch (ADV_par_indCarAssets) do {
+switch (missionNamespace getVariable ["ADV_par_indCarAssets",0]) do {
 	case 1: {};
 	case 99: {[ADV_ind_veh_all,[""],independent] spawn ADV_fnc_changeVeh;};
 	default {};
