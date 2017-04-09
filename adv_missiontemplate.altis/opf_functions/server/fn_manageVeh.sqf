@@ -115,6 +115,8 @@ if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_pa
 //creation of vehicle code:
 adv_opf_manageVeh_codeForAll = {
 	_veh = _this;
+	private _isChanged = _veh getVariable ["adv_var_vehicleIsChanged",false];
+	_veh setVariable ["adv_var_vehicleIsChanged",_isChanged,true];
 	if (ADV_par_customLoad > 0) then {
 		[_veh] call ADV_fnc_clearCargo;
 		sleep 0.2;
