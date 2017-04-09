@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -31,11 +38,11 @@ _primaryweapon = "arifle_Katiba_F";
 //primary weapon items - (array)
 _optic = ["optic_Arco","optic_MRCO"];
 _attachments = [""];
-if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
-if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
+if ( _par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
+if ( _par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H";		//if silencer is added
 
-if (worldName == "TANOA" || ADV_par_opfWeap == 20) then {
+if (worldName == "TANOA" || _par_opfWeap == 20) then {
 	_primaryweapon = ["arifle_CTAR_blk_F"];
 	_silencer = "muzzle_snds_58_blk_F";
 };
@@ -45,7 +52,7 @@ _primaryweaponAmmo = [8,0];
 _additionalAmmo = [12,"30Rnd_65x39_caseless_green",true];
 _additionalAmmo1 = [3,"150Rnd_762x54_Box_Tracer",true];
 _additionalAmmo2 = [12,"1Rnd_HE_Grenade_shell",true];
-if (worldName == "TANOA" || ADV_par_opfWeap == 20) then {
+if (worldName == "TANOA" || _par_opfWeap == 20) then {
 	_additionalAmmo set [1,"30Rnd_580x42_Mag_F"];
 	_additionalAmmo1 = [4,"100Rnd_580x42_Mag_F",true];
 };
@@ -203,14 +210,14 @@ _scorchItems = [""];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 
 //Addon Content:
-switch (ADV_par_opfWeap) do {
+switch (_par_opfWeap) do {
 	case 1: {
 		//RHS
 		_primaryweapon = ["rhs_weap_ak74m","rhs_weap_ak74m_camo","rhs_weap_ak74m_desert","rhs_weap_ak74m_plummag","rhs_weap_ak74m_2mag","rhs_weap_ak74m_2mag_camo"];
 		_optic = ["rhs_acc_pso1m2","rhs_acc_pso1m2","rhs_acc_pso1m2","rhs_acc_1p29"];
 		_attachments = ["rhs_acc_dtk"];
-		if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "rhs_acc_2dpZenit"; };
-		if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "rhs_acc_perst1ik"; };
+		if ( _par_opfNVGs == 1 ) then { _attachments pushBack "rhs_acc_2dpZenit"; };
+		if ( _par_opfNVGs == 2 ) then { _attachments pushback "rhs_acc_perst1ik"; };
 		_silencer = "rhs_acc_dtk4short";		//if silencer is added		
 		_handgun = "rhs_weap_makarov_pmm";
 		_itemsHandgun = [];
@@ -270,7 +277,7 @@ switch (ADV_par_opfWeap) do {
 	};
 	default {};
 };
-switch (ADV_par_opfUni) do {
+switch (_par_opfUni) do {
 	case 1: {
 		//RHS EMR-Summer
 		_uniform = ["rhs_uniform_emr_patchless"];

@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -31,8 +38,8 @@ _primaryweapon = "srifle_DMR_01_F";
 //primary weapon items - (array)
 _optic = ["optic_SOS"];
 _attachments = ["bipod_01_F_blk"];
-if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
-if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
+if ( _par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
+if ( _par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_B";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
@@ -109,7 +116,7 @@ if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVa
 	_optic = ["optic_KHS_blk"];
 	_silencer = "muzzle_snds_93mmg";		//if silencer is added
 	_backpack = ["B_AssaultPack_ocamo","B_AssaultPack_cbr"];
-	if (ADV_par_Silencers == 1) then {
+	if (_par_Silencers == 1) then {
 		_primaryweapon = ["srifle_DMR_04_F"];
 		_attachments pushBack "bipod_02_F_blk";
 		_silencer = "";
@@ -199,10 +206,10 @@ _scorchItems = [""];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 
 //Addon Content:
-switch (ADV_par_opfWeap) do {
+switch (_par_opfWeap) do {
 	case 1: {
 		//RHS
-		_primaryWeapon = if (ADV_par_opfSilencers > 0) then {"rhs_weap_asval"} else {"rhs_weap_svds"};
+		_primaryWeapon = if (_par_opfSilencers > 0) then {"rhs_weap_asval"} else {"rhs_weap_svds"};
 		_optic = ["rhs_acc_pso1m2"];
 		_attachments = [""];
 		_handgun = "rhs_weap_makarov_pmm";
@@ -211,7 +218,7 @@ switch (ADV_par_opfWeap) do {
 	};
 	case 2: {
 		//RHS Guerilla
-		_primaryWeapon = if (ADV_par_opfSilencers > 0) then {"rhs_weap_vss"} else {"rhs_weap_svds"};
+		_primaryWeapon = if (_par_opfSilencers > 0) then {"rhs_weap_vss"} else {"rhs_weap_svds"};
 		_optic = [""];
 		_attachments = [""];
 		_silencer = "";		//if silencer is added		
@@ -221,7 +228,7 @@ switch (ADV_par_opfWeap) do {
 	};
 	case 3: {
 		//CUP
-		_primaryWeapon = if (ADV_par_opfSilencers > 0) then {"CUP_srifle_VSSVintorez"} else {"CUP_srifle_SVD"};
+		_primaryWeapon = if (_par_opfSilencers > 0) then {"CUP_srifle_VSSVintorez"} else {"CUP_srifle_SVD"};
 		_optic = ["CUP_optic_PSO_3"];
 		_attachments = [""];
 		_handgun = "CUP_hgun_PB6P9";
@@ -242,7 +249,7 @@ switch (ADV_par_opfWeap) do {
 	};
 	default {};
 };
-switch (ADV_par_opfUni) do {
+switch (_par_opfUni) do {
 	case 1: {
 		//RHS EMR-Summer
 		_uniform = ["rhs_uniform_emr_patchless"];
@@ -278,7 +285,7 @@ switch (ADV_par_opfUni) do {
 		_headgear = ["H_Watchcap_cbr","H_Watchcap_camo","H_Booniehat_khk","H_Booniehat_oli","H_Cap_blk","H_Cap_oli","H_Cap_tan","H_Cap_brn_SPECOPS","H_MilCap_ocamo",
 			"H_Cap_headphones","H_ShemagOpen_tan"];
 		_binocular = "Binocular";
-		if (ADV_par_opfWeap == 0 && (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
+		if (_par_opfWeap == 0 && (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 			_primaryWeapon = ["srifle_DMR_06_olive_F","srifle_DMR_06_camo_F"];
 			_optic = ["optic_KHS_old"];
 			_attachments = ["bipod_02_F_blk"];
@@ -296,7 +303,7 @@ switch (ADV_par_opfUni) do {
 		_goggles = "";
 		_useProfileGoggles = 0;
 		_backpack = [""];
-		if (ADV_par_opfWeap == 0 && (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
+		if (_par_opfWeap == 0 && (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 			_primaryWeapon = ["srifle_DMR_06_olive_F","srifle_DMR_06_camo_F"];
 			_optic = ["optic_KHS_old"];
 			_attachments = ["bipod_02_F_blk"];

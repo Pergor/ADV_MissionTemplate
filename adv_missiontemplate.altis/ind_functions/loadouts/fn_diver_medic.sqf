@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -105,7 +112,7 @@ _items = ["NVGoggles_OPFOR"];
 if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 };
 
-if (missionNamespace getVariable ["ADV_par_isTvT",false]) then {
+if (missionNamespace getVariable ["_par_isTvT",false]) then {
 };
 
 	//CustomMod items//
@@ -192,7 +199,7 @@ _scorchItems = ["sc_dogtag"];
 _scorchItemsRandom = [""];
 
 //Addon Content:
-switch (ADV_par_customWeap) do {
+switch (_par_customWeap) do {
 	case 2: {
 		//SELmods
 		_primaryweapon = ["rhs_weap_m4a1_blockII_KAC","rhs_weap_m4a1_blockII"];
@@ -212,7 +219,7 @@ switch (ADV_par_customWeap) do {
 	default {};
 };
 
-switch (ADV_par_indUni) do {
+switch (_par_indUni) do {
 	case 1: {};
 	case 20: {
 		_giveRiflemanRadio = true;

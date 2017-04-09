@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -20,7 +27,7 @@ _uniform = ["U_O_CombatUniform_ocamo"];
 _vest = ["V_HarnessOSpec_brn"];
 _headgear = ["H_HelmetSpecO_blk"];
 _backpack = [""];
-if ( ADV_par_opfNVGs == 1 ) then { _backpack = ["B_AssaultPack_ocamo","B_AssaultPack_cbr"]; };
+if ( _par_opfNVGs == 1 ) then { _backpack = ["B_AssaultPack_ocamo","B_AssaultPack_cbr"]; };
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
@@ -32,11 +39,11 @@ _primaryweapon = "arifle_Katiba_GL_F";
 //primary weapon items - (array)
 _optic = ["optic_Arco"];
 _attachments = [""];
-if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
-if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
+if ( _par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
+if ( _par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H";		//if silencer is added
 
-if (worldName == "TANOA" || ADV_par_opfWeap == 20) then {
+if (worldName == "TANOA" || _par_opfWeap == 20) then {
 	_primaryweapon = ["arifle_CTAR_GL_blk_F"];
 	_silencer = "muzzle_snds_58_blk_F";
 };
@@ -201,7 +208,7 @@ _scorchItems = [""];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 
 //Addon Content:
-switch (ADV_par_opfWeap) do {
+switch (_par_opfWeap) do {
 	case 1: {
 		//RHS
 		_primaryweapon = "rhs_weap_ak74m_gp25";
@@ -253,7 +260,7 @@ switch (ADV_par_opfWeap) do {
 	};
 	default {};
 };
-switch (ADV_par_opfUni) do {
+switch (_par_opfUni) do {
 	case 1: {
 		//RHS EMR-Summer
 		_uniform = ["rhs_uniform_emr_patchless"];
@@ -345,9 +352,9 @@ switch (toUpper ([str (_this select 0),3,13] call BIS_fnc_trimString)) do {
 };
 
 //LRRadios
-if (missionNamespace getVariable ["adv_par_noLRRadios",false]) then { _giveBackpackRadio = false };
-if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = switch (ADV_par_opfUni) do {
+if (missionNamespace getVariable ["_par_noLRRadios",false]) then { _giveBackpackRadio = false };
+if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (_par_opfUni) do {
 		case 1: {["tf_mr3000_rhs"]};
 		case 2: {["tf_mr3000_rhs"]};
 		case 3: {["tf_mr3000_rhs"]};
@@ -357,8 +364,8 @@ if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (ADV_par_Radio
 	};
 };
 
-if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (ADV_par_Radios == 1 || ADV_par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = switch (ADV_par_opfUni) do {
+if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (_par_opfUni) do {
 		case 1: {"rhs_assault_umbts"};
 		case 2: {"rhs_assault_umbts"};
 		case 3: {"rhs_assault_umbts"};

@@ -115,7 +115,7 @@ _itemsLink = [
 _items = [];
 
 //MarksmenDLC-objects:
-if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["_par_DLCContent",1]) > 0 ) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 };
 
 //CustomMod items//

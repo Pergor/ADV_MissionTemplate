@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -20,7 +27,7 @@ _uniform = ["U_O_CombatUniform_ocamo"];
 _vest = ["V_HarnessOSpec_brn"];
 _headgear = ["H_HelmetSpecO_ocamo","H_HelmetO_ocamo"];
 _backpack = [""];
-if ( ADV_par_opfWeap > 0 ) then { _backpack = ["B_AssaultPack_ocamo","B_AssaultPack_cbr"]; };
+if ( _par_opfWeap > 0 ) then { _backpack = ["B_AssaultPack_ocamo","B_AssaultPack_cbr"]; };
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
@@ -32,13 +39,13 @@ _primaryweapon = "LMG_Zafir_F";
 //primary weapon items - (array)
 _optic = ["optic_ACO_grn","optic_ARCO","optic_MRCO","optic_Holosight"];
 _attachments = ["bipod_01_F_blk"];
-if ( ADV_par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
-if ( ADV_par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
+if ( _par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
+if ( _par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [4,0];
-if (worldName == "TANOA" || ADV_par_opfWeap == 20 || ADV_par_opfWeap == 21) then {
+if (worldName == "TANOA" || _par_opfWeap == 20 || _par_opfWeap == 21) then {
 	_primaryweapon = ["arifle_CTARS_blk_F"];
 	_silencer = "muzzle_snds_58_blk_F";
 	_primaryweaponAmmo = [5,0];
@@ -197,7 +204,7 @@ _scorchItems = [""];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 
 //Addon Content:
-switch (ADV_par_opfWeap) do {
+switch (_par_opfWeap) do {
 	case 1: {
 		//RHS
 		[] call {
@@ -260,7 +267,7 @@ switch (ADV_par_opfWeap) do {
 	};
 	default {};
 };
-switch (ADV_par_opfUni) do {
+switch (_par_opfUni) do {
 	case 1: {
 		//RHS EMR-Summer
 		_uniform = ["rhs_uniform_emr_patchless"];
@@ -308,7 +315,7 @@ switch (ADV_par_opfUni) do {
 		_headgear = ["","H_Shemag_olive","H_ShemagOpen_tan","H_ShemagOpen_khk","Afghan_01Hat","Afghan_02Hat","Afghan_03Hat","Afghan_04Hat","Afghan_05Hat","Afghan_06Hat"];
 		_goggles = "";
 		_useProfileGoggles = 0;
-		if ( ADV_par_opfWeap > 0 ) then { _backpack = ["rhs_sidor"]; };
+		if ( _par_opfWeap > 0 ) then { _backpack = ["rhs_sidor"]; };
 		_goggles = "";
 		_useProfileGoggles = 0;
 	};
@@ -317,7 +324,7 @@ switch (ADV_par_opfUni) do {
 		_uniform = ["U_O_T_Soldier_F"];
 		_vest = ["V_HarnessO_ghex_F","V_HarnessO_ghex_F","V_HarnessOSpec_brn","V_TacVest_oli"];
 		_headgear = ["H_HelmetO_ghex_F","H_HelmetSpecO_ghex_F"];
-		if ( ADV_par_opfWeap > 0 && ADV_par_opfWeap < 5 ) then { _backpack = ["B_AssaultPack_rgr"]; };
+		if ( _par_opfWeap > 0 && _par_opfWeap < 5 ) then { _backpack = ["B_AssaultPack_rgr"]; };
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};

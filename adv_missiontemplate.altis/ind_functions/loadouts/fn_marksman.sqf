@@ -1,4 +1,11 @@
-﻿/*
+﻿//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
+];
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+/*
  * Author: Belbo
  *
  * Loadout function
@@ -31,15 +38,15 @@ _primaryweapon = "srifle_EBR_F";
 //primary weapon items - (array)
 _optic = ["optic_SOS"];
 _attachments = ["bipod_01_F_blk"];
-if ( ADV_par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
-if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
+if ( _par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
+if ( _par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_B";		//if silencer is added
 //MarksmenDLC-objects:
 if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 	_primaryWeapon = ["srifle_DMR_03_F"];
 	switch (true) do {
-		case ((toUpper worldname) in ADV_var_aridMaps): {_primaryWeapon append ["srifle_DMR_03_tan_F"]; _optic = ["optic_AMS","optic_AMS_snd"];};
-		case ((toUpper worldname) in ADV_var_lushMaps): {_primaryWeapon append ["srifle_DMR_03_woodland_F","srifle_DMR_03_khaki_F"]; _optic = ["optic_AMS","optic_AMS_khk"];};
+		case ((toUpper worldname) in _var_aridMaps): {_primaryWeapon append ["srifle_DMR_03_tan_F"]; _optic = ["optic_AMS","optic_AMS_snd"];};
+		case ((toUpper worldname) in _var_lushMaps): {_primaryWeapon append ["srifle_DMR_03_woodland_F","srifle_DMR_03_khaki_F"]; _optic = ["optic_AMS","optic_AMS_khk"];};
 		default {_optic = ["optic_AMS"];};
 	};
 };
@@ -196,7 +203,7 @@ _scorchItems = ["sc_dogtag","sc_mre"];
 _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar","","",""];
 
 //Addon Content:
-switch (ADV_par_indWeap) do {
+switch (_par_indWeap) do {
 	case 1: {
 		//Vanilla Mk20
 		_handgun = ["hgun_ACPC2_F"];
@@ -239,7 +246,7 @@ switch (ADV_par_indWeap) do {
 	default {};
 };
 
-switch (ADV_par_indUni) do {
+switch (_par_indUni) do {
 	case 1: {
 	//PMC uniforms
 		_uniform = ["U_IG_Guerrilla_6_1","U_IG_Guerilla2_2","U_IG_Guerilla2_1","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_C_HunterBody_grn","U_Rangemaster","U_C_Poor_1","U_Competitor"];
