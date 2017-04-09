@@ -279,7 +279,7 @@ switch (_par_customWeap) do {
 		_optic = ["CUP_optic_ELCAN_SpecterDR"];
 		if ( _par_NVGs > 0 ) then { _attachments = ["CUP_acc_ANPEQ_15"]; };
 		_silencer = "CUP_muzzle_snds_SCAR_L";		//if silencer is added
-		_primaryweaponAmmo set [1,10];
+		_primaryweaponAmmo set [1,3];
 		_additionalAmmo set [1,0];
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=[];
@@ -291,7 +291,7 @@ switch (_par_customWeap) do {
 		_optic = ["CUP_optic_RCO"];
 		if ( _par_NVGs > 0 ) then { _attachments = ["CUP_acc_ANPEQ_2"]; };
 		_silencer = "CUP_muzzle_snds_M16";		//if silencer is added
-		_primaryweaponAmmo set [1,10];
+		_primaryweaponAmmo set [1,3];
 		_additionalAmmo set [1,0];
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=[""];
@@ -303,7 +303,7 @@ switch (_par_customWeap) do {
 		_optic = ["CUP_optic_SUSAT","CUP_optic_ACOG"];
 		_attachments = [""];
 		_silencer = "CUP_muzzle_snds_L85";		//if silencer is added
-		_primaryweaponAmmo set [1,6];
+		_primaryweaponAmmo set [1,2];
 		_additionalAmmo set [1,0];
 		_handgun="CUP_hgun_Glock17";
 		_itemsHandgun=["CUP_acc_Glock17_Flashlight"];

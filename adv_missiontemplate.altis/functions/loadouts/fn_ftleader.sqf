@@ -280,7 +280,7 @@ switch (_par_customWeap) do {
 	};
 	case 7: {
 		//BAF
-		_primaryweapon = "CUP_arifle_L85A2_GL";
+		_primaryweapon = "CUP_arifle_L85A2";
 		_optic = ["CUP_optic_SUSAT","CUP_optic_ACOG"];
 		_attachments = [""];
 		_silencer = "CUP_muzzle_snds_L85";

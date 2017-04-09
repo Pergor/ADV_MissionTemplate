@@ -112,9 +112,6 @@ _items = ["NVGoggles_OPFOR"];
 if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 };
 
-if (missionNamespace getVariable ["_par_isTvT",false]) then {
-};
-
 	//CustomMod items//
 	
 //TFAR or ACRE radios
@@ -277,27 +274,27 @@ switch (_par_customWeap) do {
 		_primaryweapon = "CUP_arifle_M4A3_desert";
 		_optic = ["CUP_optic_CompM4"];
 		_attachments = ["CUP_acc_ANPEQ_2_camo","CUP_muzzle_snds_M16_camo"];
-		_primaryweaponAmmo = [8,9];
+		_primaryweaponAmmo = [8,0];
 		_additionalAmmo = nil;
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=["CUP_muzzle_snds_M9"];
 	};
 	case 6: {
 		//SELmods CUP M4
-		_primaryweapon = "CUP_arifle_M4A3_desert";
+		_primaryweapon = "CUP_arifle_M4A1_camo";
 		_optic = ["CUP_optic_CompM4"];
 		_attachments = ["CUP_acc_ANPEQ_2_camo","CUP_muzzle_snds_M16_camo"];
-		_primaryweaponAmmo = [8,9];
+		_primaryweaponAmmo = [8,0];
 		_additionalAmmo = nil;
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=["CUP_muzzle_snds_M9"];
 	};
 	case 7: {
 		//BAF
-		_primaryweapon = "CUP_arifle_M4A3_desert";
+		_primaryweapon = "CUP_arifle_M4A1_camo";
 		_optic = ["CUP_optic_CompM4"];
 		_attachments = ["CUP_acc_ANPEQ_2_camo","CUP_muzzle_snds_M16_camo"];
-		_primaryweaponAmmo = [8,9];
+		_primaryweaponAmmo = [8,0];
 		_additionalAmmo = nil;
 		_handgun="CUP_hgun_Glock17";
 		_itemsHandgun=["CUP_acc_Glock17_Flashlight","muzzle_snds_L"];
