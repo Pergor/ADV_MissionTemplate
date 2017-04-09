@@ -82,7 +82,7 @@ ADV_scriptVar_initMoveMarker_jump = {
 //handling of respawned players:
 switch ( missionNamespace getVariable ["ADV_par_moveMarker",2] ) do {
 	case 1: {
-		ADV_handle_moveRespMarker = [120,20,ADV_par_remRespWest] call ADV_fnc_moveRespMarker;
+		ADV_handle_moveRespMarker = [120,20, missionNamespace getVariable ["ADV_par_remRespWest",0]] call ADV_fnc_moveRespMarker;
 	};
 	default {
 		adv_objects_flags call ADV_fnc_flag;
