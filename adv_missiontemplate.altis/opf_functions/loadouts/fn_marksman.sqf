@@ -104,7 +104,7 @@ _itemsLink = [
 _items = [];
 
 //MarksmenDLC-objects:
-if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 	_primaryWeapon = "srifle_DMR_05_blk_F";
 	_optic = ["optic_KHS_blk"];
 	_silencer = "muzzle_snds_93mmg";		//if silencer is added
@@ -278,7 +278,7 @@ switch (ADV_par_opfUni) do {
 		_headgear = ["H_Watchcap_cbr","H_Watchcap_camo","H_Booniehat_khk","H_Booniehat_oli","H_Cap_blk","H_Cap_oli","H_Cap_tan","H_Cap_brn_SPECOPS","H_MilCap_ocamo",
 			"H_Cap_headphones","H_ShemagOpen_tan"];
 		_binocular = "Binocular";
-		if (ADV_par_opfWeap == 0 && (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) ) then {
+		if (ADV_par_opfWeap == 0 && (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 			_primaryWeapon = ["srifle_DMR_06_olive_F","srifle_DMR_06_camo_F"];
 			_optic = ["optic_KHS_old"];
 			_attachments = ["bipod_02_F_blk"];
@@ -296,7 +296,7 @@ switch (ADV_par_opfUni) do {
 		_goggles = "";
 		_useProfileGoggles = 0;
 		_backpack = [""];
-		if (ADV_par_opfWeap == 0 && (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) ) then {
+		if (ADV_par_opfWeap == 0 && (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 			_primaryWeapon = ["srifle_DMR_06_olive_F","srifle_DMR_06_camo_F"];
 			_optic = ["optic_KHS_old"];
 			_attachments = ["bipod_02_F_blk"];

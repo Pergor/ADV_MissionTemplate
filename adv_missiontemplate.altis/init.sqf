@@ -20,10 +20,10 @@ waitUntil {!isNil "ADV_params_defined"};
 if ( isServer ) then {
 	//BIS_initRespawn_disconnect = -1;
 	//time and date:
-	setDate [2016, 8, ADV_par_day, ADV_par_hour, ADV_par_minute];
+	setDate [2016, 8, missionNamespace getVariable ["ADV_par_day",23], missionNamespace getVariable ["ADV_par_hour",6] , missionNamespace getVariable ["ADV_par_minute",0]];
 
 	//randomweather:
-	if (ADV_par_randomWeather != 99) then {
+	if !( (missionNamespace getVariable ["ADV_par_randomWeather",99]) isEqualTo 99 ) then {
 		ADV_handle_randomWeather = [] spawn MtB_fnc_randomWeather;
 	};
 	
@@ -47,7 +47,7 @@ if ( isServer ) then {
 	
 	/*	
 	//dead body and vehicle removery
-	if (ADV_par_headlessClient != 1) then {
+	if !( (missionNamespace getVariable ["ADV_par_headlessClient",1]) isEqualTo 1 ) then {
 		ADV_handle_cleanUp = [
 			10*60,	// seconds to delete dead bodies (0 means don't delete) 
 			15*60,	// seconds to delete dead vehicles (0 means don't delete)
@@ -62,7 +62,7 @@ if ( isServer ) then {
 	{ _x setVariable ["birdType",""]; _x setVariable ["showNotification",false]; [_x, [-1, -2, 2]] call bis_fnc_setCuratorVisionModes; nil;} count allCurators;
 
 	//sets ownership of the units to either zeus or the HC:
-	if ( ADV_par_headlessClient == 1 && !(missionnamespace getVariable ["ace_zeus_autoAddObjects",false]) ) then {
+	if ( (missionNamespace getVariable ["ADV_par_headlessClient",1]) isEqualTo 1 && !(missionnamespace getVariable ["ace_zeus_autoAddObjects",false]) ) then {
 		[] spawn {
 			waitUntil {time > 1};
 			ADV_handle_zeusObjects = [true] call ADV_fnc_zeusObjects;
@@ -86,7 +86,7 @@ if ( isServer ) then {
 	adv_handle_emptyGroupsDeleter = addMissionEventHandler ["EntityKilled",{_grp = group (_this select 0);if ( count (units _grp) == 0 ) then { deleteGroup _grp };}];
 	
 	//spawns large crate right at the beginning:
-	if (ADV_par_logisticTeam > 1) then {
+	if ( (missionNamespace getVariable ["ADV_par_logisticTeam",1]) > 1 ) then {
 		if !(getMarkerPos "ADV_locationCrateLarge" isEqualTo [0,0,0]) then {
 			["ADV_LOGISTIC_CRATELARGE",true,west] call adv_fnc_dialogLogistic;
 		};
@@ -104,7 +104,7 @@ if ( hasInterface ) then {
 };
 
 //mission dramaturgy (will be executed on server as long as HC param is not selected. If HC param is selected it will be executed on HC only)
-if (ADV_par_headlessClient == 2) then {
+if ( (missionNamespace getVariable ["ADV_par_headlessClient",1]) isEqualTo 2 ) then {
 	//Werthles Headless Client, script version:
 	//ADV_handle_werthles = [true, 30, false, false, 30, 3, false, []] spawn compile preprocessFileLineNumbers "scripts\WerthlesHeadless.sqf";
 	if !(isServer || hasInterface) then {
@@ -117,7 +117,7 @@ if (ADV_par_headlessClient == 2) then {
 };
 
 //engine artillery
-if (ADV_par_engineArtillery == 1) then {
+if ( (missionNamespace getVariable ["ADV_par_engineArtillery",0]) isEqualTo 1) then {
 	enableEngineArtillery false;
 };
 

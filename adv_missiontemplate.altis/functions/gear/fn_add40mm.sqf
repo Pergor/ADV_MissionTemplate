@@ -22,10 +22,10 @@ params [
 //mission variables and parameters:
 private [
 	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
-	,"_par_tablets","_par_radios","_par_TIEquipment","_par_invinciZeus","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps"
-	,"_par_customLoad"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
 ];
-call adv_fnc_loadoutVariables;
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 
 if (isNil "_40mmHeGrenadesAmmo") then {_40mmHeGrenadesAmmo = 0;};
 if (isNil "_40mmSmokeGrenadesWhite") then {_40mmSmokeGrenadesWhite = 0;};

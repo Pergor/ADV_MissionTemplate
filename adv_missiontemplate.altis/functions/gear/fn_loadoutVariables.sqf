@@ -37,8 +37,6 @@ _par_opfSilencers = missionNamespace getVariable ["adv_par_opfSilencers",0];
 
 _par_tablets = missionNamespace getVariable ["adv_par_tablets",1];
 _par_radios = missionNamespace getVariable ["adv_par_radios",1];
-_par_TIEquipment = missionNamespace getVariable ["adv_par_TIEquipment",0];
-_par_invinciZeus = missionNamespace getVariable ["adv_par_invinciZeus",0];
 
 _par_ace_medical_GivePAK = missionNamespace getVariable ["adv_par_ace_medical_GivePAK",1];
 
@@ -47,4 +45,10 @@ _var_saridMaps = missionNamespace getVariable ["adv_var_saridMaps",[]];
 _var_lushMaps = missionNamespace getVariable ["adv_var_lushMaps",[]];
 _var_europeMaps = missionNamespace getVariable ["adv_var_europeMaps",[]];
 
-true;
+_par_TIEquipment = missionNamespace getVariable ["adv_par_TIEquipment",0];
+_par_invinciZeus = missionNamespace getVariable ["adv_par_invinciZeus",0];
+_par_logisticAmount = missionNamespace getVariable ["adv_par_logisticAmount",0];
+
+_loadoutVariables = true;
+
+_loadoutVariables;

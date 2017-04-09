@@ -16,7 +16,7 @@ call adv_fnc_collectFlags;
 
 //waitUntil-player is initialized:
 waitUntil {player == player && !isNil "ADV_params_defined"};
-if (adv_par_customLoad > 0) then {
+if ( (missionNamespace getVariable ["adv_par_customLoad",1]) > 0 ) then {
 	player unlinkItem "ItemRadio";
 };
 
@@ -30,7 +30,7 @@ if (isMultiplayer) then {
 };
 
 //randomweather:
-if (ADV_par_randomWeather != 99) then {
+if !( (missionNamespace getVariable ["ADV_par_randomWeather",99]) isEqualTo 99 ) then {
 	ADV_handle_randomWeather = [] spawn MtB_fnc_randomWeather;
 };
 
@@ -52,7 +52,7 @@ waitUntil {time > 0};
 [] call TAWVD_fnc_updateViewDistance;
 
 //logistics menu
-if ( ADV_par_logisticAmount > 0 ) then {
+if ( (missionNamespace getVariable ["ADV_par_logisticAmount",99]) > 0 ) then {
 	{ nul = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == west",5]; nil; } count adv_objects_westFlags;
 	{ nul = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == east",5]; nil; } count adv_objects_eastFlags;
 	{ nul = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == independent",5]; nil; } count adv_objects_indFlags;
@@ -62,7 +62,7 @@ ADV_objects_clearCargo call adv_fnc_gearsaving;
 //ADV_objects_gearSaving call adv_fnc_gearloading;
 
 //disable fatigue if wanted:
-if (ADV_par_fatigue == 0) then {
+if ( (missionNamespace getVariable ["ADV_par_fatigue",1]) isEqualTo 0 ) then {
 	player enableFatigue false;
 	player enableStamina false;
 	ADV_fatigue_EVH = player addEventhandler ["Respawn", {player enableFatigue false; player enableStamina false;}]; 
@@ -80,7 +80,7 @@ ADV_scriptVar_initMoveMarker_jump = {
 };
 */
 //handling of respawned players:
-switch ( ADV_par_moveMarker ) do {
+switch ( missionNamespace getVariable ["ADV_par_moveMarker",2] ) do {
 	case 1: {
 		ADV_handle_moveRespMarker = [120,20,ADV_par_remRespWest] call ADV_fnc_moveRespMarker;
 	};
@@ -101,9 +101,9 @@ switch ( ADV_par_moveMarker ) do {
 if (!isNil "BriefingBoard1") then {[BriefingBoard1] call ADV_fnc_board;};
 if (!isNil "opf_BriefingBoard1") then {[opf_BriefingBoard1] call ADV_fnc_board;};
 if (!isNil "ind_BriefingBoard1") then {[ind_BriefingBoard1] call ADV_fnc_board;};
-if (ADV_par_ChooseLoad == 1) then {
+if ( (missionNamespace getVariable ["ADV_par_ChooseLoad",1]) isEqualTo 1 ) then {
 	if (!isNil "BriefingBoard1") then {
-			ADV_handle_chooseLoadoutAction = BriefingBoard1 addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,true,true,"","side player == west",5];
+		ADV_handle_chooseLoadoutAction = BriefingBoard1 addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,true,true,"","side player == west",5];
 	};
 	if (!isNil "opf_BriefingBoard1") then {
 		ADV_handle_chooseLoadoutAction_opf = opf_BriefingBoard1 addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,true,true,"","side player == east",5];

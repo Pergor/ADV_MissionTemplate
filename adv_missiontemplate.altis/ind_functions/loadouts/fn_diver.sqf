@@ -102,7 +102,7 @@ _itemsLink = [
 _items = ["NVGoggles_OPFOR"];
 
 //MarksmenDLC-objects:
-if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 };
 
 if (missionNamespace getVariable ["ADV_par_isTvT",false]) then {

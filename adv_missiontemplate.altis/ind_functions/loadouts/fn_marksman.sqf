@@ -35,7 +35,7 @@ if ( ADV_par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( ADV_par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_B";		//if silencer is added
 //MarksmenDLC-objects:
-if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && ADV_par_DLCContent == 1) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 	_primaryWeapon = ["srifle_DMR_03_F"];
 	switch (true) do {
 		case ((toUpper worldname) in ADV_var_aridMaps): {_primaryWeapon append ["srifle_DMR_03_tan_F"]; _optic = ["optic_AMS","optic_AMS_snd"];};
@@ -230,7 +230,7 @@ switch (ADV_par_indWeap) do {
 	};
 	case 21: {
 		//APEX AK
-		if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
+		if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 			_primaryWeapon = "srifle_DMR_06_olive_F";
 			_optic = ["optic_KHS_old"];
 			_silencer = "";		//if silencer is added

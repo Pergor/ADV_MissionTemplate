@@ -20,10 +20,10 @@ if (!isServer) exitWith {};
 //mission variables and parameters:
 private [
 	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
-	,"_par_tablets","_par_radios","_par_TIEquipment","_par_invinciZeus","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps"
-	,"_par_customLoad"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps","_par_invinciZeus","_par_customLoad","_par_logisticAmount"
+	,"_loadoutVariables"
 ];
-call adv_fnc_loadoutVariables;
+if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 
 {
 	private _target = _x;
@@ -54,8 +54,16 @@ call adv_fnc_loadoutVariables;
 	};
 	_target addItemCargoGlobal ["ToolKit",2];
 	
-	if ( _par_radios > 0 && isClass (configFile >> "CfgPatches" >> "task_force_radio") ) then {
-		_target addItemCargoGlobal [TFAR_defaultWestPersonalRadio,1];
+	if ( _par_radios > 0 ) then {
+		call {
+			if ( isClass (configFile >> "CfgPatches" >> "tfar_core") ) exitWith {
+				_target addItemCargoGlobal [TFAR_DefaultRadio_Personal_West,1];
+			};
+			if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) exitWith {
+				_target addItemCargoGlobal [TF_defaultWestPersonalRadio,1];
+			};
+			_target addItemCargoGlobal ["ItemRadio",1];
+		};
 	};
 	
 	if ( _par_tablets == 1 && isClass (configFile >> "CfgPatches" >> "cTab") ) then {

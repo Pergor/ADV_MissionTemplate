@@ -109,7 +109,7 @@ _itemsLink = [
 _items = ["NVGoggles_OPFOR"];
 
 //MarksmenDLC-objects:
-if (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) then {
+if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 	_uniform = switch (true) do {
 		case ((toUpper worldname) == "ALTIS"): {["U_O_FullGhillie_ard","U_O_FullGhillie_sard"]};
 		case ((toUpper worldname) == "TANOA"): {["U_O_T_FullGhillie_tna_F"]};

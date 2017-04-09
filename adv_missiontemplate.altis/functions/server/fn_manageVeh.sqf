@@ -94,16 +94,16 @@ ADV_veh_light = ADV_veh_ATVs+ADV_veh_UGVs+ADV_veh_UGVs_repair+ADV_veh_car+ADV_ve
 ADV_veh_all = ADV_veh_light+ADV_veh_armored+ADV_veh_air;
 
 //removes the markers according to the lobby params
-if (ADV_par_Assets_cars == 0 || ADV_par_Assets_cars == 99 || ADV_par_modCarAssets == 99) then {
+if ( ADV_par_Assets_cars == 0 || ADV_par_Assets_cars == 99 || ADV_par_modCarAssets == 99 ) then {
 	{_x setMarkerAlpha 0;} count _veh_lightMarkers
 };
-if (ADV_par_Assets_tanks == 0 || ADV_par_Assets_tanks == 99 ||ADV_par_modTankAssets == 99) then {
+if ( ADV_par_Assets_tanks == 0 || ADV_par_Assets_tanks == 99 ||ADV_par_modTankAssets == 99 ) then {
 	{_x setMarkerAlpha 0;} count _veh_heavyMarkers;
 };
-if (ADV_par_Assets_air_helis == 0 || ADV_par_Assets_air_helis == 99 || ADV_par_modHeliAssets == 99) then {
+if ( ADV_par_Assets_air_helis == 0 || ADV_par_Assets_air_helis == 99 || ADV_par_modHeliAssets == 99 ) then {
 	{_x setMarkerAlpha 0;} count _veh_heliMarkers;
 };
-if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_par_Assets_air_fixed == 99 && ADV_par_Assets_air_helis == 99) || ADV_par_modAirAssets == 99) then {
+if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_par_Assets_air_fixed == 99 && ADV_par_Assets_air_helis == 99) || ADV_par_modAirAssets == 99 ) then {
 	{_x setMarkerAlpha 0;} count _veh_fixedMarkers;
 };
 
@@ -112,22 +112,22 @@ adv_manageVeh_codeForAll = {
 	_veh = _this;
 	private _isChanged = _veh getVariable ["adv_var_vehicleIsChanged",false];
 	_veh setVariable ["adv_var_vehicleIsChanged",_isChanged,true];
-	if (ADV_par_customLoad > 0) then {
+	if ( (missionNamespace getVariable ["adv_par_customLoad",1]) > 0 ) then {
 		[_veh] call ADV_fnc_clearCargo;
 		sleep 0.2;
 		[_veh] call ADV_fnc_addVehicleLoad;
 	};
 	[_veh] call ADV_fnc_disableVehSelector;
-	if (ADV_par_engineArtillery == 1 && str _veh in ADV_veh_artys) then {
+	if ( (missionNamespace getVariable ["ADV_par_engineArtillery",0]) isEqualTo 1 && str _veh in ADV_veh_artys) then {
 		[_veh] call ADV_fnc_showArtiSetting;
 	};
-	if (ADV_par_TIEquipment > 0) then {
+	if ( (missionNamespace getVariable ["ADV_par_TIEquipment",0]) > 0 ) then {
 		_veh disableTIEquipment true;
-		if (ADV_par_TIEquipment > 2) then {
+		if ( (missionNamespace getVariable ["ADV_par_TIEquipment",0]) > 2 ) then {
 			_veh disableNVGEquipment true;
 		};
 	};
-	if ( ADV_par_Radios > 0 && (_veh isKindOf 'CAR' || _veh isKindOf 'TANK' || _veh isKindOf 'AIR') && !(_veh isKindOf "Quadbike_01_base_F") ) then {
+	if ( (missionNamespace getVariable ["ADV_par_Radios",1]) > 0 && (_veh isKindOf 'CAR' || _veh isKindOf 'TANK' || _veh isKindOf 'AIR') && !(_veh isKindOf "Quadbike_01_base_F") ) then {
 		_veh setVariable ["tf_side", west, true];
 		_veh setVariable ["tf_hasRadio", true, true];
 		
@@ -151,8 +151,8 @@ adv_manageVeh_codeForAll = {
 	};
 	[_veh] call adv_fnc_retexture;
 	
-	if !( ADV_par_vehicleRespawn isEqualTo 9999 ) then {
-		[_veh,ADV_par_vehicleRespawn, west] call ADV_fnc_respawnVeh;
+	if !( (missionNamespace getVariable ["ADV_par_vehicleRespawn",300]) isEqualTo 9999 ) then {
+		[_veh, missionNamespace getVariable ["ADV_par_vehicleRespawn",300] , west] call ADV_fnc_respawnVeh;
 	};
 };
 
@@ -165,16 +165,16 @@ adv_manageVeh_codeForAll = {
 	nil;
 } count ADV_veh_all;
 
-if (ADV_par_TIEquipment == 2 || ADV_par_TIEquipment == 4) then {
+if ( (missionNamespace getVariable ["ADV_par_TIEquipment",0]) isEqualTo 2 || (missionNamespace getVariable ["ADV_par_TIEquipment",0]) isEqualTo 4 ) then {
 	[] spawn ADV_fnc_disableTI;
 };
 
 //replaces MRAPS with mod cars:
-switch (ADV_par_modCarAssets) do {
+switch ( missionNamespace getVariable ["ADV_par_modCarAssets",0] ) do {
 	//BW-Fahrzeuge
 	case 1: {
 		[] call {
-			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_MRAPs,["Fennek_Tropen","BWA3_Eagle_Tropen"],west] spawn ADV_fnc_changeVeh;
 				[ADV_veh_MRAPsHMG,["CUP_B_Dingo_Ger_Des","BWA3_Eagle_FLW100_Tropen"],west] spawn ADV_fnc_changeVeh;[ADV_veh_MRAPsGMG,["CUP_B_Dingo_GL_Ger_Des"],west] spawn ADV_fnc_changeVeh;
 			};
@@ -188,7 +188,7 @@ switch (ADV_par_modCarAssets) do {
 	//CUP BAF
 	case 3: {
 		[] call {
-			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_MRAPs,["CUP_B_LR_Transport_GB_D"],west] spawn ADV_fnc_changeVeh;
 				[ADV_veh_MRAPsHMG,["CUP_B_LR_Special_M2_GB_D","CUP_B_Jackal2_L2A1_GB_D","CUP_B_BAF_Coyote_L2A1_D","CUP_B_Ridgback_LMG_GB_D"],west] spawn ADV_fnc_changeVeh;
 			};
@@ -203,7 +203,7 @@ switch (ADV_par_modCarAssets) do {
 	//RHS ARMY desert
 	case 5: {
 		[] call {
-			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_MRAPs,["rhsusf_m1025_d","rhsusf_m1025_d","rhsusf_m998_d_4dr"],west] spawn ADV_fnc_changeVeh;
 				[ADV_veh_MRAPsHMG,["rhsusf_m1025_d_m2"],west] spawn ADV_fnc_changeVeh;
 				[ADV_veh_MRAPsGMG,["rhsusf_m1025_d_Mk19"],west] spawn ADV_fnc_changeVeh;
@@ -224,7 +224,7 @@ switch (ADV_par_modCarAssets) do {
 	//RHS Marines
 	case 8: {
 		[] call {
-			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_MRAPs,["rhsusf_m1025_d_s","rhsusf_m1025_d_s","rhsusf_m998_d_s_4dr"],west] spawn ADV_fnc_changeVeh;
 				[ADV_veh_MRAPsHMG,["rhsusf_m1025_d_s_m2"],west] spawn ADV_fnc_changeVeh;
 				[ADV_veh_MRAPsGMG,["rhsusf_m1025_d_s_Mk19"],west] spawn ADV_fnc_changeVeh;
@@ -249,7 +249,7 @@ switch (ADV_par_modCarAssets) do {
 };
 
 //replaces trucks with mod trucks:
-switch (ADV_par_modTruckAssets) do {
+switch ( missionNamespace getVariable ["ADV_par_modTruckAssets",0] ) do {
 	//DAR MTVR
 	case 1: {
 		[ADV_veh_transport,["DAR_MK27","DAR_MK27T"],west] spawn ADV_fnc_changeVeh;
@@ -260,7 +260,7 @@ switch (ADV_par_modTruckAssets) do {
 	//CUP MTVR
 	case 6: {
 		[] call {
-			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_transport,["CUP_B_MTVR_USA"],west] spawn ADV_fnc_changeVeh;
 				[ADV_veh_logistic_fuel,["CUP_B_MTVR_Refuel_USA"],west] spawn ADV_fnc_changeVeh;
 				[ADV_veh_logistic_repair,["CUP_B_MTVR_Repair_USA"],west] spawn ADV_fnc_changeVeh;
@@ -277,7 +277,7 @@ switch (ADV_par_modTruckAssets) do {
 	//RHS Army
 	case 2: {
 		[] call {
-			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_transport,["rhsusf_M1083A1P2_d_fmtv_usarmy","rhsusf_M1083A1P2_B_d_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_d_fmtv_usarmy"],west] spawn ADV_fnc_changeVeh;
 				[ADV_veh_logistic_repair,["rhsusf_M977A4_REPAIR_usarmy_d","rhsusf_M977A4_REPAIR_BKIT_usarmy_d","rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_d"],west] spawn ADV_fnc_changeVeh;
 				[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_usarmy_d","rhsusf_M977A4_AMMO_BKIT_usarmy_d","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_d"],west] spawn ADV_fnc_changeVeh;
@@ -295,7 +295,7 @@ switch (ADV_par_modTruckAssets) do {
 	//CUP BAF
 	case 4: {
 		[] call {
-			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_transport,["CUP_B_BAF_Coyote_L2A1_D"],west] spawn ADV_fnc_changeVeh;
 			};
 			[ADV_veh_transport,["CUP_B_BAF_Coyote_L2A1_W"],west] spawn ADV_fnc_changeVeh;
@@ -312,11 +312,11 @@ switch (ADV_par_modTruckAssets) do {
 };
 
 //replaces heavy vehicles with mod vehicles:
-switch (ADV_par_modHeavyAssets) do {
+switch ( missionNamespace getVariable ["ADV_par_modHeavyAssets",0] ) do {
 	//BWmod
 	case 1: {
 		[] call {
-			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_heavys,["BWA3_Puma_Tropen"],west] spawn ADV_fnc_changeVeh;
 			};
 			[ADV_veh_heavys,["BWA3_Puma_Fleck"],west] spawn ADV_fnc_changeVeh;
@@ -327,14 +327,14 @@ switch (ADV_par_modHeavyAssets) do {
 	//Stryker
 	case 3: {
 		[] call {
-			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_heavys,["CUP_B_M1126_ICV_M2_Desert_Slat","CUP_B_M1126_ICV_M2_Desert"],west] spawn ADV_fnc_changeVeh;
-				if (ADV_par_modTruckAssets isEqualTo 0) then {
+				if ( (missionNamespace getVariable ["ADV_par_modTruckAssets",0]) isEqualTo 0 ) then {
 					[ADV_veh_logistic_medic,["CUP_B_M1133_MEV_Desert","CUP_B_M1133_MEV_Desert_Slat"],west] spawn ADV_fnc_changeVeh;
 				};
 			};
 			[ADV_veh_heavys,["CUP_B_M1126_ICV_M2_Woodland_Slat","CUP_B_M1126_ICV_M2_Woodland"],west] spawn ADV_fnc_changeVeh;
-			if (ADV_par_modTruckAssets isEqualTo 0) then {
+			if ( (missionNamespace getVariable ["ADV_par_modTruckAssets",0]) isEqualTo 0 ) then {
 				[ADV_veh_logistic_medic,["CUP_B_M1133_MEV_Woodland","CUP_B_M1133_MEV_Woodland_Slat"],west] spawn ADV_fnc_changeVeh;
 			};
 		};
@@ -364,20 +364,20 @@ switch (ADV_par_modHeavyAssets) do {
 	//RHS Bradleys
 	case 8: {
 		[] call {
-			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_heavys,["RHS_M2A2","RHS_M2A2_BUSKI","RHS_M2A3","RHS_M2A3_BUSKI","RHS_M2A3_BUSKIII"],west] spawn ADV_fnc_changeVeh;
-				if (ADV_par_modTruckAssets isEqualTo 0) then {
+				if ( (missionNamespace getVariable ["ADV_par_modTruckAssets",0]) isEqualTo 0 ) then {
 					[ADV_veh_logistic_ammo,["rhsusf_m113d_usarmy_supply"],west] spawn ADV_fnc_changeVeh;
 				};
-				if (ADV_par_modTruckAssets isEqualTo 2) then {
+				if ( (missionNamespace getVariable ["ADV_par_modTruckAssets",0]) isEqualTo 2 ) then {
 					[ADV_veh_logistic_medic,["rhsusf_m113d_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
 				};
 			};
 			[ADV_veh_heavys,["RHS_M2A2_wd","RHS_M2A2_BUSKI_WD","RHS_M2A3_wd","RHS_M2A3_BUSKI_wd","RHS_M2A3_BUSKIII_wd"],west] spawn ADV_fnc_changeVeh;
-			if (ADV_par_modTruckAssets isEqualTo 0) then {
+				if ( (missionNamespace getVariable ["ADV_par_modTruckAssets",0]) isEqualTo 0 ) then {
 				[ADV_veh_logistic_ammo,["rhsusf_m113_usarmy_supply"],west] spawn ADV_fnc_changeVeh;
 			};
-			if (ADV_par_modTruckAssets isEqualTo 2) then {
+			if ( (missionNamespace getVariable ["ADV_par_modTruckAssets",0]) isEqualTo 2 ) then {
 				[ADV_veh_logistic_medic,["rhsusf_m113_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
 			};
 		};
@@ -385,14 +385,14 @@ switch (ADV_par_modHeavyAssets) do {
 	//RHS M113
 	case 9: {
 		[] call {
-			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_heavys,["rhsusf_m113d_usarmy","rhsusf_m113d_usarmy_M240","rhsusf_m113d_usarmy_MK19"],west] spawn ADV_fnc_changeVeh;
-				if (ADV_par_modTruckAssets isEqualTo 2) then {
+				if ( (missionNamespace getVariable ["ADV_par_modTruckAssets",0]) isEqualTo 2 ) then {
 					[ADV_veh_logistic_medic,["rhsusf_m113d_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
 				};
 			};
 			[ADV_veh_heavys,["rhsusf_m113_usarmy","rhsusf_m113_usarmy_M240","rhsusf_m113_usarmy_MK19"],west] spawn ADV_fnc_changeVeh;
-			if (ADV_par_modTruckAssets isEqualTo 2) then {
+			if ( (missionNamespace getVariable ["ADV_par_modTruckAssets",0]) isEqualTo 2 ) then {
 				[ADV_veh_logistic_medic,["rhsusf_m113_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
 			};
 		};
@@ -400,14 +400,14 @@ switch (ADV_par_modHeavyAssets) do {
 	//RHS MRAPs
 	case 10: {
 		[] call {
-			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_heavys,["rhsusf_M1232_M2_usarmy_d","rhsusf_M1237_M2_usarmy_d"],west] spawn ADV_fnc_changeVeh;
-				if (ADV_par_modTruckAssets isEqualTo 2) then {
+				if ( (missionNamespace getVariable ["ADV_par_modTruckAssets",0]) isEqualTo 2 ) then {
 					[ADV_veh_logistic_medic,["rhsusf_m113d_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
 				};
 			};
 			[ADV_veh_heavys,["rhsusf_M1232_M2_usarmy_wd","rhsusf_M1237_M2_usarmy_wd"],west] spawn ADV_fnc_changeVeh;
-			if (ADV_par_modTruckAssets isEqualTo 2) then {
+			if ( (missionNamespace getVariable ["ADV_par_modTruckAssets",0]) isEqualTo 2 ) then {
 				[ADV_veh_logistic_medic,["rhsusf_m113_usarmy_medical"],west] spawn ADV_fnc_changeVeh;
 			};
 		};
@@ -426,11 +426,11 @@ switch (ADV_par_modHeavyAssets) do {
 };
 
 //replaces tanks with mod tanks:
-switch (ADV_par_modTankAssets) do {
+switch ( missionNamespace getVariable ["ADV_par_modTankAssets",0] ) do {
 	//BWmod Leopard sand
 	case 1: {
 		[] call {
-			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_tanks,["BWA3_Leopard2A6M_Tropen"],west] spawn ADV_fnc_changeVeh;
 			};
 			[ADV_veh_tanks,["BWA3_Leopard2A6M_Fleck"],west] spawn ADV_fnc_changeVeh;
@@ -443,7 +443,7 @@ switch (ADV_par_modTankAssets) do {
 	//RHS m109
 	case 4: {
 		[] call {
-			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_tanks,["rhsusf_m1a1fep_d","rhsusf_m1a1aimd_usarmy","rhsusf_m1a1aim_tuski_d","rhsusf_m1a2sep1d_usarmy","rhsusf_m1a2sep1tuskid_usarmy","rhsusf_m1a2sep1tuskiid_usarmy"],west] spawn ADV_fnc_changeVeh;[ADV_veh_artys,["rhsusf_m109d_usarmy"],west] spawn ADV_fnc_changeVeh;
 			};
 			[ADV_veh_tanks,["rhsusf_m1a1fep_wd","rhsusf_m1a1fep_od","rhsusf_m1a1aimwd_usarmy","rhsusf_m1a1aim_tuski_wd","rhsusf_m1a2sep1wd_usarmy","rhsusf_m1a2sep1tuskiwd_usarmy","rhsusf_m1a2sep1tuskiiwd_usarmy"],west] spawn ADV_fnc_changeVeh;[ADV_veh_artys,["rhsusf_m109_usarmy"],west] spawn ADV_fnc_changeVeh;
@@ -453,7 +453,7 @@ switch (ADV_par_modTankAssets) do {
 	//RHS m119
 	case 6: {
 		[] call {
-			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_tanks,["rhsusf_m1a1fep_d","rhsusf_m1a1aimd_usarmy","rhsusf_m1a1aim_tuski_d","rhsusf_m1a2sep1d_usarmy","rhsusf_m1a2sep1tuskid_usarmy","rhsusf_m1a2sep1tuskiid_usarmy"],west] spawn ADV_fnc_changeVeh;[ADV_veh_artys,["RHS_M119_D"],west] spawn ADV_fnc_changeVeh;
 			};
 			[ADV_veh_tanks,["rhsusf_m1a1fep_wd","rhsusf_m1a1fep_od","rhsusf_m1a1aimwd_usarmy","rhsusf_m1a1aim_tuski_wd","rhsusf_m1a2sep1wd_usarmy","rhsusf_m1a2sep1tuskiwd_usarmy","rhsusf_m1a2sep1tuskiiwd_usarmy"],west] spawn ADV_fnc_changeVeh;[ADV_veh_artys,["RHS_M119_WD"],west] spawn ADV_fnc_changeVeh;
@@ -463,7 +463,7 @@ switch (ADV_par_modTankAssets) do {
 	//Burne's M1A2 sand
 	case 8: {
 		[] call {
-			if ((toUpper worldname) in ADV_var_aridMaps) exitWith {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_tanks,["Burnes_M1A2_MEU_02_Public"],west] spawn ADV_fnc_changeVeh;
 			};
 			[ADV_veh_tanks,["Burnes_M1A2_MEU_01_Public"],west] spawn ADV_fnc_changeVeh;
@@ -477,7 +477,7 @@ switch (ADV_par_modTankAssets) do {
 };
 
 //replaces helis with mod helis:
-switch (ADV_par_modHeliAssets) do {
+switch ( missionNamespace getVariable ["ADV_par_modHeliAssets",0] ) do {
 	//BWHelis
 	case 1: {
 		[ADV_veh_airTransport,["BW_NH90Armed","BW_NH90Armed","BW_NH90Armed","BW_NH90","CUP_B_UH1D_GER_KSK","CUP_B_UH1D_GER_KSK"],west] spawn ADV_fnc_changeVeh;
@@ -508,7 +508,7 @@ switch (ADV_par_modHeliAssets) do {
 };
 
 //replaces planes with mod planes:
-switch (ADV_par_modAirAssets) do {
+switch ( missionNamespace getVariable ["ADV_par_modAirAssets",0] ) do {
 	//FA18E
 	case 1: {[ADV_veh_airCAS,["JS_JC_FA18E"],west] spawn ADV_fnc_changeVeh;};
 	//FA18F
@@ -516,7 +516,7 @@ switch (ADV_par_modAirAssets) do {
 	//AV8B Hawker Harrier
 	case 3: {
 		call {
-			if !(ADV_par_customUni isEqualTo 6 || ADV_par_modHeliAssets isEqualTo 2) exitWith {
+			if !( (missionNamespace getVariable ["ADV_par_customUni",0]) isEqualTo 6 || (missionNamespace getVariable ["ADV_par_modHeliAssets",0]) isEqualTo 2) exitWith {
 				[ADV_veh_airCAS,["CUP_B_AV8B_Mk82_USMC","CUP_B_AV8B_AGM_USMC","CUP_B_AV8B_CAP_USMC"],west] spawn ADV_fnc_changeVeh;
 			};
 			[ADV_veh_airCAS,["CUP_B_GR9_Mk82_GB","CUP_B_GR9_AGM_GB","CUP_B_GR9_CAP_GB"],west] spawn ADV_fnc_changeVeh;
@@ -536,11 +536,11 @@ switch (ADV_par_modAirAssets) do {
 	default {};
 };
 call {
-	if (ADV_par_modAirAssets isEqualTo 4 || ADV_par_modAirAssets isEqualTo 5) exitWith {
+	if ( (missionNamespace getVariable ["ADV_par_modAirAssets",0]) isEqualTo 4 || (missionNamespace getVariable ["ADV_par_modAirAssets",0]) isEqualTo 5) exitWith {
 		[ADV_veh_airC130,["RHS_C130J"],west] spawn ADV_fnc_changeVeh;
 	};
-	if (ADV_par_modAirAssets isEqualTo 3 || ADV_par_modAirAssets isEqualTo 7 || ADV_par_modHeliAssets isEqualTo 2) exitWith {
-		if (ADV_par_customUni isEqualTo 6 || ADV_par_modHeliAssets isEqualTo 2) exitWith {
+	if ( (missionNamespace getVariable ["ADV_par_modAirAssets",0]) isEqualTo 3 || (missionNamespace getVariable ["ADV_par_modAirAssets",0]) isEqualTo 7 || (missionNamespace getVariable ["ADV_par_modHeliAssets",0]) isEqualTo 2 ) exitWith {
+		if ( (missionNamespace getVariable ["ADV_par_customUni",0]) isEqualTo 6 || (missionNamespace getVariable ["ADV_par_modHeliAssets",0]) isEqualTo 2 ) exitWith {
 			[ADV_veh_airC130,["CUP_B_C130J_GB"],west] spawn ADV_fnc_changeVeh;
 		};
 		[ADV_veh_airC130,["CUP_B_C130J_USMC"],west] spawn ADV_fnc_changeVeh;
