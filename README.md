@@ -7,7 +7,8 @@ The licence.txt MUST NOT be removed from the mission folder.
 If you want to build a mission on the base of the ADV-Mission Template, you'll have to edit the following files first:
 
 	ADV_credits.sqf: Put your name in ADV_missionAuthor = "[SeL] Belbo // Adrian";
-	mission\ADV_defines.hpp: Edit to your liking. You have to change the following: MISSIONAUTHOR, MISSIONNAME and MISSIONPLAYERS
+	mission\ADV_defines.hpp: Edit to your liking.
+		You HAVE to change the following: MISSIONAUTHOR, MISSIONNAME and MISSIONPLAYERS
 
 If you want to execute code from init.sqf or initPlayerLocal.sqf add your code to the files mission\init_custom.sqf or mission\initPlayerLocal_custom.sqf instead.
 
