@@ -16,17 +16,24 @@
  */
 
 if (!isServer) exitWith {};
-private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediKit"];
+
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_invinciZeus","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps"
+	,"_par_customLoad"
+];
+call adv_fnc_loadoutVariables;
 
 {
-	_target = _x;
+	private _target = _x;
 	//makes the crates indestructible:
 	_target allowDamage false;
 	
 	//weapons & ammo
 	switch (true) do {
 		//SeL RHS
-		case ( ADV_par_indWeap == 2 || ( ADV_par_indWeap == 3 && isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) ): {
+		case ( _par_indWeap == 2 || ( _par_indWeap == 3 && isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) ): {
 			_target addWeaponCargoGlobal ["rhs_weap_fim92",1];
 			_target addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
 			_target addMagazineCargoGlobal ["rhs_fim92_mag",3];
@@ -38,7 +45,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 		};
 	};
 	//grenades
-	switch (ADV_par_indWeap) do {
+	switch (_par_indWeap) do {
 		case 2: {
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",2];
 		};
@@ -46,7 +53,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			_target addMagazineCargoGlobal ["SmokeShell",2];
 		};
 	};
-	if (ADV_par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
+	if (_par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
 		_target addMagazineCargoGlobal ["I_IR_Grenade",1];
 	};
 

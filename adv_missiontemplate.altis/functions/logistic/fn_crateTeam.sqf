@@ -16,16 +16,24 @@
  */
 
 if (!isServer) exitWith {};
-private ["_target"];
+
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_invinciZeus","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps"
+	,"_par_customLoad"
+];
+call adv_fnc_loadoutVariables;
+
 {
-	_target = _x;
+	private _target = _x;
 	//makes the crates indestructible:
 	_target allowDamage false;
 
 	//weapons & ammo
 	switch (true) do {
 		//BWmod
-		case (ADV_par_customWeap == 1): {
+		case (_par_customWeap == 1): {
 			//weapons
 			_target addWeaponCargoGlobal ["BWA3_Pzf3_Loaded",1];
 			//ammo
@@ -39,7 +47,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["BWA3_10Rnd_762x51_G28_LR",10];
 		};
 		//SeL RHS
-		case (ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4): {
+		case (_par_customWeap == 2 || _par_customWeap == 3 || _par_customWeap == 4): {
 			//weapons
 			_target addWeaponCargoGlobal ["rhs_weap_M136",1];
 			//ammo
@@ -47,20 +55,20 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",24];
 			_target addMagazineCargoGlobal ["rhsusf_20Rnd_762x51_m118_special_Mag",8];
 			_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",4];
-			if (ADV_par_customWeap == 3) then {
+			if (_par_customWeap == 3) then {
 				_target addMagazineCargoGlobal ["rhsusf_mag_7x45acp_MHP",8];
 			} else {
 				_target addMagazineCargoGlobal ["rhsusf_mag_15Rnd_9x19_JHP",8];
 			};
 		};
 		//SeL CUP MK16
-		case (ADV_par_customWeap == 5 || ADV_par_customWeap == 6): {
+		case (_par_customWeap == 5 || _par_customWeap == 6): {
 			//weapons
 			_target addWeaponCargoGlobal ["CUP_launch_M136",1];
 			//ammo
 			_target addMagazineCargoGlobal ["CUP_M136_M",1];
 			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",24];
-			if (ADV_par_customWeap == 5) then {
+			if (_par_customWeap == 5) then {
 				_target addMagazineCargoGlobal ["CUP_20Rnd_762x51_B_M110",8];
 				_target addMagazineCargoGlobal ["CUP_20Rnd_762x51_B_SCAR",8];
 			} else {
@@ -70,7 +78,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["CUP_15Rnd_9x19_M9",8];
 		};
 		//SeL CUP L85
-		case (ADV_par_customWeap == 7): {
+		case (_par_customWeap == 7): {
 			//weapons
 			_target addWeaponCargoGlobal ["CUP_launch_M136",1];
 			//ammo
@@ -80,7 +88,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["CUP_200Rnd_TE4_Red_Tracer_556x45_L110A1",4];
 			_target addMagazineCargoGlobal ["CUP_17Rnd_9x19_glock17",8];
 		};
-		case (ADV_par_customWeap == 8): {
+		case (_par_customWeap == 8): {
 			//weapons
 			_target addWeaponCargoGlobal ["UK3CB_BAF_AT4_AP_Launcher",1];
 			//ammo
@@ -89,7 +97,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["UK3CB_BAF_200Rnd_T",4];
 			_target addMagazineCargoGlobal ["UK3CB_BAF_17Rnd_9mm",8];
 		};
-		case (ADV_par_customWeap == 9): {
+		case (_par_customWeap == 9): {
 			//weapons
 			if (isClass(configFile >> "CfgPatches" >> "rhsusf_main")) then {
 				_target addWeaponCargoGlobal ["rhs_weap_M136",1];
@@ -114,7 +122,7 @@ private ["_target"];
 			//ammo
 			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["NLAW_F",1]; };
 			call {
-				if (ADV_par_customWeap == 20) exitWith {
+				if (_par_customWeap == 20) exitWith {
 					_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",24];
 					_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Red_F",4];
 				};
@@ -132,13 +140,13 @@ private ["_target"];
 	};
 	//grenades
 	switch (true) do {
-		case (ADV_par_customWeap == 1): {
+		case (_par_customWeap == 1): {
 			_target addMagazineCargoGlobal ["BWA3_DM51A1",10];		
 			_target addMagazineCargoGlobal ["BWA3_DM25",8];		
 			_target addMagazineCargoGlobal ["BWA3_DM32_Orange",4];		
 			_target addMagazineCargoGlobal ["BWA3_DM32_Yellow",4];		
 		};
-		case (ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4): {
+		case (_par_customWeap == 2 || _par_customWeap == 3 || _par_customWeap == 4): {
 			_target addMagazineCargoGlobal ["rhs_mag_m67",10];
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",8];
 			_target addMagazineCargoGlobal ["rhs_mag_m18_green",4];

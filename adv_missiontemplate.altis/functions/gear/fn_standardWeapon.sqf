@@ -19,8 +19,16 @@ params [
 	["_side", west, [west]]
 ];
 
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_invinciZeus","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps"
+	,"_par_customLoad"
+];
+call adv_fnc_loadoutVariables;
+
 if ( _side == west ) exitWith {
-	private _standardWeapon = switch ( adv_par_customweap ) do {
+	private _standardWeapon = switch ( _par_customweap ) do {
 		default { ["arifle_MX_Black_F", "30Rnd_65x39_caseless_mag", "muzzle_snds_H", "optic_Holosight"] };
 		//bwmod
 		case 1: {
@@ -53,7 +61,7 @@ if ( _side == west ) exitWith {
 };
 
 if ( _side == independent ) exitWith {
-	private _standardWeapon = switch ( adv_par_indweap ) do {
+	private _standardWeapon = switch ( _par_indweap ) do {
 		default { ["arifle_MX_Black_F", "30Rnd_65x39_caseless_mag", "muzzle_snds_H", "optic_Holosight"] };
 		//vanilla aaf
 		case 1: { ["arifle_Mk20_plain_F", "muzzle_snds_M", "30Rnd_556x45_Stanag_red", "optic_Holosight"] };
@@ -68,7 +76,7 @@ if ( _side == independent ) exitWith {
 };
 
 if ( _side == east ) exitWith {
-	private _standardWeapon = switch ( adv_par_opfweap ) do {
+	private _standardWeapon = switch ( _par_opfweap ) do {
 		default { ["arifle_Katiba_F", "30Rnd_65x39_caseless_mag", "muzzle_snds_H", "optic_ACO_grn"] };
 		//rhs
 		case 1: { ["rhs_weap_ak74m", "rhs_30Rnd_545x39_AK", "rhs_acc_tgpa", ""] };

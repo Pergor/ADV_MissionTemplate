@@ -16,21 +16,29 @@
  */
 
 if (!isServer) exitWith {};
-private ["_target"];
+
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_invinciZeus","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps"
+	,"_par_customLoad"
+];
+call adv_fnc_loadoutVariables;
+
 {
-	_target = _x;
+	private _target = _x;
 	//makes the crates indestructible:
 	_target allowDamage false;
 	
 	//grenades
 	switch (true) do {
-		case (ADV_par_customWeap == 1): {
+		case (_par_customWeap == 1): {
 			_target addMagazineCargoGlobal ["BWA3_DM51A1",20];
 			_target addMagazineCargoGlobal ["BWA3_DM25",20];
 			_target addMagazineCargoGlobal ["BWA3_DM32_Orange",20];
 			_target addMagazineCargoGlobal ["BWA3_DM32_Yellow",10];
 		};
-		case (ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4): {
+		case (_par_customWeap == 2 || _par_customWeap == 3 || _par_customWeap == 4): {
 			_target addMagazineCargoGlobal ["rhs_mag_m67",20];
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",20];
 			_target addMagazineCargoGlobal ["rhs_mag_m18_green",10];
@@ -52,7 +60,7 @@ private ["_target"];
 	_target addMagazineCargoGlobal ["1Rnd_SmokeYellow_Grenade_shell",5];
 	_target addMagazineCargoGlobal ["UGL_FlareYellow_F",10];
 
-	if ( ADV_par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
+	if ( _par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
 		_target addMagazineCargoGlobal ["B_IR_Grenade",4];
 	};
 

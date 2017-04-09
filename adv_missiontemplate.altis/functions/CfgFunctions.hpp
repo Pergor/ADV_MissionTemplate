@@ -95,6 +95,7 @@ class ADV
 		class safeZone {};
 		class showArtiSetting {};
 		class spawnFire {};
+		class speedLimiter {};
 		class teleport {};
 		class undercover {};
 	};
@@ -115,6 +116,7 @@ class ADV
 		class dialogLoadout {};
 		class gear {};
 		class insignia {};
+		class loadoutVariables {};
 		class setChannels {};
 		class setFaction {};
 		class setFrequencies {};

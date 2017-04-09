@@ -52,15 +52,15 @@ private _respDir = getDir _veh;
 
 //store/get variables in vehicle so they can be recalled on respawn:
 private _initLine = _veh getVariable ["adv_vehicleinit",""];
-_veh setVariable ["adv_respawnevh_vehicleVars",[_delay,_sidePrefix,_side,_name,_initLine,_respPos,_respDir]];
+_veh setVariable ["adv_respawnevh_vehicleVars",[_delay,_side,_sidePrefix,_name,_initLine,_respPos,_respDir]];
 
 private _respawnEVHCode = {
 	_this spawn {
 
 		//basic variables:
 		params ["_veh", "_killer", "_instigator", "_useEffects"];
-		private _vehicleVars = _veh getVariable ["adv_respawnevh_vehicleVars", [10,"",west,vehicleVarname _veh,"",getPosASL _veh,0]];
-		_vehicleVars params ["_delay","_sidePrefix","_side","_name","_initLine","_respPos","_respDir"];
+		private _vehicleVars = _veh getVariable ["adv_respawnevh_vehicleVars", [10,west,"",vehicleVarname _veh,"",getPosASL _veh,0]];
+		_vehicleVars params ["_delay","_side","_sidePrefix","_name","_initLine","_respPos","_respDir"];
 		private _objectTextures = getObjectTextures _veh;
 		private _vehType = typeOf _veh;
 

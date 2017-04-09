@@ -16,16 +16,24 @@
  */
 
 if (!isServer) exitWith {};
-private ["_target"];
+
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_invinciZeus","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps"
+	,"_par_customLoad"
+];
+call adv_fnc_loadoutVariables;
+
 {
-	_target = _x;
+	private _target = _x;
 	//makes the crates indestructible:
 	_target allowDamage false;
 
 	//weapons & ammo
 	switch (true) do {
 		//RHS
-		case (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
+		case (_par_opfWeap == 1 || _par_opfWeap == 2): {
 			//ammo
 			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_AK",40];
 			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_7N10_AK",20];
@@ -36,11 +44,11 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["rhs_100Rnd_762x54mmR",6];
 			_target addMagazineCargoGlobal ["rhs_100Rnd_762x54mmR_green",6];
 			//_target addMagazineCargoGlobal ["rhs_45Rnd_545X39_AK",20];
-			if (ADV_par_opfSilencers > 0) then { _target addMagazineCargoGlobal ["rhs_20rnd_9x39mm_SP5",20]; } else { _target addMagazineCargoGlobal ["rhs_10Rnd_762x54mmR_7N1",20]; };
+			if (_par_opfSilencers > 0) then { _target addMagazineCargoGlobal ["rhs_20rnd_9x39mm_SP5",20]; } else { _target addMagazineCargoGlobal ["rhs_10Rnd_762x54mmR_7N1",20]; };
 			_target addMagazineCargoGlobal ["rhs_mag_9x19_17",20];
 		};
 		//CUP
-		case (ADV_par_opfWeap == 3): {
+		case (_par_opfWeap == 3): {
 			//ammo
 			_target addMagazineCargoGlobal ["CUP_30Rnd_545x39_AK_M",40];
 			_target addMagazineCargoGlobal ["CUP_30Rnd_TE1_Green_Tracer_545x39_AK_M",20];
@@ -52,12 +60,12 @@ private ["_target"];
 		//case (ADV_par_opfWeap == 4): {};
 		default {
 			switch (true) do {
-				case (ADV_par_opfWeap == 21): {
+				case (_par_opfWeap == 21): {
 					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",40];
 					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_Tracer_F",20];
 					_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",24];
 				};
-				case (worldName == "TANOA" || ADV_par_opfWeap == 20): {
+				case (worldName == "TANOA" || _par_opfWeap == 20): {
 					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_F",40];
 					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_Tracer_F",20];
 					_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",24];
@@ -78,7 +86,7 @@ private ["_target"];
 	};
 	//grenades
 	switch (true) do {
-		case ( ADV_par_opfWeap == 1 && ADV_par_opfWeap == 2): {
+		case ( _par_opfWeap == 1 && _par_opfWeap == 2): {
 			_target addMagazineCargoGlobal ["rhs_mag_rgd5",20];
 			_target addMagazineCargoGlobal ["rhs_mag_rdg2_white",30];
 			_target addMagazineCargoGlobal ["rhs_mag_rdg2_black",20];
@@ -88,7 +96,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["rhs_GRD40_Red",12];
 			_target addMagazineCargoGlobal ["rhs_VG40OP_white",20];
 		};
-		case ( ADV_par_opfWeap == 3): {
+		case ( _par_opfWeap == 3): {
 			_target addMagazineCargoGlobal ["CUP_HandGrenade_RGD5",20];
 			_target addMagazineCargoGlobal ["SmokeShell",30];
 			_target addMagazineCargoGlobal ["SmokeShellYellow",20];
@@ -111,7 +119,7 @@ private ["_target"];
 		};
 	};
 	
-	if (ADV_par_opfNVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
+	if (_par_opfNVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
 		_target addMagazineCargoGlobal ["O_IR_Grenade",6];
 	};
 

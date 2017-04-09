@@ -20,7 +20,15 @@
 	["_unit", player, [objNull]]
 ];
 
-//a lot of arrays and variables
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_invinciZeus","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps"
+	,"_par_customLoad"
+];
+call adv_fnc_loadoutVariables;
+
+//a lot of arrays and variables:
 private _uavTisGiven = if ( { ["UAVTERMINAL",_x] call BIS_fnc_inString } count _itemsLink > 0 ) then {true} else {false};
 private _allItems = _items+_itemsLink+_itemsUniform+_itemsVest+_itemsBackpack;
 private _medicBackPacks = [
@@ -39,21 +47,14 @@ if ( isClass(configFile >> "CfgPatches" >> "rhs_main") ) then { _NVGoggles appen
 if ( isClass(configFile >> "CfgPatches" >> "UK3CB_BAF_Equipment") ) then { _NVGoggles append ["UK3CB_BAF_HMNVS"]; };
 if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _NVGoggles append ["dsk_nsv"]; };
 if ( isClass(configFile >> "CfgPatches" >> "CUP_Weapons_NVG") ) then { _NVGoggles append ["CUP_NVG_HMNVS","CUP_NVG_PVS7"]; };
-if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then { [] call adv_fnc_tfarSettings };
+if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) then { [] call adv_fnc_tfarSettings };
 private _disposableLaunchers = ["BWA3_Pzf3","BWA3_RGW90","STI_M136","CUP_launch_M136","rhs_weap_M136","rhs_weap_M136_hedp","rhs_weap_M136_hp","RHS_WEAP_M72A7","RHS_WEAP_RPG26","RHS_WEAP_RSHG2","RHS_WEAP_RPG18"];
 if ( isClass(configFile >> "CfgPatches" >> "ACE_disposable") ) then { _disposableLaunchers append ["launch_NLAW_F"]; };
-if (isNil "ADV_params_defined") then {
-	ADV_par_customWeap = 0; ADV_par_opfWeap = 0; ADV_par_indWeap = 0;
-	ADV_par_customUni = 0; ADV_par_opfUni = 0; ADV_par_indUni = 0;
-	ADV_par_NVGs = 1; ADV_par_opfNVGs = 1;
-	ADV_par_Silencers = 0; ADV_par_opfSilencers = 0;
-	ADV_par_optics = 1; ADV_par_opfOptics = 1;
-	ADV_par_Tablets = 1; ADV_par_TIEquipment = 0; ADV_par_Radios = 1;
-};
 
 if ( toUpper ([(str _unit),(count str _unit)-5] call BIS_fnc_trimString)== "RECON" ) then {
 	_unitTraits = [["medic",true],["engineer",true],["explosiveSpecialist",true],["UAVHacker",true],["camouflageCoef",1.5],["audibleCoef",0.5],["loadCoef",0.9]];
-	ADV_par_Silencers = 2;ADV_par_opfSilencers = 2;
+	_par_Silencers = 2;
+	_par_opfSilencers = 2;
 	_giveRiflemanRadio = true;
 	_givePersonalRadio = true;
 	_ACE_isMedic = 1;
@@ -67,11 +68,6 @@ if ( toUpper ([(str _unit),(count str _unit)-5] call BIS_fnc_trimString)== "RECO
 //removals:
 removeAllAssignedItems _unit;
 player unlinkItem "ItemRadio";
-/*
-removeUniform _unit;
-removeBackpack _unit;
-removeVest _unit;
-*/
 removeAllContainers _unit:
 removeallItems _unit;
 removeallWeapons _unit;
@@ -91,8 +87,8 @@ _unit addBackpackGlobal _backpack;
 if ( isClass(configFile >> "CfgPatches" >> "ACE_gunbag") && !isNil "_ace_gunbag") then {
 	if ( _ace_gunbag > 0 && (backpack _unit) isEqualTo "" ) then {
 		private _ace_gunbag_gunbag = switch (true) do {
-			case ( (toUpper worldname) in ADV_var_aridMaps ): {["ace_gunbag_Tan"]};
-			case ( (toUpper worldname) in ADV_var_lushMaps ): {["ace_gunbag"]};
+			case ( (toUpper worldname) in _var_aridMaps ): {["ace_gunbag_Tan"]};
+			case ( (toUpper worldname) in _var_lushMaps ): {["ace_gunbag"]};
 			default {["ace_gunbag","ace_gunbag_Tan"]};
 		};
 		_unit addBackpackGlobal (selectRandom _ace_gunbag_gunbag);
@@ -168,7 +164,7 @@ if (_insignium == "") then {
 if (( typeName (_handgun)) == "ARRAY" ) then { _handgun = selectRandom _handgun; };
 [_unit,_handgun,_handgunAmmo select 0,_handgunAmmo select 1] call BIS_fnc_addWeapon;
 //if ( (side (group _unit) == west && ADV_par_Silencers == 1) || (side (group _unit) == east && ADV_par_opfSilencers == 1) ) then { _itemsHandgun pushback _handgunSilencer; };
-if ( (side (group _unit) == west && ADV_par_Silencers > 0) || (side (group _unit) == east && ADV_par_opfSilencers > 0) ) then { _itemsHandgun pushback _handgunSilencer; };
+if ( (side (group _unit) == west && _par_Silencers > 0) || (side (group _unit) == east && _par_opfSilencers > 0) ) then { _itemsHandgun pushback _handgunSilencer; };
 { _unit addHandgunItem _x } count _itemsHandgun;
 if ( _launcher in _disposableLaunchers ) then {
 	_launcherAmmo set [0,1];
@@ -183,18 +179,18 @@ if (_primaryweaponAmmo select 0 > 0) then {
 	[_unit,_primaryWeapon,_primaryweaponAmmo select 0,_primaryweaponAmmo select 1] call BIS_fnc_addWeapon;
 };
 if ( (typeName (_optic) ) == "ARRAY" ) then { _optic = selectRandom _optic; };
-if ( (!(side (group _unit) == east) && ADV_par_optics == 2) || ((side (group _unit) == east) && ADV_par_opfOptics == 2) ) then {
+if ( (!(side (group _unit) == east) && _par_optics isEqualTo 2) || ((side (group _unit) == east) && _par_opfOptics isEqualTo 2) ) then {
 	if (!(leader _unit == _unit) || (count units group _unit == 1)) then {
 		_optic = selectRandom [_optic,""];
 	};
 };
 //silencers and attachments
-if ( (!(side (group _unit) == east) && ADV_par_optics > 0) || (side (group _unit) == east && ADV_par_opfOptics > 0) ) then { _attachments pushBack _optic; };
-if ( (!(side (group _unit) == east) && ADV_par_optics == 0) || (side (group _unit) == east && ADV_par_opfOptics == 0) ) then {
+if ( (!(side (group _unit) == east) && _par_optics > 0) || (side (group _unit) == east && _par_opfOptics > 0) ) then {
+	_attachments pushBack _optic;
 	if ( (toUpper _primaryWeapon) in _bwmodG36 ) then { _attachments pushBack "BWA3_optic_G36C_Ironsight_100"; };
 };
-if ( (!(side (group _unit) == east) && ADV_par_Silencers == 1) || (side (group _unit) == east && ADV_par_opfSilencers == 1) ) then { _attachments pushback _silencer; };
-if ( (!(side (group _unit) == east) && ADV_par_Silencers == 2) || (side (group _unit) == east && ADV_par_opfSilencers == 2) ) then {
+if ( (!(side (group _unit) == east) && _par_Silencers isEqualTo 1) || (side (group _unit) == east && _par_opfSilencers isEqualTo 1) ) then { _attachments pushback _silencer; };
+if ( (!(side (group _unit) == east) && _par_Silencers isEqualTo 2) || (side (group _unit) == east && _par_opfSilencers isEqualTo 2) ) then {
 	_unit addItem _silencer;
 	//_unit addItem _handgunSilencer;
 };
@@ -209,13 +205,13 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_gunbag") && !isNil "_ace_gunbag"
 		private _ace_gunbag_newWeaponAmmo = if ((_primaryweaponAmmo select 0) > 8) then { 4 } else { ceil ( (_primaryweaponAmmo select 0)/2 ) };
 		private _ace_gunbag_newWeapon = [ (side (group _unit)) ] call adv_fnc_standardWeapon;
 		[_unit, (_ace_gunbag_newWeapon select 0), _ace_gunbag_newWeaponAmmo, (_ace_gunbag_newWeapon select 1)] call BIS_fnc_addWeapon;
-		if ( (!(side (group _unit) == east) && ADV_par_Silencers == 1) || (side (group _unit) == east && ADV_par_opfSilencers == 1) ) then {
+		if ( (!(side (group _unit) == east) && _par_Silencers == 1) || (side (group _unit) == east && _par_opfSilencers == 1) ) then {
 			_unit addPrimaryWeaponItem (_ace_gunbag_newWeapon select 2);
 		};
-		if ( (!(side (group _unit) == east) && ADV_par_Silencers == 2) || (side (group _unit) == east && ADV_par_opfSilencers == 2) ) then {
+		if ( (!(side (group _unit) == east) && _par_Silencers == 2) || (side (group _unit) == east && _par_opfSilencers == 2) ) then {
 			_unit addItem (_ace_gunbag_newWeapon select 2);
 		};
-		if ( (!(side (group _unit) == east) && ADV_par_optics > 0) || (side (group _unit) == east && ADV_par_opfOptics > 0) ) then {
+		if ( (!(side (group _unit) == east) && _par_optics > 0) || (side (group _unit) == east && _par_opfOptics > 0) ) then {
 			_unit addPrimaryWeaponItem (_ace_gunbag_newWeapon select 3);
 		};
 	};
@@ -243,7 +239,7 @@ if (!isNil "_unitTraits") then {
 
 //NVG-Removal:
 if !(["diver",_unit getVariable ["ADV_var_playerUnit","ADV_fnc_nil"]] call BIS_fnc_inString) then {
-	if ( ( !(side (group _unit) == east) && ADV_par_NVGs < 2 ) || ( side (group _unit) == east && ADV_par_opfNVGs < 2 ) ) then {
+	if ( ( !(side (group _unit) == east) && _par_NVGs < 2 ) || ( side (group _unit) == east && _par_opfNVGs < 2 ) ) then {
 		_unit unlinkItem (hmd _unit);
 		{ _unit removeItems _x; } count _NVGoggles;
 	};
@@ -259,7 +255,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_common") ) then {
 };
 
 //radios
-if ( ADV_par_Radios > 0 ) then {
+if ( _par_Radios > 0 ) then {
 	[_unit] call ADV_fnc_addRadios;
 };
 
@@ -281,15 +277,13 @@ if !(_backpack == "") then {
 	if ( !isNil "_additionalAmmo5" ) then { [_unit,_additionalAmmo5 select 0,0,_additionalAmmo5 select 1,false] call ADV_fnc_addMagazine; };
 };
 
-if (  str _unit in ["z1","z2","z3","z4","z5","opf_z1","opf_z2","opf_z3","opf_z4","opf_z5","ind_z1","ind_z2","ind_z3","ind_z4","ind_z5"] ) then {
+if ( str _unit in ["z1","z2","z3","z4","z5","opf_z1","opf_z2","opf_z3","opf_z4","opf_z5","ind_z1","ind_z2","ind_z3","ind_z4","ind_z5"] ) then {
 	if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
 		["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;
 	};
 };
 
 if ( toUpper ([(str _unit),(count str _unit)-5] call BIS_fnc_trimString)== "RECON" ) then {
-	ADV_par_Silencers = ["param_Silencers",0] call BIS_fnc_getParamValue;
-	ADV_par_opfSilencers = ["param_opfSilencers",0] call BIS_fnc_getParamValue;
 };
 
 _unit setVariable ["ADV_var_hasLoadout",true];

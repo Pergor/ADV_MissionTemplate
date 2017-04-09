@@ -16,16 +16,24 @@
  */
 
 if (!isServer) exitWith {};
-private ["_target"];
+
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_invinciZeus","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps"
+	,"_par_customLoad"
+];
+call adv_fnc_loadoutVariables;
+
 {
-	_target = _x;
+	private _target = _x;
 	//makes the crates indestructible:
 	_target allowDamage false;
 
 	//weapons & ammo
 	switch (true) do {
 		//BWmod
-		case (ADV_par_customWeap == 1): {
+		case (_par_customWeap == 1): {
 			//weapons
 			_target addWeaponCargoGlobal ["BWA3_Pzf3_Loaded",5];
 			//ammo
@@ -46,7 +54,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["BWA3_10Rnd_762x51_G28_LR",30];
 		};
 		//SeL RHS
-		case (ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4): {
+		case (_par_customWeap == 2 || _par_customWeap == 3 || _par_customWeap == 4): {
 			//weapons
 			_target addWeaponCargoGlobal ["rhs_weap_M136",5];
 			//ammo
@@ -63,14 +71,14 @@ private ["_target"];
 			};
 		};
 		//SeL CUP MK16
-		case (ADV_par_customWeap == 5 || ADV_par_customWeap == 6): {
+		case (_par_customWeap == 5 || _par_customWeap == 6): {
 			//weapons
 			_target addWeaponCargoGlobal ["CUP_launch_M136",5];
 			//ammo
 			_target addMagazineCargoGlobal ["CUP_M136_M",5];
 			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",40];
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",20];
-			if (ADV_par_customWeap == 5) then {
+			if (_par_customWeap == 5) then {
 				_target addMagazineCargoGlobal ["CUP_20Rnd_762x51_B_M110",20];
 				_target addMagazineCargoGlobal ["CUP_20Rnd_762x51_B_SCAR",20];
 			} else {
@@ -81,7 +89,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["CUP_15Rnd_9x19_M9",20];
 		};
 		//SeL CUP L85
-		case (ADV_par_customWeap == 7): {
+		case (_par_customWeap == 7): {
 			//weapons
 			_target addWeaponCargoGlobal ["CUP_launch_M136",5];
 			//ammo
@@ -93,7 +101,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M",12];
 			_target addMagazineCargoGlobal ["CUP_17Rnd_9x19_glock17",20];
 		};
-		case (ADV_par_customWeap == 8): {
+		case (_par_customWeap == 8): {
 			//weapons
 			_target addWeaponCargoGlobal ["UK3CB_BAF_AT4_AP_Launcher",5];
 			//ammo
@@ -105,7 +113,7 @@ private ["_target"];
 			_target addMagazineCargoGlobal ["UK3CB_BAF_75Rnd",10];
 			_target addMagazineCargoGlobal ["UK3CB_BAF_17Rnd_9mm",20];
 		};
-		case (ADV_par_customWeap == 9): {
+		case (_par_customWeap == 9): {
 			//weapons
 			if (isClass(configFile >> "CfgPatches" >> "rhsusf_main")) then {
 				_target addWeaponCargoGlobal ["rhs_weap_M136",5];
@@ -133,7 +141,7 @@ private ["_target"];
 			//ammo
 			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["NLAW_F",5]; };
 			call {
-				if (ADV_par_customWeap == 20) exitWith {
+				if (_par_customWeap == 20) exitWith {
 					_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",40];
 					_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",20];
 					_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Red_F",12];
@@ -156,13 +164,13 @@ private ["_target"];
 	};
 	//grenades
 	switch (true) do {
-		case (ADV_par_customWeap == 1): {
+		case (_par_customWeap == 1): {
 			_target addMagazineCargoGlobal ["BWA3_DM51A1",20];		
 			_target addMagazineCargoGlobal ["BWA3_DM25",30];		
 			_target addMagazineCargoGlobal ["BWA3_DM32_Orange",10];		
 			_target addMagazineCargoGlobal ["BWA3_DM32_Yellow",10];		
 		};
-		case (ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4): {
+		case (_par_customWeap == 2 || _par_customWeap == 3 || _par_customWeap == 4): {
 			_target addMagazineCargoGlobal ["rhs_mag_m67",20];
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",30];
 			_target addMagazineCargoGlobal ["rhs_mag_m18_green",10];
@@ -180,7 +188,7 @@ private ["_target"];
 	_target addMagazineCargoGlobal ["1Rnd_SmokePurple_Grenade_shell",12];
 	_target addMagazineCargoGlobal ["1Rnd_SmokeYellow_Grenade_shell",12];
 	
-	if (ADV_par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
+	if (_par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
 		_target addMagazineCargoGlobal ["B_IR_Grenade",6];
 	};
 

@@ -17,6 +17,14 @@
 
 if !(isServer && (isClass(configFile >> "CfgPatches" >> "ACE_common"))) exitWith {};
 
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_invinciZeus","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps"
+	,"_par_customLoad"
+];
+call adv_fnc_loadoutVariables;
+
 {
 	_target = _x;
 	if (isClass(configFile >> "CfgPatches" >> "ACE_medical")) then {
@@ -88,7 +96,7 @@ if !(isServer && (isClass(configFile >> "CfgPatches" >> "ACE_common"))) exitWith
 	if (isClass(configFile >> "CfgPatches" >> "ACE_rangecard") && !isNil "_ACE_rangecard") then {
 		_target addItemCargoGlobal ["ACE_rangecard", _ACE_rangecard];
 	};
-	if (ADV_par_Tablets == 2) then {
+	if (_par_Tablets == 2) then {
 		if (isClass(configFile >> "CfgPatches" >> "ACE_microDAGR") && !isNil "_ACE_microDAGR") then {
 			_target addItemCargoGlobal ["ACE_microDAGR", _ACE_microDAGR];
 		};
@@ -101,10 +109,10 @@ if !(isServer && (isClass(configFile >> "CfgPatches" >> "ACE_common"))) exitWith
 	};
 	if (!isNil "_ACE_rangefinder") then {
 		if (!isNil "ADV_par_NVGs") then {
-			if (isClass(configFile >> "CfgPatches" >> "ACE_vector") && ADV_par_NVGs == 1 ) then {
+			if (isClass(configFile >> "CfgPatches" >> "ACE_vector") && _par_NVGs == 1 ) then {
 				_target addItemCargoGlobal ["ACE_vector", _ACE_rangefinder];
 			};
-			if (isClass(configFile >> "CfgPatches" >> "ACE_yardage450") && ADV_par_NVGs == 0 ) then {
+			if (isClass(configFile >> "CfgPatches" >> "ACE_yardage450") && _par_NVGs == 0 ) then {
 				_target addItemCargoGlobal ["ACE_yardage450", _ACE_rangefinder];
 			};
 		} else {
@@ -119,7 +127,7 @@ if !(isServer && (isClass(configFile >> "CfgPatches" >> "ACE_common"))) exitWith
 	};
 	if (isClass (configFile >> "CfgPatches" >> "ACE_attach") && !isNil "_ACE_IR_Strobe") then {
 		if (!isNil "ADV_par_NVGs") then {
-			if (ADV_par_NVGs == 2) then {
+			if (_par_NVGs == 2) then {
 				_target addItemCargoGlobal ["ACE_IR_Strobe_Item", _ACE_IR_Strobe];
 			};
 		} else {

@@ -16,24 +16,31 @@
  */
 
 if (!isServer) exitWith {};
-private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediKit"];
+
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_invinciZeus","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps"
+	,"_par_customLoad"
+];
+call adv_fnc_loadoutVariables;
 
 {
-	_target = _x;
+	private _target = _x;
 	//makes the crates indestructible:
 	_target allowDamage false;
 	
 	//weapons & ammo
 	switch (true) do {
 		//BWmod
-		case (ADV_par_opfWeap == 1 || ADV_par_opfWeap == 2): {
+		case (_par_opfWeap == 1 || _par_opfWeap == 2): {
 			//ammo
 			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_AK",20];
 			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_7N10_AK",10];
 			call {
 				if (isClass(configFile >> "CfgPatches" >> "CUP_weapons_AK")) exitWith {
 					call {
-						if (adv_par_opfWeap == 1) then {
+						if (_par_opfWeap == 1) then {
 							_target addMagazineCargoGlobal ["CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M",5];
 						};
 						_target addMagazineCargoGlobal ["CUP_75Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M",8];
@@ -45,7 +52,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			_target addMagazineCargoGlobal ["rhs_mag_9x19_17",5];
 		};
 		//SeL RHS
-		case (ADV_par_opfWeap == 3): {
+		case (_par_opfWeap == 3): {
 			//ammo
 			_target addMagazineCargoGlobal ["CUP_30Rnd_545x39_AK_M",20];
 			_target addMagazineCargoGlobal ["CUP_30Rnd_TE1_Green_Tracer_545x39_AK_M",10];
@@ -53,15 +60,15 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			//_target addMagazineCargoGlobal ["CUP_10Rnd_762x54_SVD_M",10];
 			_target addMagazineCargoGlobal ["CUP_8Rnd_9x18_Makarov_M",5];
 		};
-		case (ADV_par_opfWeap == 4): {};
+		case (_par_opfWeap == 4): {};
 		default {
 			switch (true) do {
-				case (ADV_par_opfWeap == 21): {
+				case (_par_opfWeap == 21): {
 					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",20];
 					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_Tracer_F",10];
 					_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",8];
 				};
-				case (worldName == "TANOA" || ADV_par_opfWeap == 20): {
+				case (worldName == "TANOA" || _par_opfWeap == 20): {
 					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_F",20];
 					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_Tracer_F",10];
 					_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",8];
@@ -81,14 +88,14 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 	};
 	//grenades
 	switch (true) do {
-		case ( ADV_par_opfWeap == 1 && ADV_par_opfWeap == 2): {
+		case ( _par_opfWeap == 1 && _par_opfWeap == 2): {
 			_target addMagazineCargoGlobal ["rhs_mag_rgd5",4];
 			_target addMagazineCargoGlobal ["rhs_mag_rdg2_white",4];
 			_target addMagazineCargoGlobal ["rhs_mag_rdg2_black",4];
 			_target addMagazineCargoGlobal ["rhs_VOG25",10];
 			_target addMagazineCargoGlobal ["rhs_VG40OP_white",4];
 		};
-		case ( ADV_par_opfWeap == 3): {
+		case ( _par_opfWeap == 3): {
 			_target addMagazineCargoGlobal ["CUP_HandGrenade_RGD5",4];
 			_target addMagazineCargoGlobal ["SmokeShell",4];
 			_target addMagazineCargoGlobal ["SmokeShellGreen",4];
@@ -103,7 +110,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			_target addMagazineCargoGlobal ["UGL_FlareYellow_F",4];
 		};
 	};
-	if ( ADV_par_opfNVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
+	if ( _par_opfNVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
 		_target addMagazineCargoGlobal ["O_IR_Grenade",1];
 	};
 

@@ -16,23 +16,30 @@
  */
 
 if (!isServer) exitWith {};
-private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediKit"];
+
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_invinciZeus","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps"
+	,"_par_customLoad"
+];
+call adv_fnc_loadoutVariables;
 
 {
-	_target = _x;
+	private _target = _x;
 	//makes the crates indestructible:
 	_target allowDamage false;
 	
 	//weapons & ammo
 	switch (true) do {
 		//BWmod
-		case (ADV_par_customWeap == 1): {
+		case (_par_customWeap == 1): {
 			//weapons
 			_target addWeaponCargoGlobal ["BWA3_RGW90_Loaded",2];
 			_target addWeaponCargoGlobal ["BWA3_Pzf3_Loaded",3];
 		};
 		//SeL RHS
-		case ( ADV_par_customWeap == 2 || ADV_par_customWeap == 3 || ADV_par_customWeap == 4 || ( ADV_par_customWeap == 9 && isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) ): {
+		case ( _par_customWeap == 2 || _par_customWeap == 3 || _par_customWeap == 4 || ( _par_customWeap == 9 && isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) ): {
 			//weapons
 			_target addWeaponCargoGlobal ["rhs_weap_M136",2];
 			//ammo
@@ -40,7 +47,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			_target addMagazineCargoGlobal ["rhs_fgm148_magazine_AT",3];
 		};
 		//SeL CUP
-		case (ADV_par_customWeap == 5 || ADV_par_customWeap == 6 || ADV_par_customWeap == 7): {
+		case (_par_customWeap == 5 || _par_customWeap == 6 || _par_customWeap == 7): {
 			//weapons
 			_target addWeaponCargoGlobal ["CUP_launch_M136",2];
 			//ammo
@@ -48,7 +55,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 			_target addMagazineCargoGlobal ["CUP_Javelin_M",3];
 		};
 		//UK3CB
-		case (ADV_par_customWeap == 8): {
+		case (_par_customWeap == 8): {
 			//weapons
 			_target addWeaponCargoGlobal ["UK3CB_BAF_AT4_AP_Launcher",2];
 			
@@ -63,7 +70,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 		};
 	};
 	//grenades
-	switch (ADV_par_customWeap) do {
+	switch (_par_customWeap) do {
 		case 1: {
 			_target addMagazineCargoGlobal ["BWA3_DM25",2];		
 		};
@@ -81,7 +88,7 @@ private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediK
 		};
 	};
 
-	if ( ADV_par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
+	if ( _par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
 		_target addMagazineCargoGlobal ["B_IR_Grenade",1];
 	};
 

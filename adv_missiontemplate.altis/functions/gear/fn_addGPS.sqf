@@ -19,12 +19,20 @@ params [
 	["_unit", player, [objNull]]
 ];
 
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_invinciZeus","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps"
+	,"_par_customLoad"
+];
+call adv_fnc_loadoutVariables;
+
 //gps is being removed as long it's not supposed to be in Inventory.
-if !( ADV_par_Tablets == 99 ) then {
+if !( _par_Tablets == 99 ) then {
 	_unit unlinkItem "ItemGPS";_unit removeItems "ItemGPS";
 };
 //cTab-specials:
-if ( ADV_par_Tablets == 1 && isClass (configFile >> "CfgPatches" >> "cTab") ) exitWith {
+if ( _par_Tablets == 1 && isClass (configFile >> "CfgPatches" >> "cTab") ) exitWith {
 	call {
 		if ( _uavTisGiven ) exitWith {
 			if ( _tablet ) then {_unit addItem "ItemcTab"};
@@ -46,7 +54,7 @@ if ( ADV_par_Tablets == 1 && isClass (configFile >> "CfgPatches" >> "cTab") ) ex
 };
 
 //ace DAGRs:
-if (ADV_par_Tablets == 2) exitWith {
+if ( _par_Tablets == 2 ) exitWith {
 	if (isClass(configFile >> "CfgPatches" >> "ACE_microDAGR") && !isNil "_ACE_microDAGR") then {
 		if (_ACE_microDAGR > 0) then { _unit addItem "ACE_microDAGR"; };
 	};
@@ -56,7 +64,7 @@ if (ADV_par_Tablets == 2) exitWith {
 };
 
 //BWmod Navipad
-if ( ADV_par_Tablets == 3 && isClass(configFile >> "CfgPatches" >> "bwa3_navipad") ) exitWith {
+if ( _par_Tablets == 3 && isClass(configFile >> "CfgPatches" >> "bwa3_navipad") ) exitWith {
 	call {
 		if !(_uavTisGiven) exitWith {
 			_unit linkItem "BWA3_ItemNaviPad";

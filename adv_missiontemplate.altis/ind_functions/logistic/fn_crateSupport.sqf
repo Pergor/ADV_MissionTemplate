@@ -16,14 +16,22 @@
  */
 
 if (!isServer) exitWith {};
-private ["_target"];
+
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_invinciZeus","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps"
+	,"_par_customLoad"
+];
+call adv_fnc_loadoutVariables;
+
 {
-	_target = _x;
+	private _target = _x;
 	//makes the crates indestructible:
 	_target allowDamage false;
 
 	//grenades
-	switch (ADV_par_indWeap) do {
+	switch (_par_indWeap) do {
 		case 2: {
 			_target addMagazineCargoGlobal ["rhs_mag_an_m8hc",2];
 		};
@@ -32,20 +40,20 @@ private ["_target"];
 		};
 	};
 
-	if ( ADV_par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
+	if ( _par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
 		_target addMagazineCargoGlobal ["I_IR_Grenade",4];
 	};
 	_target addItemCargoGlobal ["ToolKit",2];
 	
-	if ( ADV_par_radios > 0 && isClass (configFile >> "CfgPatches" >> "task_force_radio") ) then {
+	if ( _par_radios > 0 && isClass (configFile >> "CfgPatches" >> "task_force_radio") ) then {
 		_target addItemCargoGlobal [TF_defaultGuerPersonalRadio,1];
 	};
 	
-	if ( ADV_par_Tablets == 1 && isClass (configFile >> "CfgPatches" >> "cTab") ) then {
+	if ( _par_Tablets == 1 && isClass (configFile >> "CfgPatches" >> "cTab") ) then {
 		_target addItemCargoGlobal ["ItemAndroid",1];
 	};
 	
-	if ( ADV_par_NVGs == 2 ) then {
+	if ( _par_NVGs == 2 ) then {
 		if ( isClass (configFile >> "CfgPatches" >> "ACE_nightvision") ) then {
 			_target addItemCargoGlobal ["ACE_NVG_Wide",2];
 		} else {

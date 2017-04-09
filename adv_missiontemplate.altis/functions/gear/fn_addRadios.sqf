@@ -19,6 +19,14 @@ params [
 	["_unit", player, [objNull]]
 ];
 
+//mission variables and parameters:
+private [
+	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
+	,"_par_tablets","_par_radios","_par_TIEquipment","_par_invinciZeus","_par_ace_medical_GivePAK","_var_aridMaps","_var_saridMaps","_var_lushMaps","_var_europeMaps"
+	,"_par_customLoad"
+];
+call adv_fnc_loadoutVariables;
+
 _unit unlinkItem "ItemRadio";
 
 if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) then {
@@ -61,7 +69,7 @@ switch ( true ) do {
 				default { TFAR_DefaultRadio_Rifleman_West };
 			};
 		};
-		switch ADV_par_Radios do {
+		switch _par_Radios do {
 			//everyone gets role specific radio
 			default {
 				if ( _givePersonalRadio ) then { _unit linkItem _personalRadioType; };
@@ -92,7 +100,7 @@ switch ( true ) do {
 			case independent: { acre_guerBackpackRadio };
 			default { acre_westBackpackRadio };
 		};
-		switch ADV_par_Radios do {
+		switch _par_Radios do {
 			//everyone gets role specific radio
 			default {
 				if ( _giveRiflemanRadio ) then { _unit addItem _riflemanRadioType; };
@@ -119,7 +127,7 @@ switch ( true ) do {
 		};
 	};
 	default {
-		switch ADV_par_Radios do {
+		switch _par_Radios do {
 			//everyone gets role specific radio
 			default {
 				_unit linkItem "ItemRadio";

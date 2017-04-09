@@ -19,8 +19,8 @@
 if (!isServer) exitWith {};
 
 params [
-	["_vehicleType", [""], [[]]],
-	["_newVehs", [""], [[]]]
+	["_vehicleType", [""], [[]]]
+	,["_newVehs", [""], [[]]]
 ];
 if (count _vehicleType == 0) exitWith {};
 
