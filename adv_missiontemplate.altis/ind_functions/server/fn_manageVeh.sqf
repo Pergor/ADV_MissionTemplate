@@ -98,17 +98,24 @@ ADV_ind_veh_light = ADV_ind_veh_ATVs+ADV_ind_veh_UGVs+ADV_ind_veh_UGVs_repair+AD
 
 ADV_ind_veh_all = ADV_ind_veh_light+ADV_ind_veh_armored+ADV_ind_veh_air;
 
+//lobby params:
+private _par_assets_cars = missionNamespace getVariable ["ADV_par_Assets_cars",1];
+private _par_assets_tanks = missionNamespace getVariable ["ADV_par_Assets_tanks",1];
+private _par_assets_air_helis = missionNamespace getVariable ["ADV_par_Assets_air_helis",1];
+private _par_assets_air_fixed = missionNamespace getVariable ["ADV_par_Assets_air_fixed",1];
+private _par_indCarAssets = missionNamespace getVariable ["ADV_par_indCarAssets",0];
+
 //removes the markers according to the lobby params
-if (ADV_par_Assets_cars == 0 || ADV_par_Assets_cars == 99 || ADV_par_indCarAssets == 99) then {
+if ( _par_Assets_cars isEqualTo 0 || _par_Assets_cars isEqualTo 99 || _par_indCarAssets isEqualTo 99 ) then {
 	{_x setMarkerAlpha 0;} count _veh_lightMarkers
 };
-if (ADV_par_Assets_tanks == 0 || ADV_par_Assets_tanks == 99) then {
+if ( _par_Assets_tanks isEqualTo 0 || _par_Assets_tanks isEqualTo 99 ) then {
 	{_x setMarkerAlpha 0;} count _veh_heavyMarkers;
 };
-if (ADV_par_Assets_air_helis == 0 || ADV_par_Assets_air_helis == 99) then {
+if ( _par_Assets_air_helis isEqualTo 0 ||  _par_Assets_air_helis isEqualTo 99 ) then {
 	{_x setMarkerAlpha 0;} count _veh_heliMarkers;
 };
-if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_par_Assets_air_fixed == 99 && ADV_par_Assets_air_helis == 99)) then {
+if ( (_par_Assets_air_fixed isEqualTo 0 && _par_Assets_air_helis isEqualTo 0) || (_par_Assets_air_fixed isEqualTo 99 && _par_Assets_air_helis isEqualTo 99)) then {
 	{_x setMarkerAlpha 0;} count _veh_fixedMarkers;
 };
 
@@ -170,9 +177,9 @@ adv_ind_manageVeh_codeForAll = {
 } count ADV_ind_veh_all;
 
 //replaces MRAPS with mod cars:
-switch (missionNamespace getVariable ["ADV_par_indCarAssets",0]) do {
+switch ( _par_indCarAssets ) do {
 	case 1: {};
-	case 99: {[ADV_ind_veh_all,[""],independent] spawn ADV_fnc_changeVeh;};
+	case 99: {[ADV_ind_veh_all,[""],independent] call ADV_fnc_changeVeh;};
 	default {};
 };
 

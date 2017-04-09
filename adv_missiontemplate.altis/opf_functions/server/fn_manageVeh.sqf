@@ -98,17 +98,29 @@ ADV_opf_veh_light = ADV_opf_veh_ATVs+ADV_opf_veh_UGVs+ADV_opf_veh_UGVs_repair+AD
 
 ADV_opf_veh_all = ADV_opf_veh_light+ADV_opf_veh_armored+ADV_opf_veh_air;
 
+//lobby params:
+private _par_assets_cars = missionNamespace getVariable ["ADV_par_Assets_cars",1];
+private _par_assets_tanks = missionNamespace getVariable ["ADV_par_Assets_tanks",1];
+private _par_assets_air_helis = missionNamespace getVariable ["ADV_par_Assets_air_helis",1];
+private _par_assets_air_fixed = missionNamespace getVariable ["ADV_par_Assets_air_fixed",1];
+private _par_opfCarAssets = missionNamespace getVariable ["ADV_par_opfCarAssets",0];
+private _par_opfTruckAssets = missionNamespace getVariable ["ADV_par_opfTruckAssets",0];
+private _par_opfHeavyAssets = missionNamespace getVariable ["ADV_par_opfHeavyAssets",0];
+private _par_opfTankAssets = missionNamespace getVariable ["ADV_par_opfTankAssets",0];
+private _par_opfHeliAssets = missionNamespace getVariable ["ADV_par_opfHeliAssets",0];
+private _par_opfAirAssets = missionNamespace getVariable ["ADV_par_opfAirAssets",0];
+
 //removes the markers according to the lobby params
-if (ADV_par_Assets_cars == 0 || ADV_par_Assets_cars == 99 || ADV_par_opfCarAssets == 99) then {
+if ( _par_Assets_cars isEqualTo 0 || _par_Assets_cars isEqualTo 99 || _par_opfCarAssets isEqualTo 99 ) then {
 	{_x setMarkerAlpha 0;} count _veh_lightMarkers
 };
-if (ADV_par_Assets_tanks == 0 || ADV_par_Assets_tanks == 99 ||ADV_par_opfTankAssets == 99) then {
+if ( _par_Assets_tanks isEqualTo 0 || _par_Assets_tanks isEqualTo 99 || _par_opfTankAssets isEqualTo 99 ) then {
 	{_x setMarkerAlpha 0;} count _veh_heavyMarkers;
 };
-if (ADV_par_Assets_air_helis == 0 || ADV_par_Assets_air_helis == 99 || ADV_par_opfHeliAssets == 99) then {
+if ( _par_Assets_air_helis isEqualTo 0 || _par_Assets_air_helis isEqualTo 99 || _par_opfHeliAssets isEqualTo 99 ) then {
 	{_x setMarkerAlpha 0;} count _veh_heliMarkers;
 };
-if ( (ADV_par_Assets_air_fixed == 0 && ADV_par_Assets_air_helis == 0) || (ADV_par_Assets_air_fixed == 99 && ADV_par_Assets_air_helis == 99) || ADV_par_opfAirAssets == 99) then {
+if ( (_par_Assets_air_fixed isEqualTo 0 && _par_Assets_air_helis isEqualTo 0) || (_par_Assets_air_fixed isEqualTo 99 && _par_Assets_air_helis isEqualTo 99) ||  _par_opfAirAssets isEqualTo 99) then {
 	{_x setMarkerAlpha 0;} count _veh_fixedMarkers;
 };
 
@@ -167,47 +179,47 @@ adv_opf_manageVeh_codeForAll = {
 } count ADV_opf_veh_all;
 
 //replaces MRAPS with mod cars:
-switch ( missionNamespace getVariable ["ADV_par_opfCarAssets",0] ) do {
+switch ( _par_opfCarAssets ) do {
 	//RHS UAZ
 	case 1: {
-		[ADV_opf_veh_MRAPs+ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG,["rhs_uaz_msv_01","rhs_uaz_open_msv_01"],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_MRAPs+ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG,["rhs_uaz_msv_01","rhs_uaz_open_msv_01"],east] call ADV_fnc_changeVeh;
 	};
 	//RHS GAZ
 	case 2: {
-		[ADV_opf_veh_MRAPs,["rhs_tigr_msv"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG,["rhs_tigr_ffv_msv"],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_MRAPs,["rhs_tigr_msv"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG,["rhs_tigr_ffv_msv"],east] call ADV_fnc_changeVeh;
 	};
 	//RDS vehicles
 	case 3: {
-		[ADV_opf_veh_MRAPs+ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG,["RDS_Gaz24_Civ_01","RDS_Gaz24_Civ_02","RDS_Gaz24_Civ_03","RDS_Lada_Civ_01","RDS_Lada_Civ_02","RDS_Lada_Civ_03","RDS_Lada_Civ_04"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_ATVs,[""],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_MRAPs+ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG,["RDS_Gaz24_Civ_01","RDS_Gaz24_Civ_02","RDS_Gaz24_Civ_03","RDS_Lada_Civ_01","RDS_Lada_Civ_02","RDS_Lada_Civ_03","RDS_Lada_Civ_04"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_ATVs,[""],east] call ADV_fnc_changeVeh;
 	};
 	//Apex Qilin
 	case 4: {
-		[ADV_opf_veh_MRAPs,["O_T_LSV_02_unarmed_F"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG,["O_T_LSV_02_armed_F"],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_MRAPs,["O_T_LSV_02_unarmed_F"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG,["O_T_LSV_02_armed_F"],east] call ADV_fnc_changeVeh;
 	};
 	//no vehicles
-	case 99: {[ADV_opf_veh_MRAPs+ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG+ADV_opf_veh_ATVs,[""],east] spawn ADV_fnc_changeVeh;};
+	case 99: {[ADV_opf_veh_MRAPs+ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG+ADV_opf_veh_ATVs,[""],east] call ADV_fnc_changeVeh;};
 	default {};
 };
 
 //replaces trucks with mod trucks:
-switch ( missionNamespace getVariable ["ADV_par_opfTruckAssets",0] ) do {
+switch ( _par_opfTruckAssets ) do {
 	//RHS
 	case 1: {
-		[ADV_opf_veh_transport,["rhs_gaz66_msv","rhs_gaz66o_msv","rhs_ural_msv_01","rhs_ural_open_msv_01"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_logistic_ammo,["rhs_gaz66_ammo_msv"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_logistic_fuel,["rhs_ural_fuel_msv_01"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_logistic_repair,["rhs_gaz66_repair_msv"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_logistic_medic,["rhs_ural_msv_01"],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_transport,["rhs_gaz66_msv","rhs_gaz66o_msv","rhs_ural_msv_01","rhs_ural_open_msv_01"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_logistic_ammo,["rhs_gaz66_ammo_msv"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_logistic_fuel,["rhs_ural_fuel_msv_01"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_logistic_repair,["rhs_gaz66_repair_msv"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_logistic_medic,["rhs_ural_msv_01"],east] call ADV_fnc_changeVeh;
 	};
 	//RDS vehicles
 	case 2: {
-		[ADV_opf_veh_transport+ADV_opf_veh_logistic_medic+ADV_opf_veh_logistic_ammo+ADV_opf_veh_logistic_fuel+ADV_opf_veh_logistic_repair,["RHS_Ural_Open_Civ_01","RHS_Ural_Open_Civ_02","RHS_Ural_Open_Civ_03","RHS_Ural_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Civ_03"],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_transport+ADV_opf_veh_logistic_medic+ADV_opf_veh_logistic_ammo+ADV_opf_veh_logistic_fuel+ADV_opf_veh_logistic_repair,["RHS_Ural_Open_Civ_01","RHS_Ural_Open_Civ_02","RHS_Ural_Open_Civ_03","RHS_Ural_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Civ_03"],east] call ADV_fnc_changeVeh;
 	};
 	//no Trucks
-	case 99: {[ADV_opf_veh_transport+ADV_opf_veh_logistic_medic+ADV_opf_veh_logistic_ammo+ADV_opf_veh_logistic_fuel+ADV_opf_veh_logistic_repair,[""],east] spawn ADV_fnc_changeVeh;};
+	case 99: {[ADV_opf_veh_transport+ADV_opf_veh_logistic_medic+ADV_opf_veh_logistic_ammo+ADV_opf_veh_logistic_fuel+ADV_opf_veh_logistic_repair,[""],east] call ADV_fnc_changeVeh;};
 	default {};
 };
 
@@ -215,106 +227,106 @@ switch ( missionNamespace getVariable ["ADV_par_opfTruckAssets",0] ) do {
 switch ( missionNamespace getVariable ["ADV_par_opfHeavyAssets",0] ) do {
 	//RHS BTR
 	case 1: {
-		[ADV_opf_veh_heavys,["rhs_btr80a_msv","rhs_btr80_msv","rhs_btr70_msv"],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_heavys,["rhs_btr80a_msv","rhs_btr80_msv","rhs_btr70_msv"],east] call ADV_fnc_changeVeh;
 	};
 	//RHS BMP
 	case 2: {
-		[ADV_opf_veh_heavys,["rhs_bmp1_msv","rhs_bmp1d_msv","rhs_bmp1k_msv","rhs_bmp1p_msv","rhs_bmp2_msv","rhs_bmp2d_msv","rhs_bmp2e_msv","rhs_bmp2k_msv"],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_heavys,["rhs_bmp1_msv","rhs_bmp1d_msv","rhs_bmp1k_msv","rhs_bmp1p_msv","rhs_bmp2_msv","rhs_bmp2d_msv","rhs_bmp2e_msv","rhs_bmp2k_msv"],east] call ADV_fnc_changeVeh;
 	};
 	//no vehicles
-	case 99: {[ADV_opf_veh_heavys,[""],east] spawn ADV_fnc_changeVeh;};
+	case 99: {[ADV_opf_veh_heavys,[""],east] call ADV_fnc_changeVeh;};
 	default {};
 };
 
 //replaces tanks with mod tanks:
-switch ( missionNamespace getVariable ["ADV_par_opfTankAssets",0] ) do {
+switch ( _par_opfTankAssets ) do {
 	//RHS T72
 	case 1: {
-		[ADV_opf_veh_tanks,["rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_artys,["rhs_d30_msv"],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_tanks,["rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_artys,["rhs_d30_msv"],east] call ADV_fnc_changeVeh;
 	};
 	//RHS T80
 	case 2: {
-		[ADV_opf_veh_tanks,["rhs_t80a","rhs_t80b","rhs_t80bk","rhs_t80bv","rhs_t80bvk","rhs_t80u"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_artys,["rhs_2s3_tv"],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_tanks,["rhs_t80a","rhs_t80b","rhs_t80bk","rhs_t80bv","rhs_t80bvk","rhs_t80u"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_artys,["rhs_2s3_tv"],east] call ADV_fnc_changeVeh;
 	};
 	//RHS T90
 	case 3: {
-		[ADV_opf_veh_tanks,["rhs_t90_tv"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_artys,["rhs_2s3_tv"],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_tanks,["rhs_t90_tv"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_artys,["rhs_2s3_tv"],east] call ADV_fnc_changeVeh;
 	};
 	//RDS T34
 	case 4: {
-		[ADV_opf_veh_tanks,["RDS_T34_AAF_01"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_artys,["RDS_D30_CSAT"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_logistic_medic,["RDS_BMP2_Ambul_01"],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_tanks,["RDS_T34_AAF_01"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_artys,["RDS_D30_CSAT"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_logistic_medic,["RDS_BMP2_Ambul_01"],east] call ADV_fnc_changeVeh;
 	};
 	//RDS T55
 	case 5: {
-		[ADV_opf_veh_tanks,["RDS_T55_AAF_01"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_artys,["RDS_D30_CSAT"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_logistic_medic,["RDS_BMP2_Ambul_01"],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_tanks,["RDS_T55_AAF_01"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_artys,["RDS_D30_CSAT"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_logistic_medic,["RDS_BMP2_Ambul_01"],east] call ADV_fnc_changeVeh;
 	};
 	//no vehicles 
-	case 99: {[ADV_opf_veh_tanks+ADV_opf_veh_artys,[""],east] spawn ADV_fnc_changeVeh;};
+	case 99: {[ADV_opf_veh_tanks+ADV_opf_veh_artys,[""],east] call ADV_fnc_changeVeh;};
 	default {};
 };
 
 //replaces helis with mod helis:
-switch ( missionNamespace getVariable ["ADV_par_opfHeliAssets",0] ) do {
+switch ( _par_opfHeliAssets ) do {
 	//RHS transport
 	case 1: {
-		[ADV_opf_veh_airTransport+ADV_opf_veh_airLogistic,["rhs_mi8amt_vvsc","rhs_mi8amt_vvs","rhs_mi8amtsh_vvsc","rhs_mi8amtsh_vvs","rhs_mi8mt_vvsc","rhs_mi8mt_vvs","rhs_mi8mtv3_vvsc","rhs_mi8mtv3_vvs"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_airRecon,["rhs_ka60_c","rhs_ka60_grey"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_airTransport+ADV_opf_veh_airLogistic,["rhs_mi8amt_vvsc","rhs_mi8amt_vvs","rhs_mi8amtsh_vvsc","rhs_mi8amtsh_vvs","rhs_mi8mt_vvsc","rhs_mi8mt_vvs","rhs_mi8mtv3_vvsc","rhs_mi8mtv3_vvs"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airRecon,["rhs_ka60_c","rhs_ka60_grey"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] call ADV_fnc_changeVeh;
 	};
 	//RHS transport Mi24
 	case 2: {
-		[ADV_opf_veh_airTransport+ADV_opf_veh_airLogistic,["rhs_mi8amt_vvsc","rhs_mi8amt_vvs","rhs_mi8amtsh_vvsc","rhs_mi8amtsh_vvs","rhs_mi8mt_vvsc","rhs_mi8mt_vvs","rhs_mi8mtv3_vvsc","rhs_mi8mtv3_vvs"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_airRecon,["rhs_mi24p_vvs","rhs_mi24p_vvsc","rhs_mi24v_vvs","rhs_mi24v_vvsc"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_airTransport+ADV_opf_veh_airLogistic,["rhs_mi8amt_vvsc","rhs_mi8amt_vvs","rhs_mi8amtsh_vvsc","rhs_mi8amtsh_vvs","rhs_mi8mt_vvsc","rhs_mi8mt_vvs","rhs_mi8mtv3_vvsc","rhs_mi8mtv3_vvs"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airRecon,["rhs_mi24p_vvs","rhs_mi24p_vvsc","rhs_mi24v_vvs","rhs_mi24v_vvsc"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] call ADV_fnc_changeVeh;
 	};
 	//RHS transport Ka52
 	case 3: {
-		[ADV_opf_veh_airTransport+ADV_opf_veh_airLogistic,["rhs_mi8amt_vvsc","rhs_mi8amt_vvs","rhs_mi8amtsh_vvsc","rhs_mi8amtsh_vvs","rhs_mi8mt_vvsc","rhs_mi8mt_vvs","rhs_mi8mtv3_vvsc","rhs_mi8mtv3_vvs"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_airRecon,["rhs_ka52_vvsc","rhs_ka52_vvs"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_airTransport+ADV_opf_veh_airLogistic,["rhs_mi8amt_vvsc","rhs_mi8amt_vvs","rhs_mi8amtsh_vvsc","rhs_mi8amtsh_vvs","rhs_mi8mt_vvsc","rhs_mi8mt_vvs","rhs_mi8mtv3_vvsc","rhs_mi8mtv3_vvs"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airRecon,["rhs_ka52_vvsc","rhs_ka52_vvs"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] call ADV_fnc_changeVeh;
 	};
 	//RHS CAS only
 	case 4: {
-		[ADV_opf_veh_airLogistic,["rhs_mi8amt_vvsc","rhs_mi8amt_vvs","rhs_mi8amtsh_vvsc","rhs_mi8amtsh_vvs","rhs_mi8mt_vvsc","rhs_mi8mt_vvs","rhs_mi8mtv3_vvsc","rhs_mi8mtv3_vvs"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_airTransport,["rhs_mi24p_vvs","rhs_mi24p_vvsc","rhs_mi24v_vvs","rhs_mi24v_vvsc"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_airRecon,["rhs_ka52_vvsc","rhs_ka52_vvs"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_airLogistic,["rhs_mi8amt_vvsc","rhs_mi8amt_vvs","rhs_mi8amtsh_vvsc","rhs_mi8amtsh_vvs","rhs_mi8mt_vvsc","rhs_mi8mt_vvs","rhs_mi8mtv3_vvsc","rhs_mi8mtv3_vvs"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airTransport,["rhs_mi24p_vvs","rhs_mi24p_vvsc","rhs_mi24v_vvs","rhs_mi24v_vvsc"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airRecon,["rhs_ka52_vvsc","rhs_ka52_vvs"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] call ADV_fnc_changeVeh;
 	};
 	//RHS civilian
 	case 5: {
-		[ADV_opf_veh_helis,["RHS_Mi8amt_civilian"],east] spawn ADV_fnc_changeVeh;
-		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_helis,["RHS_Mi8amt_civilian"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] call ADV_fnc_changeVeh;
 	};
 	//no vehicles
-	case 99: {[ADV_opf_veh_helis+ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] spawn ADV_fnc_changeVeh;};
+	case 99: {[ADV_opf_veh_helis+ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] call ADV_fnc_changeVeh;};
 	default {};
 };
 
 //replaces planes with mod planes:
-switch ( missionNamespace getVariable ["ADV_par_opfAirAssets",0] ) do {
+switch ( _par_opfAirAssets ) do {
 	//Apex Xi'an
-	//case 0: { [ADV_opf_veh_airC130,["O_T_VTOL_02_infantry_F"],west] spawn ADV_fnc_changeVeh; };
+	//case 0: { [ADV_opf_veh_airC130,["O_T_VTOL_02_infantry_F"],west] call ADV_fnc_changeVeh; };
 	//RHS SU-25
 	case 1: {
-		[ADV_opf_veh_airCAS,["RHS_Su25SM_vvsc","RHS_Su25SM_vvs"],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_airCAS,["RHS_Su25SM_vvsc","RHS_Su25SM_vvs"],east] call ADV_fnc_changeVeh;
 	};
 	//RHS Su T-50
 	case 2: {
-		[ADV_opf_veh_airCAS,["RHS_T50_vvs_generic","RHS_T50_vvs_blueonblue"],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_airCAS,["RHS_T50_vvs_generic","RHS_T50_vvs_blueonblue"],east] call ADV_fnc_changeVeh;
 	};
 	//JS SU35
 	case 3: {
-		[ADV_opf_veh_airCAS,["JS_JC_SU35"],east] spawn ADV_fnc_changeVeh;
+		[ADV_opf_veh_airCAS,["JS_JC_SU35"],east] call ADV_fnc_changeVeh;
 	};
 	//no planes
-	case 99: {[ADV_opf_veh_airCAS,[""],east] spawn ADV_fnc_changeVeh;};
+	case 99: {[ADV_opf_veh_airCAS,[""],east] call ADV_fnc_changeVeh;};
 	default {};
 };
 
