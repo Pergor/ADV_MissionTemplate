@@ -15,23 +15,40 @@ private _feindstaerke = ["erwartete Feindstärke",
 		"Und dabei nach Möglichkeit niemanden zu hart gängeln. Das macht doch sonst keinen Spaß.<br/> Und darauf kommt es doch an."];
 
 ///////////// Don't edit below this line if you don't know what you're doing. /////////////
-private _param_moveMarker = ["param_moveMarker",2] call BIS_fnc_getParamValue;
-private _respawnHandling = switch _param_moveMarker do {
-	case 0: { "Fester Respawn" };
-	case 1: { "Der Respawn-Punkt wird alle 120 Sekunden nachgezogen" };
-	case 99: { "Kein Respawn" };
-	default { "Teleport zum Gruppenführer über Flagge am Start" };
+private _par_respWithGear = if ( (missionNamespace getVariable ["adv_par_respWithGear",["param_respWithGear",2] call BIS_fnc_getParamValue]) isEqualTo 1 ) then {
+	"<br/><br/>- Wenn ihr etwas an eurer Ausrüstung geändert habt, solltet ihr an den Kisten am Start ""Save gear"" auswählen!"
+} else {""};
+private _par_moveMarker = ["param_moveMarker",2] call BIS_fnc_getParamValue;
+private _respawnHandling = switch _par_moveMarker do {
+	case 0: { "Fester Respawn." };
+	case 1: { "Teleport zum Gruppenführer/Zugführer über Flagge am Start." };
+	case 3: { "Der Respawn-Punkt wird alle 120 Sekunden nachgezogen." };
+	case 99: { "Kein Respawn." };
+	default { "Teleport zum Gruppenführer über Flagge am Start.
+		<br/>Es steht alternativ auch Fallschirmabwurf zur Verfügung. Nur für Gruppenführer ist es möglich, einen Fallschirmabwurf für die ganze Gruppe auszuwählen. (Vorsicht, alle Gruppenmitglieder werden per Fallschirm abgeworfen!)" };
 };
 private _ace_reviveTime = format ["%1",(["ace_medical_maxReviveTime",1200] call BIS_fnc_getParamValue)/60];
-private _param_advancedFatigue = ["ace_advanced_fatigue_enabled",0] call BIS_fnc_getParamValue;
-private _ace_advancedFatigue = switch _param_advancedFatigue do {
-	case 0: { "Das Standard-Ausdauersystem wird verwendet" };
-	default { "Das ACE-Advanced-Ausdauersystem wird verwendet" };
+private _ace_PAKLocation = switch ( missionNamespace getVariable ["ace_medical_useLocation_PAK",0] ) do {
+	case 1: {"nur in Sanitätsfahrzeugen"};
+	case 2: {"nur im Lazarett"};
+	case 3: {"nur in Sanitätsfahrzeugen oder im Lazarett"};
+	default {"überall"};
 };
 private _ace_advancedWounds = if ( (["ace_medical_enableAdvancedWounds",0] call BIS_fnc_getParamValue) isEqualTo 0 ) then {
-	"Wunden öffnen sich nicht"
+	"öffnen sich nicht."
 } else {
-	"Wunden müssen vernäht werden"
+	"müssen vernäht werden."
+};
+private _param_advancedFatigue = missionNamespace getVariable ["ace_advanced_fatigue_enabled",1];
+private _ace_advancedFatigue = switch _param_advancedFatigue do {
+	case 0: { "Standard-Ausdauersystem" };
+	default { "ACE-Advanced-Ausdauersystem" };
+};
+private _ace_repairLocation = switch ( missionNamespace getVariable ["ace_repair_fullRepairLocation",0] ) do {
+	case 1: {"nur mit Reparaturfahrzeug"};
+	case 2: {"nur in der Basis"};
+	case 3: {"nur mit Reparaturfahrzeug oder in der Basis"};
+	default {"überall"};
 };
 [
 	{true},
@@ -41,14 +58,15 @@ private _ace_advancedWounds = if ( (["ace_medical_enableAdvancedWounds",0] call 
 		_feindstaerke,
 		["Hinweise zur Mission",
 			("Vor dem Aufbruch nicht vergessen:
-			<br/><br/>- Wenn ihr etwas an eurer Ausrüstung geändert habt, solltet ihr an den Kisten am Start ""Save gear"" auswählen!
-			<br/>- ") + _respawnHandling + (".
-			<br/>- Revive-Zeit: ") + _ace_reviveTime + (" Minuten.
-			<br/>- Revive durch PAK überall.
-			<br/>- ") + _ace_advancedWounds + (".
-			<br/>- ") + _ace_advancedFatigue + (".
-			<br/>- Reparatur nur für Pioniere und Logistiker mit Werkzeugkasten.
-			<br/>- Bei Sprengmittelentschärfung besteht ein Restrisiko.
+			") + _par_respWithGear + ("
+			<br/><br/>- ") + _respawnHandling + ("
+			<br/><br/>- Revive-Zeit: ") + _ace_reviveTime + (" Minuten.
+			<br/>- Revive durch PAK ist ") + _ace_pakLocation + (" möglich.
+			<br/>- Wunden ") + _ace_advancedWounds + ("
+			<br/>- Es wird das ") + _ace_advancedFatigue + (" verwendet.
+			<br/><br/>- Reparatur nur für Pioniere und Logistiker mit Werkzeugkasten.
+			<br/>- Vollständige Reparatur ist für Pioniere und Logistiker ") + _ace_repairLocation + (" moglich.
+			<br/>- Bei Sprengmittelentschärfung besteht auch durch Pioniere ein Restrisiko.
 			<br/><br/>- Wenn ihr technische Schwierigkeiten habt, schreibt bitte ausschließlich den Spiel-Admin an (rotes Icon im TS).
 			<br/>- Bitte haltet euch zurück mit out-of-character-Gesprächen. Die anderen Spielerinnen und Spieler werden es euch danken.")]
 ] call FHQ_TT_addBriefing;
