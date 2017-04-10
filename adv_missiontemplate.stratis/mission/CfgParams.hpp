@@ -56,7 +56,7 @@ class param_moveMarker
 {
 	title="Wie soll mit respawnenden oder nachzuführenden Spielern umgegangen werden?";
 	values[] = {99,3,2,1,0};
-	texts[] = {"Kein Respawn","Fester Respawn (Nachführung durch Teleport, Gruppenführern steht Fallschirmabwurf für gesamte Gruppe zur Verfügung)","Fester Respawn (Nachführung durch Teleport)","Beweglicher Respawn (wird alle 120 sek. nachgezogen)","Fester Respawn"};
+	texts[] = {"Kein Respawn","Beweglicher Respawn (wird alle 120 sek. nachgezogen)","Fester Respawn (Nachführung durch Teleport, oder Fallschirmabwurf. Gruppenführern steht Fallschirmabwurf für gesamte Gruppe zur Verfügung)","Fester Respawn (Nachführung durch Teleport)","Fester Respawn"};
 	default = 2;
 };
 class param_vehicleRespawn

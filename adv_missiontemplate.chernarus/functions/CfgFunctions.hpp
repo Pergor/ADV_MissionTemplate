@@ -1,14 +1,23 @@
 class ADV
 {	
 	tag = "ADV";
-	class preInit
+	class variables
 	{
+		class collectCrates {};
+		class collectFlags {};
+		class loadoutVariables {};
 		class parVariables { preInit = 1; };
-		class missionMarkers { preInit = 1; };
 		class variables { preInit = 1; };
-		class sideMarkers { preInit = 1; };
+	};
+	class settings
+	{
 		class acreSettings { preInit = 1; postInit = 1; };
 		class tfarSettings { preInit = 1; };
+	};
+	class preInit
+	{
+		class missionMarkers { preInit = 1; };
+		class sideMarkers { preInit = 1; };
 		class fhqTT {
 			file = "scripts\fhqtt2.sqf";
 			preInit = 1;
@@ -24,38 +33,42 @@ class ADV
 	};
 	class shared
 	{
-		class collectCrates {};
-		class collectFlags {};
 		class radioRelay {};
 		class weather { postInit = 1; };
+	};
+	class server_internal
+	{
+		file = "functions\server\internal";
+		class addACEItems {};
+		class addVehicleLoad {};
+		class changeVeh {};
+		class disableVehSelector {};
+		class manageVeh { postInit = 1; };
+		class nil {};
+		class rhsDecals {};
 	};
 	class server
 	{
 		class armedHuron {};
 		class artillery {};
+		class board {};
 		class CASRun {};
-		class changeVeh {};
 		class createZeus {};
 		class disableTI {};
 		class disableVeh {};
-		class disableVehSelector {};
 		class flare {};
 		class getOppPos {};
 		class HCobjects {};
 		class IEDhandler { postInit = 1; };
 		class lockVeh {};
-		class manageVeh { postInit = 1; };
-		class nil {};
+		class paraBomb {};
+		class paraCrate {};
 		class respawnVeh {};
 		class retexture {};
-		class rhsDecals {};
-		class paraBomb {};
 		class zeusObjects {};
 	};
 	class serverGear
 	{
-		class addACEItems {};
-		class addVehicleLoad {};
 		class clearCargo {};
 		class crate {};
 		class removeWeapon {};
@@ -75,20 +88,23 @@ class ADV
 		};
 		class ZenOccupyHouse {};
 	};
+	class client_internal
+	{
+		file = "functions\client\internal";
+		class dialogTeleport {};
+		class execTeleport {};
+		class moveRespMarker {};
+	};
 	class client
 	{
 		class aceMine {};		
-		class board {};		
 		class changeName {};
 		class changeUnit {};
-		class dialogTeleport {};
 		class dispLaunch {};
-		class execTeleport {};
 		class findInGroup {};
 		class flag {};
 		class fullHeal {};
 		class inGroup {};
-		class moveRespMarker {};
 		class paraJump {};
 		class paraJumpSelection {};
 		class playerUnit {};
@@ -99,24 +115,27 @@ class ADV
 		class teleport {};
 		class undercover {};
 	};
-	class gear
+	class gear_internal
 	{
-		class aceFAK {};
+		file = "functions\gear\internal";
 		class aceGear {};
 		class aceGunbag {};
 		class aceMedicalItems {};
+		class applyLoadout {};
+		class dialogGearInit {};
+		class dialogLoadout {};
+	};
+	class gear
+	{
+		class aceFAK {};
 		class add40mm {};
 		class addGPS {};
 		class addGrenades {};
 		class addMagazine {};
 		class addRadios {};
-		class applyLoadout {};
 		class CSW {};
-		class dialogGearInit {};
-		class dialogLoadout {};
 		class gear {};
 		class insignia {};
-		class loadoutVariables {};
 		class setChannels {};
 		class setFaction {};
 		class setFrequencies {};
@@ -167,6 +186,13 @@ class ADV
 		class police {};
 		class press {};
 	};
+	class logistic_internal
+	{
+		file = "functions\logistic\internal";
+		class dialogLogInit {};
+		class dialogLogistic {};
+		class dropLogistic {};
+	};
 	class logistic
 	{
 		class crateAA {};
@@ -177,14 +203,9 @@ class ADV
 		class crateMedic {};
 		class crateMG {};
 		class crateNormal {};
-		class crateTeam {};
 		class crateStuff {};
 		class crateSupport {};
-		class dialogLogInit {};
-		class dialogLogistic {};
-		class dropLogistic {};
-		class emptyCrate {};
-		class paraCrate {};
+		class crateTeam {};
 	};
 };
 class aeroson

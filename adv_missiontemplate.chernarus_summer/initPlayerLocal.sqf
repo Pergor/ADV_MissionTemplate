@@ -80,27 +80,21 @@ ADV_scriptVar_initMoveMarker_jump = {
 };
 */
 //handling of respawned players:
-switch ( missionNamespace getVariable ["ADV_par_moveMarker",2] ) do {
-	case 1: {
-		ADV_handle_moveRespMarker = [120,20, missionNamespace getVariable ["ADV_par_remRespWest",0]] call ADV_fnc_moveRespMarker;
-	};
-	default {
-		adv_objects_flags call ADV_fnc_flag;
-	};
-	case 3: {
-		adv_objects_flags call ADV_fnc_flag;
-		{ nul = _x addAction [("<t color='#00FF00' size='2'>" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJumpSelection},nil,3,false,true,"","player == leader (group player)",5]; nil; } count adv_objects_flags;
-	};
-	case 99: {
+call {
+	if (missionNamespace getVariable ["ADV_par_moveMarker",2] isEqualTo 99) exitWith {
 		setPlayerRespawnTime 9999;
 	};
-	case 0: {};
+	adv_objects_flags call ADV_fnc_flag;
+	if (missionNamespace getVariable ["ADV_par_moveMarker",2] == 3) then {
+		ADV_handle_moveRespMarker = [120,20, missionNamespace getVariable ["ADV_par_remRespWest",0]] call ADV_fnc_moveRespMarker;
+	};
+	/*
+	adv_objects_flags call ADV_fnc_flag;
+	{ nul = _x addAction [("<t color='#00FF00' size='2'>" + ("Parajump") + "</t>"), {[_this select 1] call ADV_fnc_paraJumpSelection},nil,3,false,true,"","player == leader (group player)",5]; nil; } count adv_objects_flags;
+	*/
 };
 
-//adds briefing pictures (00.jpg-05.jpg in \img\) to the specified object and loadout actions:
-if (!isNil "BriefingBoard1") then {[BriefingBoard1] call ADV_fnc_board;};
-if (!isNil "opf_BriefingBoard1") then {[opf_BriefingBoard1] call ADV_fnc_board;};
-if (!isNil "ind_BriefingBoard1") then {[ind_BriefingBoard1] call ADV_fnc_board;};
+//adds loadout menu to BriefingBoard:
 if ( (missionNamespace getVariable ["ADV_par_ChooseLoad",1]) isEqualTo 1 ) then {
 	if (!isNil "BriefingBoard1") then {
 		ADV_handle_chooseLoadoutAction = BriefingBoard1 addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,true,true,"","side player == west",5];

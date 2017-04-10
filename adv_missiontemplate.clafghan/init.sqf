@@ -78,9 +78,11 @@ if ( isServer ) then {
 		ADV_objects_indCargo call ADV_ind_fnc_crate;
 	};
 	
-	//collect all the flags:
-	call adv_fnc_collectFlags;
-	{ _x setFlagTexture "img\flag.paa"; nil; } count adv_objects_westflags+adv_objects_eastflags+adv_objects_indflags;
+	//setTextures:
+	{ _x setFlagTexture "img\flag.paa"; nil; } count adv_objects_flags;
+	if (!isNil "BriefingBoard1") then { [BriefingBoard1] call ADV_fnc_board; };
+	if (!isNil "opf_BriefingBoard1") then { [opf_BriefingBoard1] call ADV_fnc_board; };
+	if (!isNil "ind_BriefingBoard1") then { [ind_BriefingBoard1] call ADV_fnc_board; };
 	
 	//deletes empty groups:
 	adv_handle_emptyGroupsDeleter = addMissionEventHandler ["EntityKilled",{_grp = group (_this select 0);if ( count (units _grp) == 0 ) then { deleteGroup _grp };}];
