@@ -71,7 +71,7 @@ if (side (group player) == east) then {
 if (side (group player) == independent) then {
 
 };
-if ( ADV_par_customWeap == 1 && (side (group player) == west) ) then {
+if ( _par_customWeap isEqualTo 1 && (side (group player) == west) ) then {
 	_loadoutList set [15,"Schütze (Pzf3)"];
 	_loadoutList set [16,"Schütze (RGW90)"];
 	_loadoutList set [17,"Luftabwehrschütze"];

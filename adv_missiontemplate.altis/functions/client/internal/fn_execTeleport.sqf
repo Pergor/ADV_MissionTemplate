@@ -22,6 +22,17 @@ params [
 	"_target","_commander","_closest"
 ];
 
+if ( (toUpper _selection) isEqualTo "PARAJUMP") exitWith {
+	closeDialog 1;
+	openmap true;
+	[_unit] onMapSingleClick "openmap false; [(_this select 0),[(_pos select 0)+20+(random 20),(_pos select 1)+20+(random 20),(_pos select 2)+10+(random 10)]] call adv_fnc_paraJump; onmapsingleclick '';";
+};
+if ( (toUpper _selection) isEqualTo "PARAJUMP_GROUP") exitWith {
+	closeDialog 1;
+	openmap true;
+	[_unit] onMapSingleClick "openmap false; { [_x,[(_pos select 0)+20+(random 20),(_pos select 1)+20+(random 20),(_pos select 2)+10+(random 10)]] remoteExec ['adv_fnc_paraJump',0]; nil;} count (units (group (_this select 0))); onmapsingleclick '';";
+};
+
 _target = switch (toUpper _selection) do {
 	case "TELEPORT_COMMAND": {
 		_commander = switch (side (group _unit)) do {
@@ -63,6 +74,7 @@ _target = switch (toUpper _selection) do {
 
 if (isNil "_target") exitWith {};
 
+closeDialog 1;
 if (vehicle _target != _target) then {
 	_vehicle = vehicle _target;
 	_unit moveInCargo _vehicle;

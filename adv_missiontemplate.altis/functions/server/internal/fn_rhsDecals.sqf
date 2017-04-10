@@ -23,7 +23,7 @@ params [
 
 switch true do {
 	case (_veh isKindOf "rhsusf_hmmwe_base"): {
-		if (ADV_par_modCarAssets == 7) then {
+		if ( (missionNamespace getVariable ["ADV_par_modCarAssets",0]) isEqualTo 7 ) then {
 			[_veh,["OLIVE",1],nil] call BIS_fnc_initVehicle;
 			true;
 		};
