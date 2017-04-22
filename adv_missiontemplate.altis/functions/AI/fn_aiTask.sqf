@@ -63,7 +63,7 @@ call {
 		[_grp, _start, _radius, 5, "MOVE", "SAFE", "GREEN", "LIMITED", "STAG COLUMN", "this spawn CBA_fnc_searchNearby", [3,6,9]] call CBA_fnc_taskPatrol;
 	};
 	if (_mode isEqualTo 2) exitWith {
-		[_start, units _grp, _radius, true, false] call adv_fnc_ZenOccupyHouse;
+		[_start, units _grp, _radius, true, true] call adv_fnc_ZenOccupyHouse;
 	};
 	if (_mode isEqualTo 3) exitWith {
 		if (_radius > 200) then { _radius = 200 };
