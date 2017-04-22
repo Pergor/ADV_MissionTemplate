@@ -5,6 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+params ["_player"];
 /*
  * Author: Belbo
  *
@@ -464,7 +465,6 @@ switch (_par_customUni) do {
 
 ///// No editing necessary below this line /////
 
-_player = _this select 0;
 if !(toUpper ((str _player) select [0,2]) == "FT") then {
 	_ACE_sprayPaintColor = "NONE";
 };
