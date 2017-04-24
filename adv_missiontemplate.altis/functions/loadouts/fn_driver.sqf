@@ -298,7 +298,6 @@ switch (_par_customUni) do {
 		_headgear = ["BWA3_CrewmanKSK_Tropen_Headset"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_tropen","PBW_Uniform3_tropen"];
-			_vest = ["pbw_koppel_grpfhr"];
 			_items pushback "PBW_muetze1_tropen";
 		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };

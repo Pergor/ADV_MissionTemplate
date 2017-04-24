@@ -361,7 +361,6 @@ switch (_par_customUni) do {
 		_backpack = ["BWA3_PatrolPack_Tropen"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_tropen","PBW_Uniform3_tropen","PBW_Uniform3K_tropen"];
-			_vest = ["pbw_splitter_mg_h"];
 			_headgear = ["PBW_Helm4_tropen","PBW_Helm1_tropen"];
 			_items pushback "PBW_muetze1_tropen";
 		};
