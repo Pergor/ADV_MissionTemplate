@@ -361,7 +361,7 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 			_box = false;
 			private _vehiclesInVicinity = nearestObjects [getPosWorld player, ["LANDVEHICLE"], 8, true];
 			call {
-				private _applicableVehicles = { (str _x) in ADV_veh_all+ADV_opf_veh_all+ADV_ind_veh_all } count _vehiclesInVicinity;
+				private _applicableVehicles = { (str _x) in ADV_veh_all || (str _x) in ADV_opf_veh_all || (str _x) in ADV_ind_veh_all } count _vehiclesInVicinity;
 				if ( _applicableVehicles isEqualTo 0 ) exitWith {
 					["There's no applicable vehicle within 8 meter radius.",5] call adv_fnc_timedHint;
 					_forcePlacement = true;

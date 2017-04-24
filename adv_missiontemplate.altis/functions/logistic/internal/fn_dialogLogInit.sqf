@@ -37,7 +37,7 @@ if (isClass(configFile >> "CfgPatches" >> "ace_repair")) then {
 	_loadoutList append ["Ersatzreifen","Ersatzkette"];
 };
 if ( _par_logisticAmount > 2 ) then {
-	_loadoutList append ["Fahrzeuginventar auffrischen",""];
+	_loadoutList append ["Fahrzeuginventar auffrischen"];
 };
 switch ( _par_logisticTeam ) do {
 	case 1: { _loadoutList append ["","Fire Team-Kiste"]; };
@@ -78,15 +78,15 @@ if ( _par_logisticAmount > 2 ) then {
 switch ( _par_logisticTeam ) do {
 	case 1: {
 		_lbSetDataCount = _lbSetDataCount+1;
-		lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATETEAM"];
-		_lbSetDataCount = _lbSetDataCount+1;
 		lbSetData [7377, _lbSetDataCount, "ADV_FNC_NIL"];
+		_lbSetDataCount = _lbSetDataCount+1;
+		lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATETEAM"];
 	};
 	case 2: {
 		_lbSetDataCount = _lbSetDataCount+1;
-		lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATELARGE"];
-		_lbSetDataCount = _lbSetDataCount+1;
 		lbSetData [7377, _lbSetDataCount, "ADV_FNC_NIL"];		
+		_lbSetDataCount = _lbSetDataCount+1;
+		lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATELARGE"];
 	};
 	case 3: {
 		_lbSetDataCount = _lbSetDataCount+1;
