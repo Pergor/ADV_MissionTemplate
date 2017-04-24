@@ -136,6 +136,9 @@ if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVa
 _giveRiflemanRadio = true;
 _givePersonalRadio = true;
 _giveBackpackRadio = false;
+if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) then {
+	_giveBackpackRadio = true;
+};
 _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a rifleman radio
 
 //ACE items (if ACE is running on the server) - (integers)
@@ -359,7 +362,7 @@ switch (_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
 		_uniform = ["BWA3_Uniform_Ghillie_idz_Tropen"];
-		_vest = ["BWA3_Vest_Marksman_Tropen"];
+		_vest = ["BWA3_Vest_Marksman_Tropen","BWA3_Vest_JPC_Rifleman_Tropen"];
 		_backpack = ["BWA3_PatrolPack_Tropen"];
 		_headgear = ["BWA3_Booniehat_Tropen"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
@@ -371,7 +374,7 @@ switch (_par_customUni) do {
 	case 2: {
 		//BWmod Fleck
 		_uniform = ["BWA3_Uniform_Ghillie_idz_Fleck"];
-		_vest = ["BWA3_Vest_Marksman_Fleck"];
+		_vest = ["BWA3_Vest_Marksman_Fleck","BWA3_Vest_JPC_Rifleman_Fleck"];
 		_backpack = ["BWA3_PatrolPack_Fleck"];
 		_headgear = ["BWA3_Booniehat_Fleck"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
@@ -476,6 +479,12 @@ switch (_par_customUni) do {
 	default {};
 };
 if ( isClass(configFile >> "CfgPatches" >> "ace_spottingscope") ) then { _items pushBack "ACE_SpottingScope"; };
+
+//LRRadios
+if (missionNamespace getVariable ["_par_noLRRadios",false]) then { _giveBackpackRadio = false };
+if ( (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = [_player] call adv_fnc_LRBackpack;
+};
 
 ///// No editing necessary below this line /////
 

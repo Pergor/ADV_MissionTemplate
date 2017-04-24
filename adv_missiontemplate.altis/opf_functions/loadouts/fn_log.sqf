@@ -326,19 +326,11 @@ switch (toUpper ([str (_this select 0),3,10] call BIS_fnc_trimString)) do {
 	};
 };
 
-//TFAR-manpacks
-if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = switch (_par_opfUni) do {
-		default {["tf_bussole"]};
-	};
+//LRRadios
+if (missionNamespace getVariable ["_par_noLRRadios",false]) then { _giveBackpackRadio = false };
+if ( (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = [_player] call adv_fnc_LRBackpack;
 };
-/*
-if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = switch (_par_CustomUni) do {
-		default {"B_AssaultPack_blk"};
-	};
-};
-*/
 
 ///// No editing necessary below this line /////
 
