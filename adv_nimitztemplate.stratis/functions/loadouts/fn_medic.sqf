@@ -5,6 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+params ["_player"];
 /*
  * Author: Belbo
  *
@@ -334,7 +335,6 @@ switch (_par_customUni) do {
 		_backpack = ["BWA3_Kitbag_Tropen_Medic"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_tropen","PBW_Uniform3_tropen","PBW_Uniform3K_tropen"];
-			_vest = ["pbw_splitter_sani"];
 			_headgear = ["PBW_Helm4_tropen_HBO","PBW_Helm1_tropen_HBO"];
 			_items pushback "PBW_muetze1_tropen";
 		};
@@ -475,7 +475,7 @@ if (isClass(configFile >> "CfgPatches" >> "adv_insignia")) then {
 	_insignium = "ADV_insignia_medic";
 };
 
-switch (toUpper ([str (_this select 0),0,8] call BIS_fnc_trimString)) do {
+switch (toUpper ([str _player,0,8] call BIS_fnc_trimString)) do {
 	case "MEDIC_COM": {
 		_binocular = "Rangefinder";
 		_androidDevice = true;
@@ -492,7 +492,7 @@ switch (toUpper ([str (_this select 0),0,8] call BIS_fnc_trimString)) do {
 	};
 };
 
-if ( {[_this select 0,_x] call adv_fnc_inGroup} count ["JUPITER","ÄSKULAP","MERKUR","APOLLO"] > 0 || [_this select 0,"command"] call adv_fnc_findInGroup ) then {
+if ( {[_player,_x] call adv_fnc_inGroup} count ["JUPITER","ÄSKULAP","MERKUR","APOLLO"] > 0 || [_player,"command"] call adv_fnc_findInGroup ) then {
 	_ACE_isMedic = 2;
 	_ACE_personalAidKit = 1;
 	_binocular = "Rangefinder";
@@ -503,7 +503,6 @@ if ( {[_this select 0,_x] call adv_fnc_inGroup} count ["JUPITER","ÄSKULAP","MER
 
 ///// No editing necessary below this line /////
 
-_player = _this select 0;
 [_player] call ADV_fnc_gear;
 
 true;

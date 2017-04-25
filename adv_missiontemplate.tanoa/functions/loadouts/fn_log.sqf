@@ -5,6 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+params ["_player"];
 /*
  * Author: Belbo
  *
@@ -287,7 +288,6 @@ switch (_par_customUni) do {
 		_backpack = ["BWA3_Assaultpack_Tropen"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_tropen","PBW_Uniform3_tropen"];
-			_vest = ["pbw_koppel_grpfhr"];
 			_headgear = ["PBW_muetze1_tropen"];
 		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
@@ -426,32 +426,14 @@ switch (toUpper ([str (_this select 0),0,6] call BIS_fnc_trimString)) do {
 	};
 };
 
-//TFAR-manpacks
-if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = switch (_par_CustomUni) do {
-		case 1: {["tf_rt1523g_bwmod"]};
-		case 2: {["tf_rt1523g_bwmod"]};
-		case 9: {["tf_rt1523g_rhs"]};
-		case 12: {["UK3CB_BAF_B_Bergen_MTP_Radio_H_A","UK3CB_BAF_B_Bergen_MTP_Radio_H_B"]};
-		case 13: {["tf_rt1523g_bwmod"]};
-		case 14: {["tf_rt1523g_bwmod"]};
-		default {["tf_rt1523g_rhs"]};
-	};
+//LRRadios
+if (missionNamespace getVariable ["_par_noLRRadios",false]) then { _giveBackpackRadio = false };
+if ( (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = [_player] call adv_fnc_LRBackpack;
 };
 
-if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = switch (_par_CustomUni) do {
-		case 1: {"BWA3_AssaultPack_Tropen"};
-		case 2: {"BWA3_AssaultPack_Fleck"};
-		case 12: {["UK3CB_BAF_B_Bergen_MTP_Radio_L_A","UK3CB_BAF_B_Bergen_MTP_Radio_L_B"]};
-		case 20: {"B_AssaultPack_tna_F"};
-		default {"B_AssaultPack_blk"};
-	};
-};
 ///// No editing necessary below this line /////
 
-_player = _this select 0;
-//TFAR-manpacks
 [_player] call ADV_fnc_gear;
 CL_IE_Module_Enabled = true;
 

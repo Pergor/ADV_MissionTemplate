@@ -5,6 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+params ["_player"];
 /*
  * Author: Belbo
  *
@@ -271,13 +272,17 @@ if (isClass(configFile >> "CfgPatches" >> "adv_insignia")) then {
 	_insignium = "ADV_insignia_medic";
 };
 
-switch (toUpper ([str (_this select 0),3,12] call BIS_fnc_trimString)) do {
+switch (toUpper ([str _player,3,12] call BIS_fnc_trimString)) do {
 	case "MEDIC_COM": {
 		_binocular = "Rangefinder";
 		_androidDevice = true;
 		_microDAGR = false;
 		_ACE_MapTools = 1;
 		_ACE_isMedic = 2;
+	};
+	case "MEDIC_LEA": {
+		_androidDevice = true;
+		_microDAGR = false;
 	};
 	case "MEDIC_LOG": {
 		_androidDevice = true;
@@ -286,13 +291,12 @@ switch (toUpper ([str (_this select 0),3,12] call BIS_fnc_trimString)) do {
 	};
 };
 
-if ( {[_this select 0,_x] call adv_fnc_inGroup} count ["NATTER","DRACHE"] > 0 || [_this select 0,"command"] call adv_fnc_findInGroup ) then {
+if ( {[_player,_x] call adv_fnc_inGroup} count ["NATTER","DRACHE"] > 0 || [_player,"command"] call adv_fnc_findInGroup ) then {
 	_ACE_isMedic = 2;
 	_ACE_personalAidKit = 1;
 };
 ///// No editing necessary below this line /////
 
-_player = _this select 0;
 [_player] call ADV_fnc_gear;
 
 true;

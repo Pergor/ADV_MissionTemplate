@@ -5,6 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+params ["_player"];
 /*
  * Author: Belbo
  *
@@ -328,11 +329,10 @@ switch (_par_customUni) do {
 	case 1: {
 		//BWmod
 		_uniform = ["BWA3_Uniform_idz_Tropen"];
-		_vest = ["BWA3_Vest_Leader_Tropen"];
+		_vest = ["BWA3_Vest_Leader_Tropen","BWA3_Vest_Leader_Tropen","BWA3_Vest_JPC_Leader_Tropen","BWA3_Vest_JPC_Radioman_Tropen"];
 		_headgear = ["BWA3_OpsCore_Tropen_Camera"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_tropen","PBW_Uniform3_tropen","PBW_Uniform3K_tropen"];
-			_vest = ["pbw_splitter_grpfhr"];
 			_headgear = ["PBW_Helm4_tropen","PBW_Helm1_tropen"];
 			_items pushback "PBW_muetze1_tropen";
 		};
@@ -341,7 +341,7 @@ switch (_par_customUni) do {
 	case 2: {
 		//BWmod
 		_uniform = ["BWA3_Uniform_idz_Fleck"];
-		_vest = ["BWA3_Vest_Leader_Fleck"];
+		_vest = ["BWA3_Vest_Leader_Fleck","BWA3_Vest_Leader_Fleck","BWA3_Vest_JPC_Leader_Fleck","BWA3_Vest_JPC_Radioman_Fleck"];
 		_headgear = ["BWA3_OpsCore_Fleck_Camera"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_fleck","PBW_Uniform3_fleck","PBW_Uniform3K_fleck"];
@@ -464,7 +464,6 @@ switch (_par_customUni) do {
 
 ///// No editing necessary below this line /////
 
-_player = _this select 0;
 if !(toUpper ((str _player) select [0,2]) == "FT") then {
 	_ACE_sprayPaintColor = "NONE";
 };

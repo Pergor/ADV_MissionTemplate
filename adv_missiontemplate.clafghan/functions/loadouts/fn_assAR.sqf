@@ -5,6 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+params ["_player"];
 /*
  * Author: Belbo
  *
@@ -155,7 +156,7 @@ _ACE_surgicalKit = 0;
 _ACE_personalAidKit = 0;
 
 _ACE_SpareBarrel = 1;
-_ACE_EntrenchingTool = 0;
+_ACE_EntrenchingTool = 1;
 _ACE_UAVBattery = 0;
 _ACE_wirecutter = 0;
 _ACE_Clacker = 0;
@@ -357,12 +358,11 @@ switch (_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
 		_uniform = ["BWA3_Uniform_idz_Tropen"];
-		_vest = ["BWA3_Vest_Autorifleman_Tropen"];
+		_vest = ["BWA3_Vest_Autorifleman_Tropen","BWA3_Vest_JPC_Rifleman_Tropen"];
 		_headgear = ["BWA3_MICH_Tropen"];
 		_backpack = ["BWA3_PatrolPack_Tropen"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_tropen","PBW_Uniform3_tropen","PBW_Uniform3K_tropen"];
-			_vest = ["pbw_splitter_mg_h"];
 			_headgear = ["PBW_Helm4_tropen","PBW_Helm1_tropen"];
 			_items pushback "PBW_muetze1_tropen";
 		};
@@ -371,7 +371,7 @@ switch (_par_customUni) do {
 	case 2: {
 		//BWmod Flecktarn
 		_uniform = ["BWA3_Uniform_idz_Fleck"];
-		_vest = ["BWA3_Vest_Autorifleman_Fleck"];
+		_vest = ["BWA3_Vest_Autorifleman_Fleck","BWA3_Vest_JPC_Rifleman_Fleck"];
 		_headgear = ["BWA3_MICH_Fleck"];
 		_backpack = ["BWA3_PatrolPack_Fleck"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
@@ -498,7 +498,6 @@ switch (_par_customUni) do {
 
 ///// No editing necessary below this line /////
 
-_player = _this select 0;
 [_player] call ADV_fnc_gear;
 
 true;

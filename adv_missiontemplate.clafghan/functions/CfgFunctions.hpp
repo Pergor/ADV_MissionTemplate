@@ -33,6 +33,7 @@ class ADV
 	};
 	class shared
 	{
+		class jammer {};
 		class radioRelay {};
 		class weather { postInit = 1; };
 	};
@@ -56,6 +57,7 @@ class ADV
 		class createZeus {};
 		class disableTI {};
 		class disableVeh {};
+		class findNearestObject {};
 		class flare {};
 		class getOppPos {};
 		class HCobjects {};
@@ -113,6 +115,7 @@ class ADV
 		class spawnFire {};
 		class speedLimiter {};
 		class teleport {};
+		class timedHint {};
 		class undercover {};
 	};
 	class gear_internal
@@ -136,6 +139,7 @@ class ADV
 		class CSW {};
 		class gear {};
 		class insignia {};
+		class LRBackpack {};
 		class setChannels {};
 		class setFaction {};
 		class setFrequencies {};

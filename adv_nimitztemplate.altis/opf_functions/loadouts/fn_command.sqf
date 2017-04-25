@@ -5,6 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+params ["_player"];
 /*
  * Author: Belbo
  *
@@ -186,7 +187,7 @@ _ACE_HandFlare_White = 0;
 _ACE_HandFlare_Yellow = 0;
 
 //AGM Variables (if AGM is running) - (bool)
-_ACE_isMedic = 1;		//0 = no medic; 1 = medic; 2 = doctor;
+_ACE_isMedic = 2;		//0 = no medic; 1 = medic; 2 = doctor;
 _ACE_isEngineer = 1;	//0 = no specialist; 1 = engineer; 2 = repair specialist;
 _ACE_isEOD = false;
 _ACE_isPilot = false;
@@ -353,7 +354,6 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (_par_Radios == 1 ||
 
 ///// No editing necessary below this line /////
 
-_player = _this select 0;
 [_player] call ADV_fnc_gear;
 CL_IE_Module_Enabled = true;
 

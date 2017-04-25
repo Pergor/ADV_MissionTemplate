@@ -5,6 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+params ["_player"];
 /*
  * Author: Belbo
  *
@@ -350,7 +351,6 @@ switch (_par_customUni) do {
 		_headgear = ["BWA3_OpsCore_Schwarz"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_tropen","PBW_Uniform3_tropen","PBW_Uniform3K_tropen"];
-			_vest = ["pbw_splitter_grpfhr"];
 			_headgear = ["PBW_Helm4_tropen_HBO","PBW_Helm1_tropen_HBO"];
 			_items pushback "PBW_muetze1_tropen";
 		};
@@ -513,30 +513,12 @@ switch (toUpper ([str (_this select 0),0,9] call BIS_fnc_trimString)) do {
 
 //LRRadios
 if (missionNamespace getVariable ["_par_noLRRadios",false]) then { _giveBackpackRadio = false };
-if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = switch (_par_CustomUni) do {
-		case 1: {["tf_rt1523g_bwmod"]};
-		case 2: {["tf_rt1523g_bwmod"]};
-		case 9: {["tf_rt1523g_rhs"]};
-		case 12: {["UK3CB_BAF_B_Bergen_MTP_Radio_H_A","UK3CB_BAF_B_Bergen_MTP_Radio_H_B"]};
-		case 13: {["tf_rt1523g_bwmod"]};
-		case 14: {["tf_rt1523g_bwmod"]};
-		default {["tf_rt1523g_rhs"]};
-	};
-};
-
-if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = switch (_par_CustomUni) do {
-		case 1: {"BWA3_AssaultPack_Tropen"};
-		case 2: {"BWA3_AssaultPack_Fleck"};
-		case 12: {["UK3CB_BAF_B_Bergen_MTP_Radio_L_A","UK3CB_BAF_B_Bergen_MTP_Radio_L_B"]};
-		case 20: {"B_AssaultPack_tna_F"};
-		default {"B_AssaultPack_blk"};
-	};
+if ( (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = [_player] call adv_fnc_LRBackpack;
 };
 
 ///// No editing necessary below this line /////
-_player = _this select 0;
+
 [_player] call ADV_fnc_gear;
 CL_IE_Module_Enabled = true;
 

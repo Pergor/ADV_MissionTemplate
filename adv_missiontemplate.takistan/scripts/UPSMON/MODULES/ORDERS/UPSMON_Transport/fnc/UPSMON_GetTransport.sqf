@@ -59,7 +59,8 @@ _assignedvehicles = [];
 			};
 		};
 	};
-} foreach _transportarray;
+	nil;
+} count _transportarray;
 
 If (count _transportsselected > 0) then
 {

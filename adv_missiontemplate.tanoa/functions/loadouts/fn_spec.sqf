@@ -5,6 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+params ["_player"];
 /*
  * Author: Belbo
  *
@@ -333,7 +334,6 @@ switch (_par_customUni) do {
 		_backpack = ["BWA3_PatrolPack_Tropen"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_tropen","PBW_Uniform3_tropen","PBW_Uniform3K_tropen"];
-			_vest = ["pbw_splitter_grpfhr"];
 			_headgear = ["PBW_Helm4_tropen_HBO","PBW_Helm1_tropen_HBO"];
 			_items pushback "PBW_muetze1_tropen";
 		};
@@ -477,7 +477,6 @@ switch (_par_customUni) do {
 
 ///// No editing necessary below this line /////
 
-_player = _this select 0;
 [_player] call ADV_fnc_gear;
 
 true;

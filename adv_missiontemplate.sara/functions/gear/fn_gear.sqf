@@ -82,7 +82,7 @@ if ( _vest isEqualType [] ) then { _vest = selectRandom _vest;};
 _unit addVest _vest;
 if ( _backpack isEqualType [] ) then { _backpack = selectRandom _backpack; };
 private _removeBackpackAfterWeapons = false;
-if ( toUpper _backpack isEqualTo "backpackdummy" ) then { _backpack = "B_Carryall_oli"; _removeBackpackAfterWeapons = true; };
+if ( toUpper _backpack isEqualTo "BACKPACKDUMMY" ) then { _backpack = "B_Carryall_oli"; _removeBackpackAfterWeapons = true; };
 _unit addBackpackGlobal _backpack;
 //adding the ace_gunbag if necessary:
 if ( isClass(configFile >> "CfgPatches" >> "ACE_gunbag") && !isNil "_ace_gunbag") then {

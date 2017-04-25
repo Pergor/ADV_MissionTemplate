@@ -1,7 +1,11 @@
 ﻿/*
- * Author: commy2, Belbo
+ * Author: commy2, Belbo, buur
  *
  * Overwrites ace_fnc_speedLimiter with a lower maxspeed (5km/h) and adds two new keybinds to raise/lower maxspeed (default: Shift+Del/Ctrl+Del)
+ * Changes made by buur:
+ * failure: the set maxSpeed was generated complete new → fixed.
+ * failure: negative speed was possible and destroyey the car → fixed: minimum speed is now 2 km/h
+ * added: graphical and accoustic indicator for change the max speedlimiter speed
  *
  * Arguments:
  * None
@@ -15,6 +19,10 @@
  * Public: No
  */
 
+ /*
+
+ */
+
 adv_speedLimiter_fnc_speedlimiter = {
 	params ["_driver", "_vehicle"];
 
@@ -23,9 +31,10 @@ adv_speedLimiter_fnc_speedlimiter = {
 		playSound "ACE_Sound_Click";
 		ace_vehicles_isSpeedLimiter = false;
 		_vehicle setVariable ["adv_speedlimiter_changedSpeed",nil];
+		_vehicle setVariable ["adv_speedlimiter_actualSpeed", nil];
 	};
 
-	["Speedlimiter on"] call ace_common_fnc_displayTextStructured;
+	["Speedlimiter on."] call ace_common_fnc_displayTextStructured;
 	playSound "ACE_Sound_Click";
 	ace_vehicles_isSpeedLimiter = true;
 
@@ -52,6 +61,7 @@ adv_speedLimiter_fnc_speedlimiter = {
 
 		private _speed = speed _vehicle;
 		_maxSpeed = _vehicle getVariable ["adv_speedlimiter_changedSpeed", _maxSpeed];
+		_actualSpeed = _vehicle setVariable ["adv_speedlimiter_actualSpeed", _maxSpeed];
 
 		if (_speed > _maxSpeed) then {
 			_vehicle setVelocity ((velocity _vehicle) vectorMultiply ((_maxSpeed / _speed) - 0.00001));
@@ -87,16 +97,30 @@ ace_vehicles_isSpeedLimiter = false;
 
 ["ACE3 Vehicles", "ace_vehicles_speedLimiter_UP", "Speed Limiter Up",
 {
-	private _vehicle = vehicle ACE_player;
-	_vehicle setVariable ["adv_speedlimiter_changedSpeed", (speed _vehicle)+1];
+	if (ace_vehicles_isSpeedLimiter) then {
+		private _vehicle = vehicle ACE_player;
+		_actualSpeed = _vehicle getVariable ["adv_speedlimiter_actualSpeed", _actualSpeed];
+		_vehicle setVariable ["adv_speedlimiter_changedSpeed", _actualSpeed +1];
+
+		["Speedlimiter +1."] call ace_common_fnc_displayTextStructured;
+		playSound "ACE_Sound_Click";
+	};
 },
 {false},
 [211, [true, false, false]], false] call CBA_fnc_addKeybind;
 
 ["ACE3 Vehicles", "ace_vehicles_speedLimiter_DN", "Speed Limiter Down",
 {
-	private _vehicle = vehicle ACE_player;
-	_vehicle setVariable ["adv_speedlimiter_changedSpeed", (speed _vehicle)-1];
+	if (ace_vehicles_isSpeedLimiter) then {
+		private _vehicle = vehicle ACE_player;
+		_actualSpeed = _vehicle getVariable ["adv_speedlimiter_actualSpeed", _actualSpeed];
+		_vehicle setVariable ["adv_speedlimiter_changedSpeed", (_actualSpeed -1) max 2];
+
+		if (_actualSpeed > 2) then {
+			["Speedlimiter -1."] call ace_common_fnc_displayTextStructured;
+			playSound "ACE_Sound_Click";
+		};
+	};
 },
 {false},
 [211, [false, true, false]], false] call CBA_fnc_addKeybind;

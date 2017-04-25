@@ -54,7 +54,7 @@ if (_grenSet > 0) then {
 			_grenHE = 2;
 			_grenSmkWht = 1;
 			_grenSmkYlw = 0;
-			_grenSmkOrng = 0;
+			_grenSmkOrng = 1;
 			_grenSmkRd = 0;
 			_grenSmkPrpl = 0;
 			_grenSmkBl = 0;

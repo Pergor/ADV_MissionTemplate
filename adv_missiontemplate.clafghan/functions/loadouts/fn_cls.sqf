@@ -5,6 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+params ["_player"];
 /*
  * Author: Belbo
  *
@@ -328,12 +329,11 @@ switch (_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
 		_uniform = ["BWA3_Uniform_idz_Tropen"];
-		_vest = ["BWA3_Vest_Rifleman1_Tropen"];
+		_vest = ["BWA3_Vest_Rifleman1_Tropen","BWA3_Vest_JPC_Rifleman_Tropen"];
 		_headgear = ["BWA3_MICH_Tropen"];
 		_backpack = ["BWA3_TacticalPack_Tropen_Medic"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_tropen","PBW_Uniform3_tropen","PBW_Uniform3K_tropen"];
-			_vest = ["pbw_splitter_sani"];
 			_headgear = ["PBW_Helm4_tropen","PBW_Helm1_tropen"];
 			_items pushback "PBW_muetze1_tropen";
 		};
@@ -342,7 +342,7 @@ switch (_par_customUni) do {
 	case 2: {
 		//BWmod Fleck
 		_uniform = ["BWA3_Uniform_idz_Fleck"];
-		_vest = ["BWA3_Vest_Rifleman1_Fleck"];
+		_vest = ["BWA3_Vest_Rifleman1_Fleck","BWA3_Vest_JPC_Rifleman_Fleck"];
 		_headgear = ["BWA3_MICH_Fleck"];
 		_backpack = ["BWA3_TacticalPack_Fleck_Medic"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
@@ -472,7 +472,7 @@ if (isClass(configFile >> "CfgPatches" >> "adv_insignia")) then {
 };
 
 ///// No editing necessary below this line /////
-_player = _this select 0;
+
 [_player] call ADV_fnc_gear;
 
 true;

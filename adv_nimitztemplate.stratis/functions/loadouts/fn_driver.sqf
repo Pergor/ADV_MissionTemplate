@@ -5,6 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+params ["_player"];
 /*
  * Author: Belbo
  *
@@ -297,7 +298,6 @@ switch (_par_customUni) do {
 		_headgear = ["BWA3_CrewmanKSK_Tropen_Headset"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_tropen","PBW_Uniform3_tropen"];
-			_vest = ["pbw_koppel_grpfhr"];
 			_items pushback "PBW_muetze1_tropen";
 		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
@@ -413,7 +413,7 @@ switch (_par_customUni) do {
 	default {};
 };
 
-switch (toUpper ([str (_this select 0),0,9] call BIS_fnc_trimString)) do {
+switch (toUpper ([str _player,0,9] call BIS_fnc_trimString)) do {
 	case "DRIVER_LEA": {
 		_binocular = "Rangefinder";
 	};
@@ -422,7 +422,6 @@ switch (toUpper ([str (_this select 0),0,9] call BIS_fnc_trimString)) do {
 
 ///// No editing necessary below this line /////
 
-_player = _this select 0;
 [_player] call ADV_fnc_gear;
 CL_IE_Module_Enabled = true;
 

@@ -5,6 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+params ["_player"];
 /*
  * Author: Belbo
  *
@@ -353,32 +354,12 @@ switch (toUpper ([str (_this select 0),3,13] call BIS_fnc_trimString)) do {
 
 //LRRadios
 if (missionNamespace getVariable ["_par_noLRRadios",false]) then { _giveBackpackRadio = false };
-if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = switch (_par_opfUni) do {
-		case 1: {["tf_mr3000_rhs"]};
-		case 2: {["tf_mr3000_rhs"]};
-		case 3: {["tf_mr3000_rhs"]};
-		case 4: {["tf_mr3000_rhs"]};
-		case 5: {[""]};
-		default {["tf_bussole"]};
-	};
-};
-
-if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = switch (_par_opfUni) do {
-		case 1: {"rhs_assault_umbts"};
-		case 2: {"rhs_assault_umbts"};
-		case 3: {"rhs_assault_umbts"};
-		case 4: {"rhs_assault_umbts"};
-		case 5: {"B_AssaultPack_blk"};
-		case 6: {"rhs_sidor"};
-		case 20: {"B_AssaultPack_tna_F"};
-		default {"B_AssaultPack_blk"};
-	};
+if ( (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = [_player] call adv_fnc_LRBackpack;
 };
 
 ///// No editing necessary below this line /////
-_player = _this select 0;
+
 [_player] call ADV_fnc_gear;
 CL_IE_Module_Enabled = true;
 

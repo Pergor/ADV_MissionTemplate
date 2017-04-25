@@ -10,7 +10,7 @@
  * 3: position - <ARRAY>
  *
  * Return Value:
- * spawned ammo box - <OBJECT>
+ * spawned ammo box/spare object or boolean if no item has been spawned - <OBJECT>, <BOOL>
  *
  * Example:
  * None
@@ -28,7 +28,7 @@ params [
 
 _box = true;
 
-if (_crateSelection isEqualTo "") exitWith { hint "Keine Aktion ausgewählt"; };
+if (_crateSelection isEqualTo "ADV_FNC_NIL") exitWith { ["Keine Aktion ausgewählt",5] call adv_fnc_timedHint; _box = false; };
 
 _par_logisticAmount = missionNamespace getVariable ["adv_par_logisticAmount",99];
 _par_customLoad = missionNamespace getVariable ["adv_par_customLoad",1];
@@ -146,10 +146,10 @@ if !(_forcePlacement) then {
 			_crateVariable = format ["ADV_logistic_amount_%1_crateGrenades",ADV_logistic_var_sidePrefix];
 			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateGrenades];
 			if ( _crateAmount > 0 ) then {
-				hint format ["%1 weitere Granatenkisten stehen zur Verfügung.", _crateAmount - 1];
+				[format ["%1 weitere Granatenkisten stehen zur Verfügung.", _crateAmount - 1],5] call adv_fnc_timedHint;
 				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
 			} else {
-				hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+				["Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.",5] call adv_fnc_timedHint;
 			};
 			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
 		};
@@ -158,10 +158,10 @@ if !(_forcePlacement) then {
 			_crateVariable = format ["ADV_logistic_amount_%1_crateEOD",ADV_logistic_var_sidePrefix];
 			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateEOD];
 			if ( _crateAmount > 0 ) then {
-				hint format ["%1 weitere EOD-Kisten stehen zur Verfügung.", _crateAmount - 1];
+				[format ["%1 weitere EOD-Kisten stehen zur Verfügung.", _crateAmount - 1],5] call adv_fnc_timedHint;
 				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
 			} else {
-				hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+				["Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.",5] call adv_fnc_timedHint;
 			};
 			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
 		};
@@ -170,10 +170,10 @@ if !(_forcePlacement) then {
 			_crateVariable = format ["ADV_logistic_amount_%1_crateNormal",ADV_logistic_var_sidePrefix];
 			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateNormal];
 			if ( _crateAmount > 0 ) then {
-				hint format ["%1 weitere Munitionskisten stehen zur Verfügung.", _crateAmount - 1];
+				[format ["%1 weitere Munitionskisten stehen zur Verfügung.", _crateAmount - 1],5] call adv_fnc_timedHint;
 				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
 			} else {
-				hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+				["Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.",5] call adv_fnc_timedHint;
 			};
 			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };	
 		};
@@ -182,10 +182,10 @@ if !(_forcePlacement) then {
 			_crateVariable = format ["ADV_logistic_amount_%1_crateMG",ADV_logistic_var_sidePrefix];
 			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateMG];
 			if ( _crateAmount > 0 ) then {
-				hint format ["%1 weitere MG-Munitionskisten stehen zur Verfügung.", _crateAmount - 1];
+				[format ["%1 weitere MG-Munitionskisten stehen zur Verfügung.", _crateAmount - 1],5] call adv_fnc_timedHint;
 				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
 			} else {
-				hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+				["Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.",5] call adv_fnc_timedHint;
 			};
 			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
 		};
@@ -194,10 +194,10 @@ if !(_forcePlacement) then {
 			_crateVariable = format ["ADV_logistic_amount_%1_crateAT",ADV_logistic_var_sidePrefix];
 			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateAT];
 			if ( _crateAmount > 0 ) then {
-				hint format ["%1 weitere AT-Kisten stehen zur Verfügung.", _crateAmount - 1];
+				[format ["%1 weitere AT-Kisten stehen zur Verfügung.", _crateAmount - 1],5] call adv_fnc_timedHint;
 				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
 			} else {
-				hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+				["Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.",5] call adv_fnc_timedHint;
 			};
 			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
 		};
@@ -206,10 +206,10 @@ if !(_forcePlacement) then {
 			_crateVariable = format ["ADV_logistic_amount_%1_crateAA",ADV_logistic_var_sidePrefix];
 			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateAA];
 			if ( _crateAmount > 0 ) then {
-				hint format ["%1 weitere AA-Kisten stehen zur Verfügung.", _crateAmount - 1];
+				[format ["%1 weitere AA-Kisten stehen zur Verfügung.", _crateAmount - 1],5] call adv_fnc_timedHint;
 				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
 			} else {
-				hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+				["Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.",5] call adv_fnc_timedHint;
 			};
 			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
 		};
@@ -218,10 +218,10 @@ if !(_forcePlacement) then {
 			_crateVariable = format ["ADV_logistic_amount_%1_crateMedic",ADV_logistic_var_sidePrefix];
 			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateMedic];
 			if ( _crateAmount > 0 ) then {
-				hint format ["%1 weitere Medic-Kisten stehen zur Verfügung.", _crateAmount - 1];
+				[format ["%1 weitere Medic-Kisten stehen zur Verfügung.", _crateAmount - 1],5] call adv_fnc_timedHint;
 				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
 			} else {
-				hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+				["Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.",5] call adv_fnc_timedHint;
 			};
 			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
 		};
@@ -230,10 +230,10 @@ if !(_forcePlacement) then {
 			_crateVariable = format ["ADV_logistic_amount_%1_crateSupport",ADV_logistic_var_sidePrefix];
 			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateSupport];
 			if ( _crateAmount > 0 ) then {
-				hint format ["%1 weitere Supportkisten stehen zur Verfügung.", _crateAmount - 1];
+				[format ["%1 weitere Supportkisten stehen zur Verfügung.", _crateAmount - 1],5] call adv_fnc_timedHint;
 				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
 			} else {
-				hint "Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.";
+				["Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.",5] call adv_fnc_timedHint;
 			};
 			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
 		};
@@ -355,7 +355,26 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 				{deleteVehicle _x} count (nearestObjects [player, ["ACE_Wheel"], 3]);
 				{deleteVehicle _x} count (nearestObjects [player, ["ACE_Track"], 3]);
 			};
+			_box = false;
 		};	
+		case "ADV_LOGISTIC_VEHICLE": {
+			_box = false;
+			private _vehiclesInVicinity = nearestObjects [getPosWorld player, ["LANDVEHICLE"], 8, true];
+			call {
+				private _applicableVehicles = { (str _x) in ADV_veh_all || (str _x) in ADV_opf_veh_all || (str _x) in ADV_ind_veh_all } count _vehiclesInVicinity;
+				if ( _applicableVehicles isEqualTo 0 ) exitWith {
+					["There's no applicable vehicle within 8 meter radius.",5] call adv_fnc_timedHint;
+					_forcePlacement = true;
+				};
+				_vehiclesInVicinity remoteExecCall ["adv_fnc_clearCargo",2];
+				switch ( side (group player) ) do {
+					default { _vehiclesInVicinity remoteExecCall ["adv_fnc_addVehicleLoad",2]; };
+					case east: { _vehiclesInVicinity remoteExecCall ["adv_opf_fnc_addVehicleLoad",2]; };
+					case independent: { _vehiclesInVicinity remoteExecCall ["adv_opf_fnc_addVehicleLoad",2]; };
+				};
+				["Vehicle inventory replenished.",5] call adv_fnc_timedHint;
+			};
+		};
 		case "ADV_LOGISTIC_CRATEEMPTY": {
 			_box = createVehicle [ADV_logistic_crateTypeNormal,_position,[],0,"CAN_COLLIDE"];
 			[_box,_position] call _functionForAll;

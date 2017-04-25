@@ -5,6 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
+params ["_player"];
 /*
  * Author: Belbo
  *
@@ -299,14 +300,14 @@ switch (_par_opfUni) do {
 	default {};
 };
 
-switch (toUpper ([str (_this select 0),3,13] call BIS_fnc_trimString)) do {
+switch (toUpper ([str _player,3,13] call BIS_fnc_trimString)) do {
 	case "DRIVER_LEA": {
 		_binocular = "Rangefinder";
 	};
 };
 
 ///// No editing necessary below this line /////
-_player = _this select 0;
+
 [_player] call ADV_fnc_gear;
 CL_IE_Module_Enabled = true;
 

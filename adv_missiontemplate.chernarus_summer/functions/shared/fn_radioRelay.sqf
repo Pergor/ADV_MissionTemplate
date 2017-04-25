@@ -138,13 +138,14 @@ _handle = _this spawn {
 					_relay setVariable ["adv_var_isRelay_INDEPENDENT",false,true];
 					waitUntil { sleep 2; damage _relay < 0.4 || !alive _relay  || ((speed _relay) == 0) };
 				};
-				_relay setVariable [format ["adv_radioRelay_available",true]];
+				_relay setVariable ["adv_radioRelay_available",true];
 			};
 		};
 		if !( missionNamespace getVariable [format ["ADV_var_relayScriptHasRun_%1",_side],false] ) then {
 			adv_radioRelay_terminals = [];
 			{ adv_radioRelay_terminals pushBack _x; } forEach (allMissionObjects "Land_DataTerminal_01_F");
 			missionNamespace setVariable [format ["ADV_var_relayScriptHasRun_%1",_side],true,true];
+			private _originalInterception = tfar_terrain_interception_coefficient;
 			while {true} do {
 				waitUntil { sleep 2; {_x getVariable [format ["adv_var_isRelay_%1",_side],false]} count (vehicles+adv_radioRelay_terminals) > 0 };
 				{
@@ -152,12 +153,14 @@ _handle = _this spawn {
 						_x setVariable ["tf_sendingDistanceMultiplicator", 2, true];
 					};
 				} forEach allPlayers;
+				tfar_terrain_interception_coefficient = _originalInterception / 3;
 				waitUntil { sleep 2; {_x getVariable [format ["adv_var_isRelay_%1",_side],false]} count (vehicles+adv_radioRelay_terminals) == 0 };
 				{
 					if ( (side _x) == _side || (side _x) == sideEnemy ) then {
 						_x setVariable ["tf_sendingDistanceMultiplicator", 1, true];
 					};
 				} forEach allPlayers;
+				tfar_terrain_interception_coefficient = _originalInterception;
 			};
 		};
 	};
