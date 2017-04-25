@@ -5,7 +5,6 @@ class ADV
 	{
 		class collectCrates {};
 		class collectFlags {};
-		class findNearestObject {};
 		class loadoutVariables {};
 		class parVariables { preInit = 1; };
 		class variables { preInit = 1; };
@@ -58,6 +57,7 @@ class ADV
 		class createZeus {};
 		class disableTI {};
 		class disableVeh {};
+		class findNearestObject {};
 		class flare {};
 		class getOppPos {};
 		class HCobjects {};
