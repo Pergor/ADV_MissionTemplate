@@ -14,6 +14,7 @@
  *		2 = garrison buildings in radius around center.
  *		3 = defend area (buildings are being defended, static guns manned and the group leader will patroul around; radius above 150meters will revert to 200 meters).
  * 		4 = attack location around object, marker or position provided in _this select 5 - if nothing or a missing element is provided, the next enemy will be targeted.
+ *			If no enemy is found within 3000 meters, safePositionAnchor of map will be used.
  * 4: radius around the spawn position for the group task (optional) - <NUMBER>
  * 5: attack position/object/marker with radius (optional - only necessary with behaviour mode 4) - <ARRAY> in format [position, <NUMBER>]
  *
@@ -49,12 +50,15 @@ private _start = call {
 //private _dir = random 360;
 //private _pos = [(_start select 0) + (sin _dir) * _dist, (_start select 1) + (cos _dir) * _dist, 0];
 private _pos = [_start, _radius] call CBA_fnc_randPos;
-//private _spawn = [_pos,5,30,2,0,20,0] call BIS_fnc_findSafePos;
-private _spawn = _pos findEmptyPosition [5,30];
+//private _spawn = _pos findEmptyPosition [5,30];
+private _spawn = [_pos,5,30,3,0,20,0,[],[_pos,_pos]] call BIS_fnc_findSafePos;
+//private _spawn = [_pos,5,30,3,0,20,0,[],[_pos, _pos]] call adv_fnc_findSafePos;
 _spawn set [2,0];
+/*
 if ((_pos distance _spawn) > 50 ) then {
 	_spawn = _pos;
 };
+*/
 
 private _grp = [_spawn,_units,_side] call adv_fnc_spawnGroup;
 
@@ -70,7 +74,7 @@ call {
 		[_grp, _start, _radius, 2, true] call CBA_fnc_taskDefend;
 	};
 	if (_mode isEqualTo 4) exitWith {
-		_attack params [ ["_obj", objNull], ["_attackRadius", 50] ];
+		_attack params [ ["_obj", objNull], ["_attackRadius", 100] ];
 		_target = call {
 			if (isNil "_obj") exitWith {[0,0,0]};
 			if (_obj isEqualType "") exitWith {getMarkerPos _obj};
@@ -82,7 +86,10 @@ call {
 			private _leader = (units _grp) select 0;
 			private _enemy = [_leader,3000] call adv_fnc_findNearestEnemy;
 			_target = getPos _enemy;
-			_attackRadius = 50;
+			if (_target isEqualTo [0,0,0]) then {
+				_target = getArray (configFile >> "CfgWorlds" >> worldName >> "safePositionAnchor");
+			};
+			_attackRadius = 100;
 		};
 		
 		_wp = _grp addWaypoint [_target, _attackRadius];
