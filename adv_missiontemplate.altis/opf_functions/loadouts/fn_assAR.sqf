@@ -155,6 +155,7 @@ _ACE_personalAidKit = 0;
 _ACE_surgicalKit = 0;
 
 _ACE_SpareBarrel = 1;
+_ACE_EntrenchingTool = 1;
 _ACE_UAVBattery = 0;
 _ACE_wirecutter = 0;
 _ACE_Clacker = 0;
@@ -165,7 +166,6 @@ _ACE_Cellphone = 0;
 _ACE_FlareTripMine = 0;
 _ACE_MapTools = 0;
 _ACE_CableTie = 0;
-_ACE_EntrenchingTool = 0;
 _ACE_sprayPaintColor = "NONE";
 _ACE_gunbag = 0;
 
