@@ -35,7 +35,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		//BWmod
 		case (_par_opfWeap == 1 || _par_opfWeap == 2): {
 			//ammo
-			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_AK",20];
+			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_AK",30];
 			_target addMagazineCargoGlobal ["rhs_30Rnd_545x39_7N10_AK",10];
 			call {
 				if (isClass(configFile >> "CfgPatches" >> "CUP_weapons_AK")) exitWith {
@@ -54,7 +54,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		//SeL RHS
 		case (_par_opfWeap == 3): {
 			//ammo
-			_target addMagazineCargoGlobal ["CUP_30Rnd_545x39_AK_M",20];
+			_target addMagazineCargoGlobal ["CUP_30Rnd_545x39_AK_M",30];
 			_target addMagazineCargoGlobal ["CUP_30Rnd_TE1_Green_Tracer_545x39_AK_M",10];
 			_target addMagazineCargoGlobal ["CUP_75Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M",5];
 			//_target addMagazineCargoGlobal ["CUP_10Rnd_762x54_SVD_M",10];
@@ -64,17 +64,17 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		default {
 			switch (true) do {
 				case (_par_opfWeap == 21): {
-					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",20];
+					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",30];
 					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_Tracer_F",10];
 					_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",8];
 				};
 				case (worldName == "TANOA" || _par_opfWeap == 20): {
-					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_F",20];
+					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_F",30];
 					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_Tracer_F",10];
 					_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",8];
 				};
 				default {
-					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",20];
+					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",30];
 					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",10];
 					_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",5];
 				};

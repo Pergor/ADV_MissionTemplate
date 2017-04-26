@@ -52,8 +52,9 @@ if (_location isEqualType "") then {
 	if (markerShape _location in ["ELLIPSE","RECTANGLE","POLYLINE"]) then {
 		private _size = getMarkerSize _location;
 		private _biggerSide = (_size select 0) max (_size select 1);
-		//private _smallerSide = (_size select 0) min (_size select 1);
-		_radius = _biggerSide;
+		private _smallerSide = (_size select 0) min (_size select 1);
+		//circle with radius of the geometric mean of the ellipse's radius has the same area as the ellipse:
+		_radius = sqrt (_biggerSide * _smallerSide);
 		_area = _location;
 	};
 };

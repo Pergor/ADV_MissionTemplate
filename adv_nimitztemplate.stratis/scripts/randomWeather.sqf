@@ -44,9 +44,9 @@ class Params
 // Begin Script
 // ============
 
-if (isNil "ADV_par_randomWeather") then {ADV_par_randomWeather = 99};
-if (isNil "ADV_par_weather") then {ADV_par_weather = 99};
-if ( ADV_par_randomWeather == 99 || ADV_par_weather != 99 ) exitWith {};
+_parWeather = missionNamespace getVariable ["adv_par_weather",99];
+_parRandomWeather = missionNamespace getVariable ["adv_par_randomWeather",99];
+if ( _parRandomWeather == 99 || _parWeather != 99 ) exitWith {};
 
 // Debug Messages.  This is set to 1 for the demo mission, but you should set this to 0 for regular missions. | 0 = Debug Messages Off, 1 = Debug Messages On
 rw2Debug = 0;
@@ -128,7 +128,7 @@ mb_fnc_UpdateWeather = {
 if (isServer) then {
 private ["_weatherUpdateArray","_weatherUpdateForecasts"];
 // Check if there is no ParamsArray, and pick random if so, otherwise pick from paramsArray.
-	initialWeatherParam = ["param_randomWeather",0] call BIS_fnc_getParamValue;
+	initialWeatherParam = _parRandomWeather;
 	switch (initialWeatherParam) do {
 		case 1: {rw2_Current_Weather = 0;};    										// Clear
 		case 2: {rw2_Current_Weather = 1;};    										// Overcast

@@ -39,13 +39,17 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	TFAR_DefaultRadio_Rifleman_East = "tfar_pnr1000a";
 	TFAR_DefaultRadio_Rifleman_Independent = "tfar_anprc154";
 	//tfar serious mode
-	[] spawn {
-		waitUntil {!isNil "adv_par_seriousMode" && !isNil "adv_par_customUni" };
-		if (adv_par_customUni isEqualTo 9) then { TFAR_DefaultRadio_Personal_West = "tfar_anprc148jem"; };
-		if ( ADV_par_seriousMode > 0 ) then {
-			tf_radio_channel_name = "Arma3-TFAR";
-			tf_radio_channel_password = "123";
+	call {
+		if ( ("param_seriousMode" call BIS_fnc_getParamValue) isEqualTo 0 ) exitWith {
+			tf_radio_channel_name = "NONE";
+			tf_radio_channel_password = "NONE";
 		};
+		if !( ["SPEZIALEINHEIT LUCHS", serverName] call BIS_fnc_findInString ) exitWith {
+			tf_radio_channel_name = "TaskForceRadio";
+			tf_radio_channel_password = "123";			
+		};
+		tf_radio_channel_name = "Arma3-TFAR";
+		tf_radio_channel_password = "123";
 	};
 
 	//frequencies

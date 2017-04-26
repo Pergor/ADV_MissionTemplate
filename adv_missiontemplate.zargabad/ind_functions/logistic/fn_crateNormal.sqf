@@ -35,7 +35,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		//SeL RHS
 		case (_par_indWeap == 2): {
 			//ammo
-			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",20];
+			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",30];
 			_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
 			_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",5];
 			//_target addMagazineCargoGlobal ["rhsusf_20Rnd_762x51_m118_special_Mag",5];
@@ -55,14 +55,14 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			};
 		};
 		case (_par_indWeap == 21): {
-			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",20];
+			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",30];
 			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_Tracer_F",10];
 			_target addMagazineCargoGlobal ["30Rnd_545x39_Mag_F",5];
 			_target addMagazineCargoGlobal ["200Rnd_556x45_Box_F",5];
 			_target addMagazineCargoGlobal ["9Rnd_45ACP_Mag",5];
 		};
 		default {
-			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",20];
+			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",30];
 			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG_Tracer_Yellow",10];
 			call {
 				if (_par_indWeap==20) exitWith {
