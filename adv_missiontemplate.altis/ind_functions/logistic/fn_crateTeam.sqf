@@ -38,7 +38,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			_target addWeaponCargoGlobal ["rhs_weap_M136",1];
 			//ammo
 			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["rhs_m136_mag",1]; };
-			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",24];
+			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",30];
 			_target addMagazineCargoGlobal ["rhsusf_20Rnd_762x51_m118_special_Mag",8];
 			_target addMagazineCargoGlobal ["rhsusf_200Rnd_556x45_soft_pouch",4];
 			_target addMagazineCargoGlobal ["rhsusf_mag_7x45acp_MHP",8];
@@ -53,8 +53,8 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 				if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["NLAW_F",1]; };
 			};
 			//ammo
-			_target addMagazineCargoGlobal ["hlc_20rnd_762x51_b_G3",24];
-			_target addMagazineCargoGlobal ["hlc_20rnd_762x51_b_fal",24];
+			_target addMagazineCargoGlobal ["hlc_20rnd_762x51_b_G3",30];
+			_target addMagazineCargoGlobal ["hlc_20rnd_762x51_b_fal",30];
 			_target addMagazineCargoGlobal ["hlc_50rnd_762x51_M_FAL",8];
 			if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
 				_target addMagazineCargoGlobal ["RH_7Rnd_45cal_m1911",8];
@@ -67,7 +67,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			_target addWeaponCargoGlobal ["launch_RPG7_F",1];
 			//ammo
 			_target addMagazineCargoGlobal ["RPG7_F",1];
-			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",24];
+			_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",30];
 			_target addMagazineCargoGlobal ["200Rnd_556x45_Box_F",4];
 			_target addMagazineCargoGlobal ["9Rnd_45ACP_Mag",8];
 			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",8];
@@ -77,7 +77,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			_target addWeaponCargoGlobal ["launch_NLAW_F",1];
 			//ammo
 			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["NLAW_F",1]; };
-			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",24];
+			_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",30];
 			_target addMagazineCargoGlobal ["9Rnd_45ACP_Mag",8];
 			_target addMagazineCargoGlobal ["20Rnd_762x51_Mag",8];
 			call {
