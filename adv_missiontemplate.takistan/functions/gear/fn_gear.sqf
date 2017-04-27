@@ -161,6 +161,7 @@ if (_insignium isEqualTo "") then {
 	[_unit,_insignium] remoteExec ["BIS_fnc_setUnitInsignia",0];
 };
 //weapons
+if ( _binocular isEqualType [] ) then { _handgun = selectRandom _handgun; };
 [_unit,_binocular,1] call BIS_fnc_addWeapon;
 if ( _handgun isEqualType [] ) then { _handgun = selectRandom _handgun; };
 [_unit,_handgun,_handgunAmmo select 0,_handgunAmmo select 1] call BIS_fnc_addWeapon;
