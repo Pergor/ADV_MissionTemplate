@@ -222,6 +222,14 @@ switch (_par_customWeap) do {
 		//RHS Army
 		_primaryweapon = ["rhs_weap_sr25","rhs_weap_sr25_ec","rhs_weap_m14ebrri"];
 		_optic = ["rhsusf_acc_LEUPOLDMK4_2","rhsusf_acc_LEUPOLDMK4_2","rhsusf_acc_LEUPOLDMK4"];
+		call {
+			if ((toUpper worldname) in _var_aridMaps) exitWith {
+				_primaryWeapon append ["rhs_weap_sr25_d","rhs_weap_sr25_ec_d"];
+			};
+			if ((toUpper worldname) in _var_lushMaps) exitWith {
+				_primaryWeapon append ["rhs_weap_sr25_wd","rhs_weap_sr25_ec_wd",];
+			};
+		};
 		_attachments = ["rhsusf_acc_harris_bipod"];
 		_silencer = "rhsusf_acc_SR25S";		//if silencer is added
 		if ( _par_NVGs == 1 ) then { _attachments pushback "rhsusf_acc_M952V"; };

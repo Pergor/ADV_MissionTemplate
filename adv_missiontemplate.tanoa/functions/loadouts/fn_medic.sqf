@@ -225,6 +225,15 @@ switch (_par_customWeap) do {
 	case 2: {
 		//RHS ARMY
 		_primaryweapon = ["rhs_weap_m4_carryhandle","rhs_weap_m4_carryhandle_mstock","rhs_weap_m4a1_carryhandle"];
+		call {
+			if ((toUpper worldname) in _var_aridMaps) exitWith {
+				_primaryWeapon append ["rhs_weap_m4a1_blockII_d","rhs_weap_m4a1_d"];
+			};
+			if ((toUpper worldname) in _var_lushMaps) exitWith {
+				_primaryWeapon append ["rhs_weap_m4a1_blockII_wd"];
+			};
+		};
+		_attachments = [""];
 		_optic = ["rhsusf_acc_eotech_552"];
 		if ( _par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
 		if ( _par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };

@@ -83,7 +83,7 @@ _launcher = "";
 _launcherAmmo = [0,0];
 
 //binocular - (string)
-_binocular = "Rangefinder";
+_binocular = "Binocular";
 
 //throwables - (integer)
 _grenadeSet = 1;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.

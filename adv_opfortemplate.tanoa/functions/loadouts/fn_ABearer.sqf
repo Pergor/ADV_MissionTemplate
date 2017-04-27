@@ -234,6 +234,15 @@ switch (_par_customWeap) do {
 		//RHS ARMY
 		_primaryweapon = ["rhs_weap_m4_carryhandle","rhs_weap_m4_carryhandle_mstock","rhs_weap_m4a1_carryhandle"];
 		_optic = ["rhsusf_acc_ACOG","rhsusf_acc_ACOG3","rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR_OD"];
+		call {
+			if ((toUpper worldname) in _var_aridMaps) exitWith {
+				_primaryWeapon append ["rhs_weap_m4a1_blockII_d","rhs_weap_m4a1_d"];
+			};
+			if ((toUpper worldname) in _var_lushMaps) exitWith {
+				_primaryWeapon append ["rhs_weap_m4a1_blockII_wd"];
+			};
+		};
+		_attachments = [""];
 		if ( _par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
 		if ( _par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_attachments pushBack (["","","","","rhsusf_acc_grip1","rhsusf_acc_grip2","rhsusf_acc_grip2_tan","rhsusf_acc_grip3"] call BIS_fnc_selectRandom);

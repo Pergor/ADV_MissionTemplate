@@ -79,7 +79,7 @@ _launcher = "";
 _launcherAmmo = [0,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //binocular - (string)
-_binocular = "Rangefinder";
+_binocular = "Binocular";
 
 //throwables - (integer)
 _grenadeSet = 1;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.
@@ -222,6 +222,14 @@ switch (_par_customWeap) do {
 		//RHS ARMY
 		_primaryweapon = ["rhs_weap_m4_carryhandle","rhs_weap_m4_carryhandle_mstock","rhs_weap_m4a1_carryhandle"];
 		_optic = ["rhsusf_acc_ACOG","rhsusf_acc_ACOG3","rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR","rhsusf_acc_SpecterDR_OD"];
+		call {
+			if ((toUpper worldname) in _var_aridMaps) exitWith {
+				_primaryWeapon append ["rhs_weap_m4a1_blockII_d","rhs_weap_m4a1_d"];
+			};
+			if ((toUpper worldname) in _var_lushMaps) exitWith {
+				_primaryWeapon append ["rhs_weap_m4a1_blockII_wd"];
+			};
+		};
 		_attachments = [""];
 		if ( _par_NVGs == 1 ) then { _attachments pushback "rhsusf_acc_M952V"; };
 		if ( _par_NVGs == 2 ) then { _attachments pushback "rhsusf_acc_anpeq15side_bk"; };
