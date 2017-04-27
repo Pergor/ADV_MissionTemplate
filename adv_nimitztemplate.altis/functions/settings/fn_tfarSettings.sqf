@@ -44,7 +44,7 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 			tf_radio_channel_name = "NONE";
 			tf_radio_channel_password = "NONE";
 		};
-		if !( ["SPEZIALEINHEIT LUCHS", serverName] call BIS_fnc_findInString ) exitWith {
+		if !( ["SPEZIALEINHEIT LUCHS", serverName] call BIS_fnc_inString ) exitWith {
 			tf_radio_channel_name = "TaskForceRadio";
 			tf_radio_channel_password = "123";			
 		};

@@ -227,7 +227,7 @@ switch (_par_customWeap) do {
 				_primaryWeapon append ["rhs_weap_sr25_d","rhs_weap_sr25_ec_d"];
 			};
 			if ((toUpper worldname) in _var_lushMaps) exitWith {
-				_primaryWeapon append ["rhs_weap_sr25_wd","rhs_weap_sr25_ec_wd",];
+				_primaryWeapon append ["rhs_weap_sr25_wd","rhs_weap_sr25_ec_wd"];
 			};
 		};
 		_attachments = ["rhsusf_acc_harris_bipod"];
