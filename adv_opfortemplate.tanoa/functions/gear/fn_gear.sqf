@@ -166,10 +166,10 @@ if ( _handgun isEqualType [] ) then { _handgun = selectRandom _handgun; };
 [_unit,_handgun,_handgunAmmo select 0,_handgunAmmo select 1] call BIS_fnc_addWeapon;
 if ( (side (group _unit) isEqualTo west && _par_Silencers > 0) || (side (group _unit) isEqualTo east && _par_opfSilencers > 0) ) then { _itemsHandgun pushback _handgunSilencer; };
 { _unit addHandgunItem _x } count _itemsHandgun;
+if ( _launcher isEqualType [] ) then { _launcher = selectRandom _launcher; };
 if ( (toUpper _launcher) in _disposableLaunchers ) then {
 	_launcherAmmo set [0,1];
 };
-if ( _launcher isEqualType [] ) then { _launcher = selectRandom _launcher; };
 [_unit,_launcher,_launcherAmmo select 0,_launcherAmmo select 1] call BIS_fnc_addWeapon;
 if ( _primaryWeapon isEqualType [] ) then { _primaryWeapon = selectRandom _primaryWeapon; };
 if (_primaryweaponAmmo select 0 > 0) then {
