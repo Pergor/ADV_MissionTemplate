@@ -1,18 +1,17 @@
 # ADV_MissionTemplate
 Mission Template by Belbo for Spezialeinheit Luchs
 
-Files open for editing are found in the \mission\-folder. Don't change init.sqf, initPlayerLocal.sqf oder description.ext - you might break the mission otherwise!
+Files open for editing are found in the \mission\-folder. Don't change description.ext if you don't know what you do - you might break the mission otherwise!
+init.sqf, initPlayerLocal.sqf and initServer.sqf can be edited to your liking except for the first few marked lines.
 The licence.txt MUST NOT be removed from the mission folder.
 
 If you want to build a mission on the base of the ADV-Mission Template, you'll have to edit the following files first:
 
-	ADV_credits.sqf: Put your name in ADV_missionAuthor = "[SeL] Belbo // Adrian";
+	mission\ADV_credits.sqf: Put your name in ADV_missionAuthor = "[SeL] Belbo // Adrian";
 	mission\ADV_defines.hpp: Edit to your liking.
 		You HAVE to change the following: MISSIONAUTHOR, MISSIONNAME and MISSIONPLAYERS
 
-If you want to execute code from init.sqf or initPlayerLocal.sqf add your code to the files mission\init_custom.sqf or mission\initPlayerLocal_custom.sqf instead.
-
-mission\adv_dramaturgy.sqf will be executed on server only or on HC if HC is present and the HC-parameter is selected in MP lobby.
+mission\adv_storyboard.sqf will be executed on server only or on HC if HC is present and the HC-parameter is selected in MP lobby.
 
 Units named according to readmes\loadoutNames.txt will receive their loadouts automatically depending on selected uniform- and weapons-parameter in MP lobby.
 Vehicles named according to readmes\vehicleNames.txt will be handled by vehicle exchange and respawn system (according to paramter in MP lobby) and have gear and variables fitting to side of players and their selected weapon sets.
