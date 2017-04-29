@@ -1,5 +1,6 @@
 ﻿//creator of the mission:
-ADV_missionAuthor = "[SeL] Belbo // Adrian";
+//ADV_missionAuthor = "[SeL] Belbo // Adrian";
+ADV_missionAuthor = getText (missionconfigfile >> "Author");
 
 //////// You are not allowed to change anything below this line! ////////
 publicVariable "ADV_missionAuthor";
