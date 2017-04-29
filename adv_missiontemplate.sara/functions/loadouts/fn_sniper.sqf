@@ -221,9 +221,9 @@ switch (_par_customWeap) do {
 		_primaryweapon = ["rhs_weap_XM2010"];
 		_attachments = ["rhsusf_acc_LEUPOLDMK4_2"];
 		switch (true) do {
-			case ((toUpper worldname) in _var_lushMaps): {_primaryWeapon append ["rhs_weap_XM2010_wd"];};
+			case ((toUpper worldname) in _var_lushMaps): {_primaryWeapon = ["rhs_weap_XM2010_wd"];};
 			case ((toUpper worldname) in _var_aridMaps): {
-				_primaryWeapon append ["rhs_weap_XM2010_d","rhs_weap_XM2010_d","rhs_weap_XM2010_d"];
+				_primaryWeapon = ["rhs_weap_XM2010_d"];
 				_attachments = ["rhsusf_acc_LEUPOLDMK4_2_d"];
 			};
 			default {};
@@ -263,11 +263,11 @@ switch (_par_customWeap) do {
 		//RHS SOF
 		_primaryweapon = ["rhs_weap_M107"];
 		switch (true) do {
-			case ((toUpper worldname) in _var_lushMaps): {_primaryWeapon append ["rhs_weap_M107_w"];};
-			case ((toUpper worldname) in _var_aridMaps): {_primaryWeapon append ["rhs_weap_M107_d"];};
+			case ((toUpper worldname) in _var_lushMaps): {_primaryWeapon = ["rhs_weap_M107_w"];};
+			case ((toUpper worldname) in _var_aridMaps): {_primaryWeapon = ["rhs_weap_M107_d"];};
 			default {};
 		};
-		_attachments = ["rhsusf_acc_premier"];
+		_attachments = ["rhsusf_acc_M8541"];
 		_silencer = "";
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];

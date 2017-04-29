@@ -82,5 +82,6 @@ call {
 		{ _x disableAI "AUTOCOMBAT"; _x setUnitPos "UP"; } count (units _grp);
 	};
 };
+//_grp enableDynamicSimulation true;
 
 _grp;

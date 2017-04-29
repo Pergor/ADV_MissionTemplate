@@ -1,6 +1,12 @@
 class ADV
 {	
 	tag = "ADV";
+	class init
+	{
+		class init {};
+		class initPlayerLocal {};
+		class initServer {};
+	};
 	class variables
 	{
 		class collectCrates {};
@@ -26,7 +32,7 @@ class ADV
 			file = "scripts\Init_UPSMON.sqf";
 			preInit = 1;
 		};
-		class credits { file = "ADV_credits.sqf";preInit = 1; };
+		class credits { file = "mission\ADV_credits.sqf";preInit = 1; };
 		class tasks { file = "mission\ADV_tasks.sqf";preInit = 1; };
 		class briefing { file = "mission\ADV_briefing.sqf";preInit = 1; };
 		class leaderBriefing { file = "mission\ADV_leaderBriefing.sqf"; preInit = 1; };
