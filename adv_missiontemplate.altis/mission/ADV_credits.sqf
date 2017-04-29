@@ -1,7 +1,6 @@
 ﻿//creator of the mission:
 ADV_missionAuthor = "[SeL] Belbo // Adrian";
 
-
 //////// You are not allowed to change anything below this line! ////////
 publicVariable "ADV_missionAuthor";
 [
