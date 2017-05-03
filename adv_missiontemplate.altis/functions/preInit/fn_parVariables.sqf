@@ -15,14 +15,12 @@
  * Public: No
  */
 
-private ["_arrayCreation","_param","_suffix","_value","_var"];
-
-_arrayCreation = {
+private _arrayCreation = {
 	{
-		_param = configName ((missionConfigFile >> "Params") select _ForEachIndex);
-		_suffix = [_param,6] call BIS_fnc_trimString;
-		_value = paramsArray select _ForEachIndex;
-		_var = format ["adv_par_%1 = %2",_suffix, _value];
+		private _param = configName ((missionConfigFile >> "Params") select _ForEachIndex);
+		private _suffix = [_param,6] call BIS_fnc_trimString;
+		private _value = paramsArray select _ForEachIndex;
+		private _var = format ["adv_par_%1 = %2",_suffix, _value];
 		if( _suffix != "" ) then {
 			call compileFinal _var;
 		};
@@ -31,7 +29,7 @@ _arrayCreation = {
 
 call _arrayCreation;
 
-_variables = {
+private _variables = {
 	if (isServer) then {
 		switch (adv_par_sideRelations) do {
 			case 0: {west setFriend [resistance, 0];resistance setFriend [west, 0];east setFriend [resistance, 0];resistance setFriend [east, 0];};

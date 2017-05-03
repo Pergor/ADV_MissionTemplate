@@ -1,17 +1,13 @@
-class ADV_ind
+class adv_ind
 {	
-	tag = "ADV_ind";
+	tag = "adv_ind";
 	class server
 	{
 		file = "ind_functions\server";
-		class disableVehSelector {};
-		class manageVeh { postInit = 1; };
-	};
-	class gear
-	{
-		file = "ind_functions\gear";
 		class addVehicleLoad {};
 		class crate {};
+		class disableVehSelector {};
+		class manageVeh {};
 		class vehicleLoad {};
 	};
 	class loadouts
