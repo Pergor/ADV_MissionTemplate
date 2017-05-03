@@ -15,9 +15,6 @@
  * Public: Yes
  */
 
-if (!isServer) exitWith {};
-private ["_target","_bandages","_morphine","_epiPen","_bloodbag","_FAKs","_mediKit"];
-
 //mission variables and parameters:
 private [
 	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
@@ -27,7 +24,7 @@ private [
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 
 {
-	_target = _x;
+	private _target = _x;
 	//makes the crates indestructible:
 	_target allowDamage false;
 	
@@ -123,8 +120,8 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 	_mediKit = 0;
 	
 	if !(isClass (configFile >> "CfgPatches" >> "ACE_Medical")) then {
-	_target addItemCargoGlobal ["FirstAidKit",_FAKs];
-	_target addItemCargoGlobal ["MediKit",_mediKit];
+		_target addItemCargoGlobal ["FirstAidKit",_FAKs];
+		_target addItemCargoGlobal ["MediKit",_mediKit];
 	};
 	//medical stuff
 	if (isClass (configFile >> "CfgPatches" >> "ACE_common")) then {

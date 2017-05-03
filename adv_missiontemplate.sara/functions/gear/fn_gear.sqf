@@ -47,7 +47,7 @@ if ( isClass(configFile >> "CfgPatches" >> "rhs_main") ) then { _NVGoggles appen
 if ( isClass(configFile >> "CfgPatches" >> "UK3CB_BAF_Equipment") ) then { _NVGoggles append ["UK3CB_BAF_HMNVS"]; };
 if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _NVGoggles append ["DSK_NSV"]; };
 if ( isClass(configFile >> "CfgPatches" >> "CUP_Weapons_NVG") ) then { _NVGoggles append ["CUP_NVG_HMNVS","CUP_NVG_PVS7"]; };
-if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) then { [] call adv_fnc_tfarSettings };
+//if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) then { [] call adv_fnc_tfarSettings };
 private _disposableLaunchers = [];
 if ( isClass(configFile >> "CfgPatches" >> "ACE_disposable") ) then { _disposableLaunchers pushBack "LAUNCH_NLAW_F"; };
 _disposableLaunchers append ["BWA3_PZF3","BWA3_RGW90","STI_M136","CUP_LAUNCH_M136","RHS_WEAP_M136","RHS_WEAP_M136_HEDP","RHS_WEAP_M136_HP","RHS_WEAP_M72A7","RHS_WEAP_RPG26","RHS_WEAP_RSHG2","RHS_WEAP_RPG18"];
@@ -58,6 +58,7 @@ if ( toUpper ([(str _unit),(count str _unit)-5] call BIS_fnc_trimString) isEqual
 	_par_opfSilencers = 2;
 	_giveRiflemanRadio = true;
 	_givePersonalRadio = true;
+	_ACE_m84 = 2;
 	_ACE_isMedic = 1;
 	_ACE_isEngineer = 1;
 	_ACE_isEOD = true;

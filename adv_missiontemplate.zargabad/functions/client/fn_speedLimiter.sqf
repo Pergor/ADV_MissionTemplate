@@ -14,7 +14,7 @@
  * Function executed - <BOOL>
  *
  * Example:
- * [player] call adv_fnc_speedLimiter;
+ * [] call adv_fnc_speedLimiter;
  *
  * Public: No
  */

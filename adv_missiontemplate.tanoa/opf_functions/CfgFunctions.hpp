@@ -1,18 +1,14 @@
-class ADV_opf
+class adv_opf
 {
-	tag = "ADV_opf";
+	tag = "adv_opf";
 	class server
 	{
 		file = "opf_functions\server";
-		class disableVehSelector {};
-		class manageVeh { postInit = 1; };
-		class rhsDecals {};
-	};
-	class gear
-	{
-		file = "opf_functions\gear";
 		class addVehicleLoad {};
 		class crate {};
+		class disableVehSelector {};
+		class manageVeh {};
+		class rhsDecals {};
 		class vehicleLoad {};
 	};
 	class loadouts

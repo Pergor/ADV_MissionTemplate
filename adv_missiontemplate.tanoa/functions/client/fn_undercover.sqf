@@ -2,7 +2,7 @@
  * Author: Belbo
  *
  * Sets player on captive if he changes to an enemy uniform if param is set to true or additionally if he has no weapon equipped or isn't seated in an armed vehicle if set to false.
- * The player will be uncovered if he comes closer than 5 meters to an enemy unit.
+ * The player will be uncovered if he comes closer than 8 meters to an enemy unit.
  *
  * Arguments:
  * 0: Should only wearing an enemy uniform (vanilla/apex only) hide the player or should switching to no weapon make you captive? - <BOOL>
@@ -16,7 +16,9 @@
  * Public: Yes
  */
  
-params ["_uniformsOnly",true,[true]];
+params [
+	["_uniformsOnly",true,[true]]
+];
 
 adv_undercover_uniforms_west = [
 	"U_B_COMBATUNIFORM_MCAM","U_B_COMBATUNIFORM_MCAM_TSHIRT","U_B_CTRG_1","U_B_CTRG_2","U_B_CTRG_3"
@@ -50,9 +52,11 @@ adv_undercover_scriptfnc_setCaptive = {
 	params ["_unit","_captive"];
 	if (_captive && !(captive _unit)) then {
 		systemChat "You are now undercover.";
+		["You are now undercover.", 4] call adv_fnc_timedHint;
 	};
 	if (!_captive && (captive _unit)) then {
 		systemChat "You are no longer undercover.";
+		["You are no longer undercover.", 4] call adv_fnc_timedHint;
 	};
 	_unit setCaptive _captive;
 	call {
@@ -64,11 +68,10 @@ adv_undercover_scriptfnc_setCaptive = {
 };
 
 adv_undercover_scriptfnc_switch_tooclose = {
-	params ["_unit"];
-	[ { (_unit findNearestEnemy _unit) distance _unit < 5 || _unit getVariable ["adv_undercover_tooClose",false] }, {
+	[ { ( !isNull ([player,8] call adv_fnc_findNearestEnemy) ) || (player getVariable ["adv_undercover_tooClose",false]) }, {
 		params ["_unit"];
 		[_unit, false] call adv_undercover_scriptfnc_setCaptive;
-	},[_unit]] call CBA_fnc_waitUntilAndExecute;
+	},[player]] call CBA_fnc_waitUntilAndExecute;
 };
 
 adv_undercover_scriptfnc_switch_uniform = {
@@ -83,9 +86,10 @@ adv_undercover_scriptfnc_switch_uniform = {
 	
 	[_unit, false] call adv_undercover_scriptfnc_setCaptive;
 };
+
 adv_undercover_scriptevh_uniform = ["loadout", {[_this select 0] call adv_undercover_scriptfnc_switch_uniform}] call CBA_fnc_addPlayerEventHandler;
 
-if (_uniformsOnly) exitWith {true};
+if (_uniformsOnly) exitWith {true;};
 
 private _weapon = currentWeapon player;
 if (_weapon isEqualTo "" || _weapon isEqualTo (binocular player)) then {

@@ -15,7 +15,7 @@
  * Public: Yes
  */
 
-if (!isServer || !(isClass(configFile >> "CfgPatches" >> "scorch_invitems")) ) exitWith {};
+if ( !(isClass(configFile >> "CfgPatches" >> "scorch_invitems")) ) exitWith {};
 
 //mission variables and parameters:
 private [

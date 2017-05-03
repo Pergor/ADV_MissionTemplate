@@ -31,7 +31,7 @@ if ( !isNull _closest ) exitWith {
 _closest = objNull;
 
 //who are our enemies?
-private _enemySides = [side _unit] call BIS_fnc_enemySides;
+private _enemySides = [side group _unit] call BIS_fnc_enemySides;
 
 //are there any enemies within the radius?
 private _nearEnemies = allUnits select { (_x distance _unit) < _radius && (side _x) in _enemySides};

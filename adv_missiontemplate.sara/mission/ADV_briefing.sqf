@@ -1,17 +1,29 @@
 ﻿/*
-adv_briefing.sqf
+ * Author: Belbo
+ *
+ * Contains the regular briefing entries.
+ * Utilizes fhq_tt-functions (more information available in the readme-folder).
+ * For inserting a marker: <marker name='MARKER'>TEXT</marker>
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * call adv_fnc_briefing;
+ *
+ * Public: No
+ */
 
-Add your mission briefing here.
-
-For inserting a marker: <marker name='MARKER'>TEXT</marker>
-*/
-private _hintergrund = ["Hintergrund",
+private _background = ["Hintergrund",
 		"Was bisher geschah..."];
-private _missionsziel = ["Missionsziel",
+private _mission = ["Missionsziel",
 		"Was wir vorhaben..."];
-private _vorgehen = ["Vorgehen",
+private _execution = ["Vorgehen",
 		"Wie wir das machen..."];
-private _feindstaerke = ["erwartete Feindstärke",
+private _assets = ["erwartete Feindstärke",
 		"Und dabei nach Möglichkeit niemanden zu hart gängeln. Das macht doch sonst keinen Spaß.<br/> Und darauf kommt es doch an."];
 
 ///////////// Don't edit below this line if you don't know what you're doing. /////////////
@@ -52,10 +64,10 @@ private _ace_repairLocation = switch ( missionNamespace getVariable ["ace_repair
 };
 [
 	{true},
-		_hintergrund,
-		_missionsziel,
-		_vorgehen,
-		_feindstaerke,
+		_background,
+		_mission,
+		_execution,
+		_assets,
 		["Hinweise zur Mission",
 			("Vor dem Aufbruch nicht vergessen:
 			") + _par_respWithGear + ("
@@ -78,18 +90,18 @@ if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) exitWith {
 			"Frequenzen",
 			"Funkfrequenzen:
 			<br/><br/>Shortrange-Funkgeräte:
-			<br/>Jupiter: SW CH1 41MHz
-			<br/>Mars: SW CH2 42MHz
-			<br/>Deimos: SW CH3 43MHz
-			<br/>Phobos: SW CH4 44MHz
-			<br/>Vulkan: SW CH5 45MHz
+			<br/>Jupiter: SW CH1 41.0 MHz
+			<br/>Mars: SW CH2 42.0 MHz
+			<br/>Deimos: SW CH3 43.0 MHz
+			<br/>Phobos: SW CH4 44.0 MHz
+			<br/>Vulkan: SW CH5 45.0 MHz
 			<br/>Merkur, Apollo, Saturn, Diana nach Absprache.
 			<br/><br/>Longrange-Funkgeräte:
-			<br/>Convoyfunk: LR CH1 51MHz
-			<br/>Kampfkreis: LR CH2 52MHz
-			<br/>Einsatzunterstützung: LR CH7 57MHz
-			<br/>Logistik: LR CH8 58MHz
-			<br/>OPZ/Zeus: LR CH9 59MHz
+			<br/>Convoyfunk: LR CH1 51.0 MHz
+			<br/>Kampfkreis: LR CH2 52.0 MHz
+			<br/>Einsatzunterstützung: LR CH7 57.0 MHz
+			<br/>Logistik: LR CH8 58.0 MHz
+			<br/>OPZ/Zeus: LR CH9 59.0 MHz
 			"
 		],
 		east,
@@ -98,18 +110,18 @@ if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) exitWith {
 			"Frequenzen",
 			"Funkfrequenzen:
 			<br/><br/>Shortrange-Funkgeräte:
-			<br/>Milan: SW CH1 41MHz
-			<br/>Adler: SW CH2 42MHz
-			<br/>Bussard: SW CH3 43MHz
-			<br/>Condor: SW CH4 44MHz
-			<br/>Drossel: SW CH5 45MHz
+			<br/>Milan: SW CH1 41.0 MHz
+			<br/>Adler: SW CH2 42.0 MHz
+			<br/>Bussard: SW CH3 43.0 MHz
+			<br/>Condor: SW CH4 44.0 MHz
+			<br/>Drossel: SW CH5 45.0 MHz
 			<br/>Elster, Falke, Greif, Habicht nach Absprache.
 			<br/><br/>Longrange-Funkgeräte:
-			<br/>Convoyfunk: LR CH1 51MHz
-			<br/>Kampfkreis: LR CH2 52MHz
-			<br/>Einsatzunterstützung: LR CH7 57MHz
-			<br/>Logistik: LR CH8 58MHz
-			<br/>OPZ/Zeus: LR CH9 59MHz
+			<br/>Convoyfunk: LR CH1 51.0 MHz
+			<br/>Kampfkreis: LR CH2 52.0 MHz
+			<br/>Einsatzunterstützung: LR CH7 57.0 MHz
+			<br/>Logistik: LR CH8 58.0 MHz
+			<br/>OPZ/Zeus: LR CH9 59.0 MHz
 			"
 		],
 		independent,
@@ -118,17 +130,17 @@ if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) exitWith {
 			"Frequenzen",
 			"Funkfrequenzen:
 			<br/><br/>Shortrange-Funkgeräte:
-			<br/>Natter: SW CH1 61MHz
-			<br/>Anakonda: SW CH2 62MHz
-			<br/>Boa: SW CH3 63MHz
-			<br/>Cobra: SW CH4 64MHz
+			<br/>Natter: SW CH1 61.0 MHz
+			<br/>Anakonda: SW CH2 62.0 MHz
+			<br/>Boa: SW CH3 63.0 MHz
+			<br/>Cobra: SW CH4 64.0 MHz
 			<br/>Viper, Drache nach Absprache.
 			<br/><br/>Longrange-Funkgeräte:
-			<br/>Convoyfunk: LR CH1 71MHz
-			<br/>Kampfkreis: LR CH2 72MHz
-			<br/>Einsatzunterstützung: LR CH7 77MHz
-			<br/>Logistik: LR CH8 78MHz
-			<br/>OPZ/Zeus: LR CH9 79MHz	
+			<br/>Convoyfunk: LR CH1 71.0 MHz
+			<br/>Kampfkreis: LR CH2 72.0 MHz
+			<br/>Einsatzunterstützung: LR CH7 77.0 MHz
+			<br/>Logistik: LR CH8 78.0 MHz
+			<br/>OPZ/Zeus: LR CH9 79.0 MHz	
 			"
 		]
 	] call FHQ_TT_addBriefing;
@@ -206,4 +218,4 @@ if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith {
 	] call FHQ_TT_addBriefing;
 };
 
-if (true) exitWith {};
+nil;

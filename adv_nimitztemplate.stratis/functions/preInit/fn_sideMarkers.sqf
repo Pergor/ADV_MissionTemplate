@@ -33,6 +33,7 @@
 		};
 		if ((side player) == independent) then {
 			{deleteMarkerLocal _x; nil;} count _bluforMarker+_opforMarker;
+			waitUntil {!isNil "ADV_params_defined"};
 			switch ( missionNamespace getVariable ["ADV_par_indUni",0] ) do {
 				case 20: {
 					"ind_base" setMarkerTypeLocal "flag_Syndicat";

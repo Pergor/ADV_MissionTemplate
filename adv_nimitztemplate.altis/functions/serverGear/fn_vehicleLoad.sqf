@@ -19,8 +19,6 @@
  * Public: Yes
  */
 
-if (!isServer) exitWith {};
-
 params [
 	["_target", objNull, [objNull]], 
 	["_isMedic", false, [true]], 
