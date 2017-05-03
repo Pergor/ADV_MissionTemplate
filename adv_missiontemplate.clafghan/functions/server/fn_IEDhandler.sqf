@@ -29,7 +29,7 @@ if !(isClass(configFile >> "CfgPatches" >> "ace_explosives")) exitWith {};
 			if ( typeOf _mine == "IEDURBANSMALL_REMOTE_AMMO" || typeOf _mine == "CUP_IED_V1_AMMO" ) exitWith { "ACE_IEDUrbanSmall_Range" };
 			"";
 		};
-		if !( _replacementType == "" ) then {
+		if !( _replacementType isEqualTo "" ) then {
 			deleteVehicle _mine;
 			_new = createMine [_replacementType, _pos, [], 0];
 			_new setDir _dir;

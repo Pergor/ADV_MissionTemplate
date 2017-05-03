@@ -501,7 +501,7 @@ switch (toUpper ([str _player,0,8] call BIS_fnc_trimString)) do {
 	};
 };
 
-if ( {[_player,_x] call adv_fnc_inGroup} count ["JUPITER","ÄSKULAP","MERKUR","APOLLO"] > 0 || [_player,"command"] call adv_fnc_findInGroup ) then {
+if ( {[_player,_x] call adv_fnc_inGroup} count ["JUPITER"] > 0 || [_player,"command"] call adv_fnc_findInGroup ) then {
 	_ACE_isMedic = 2;
 	_ACE_personalAidKit = 1;
 	_binocular = "Rangefinder";

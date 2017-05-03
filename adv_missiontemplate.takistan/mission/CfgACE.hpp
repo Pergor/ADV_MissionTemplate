@@ -354,7 +354,7 @@ class ace_medical_useLocation_SurgicalKit {
     force = 0;
 };
 class ace_medical_useCondition_PAK {
-    value = 1;
+    value = 0;
     typeName = "SCALAR";
     force = 0;
 };
@@ -584,7 +584,7 @@ class ace_scopes_defaultZeroRange {
     force = 0;
 };
 class ace_scopes_zeroReferenceTemperature {
-    value = 55;
+    value = 15;
     typeName = "SCALAR";
     force = 0;
 };

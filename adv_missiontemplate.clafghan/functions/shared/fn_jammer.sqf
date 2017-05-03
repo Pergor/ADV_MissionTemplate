@@ -45,6 +45,24 @@ _handle = _this spawn {
 		if ( !(_target getVariable ["adv_var_isJamming",false]) && damage _target < 0.6 && (adv_jammer_actionLoop || adv_jammer_clientLoop) ) exitWith {true};
 		false;
 	};
+	adv_jammer_mine_activate = {
+		params ["_typeOfMine","_pos","_dir"];
+		_new = createMine [_typeOfMine, _pos, [], 0];
+		_new setDir _dir;
+	};
+	adv_jammer_mine_deactivate = {
+		params ["_target"];
+		private _typeOfMine = typeOf _target;
+		private _pos = getPos _target;
+		private _dir = getDir _mine;
+		private _return = [_typeOfMine,_pos,_dir];
+		_target enableSimulationGlobal true;
+		deleteVehicle _target;
+		_return spawn {
+			
+		};
+		_return;
+	};
 	
 	//code that's only executed on the server, that handles the deactivation of the jammer by damage:
 	if (isServer) then {
@@ -67,6 +85,7 @@ _handle = _this spawn {
 						call {
 							if (_x distance _target < 50 && mineActive _x) exitWith {
 								if (floor random 10 > 6) then {
+									//[_x] call adv_jammer_mine_deactivate;
 									_x enableSimulationGlobal false;
 								};
 							};

@@ -1,4 +1,4 @@
-﻿// Infantry Occupy House
+// Infantry Occupy House
 // by Zenophon - with a very slight modification by [SeL] Belbo // Adrian
 // Released under Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
 // http://creativecommons.org/licenses/by-nc/4.0/
@@ -52,7 +52,7 @@ _Zen_ExtendPosition = {
 if (_buildingRadius < 0) then {
     _buildingsArray = [nearestBuilding _center];
 } else {
-    _buildingsArray = nearestObjects [_center, ["building"], _buildingRadius];
+    _buildingsArray = nearestObjects [_center, ["building"], _buildingRadius, true];
 };
 
 _buildingPosArray = [];
@@ -190,4 +190,4 @@ for [{_i = _unitIndex}, {_i < count _units}, {I(_i)}] do {
     // Initial Release
 
 // Known Issues
-// None
+    // None

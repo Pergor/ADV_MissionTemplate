@@ -346,7 +346,7 @@ if !( _par_opfUni isEqualTo 6 ) then {
 	};
 };
 
-if ( {[_player,_x] call adv_fnc_inGroup} count ["MILAN","LUCHS","ORCA","FALKE","GEPARD","ELSTER"] > 0 || [_player,"command"] call adv_fnc_findInGroup ) then {
+if ( {[_player,_x] call adv_fnc_inGroup} count ["MILAN","LUCHS"] > 0 || [_player,"command"] call adv_fnc_findInGroup ) then {
 	_ACE_isMedic = 2;
 	_ACE_personalAidKit = 1;
 };
