@@ -15,8 +15,6 @@
  * Public: Yes
  */
  
-if (!isServer) exitWith {};
-
 //mission variables and parameters:
 private [
 	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
