@@ -1,4 +1,5 @@
 If you want to add side and weapon specific gear to a crate, use the following functions:
+Beware, the effect of all gear related functions is global - so it should only ever be executed once or on server.
 
 To clear the cargo of a crate just use
 [cursorTarget] call ADV_fnc_clearCargo;
