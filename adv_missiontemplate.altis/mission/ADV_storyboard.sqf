@@ -1,7 +1,7 @@
 ﻿/*
  * Author: Belbo
  *
- * Contains the "dramaturgy" of the mission.
+ * Contains the "storyboard" of the mission.
  *
  * Arguments:
  * None
@@ -10,26 +10,19 @@
  * Script handle - <HANDLE>
  *
  * Example:
- * _handle = execVM "mission\adv_dramaturgy.sqf";
+ * _handle = execVM "mission\adv_storyboard.sqf";
  *
  * Public: No
  */
 
 if (!isServer && hasInterface) exitWith {};
-missionNamespace getVariable ["ADV_taskVar",0];
-missionNamespace getVariable ["ADV_spawnVar",0];
-if !(isServer || hasInterface) then {
-	missionNamespace setVariable ["ADV_HCpresent",1,true];
-};
-if (isServer) then {
-	missionNamespace setVariable ["ADV_HCpresent",0,true];
-};
+nul = missionNamespace getVariable ["ADV_taskVar",0];
+nul = missionNamespace getVariable ["ADV_spawnVar",0];
 
 //failsafe for finishing the mission:
 [{missionNamespace getVariable ["ADV_taskVar",0] isEqualTo 99}, { [] spawn { ["task_1", "succeeded"] remoteExec ["FHQ_TT_setTaskState",2]; sleep 20; ["End2",true,8] remoteExec ["BIS_fnc_endMission",0]; }] call CBA_fnc_waitUntilAndExecute;
 
 //Use CBA_fnc_waitUntilAndExecute for the following mission parts:
-
 private _taskVar_1_code = {
 	_this spawn {
 	};
