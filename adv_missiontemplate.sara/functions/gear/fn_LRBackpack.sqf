@@ -30,29 +30,29 @@ if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") ) exitWith {
 	private _backpack = switch (side (group _unit)) do {
 		default {
 			switch (_par_CustomUni) do {
-				case 1: { ["tf_rt1523g_bwmod"] };
-				case 2: { ["tf_rt1523g_bwmod"] };
-				case 9: { ["tf_rt1523g_rhs"] };
+				case 1: { ["tfar_rt1523g_bwmod"] };
+				case 2: { ["tfar_rt1523g_bwmod"] };
+				case 9: { ["tfar_rt1523g_rhs"] };
 				case 12: { ["UK3CB_BAF_B_Bergen_MTP_Radio_H_A","UK3CB_BAF_B_Bergen_MTP_Radio_H_B"] };
-				case 13: { ["tf_rt1523g_bwmod"] };
-				case 14: { ["tf_rt1523g_bwmod"] };
-				default { ["tf_rt1523g_rhs"] };
+				case 13: { ["tfar_rt1523g_bwmod"] };
+				case 14: { ["tfar_rt1523g_bwmod"] };
+				default { ["tfar_rt1523g_rhs"] };
 			};
 		};
 		case east: {
 			switch (_par_opfUni) do {
-				case 1: { ["tf_mr3000_rhs"] };
-				case 2: { ["tf_mr3000_rhs"] };
-				case 3: { ["tf_mr3000_rhs"] };
-				case 4: { ["tf_mr3000_rhs"] };
+				case 1: { ["tfar_mr3000_rhs"] };
+				case 2: { ["tfar_mr3000_rhs"] };
+				case 3: { ["tfar_mr3000_rhs"] };
+				case 4: { ["tfar_mr3000_rhs"] };
 				case 5: { [""] };
-				default { ["tf_bussole"] };
+				default { ["tfar_bussole"] };
 			};
 		};
 		case independent: {
 			switch (_par_indUni) do {
-				default { ["tf_anprc155_coyote"] };
-				case 0: { ["tf_anprc155"] };
+				default { ["tfar_anprc155_coyote"] };
+				case 0: { ["tfar_anprc155"] };
 			};
 		};
 	};

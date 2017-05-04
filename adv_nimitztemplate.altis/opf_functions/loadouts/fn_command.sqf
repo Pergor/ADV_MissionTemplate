@@ -331,12 +331,12 @@ switch (_par_opfUni) do {
 if (missionNamespace getVariable ["_par_noLRRadios",false]) then { _giveBackpackRadio = false };
 if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
 	_backpack = switch (_par_opfUni) do {
-		case 1: {["tf_mr3000_rhs"]};
-		case 2: {["tf_mr3000_rhs"]};
-		case 3: {["tf_mr3000_rhs"]};
-		case 4: {["tf_mr3000_rhs"]};
+		case 1: {["tfar_mr3000_rhs"]};
+		case 2: {["tfar_mr3000_rhs"]};
+		case 3: {["tfar_mr3000_rhs"]};
+		case 4: {["tfar_mr3000_rhs"]};
 		case 5: {[""]};
-		default {["tf_mr3000_rhs"]};
+		default {["tfar_mr3000_rhs"]};
 	};
 };
 if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {

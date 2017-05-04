@@ -224,7 +224,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		
 		//radios
 		if (isClass (configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3)) then {
-			_target addBackpackCargoGlobal ["tf_mr3000",2];
+			_target addBackpackCargoGlobal ["tfar_mr3000",2];
 		};
 		if (_par_Radios == 1 || _par_Radios == 3) then {
 			_target addItemCargoGlobal ["ItemRadio",4];
