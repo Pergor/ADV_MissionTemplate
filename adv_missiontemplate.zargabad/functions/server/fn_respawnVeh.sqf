@@ -48,11 +48,11 @@ if (_name isEqualTo "") then {
 
 //initial respawn position
 private _respPos = getPosASL _veh;
-private _respDir = getDir _veh;
+private _respVector = [vectorDir _veh, vectorUp _veh];
 
 //store/get variables in vehicle so they can be recalled on respawn:
 private _initLine = _veh getVariable ["adv_vehicleinit",""];
-_veh setVariable ["adv_respawnevh_vehicleVars",[_delay,_side,_sidePrefix,_name,_initLine,_respPos,_respDir]];
+_veh setVariable ["adv_respawnevh_vehicleVars",[_delay,_side,_sidePrefix,_name,_initLine,_respPos,_respVector]];
 
 private _respawnEVHCode = {
 	_this spawn {
@@ -60,7 +60,7 @@ private _respawnEVHCode = {
 		//basic variables:
 		params ["_veh", "_killer", "_instigator", "_useEffects"];
 		private _vehicleVars = _veh getVariable ["adv_respawnevh_vehicleVars", [10,west,"",vehicleVarname _veh,"",getPosASL _veh,0]];
-		_vehicleVars params ["_delay","_side","_sidePrefix","_name","_initLine","_respPos","_respDir"];
+		_vehicleVars params ["_delay","_side","_sidePrefix","_name","_initLine","_respPos","_respVector"];
 		private _objectTextures = getObjectTextures _veh;
 		private _vehType = typeOf _veh;
 
@@ -72,7 +72,7 @@ private _respawnEVHCode = {
 		_veh = createVehicle [_vehType, _respPos, [], 0, "NONE"];
 		_veh allowDamage false;
 		_veh setPosASL _respPos;
-		_veh setDir _respDir;
+		_veh setVectorDirAndUp _respVector;
 		[_veh,_name] call adv_fnc_changeUnit;
 		sleep 2;
 		_veh allowDamage true;

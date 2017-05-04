@@ -25,6 +25,12 @@ private _execution = ["Vorgehen",
 		"Wie wir das machen..."];
 private _assets = ["erwartete Feindstärke",
 		"Und dabei nach Möglichkeit niemanden zu hart gängeln. Das macht doch sonst keinen Spaß.<br/> Und darauf kommt es doch an."];
+private _ROEs = ["Rules Of Engagement",
+		"- Die Schusswaffe darf nur nach positiver Identifizierung des Ziels (positive ID) gebraucht werden. Der Gruppenführer erteilt die Schussfreigabe.
+		<br/>- Ohne vorherigen Anruf ist der Schusswaffengebrauch nur zulässig, wenn er das einzige Mittel ist, um unmittelbare Gefahr für Leib und Leben abzuwehren.
+		<br/>- Der Gebrauch der Schusswaffe ist verboten, wenn er erkennbar Unbeteiligte mit hoher Wahrscheinlichkeit gefährdet.
+		<br/>- Der Gebrauch der Schusswaffe ist verboten, wenn er sich gegen flüchtende Personen richtet, die erkennbar von ihrem Angriff abgelassen haben.
+		<br/>- Militärische Gewalt darf gegen feindselige Kräfte eingesetzt werden, wenn diese die Durchführung des Auftrags behindern."];
 
 ///////////// Don't edit below this line if you don't know what you're doing. /////////////
 private _par_respWithGear = if ( (missionNamespace getVariable ["adv_par_respWithGear",["param_respWithGear",2] call BIS_fnc_getParamValue]) isEqualTo 1 ) then {
@@ -68,6 +74,7 @@ private _ace_repairLocation = switch ( missionNamespace getVariable ["ace_repair
 		_mission,
 		_execution,
 		_assets,
+		_ROEs,
 		["Hinweise zur Mission",
 			("Vor dem Aufbruch nicht vergessen:
 			") + _par_respWithGear + ("

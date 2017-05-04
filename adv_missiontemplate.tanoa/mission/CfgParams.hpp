@@ -382,15 +382,15 @@ class param_modTruckAssets
 class param_modHeavyAssets
 {
 	title="Sollen schwere Fahrzeuge durch AddOn-Fahrzeuge ersetzt werden?";
-	values[] = {99,12,3,10,9,8,7,6,5,1,0};
-	texts[] = {"Keine schweren Fahrzeuge","CUP Marines","CUP Stryker","RHS MRAPs","RHS M113","RHS Bradleys","stv retexture/ADV-Retex - Marid","stv retexture/ADV-Retex - Warrior/Mora","DAR MaxxPro","BWmod Puma","Nein"};
+	values[] = {99,12,3,10,9,8,7,6,4,5,1,0};
+	texts[] = {"Keine schweren Fahrzeuge","CUP Marines","CUP Stryker","RHS MRAPs","RHS M113","RHS Bradleys","stv retexture/ADV-Retex - Marid","stv retexture/ADV-Retex - Warrior/Mora","ADV-Retex - Gorgon","DAR MaxxPro","BWmod Puma","Nein"};
 	default = 0;
 };
 class param_modTankAssets
 {
 	title="Sollen Panzer durch AddOn-Fahrzeuge ersetzt werden?";
 	values[] = {99,8,6,4,3,1,0};
-	texts[] = {"Keine Panzer/Artillerie","Burne's M1A2","RHS (mit M119-Artillerie)","RHS (mit M109A6-Artillerie)","stv retexture - Leopard/Kuma","BWmod Leopard","Nein"};
+	texts[] = {"Keine Panzer/Artillerie","Burne's M1A2","RHS (mit M119-Artillerie)","RHS (mit M109A6-Artillerie)","stv retexture/ADV-Retex - Leopard/Kuma","BWmod Leopard","Nein"};
 	default = 0;
 };
 class param_modHeliAssets
