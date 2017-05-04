@@ -276,8 +276,8 @@ switch (_par_indUni) do {
 if (missionNamespace getVariable ["_par_noLRRadios",false]) then { _giveBackpackRadio = false };
 if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
 	switch (_par_indUni) do {
-		case 0: { _backpack = ["tf_anprc155"]; };
-		default { _backpack = ["tf_anprc155_coyote"]; };
+		case 0: { _backpack = ["tfar_anprc155"]; };
+		default { _backpack = ["tfar_anprc155_coyote"]; };
 	};
 };
 

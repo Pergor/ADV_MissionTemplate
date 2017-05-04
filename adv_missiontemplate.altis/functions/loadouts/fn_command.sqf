@@ -446,14 +446,14 @@ switch (_par_customUni) do {
 if (missionNamespace getVariable ["_par_noLRRadios",false]) then { _giveBackpackRadio = false };
 if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
 	_backpack = switch (_par_CustomUni) do {
-		case 0: {["tf_rt1523g_big"]};
-		case 1: {["tf_rt1523g_big_bwmod_tropen"]};
-		case 2: {["tf_rt1523g_big_bwmod"]};
-		case 3: {["tf_rt1523g_sage"]};
+		case 0: {["tfar_rt1523g_big"]};
+		case 1: {["tfar_rt1523g_big_bwmod_tropen"]};
+		case 2: {["tfar_rt1523g_big_bwmod"]};
+		case 3: {["tfar_rt1523g_sage"]};
 		case 12: {["UK3CB_BAF_B_Bergen_MTP_Radio_L_A","UK3CB_BAF_B_Bergen_MTP_Radio_L_B"]};
-		case 13: {["tf_rt1523g_black"]};
-		case 14: {["tf_rt1523g_black"]};
-		default {["tf_rt1523g_big_rhs"]};
+		case 13: {["tfar_rt1523g_black"]};
+		case 14: {["tfar_rt1523g_black"]};
+		default {["tfar_rt1523g_big_rhs"]};
 	};
 };
 if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
