@@ -55,7 +55,7 @@ if (!isServer) then {
 
 //title text:
 titleText ["", "BLACK FADED"];
-titleText [format ["%1 \n\n\nThis mission was built by %2 \n\n\n Have Fun! :)", briefingName, missionNamespace getVariable ["ADV_missionAuthor","[SeL] Belbo // Adrian"]], "BLACK FADED"];
+titleText [format ["%1 \n\n\nThis mission was built by %2 \n\n\n Have Fun! :)", briefingName, missionNamespace getVariable ["ADV_missionAuthor","[SeL] Belbo // Adrian"]], "BLACK FADED",0];
 
 //fuck mcc
 if (!isNil "mcc_actionInedx") then { player removeAction mcc_actionInedx; };
@@ -168,26 +168,30 @@ call {
 if ( isClass(configFile >> "CfgPatches" >> "ace_explosives") ) then {
 	[] call adv_fnc_aceMine;
 };
+adv_var_preloadFinished = false;
+["adv_preloadFinished_hints", "onPreloadFinished" , {
+	adv_var_preloadFinished = true;
+	["adv_preloadFinished_hints", "onPreloadFinished"] call BIS_fnc_removeStackedEventHandler;
+}] call BIS_fnc_addStackedEventHandler;
 
+waitUntil {adv_var_preloadFinished};
 //titletext:
-sleep 3;
-titleText ["", "BLACK FADED"];
+sleep 4;
+titleText ["", "BLACK FADED",0];
 sleep 1;
 titleFadeOut 3;
-sleep 4;
-
+sleep 2;
 //hint if cba is not run:
 if !( isClass(configFile >> "CfgPatches" >> "cba_main") ) then {
 	hintC "This mission needs CBA_A3 in order to run properly.";
-};	
-
+};
 //a little hint stating the date and time
-sleep 4;
 call {
 	if ( (toUpper worldname) in ["STRATIS","ALTIS"] ) exitWith {
 		["Have Fun!"] spawn BIS_fnc_infoText;
 		[] spawn compile preprocessFileLineNumbers "a3\missions_f_epa\Campaign_shared\Functions\Timeline\fn_camp_showOSD.sqf";
 	};
 	["Have Fun!", "Datum:" + str (date select 2) + "/" + str (date select 1) + "/" + str (date select 0)] spawn BIS_fnc_infoText;
-};
+};	
+
 //end of initPlayerLocal.
