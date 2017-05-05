@@ -16,16 +16,6 @@
  */
 
 if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
-	
-	["TFAR_giveLongRangeRadioToGroupLeaders", false, true, "server"] call CBA_settings_fnc_set;
-	["TFAR_givePersonalRadioToRegularSoldier", false, true, "server"] call CBA_settings_fnc_set;
-	["TFAR_giveMicroDagrToSoldier", false, true, "server"] call CBA_settings_fnc_set;
-	["TFAR_SameSRFrequenciesForSide", true, true, "server"] call CBA_settings_fnc_set;
-	["TFAR_SameLRFrequenciesForSide", true, true, "server"] call CBA_settings_fnc_set;
-	["TFAR_fullDuplex", false, true, "server"] call CBA_settings_fnc_set;
-	["TFAR_enableIntercom", true, true, "server"] call CBA_settings_fnc_set;
-	["TFAR_objectInterceptionEnabled", false, true, "server"] call CBA_settings_fnc_set;
-	["TFAR_PosUpdateMode", 0, true, "server"] call CBA_settings_fnc_set;
 	//general
 	tfar_terrain_interception_coefficient = 3.0;
 	tfar_speakerDistance = 10;

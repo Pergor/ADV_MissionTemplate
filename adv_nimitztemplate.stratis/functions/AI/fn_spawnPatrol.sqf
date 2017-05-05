@@ -123,6 +123,8 @@ if (isNil "adv_patrol_area_name") then { adv_patrol_area_name = 0 };
 		};
 		//what should they do? Walk around:
 		[(leader _grp),_area]+_UPS spawn compile preprocessFileLineNumbers "scripts\upsmon.sqf";
+		
+		_grp enableDynamicSimulation true;
 	};
 } forEach _spawn;
 

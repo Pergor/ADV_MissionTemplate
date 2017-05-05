@@ -208,6 +208,20 @@ class AddonsMetaData
 		};
 	};
 };
+class DynamicSimulation
+{
+	class EnableRadiuses
+	{
+		Prop=50;
+		EmptyVehicle=150;
+		Vehicle=500;
+		Group=600;
+	};
+	class EnableRadiuseCoefs
+	{
+		IsMoving=3;
+	};
+};
 randomSeed=15293006;
 class ScenarioData
 {

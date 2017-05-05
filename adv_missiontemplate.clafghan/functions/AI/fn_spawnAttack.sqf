@@ -95,6 +95,8 @@ params [
 		_wp setWaypointCombatMode "YELLOW";
 		_wp setWaypointSpeed "NORMAL";
 		_wp setWaypointFormation "WEDGE";
+		
+		_grp enableDynamicSimulation true;
 	};
 } forEach _spawn;
 
