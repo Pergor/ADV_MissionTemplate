@@ -9,33 +9,30 @@
 private "_dist";
 switch (true) do {
 	case (!(EQUAL(SEL(UAVControl getConnectedUAV player,1),""))): {
-		setViewDistance tawvd_drone;
-		profileNamespace setVariable ["tawvd_drone",tawvd_drone];
 		_dist = tawvd_drone;
+		profileNamespace setVariable ["tawvd_drone",_dist];
 	};
 	
 	case ((vehicle player) isKindOf "Man"): {
-		setViewDistance tawvd_foot;
-		profileNamespace setVariable ["tawvd_foot",tawvd_foot];
 		_dist = tawvd_foot;
+		profileNamespace setVariable ["tawvd_foot",_dist];
 	};
 	
 	case ((vehicle player) isKindOf "LandVehicle"): {
-		setViewDistance tawvd_car;
-		profileNamespace setVariable ["tawvd_car",tawvd_car];
 		_dist = tawvd_car;
+		profileNamespace setVariable ["tawvd_car",_dist];
 	};
 	
 	case ((vehicle player) isKindOf "Air"): {
-		setViewDistance tawvd_air;
-		profileNamespace setVariable ["tawvd_air",tawvd_air];
 		_dist = tawvd_air;
+		profileNamespace setVariable ["tawvd_air",_dist];
 	};
 };
+setViewDistance _dist;
 
-if (GVAR_MNS ["tawvd_syncObject",false]) then {
+if (tawvd_syncObject) then {
 	setObjectViewDistance _dist;
 	tawvd_object = _dist;
 	profileNamespace setVariable ["tawvd_object",2000];
-	saveProfileNamespace;
 };
+saveProfileNamespace;
