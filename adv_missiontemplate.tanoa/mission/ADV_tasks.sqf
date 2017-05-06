@@ -14,9 +14,9 @@
  * Name of task.
  *
  * Example:
- * [2] remoteExec ["adv_fnc_tasks",2];
+ * [2] call adv_fnc_tasks;
  *
- * Public: No
+ * Public: Yes
  */
 
 params [
@@ -39,7 +39,7 @@ switch (_task) do {
 		_priority = 0;						//task priority (when automatically selecting a new current task, higher priority is selected first)
 		_showNotification = true;			//show notification (default: true)
 		_taskType = "default";				//task type as defined in the CfgTaskTypes (https://community.bistudio.com/wiki/Arma_3_Tasks_Overhaul#Appendix)
-		_alwaysVisible = true;				//should the task be shared among 
+		_alwaysVisible = true;				//should the task being shared (default: false), if set to true, the assigned players are being counted
 	};
 };
 
@@ -52,17 +52,6 @@ _taskID;
 
 //obsolete content:
 /*
-		[
-			{true},
-				[
-					"task_1", 							//TaskName.
-					"Habt viel Spaß!", 					//Task Long Description - en detail.
-					"Viel Spaß haben!",					//Task Short Description - Titel der Aufgabe.
-					"", 								//Task WayPoint Description - Wird als Floating Text auf dem Waypoint der Task angezeigt.
-					"", 								//Target - beispielsweise ein Objekt oder ein Marker (format: (getMarkerpos "respawn_west") or OBJECTNAME)
-					"assigned"							//initial task state. "created", "assigned", "succeeded", "failed", "canceled".
-				]
-		];
-	//_taskContent call FHQ_TT_addTasks;
-
+	_taskContent = [_owner,[_taskID,_description,_title,_marker,_destination,_state]];
+	_taskContent call FHQ_TT_addTasks;
 */

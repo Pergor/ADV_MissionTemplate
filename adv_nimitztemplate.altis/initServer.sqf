@@ -5,12 +5,15 @@
 waitUntil {!isNil "ADV_params_defined"};
 //place your code below:
 
+
 //wait until mission has started:
 waitUntil {time > 0};
 //place your code below:
 
 
-//these are some optional scripts that you might find useful. Uncomment/comment or change the ones you want/need:
+
+
+//below are some optional scripts that you might find useful. Uncomment/comment or change the ones you want/need:
 
 //Changing vanilla- or CUP-IEDs to ACE-IEDs:
 [] call adv_fnc_IEDhandler;
