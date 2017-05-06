@@ -1,5 +1,5 @@
 ﻿//settings for tfar 1.0:
-force force TFAR_giveLongRangeRadioToGroupLeaders = false;
+force TFAR_giveLongRangeRadioToGroupLeaders = false;
 force TFAR_givePersonalRadioToRegularSoldier = false;
 force TFAR_giveMicroDagrToSoldier = false;
 force force TFAR_SameSRFrequenciesForSide = true;
@@ -34,6 +34,17 @@ force acre_sys_core_revealToAI = true;
 acre_sys_core_postmixGlobalVolume = 1;
 acre_sys_core_premixGlobalVolume = 1;
 acre_sys_core_spectatorVolume = 1;
+*/
+
+//settings for stHud:
+force STHud_Settings_Occlusion = true;
+STHud_Settings_SquadBar = false;
+force STHud_Settings_RemoveDeadViaProximity = true;
+/*
+STHud_Settings_Font = "PuristaSemibold";
+STHud_Settings_HUDMode = 3;
+STHud_Settings_TextShadow = 1;
+STHud_Settings_ColourBlindMode = "Normal";
 */
 
 //settings for BWmod:

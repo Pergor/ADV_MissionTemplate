@@ -33,7 +33,15 @@ if ( toUpper (typeOf _target) in ['I_MRAP_03_F','I_MRAP_03_HMG_F','I_MRAP_03_GMG
 	[_target,'BLUFOR',true] call BIS_fnc_initVehicle;
 	true;
 };
-if ( isClass(configFile >> "CfgPatches" >> "adv_retex") ) exitWith {
+if ( toUpper (typeOf _target) in ['BWA3_EAGLE_TROPEN'] ) exitWith {
+	[_target,['Tropen', 0.5, 'Tropen3', 0.5],["backpack_back",1]] call BIS_fnc_initVehicle;
+	true;
+};
+if ( toUpper (typeOf _target) in ['BWA3_EAGLE_FLW100_TROPEN'] ) exitWith {
+	[_target,['Tropen2', 0.5, 'Tropen6', 0.5],["backpack_back",1]] call BIS_fnc_initVehicle;
+	true;
+};
+if ( isClass(configFile >> "CfgPatches" >> "adv_retex") ) then {
 	if ( toUpper (typeOf _target) in ['B_MRAP_01_F','B_MRAP_01_HMG_F','B_MRAP_01_GMG_F'] && (toUpper worldname) in ADV_var_aridMaps ) exitWith {
 		[_target] call adv_retex_fnc_setTextureRHSHunter;
 		true;
@@ -51,14 +59,6 @@ if ( isClass(configFile >> "CfgPatches" >> "adv_retex") ) exitWith {
 		true;
 	};
 	false
-};
-if ( toUpper (typeOf _target) in ['BWA3_EAGLE_TROPEN'] ) exitWith {
-	[_target,['Tropen', 0.5, 'Tropen3', 0.5],["backpack_back",1]] call BIS_fnc_initVehicle;
-	true;
-};
-if ( toUpper (typeOf _target) in ['BWA3_EAGLE_FLW100_TROPEN'] ) exitWith {
-	[_target,['Tropen2', 0.5, 'Tropen6', 0.5],["backpack_back",1]] call BIS_fnc_initVehicle;
-	true;
 };
 
 false;

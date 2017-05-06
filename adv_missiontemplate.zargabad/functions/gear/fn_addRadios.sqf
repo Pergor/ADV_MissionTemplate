@@ -91,28 +91,28 @@ switch ( true ) do {
 	case ( isClass (configFile >> "CfgPatches" >> "acre_main") ): {
 		_riflemanRadioType = "ACRE_PRC343";
 		_personalRadioType = switch ( side (group _unit) ) do {
-			case east: { acre_eastPersonalRadio };
-			case independent: { acre_guerPersonalRadio };
-			default { acre_westPersonalRadio };
+			case east: { missionNamespace getVariable ["acre_eastPersonalRadio","ACRE_PRC148"] };
+			case independent: { missionNamespace getVariable ["acre_guerPersonalRadio","ACRE_PRC148"] };
+			default { missionNamespace getVariable ["acre_westPersonalRadio","ACRE_PRC152"] };
 		};
 		_backpackRadioType = switch ( side (group _unit) ) do {
-			case east: { acre_eastBackpackRadio };
-			case independent: { acre_guerBackpackRadio };
-			default { acre_westBackpackRadio };
+			case east: { missionNamespace getVariable ["acre_eastBackpackRadio","ACRE_PRC117F"] };
+			case independent: { missionNamespace getVariable ["acre_guerBackpackRadio","ACRE_PRC117F"] };
+			default { missionNamespace getVariable ["acre_westBackpackRadio","ACRE_PRC117F"] };
 		};
 		switch _par_Radios do {
 			//everyone gets role specific radio
 			default {
 				if ( _giveRiflemanRadio ) then { _unit addItem _riflemanRadioType; };
 				if ( _givePersonalRadio ) then { _unit addItem _personalRadioType; };
-				if ( _giveBackpackRadio ) then { _unit addItem _backpackRadioType; };
+				if ( _giveBackpackRadio ) then { _unit addItemToBackpack _backpackRadioType; };
 			};
 			//only leaders get Radio
 			case 2: {
 				if ( (toUpper (rank _unit)) in ["SERGEANT","LIEUTENANT","CAPTAIN","MAJOR","COLONEL"] ) then {
 					call {
 						if (_giveBackpackRadio) exitWith {
-							_unit additem _backpackRadioType
+							_unit additemToBackpack _backpackRadioType
 						};
 						_unit addItem _personalRadioType;
 					};
@@ -122,7 +122,7 @@ switch ( true ) do {
 			case 3: {
 				_unit addItem _riflemanRadioType;
 				_unit addItem _personalRadioType;
-				if ( _giveBackpackRadio ) then { _unit addItem _backpackRadioType; };
+				if ( _giveBackpackRadio ) then { _unit addItemToBackpack _backpackRadioType; };
 			};
 		};
 	};

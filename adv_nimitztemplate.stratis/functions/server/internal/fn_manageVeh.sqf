@@ -263,6 +263,21 @@ switch ( _par_modCarAssets ) do {
 
 //replaces trucks with mod trucks:
 switch ( _par_modTruckAssets ) do {
+	//BW Retex
+	case 3: {
+		if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
+			[ADV_veh_transport,["BW_LKW_TRANSPORT_TROPEN","BW_LKW_TRANSPORT_OFFEN_TROPEN"],west] call ADV_fnc_changeVeh;
+			[ADV_veh_logistic_fuel,["BW_LKW_TREIBSTOFF_TROPEN"],west] call ADV_fnc_changeVeh;
+			[ADV_veh_logistic_repair,["BW_LKW_REPARATUR_TROPEN"],west] call ADV_fnc_changeVeh;
+			[ADV_veh_logistic_ammo,["BW_LKW_MUNITION_TROPEN"],west] call ADV_fnc_changeVeh;
+			[ADV_veh_logistic_medic,["BW_LKW_MEDIC_TROPEN"],west] call ADV_fnc_changeVeh;
+		};
+		[ADV_veh_transport,["BW_LKW_TRANSPORT_FLECK","BW_LKW_TRANSPORT_OFFEN_FLECK"],west] call ADV_fnc_changeVeh;
+		[ADV_veh_logistic_fuel,["BW_LKW_TREIBSTOFF_FLECK"],west] call ADV_fnc_changeVeh;
+		[ADV_veh_logistic_repair,["BW_LKW_REPARATUR_FLECK"],west] call ADV_fnc_changeVeh;
+		[ADV_veh_logistic_ammo,["BW_LKW_MUNITION_FLECK"],west] call ADV_fnc_changeVeh;
+		[ADV_veh_logistic_medic,["BW_LKW_MEDIC_FLECK"],west] call ADV_fnc_changeVeh;
+	};
 	//DAR MTVR
 	case 1: {
 		[ADV_veh_transport,["DAR_MK27","DAR_MK27T"],west] call ADV_fnc_changeVeh;
@@ -301,9 +316,6 @@ switch ( _par_modTruckAssets ) do {
 			[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd"],west] call ADV_fnc_changeVeh;
 			[ADV_veh_logistic_fuel,["rhsusf_M978A4_usarmy_wd","rhsusf_M978A4_BKIT_usarmy_wd"],west] call ADV_fnc_changeVeh;
 		};
-	};
-	//RHS woodland
-	case 3: {
 	};
 	//CUP BAF
 	case 4: {

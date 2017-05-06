@@ -375,8 +375,8 @@ class param_modCarAssets
 class param_modTruckAssets
 {
 	title="Sollen Trucks durch AddOn-Fahrzeuge ersetzt werden?";
-	values[] = {99,4,2,6,1,0};
-	texts[] = {"Keine Trucks","CUP BAF Coyotes","RHS - Army","CUP MTVR","DAR MTVR","Nein"};
+	values[] = {99,4,2,6,1,3,0};
+	texts[] = {"Keine Trucks","CUP BAF Coyotes","RHS - Army","CUP MTVR","DAR MTVR","BW-Retex LKW (benötigt Bundeswehr ReTex Pack)","Nein"};
 	default = 0;
 };
 class param_modHeavyAssets
