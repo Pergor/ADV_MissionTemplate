@@ -336,7 +336,7 @@ if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios =
 		case 3: {["tfar_mr3000_rhs"]};
 		case 4: {["tfar_mr3000_rhs"]};
 		case 5: {[""]};
-		default {["tfar_mr3000_rhs"]};
+		default {["tfar_mr3000"]};
 	};
 };
 if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {

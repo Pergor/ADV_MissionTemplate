@@ -127,7 +127,6 @@ class adv
 	{
 		file = "functions\gear\internal";
 		class aceGear {};
-		class aceGunbag {};
 		class aceMedicalItems {};
 		class applyLoadout {};
 		class dialogGearInit {};
@@ -137,6 +136,7 @@ class adv
 	class gear
 	{
 		class aceFAK {};
+		class aceGunbag {};
 		class add40mm {};
 		class addGPS {};
 		class addGrenades {};

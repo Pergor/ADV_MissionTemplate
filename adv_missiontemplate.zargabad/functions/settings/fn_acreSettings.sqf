@@ -1,7 +1,7 @@
 ﻿/*
  * Author: Belbo
  *
- * Contains all the variables important for acre.
+ * Contains all the variables important for acre. Basic settings have to be set in cba_settings.sqf in main mission folder.
  *
  * Arguments:
  * None
@@ -18,17 +18,15 @@
 if !( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith { false };
 
 //params needed in case paramsArray not yet defined on client in MP
-missionNamespace getVariable ["adv_par_customUni", ["param_customUni",0] call BIS_fnc_getParamValue];
-missionNamespace getVariable ["adv_par_customWeap", ["param_customWeap",0] call BIS_fnc_getParamValue];
-missionNamespace getVariable ["adv_par_opfUni", ["param_opfUni",0] call BIS_fnc_getParamValue];
-missionNamespace getVariable ["adv_par_opfWeap", ["param_opfWeap",0] call BIS_fnc_getParamValue];
-//Initialize ACRE radios
-[true, true] call acre_api_fnc_setupMission;
-[true] call acre_api_fnc_setRevealToAI;
-[false] call acre_api_fnc_setFullDuplex;
-[true] call acre_api_fnc_setInterference;
-[true] call acre_api_fnc_ignoreAntennaDirection;
-[0.15] call acre_api_fnc_setLossModelScale;
+private _par_customUni = missionNamespace getVariable ["adv_par_customUni", ["param_customUni",0] call BIS_fnc_getParamValue];
+private _par_customWeap = missionNamespace getVariable ["adv_par_customWeap", ["param_customWeap",0] call BIS_fnc_getParamValue];
+private _par_opfUni = missionNamespace getVariable ["adv_par_opfUni", ["param_opfUni",0] call BIS_fnc_getParamValue];
+private _par_opfWeap = missionNamespace getVariable ["adv_par_opfWeap", ["param_opfWeap",0] call BIS_fnc_getParamValue];
+private _par_indUni = missionNamespace getVariable ["adv_par_indUni", ["param_indUni",0] call BIS_fnc_getParamValue];
+private _par_indWeap = missionNamespace getVariable ["adv_par_indWeap", ["param_indWeap",0] call BIS_fnc_getParamValue];
+private _par_acreBabel = missionNamespace getVariable ["adv_par_acreBabel", ["param_acreBabel",0] call BIS_fnc_getParamValue];
+private _par_acrePresets = missionNamespace getVariable ["adv_par_acrePresets", ["param_acrePresets",0] call BIS_fnc_getParamValue];
+
 //radios
 acre_westPersonalRadio = "ACRE_PRC152";
 acre_eastPersonalRadio = "ACRE_PRC148";
@@ -39,15 +37,15 @@ acre_eastRiflemanRadio = "ACRE_PRC343";
 acre_gerRiflemanRadio = "ACRE_PRC343";
 
 acre_westBackpackRadio = call {
-	if !(adv_par_customUni isEqualTo 9) exitWith {"ACRE_PRC117F"};
+	if !(_par_customUni isEqualTo 9) exitWith {"ACRE_PRC117F"};
 	if (true) exitWith {"ACRE_PRC77"};
 };
 acre_eastBackpackRadio = call {
-	if !(adv_par_opfUni isEqualTo 5 || adv_par_opfUni isEqualTo 6) exitWith {"ACRE_PRC117F"};
+	if !(_par_opfUni  isEqualTo 5 || _par_opfUni isEqualTo 6) exitWith {"ACRE_PRC117F"};
 	if (true) exitWith {"ACRE_PRC77"};
 };
 acre_guerBackpackRadio = call {
-	if !(adv_par_indUni isEqualTo 20) exitWith {"ACRE_PRC117F"};
+	if !(_par_indUni isEqualTo 20) exitWith {"ACRE_PRC117F"};
 	if (true) exitWith {"ACRE_PRC77"};
 };
 //channel setup
@@ -83,12 +81,12 @@ for "_i" from 2 to 3 do {
 	
 	//babel:
 	private _bluforLanguage = call {
-		if (adv_par_customUni isEqualTo 1 || adv_par_customUni isEqualTo 2 || adv_par_customWeap isEqualTo 1) exitWith {"Deutsch"};
+		if (_par_customUni isEqualTo 1 || _par_customUni isEqualTo 2 || _par_customWeap isEqualTo 1) exitWith {"Deutsch"};
 		if (true) exitWith {"English"};
 	};
 	private _opforLanguage = call {
-		if (adv_par_opfUni > 0 && adv_par_opfUni < 5) exitWith {"Russian"};
-		if (adv_par_opfUni isEqualTo 20) exitWith {"Chinese"};
+		if (_par_opfUni > 0 && _par_opfUni < 5) exitWith {"Russian"};
+		if (_par_opfUni isEqualTo 20) exitWith {"Chinese"};
 		if (true) exitWith {"Farsi"};
 	};
 	[[west, _bluforLanguage],[east, _opforLanguage],[independent, _bluforLanguage, _opforLanguage],[civilian, _bluforLanguage, _opforLanguage, "Local Language"]] call acre_api_fnc_babelSetupMission;
@@ -100,33 +98,19 @@ for "_i" from 2 to 3 do {
 	if (hasInterface) then {
 		waitUntil { player == player && time > 1};
 		//presets and languages per side:
-		switch ( side (group player) ) do {
-			case civilian: {
-				["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;
+		private _languages = call {
+			if (_par_acreBabel isEqualTo 1) exitWith { ["en"] };
+			if ( side (group player) isEqualTo EAST) exitWith {["ru"]};
+			if ( side (group player) isEqualTo INDEPENDENT) exitWith {
+				if ( [independent,west] call BIS_fnc_sideIsFriendly && [independent,east] call BIS_fnc_sideIsFriendly ) exitWith {["en","ru"]};
+				if ( [independent,west] call BIS_fnc_sideIsFriendly ) exitWith {["en","gr"]};
+				if ( [independent,east] call BIS_fnc_sideIsFriendly ) exitWith {["ru","gr"]};
+				["gr"]
 			};
-			case east: {
-				private _languages = if (adv_par_acreBabel isEqualTo 0) then {["ru"]} else {["en","ru","gr"]};
-				_languages call acre_api_fnc_babelSetSpokenLanguages;
-			};
-			case independent: {
-				call {
-					if ([independent,west] call BIS_fnc_sideIsFriendly || adv_par_acrePresets isEqualTo 1) exitWith {
-						private _languages = if (adv_par_acreBabel isEqualTo 0) then {["en","gr"]} else {["en","ru","gr"]};
-						_languages call acre_api_fnc_babelSetSpokenLanguages;
-					};
-					if ([independent,east] call BIS_fnc_sideIsFriendly) exitWith {
-						private _languages = if (adv_par_acreBabel isEqualTo 0) then {["ru","gr"]} else {["en","ru","gr"]};
-						_languages call acre_api_fnc_babelSetSpokenLanguages;
-					};
-					private _languages = if (adv_par_acreBabel isEqualTo 0) then {["gr"]} else {["en","ru","gr"]};
-					_languages call acre_api_fnc_babelSetSpokenLanguages;
-				};
-			};
-			default {
-				private _languages = if (adv_par_acreBabel isEqualTo 0) then {["en"]} else {["en","ru","gr"]};
-				_languages call acre_api_fnc_babelSetSpokenLanguages;
-			};
+			if ( side (group player) isEqualTo CIVILIAN) exitWith {["en","gr"]};
+			["en"]
 		};
+		_languages call acre_api_fnc_babelSetSpokenLanguages;
 	};
 };
 

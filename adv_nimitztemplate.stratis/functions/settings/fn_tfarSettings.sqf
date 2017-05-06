@@ -1,7 +1,7 @@
 ﻿/*
  * Author: Belbo
  *
- * Contains all the variables important for tfar.
+ * Contains all the variables important for tfar. Basic settings have to be set in cba_settings.sqf in main mission folder.
  *
  * Arguments:
  * None

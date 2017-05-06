@@ -16,8 +16,6 @@
  * Public: Yes/No
  */
  
-if !( isClass(configFile >> "CfgPatches" >> "task_force_radio") ) exitWith { nil };
-
 _handle = _this spawn {
 	params [
 		["_target", objNull, [objNull]]
@@ -205,8 +203,14 @@ _handle = _this spawn {
 				};
 			};
 		};
+		if ( !isClass(configFile >> "CfgPatches" >> "task_force_radio") || !isClass(configFile >> "CfgPatches" >> "acre_main") ) exitWith { nil };
 		
-		private _originalInterception = tfar_terrain_interception_coefficient;
+		private _originalInterception = call {
+			if ( isClass(configFile >> "CfgPatches" >> "acre_main") ) exitWith {
+				missionNamespace getVariable ["acre_sys_signal_terrainScaling",3];
+			};
+			missionNamespace getVariable ["tfar_terrain_interception_coefficient",3];
+		};
 		private _originalInterference = player getVariable ["tf_sendingDistanceMultiplicator",1];
 		
 		while {adv_jammer_clientLoop} do {
@@ -218,14 +222,21 @@ _handle = _this spawn {
 				if ( player distance _nearestJammer < _radius ) exitWith {
 					private _distance = player distance _nearestJammer;
 					private _interference = _originalInterference * ((_distance / _radius) ^ 2);
+					private _interception = _originalInterception + ( 2 / ((_distance / _radius) ^ 2) ) - 2;
 					adv_debug_jammerVars = [_target,_nearestJammer,_interference,_distance];
 					player setVariable ["tf_receivingDistanceMultiplicator", _interference];
 					player setVariable ["tf_sendingDistanceMultiplicator", _interference];
-					tfar_terrain_interception_coefficient = _originalInterception + ( ( 2 / ((_distance / _radius) ^ 2) ) - 2 );
+					missionNamespace getVariable ["tfar_terrain_interception_coefficient",3] = _interception;
+					if ( isClass(configFile >> "CfgPatches" >> "acre_main") ) then {
+						[_interception] call acre_api_fnc_setLossModelScale;
+					};
 				};
-				tfar_terrain_interception_coefficient = _originalInterception;
+				missionNamespace getVariable ["tfar_terrain_interception_coefficient",3] = _originalInterception;
 				player setVariable ["tf_receivingDistanceMultiplicator", _originalInterference];
 				player setVariable ["tf_sendingDistanceMultiplicator", _originalInterference];
+				if ( isClass(configFile >> "CfgPatches" >> "acre_main") ) then {
+					[_originalInterception] call acre_api_fnc_setLossModelScale;
+				};
 			};
 		};
 	};

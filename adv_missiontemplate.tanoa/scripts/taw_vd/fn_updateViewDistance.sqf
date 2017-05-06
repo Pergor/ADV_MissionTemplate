@@ -33,8 +33,9 @@ switch (true) do {
 	};
 };
 
-if(tawvd_syncObject) then {
+if (GVAR_MNS ["tawvd_syncObject",false]) then {
 	setObjectViewDistance _dist;
 	tawvd_object = _dist;
-	profileNamespace setVariable ["tawvd_object",2000];saveProfileNamespace;
+	profileNamespace setVariable ["tawvd_object",2000];
+	saveProfileNamespace;
 };

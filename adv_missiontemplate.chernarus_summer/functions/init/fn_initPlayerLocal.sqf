@@ -164,10 +164,12 @@ call {
 	};
 };
 
-//disarming actions for mines:
+//disarming actions for pre placed mines:
 if ( isClass(configFile >> "CfgPatches" >> "ace_explosives") ) then {
 	[] call adv_fnc_aceMine;
 };
+
+//variable for preload-check:
 adv_var_preloadFinished = false;
 ["adv_preloadFinished_hints", "onPreloadFinished" , {
 	adv_var_preloadFinished = true;
@@ -175,6 +177,7 @@ adv_var_preloadFinished = false;
 }] call BIS_fnc_addStackedEventHandler;
 
 waitUntil {adv_var_preloadFinished};
+
 //titletext:
 sleep 4;
 titleText ["", "BLACK FADED",0];
@@ -192,6 +195,6 @@ call {
 		[] spawn compile preprocessFileLineNumbers "a3\missions_f_epa\Campaign_shared\Functions\Timeline\fn_camp_showOSD.sqf";
 	};
 	["Have Fun!", "Datum:" + str (date select 2) + "/" + str (date select 1) + "/" + str (date select 0)] spawn BIS_fnc_infoText;
-};	
+};
 
 //end of initPlayerLocal.
