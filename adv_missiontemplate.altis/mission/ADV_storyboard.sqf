@@ -20,7 +20,7 @@ nul = missionNamespace getVariable ["ADV_taskVar",0];
 nul = missionNamespace getVariable ["ADV_spawnVar",0];
 
 //failsafe for finishing the mission:
-[{missionNamespace getVariable ["ADV_taskVar",0] isEqualTo 99}, { [] spawn { ["task_1", "succeeded"] remoteExec ["FHQ_TT_setTaskState",2]; sleep 20; ["End2",true,8] remoteExec ["BIS_fnc_endMission",0]; }] call CBA_fnc_waitUntilAndExecute;
+[{missionNamespace getVariable ["ADV_taskVar",0] isEqualTo 99}, { [] spawn { ["task_1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState; sleep 20; ["End2",true,8] remoteExec ["BIS_fnc_endMission",0]; }] call CBA_fnc_waitUntilAndExecute;
 
 //Use CBA_fnc_waitUntilAndExecute for the following mission parts:
 private _taskVar_1_code = {
@@ -32,7 +32,9 @@ private _taskVar_1_code = {
 
 /*
 //for adding new tasks, create a new case in ADV_tasks.sqf, a new task within this case and call like this:
-[2] remoteExec ["adv_fnc_tasks",2];
+[2] call adv_fnc_tasks;
+//set task state:
+["task_1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 
 //possible spawn calls:
 [spawnLogic,["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"],east,0,200] call adv_fnc_aiTask;
