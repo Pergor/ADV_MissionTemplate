@@ -67,9 +67,6 @@ if ( (toUpper (goggles player)) in ["MASK_M40_OD","MASK_M40","MASK_M50","G_BALAC
 
 waitUntil {time > 0};
 
-//the view distance is updated to the saved variables:
-[] call TAWVD_fnc_updateViewDistance;
-
 //logistics menu:
 if ( (missionNamespace getVariable ["ADV_par_logisticAmount",99]) > 0 ) then {
 	{ nul = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == west",5]; nil; } count adv_objects_westFlags;
@@ -177,6 +174,12 @@ adv_var_preloadFinished = false;
 }] call BIS_fnc_addStackedEventHandler;
 
 waitUntil {adv_var_preloadFinished};
+
+//the view distance is updated to the saved variables:
+0 spawn {
+	waitUntil {!isNil "tawvd_foot" && !isNil "tawvd_air" && !isNil "tawvd_car" && !isNil "tawvd_drone"};
+	[] call TAWVD_fnc_updateViewDistance;
+};
 
 //titletext:
 sleep 4;
