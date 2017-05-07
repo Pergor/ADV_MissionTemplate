@@ -27,10 +27,13 @@ _uniform = ["U_C_Driver_1_black","U_C_Driver_1_red","U_C_Driver_4"];
 _vest = ["V_TacVest_blk"]; 
 _headgear = ["H_PilotHelmetHeli_O","H_PilotHelmetHeli_B"];
 _backpack = ["B_Parachute"];
+if ( (isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians")) ) then {
+	_uniform = ["CUP_U_C_Pilot_01"];
+	_vest = [""];
+};
 _insignium = "";
 _useProfileGoggles = 0;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
-_isLeader = false;
 
 //weapons - primary weapon - (string)
 _primaryweapon = [""];
@@ -117,9 +120,6 @@ _items = [];
 
 //MarksmenDLC-objects:
 if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
-};
-
-if (missionNamespace getVariable ["_par_isTvT",false]) then {
 };
 
 //CustomMod items//

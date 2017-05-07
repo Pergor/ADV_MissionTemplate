@@ -20,8 +20,8 @@ params [
 	"_playerUnit"
 ];
 if (side _target == sideLogic) exitWith {};
-_playerUnit = _target getVariable ["ADV_var_playerUnit","ADV_fnc_nil"];
-if ( _playerUnit == "ADV_fnc_nil") exitWith {};
+_playerUnit = toUpper (_target getVariable ["ADV_var_playerUnit","ADV_fnc_nil"]);
+if ( _playerUnit isEqualTo "ADV_FNC_NIL") exitWith {};
 
 //mission variables and parameters:
 private [
@@ -32,14 +32,15 @@ private [
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 
 //special stuff for zeus
-if (_playerUnit == "ADV_fnc_zeus") then {
-	_playerUnit = switch (side _target) do {
-		case west: {"ADV_fnc_command"};
-		case east: {"ADV_opf_fnc_command"};
-		case independent: {"ADV_ind_fnc_command"};
+if (_playerUnit isEqualTo "ADV_FNC_ZEUS") then {
+	_playerUnit = switch ( side (group _target) ) do {
+		case west: {"ADV_FNC_COMMAND"};
+		case east: {"ADV_OPF_FNC_COMMAND"};
+		case independent: {"ADV_IND_FNC_COMMAND"};
+		case civilian: {"ADV_FNC_CIVPOLICE"};
 	};
 	//makes the playable zeus unit always immortal.
-	if (_par_invinciZeus == 1) then {
+	if (_par_invinciZeus isEqualTo 1) then {
 		_target allowDamage false;
 		if (isNil "ADV_invinciZeus_EVH") then {
 			ADV_invinciZeus_EVH = _target addEventhandler ["Respawn", {(_this select 0) allowDamage false;}];
@@ -48,41 +49,35 @@ if (_playerUnit == "ADV_fnc_zeus") then {
 };
 
 //respawn gear switch
-if (!isNil "ADV_par_CustomLoad") then {
-	if (ADV_par_customLoad > 0) then {
-		_target call compile format ["[_this] call %1",_playerUnit];
+if (_par_customLoad > 0) then {
+	_target call compile format ["[_this] call %1",_playerUnit];
 
-		[_target] spawn {
-			params ["_target"];
-			sleep 1;
-			if (!isNil "ADV_respawn_EVH") then { _target removeEventhandler ["Respawn",ADV_respawn_EVH]; };
-			switch (ADV_par_customLoad) do {
-				case 0: {
-					//No respawn with gear
-					ADV_respawn_EVH = _target addEventhandler ["Respawn", {systemChat "no respawn loadout.";}];
-				};
-				case 1: {
-					//respawn with saved gear
-					sleep 2;
-					adv_saveGear_loadout = getUnitLoadout _target;
-					ADV_respawn_EVH = _target addEventhandler ["Respawn",{[(_this select 0), adv_saveGear_loadout] call adv_fnc_readdGear;systemChat "saved loadout applied.";}];
-				};
-				case 2: {
-					//respawn with starting gear
-					ADV_respawn_EVH = _target addEventhandler ["Respawn", {[(_this select 0)] call ADV_fnc_applyLoadout;systemChat "starting gear applied.";}];
-				};
-				default {};
+	[_target] spawn {
+		params ["_target"];
+		sleep 1;
+		if (!isNil "ADV_respawn_EVH") then { _target removeEventhandler ["Respawn",ADV_respawn_EVH]; };
+		switch (missionNamespace getVariable ["ADV_par_customLoad",2]) do {
+			case 0: {
+				//No respawn with gear
+				ADV_respawn_EVH = _target addEventhandler ["Respawn", {systemChat "no respawn loadout.";}];
 			};
-			if (isPlayer _target && (isClass(configFile >> "CfgPatches" >> "task_force_radio")) ) then {
+			case 1: {
+				//respawn with saved gear
 				sleep 2;
-				[_target] spawn adv_fnc_setChannels;
+				adv_saveGear_loadout = getUnitLoadout _target;
+				ADV_respawn_EVH = _target addEventhandler ["Respawn",{[(_this select 0), adv_saveGear_loadout] call adv_fnc_readdGear;systemChat "saved loadout applied.";}];
 			};
+			case 2: {
+				//respawn with starting gear
+				ADV_respawn_EVH = _target addEventhandler ["Respawn", {[(_this select 0)] call ADV_fnc_applyLoadout;systemChat "starting gear applied.";}];
+			};
+			default {};
+		};
+		if (isPlayer _target && (isClass(configFile >> "CfgPatches" >> "task_force_radio")) ) then {
+			sleep 2;
+			[_target] spawn adv_fnc_setChannels;
 		};
 	};
-} else {
-	_target call compile format ["[_this] call %1",_playerUnit];
-	if (!isNil "ADV_respawn_EVH") then { _target removeEventhandler ["Respawn",ADV_respawn_EVH]; };
-	ADV_respawn_EVH = _target addEventhandler ["Respawn", {[(_this select 0)] call ADV_fnc_applyLoadout;systemChat "starting gear applied.";}];
 };
 
 true;

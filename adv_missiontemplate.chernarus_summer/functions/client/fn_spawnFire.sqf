@@ -120,4 +120,17 @@ if (_lightsource) then {
 	_return set [2,_light];
 };
 
+if ( _object isKindOf "AllVehicles" && !(_fire isEqualTo "") ) then {
+	_object addEventHandler ["killed",{
+		params ["_unit","_killer","_instigator","_useEffects"];
+		{
+			if ( toUpper (typeOf _x) isEqualTo "#PARTICLESOURCE" ) then {
+				detach _x;
+				deleteVehicle _x;
+			};
+		  nil;
+		} count attachedObjects _unit;
+	}];
+};
+
 _return;

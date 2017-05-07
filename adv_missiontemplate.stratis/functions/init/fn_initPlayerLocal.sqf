@@ -69,9 +69,9 @@ waitUntil {time > 0};
 
 //logistics menu:
 if ( (missionNamespace getVariable ["ADV_par_logisticAmount",99]) > 0 ) then {
-	{ nul = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == west",5]; nil; } count adv_objects_westFlags;
-	{ nul = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == east",5]; nil; } count adv_objects_eastFlags;
-	{ nul = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player == independent",5]; nil; } count adv_objects_indFlags;
+	{ ADV_handle_logisticAction = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player isEqualTo west",5]; nil; } count adv_objects_westFlags;
+	{ ADV_handle_logisticAction_opf = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player isEqualTo east",5]; nil; } count adv_objects_eastFlags;
+	{ ADV_handle_logisticAction_ind = _x addAction [("<t color='#33FFFF' size='2'>" + ("Logistik-Menü") + "</t>"), {createDialog "adv_logistic_mainDialog";},nil,3,false,true,"","side player isEqualTo independent",5]; nil; } count adv_objects_indFlags;
 };
 //gearsaving menu:
 ADV_objects_clearCargo call adv_fnc_gearsaving;
@@ -80,13 +80,13 @@ ADV_objects_clearCargo call adv_fnc_gearsaving;
 //adds loadout menu to BriefingBoard:
 if ( (missionNamespace getVariable ["ADV_par_ChooseLoad",1]) isEqualTo 1 ) then {
 	if (!isNil "BriefingBoard1") then {
-		ADV_handle_chooseLoadoutAction = BriefingBoard1 addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,true,true,"","side player == west",5];
+		ADV_handle_chooseLoadoutAction = BriefingBoard1 addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,true,true,"","side player isEqualTo west",5];
 	};
 	if (!isNil "opf_BriefingBoard1") then {
-		ADV_handle_chooseLoadoutAction_opf = opf_BriefingBoard1 addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,true,true,"","side player == east",5];
+		ADV_handle_chooseLoadoutAction_opf = opf_BriefingBoard1 addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,true,true,"","side player isEqualTo east",5];
 	};
 	if (!isNil "ind_BriefingBoard1") then {
-		ADV_handle_chooseLoadoutAction_ind = ind_BriefingBoard1 addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,true,true,"","side player == independent",5];
+		ADV_handle_chooseLoadoutAction_ind = ind_BriefingBoard1 addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,6,true,true,"","side player isEqualTo independent",5];
 	};
 };
 
@@ -105,7 +105,7 @@ call {
 if ( (missionNamespace getVariable ["ADV_par_fatigue",1]) isEqualTo 0 ) then {
 	player enableFatigue false;
 	player enableStamina false;
-	ADV_fatigue_EVH = player addEventhandler ["Respawn", {player enableFatigue false; player enableStamina false;}]; 
+	adv_evh_fatigue = player addEventhandler ["Respawn", {player enableFatigue false; player enableStamina false;}]; 
 };
 
 //adds action to throw it away if a disposable launcher is shot.
@@ -168,7 +168,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_explosives") ) then {
 
 //variable for preload-check:
 adv_var_preloadFinished = false;
-["adv_preloadFinished_hints", "onPreloadFinished" , {
+adv_evh_preloadFinished = ["adv_preloadFinished_hints", "onPreloadFinished" , {
 	adv_var_preloadFinished = true;
 	["adv_preloadFinished_hints", "onPreloadFinished"] call BIS_fnc_removeStackedEventHandler;
 }] call BIS_fnc_addStackedEventHandler;

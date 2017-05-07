@@ -62,7 +62,6 @@ if ( toUpper ([(str _unit),(count str _unit)-5] call BIS_fnc_trimString) isEqual
 	_ACE_isMedic = 1;
 	_ACE_isEngineer = 1;
 	_ACE_isEOD = true;
-	_ACE_isPilot = false;
 	_androidDevice = true;
 	_microDAGR = false;
 };

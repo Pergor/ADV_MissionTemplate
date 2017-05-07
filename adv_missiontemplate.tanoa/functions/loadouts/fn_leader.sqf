@@ -482,7 +482,7 @@ switch (_par_customUni) do {
 	default {};
 };
 
-switch (toUpper ([str (_this select 0),0,9] call BIS_fnc_trimString)) do {
+switch (toUpper ([str _player,0,9] call BIS_fnc_trimString)) do {
 	case "LEADER_MED": {
 		_ACE_isMedic = 2;
 		_ACE_isPilot = true;

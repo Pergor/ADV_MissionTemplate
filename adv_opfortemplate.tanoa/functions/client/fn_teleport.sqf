@@ -15,7 +15,7 @@
  * Example:
  * [start, target] spawn ADV_fnc_teleport;
  *
- * Public: Yes
+ * Public: No
  */
 
 params [

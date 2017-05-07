@@ -117,6 +117,7 @@ class adv
 		class playerUnit {};
 		class safeZone {};
 		class showArtiSetting {};
+		class siren {};
 		class spawnFire {};
 		class speedLimiter {};
 		class teleport {};
@@ -191,10 +192,12 @@ class adv
 	class loadouts_civ
 	{
 		class civ {};
+		class civDiver {};
+		class civEngineer {};
 		class civPilot {};
-		class doc {};
-		class police {};
-		class press {};
+		class civDoc {};
+		class civPolice {};
+		class civPress {};
 	};
 	class logistic_internal
 	{

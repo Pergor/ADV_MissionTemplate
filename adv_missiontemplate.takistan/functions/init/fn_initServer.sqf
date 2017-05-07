@@ -73,7 +73,7 @@ if (!isNil "opf_BriefingBoard1") then { [opf_BriefingBoard1] call ADV_fnc_board;
 if (!isNil "ind_BriefingBoard1") then { [ind_BriefingBoard1] call ADV_fnc_board; };
 
 //deletes empty groups:
-adv_handle_emptyGroupsDeleter = addMissionEventHandler ["EntityKilled",{_grp = group (_this select 0);if ( count (units _grp) == 0 ) then { deleteGroup _grp };}];
+adv_evh_emptyGroupsDeleter = addMissionEventHandler ["EntityKilled",{_grp = group (_this select 0);if ( count (units _grp) == 0 ) then { deleteGroup _grp };}];
 
 //spawns large crate right at the beginning:
 if ( (missionNamespace getVariable ["ADV_par_logisticTeam",1]) > 1 ) then {

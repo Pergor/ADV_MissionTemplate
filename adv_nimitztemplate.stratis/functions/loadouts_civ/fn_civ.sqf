@@ -23,19 +23,31 @@ params ["_player"];
  */
 
 //clothing - (string)
-_uniform = ["U_BG_Guerilla2_2","U_BG_Guerilla2_1","U_BG_Guerilla2_3","U_BG_Guerilla3_1","U_Marshal","U_Rangemaster","U_C_Poor_1"];
+_uniform = call {
+	if (toUpper worldName isEqualTo "TANOA") exitWith {
+		["U_Marshal","U_C_Poloshirt_blue","U_C_Man_casual_1_F","U_C_Man_casual_3_F","U_C_Man_casual_2_F","U_C_Man_casual_6_F","U_C_Man_casual_4_F","U_C_Man_casual_5_F"]
+	};
+	["U_BG_Guerilla2_2","U_BG_Guerilla2_1","U_BG_Guerilla2_3","U_BG_Guerilla3_1","U_Marshal","U_Rangemaster","U_C_Poor_1"]
+};
 _vest = [""]; 
 _headgear = ["H_Cap_oli","H_Cap_blk","H_Cap_grn","H_Cap_tan","","","","","","","",""];
 _backpack = [""];
-if ( (isClass(configFile >> "CfgPatches" >> "lop_c_men")) && (toUpper (worldname) in _var_aridMaps) ) then {
-	_uniform = ["LOP_U_TAK_Civ_Fatigue_01","LOP_U_TAK_Civ_Fatigue_02","LOP_U_TAK_Civ_Fatigue_04"];
-	_headgear = ["LOP_H_Pakol","LOP_H_Turban","H_ShemagOpen_khk","",""];
-};
-if ( (isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians")) && (toUpper (worldname) in _var_europeMaps) ) then {
-	if ( toUpper (worldname) == "CHERNARUS" || toUpper (worldname) == "CHERNARUS_SUMMER" ) then {
-		_uniform = ["rds_uniform_citizen1","rds_uniform_citizen2","rds_uniform_citizen3","rds_uniform_citizen4","U_Marshal",
-			"rds_uniform_Profiteer3","rds_uniform_Profiteer4","rds_uniform_schoolteacher","rds_uniform_Villager1","rds_uniform_Woodlander1","rds_uniform_Woodlander2"];
-		_headgear = ["rds_Villager_cap1","rds_Villager_cap2","rds_Villager_cap4","rds_Woodlander_cap3","H_Cap_red","","","","","",""];
+if ( isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians")) then {
+	call {
+		if ( toUpper (worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",["TAKISTAN"]]) ) exitWith {
+			_uniform = ["CUP_O_TKI_Khet_Partug_01","CUP_O_TKI_Khet_Partug_02","CUP_O_TKI_Khet_Partug_04","CUP_O_TKI_Khet_Partug_05","CUP_O_TKI_Khet_Partug_07","CUP_O_TKI_Khet_Partug_08"];
+			_vest = [""];
+			_headgear = ["CUP_H_TKI_Lungee_Open_01","CUP_H_TKI_Lungee_Open_02","CUP_H_TKI_Lungee_Open_03","CUP_H_TKI_Lungee_Open_04","CUP_H_TKI_Lungee_Open_05","CUP_H_TKI_Lungee_Open_06"
+				,"CUP_H_TKI_Pakol_1_01","CUP_H_TKI_Pakol_1_03","CUP_H_TKI_Pakol_1_04","CUP_H_TKI_Pakol_1_05","CUP_H_TKI_Pakol_1_06","CUP_H_TKI_Pakol_2_01","CUP_H_TKI_Pakol_2_02","CUP_H_TKI_Pakol_2_03"
+				,"CUP_H_TKI_SkullCap_01","CUP_H_TKI_SkullCap_02","CUP_H_TKI_SkullCap_03","CUP_H_TKI_SkullCap_04","CUP_H_TKI_SkullCap_05","CUP_H_TKI_SkullCap_06"
+				,"","","","","",""];
+		};
+		if ( toUpper (worldname) isEqualTo "CHERNARUS" || toUpper (worldname) isEqualTo "CHERNARUS_SUMMER" ) exitWith {
+			_uniform = ["rds_uniform_citizen1","rds_uniform_citizen2","rds_uniform_citizen3","rds_uniform_citizen4","U_Marshal"
+				,"rds_uniform_Profiteer3","rds_uniform_Profiteer4","rds_uniform_schoolteacher","rds_uniform_Villager1","rds_uniform_Woodlander1","rds_uniform_Woodlander2"];
+			_headgear = ["rds_Villager_cap1","rds_Villager_cap2","rds_Villager_cap4","rds_Woodlander_cap3","H_Cap_red","","","","","",""];
+		};
+		_uniform append ["CUP_I_B_PMC_Unit_4","CUP_I_B_PMC_Unit_1","CUP_I_B_PMC_Unit_2","CUP_I_B_PMC_Unit_3"];
 	};
 };
 _insignium = "";
