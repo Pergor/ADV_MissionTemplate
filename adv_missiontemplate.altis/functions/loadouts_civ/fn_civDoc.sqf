@@ -24,14 +24,18 @@ params ["_player"];
 
 //clothing - (string)
 _uniform = "U_C_Scientist";
-if (isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians")) then { _uniform = "rds_uniform_doctor" };
+if (isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians")) then {
+	_uniform = ["rds_uniform_doctor"];
+	if (toUpper ([str _player,3,12] call BIS_fnc_trimString) isEqualTo "DOC_MEDIC") then {
+		_uniform = ["CUP_U_C_Rescuer_01"];
+	};
+};
 _vest = [""]; 
 _headgear = [""];
 _backpack = [""];
 _insignium = "";
 _useProfileGoggles = 0;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
-_isLeader = true;
 
 //weapons - primary weapon - (string)
 _primaryweapon = [""];
@@ -131,14 +135,14 @@ _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a riflem
 _ACE_EarPlugs = 1;
 
 _ace_FAK = 0;		//Adds a standard amount of medical items. Defined in fn_aceFAK.sqf
-_ACE_fieldDressing = 6;
+_ACE_fieldDressing = 2;
 _ACE_packingBandage = 0;
-_ACE_elasticBandage = 2;
+_ACE_elasticBandage = 6;
 _ACE_quikclot = 0;
 _ACE_atropine = 0;
 _ACE_adenosine = 0;
 _ACE_epinephrine = 0;
-_ACE_morphine = 1;
+_ACE_morphine = 2;
 _ACE_tourniquet = 1;
 _ACE_bloodIV = 0;
 _ACE_bloodIV_500 = 0;
@@ -150,7 +154,7 @@ _ACE_salineIV = 0;
 _ACE_salineIV_500 = 0;
 _ACE_salineIV_250 = 0;
 _ACE_bodyBag = 0;
-_ACE_personalAidKit = 1;
+_ACE_personalAidKit = 0;
 _ACE_surgicalKit = 1;
 
 _ACE_SpareBarrel = 0;
@@ -187,7 +191,7 @@ _ACE_HandFlare_White = 0;
 _ACE_HandFlare_Yellow = 0;
 
 //ACE Variables (if ACE is running) - (bool)
-_ACE_isMedic = 2;		//0 = no medic; 1 = medic; 2 = doctor;
+_ACE_isMedic = 1;		//0 = no medic; 1 = medic; 2 = doctor;
 _ACE_isEngineer = 0;	//0 = no specialist; 1 = engineer; 2 = repair specialist;
 _ACE_isEOD = false;
 _ACE_isPilot = false;

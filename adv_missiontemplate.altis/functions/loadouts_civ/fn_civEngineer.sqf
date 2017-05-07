@@ -23,32 +23,12 @@ params ["_player"];
  */
 
 //clothing - (string)
-_uniform = call {
-	if (toUpper worldName isEqualTo "TANOA") exitWith {
-		["U_Marshal","U_C_Poloshirt_blue","U_C_Man_casual_1_F","U_C_Man_casual_3_F","U_C_Man_casual_2_F","U_C_Man_casual_6_F","U_C_Man_casual_4_F","U_C_Man_casual_5_F"]
-	};
-	["U_BG_Guerilla2_2","U_BG_Guerilla2_1","U_BG_Guerilla2_3","U_BG_Guerilla3_1","U_Marshal","U_Rangemaster","U_C_Poor_1"]
-};
+_uniform = ["U_C_Poor_1","U_C_WorkerCoveralls"];
 _vest = [""]; 
 _headgear = ["H_Cap_oli","H_Cap_blk","H_Cap_grn","H_Cap_tan","","","","","","","",""];
 _backpack = [""];
-if ( isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians")) then {
-	call {
-		if ( toUpper (worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",["TAKISTAN"]]) ) exitWith {
-			_uniform = ["CUP_O_TKI_Khet_Partug_01","CUP_O_TKI_Khet_Partug_02","CUP_O_TKI_Khet_Partug_04","CUP_O_TKI_Khet_Partug_05","CUP_O_TKI_Khet_Partug_07","CUP_O_TKI_Khet_Partug_08"];
-			_vest = [""];
-			_headgear = ["CUP_H_TKI_Lungee_Open_01","CUP_H_TKI_Lungee_Open_02","CUP_H_TKI_Lungee_Open_03","CUP_H_TKI_Lungee_Open_04","CUP_H_TKI_Lungee_Open_05","CUP_H_TKI_Lungee_Open_06"
-				,"CUP_H_TKI_Pakol_1_01","CUP_H_TKI_Pakol_1_03","CUP_H_TKI_Pakol_1_04","CUP_H_TKI_Pakol_1_05","CUP_H_TKI_Pakol_1_06","CUP_H_TKI_Pakol_2_01","CUP_H_TKI_Pakol_2_02","CUP_H_TKI_Pakol_2_03"
-				,"CUP_H_TKI_SkullCap_01","CUP_H_TKI_SkullCap_02","CUP_H_TKI_SkullCap_03","CUP_H_TKI_SkullCap_04","CUP_H_TKI_SkullCap_05","CUP_H_TKI_SkullCap_06"
-				,"","","","","",""];
-		};
-		if ( toUpper (worldname) isEqualTo "CHERNARUS" || toUpper (worldname) isEqualTo "CHERNARUS_SUMMER" ) exitWith {
-			_uniform = ["rds_uniform_citizen1","rds_uniform_citizen2","rds_uniform_citizen3","rds_uniform_citizen4","U_Marshal"
-				,"rds_uniform_Profiteer3","rds_uniform_Profiteer4","rds_uniform_schoolteacher","rds_uniform_Villager1","rds_uniform_Woodlander1","rds_uniform_Woodlander2"];
-			_headgear = ["rds_Villager_cap1","rds_Villager_cap2","rds_Villager_cap4","rds_Woodlander_cap3","H_Cap_red","","","","","",""];
-		};
-		_uniform append ["CUP_I_B_PMC_Unit_4","CUP_I_B_PMC_Unit_1","CUP_I_B_PMC_Unit_2","CUP_I_B_PMC_Unit_3"];
-	};
+if ( (isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians")) ) then {
+	_uniform = ["CUP_U_C_Mechanic_01","CUP_U_C_Mechanic_02","CUP_U_C_Mechanic_03"];
 };
 _insignium = "";
 _useProfileGoggles = 0;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
@@ -183,10 +163,10 @@ _ACE_DeadManSwitch = 0;
 _ACE_DefusalKit = 0;
 _ACE_Cellphone = 1;
 _ACE_FlareTripMine = 0;
-_ACE_MapTools = 1;
-_ACE_CableTie = 0;
+_ACE_MapTools = 0;
+_ACE_CableTie = 2;
 _ACE_EntrenchingTool = 0;
-_ACE_sprayPaintColor = "NONE";
+_ACE_sprayPaintColor = "RANDOM";
 _ACE_gunbag = 0;
 
 _ACE_key = 0;	//0 = no key, 1 = side dependant key, 2 = master key, 3 = lockpick
@@ -209,7 +189,7 @@ _ACE_HandFlare_Yellow = 0;
 
 //ACE Variables (if ACE is running) - (bool)
 _ACE_isMedic = 0;		//0 = no medic; 1 = medic; 2 = doctor;
-_ACE_isEngineer = 0;	//0 = no specialist; 1 = engineer; 2 = repair specialist;
+_ACE_isEngineer = 2;	//0 = no specialist; 1 = engineer; 2 = repair specialist;
 _ACE_isEOD = false;
 _ACE_isPilot = false;
 

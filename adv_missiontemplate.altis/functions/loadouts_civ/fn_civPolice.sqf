@@ -17,37 +17,27 @@ params ["_player"];
  * Function executed - <BOOL>
  *
  * Example:
- * [player] call adv_fnc_civ;
+ * [player] call adv_fnc_police;
  *
  * Public: No
  */
 
 //clothing - (string)
-_uniform = call {
-	if (toUpper worldName isEqualTo "TANOA") exitWith {
-		["U_Marshal","U_C_Poloshirt_blue","U_C_Man_casual_1_F","U_C_Man_casual_3_F","U_C_Man_casual_2_F","U_C_Man_casual_6_F","U_C_Man_casual_4_F","U_C_Man_casual_5_F"]
-	};
-	["U_BG_Guerilla2_2","U_BG_Guerilla2_1","U_BG_Guerilla2_3","U_BG_Guerilla3_1","U_Marshal","U_Rangemaster","U_C_Poor_1"]
-};
-_vest = [""]; 
-_headgear = ["H_Cap_oli","H_Cap_blk","H_Cap_grn","H_Cap_tan","","","","","","","",""];
+_uniform = ["U_Marshal"];
+_vest = ["V_TacVest_blk_POLICE"];
+_headgear = ["H_MilCap_blue","H_Cap_police","",""];
 _backpack = [""];
-if ( isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians")) then {
-	call {
-		if ( toUpper (worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",["TAKISTAN"]]) ) exitWith {
-			_uniform = ["CUP_O_TKI_Khet_Partug_01","CUP_O_TKI_Khet_Partug_02","CUP_O_TKI_Khet_Partug_04","CUP_O_TKI_Khet_Partug_05","CUP_O_TKI_Khet_Partug_07","CUP_O_TKI_Khet_Partug_08"];
-			_vest = [""];
-			_headgear = ["CUP_H_TKI_Lungee_Open_01","CUP_H_TKI_Lungee_Open_02","CUP_H_TKI_Lungee_Open_03","CUP_H_TKI_Lungee_Open_04","CUP_H_TKI_Lungee_Open_05","CUP_H_TKI_Lungee_Open_06"
-				,"CUP_H_TKI_Pakol_1_01","CUP_H_TKI_Pakol_1_03","CUP_H_TKI_Pakol_1_04","CUP_H_TKI_Pakol_1_05","CUP_H_TKI_Pakol_1_06","CUP_H_TKI_Pakol_2_01","CUP_H_TKI_Pakol_2_02","CUP_H_TKI_Pakol_2_03"
-				,"CUP_H_TKI_SkullCap_01","CUP_H_TKI_SkullCap_02","CUP_H_TKI_SkullCap_03","CUP_H_TKI_SkullCap_04","CUP_H_TKI_SkullCap_05","CUP_H_TKI_SkullCap_06"
-				,"","","","","",""];
-		};
-		if ( toUpper (worldname) isEqualTo "CHERNARUS" || toUpper (worldname) isEqualTo "CHERNARUS_SUMMER" ) exitWith {
-			_uniform = ["rds_uniform_citizen1","rds_uniform_citizen2","rds_uniform_citizen3","rds_uniform_citizen4","U_Marshal"
-				,"rds_uniform_Profiteer3","rds_uniform_Profiteer4","rds_uniform_schoolteacher","rds_uniform_Villager1","rds_uniform_Woodlander1","rds_uniform_Woodlander2"];
-			_headgear = ["rds_Villager_cap1","rds_Villager_cap2","rds_Villager_cap4","rds_Woodlander_cap3","H_Cap_red","","","","","",""];
-		};
-		_uniform append ["CUP_I_B_PMC_Unit_4","CUP_I_B_PMC_Unit_1","CUP_I_B_PMC_Unit_2","CUP_I_B_PMC_Unit_3"];
+if (toUpper worldname isEqualTo "TANOA") then {
+	_uniform = ["U_B_GEN_Soldier_F"];
+	_vest = ["V_TacVest_gen_F"];
+	_headgear = ["H_Beret_gen_F","H_MilCap_gen_F"];
+};
+if ( isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians") ) then {
+	_vest append ["CUP_V_C_Police_Holster"];
+	if !(toUpper (worldname) in (missionNamespace getVariable ["ADV_var_vanillaMaps",[""]])) then {
+		_uniform = ["rds_uniform_Policeman"];
+		_headgear = ["rds_police_cap"];
+		_vest = ["CUP_V_C_Police_Holster"];
 	};
 };
 _insignium = "";
@@ -55,7 +45,10 @@ _useProfileGoggles = 0;		//If set to 1, goggles from your profile will be used. 
 _goggles = "";
 
 //weapons - primary weapon - (string)
-_primaryweapon = [""];
+_primaryweapon = ["SMG_02_F","","","",""];
+if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
+	_primaryweapon = ["hlc_smg_mp5a4","","","",""];
+};
 
 //primary weapon items - (array)
 _optic = [""];
@@ -63,7 +56,7 @@ _attachments = [""];
 _silencer = "";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [0,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_primaryweaponAmmo = [3,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;
@@ -81,14 +74,14 @@ _40mmFlareGreen = 0;
 _40mmFlareIR = 0;
 
 //weapons - handgun - (string)
-_handgun = "";
+_handgun = "hgun_ACPC2_F";
 
 //handgun items - (array)
 _itemsHandgun = [];
 _handgunSilencer = "";		//if silencer is added
 
 //handgun ammo (if a handgun is given) - (integer)
-_handgunAmmo = [0,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_handgunAmmo = [3,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //weapons - launcher - (string)
 _launcher = "";
@@ -129,9 +122,9 @@ _itemsBackpack = [];
 
 //linked items (don't put "ItemRadio" in here, as it's set with _equipRadio) - (array)
 _itemsLink = [
-	"ItemWatch",
-	"ItemMap"
-];
+		"ItemWatch",
+		"ItemMap"
+	];
 		
 //items added to any container - (array)
 _items = [];
@@ -144,7 +137,7 @@ if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVa
 
 //TFAR or ACRE radios
 _giveRiflemanRadio = false;
-_givePersonalRadio = false;
+_givePersonalRadio = true;
 _giveBackpackRadio = false;
 _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a rifleman radio
 
@@ -189,8 +182,8 @@ _ACE_EntrenchingTool = 0;
 _ACE_sprayPaintColor = "NONE";
 _ACE_gunbag = 0;
 
-_ACE_key = 0;	//0 = no key, 1 = side dependant key, 2 = master key, 3 = lockpick
-_ACE_flashlight = 0;
+_ACE_key = 1;	//0 = no key, 1 = side dependant key, 2 = master key, 3 = lockpick
+_ACE_flashlight = 1;
 _ACE_kestrel = 0;
 _ACE_altimeter = 0;
 _ACE_ATragMX = 0;
@@ -208,7 +201,7 @@ _ACE_HandFlare_White = 0;
 _ACE_HandFlare_Yellow = 0;
 
 //ACE Variables (if ACE is running) - (bool)
-_ACE_isMedic = 0;		//0 = no medic; 1 = medic; 2 = doctor;
+_ACE_isMedic = 1;		//0 = no medic; 1 = medic; 2 = doctor;
 _ACE_isEngineer = 0;	//0 = no specialist; 1 = engineer; 2 = repair specialist;
 _ACE_isEOD = false;
 _ACE_isPilot = false;

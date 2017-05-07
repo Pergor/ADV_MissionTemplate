@@ -17,30 +17,24 @@ params ["_player"];
  * Function executed - <BOOL>
  *
  * Example:
- * [player] call adv_fnc_police;
+ * [player] call adv_fnc_civ;
  *
  * Public: No
  */
 
 //clothing - (string)
-_uniform = ["U_Marshal"];
-_vest = ["V_TacVest_blk_POLICE"];
-_headgear = ["H_MilCap_blue","H_Cap_police","",""];
-if (isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians") && !( toUpper (worldname) == "STRATIS" || toUpper (worldname) == "ALTIS" )) then { 
-	_uniform = ["rds_uniform_Policeman"];
-	_vest = [""];
-	_headgear = ["rds_police_cap"];
-};
+_uniform = ["U_C_man_sport_1_F","U_C_man_sport_2_F","U_C_man_sport_3_F"];
+_vest = ["V_RebreatherB"]; 
+_headgear = [""];
 _backpack = [""];
+if ( (isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians")) ) then {
+};
 _insignium = "";
 _useProfileGoggles = 0;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
-_goggles = "";
+_goggles = "G_Diving";
 
 //weapons - primary weapon - (string)
-_primaryweapon = ["SMG_02_F","","","",""];
-if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then {
-	_primaryweapon = ["hlc_smg_mp5a4","","","",""];
-};
+_primaryweapon = [""];
 
 //primary weapon items - (array)
 _optic = [""];
@@ -48,7 +42,7 @@ _attachments = [""];
 _silencer = "";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [3,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_primaryweaponAmmo = [0,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;
@@ -66,14 +60,14 @@ _40mmFlareGreen = 0;
 _40mmFlareIR = 0;
 
 //weapons - handgun - (string)
-_handgun = "hgun_ACPC2_F";
+_handgun = "";
 
 //handgun items - (array)
 _itemsHandgun = [];
 _handgunSilencer = "";		//if silencer is added
 
 //handgun ammo (if a handgun is given) - (integer)
-_handgunAmmo = [3,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_handgunAmmo = [0,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //weapons - launcher - (string)
 _launcher = "";
@@ -114,9 +108,9 @@ _itemsBackpack = [];
 
 //linked items (don't put "ItemRadio" in here, as it's set with _equipRadio) - (array)
 _itemsLink = [
-		"ItemWatch",
-		"ItemMap"
-	];
+	"ItemWatch",
+	"ItemMap"
+];
 		
 //items added to any container - (array)
 _items = [];
@@ -168,16 +162,16 @@ _ACE_DeadManSwitch = 0;
 _ACE_DefusalKit = 0;
 _ACE_Cellphone = 1;
 _ACE_FlareTripMine = 0;
-_ACE_MapTools = 1;
-_ACE_CableTie = 0;
+_ACE_MapTools = 0;
+_ACE_CableTie = 2;
 _ACE_EntrenchingTool = 0;
 _ACE_sprayPaintColor = "NONE";
 _ACE_gunbag = 0;
 
-_ACE_key = 1;	//0 = no key, 1 = side dependant key, 2 = master key, 3 = lockpick
-_ACE_flashlight = 1;
+_ACE_key = 0;	//0 = no key, 1 = side dependant key, 2 = master key, 3 = lockpick
+_ACE_flashlight = 0;
 _ACE_kestrel = 0;
-_ACE_altimeter = 0;
+_ACE_altimeter = 1;
 _ACE_ATragMX = 0;
 _ACE_rangecard = 0;
 _ACE_DAGR = 0;
@@ -193,7 +187,7 @@ _ACE_HandFlare_White = 0;
 _ACE_HandFlare_Yellow = 0;
 
 //ACE Variables (if ACE is running) - (bool)
-_ACE_isMedic = 1;		//0 = no medic; 1 = medic; 2 = doctor;
+_ACE_isMedic = 0;		//0 = no medic; 1 = medic; 2 = doctor;
 _ACE_isEngineer = 0;	//0 = no specialist; 1 = engineer; 2 = repair specialist;
 _ACE_isEOD = false;
 _ACE_isPilot = false;
@@ -205,8 +199,8 @@ _microDAGR = false;
 _helmetCam = false;
 
 //scorch inv items
-_scorchItems = ["sc_passport","sc_wallet"];
-_scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar","","",""];
+_scorchItems = ["sc_passport"];
+_scorchItemsRandom = [""];
 
 ///// No editing necessary below this line /////
 
