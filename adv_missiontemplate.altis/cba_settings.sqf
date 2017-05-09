@@ -58,3 +58,24 @@ force TF_same_sw_frequencies_for_side = true;
 force TF_same_lr_frequencies_for_side = true;
 force TF_same_dd_frequencies_for_side = true;
 //TF_default_radioVolume = 7;
+
+//settings for ASR AI:
+asr_ai3_main_setskills = true;
+asr_ai3_main_seekcover = true;
+asr_ai3_main_usebuildings = 0.8;
+asr_ai3_main_getinweapons = 0.5;
+asr_ai3_main_rearm = 0;
+asr_ai3_main_rearm_mags = 0;
+asr_ai3_main_rearm_fak = 0;
+asr_ai3_main_radiorange = 0;
+asr_ai3_main_rrdelaymin = 5;
+asr_ai3_main_rrdelayplus = 10;
+asr_ai3_main_packNVG = true;
+asr_ai3_main_fallDown = true;
+asr_ai3_main_pgaistamina = false;
+asr_ai3_main_onteamswitchleader = true;
+asr_ai3_main_debug_setskill = false;
+asr_ai3_main_debug_setcamo = false;
+asr_ai3_main_debug_findcover = false;
+asr_ai3_main_debug_rearm = false;
+asr_ai3_main_debug_reveal = false;
