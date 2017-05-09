@@ -34,12 +34,13 @@ class DynamicSimulation
 	class EnableRadiuses
 	{
 		EmptyVehicle=150;
-		Vehicle=500;
-		Group=600;
+		Vehicle=2000;
+		Group=2000;
+		Prop=50;
 	};
 	class EnableRadiuseCoefs
 	{
-		IsMoving=3;
+		IsMoving=1.5;
 	};
 };
 randomSeed=15293006;
