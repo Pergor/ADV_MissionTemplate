@@ -17,7 +17,7 @@ waitUntil {time > 0};
 
 //dynamic simulation (ai units spawned with adv_fnc_aiTask or other adv_fnc-functions are automatically are spawned with dynamicSimulationEnabled).
 //dynamic simulation is on by default. The values shown here are the defaults. Change to your liking:
-	//enableDynamicSimulationSystem true;
+	enableDynamicSimulationSystem true;
 	//"Group" setDynamicSimulationDistance 500;
 	//"Vehicle" setDynamicSimulationDistance 350;
 	//"EmptyVehicle" setDynamicSimulationDistance 250;

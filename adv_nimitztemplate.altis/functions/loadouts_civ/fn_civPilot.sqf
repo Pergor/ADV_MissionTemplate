@@ -26,7 +26,7 @@ params ["_player"];
 _uniform = ["U_C_Driver_1_black","U_C_Driver_1_red","U_C_Driver_4"];
 _vest = ["V_TacVest_blk"]; 
 _headgear = ["H_PilotHelmetHeli_O","H_PilotHelmetHeli_B"];
-_backpack = ["B_Parachute"];
+_backpack = [""];
 if ( (isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians")) ) then {
 	_uniform = ["CUP_U_C_Pilot_01"];
 	_vest = [""];
@@ -165,7 +165,7 @@ _ACE_DeadManSwitch = 0;
 _ACE_DefusalKit = 0;
 _ACE_Cellphone = 1;
 _ACE_FlareTripMine = 0;
-_ACE_MapTools = 1;
+_ACE_MapTools = 0;
 _ACE_CableTie = 0;
 _ACE_EntrenchingTool = 0;
 _ACE_sprayPaintColor = "NONE";

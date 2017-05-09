@@ -125,6 +125,7 @@ adv_manageVeh_codeForAll = {
 	_veh = _this;
 	private _isChanged = _veh getVariable ["adv_var_vehicleIsChanged",false];
 	_veh setVariable ["adv_var_vehicleIsChanged",_isChanged,true];
+	_veh enableDynamicSimulation true;
 	if ( (missionNamespace getVariable ["adv_par_customLoad",1]) > 0 ) then {
 		[_veh] call ADV_fnc_clearCargo;
 		sleep 0.2;

@@ -119,5 +119,9 @@ call {
 	[_grp, _start, _radius, 7, "MOVE", "SAFE", "GREEN", "LIMITED", "STAG COLUMN", "", [1,1.5,2]] call CBA_fnc_taskPatrol;
 };
 
+if !(_mode isEqualTo 4) then {
+	_grp enableDynamicSimulation true;
+};
+
 //return:
 _grp;

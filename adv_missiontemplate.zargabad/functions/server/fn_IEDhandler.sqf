@@ -41,6 +41,7 @@ if !(isClass(configFile >> "CfgPatches" >> "ace_explosives")) exitWith {};
 			_new = createMine [_replacementType, _pos, [], 0];
 			_new setPosATL [_pos select 0, _pos select 1, _height];
 			_new setVectorDirAndUp _vector;
+			_new enableDynamicSimulation true;
 		};
 	};
 	nil;

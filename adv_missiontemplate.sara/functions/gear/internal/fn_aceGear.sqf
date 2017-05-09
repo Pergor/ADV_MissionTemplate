@@ -169,7 +169,9 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_minedetector") ) then {
 	};
 };
 //ACE variables:
-if (  str _unit in ["z1","z2","z3","z4","z5","opf_z1","opf_z2","opf_z3","opf_z4","opf_z5","ind_z1","ind_z2","ind_z3","ind_z4","ind_z5"] ) then { _ACE_isMedic = 2; _ACE_isEnginer = true; _ACE_isEOD = true; _ACE_isPilot = true; };
+if (  str _unit in ["z1","z2","z3","z4","z5","opf_z1","opf_z2","opf_z3","opf_z4","opf_z5","ind_z1","ind_z2","ind_z3","ind_z4","ind_z5"] ) then {
+	_ACE_isMedic = 2; _ACE_isEnginer = true; _ACE_isEOD = true; _ACE_isPilot = true;
+};
 _unit setVariable ["ACE_medical_medicClass", _ACE_isMedic, true];
 _unit setVariable ["ACE_isEngineer", _ACE_isEngineer, true];
 _unit setVariable ["ACE_isEOD", _ACE_isEOD, true];

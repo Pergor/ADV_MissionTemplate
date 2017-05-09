@@ -97,6 +97,7 @@ private _respawnEVHCode = {
 			if (_veh isKindOf "Motorcycle") then { call compile format ["%1 call ADV_%2%3",[_veh,false,false,1,false],_sidePrefix,"fnc_vehicleLoad"]; };
 			if (_veh isKindOf "UGV_01_base_F") then { call compile format ["%1 call ADV_%2%3",[_veh,false,false,0,false],_sidePrefix,"fnc_vehicleLoad"]; };
 			[_veh, _delay, _side] call adv_fnc_respawnVeh;
+			_veh enableDynamicSimulation true;
 		};
 		sleep 1;
 		call compile format ["%1 call compile %2",_veh,str _initLine];
