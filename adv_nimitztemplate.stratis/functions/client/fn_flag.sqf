@@ -45,7 +45,7 @@ private _teleport = if ( missionNamespace getVariable ["ADV_par_moveMarker",2] i
 					};
 				};
 			*/
-			},nil,6,true,true,"","true",5
+			},nil,50,true,true,"","true",5
 		];
 	};
 	nil;

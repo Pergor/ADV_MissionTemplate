@@ -102,7 +102,7 @@ class param_sideRelations
 };
 class param_headlessClient
 {
-	title="Wird mit Headless Client oder mit Zeus gespielt?";
+	title="Wird mit Headless Client oder mit Zeus gespielt? - Wird mit Zeus gespielt, steht UPSMON nicht automatisch zur Verfügung!";
 	values[]  = {2,1,0};
 	texts[] = {"Headless Client","Zeus","Weder, noch."};
 	default = 1;

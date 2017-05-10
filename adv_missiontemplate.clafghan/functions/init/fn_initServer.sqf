@@ -68,9 +68,15 @@ if ( (missionNamespace getVariable ["ADV_par_headlessClient",1]) isEqualTo 1 && 
 
 //setTextures:
 { _x setFlagTexture "img\flag.paa"; nil; } count adv_objects_flags;
-if (!isNil "BriefingBoard1") then { [BriefingBoard1] call ADV_fnc_board; };
-if (!isNil "opf_BriefingBoard1") then { [opf_BriefingBoard1] call ADV_fnc_board; };
-if (!isNil "ind_BriefingBoard1") then { [ind_BriefingBoard1] call ADV_fnc_board; };
+{
+	call {
+		if ( ["briefing",str _x] call BIS_fnc_inString ) then {	_x addEventHandler ["HandleDamage", {false}]; _x allowDamage false; };
+		if ( ["opf_briefing",str _x] call BIS_fnc_inString ) exitWith { _x setObjectTextureGlobal [0,"img\00.paa"]; };
+		if ( ["ind_briefing",str _x] call BIS_fnc_inString ) exitWith { _x setObjectTextureGlobal [0,"img\00.paa"]; };
+		if ( ["briefing",str _x] call BIS_fnc_inString ) exitWith {	_x setObjectTextureGlobal [0,"img\00.paa"]; };
+	};
+	nil;
+} count (allMissionObjects "Land_MapBoard_F");
 
 //deletes empty groups:
 adv_evh_emptyGroupsDeleter = addMissionEventHandler ["EntityKilled",{_grp = group (_this select 0);if ( count (units _grp) == 0 ) then { deleteGroup _grp };}];

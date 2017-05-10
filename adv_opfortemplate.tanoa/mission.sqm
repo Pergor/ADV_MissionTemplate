@@ -90,13 +90,14 @@ class Mission
 	{
 		briefingName="ADV - Mission Template OPFOR by Belbo";
 		overviewText="Based on the ADV_MissionTemplate by Belbo.";
-		resistanceEast=1;
-		timeOfChanges=28800;
-		startWeather=0.25;
+		resistanceWest=0;
+		resistanceEast=0;
+		timeOfChanges=99999;
+		startWeather=0.3;
 		startWind=0.29999998;
 		startWindDir=30;
 		startWaves=0.69999999;
-		forecastWeather=0.25;
+		forecastWeather=0.3;
 		forecastWind=0.29999998;
 		forecastWaves=0.69999999;
 		forecastLightnings=0.099999994;
@@ -108,6 +109,7 @@ class Mission
 		year=2016;
 		month=8;
 		day=23;
+		hour=7;
 		minute=0;
 		startFogDecay=0.013;
 		forecastFogDecay=0.013;
@@ -1729,7 +1731,7 @@ class Mission
 			{
 				skill=0.60000002;
 				init="this allowDamage false;";
-				name="opf_BriefingBoard1";
+				name="opf_BriefingBoard_1";
 			};
 			id=3483;
 			type="Land_MapBoard_F";
@@ -2896,7 +2898,7 @@ class Mission
 			{
 				skill=0.60000002;
 				init="this allowDamage false;";
-				name="ind_BriefingBoard1";
+				name="ind_BriefingBoard_1";
 			};
 			id=3707;
 			type="Land_MapBoard_F";

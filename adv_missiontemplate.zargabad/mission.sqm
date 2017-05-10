@@ -82,13 +82,13 @@ class Mission
 		briefingName="ADV - Mission Template by Belbo";
 		overviewText="Based on the ADV_MissionTemplate by Belbo.";
 		resistanceWest=0;
-		resistanceEast=1;
+		resistanceEast=0;
 		timeOfChanges=99999;
-		startWeather=0.25;
+		startWeather=0.3;
 		startWind=0.29999998;
 		startWindDir=30;
 		startWaves=0.69999999;
-		forecastWeather=0.25;
+		forecastWeather=0.3;
 		forecastWind=0.29999998;
 		forecastWaves=0.69999999;
 		forecastLightnings=0.099999994;
@@ -732,7 +732,7 @@ class Mission
 			{
 				skill=0.60000002;
 				init="this allowDamage false;";
-				name="BriefingBoard1";
+				name="BriefingBoard_1";
 			};
 			id=37;
 			type="Land_MapBoard_F";

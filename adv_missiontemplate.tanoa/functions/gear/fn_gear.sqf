@@ -239,7 +239,7 @@ if (!isNil "_unitTraits") then {
 };
 
 //NVG-Removal:
-if !(["diver",_unit getVariable ["ADV_var_playerUnit","ADV_fnc_nil"]] call BIS_fnc_inString) then {
+if !( ["diver",_unit getVariable ["ADV_var_playerUnit","ADV_fnc_nil"]] call BIS_fnc_inString ) then {
 	if ( ( !(side (group _unit) isEqualTo east) && _par_NVGs < 2 ) || ( side (group _unit) isEqualTo east && _par_opfNVGs < 2 ) ) then {
 		_unit unlinkItem (hmd _unit);
 		{ _unit removeItems _x; } count _NVGoggles;
