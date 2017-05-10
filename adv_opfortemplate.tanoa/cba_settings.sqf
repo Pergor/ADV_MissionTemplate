@@ -1,4 +1,22 @@
-﻿//settings for tfar 1.0:
+﻿/*
+ * Author: Belbo
+ *
+ * Contains all cba-settings for this mission.
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * force VARIABLE = override client settings.
+ * force force = override mission and client settings (only for server).
+ *
+ * Public: Yes
+ */
+
+//settings for tfar 1.0:
 force TFAR_giveLongRangeRadioToGroupLeaders = false;
 force TFAR_givePersonalRadioToRegularSoldier = false;
 force TFAR_giveMicroDagrToSoldier = false;

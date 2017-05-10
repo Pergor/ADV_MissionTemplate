@@ -34,22 +34,36 @@ private [
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 
-_grenHE = {_x == "HE"} count _grenades;
-_grenSmkWht = {_x == "WHITE"} count _grenades;
-_grenSmkGrn = {_x == "GREEN"} count _grenades;
-_grenSmkRd = {_x == "RED"} count _grenades;
-_grenSmkYlw = {_x == "YELLOW"} count _grenades;
-_grenSmkOrng = {_x == "ORANGE"} count _grenades;
-_grenSmkBl = {_x == "BLUE"} count _grenades;
-_grenSmkPrpl = {_x == "PURPLE"} count _grenades;
+private _grenHE = { toUpper _x isEqualTo "HE" } count _grenades;
+private _grenSmkWht = { toUpper _x isEqualTo "WHITE" } count _grenades;
+private _grenSmkGrn = { toUpper _x isEqualTo "GREEN" } count _grenades;
+private _grenSmkRd = { toUpper _x isEqualTo "RED" } count _grenades;
+private _grenSmkYlw = { toUpper _x isEqualTo "YELLOW" } count _grenades;
+private _grenSmkOrng = { toUpper _x isEqualTo "ORANGE" } count _grenades;
+private _grenSmkBl = { toUpper _x isEqualTo "BLUE" } count _grenades;
+private _grenSmkPrpl = { toUpper _x isEqualTo "PURPLE" } count _grenades;
 
-_chemRd = {_x == "RED"} count _chemlights;
-_chemGrn = {_x == "GREEN"} count _chemlights;
-_chemYlw = {_x == "YELLOW"} count _chemlights;
-_chemBl = {_x == "BLUE"} count _chemlights;
+private _chemRd = { toUpper _x isEqualTo "RED" } count _chemlights;
+private _chemGrn = { toUpper _x isEqualTo "GREEN" } count _chemlights;
+private _chemYlw = { toUpper _x isEqualTo "YELLOW" } count _chemlights;
+private _chemBl = { toUpper _x isEqualTo "BLUE" } count _chemlights;
 
 if (_grenSet > 0) then {
 	switch ( side (group _unit) ) do {
+		case east: {
+			_grenHE = 2;
+			_grenSmkWht = 1;
+			_grenSmkYlw = 1;
+			_grenSmkOrng = 1;
+			_grenSmkRd = 0;
+			_grenSmkPrpl = 0;
+			_grenSmkBl = 0;
+			_grenSmkGrn = 0;
+			_chemRd = 1;
+			_chemYlw = 0;
+			_chemGrn = 0;
+			_chemBl = 0;		
+		};
 		default {
 			_grenHE = 2;
 			_grenSmkWht = 1;
@@ -67,16 +81,16 @@ if (_grenSet > 0) then {
 	};
 };
 
-_grenArray = call {
-	if ( _par_customWeap == 1 && ( side ( group _unit ) == west ) ) exitWith {
+private _grenArray = call {
+	if ( _par_customWeap isEqualTo 1 && ( side ( group _unit ) isEqualTo west ) ) exitWith {
 		[
 			["BWA3_DM51A1",_grenHE],
 			["BWA3_DM25", _grenSmkWht],
 			["BWA3_DM32_Orange", _grenSmkOrng+_grenSmkGrn+_grenSmkRd],
 			["BWA3_DM32_Yellow", _grenSmkYlw+_grenSmkPrpl+_grenSmkBl]
-		];
+		]
 	};
-	if ( ((_par_customWeap == 2 || _par_customWeap == 3 || _par_customWeap == 4) && ( side ( group _unit ) == west )) || (_par_indWeap == 2 && ( side ( group _unit ) == independent )) ) exitWith {
+	if ( ((_par_customWeap isEqualTo 2 || _par_customWeap isEqualTo 3 || _par_customWeap isEqualTo 4) && ( side ( group _unit ) isEqualTo west )) || (_par_indWeap isEqualTo 2 && ( side ( group _unit ) isEqualTo independent )) ) exitWith {
 		[
 			["rhs_mag_m67", _grenHE],
 			["rhs_mag_an_m8hc", _grenSmkWht],
@@ -84,15 +98,15 @@ _grenArray = call {
 			["rhs_mag_m18_purple", _grenSmkPrpl],
 			["rhs_mag_m18_green", _grenSmkGrn+_grenSmkBl],
 			["rhs_mag_m18_red", _grenSmkRd+_grenSmkOrng]
-		];
+		]
 	};
-	if ( (_par_opfWeap == 1 || _par_opfWeap == 2) && ( side ( group _unit ) == east ) ) exitWith {
+	if ( (_par_opfWeap isEqualTo 1 || _par_opfWeap isEqualTo 2) && ( side ( group _unit ) isEqualTo east ) ) exitWith {
 		[
 			["rhs_mag_rgd5", _grenHE],
 			["rhs_mag_rdg2_white", _grenSmkWht],
 			["rhs_mag_rdg2_black", _grenSmkGrn+_grenSmkBl+_grenSmkPrpl],
 			["rhs_mag_nspd", _grenSmkYlw+_grenSmkRd+_grenSmkOrng]
-		];
+		]
 	};
 	[
 		["MiniGrenade", _grenHE],
@@ -103,30 +117,32 @@ _grenArray = call {
 		["SmokeShellPurple", _grenSmkPrpl],
 		["SmokeShellRed", _grenSmkRd],
 		["SmokeShellYellow", _grenSmkYlw]
-	];
+	]
 };
-_chemArray = call {
-	if ( ( !(side (group _unit) == east) && _par_NVGs > 0 ) || (side (group _unit) == east && _par_opfNVGs > 0) ) exitWith {
+private _chemArray = call {
+	if ( ( !(side (group _unit) isEqualTo east) && _par_NVGs > 0 ) || (side (group _unit) isEqualTo east && _par_opfNVGs > 0) ) exitWith {
 		[
 			["Chemlight_Yellow", _chemYlw],
 			["Chemlight_Red", _chemRd],
 			["Chemlight_Green", _chemGrn],
 			["Chemlight_Blue", _chemBl]
-		];
+		]
 	};
-	[["",0]];
+	[["",0]]
 };
 
-{ _unit addMagazines [_x select 0, _x select 1]; } count _grenArray+_chemArray;
-
-if ( !isClass(configFile >> "CfgPatches" >> "ACE_attach") && (( !(side (group _unit) == east) && _par_NVGs == 2 ) || (side (group _unit) == east && _par_opfNVGs == 2)) ) then {
-	_IR_GrenType = switch (side (group _unit)) do {
-		case west: {"B_IR_Grenade"};
-		case east: {"O_IR_Grenade"};
-		case independent: {"I_IR_Grenade"};
-		default {"I_IR_Grenade"};
+private _IRArray = call {
+	if ( !isClass(configFile >> "CfgPatches" >> "ACE_attach") && (( !(side (group _unit) isEqualTo east) && _par_NVGs isEqualTo 2 ) || (side (group _unit) isEqualTo east && _par_opfNVGs isEqualTo 2)) ) exitWith {
+		switch (side (group _unit)) do {
+			case west: { [["B_IR_Grenade",1]] };
+			case east: { [["O_IR_Grenade",1]] };
+			case independent: { [["I_IR_Grenade",1]] };
+			default { [["I_IR_Grenade",1]] };
+		};
 	};
-	_unit addMagazines [_IR_GrenType, _IRgrenade];
+	[["",0]]
 };
+
+{ _unit addMagazines [_x select 0, _x select 1]; } count _grenArray+_chemArray+_IRArray;
 
 true;

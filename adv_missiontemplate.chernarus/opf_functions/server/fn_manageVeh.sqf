@@ -182,24 +182,24 @@ adv_opf_manageVeh_codeForAll = {
 
 //replaces MRAPS with mod cars:
 switch ( _par_opfCarAssets ) do {
-	//RHS UAZ
+	//Apex Qilin
 	case 1: {
+		[ADV_opf_veh_MRAPs,["O_T_LSV_02_unarmed_F"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG,["O_T_LSV_02_armed_F"],east] call ADV_fnc_changeVeh;
+	};
+	//RHS UAZ
+	case 20: {
 		[ADV_opf_veh_MRAPs+ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG,["rhs_uaz_msv_01","rhs_uaz_open_msv_01"],east] call ADV_fnc_changeVeh;
 	};
 	//RHS GAZ
-	case 2: {
+	case 21: {
 		[ADV_opf_veh_MRAPs,["rhs_tigr_msv"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG,["rhs_tigr_ffv_msv"],east] call ADV_fnc_changeVeh;
 	};
 	//RDS vehicles
-	case 3: {
+	case 40: {
 		[ADV_opf_veh_MRAPs+ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG,["RDS_Gaz24_Civ_01","RDS_Gaz24_Civ_02","RDS_Gaz24_Civ_03","RDS_Lada_Civ_01","RDS_Lada_Civ_02","RDS_Lada_Civ_03","RDS_Lada_Civ_04"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_ATVs,[""],east] call ADV_fnc_changeVeh;
-	};
-	//Apex Qilin
-	case 4: {
-		[ADV_opf_veh_MRAPs,["O_T_LSV_02_unarmed_F"],east] call ADV_fnc_changeVeh;
-		[ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG,["O_T_LSV_02_armed_F"],east] call ADV_fnc_changeVeh;
 	};
 	//no vehicles
 	case 99: {[ADV_opf_veh_MRAPs+ADV_opf_veh_MRAPsHMG+ADV_opf_veh_MRAPsGMG+ADV_opf_veh_ATVs,[""],east] call ADV_fnc_changeVeh;};
@@ -209,15 +209,15 @@ switch ( _par_opfCarAssets ) do {
 //replaces trucks with mod trucks:
 switch ( _par_opfTruckAssets ) do {
 	//RHS
-	case 1: {
+	case 20: {
 		[ADV_opf_veh_transport,["rhs_gaz66_msv","rhs_gaz66o_msv","rhs_ural_msv_01","rhs_ural_open_msv_01"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_logistic_ammo,["rhs_gaz66_ammo_msv"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_logistic_fuel,["rhs_ural_fuel_msv_01"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_logistic_repair,["rhs_gaz66_repair_msv"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_logistic_medic,["rhs_ural_msv_01"],east] call ADV_fnc_changeVeh;
 	};
-	//RDS vehicles
-	case 2: {
+	//RHS civil
+	case 21: {
 		[ADV_opf_veh_transport+ADV_opf_veh_logistic_medic+ADV_opf_veh_logistic_ammo+ADV_opf_veh_logistic_fuel+ADV_opf_veh_logistic_repair,["RHS_Ural_Open_Civ_01","RHS_Ural_Open_Civ_02","RHS_Ural_Open_Civ_03","RHS_Ural_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Civ_03"],east] call ADV_fnc_changeVeh;
 	};
 	//no Trucks
@@ -228,11 +228,11 @@ switch ( _par_opfTruckAssets ) do {
 //replaces heavy vehicles with mod vehicles:
 switch ( missionNamespace getVariable ["ADV_par_opfHeavyAssets",0] ) do {
 	//RHS BTR
-	case 1: {
+	case 20: {
 		[ADV_opf_veh_heavys,["rhs_btr80a_msv","rhs_btr80_msv","rhs_btr70_msv"],east] call ADV_fnc_changeVeh;
 	};
 	//RHS BMP
-	case 2: {
+	case 21: {
 		[ADV_opf_veh_heavys,["rhs_bmp1_msv","rhs_bmp1d_msv","rhs_bmp1k_msv","rhs_bmp1p_msv","rhs_bmp2_msv","rhs_bmp2d_msv","rhs_bmp2e_msv","rhs_bmp2k_msv"],east] call ADV_fnc_changeVeh;
 	};
 	//no vehicles
@@ -242,30 +242,30 @@ switch ( missionNamespace getVariable ["ADV_par_opfHeavyAssets",0] ) do {
 
 //replaces tanks with mod tanks:
 switch ( _par_opfTankAssets ) do {
-	//RHS T72
-	case 1: {
+	//RHS T90
+	case 20: {
 		[ADV_opf_veh_tanks,["rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_artys,["rhs_d30_msv"],east] call ADV_fnc_changeVeh;
 	};
 	//RHS T80
-	case 2: {
+	case 21: {
 		[ADV_opf_veh_tanks,["rhs_t80a","rhs_t80b","rhs_t80bk","rhs_t80bv","rhs_t80bvk","rhs_t80u"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_artys,["rhs_2s3_tv"],east] call ADV_fnc_changeVeh;
 	};
-	//RHS T90
-	case 3: {
+	//RHS T72
+	case 22: {
 		[ADV_opf_veh_tanks,["rhs_t90_tv"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_artys,["rhs_2s3_tv"],east] call ADV_fnc_changeVeh;
 	};
-	//RDS T34
-	case 4: {
-		[ADV_opf_veh_tanks,["RDS_T34_AAF_01"],east] call ADV_fnc_changeVeh;
+	//RDS T55
+	case 40: {
+		[ADV_opf_veh_tanks,["RDS_T55_AAF_01"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_artys,["RDS_D30_CSAT"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_logistic_medic,["RDS_BMP2_Ambul_01"],east] call ADV_fnc_changeVeh;
 	};
-	//RDS T55
-	case 5: {
-		[ADV_opf_veh_tanks,["RDS_T55_AAF_01"],east] call ADV_fnc_changeVeh;
+	//RDS T34
+	case 41: {
+		[ADV_opf_veh_tanks,["RDS_T34_AAF_01"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_artys,["RDS_D30_CSAT"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_logistic_medic,["RDS_BMP2_Ambul_01"],east] call ADV_fnc_changeVeh;
 	};
@@ -277,32 +277,32 @@ switch ( _par_opfTankAssets ) do {
 //replaces helis with mod helis:
 switch ( _par_opfHeliAssets ) do {
 	//RHS transport
-	case 1: {
+	case 20: {
 		[ADV_opf_veh_airTransport+ADV_opf_veh_airLogistic,["rhs_mi8amt_vvsc","rhs_mi8amt_vvs","rhs_mi8amtsh_vvsc","rhs_mi8amtsh_vvs","rhs_mi8mt_vvsc","rhs_mi8mt_vvs","rhs_mi8mtv3_vvsc","rhs_mi8mtv3_vvs"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airRecon,["rhs_ka60_c","rhs_ka60_grey"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] call ADV_fnc_changeVeh;
 	};
 	//RHS transport Mi24
-	case 2: {
+	case 21: {
 		[ADV_opf_veh_airTransport+ADV_opf_veh_airLogistic,["rhs_mi8amt_vvsc","rhs_mi8amt_vvs","rhs_mi8amtsh_vvsc","rhs_mi8amtsh_vvs","rhs_mi8mt_vvsc","rhs_mi8mt_vvs","rhs_mi8mtv3_vvsc","rhs_mi8mtv3_vvs"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airRecon,["rhs_mi24p_vvs","rhs_mi24p_vvsc","rhs_mi24v_vvs","rhs_mi24v_vvsc"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] call ADV_fnc_changeVeh;
 	};
 	//RHS transport Ka52
-	case 3: {
+	case 22: {
 		[ADV_opf_veh_airTransport+ADV_opf_veh_airLogistic,["rhs_mi8amt_vvsc","rhs_mi8amt_vvs","rhs_mi8amtsh_vvsc","rhs_mi8amtsh_vvs","rhs_mi8mt_vvsc","rhs_mi8mt_vvs","rhs_mi8mtv3_vvsc","rhs_mi8mtv3_vvs"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airRecon,["rhs_ka52_vvsc","rhs_ka52_vvs"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] call ADV_fnc_changeVeh;
 	};
 	//RHS CAS only
-	case 4: {
+	case 23: {
 		[ADV_opf_veh_airLogistic,["rhs_mi8amt_vvsc","rhs_mi8amt_vvs","rhs_mi8amtsh_vvsc","rhs_mi8amtsh_vvs","rhs_mi8mt_vvsc","rhs_mi8mt_vvs","rhs_mi8mtv3_vvsc","rhs_mi8mtv3_vvs"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airTransport,["rhs_mi24p_vvs","rhs_mi24p_vvsc","rhs_mi24v_vvs","rhs_mi24v_vvsc"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airRecon,["rhs_ka52_vvsc","rhs_ka52_vvs"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] call ADV_fnc_changeVeh;
 	};
 	//RHS civilian
-	case 5: {
+	case 24: {
 		[ADV_opf_veh_helis,["RHS_Mi8amt_civilian"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] call ADV_fnc_changeVeh;
 	};
@@ -316,15 +316,15 @@ switch ( _par_opfAirAssets ) do {
 	//Apex Xi'an
 	//case 0: { [ADV_opf_veh_airC130,["O_T_VTOL_02_infantry_F"],west] call ADV_fnc_changeVeh; };
 	//RHS SU-25
-	case 1: {
+	case 20: {
 		[ADV_opf_veh_airCAS,["RHS_Su25SM_vvsc","RHS_Su25SM_vvs"],east] call ADV_fnc_changeVeh;
 	};
 	//RHS Su T-50
-	case 2: {
+	case 22: {
 		[ADV_opf_veh_airCAS,["RHS_T50_vvs_generic","RHS_T50_vvs_blueonblue"],east] call ADV_fnc_changeVeh;
 	};
 	//JS SU35
-	case 3: {
+	case 40: {
 		[ADV_opf_veh_airCAS,["JS_JC_SU35"],east] call ADV_fnc_changeVeh;
 	};
 	//no planes

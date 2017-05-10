@@ -359,15 +359,6 @@ switch (_par_customUni) do {
 		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
 	};
-	case 3: {
-		//TFA Mixed
-	};
-	case 4: {
-		//TFA Woodland
-	};
-	case 5: {
-		//TFA Desert
-	};
 	case 6: {
 		//CUP BAF
 		switch (true) do {
@@ -424,8 +415,6 @@ switch (_par_customUni) do {
 		_vest = ["rhsusf_spc_rifleman"];
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};	
-	case 11: {
-	};
 	case 9: {
 		//Guerilla
 		_uniform = ["U_BG_Guerrilla_6_1","U_BG_Guerilla2_2","U_BG_Guerilla2_1","U_BG_Guerilla2_3","U_BG_Guerilla3_1"];

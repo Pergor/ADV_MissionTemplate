@@ -80,16 +80,16 @@ private _respawnEVHCode = {
 			_veh setObjectTextureGlobal [_i,(_objectTextures select _i)];
 		};
 		
-		if ( (str _veh) in ADV_veh_all ) then {
-			call compile format ["%1 spawn %2",_veh,adv_manageVeh_codeForAll];
-		};
-		if ( (str _veh) in ADV_opf_veh_all ) then {
-			call compile format ["%1 spawn %2",_veh,adv_opf_manageVeh_codeForAll];
-		};
-		if ( (str _veh) in ADV_ind_veh_all ) then {
-			call compile format ["%1 spawn %2",_veh,adv_ind_manageVeh_codeForAll];
-		};
-		if !( (str _veh) in ADV_veh_all || (str _veh) in ADV_opf_veh_all || (str _veh) in ADV_ind_veh_all ) then {
+		call {
+			if ( (str _veh) in (missionNamespace getVariable ["ADV_veh_all",[]]) ) exitWith {
+				call compile format ["%1 spawn %2",_veh,adv_manageVeh_codeForAll];
+			};
+			if ( (str _veh) in (missionNamespace getVariable ["ADV_opf_veh_all",[]]) ) exitWith {
+				call compile format ["%1 spawn %2",_veh,adv_opf_manageVeh_codeForAll];
+			};
+			if ( (str _veh) in (missionNamespace getVariable ["ADV_ind_veh_all",[]]) ) exitWith {
+				call compile format ["%1 spawn %2",_veh,adv_ind_manageVeh_codeForAll];
+			};
 			if (_veh isKindOf "Helicopter" || _veh isKindOf "Ship") then { call compile format ["%1 call ADV_%2%3",[_veh,false,false,2,false],_sidePrefix,"fnc_vehicleLoad"]; };
 			if (_veh isKindOf "Plane") then { call compile format ["%1 call ADV_%2%3",[_veh,false,false,1,false],_sidePrefix,"fnc_vehicleLoad"]; };
 			if (_veh isKindOf "Tank") then { call compile format ["%1 call ADV_%2%3",[_veh,false,false,2,false],_sidePrefix,"fnc_vehicleLoad"]; };
