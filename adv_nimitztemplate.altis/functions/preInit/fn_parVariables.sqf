@@ -54,7 +54,7 @@ private _variables = {
 		missionNamespace setVariable ["ace_mk6mortar_airResistanceEnabled",false];
 	};
 	
-	adv_aceCPR_onlyDoctors = if ( adv_par_adv_aceCPR_onlyDoctors > 0 ) then {true} else {false};
+	adv_aceCPR_onlyDoctors = missionNamespace getVariable ["adv_par_adv_aceCPR_onlyDoctors",0];
 
 	if ( isClass(configFile >> "CfgPatches" >> "adv_aceCPR") && !adv_aceCPR_onlyDoctors ) then {
 		missionNamespace setVariable ["ace_medical_useCondition_PAK",0];
