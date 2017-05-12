@@ -83,7 +83,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 				_target addMagazineCargoGlobal ["CUP_OG7_M",5];
 				_target addMagazineCargoGlobal ["CUP_Igla_M",5];
 				//items
-				if (ADV_par_opfOptics > 0) then {
+				if (_par_opfOptics > 0) then {
 					_target addItemCargoGlobal ["CUP_optic_PSO_1",5];
 					_target addItemCargoGlobal ["CUP_optic_Kobra",5];
 				};
@@ -144,12 +144,21 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		
 		_target addMagazineCargoGlobal ["DemoCharge_Remote_Mag",5];
 		_target addMagazineCargoGlobal ["SatchelCharge_Remote_Mag",2];
+		_target addMagazineCargoGlobal ["ATMine_Range_Mag",5];
+		_target addMagazineCargoGlobal ["APERSTripMine_Wire_Mag",5];
+		_target addMagazineCargoGlobal ["APERSMine_Range_Mag",5];		
+		if (_par_opfUni isEqualTo 5 || _par_opfWeap isEqualTo 2) then {
+			_target addMagazineCargoGlobal ["IEDUrbanSmall_Remote_Mag",5];
+			_target addMagazineCargoGlobal ["IEDLandSmall_Remote_Mag",5];
+			_target addMagazineCargoGlobal ["IEDUrbanBig_Remote_Mag",5];
+			_target addMagazineCargoGlobal ["IEDLandBig_Remote_Mag",5];
+		};
 		//_target addItemCargoGlobal ["optic_LRPS",2];
 		
 		//grenades
 		switch (true) do {
 			//RHS
-			case (_par_opfWeap == 1 || _par_opfWeap == 2): {
+			case (_par_opfWeap isEqualTo 1 || _par_opfWeap isEqualTo 2): {
 				_target addMagazineCargoGlobal ["rhs_mag_rgd5",20];
 				_target addMagazineCargoGlobal ["rhs_mag_rdg2_white",20];
 				_target addMagazineCargoGlobal ["rhs_mag_rdg2_black",20];
@@ -161,7 +170,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 				_target addMagazineCargoGlobal ["rhs_VG40OP_green",20];
 				_target addMagazineCargoGlobal ["rhs_VG40OP_red",20];
 			};
-			case (_par_opfWeap == 3): {
+			case (_par_opfWeap isEqualTo 3): {
 				_target addMagazineCargoGlobal ["CUP_HandGrenade_RGD5",20];
 				_target addMagazineCargoGlobal ["SmokeShell",20];
 				_target addMagazineCargoGlobal ["SmokeShellGreen",20];
@@ -200,7 +209,6 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		
 		//uniform items
 		switch (_par_opfUni) do {
-			//BWmod Tropen
 			case 1: {
 				_target addItemCargoGlobal ["rhs_6b27m",5];		
 				_target addBackpackCargoGlobal ["B_AssaultPack_sgg",3];		
@@ -268,7 +276,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			_ACE_M26_Clacker = 0;
 			_ACE_DeadManSwitch = 0;
 			_ACE_DefusalKit = 0;
-			_ACE_Cellphone = 0;
+			_ACE_Cellphone = 5;
 			_ACE_MapTools = 0;
 			_ACE_CableTie = 20;
 			_ACE_NonSteerableParachute = 0;

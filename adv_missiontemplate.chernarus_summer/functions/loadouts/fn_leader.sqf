@@ -513,7 +513,7 @@ switch (toUpper ([str _player,0,9] call BIS_fnc_trimString)) do {
 
 //LRRadios
 if (missionNamespace getVariable ["_par_noLRRadios",false]) then { _giveBackpackRadio = false };
-if ( (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+if ( (_par_Radios isEqualTo 1 || _par_Radios isEqualTo 3) && _giveBackpackRadio ) then {
 	_backpack = [_player] call adv_fnc_LRBackpack;
 };
 

@@ -52,6 +52,7 @@ class adv
 		class manageVeh {};
 		class nil {};
 		class rhsDecals {};
+		class zeusEVH {};
 	};
 	class server
 	{
@@ -65,6 +66,7 @@ class adv
 		class findNearestObject {};
 		class flare {};
 		class getOppPos {};
+		class getPos {};
 		class HCobjects {};
 		class IEDhandler {};
 		class lockVeh {};
@@ -87,6 +89,7 @@ class adv
 		class aiTask {};
 		class findNearestEnemy {};
 		class setSide {};
+		class setSkill {};
 		class spawnAttack {};
 		class spawnGroup {};
 		class spawnPatrol {};

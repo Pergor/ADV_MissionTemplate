@@ -429,9 +429,22 @@ switch ( _par_modHeavyAssets ) do {
 			};
 		};
 	};
-	//CUP Marines
+	//CUP LAV25
 	case 31: {
 		[ADV_veh_heavys,["CUP_B_LAV25_USMC","CUP_B_LAV25M240_USMC","CUP_B_AAV_USMC"],west] call ADV_fnc_changeVeh;
+	};
+	//CUP AAV7
+	case 32: {
+		[ADV_veh_heavys,["CUP_B_AAV_USMC"],west] call ADV_fnc_changeVeh;
+	};
+	//CUP BAF
+	case 30: {
+		call {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
+				[ADV_veh_tanks,["CUP_B_FV432_Bulldog_GB_D_RWS","CUP_B_FV432_Bulldog_GB_D","CUP_B_FV510_GB_D_SLAT"],west] call ADV_fnc_changeVeh;
+			};
+			[ADV_veh_tanks,["CUP_B_FV432_Bulldog_GB_W_RWS","CUP_B_FV432_Bulldog_GB_W","CUP_B_FV510_GB_W_SLAT"],west] call ADV_fnc_changeVeh;
+		};
 	};
 	//DAR MaxxPro MRAP
 	case 40: {
@@ -483,6 +496,15 @@ switch ( _par_modTankAssets ) do {
 			[ADV_veh_artys,["RHS_M119_WD"],west] call ADV_fnc_changeVeh;
 		};
 	};
+	//CUP Challenger
+	case 30: {
+		call {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
+				[ADV_veh_tanks,["CUP_B_Challenger2_Desert_BAF"],west] call ADV_fnc_changeVeh;
+			};
+			[ADV_veh_tanks,["CUP_B_Challenger2_2CW_BAF","CUP_B_Challenger2_Woodland_BAF"],west] call ADV_fnc_changeVeh;
+		};
+	};
 	//Burne's M1A2
 	case 40: {
 		[] call {
@@ -503,7 +525,7 @@ switch ( missionNamespace getVariable ["ADV_par_modHeliAssets",0] ) do {
 	case 10: {
 		[ADV_veh_airTransport,["BW_NH90Armed","BW_NH90Armed","BW_NH90Armed","BW_NH90","CUP_B_UH1D_GER_KSK","CUP_B_UH1D_GER_KSK"],west] call ADV_fnc_changeVeh;
 		//[ADV_veh_airRecon,["EC635_Unarmed_BW","EC635_BW"],west] call ADV_fnc_changeVeh;
-		[ADV_veh_airRecon,["BWA3_Tiger_Gunpod_Heavy","BWA3_Tiger_Gunpod_PARS","CUP_B_UH1D_GER_KSK","CUP_B_UH1D_GER_KSK"],west] call ADV_fnc_changeVeh;
+		[ADV_veh_airRecon,["BWA3_Tiger_Gunpod_Heavy","BWA3_Tiger_Gunpod_PARS"],west] call ADV_fnc_changeVeh;
 		[ADV_veh_airLogistic,["CUP_B_CH53E_GER"],west] call ADV_fnc_changeVeh;
 	};
 	//RHS Marines

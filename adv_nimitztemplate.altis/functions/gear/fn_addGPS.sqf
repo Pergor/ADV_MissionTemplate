@@ -28,11 +28,15 @@ private [
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 
 //gps is being removed as long it's not supposed to be in Inventory.
-if !( _par_Tablets == 99 ) then {
+if !( _par_Tablets isEqualTo 99 ) then {
 	_unit unlinkItem "ItemGPS";_unit removeItems "ItemGPS";
 };
+if ( (side (group _unit) isEqualTo independent && (_par_indWeap isEqualTo 21 || _par_indUni isEqualTo 20))
+|| 	{ side (group _unit) isEqualTo west && (_par_customUni isEqualTo 9) } 
+|| 	{ side (group _unit) isEqualTo east && (_par_opfWeap isEqualTo 2 || _par_opfUni isEqualTo 5 || _par_opfUni isEqualTo 6) } 
+) exitWith { false };
 //cTab-specials:
-if ( _par_Tablets == 1 && isClass (configFile >> "CfgPatches" >> "cTab") ) exitWith {
+if ( _par_Tablets isEqualTo 1 && isClass (configFile >> "CfgPatches" >> "cTab") ) exitWith {
 	call {
 		if ( _uavTisGiven ) exitWith {
 			if ( _tablet ) then {_unit addItem "ItemcTab"};
@@ -54,7 +58,7 @@ if ( _par_Tablets == 1 && isClass (configFile >> "CfgPatches" >> "cTab") ) exitW
 };
 
 //ace DAGRs:
-if ( _par_Tablets == 2 ) exitWith {
+if ( _par_Tablets isEqualTo 2 ) exitWith {
 	if (isClass(configFile >> "CfgPatches" >> "ACE_microDAGR") && !isNil "_ACE_microDAGR") then {
 		if (_ACE_microDAGR > 0) then { _unit addItem "ACE_microDAGR"; };
 	};
@@ -64,7 +68,7 @@ if ( _par_Tablets == 2 ) exitWith {
 };
 
 //BWmod Navipad
-if ( _par_Tablets == 3 && isClass(configFile >> "CfgPatches" >> "bwa3_navipad") ) exitWith {
+if ( _par_Tablets isEqualTo 3 && isClass(configFile >> "CfgPatches" >> "bwa3_navipad") ) exitWith {
 	call {
 		if !(_uavTisGiven) exitWith {
 			_unit linkItem "BWA3_ItemNaviPad";

@@ -37,20 +37,14 @@ params [
 	,["_side", east, [west]]
 	,["_mode", 0, [0]]
 	,["_radius", 300, [0]]
-	,["_attack", [objNull,[0,0,0]], [[]]]
+	,["_attack", [objNull,100], [[]]]
 ];
 
 //Default fall back if one of the necessary positions isn't found:
 private _worldAnchor = getArray (configFile >> "CfgWorlds" >> worldName >> "safePositionAnchor");
 
 //select pos depending on given parameter:
-private _start = call {
-	if (_location isEqualType "") exitWith {getMarkerPos _location};
-	if (_location isEqualType objNull) exitWith {getPosATL _location};
-	if (_location isEqualType []) exitWith {_location};
-	if (_location isEqualTo [0,0,0]) exitWith {_worldAnchor};
-	nil;
-};
+private _start = [_location] call adv_fnc_getPos;
 
 //redefine radius, if the marker already has a radius:
 if (_location isEqualType "") then {
@@ -65,7 +59,7 @@ if (_location isEqualType "") then {
 
 //select random position which should be safe:
 private _pos = [_start, _radius] call CBA_fnc_randPos;
-private _spawn = [_pos,5,30,3,0,20,0,[],[_pos,_pos]] call BIS_fnc_findSafePos;
+private _spawn = [_pos,5,30,3,0,20,0,[],[_start,_start]] call BIS_fnc_findSafePos;
 
 //spawn a group
 private _grp = [_spawn,_units,_side] call adv_fnc_spawnGroup;

@@ -29,13 +29,9 @@ params [
 	,"_grp"
 ];
 
-//define starting point
-private _start = call {
-	if (_location isEqualType "") exitWith {getMarkerPos _location};
-	if (_location isEqualType objNull) exitWith {getPosATL _location};
-	if (_location isEqualType []) exitWith {_location};
-	nil;
-};
+//select pos depending on given parameter:
+private _start = [_location] call adv_fnc_getPos;
+
 //define direction in which units are headed upon spawn
 private _heading = call {
 	if (_location isEqualType "") exitWith {markerDir _location};
@@ -43,15 +39,21 @@ private _heading = call {
 	if (true) exitWith {0};
 };
 
-private _skill = [0.7,0.9,0.65];
-if (_side == civilian) then { _skill = [0.0,0.0,0.0]; };
+private _skill = [0.7,0.7];
+if ( _side isEqualTo civilian ) then { _skill = [0.0,0.0]; };
 
-private _withVehicles = false;
+private _withVehicles = 0;
 private _vehicles = [];
 {
 	if ( _x isKindOf "LandVehicle" ) then {
 		private _veh = _x;
-		_withVehicles = true;
+		_withVehicles = 1;
+		_units = _units-[_veh];
+		_vehicles pushBack _veh;
+	};
+	if ( _x isKindOf "SeaVehicle" ) then {
+		private _veh = _x;
+		_withVehicles = 2;
 		_units = _units-[_veh];
 		_vehicles pushBack _veh;
 	};
@@ -59,7 +61,13 @@ private _vehicles = [];
 } count _units;
 
 call {
-	if !(_withVehicles) exitWith {
+	if (_withVehicles isEqualTo 2) exitWith {
+		_start = ATLToASL _start;
+	};
+};
+
+call {
+	if (_withVehicles isEqualTo 0) exitWith {
 		_grp = [_start, _side, _units, [], [], _skill,[],[],_heading] call BIS_fnc_spawnGroup;
 	};
 	
@@ -75,12 +83,14 @@ call {
 		};
 		nil;
 	} count _vehicles;
-	if (_side == civilian) then {
+	if (_side isEqualTo civilian) then {
 		_grp setBehaviour "CARELESS";
 		_grp setCombatMode "BLUE";
 		_grp setSpeedMode "LIMITED";
 		{ _x disableAI "AUTOCOMBAT"; _x setUnitPos "UP"; } count (units _grp);
 	};
 };
+
+[_grp] call adv_fnc_setSkill;
 
 _grp;

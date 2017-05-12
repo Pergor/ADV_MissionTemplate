@@ -18,24 +18,27 @@
  */
 
 params [
-	["_target", objNull, [objNull]]
+	["_target", [], [objNull,[],""]]
 	,["_variable", "adv_var_nil", [""]]
 	,["_radius", 500, [0]]
 ];
+
+//find the position from which to search:
+private _pos = [_target] call adv_fnc_getPos;
 
 //define the output if no entity is found:
 private _closest = objNull;
 
 //what type of object are we looking for?
-private _objects = (getPos _target) nearEntities _radius;
+private _objects = _pos nearEntities _radius;
 
 //let's loop through the entities to find the closest one:
 private _closestdist = _radius+1;
 
 {
-	if (_x distance _target < _closestdist && _x getVariable [_variable,false]) then {
+	if (_x distance _pos < _closestdist && _x getVariable [_variable,false]) then {
 		_closest = _x;
-		_closestdist = _x distance _target;
+		_closestdist = _x distance _pos;
 	};
 } forEach _objects;
 

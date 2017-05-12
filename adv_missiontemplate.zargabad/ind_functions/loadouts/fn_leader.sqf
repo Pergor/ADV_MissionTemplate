@@ -271,6 +271,9 @@ switch (_par_indUni) do {
 		_uniform = ["U_I_C_Soldier_Camo_F","U_I_C_Soldier_Para_1_F","U_I_C_Soldier_Para_2_F","U_I_C_Soldier_Para_3_F"];
 		_vest = ["V_TacChestrig_grn_F","V_TacChestrig_cbr_F","V_TacChestrig_oli_F","V_HarnessO_brn","V_HarnessO_ghex_F","V_TacVest_oli","V_I_G_resistanceLeader_F"];
 		_headgear = ["H_Cap_headphones","H_Shemag_olive","H_MilCap_gry","H_MilCap_blue","H_Cap_oli","H_Cap_grn","H_Booniehat_oli","H_Bandanna_khk","","","",""];
+		_giveRiflemanRadio = true;
+		_givePersonalRadio = true;
+		_giveBackpackRadio = false;
 		if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
 			_giveRiflemanRadio = true;
 			_givePersonalRadio = false;

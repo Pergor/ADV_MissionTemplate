@@ -287,6 +287,12 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		_target addMagazineCargoGlobal ["APERSTripMine_Wire_Mag",5];
 		_target addMagazineCargoGlobal ["APERSMine_Range_Mag",5];
 		//_target addItemCargoGlobal ["optic_LRPS",2];
+		if ( _par_customUni isEqualTo 9 ) then {
+			_target addMagazineCargoGlobal ["IEDUrbanSmall_Remote_Mag",5];
+			_target addMagazineCargoGlobal ["IEDLandSmall_Remote_Mag",5];
+			_target addMagazineCargoGlobal ["IEDUrbanBig_Remote_Mag",5];
+			_target addMagazineCargoGlobal ["IEDLandBig_Remote_Mag",5];
+		};
 			
 		//grenades
 		switch (true) do {
@@ -397,7 +403,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			_ACE_M26_Clacker = 0;
 			_ACE_DeadManSwitch = 0;
 			_ACE_DefusalKit = 0;
-			_ACE_Cellphone = 0;
+			_ACE_Cellphone = 5;
 			_ACE_MapTools = 0;
 			_ACE_CableTie = 20;
 			_ACE_NonSteerableParachute = 0;

@@ -159,7 +159,7 @@ _ACE_UAVBattery = 0;
 _ACE_wirecutter = 0;
 _ACE_Clacker = 0;
 _ACE_M26_Clacker = 1;
-_ACE_DeadManSwitch = 1;
+_ACE_DeadManSwitch = 0;
 _ACE_DefusalKit = 1;
 _ACE_Cellphone = 0;
 _ACE_FlareTripMine = 0;
@@ -226,6 +226,12 @@ switch (_par_opfWeap) do {
 		_handgun = "";
 		_itemsHandgun = [];
 		_handgunSilencer = "";
+		_ACE_Clacker = 0;
+		_ACE_M26_Clacker = 0;
+		_ACE_DeadManSwitch = 0;
+		_ACE_DefusalKit = 0;
+		_ACE_Cellphone = 1;
+		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDLandSmall_Remote_Mag","APERSTripMine_Wire_Mag"];
 	};
 	case 3: {
 		//CUP
@@ -297,9 +303,11 @@ switch (_par_opfUni) do {
 			"H_Cap_headphones","H_ShemagOpen_tan"];
 		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag","APERSTripMine_Wire_Mag"];
 		_ACE_Clacker = 0;
+		_ACE_M26_Clacker = 0;
 		_ACE_DeadManSwitch = 0;
+		_ACE_DefusalKit = 0;
 		_ACE_Cellphone = 1;
-		_ACE_FlareTripMine = 2;
+		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDLandSmall_Remote_Mag","APERSTripMine_Wire_Mag","APERSTripMine_Wire_Mag"];
 	};
 	case 6: {
 		//Afghan Militia (EricJ's Taliban)
@@ -310,11 +318,12 @@ switch (_par_opfUni) do {
 		_goggles = "";
 		_useProfileGoggles = 0;
 		_backpack = ["B_Carryall_oli"];
-		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag","APERSTripMine_Wire_Mag"];
 		_ACE_Clacker = 0;
+		_ACE_M26_Clacker = 0;
 		_ACE_DeadManSwitch = 0;
+		_ACE_DefusalKit = 0;
 		_ACE_Cellphone = 1;
-		_ACE_FlareTripMine = 2;
+		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDLandSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag","IEDLandSmall_Remote_Mag"];
 	};
 	case 20: {
 		//Apex Green Hex

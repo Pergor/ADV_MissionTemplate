@@ -257,6 +257,16 @@ switch ( _par_opfTankAssets ) do {
 		[ADV_opf_veh_tanks,["rhs_t90_tv"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_artys,["rhs_2s3_tv"],east] call ADV_fnc_changeVeh;
 	};
+	//CUP T55
+	case 30: {
+		[ADV_opf_veh_tanks,["CUP_O_T55_SLA","CUP_I_T55_TK_GUE"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_artys,["CUP_O_D30_RU"],east] call ADV_fnc_changeVeh;
+	};
+	//CUP T34
+	case 31: {
+		[ADV_opf_veh_tanks,["CUP_O_T34_TKA"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_artys,["CUP_O_D30_RU"],east] call ADV_fnc_changeVeh;
+	};
 	//RDS T55
 	case 40: {
 		[ADV_opf_veh_tanks,["RDS_T55_AAF_01"],east] call ADV_fnc_changeVeh;

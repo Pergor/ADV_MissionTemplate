@@ -47,6 +47,18 @@ params [
 				deleteVehicle _curator;
 			};
 		}];
+		[_curator] call adv_fnc_zeusEVH;
+		/*
+		_curator addEventHandler ["CuratorObjectRegistered",{
+			disableSerialization;
+			private _display = (findDisplay 312);
+			private _ctrl = _display displayCtrl 15717;
+			_ctrl ctrlSetText "";
+			// OR
+			//_ctrl ctrlSetText "yourcustomlogo.paa";
+			_ctrl ctrlCommit 0;
+		}];
+		*/
 		
 		_unit assignCurator _curator;
 	};
