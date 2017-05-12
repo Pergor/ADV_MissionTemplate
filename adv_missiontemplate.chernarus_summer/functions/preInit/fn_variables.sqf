@@ -16,19 +16,19 @@
  */
 
 //standard Variables:
-missionNamespace getVariable ["ADV_taskVar",0];
-missionNamespace getVariable ["ADV_spawnVar",0];
-missionNamespace getVariable ["ADV_var_useDLCContent",1];
+ADV_taskVar = missionNamespace getVariable ["ADV_taskVar",0];
+ADV_spawnVar = missionNamespace getVariable ["ADV_spawnVar",0];
+missionNamespace setVariable ["ADV_var_useDLCContent",1];
 
 missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true];
 
-missionNamespace getVariable ["adv_par_customUni", ["param_customUni",0] call BIS_fnc_getParamValue];
-missionNamespace getVariable ["adv_par_customWeap", ["param_customWeap",0] call BIS_fnc_getParamValue];
-missionNamespace getVariable ["adv_par_opfUni", ["param_opfUni",0] call BIS_fnc_getParamValue];
-missionNamespace getVariable ["adv_par_opfWeap", ["param_opfWeap",0] call BIS_fnc_getParamValue];
-missionNamespace getVariable ["adv_par_indUni", ["param_indUni",0] call BIS_fnc_getParamValue];
-missionNamespace getVariable ["adv_par_tablets", ["param_tablets",1] call BIS_fnc_getParamValue];
-missionNamespace getVariable ["adv_par_l_suppress", ["param_l_suppress",0] call BIS_fnc_getParamValue];
+adv_par_customUni = missionNamespace getVariable ["adv_par_customUni", ["param_customUni",0] call BIS_fnc_getParamValue];
+adv_par_customWeap = missionNamespace getVariable ["adv_par_customWeap", ["param_customWeap",0] call BIS_fnc_getParamValue];
+adv_par_opfUni = missionNamespace getVariable ["adv_par_opfUni", ["param_opfUni",0] call BIS_fnc_getParamValue];
+adv_par_opfWeap = missionNamespace getVariable ["adv_par_opfWeap", ["param_opfWeap",0] call BIS_fnc_getParamValue];
+adv_par_indUni = missionNamespace getVariable ["adv_par_indUni", ["param_indUni",0] call BIS_fnc_getParamValue];
+adv_par_tablets = missionNamespace getVariable ["adv_par_tablets", ["param_tablets",1] call BIS_fnc_getParamValue];
+adv_par_l_suppress = missionNamespace getVariable ["adv_par_l_suppress", ["param_l_suppress",0] call BIS_fnc_getParamValue];
 		
 //map variables:
 ADV_var_aridMaps = [

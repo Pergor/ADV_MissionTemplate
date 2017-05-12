@@ -16,11 +16,11 @@
  */
 
 if (!isServer && hasInterface) exitWith {};
-nul = missionNamespace getVariable ["ADV_taskVar",0];
-nul = missionNamespace getVariable ["ADV_spawnVar",0];
+ADV_taskVar = missionNamespace getVariable ["ADV_taskVar",0];
+ADV_spawnVar = missionNamespace getVariable ["ADV_spawnVar",0];
 
 //failsafe for finishing the mission:
-[{missionNamespace getVariable ["ADV_taskVar",0] isEqualTo 99}, { [] spawn { ["task_1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState; sleep 20; ["End2",true,8] remoteExec ["BIS_fnc_endMission",0]; }] call CBA_fnc_waitUntilAndExecute;
+[{missionNamespace getVariable ["ADV_taskVar",0] isEqualTo 99}, { [] spawn { ["task_1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState; sleep 20; ["End2",true,8] remoteExec ["BIS_fnc_endMission",0]; }; }] call CBA_fnc_waitUntilAndExecute;
 
 //Use CBA_fnc_waitUntilAndExecute for the following mission parts:
 private _taskVar_1_code = {
