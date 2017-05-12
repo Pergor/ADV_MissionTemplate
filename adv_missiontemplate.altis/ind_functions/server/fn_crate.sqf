@@ -33,7 +33,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		
 		//weapons & ammo
 		switch (true) do {
-			case (_par_indWeap == 2): {
+			case (_par_indWeap isEqualTo 2): {
 				//SeL RHS
 				//weapons
 				_target addWeaponCargoGlobal ["rhs_weap_M136",5];
@@ -61,7 +61,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 				if (isClass(configFile >> "CfgPatches" >> "hlcweapons_mp5")) then { _target addMagazineCargoGlobal ["hlc_30Rnd_9x19_B_MP5",10]; };
 				//items
 				_target addItemCargoGlobal ["rhsusf_acc_harris_bipod",3];
-				if (ADV_par_optics > 0) then {
+				if (_par_optics > 0) then {
 					_target addItemCargoGlobal ["rhsusf_acc_compm4",5];
 					_target addItemCargoGlobal ["rhsusf_acc_eotech_552",5];
 					_target addItemCargoGlobal ["rhsusf_acc_ACOG",5];
@@ -69,7 +69,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 					_target addItemCargoGlobal ["rhsusf_acc_LEUPOLDMK4",1];
 				};
 			};
-			case (_par_indWeap == 3): {
+			case (_par_indWeap isEqualTo 3): {
 				//HLC
 				if (isClass(configFile >> "CfgPatches" >> "rhsusf_main")) then {
 					//weapons
@@ -101,7 +101,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 				_target addMagazineCargoGlobal ["hlc_50rnd_762x51_M_FAL",20];
 				_target addMagazineCargoGlobal ["hlc_30Rnd_9x19_B_MP5",20];
 			};
-			case (_par_indWeap == 21): {
+			case (_par_indWeap isEqualTo 21): {
 				//weapons
 				_target addWeaponCargoGlobal ["launch_RPG7_F",5];
 				_target addWeaponCargoGlobal ["launch_I_Titan_F",5];
@@ -160,6 +160,12 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		_target addMagazineCargoGlobal ["ATMine_Range_Mag",5];
 		_target addMagazineCargoGlobal ["APERSTripMine_Wire_Mag",5];
 		_target addMagazineCargoGlobal ["APERSMine_Range_Mag",5];
+		if ( _par_indUni isEqualTo 20 || _par_indUni isEqualTo 21 ) then {
+			_target addMagazineCargoGlobal ["IEDUrbanSmall_Remote_Mag",5];
+			_target addMagazineCargoGlobal ["IEDLandSmall_Remote_Mag",5];
+			_target addMagazineCargoGlobal ["IEDUrbanBig_Remote_Mag",5];
+			_target addMagazineCargoGlobal ["IEDLandBig_Remote_Mag",5];
+		};
 		//_target addItemCargoGlobal ["optic_LRPS",2];
 			
 		//grenades
@@ -193,6 +199,9 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		
 		//uniform items
 		switch (_par_indUni) do {
+			case 20: {
+				_target addBackpackCargoGlobal ["B_AssaultPack_rgr",3];
+			};
 			case 1: {
 				_target addItemCargoGlobal ["H_HelmetSpecB",5];
 				_target addBackpackCargoGlobal ["B_AssaultPack_rgr",3];
@@ -202,7 +211,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 				_target addBackpackCargoGlobal ["B_AssaultPack_rgr",3];
 			};
 		};
-
+		
 		//radios
 		if (isClass (configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3)) then {
 			_target addBackpackCargoGlobal ["tfar_anprc155_coyote",2];
@@ -249,7 +258,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			_ACE_M26_Clacker = 0;
 			_ACE_DeadManSwitch = 0;
 			_ACE_DefusalKit = 0;
-			_ACE_Cellphone = 0;
+			_ACE_Cellphone = 5;
 			_ACE_MapTools = 0;
 			_ACE_CableTie = 20;
 			_ACE_NonSteerableParachute = 0;

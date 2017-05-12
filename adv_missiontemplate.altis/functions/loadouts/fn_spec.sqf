@@ -159,7 +159,7 @@ _ACE_UAVBattery = 0;
 _ACE_wirecutter = 0;
 _ACE_Clacker = 0;
 _ACE_M26_Clacker = 1;
-_ACE_DeadManSwitch = 1;
+_ACE_DeadManSwitch = 0;
 _ACE_DefusalKit = 1;
 _ACE_Cellphone = 0;
 _ACE_FlareTripMine = 0;
@@ -432,10 +432,11 @@ switch (_par_customUni) do {
 			"H_Cap_usblack","H_Cap_oli_hs","H_Cap_blk","H_Booniehat_tan","H_Booniehat_oli","H_Booniehat_khk","H_Watchcap_khk","H_Watchcap_cbr","H_Watchcap_camo"];
 		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag","APERSTripMine_Wire_Mag"];
 		_ACE_Clacker = 0;
+		_ACE_M26_Clacker = 0;
 		_ACE_DeadManSwitch = 0;
-		_ACE_DefusalKit = 1;
+		_ACE_DefusalKit = 0;
 		_ACE_Cellphone = 1;
-		_ACE_FlareTripMine = 2;
+		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDLandSmall_Remote_Mag","APERSTripMine_Wire_Mag","APERSTripMine_Wire_Mag"];
 	};
 	case 12: {
 		//UK3CB
