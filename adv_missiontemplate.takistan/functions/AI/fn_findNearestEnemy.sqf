@@ -21,14 +21,16 @@ params [
 	,["_radius", 2000, [0]]
 ];
 
+/*
 //maybe there already is one?
 private _closest = (_unit findNearestEnemy _unit);
-if ( !isNull _closest ) exitWith {
+if ( !isNull _closest && (_unit distance _closest) < 100 ) exitWith {
 	_closest;
 };
+*/
 
 //define the output if no enemy is found:
-_closest = objNull;
+private _closest = objNull;
 
 //who are our enemies?
 private _enemySides = [side group _unit] call BIS_fnc_enemySides;
