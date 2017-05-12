@@ -16,6 +16,21 @@
  */
 
 if (!isServer) exitWith {};
+{ [_x] call adv_fnc_zeusEVH; nil; } count allCurators;
+/*
+{
+	_x addEventHandler ["CURATOROBJECTREGISTERED",{
+		disableSerialization;
+		private _display = (findDisplay 312);
+		private _ctrl = _display displayCtrl 15717;
+		_ctrl ctrlSetText "";
+		// OR
+		//_ctrl ctrlSetText "yourcustomlogo.paa";
+		_ctrl ctrlCommit 0;
+	}];
+	nil;
+} count allCurators;
+*/
 _handle = _this spawn {
 	params [
 		["_curator", true, [true, objNull]]
