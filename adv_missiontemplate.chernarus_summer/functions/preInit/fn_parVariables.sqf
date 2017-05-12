@@ -43,20 +43,20 @@ private _variables = {
 
 	ADV_par_DLCContent = 1;
 
-	if (ADV_par_Assets_cars == 99) then {ADV_par_modCarAssets = 99;ADV_par_modTruckAssets=99;ADV_par_opfTruckAssets=99;ADV_par_opfCarAssets=99;ADV_par_indCarAssets=99;};
-	if (ADV_par_Assets_heavy == 99) then {ADV_par_modHeavyAssets = 99;ADV_par_opfHeavyAssets=99;};
-	if (ADV_par_Assets_tanks == 99) then {ADV_par_modTankAssets = 99;ADV_par_opfTankAssets=99;};
-	if (ADV_par_Assets_air_helis == 99) then {ADV_par_modHeliAssets = 99;ADV_par_opfHeliAssets=99;};
-	if (ADV_par_Assets_air_fixed == 99) then {ADV_par_modAirAssets = 99;ADV_par_opfAirAssets=99;};
+	if (ADV_par_Assets_cars isEqualTo 99) then {ADV_par_modCarAssets = 99;ADV_par_modTruckAssets=99;ADV_par_opfTruckAssets=99;ADV_par_opfCarAssets=99;ADV_par_indCarAssets=99;};
+	if (ADV_par_Assets_heavy isEqualTo 99) then {ADV_par_modHeavyAssets = 99;ADV_par_opfHeavyAssets=99;};
+	if (ADV_par_Assets_tanks isEqualTo 99) then {ADV_par_modTankAssets = 99;ADV_par_opfTankAssets=99;};
+	if (ADV_par_Assets_air_helis isEqualTo 99) then {ADV_par_modHeliAssets = 99;ADV_par_opfHeliAssets=99;};
+	if (ADV_par_Assets_air_fixed isEqualTo 99) then {ADV_par_modAirAssets = 99;ADV_par_opfAirAssets=99;};
 
-	if (ADV_par_engineArtillery == 0) then {
+	if (ADV_par_engineArtillery isEqualTo 0) then {
 		missionNamespace setVariable ["ace_mk6mortar_allowComputerRangefinder",true];
 		missionNamespace setVariable ["ace_mk6mortar_airResistanceEnabled",false];
 	};
 	
 	adv_aceCPR_onlyDoctors = missionNamespace getVariable ["adv_par_adv_aceCPR_onlyDoctors",0];
 
-	if ( isClass(configFile >> "CfgPatches" >> "adv_aceCPR") && !adv_aceCPR_onlyDoctors ) then {
+	if ( isClass(configFile >> "CfgPatches" >> "adv_aceCPR") ) then {
 		missionNamespace setVariable ["ace_medical_useCondition_PAK",0];
 	};
 };

@@ -135,7 +135,7 @@ switch _FAKtype do {
 			_ACE_morphine = 12;
 			_ACE_tourniquet = 6;
 			_ACE_plasmaIV_500 = 12;
-			if ( _par_ace_medical_GivePAK == 1 ) then {
+			if ( _par_ace_medical_GivePAK isEqualTo 1 ) then {
 				_ACE_personalAidKit = 1;
 				if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) > 0 ) then {
 					_ACE_personalAidKit = 2;

@@ -1,12 +1,12 @@
 ﻿/*
  * Author: Belbo
  *
- * Returns a position depending on the type of position provided. Helps to turn a marker, an object or a position into posATL.
+ * Returns a position depending on the type of position provided. Helps to turn a marker, a group, an object or a position into posATL.
  * Default fall back is NOT [0,0,0] but world's safePositionAnchor.
  * Height in case of marker or safePositionAnchor is always 0.
  *
  * Arguments:
- * 0: object, position or marker to turn into posATL - <ARRAY>, <OBJECT>, <STRING>
+ * 0: object, position or marker to turn into posATL - <ARRAY>, <OBJECT>, <STRING>, <GROUP>
  *
  * Return Value:
  * Position ATL - <ARRAY>
@@ -18,7 +18,7 @@
  */
 
 params [
-	["_pos", [0,0,0], [[], "", objNull,0]]
+	["_pos", [0,0,0], [[], "", objNull,grpNull,0]]
 	,["_pos1", 0, [0]]
 	,["_pos2", 0, [0]]
 ];
@@ -27,9 +27,9 @@ private _worldAnchor = getArray (configFile >> "CfgWorlds" >> worldName >> "safe
 private _anchorPos = [_worldAnchor select 0,_worldAnchor select 1,0];
 
 private _base = call {
-	//if ( _pos isEqualType "" ) exitWith { [(getMarkerPos _pos) select 0,(getMarkerPos _pos) select 1,0] };
 	if ( _pos isEqualType "" ) exitWith { getMarkerPos _pos };
 	if ( _pos isEqualType objNull ) exitWith { getPosATL _pos };
+	if ( _pos isEqualType grpNull ) exitWith { getPosATL (leader _pos) };
 	if ( _pos isEqualType [] ) exitWith {
 		if (count _pos isEqualTo 3) exitWith {
 			_pos

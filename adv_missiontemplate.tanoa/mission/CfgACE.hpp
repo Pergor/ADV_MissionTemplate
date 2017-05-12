@@ -354,7 +354,7 @@ class ace_medical_useLocation_SurgicalKit {
     force = 0;
 };
 class ace_medical_useCondition_PAK {
-    value = 0;
+    value = 1;
     typeName = "SCALAR";
     force = 0;
 };

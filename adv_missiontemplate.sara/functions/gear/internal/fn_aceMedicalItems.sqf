@@ -46,7 +46,7 @@ if (isNil "_ACE_personalAidKit") then { _ACE_personalAidKit = 0; };
 
 if ( isClass(configFile >> "CfgPatches" >> "ACE_medical") ) exitWith {
 	if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 ) then {
-		if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) == 0 && _ACE_personalAidKit > 1 ) then { _ACE_personalAidKit = 1; };
+		if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) isEqualTo 0 && _ACE_personalAidKit > 1 ) then { _ACE_personalAidKit = 1; };
 		for "_i" from 1 to _ACE_personalAidKit do { _unit addItem "ACE_personalAidKit"; };
 		if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) then {
 			for "_i" from 1 to _ACE_surgicalKit do { _unit addItem "ACE_surgicalKit"; };

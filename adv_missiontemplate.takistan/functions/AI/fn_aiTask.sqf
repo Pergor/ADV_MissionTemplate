@@ -16,7 +16,7 @@
  * 		4 = attack location around object, marker or position provided in _this select 5 - if nothing or a missing element is provided, the next enemy will be targeted.
  *			If no enemy is found within 5000 meters, safePositionAnchor of map will be used.
  * 4: radius around the spawn position for the group task. If spawn location is an area marker, the radius will be the geometric mean of the marker's radiuses (optional) - <NUMBER>
- * 5: attack position/object/marker with radius (optional - only necessary with behaviour mode 4) - <ARRAY> in format [position, <NUMBER>]
+ * 5: attack position/object/marker with radius. If a unit is provided, ai will continually stalk the unit. (optional - only necessary with behaviour mode 4) - <ARRAY> in format [position, <NUMBER>]
  *
  * Return Value:
  * Spawned group - <GROUP>
@@ -108,6 +108,9 @@ call {
 		_wp setWaypointCombatMode "YELLOW";
 		_wp setWaypointSpeed "NORMAL";
 		_wp setWaypointFormation "WEDGE";
+		if ( _obj isEqualType objNull && !(group _obj isEqualTo grpNull) ) then {
+			[_grp,group _obj,60,_attackRadius,{!alive _obj},1] spawn bis_fnc_stalk;
+		};
 	};
 	//regular patrol:
 	[_grp, _start, _radius, 7, "MOVE", "SAFE", "GREEN", "LIMITED", "STAG COLUMN", "", [1,1.5,2]] call CBA_fnc_taskPatrol;
