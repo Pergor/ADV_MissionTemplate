@@ -32,6 +32,9 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	//tfar serious mode
 	tf_radio_channel_name = "TaskForceRadio";
 	tf_radio_channel_password = "123";
+	
+	//update the plugin settings:
+	call TFAR_fnc_sendPluginConfig;
 
 	//frequencies
 	//blufor

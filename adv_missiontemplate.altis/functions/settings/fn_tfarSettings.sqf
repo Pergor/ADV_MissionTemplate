@@ -41,6 +41,9 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 		tf_radio_channel_name = "Arma3-TFAR";
 		tf_radio_channel_password = "123";
 	};
+	
+	//update the plugin settings:
+	call TFAR_fnc_sendPluginConfig;
 
 	//frequencies
 	//blufor
