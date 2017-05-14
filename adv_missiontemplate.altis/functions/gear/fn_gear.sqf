@@ -66,6 +66,16 @@ if ( toUpper ([(str _unit),(count str _unit)-5] call BIS_fnc_trimString) isEqual
 	_microDAGR = false;
 };
 
+if ( [_unit,"command"] call adv_fnc_findInGroup ) then {
+	if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") ) then {
+		_giveRiflemanRadio = false;
+		if !(_givePersonalRadio) then { _givePersonalRadio = true; };
+	};
+	if !(_androidDevice) then { _androidDevice = true; };
+	if (_microDAGR) then { _microDAGR = false; };
+	if (_ACE_key isEqualTo 0) then {_ACE_key = 1;};
+};
+
 //removals:
 removeAllAssignedItems _unit;
 player unlinkItem "ItemRadio";
