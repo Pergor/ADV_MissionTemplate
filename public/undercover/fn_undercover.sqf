@@ -20,6 +20,9 @@ params [
 	["_uniformsOnly",true,[true]]
 ];
 
+adv_fnc_timedHint = compile preprocessFileLineNumbers "undercover\fn_timedHint.sqf";
+adv_fnc_findNearestEnemy = compile preprocessFileLineNumbers "undercover\fn_findNearestEnemy.sqf";
+
 adv_undercover_uniforms_west = [
 	"U_B_COMBATUNIFORM_MCAM","U_B_COMBATUNIFORM_MCAM_TSHIRT","U_B_CTRG_1","U_B_CTRG_2","U_B_CTRG_3"
 	,"U_B_GHILLIESUIT","U_B_HELIPILOTCOVERALLS","U_B_PILOTCOVERALLS","U_B_COMBATUNIFORM_MCAM_VEST","U_B_SURVIVAL_UNIFORM"
