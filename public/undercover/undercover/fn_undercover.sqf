@@ -11,7 +11,7 @@
  * Function executed - <BOOL>
  *
  * Example:
- * [true] call adv_fnc_undercover
+ * [false] call compile preprocessFileLineNumbers "undercover\fn_undercover.sqf";
  *
  * Public: Yes
  */
