@@ -110,6 +110,7 @@ adv_undercover_scriptfnc_switch_onFoot = {
 		["_unit", player, [objNull]]
 		,["_weapon", currentWeapon player, [""]]
 	];
+	if ( _weapon isEqualTo (binocular player) ) exitWith {};
 	if ( toUpper (uniform _unit) in adv_undercover_uniforms ) exitWith {};
 	
 	private _nextEnemy = [_unit,60] call adv_fnc_findNearestEnemy;
@@ -128,21 +129,17 @@ adv_undercover_scriptfnc_switch_inVeh = {
 		["_unit", player, [objNull]]
 		,["_veh", vehicle player, [objNull]]
 	];
-	
+	sleep 1;
 	if ( _veh isEqualTo player ) exitWith { [player, currentWeapon player] call adv_undercover_scriptfnc_switch_onFoot; };
-	if ( (_veh currentWeaponTurret [-1]) isEqualTo "" && (_veh currentWeaponTurret [0]) isEqualTo "" ) exitWith {
-		if (captive _unit) exitWith {};
-		[_unit, true] call adv_undercover_scriptfnc_setCaptive;
-	};
-	
+	if ( (_veh currentWeaponTurret [0]) isEqualTo "" ) exitWith {};
 	[_unit, false] call adv_undercover_scriptfnc_setCaptive;
 };
 
 adv_undercover_scriptevh_onFoot = [] spawn {
 	while {true} do {
-		waitUntil { sleep 2; (currentWeapon player) isEqualTo "" || (currentWeapon player) isEqualTo (binocular player) };
-		[player, ""] call adv_undercover_scriptfnc_switch_onFoot;
-		waitUntil { sleep 2; !((currentWeapon player) isEqualTo "" || (currentWeapon player) isEqualTo (binocular player)) };
+		waitUntil { sleep 2; (vehicle player) isEqualTo player && ((currentWeapon player) isEqualTo "" || (currentWeapon player) isEqualTo (binocular player)) };
+		[player, currentWeapon player] call adv_undercover_scriptfnc_switch_onFoot;
+		waitUntil { sleep 2; (vehicle player) isEqualTo player && ((currentWeapon player) isEqualTo (primaryWeapon player) || (currentWeapon player) isEqualTo (handgunWeapon player) || (currentWeapon player) isEqualTo (secondaryWeapon player)) };
 		[player, currentWeapon player] call adv_undercover_scriptfnc_switch_onFoot;
 	};
 };
@@ -150,9 +147,9 @@ adv_undercover_scriptevh_onFoot = [] spawn {
 adv_undercover_scriptevh_inVeh = [] spawn {
 	while {true} do {
 		waitUntil { sleep 2; !((vehicle player) isEqualTo player) };
-		[player, vehicle player] call adv_undercover_scriptfnc_switch_inVeh;
+		[player, vehicle player] spawn adv_undercover_scriptfnc_switch_inVeh;
 		waitUntil { sleep 2; (vehicle player) isEqualTo player };
-		[player, player] call adv_undercover_scriptfnc_switch_inVeh;
+		[player, player] spawn adv_undercover_scriptfnc_switch_inVeh;
 	};
 };
 
