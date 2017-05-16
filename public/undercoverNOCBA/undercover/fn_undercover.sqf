@@ -1,0 +1,156 @@
+﻿/*
+ * Author: Belbo
+ *
+ * Sets player on captive if he changes to an enemy uniform if param is set to true or additionally if he has no weapon equipped or isn't seated in an armed vehicle if set to false.
+ * The player will be uncovered if he comes closer than 8 meters to an enemy unit.
+ *
+ * Arguments:
+ * 0: Should only wearing an enemy uniform (vanilla/apex only) hide the player or should switching to no weapon make you captive? - <BOOL>
+ *
+ * Return Value:
+ * Function executed - <BOOL>
+ *
+ * Example:
+ * [false] call compile preprocessFileLineNumbers "undercover\fn_undercover.sqf";
+ *
+ * Public: Yes
+ */
+ 
+params [
+	["_uniformsOnly",false,[true]]
+];
+
+adv_fnc_timedHint = compile preprocessFileLineNumbers "undercover\fn_timedHint.sqf";
+adv_fnc_findNearestEnemy = compile preprocessFileLineNumbers "undercover\fn_findNearestEnemy.sqf";
+
+adv_undercover_uniforms_west = [
+	"U_B_COMBATUNIFORM_MCAM","U_B_COMBATUNIFORM_MCAM_TSHIRT","U_B_CTRG_1","U_B_CTRG_2","U_B_CTRG_3"
+	,"U_B_GHILLIESUIT","U_B_HELIPILOTCOVERALLS","U_B_PILOTCOVERALLS","U_B_COMBATUNIFORM_MCAM_VEST","U_B_SURVIVAL_UNIFORM"
+	,"U_I_G_STORY_PROTAGONIST_F","U_B_COMBATUNIFORM_MCAM_WORN","U_B_T_SOLDIER_F","U_B_T_SOLDIER_AR_F","U_B_CTRG_SOLDIER_F"
+	,"U_B_CTRG_SOLDIER_3_F","U_B_CTRG_SOLDIER_2_F","U_B_CTRG_SOLDIER_URB_1_F","U_B_CTRG_SOLDIER_URB_3_F","U_B_CTRG_SOLDIER_URB_2_F"
+	,"U_B_T_SNIPER_F","U_B_T_SOLDIER_SL_F"
+];
+adv_undercover_uniforms_east = [
+	"U_O_COMBATUNIFORM_OCAMO","U_O_COMBATUNIFORM_OUCAMO","U_O_GHILLIESUIT","U_O_OFFICERUNIFORM_OCAMO","U_O_PILOTCOVERALLS","U_O_SPECOPSUNIFORM_OCAMO"
+	,"U_O_T_SOLDIER_F","U_O_T_SNIPER_F","U_O_T_OFFICER_F","U_O_V_SOLDIER_VIPER_F","U_O_V_SOLDIER_VIPER_HEX_F"
+];
+adv_undercover_uniforms_independent = [
+	"U_I_COMBATUNIFORM","U_I_OFFICERUNIFORM","U_I_COMBATUNIFORM_SHORTSLEEVE","U_I_GHILLIESUIT","U_I_HELIPILOTCOVERALLS","U_I_PILOTCOVERALLS"
+	,"U_I_C_SOLDIER_PARA_2_F","U_I_C_SOLDIER_PARA_3_F","U_I_C_SOLDIER_PARA_5_F","U_I_C_SOLDIER_PARA_4_F","U_I_C_SOLDIER_PARA_1_F","U_I_C_SOLDIER_CAMO_F"
+];
+
+adv_undercover_uniforms = call {
+	if (side (group player) isEqualTo west) exitWith {
+		adv_undercover_uniforms_east+adv_undercover_uniforms_independent
+	};
+	if (side (group player) isEqualTo east) exitWith {
+		adv_undercover_uniforms_west+adv_undercover_uniforms_independent
+	};
+	if (side (group player) isEqualTo independent) exitWith {
+		adv_undercover_uniforms_west+adv_undercover_uniforms_east
+	};
+};
+
+adv_undercover_scriptfnc_setCaptive = {
+	params ["_unit","_captive"];
+	if (_captive && !(captive _unit)) then {
+		systemChat "You are now undercover.";
+		["You are now undercover.", 4] call adv_fnc_timedHint;
+	};
+	if (!_captive && (captive _unit)) then {
+		systemChat "You are no longer undercover.";
+		["You are no longer undercover.", 4] call adv_fnc_timedHint;
+	};
+	_unit setCaptive _captive;
+	call {
+		if (!_captive) exitWith {
+			_unit setVariable ["adv_undercover_tooClose",true];
+		};
+		_unit setVariable ["adv_undercover_tooClose",false];
+	};
+};
+
+adv_undercover_scriptfnc_switch_tooclose = {
+	while { !(player getVariable ["adv_undercover_tooClose",false]) } do {
+		waitUntil { sleep 1; ( !isNull ([player,8] call adv_fnc_findNearestEnemy) ) || (player getVariable ["adv_undercover_tooClose",false]) };
+		[player, false] call adv_undercover_scriptfnc_setCaptive;
+	};
+};
+
+adv_undercover_scriptfnc_switch_uniform = {
+	params [
+		["_unit", player, [objNull]]
+	];
+	
+	if ( toUpper (uniform _unit) in adv_undercover_uniforms ) exitWith {
+		[_unit, true] call adv_undercover_scriptfnc_setCaptive;
+		[] spawn adv_undercover_scriptfnc_switch_tooclose;
+	};
+	
+	[_unit, false] call adv_undercover_scriptfnc_setCaptive;
+};
+
+adv_undercover_scriptevh_uniform = [] spawn {
+	while {true} do {
+		waitUntil { sleep 1; toUpper (uniform player) in adv_undercover_uniforms };
+		[player] call adv_undercover_scriptfnc_switch_uniform;
+		waitUntil { sleep 1; !(toUpper (uniform player) in adv_undercover_uniforms) };
+		[player] call adv_undercover_scriptfnc_switch_uniform;
+	};
+};
+
+if (_uniformsOnly) exitWith {true};
+
+private _weapon = currentWeapon player;
+if (_weapon isEqualTo "" || _weapon isEqualTo (binocular player)) then {
+	player setCaptive true;
+};
+adv_undercover_scriptfnc_switch_onFoot = {
+	params [
+		["_unit", player, [objNull]]
+		,["_weapon", currentWeapon player, [""]]
+	];
+	if ( _weapon isEqualTo (binocular _unit) ) exitWith {};
+	if ( toUpper (uniform _unit) in adv_undercover_uniforms ) exitWith {};
+	
+	private _nextEnemy = [_unit,60] call adv_fnc_findNearestEnemy;
+	private _enemyInRadius = [_unit,400] call adv_fnc_findNearestEnemy;
+	
+	if ( _weapon isEqualTo "" && _nextEnemy distance _unit > 50 && _enemyInRadius knowsAbout _unit < 1.5 ) exitWith {
+		[_unit, true] call adv_undercover_scriptfnc_setCaptive;
+		[] spawn adv_undercover_scriptfnc_switch_tooclose;
+	};
+	
+	[_unit, false] call adv_undercover_scriptfnc_setCaptive;
+};
+
+adv_undercover_scriptfnc_switch_inVeh = {
+	params [
+		["_unit", player, [objNull]]
+		,["_veh", vehicle player, [objNull]]
+	];
+	
+	if ( (_veh currentWeaponTurret [-1]) isEqualTo "" && (_veh currentWeaponTurret [0]) isEqualTo "" ) exitWith {};
+	
+	[_unit, false] call adv_undercover_scriptfnc_setCaptive;
+};
+
+adv_undercover_scriptevh_onFoot = [] spawn {
+	while {true} do {
+		waitUntil { sleep 2; (currentWeapon player) isEqualTo "" || (currentWeapon player) isEqualTo (binocular player) };
+		[player, currentWeapon player] call adv_undercover_scriptfnc_switch_onFoot;
+		waitUntil { sleep 2; !((currentWeapon player) isEqualTo "" || (currentWeapon player) isEqualTo (binocular player)) };
+		[player, currentWeapon player] call adv_undercover_scriptfnc_switch_onFoot;
+	};
+};
+
+adv_undercover_scriptevh_inVeh = [] spawn {
+	while {true} do {
+		waitUntil { sleep 2; !((vehicle player) isEqualTo player) };
+		[player, vehicle player] call adv_undercover_scriptfnc_switch_inVeh;
+		waitUntil { sleep 2; (vehicle player) isEqualTo player };
+		[player, vehicle player] call call adv_undercover_scriptfnc_switch_inVeh;
+	};
+};
+
+true;
