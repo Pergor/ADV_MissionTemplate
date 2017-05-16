@@ -17,7 +17,7 @@
  */
  
 params [
-	["_uniformsOnly",true,[true]]
+	["_uniformsOnly",false,[true]]
 ];
 
 adv_fnc_timedHint = compile preprocessFileLineNumbers "undercover\fn_timedHint.sqf";
