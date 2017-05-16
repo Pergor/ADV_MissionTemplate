@@ -86,6 +86,7 @@ private _ace_repairLocation = switch ( missionNamespace getVariable ["ace_repair
 			<br/><br/>- Reparatur nur für Pioniere und Logistiker mit Werkzeugkasten.
 			<br/>- Vollständige Reparatur ist für Pioniere und Logistiker ") + _ace_repairLocation + (" moglich.
 			<br/>- Bei Sprengmittelentschärfung besteht auch durch Pioniere ein Restrisiko.
+			<br/><br/>- Der SIDE-Channel steht nur Zugführern, der COMMAND-Channel nur Zugführern, Gruppenführern, Piloten und Aufklärern zur Verfügung.
 			<br/><br/>- Wenn ihr technische Schwierigkeiten habt, schreibt bitte ausschließlich den Spiel-Admin an (rotes Icon im TS).
 			<br/>- Bitte haltet euch zurück mit out-of-character-Gesprächen. Die anderen Spielerinnen und Spieler werden es euch danken.")]
 ] call FHQ_TT_addBriefing;

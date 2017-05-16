@@ -66,7 +66,7 @@ call {
 		[[0],false] call adv_fnc_enableChannels;
 		[[1,2],true] call adv_fnc_enableChannels;
 	};
-	if ( ["LEADER", (str _unit) ] call BIS_fnc_inString ) exitWith {
+	if ( ["LEADER", (str _unit) ] call BIS_fnc_inString || ["PILOT", (str _unit) ] call BIS_fnc_inString  || ["SNIPER", (str _unit) ] call BIS_fnc_inString  || ["SPOTTER", (str _unit) ] call BIS_fnc_inString ) exitWith {
 		[[0,1],false] call adv_fnc_enableChannels;
 		[[2],true] call adv_fnc_enableChannels;
 	};
