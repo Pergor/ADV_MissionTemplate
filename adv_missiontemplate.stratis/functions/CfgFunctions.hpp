@@ -111,6 +111,7 @@ class adv
 		class changeName {};
 		class changeUnit {};
 		class dispLaunch {};
+		class enableChannels {};
 		class findInGroup {};
 		class flag {};
 		class fullHeal {};

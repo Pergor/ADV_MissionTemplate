@@ -30,6 +30,10 @@ if (!isServer) then {
 
 //waitUntil-player is initialized:
 waitUntil {player == player && !isNil "ADV_params_defined"};
+//disable channels (description.ext seems not to work correctly in that regard):
+[[1,3,4,5],true] call adv_fnc_enableChannels;
+[[0,2],false] call adv_fnc_enableChannels;
+//remove radio:
 if ( (missionNamespace getVariable ["adv_par_customLoad",1]) > 0 ) then {
 	player unlinkItem "ItemRadio";
 };

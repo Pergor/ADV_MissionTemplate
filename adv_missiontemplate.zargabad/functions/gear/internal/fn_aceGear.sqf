@@ -54,7 +54,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_tagging") && !isNil "_ACE_sprayP
 		case "RANDOM": { selectRandom ["ACE_sprayPaintBlack","ACE_sprayPaintBlue","ACE_sprayPaintGreen","ACE_sprayPaintRed"] };
 		default {""};
 	};
-	if !(_ACE_sprayPaint_type == "") then { _unit addItem _ACE_sprayPaint_type; };
+	if !(_ACE_sprayPaint_type isEqualTo "") then { _unit addItem _ACE_sprayPaint_type; };
 };
 if ( isClass(configFile >> "CfgPatches" >> "ACE_captives") && !isNil "_ACE_CableTie" ) then {
 	for "_i" from 1 to _ACE_CableTie do { _unit addItem "ACE_CableTie"; };
@@ -89,7 +89,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_Parachute") && !isNil "_ACE_Alti
 	if (_ACE_Altimeter > 0) then { _unit linkItem "ACE_Altimeter"; };
 };
 if ( isClass(configFile >> "CfgPatches" >> "ACE_Grenades") ) then {
-	if ( ( !(side (group _unit) == east) && _par_NVGs == 1 ) || (side (group _unit) == east && _par_opfNVGs == 1) ) then {
+	if ( ( !(side (group _unit) isEqualTo east) && _par_NVGs isEqualTo 1 ) || (side (group _unit) isEqualTo east && _par_opfNVGs isEqualTo 1) ) then {
 		_unit addMagazines ["ACE_HandFlare_Green", _ACE_HandFlare_Green];
 		_unit addMagazines ["ACE_HandFlare_Red", _ACE_HandFlare_Red];
 		_unit addMagazines ["ACE_HandFlare_White", _ACE_HandFlare_White];
@@ -103,7 +103,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_vehiclelock") && !isNil "_ACE_ke
 		case 3: {"ACE_key_lockpick"};
 		default {""};
 	};
-	if ( _ACE_key == 1 ) then {
+	if ( _ACE_key isEqualTo 1 ) then {
 		_ACE_key_type = switch (side (group _unit)) do {
 			case west: {"ACE_key_west"};
 			case east: {"ACE_key_east"};
@@ -121,7 +121,7 @@ if ( isClass (configFile >> "CfgPatches" >> "ACE_huntir") && !isNil "_ACE_HuntIR
 		_unit addMagazines ["ACE_HuntIR_M203",_ACE_HuntIR];
 	};
 };
-if ( ( !(side (group _unit) == east) && _par_NVGs == 2) || (side (group _unit) == east && _par_opfNVGs == 2) ) then {
+if ( ( !(side (group _unit) isEqualTo east) && _par_NVGs isEqualTo 2) || (side (group _unit) isEqualTo east && _par_opfNVGs isEqualTo 2) ) then {
 	if ( isClass (configFile >> "CfgPatches" >> "ACE_attach") && !isNil "_IRgrenade" ) then {
 		for "_i" from 1 to _IRgrenade do {_unit addItem "ACE_IR_Strobe_Item";};
 	};
@@ -140,19 +140,19 @@ if ( ( !(side (group _unit) == east) && _par_NVGs == 2) || (side (group _unit) =
 			nil;
 		} count _NVGoggles;
 	};
-	if ( isClass(configFile >> "CfgPatches" >> "ACE_Vector") && _binocular == "Rangefinder" ) then {
+	if ( isClass(configFile >> "CfgPatches" >> "ACE_Vector") && (toUpper _binocular) isEqualTo "RANGEFINDER" ) then {
 		[_unit,"ACE_Vector",1] call BIS_fnc_addWeapon;
 	};
 } else {
-	if ( isClass(configFile >> "CfgPatches" >> "ACE_Vector") && _binocular == "Rangefinder" ) then {
+	if ( isClass(configFile >> "CfgPatches" >> "ACE_Vector") && (toUpper _binocular) isEqualTo "RANGEFINDER" ) then {
 		[_unit,"ACE_VectorDay",1] call BIS_fnc_addWeapon;
 	};
 };
-if ( isClass(configFile >> "CfgPatches" >> "ACE_mx2a") && _par_TIEquipment == 0 && !isNil "_ACE_MX2A") then {
+if ( isClass(configFile >> "CfgPatches" >> "ACE_mx2a") && _par_TIEquipment isEqualTo 0 && !isNil "_ACE_MX2A") then {
 	if (_ACE_MX2A > 0) then { [_unit,"ACE_MX2A",1] call BIS_fnc_addWeapon; };
 };
 if ( isClass(configFile >> "CfgPatches" >> "ACE_flashlights") && !isNil "_ACE_flashlight") then {
-	if ( _ACE_flashlight > 0 && ( (!(side (group _unit) == east) && _par_NVGs > 0 ) || (side (group _unit) == east && _par_opfNVGs > 0) ) ) then {
+	if ( _ACE_flashlight > 0 && ( (!(side (group _unit) isEqualTo east) && _par_NVGs > 0 ) || (side (group _unit) isEqualTo east && _par_opfNVGs > 0) ) ) then {
 		_flashlight = ["ACE_Flashlight_MX991","ACE_Flashlight_KSF1","ACE_Flashlight_XL50"] call BIS_fnc_selectRandom;
 		_unit addItem _flashlight;
 	};

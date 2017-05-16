@@ -52,6 +52,27 @@ private _disposableLaunchers = [];
 if ( isClass(configFile >> "CfgPatches" >> "ACE_disposable") ) then { _disposableLaunchers pushBack "LAUNCH_NLAW_F"; };
 _disposableLaunchers append ["BWA3_PZF3","BWA3_RGW90","STI_M136","CUP_LAUNCH_M136","RHS_WEAP_M136","RHS_WEAP_M136_HEDP","RHS_WEAP_M136_HP","RHS_WEAP_M72A7","RHS_WEAP_RPG26","RHS_WEAP_RSHG2","RHS_WEAP_RPG18"];
 
+if ( [_unit,"command"] call adv_fnc_findInGroup ) then {
+	if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") ) then {
+		_giveRiflemanRadio = false;
+		if !(_givePersonalRadio) then { _givePersonalRadio = true; };
+	};
+	if !(_androidDevice) then { _androidDevice = true; };
+	if (_microDAGR) then { _microDAGR = false; };
+	if (_ACE_key isEqualTo 0) then {_ACE_key = 1;};
+};
+call {
+	if ( [_unit,"command"] call adv_fnc_findInGroup ) exitWith {
+		[[0],false] call adv_fnc_enableChannels;
+		[[1,2],true] call adv_fnc_enableChannels;
+	};
+	if ( ["LEADER", (str _unit) ] call BIS_fnc_inString ) exitWith {
+		[[0,1],false] call adv_fnc_enableChannels;
+		[[2],true] call adv_fnc_enableChannels;
+	};
+	[[0,1,2],false] call adv_fnc_enableChannels;
+};
+
 if ( toUpper ([(str _unit),(count str _unit)-5] call BIS_fnc_trimString) isEqualTo "RECON" ) then {
 	_unitTraits = [["medic",true],["engineer",true],["explosiveSpecialist",true],["UAVHacker",true],["camouflageCoef",1.5],["audibleCoef",0.5],["loadCoef",0.9]];
 	_par_Silencers = 2;
@@ -64,6 +85,8 @@ if ( toUpper ([(str _unit),(count str _unit)-5] call BIS_fnc_trimString) isEqual
 	_ACE_isEOD = true;
 	_androidDevice = true;
 	_microDAGR = false;
+	[[0,1],false] call adv_fnc_enableChannels;
+	[[2],true] call adv_fnc_enableChannels;
 };
 
 //removals:
@@ -282,6 +305,7 @@ if ( str _unit in ["z1","z2","z3","z4","z5","opf_z1","opf_z2","opf_z3","opf_z4",
 	if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
 		["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;
 	};
+	[[0,1,2,3,4,5],true] call adv_fnc_enableChannels;
 };
 
 if ( toUpper ([(str _unit),(count str _unit)-5] call BIS_fnc_trimString) isEqualTo "RECON" ) then {

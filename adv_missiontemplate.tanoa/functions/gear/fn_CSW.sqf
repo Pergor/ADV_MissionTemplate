@@ -73,7 +73,7 @@ switch (side (group _target)) do {
 };
 
 if ( isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) then {
-	if !(side (group _target) == east) then {
+	if !(side (group _target) isEqualTo east) then {
 		_backpack = switch ( _type ) do {
 			case 1: {"RHS_M2_Gun_Bag"};
 			case 2: {"RHS_M2_MiniTripod_Bag"};
@@ -86,7 +86,7 @@ if ( isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) then {
 	};
 };
 if ( isClass(configFile >> "CfgPatches" >> "rhs_main") ) then {
-	if ( _par_opfWeap > 0 && (side (group _target) == east) ) then {
+	if ( _par_opfWeap > 0 && (side (group _target) isEqualTo east) ) then {
 		_backpack = switch ( _type ) do {
 			case 1: {"RHS_Kord_Gun_Bag"};
 			case 2: {"RHS_Kord_Tripod_Bag"};
@@ -99,9 +99,14 @@ if ( isClass(configFile >> "CfgPatches" >> "rhs_main") ) then {
 	};
 };
 
-if !(backpack _target == "") then { removeBackpack _target; };
-if ( isClass(configFile >> "CfgPatches" >> "ace_mk6mortar") && (_type == 3 || _type == 4) ) then {
+if !(backpack _target isEqualTo "") then { removeBackpack _target; };
+if ( isClass(configFile >> "CfgPatches" >> "ace_mk6mortar") && (_type isEqualTo 3 || _type isEqualTo 4) ) then {
 	_target addItem "ACE_RangeTable_82mm";
+};
+if ( isClass(configFile >> "CfgPatches" >> "ACE_trenches") && !isNil "_ACE_EntrenchingTool" && (_type isEqualTo 3 || _type isEqualTo 4) ) then {
+	if (_ACE_EntrechningTool isEqualTo 0) then {
+		_target addItem "ACE_EntrenchingTool";
+	};
 };
 _target addBackpack _backpack;
 

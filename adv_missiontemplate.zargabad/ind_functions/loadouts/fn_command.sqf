@@ -264,6 +264,7 @@ switch (_par_indUni) do {
 		_uniform = ["U_I_C_Soldier_Camo_F"];
 		_vest = ["V_TacVest_oli","V_I_G_resistanceLeader_F"];
 		_headgear = ["H_Cap_headphones","H_Shemag_olive","H_MilCap_gry","H_MilCap_blue","H_Cap_oli","H_Cap_grn","H_Booniehat_oli","H_Bandanna_khk","","","",""];
+		_binocular = "Binocular";
 		if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
 			_giveRiflemanRadio = true;
 			_givePersonalRadio = false;

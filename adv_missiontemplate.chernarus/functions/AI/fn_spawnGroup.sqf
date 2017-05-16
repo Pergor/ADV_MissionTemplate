@@ -45,26 +45,15 @@ if ( _side isEqualTo civilian ) then { _skill = [0.0,0.0]; };
 private _withVehicles = 0;
 private _vehicles = [];
 {
-	if ( _x isKindOf "LandVehicle" ) then {
+	if ( _x isKindOf "LandVehicle" || _x isKindOf "SeaVehicle" ) then {
 		private _veh = _x;
-		_withVehicles = 1;
 		_units = _units-[_veh];
 		_vehicles pushBack _veh;
-	};
-	if ( _x isKindOf "SeaVehicle" ) then {
-		private _veh = _x;
-		_withVehicles = 2;
-		_units = _units-[_veh];
-		_vehicles pushBack _veh;
+		_withVehicles = if (_x isKindOf "SeaVehicle") then {2} else {1};
+		_start = if (_x isKindOf "SeaVehicle") then {ATLToASL _start} else {_start};
 	};
 	nil;
 } count _units;
-
-call {
-	if (_withVehicles isEqualTo 2) exitWith {
-		_start = ATLToASL _start;
-	};
-};
 
 call {
 	if (_withVehicles isEqualTo 0) exitWith {

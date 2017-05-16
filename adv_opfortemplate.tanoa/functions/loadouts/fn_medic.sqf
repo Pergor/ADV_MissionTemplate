@@ -489,7 +489,6 @@ switch (toUpper ([str _player,0,8] call BIS_fnc_trimString)) do {
 		_binocular = "Rangefinder";
 		_androidDevice = true;
 		_microDAGR = false;
-		_ACE_MapTools = 1;
 	};
 	case "MEDIC_LEA": {
 		_androidDevice = true;
@@ -505,9 +504,6 @@ if ( {[_player,_x] call adv_fnc_inGroup} count ["JUPITER"] > 0 || [_player,"comm
 	_ACE_isMedic = 2;
 	_ACE_personalAidKit = 1;
 	_binocular = "Rangefinder";
-	_androidDevice = true;
-	_microDAGR = false;
-	_ACE_MapTools = 1;
 };
 
 ///// No editing necessary below this line /////
