@@ -66,6 +66,7 @@ call {
 	{
 		private _newVeh = [_start, _heading, _x, _grp] call bis_fnc_spawnVehicle;
 		_start = [(_start select 0)+10, _start select 1, _start select 2];
+		_newVeh setVehicleRadar 0;
 		if !(_vehIsLeader) then {
 			_grp selectLeader (_newVeh select 0);
 			_vehIsLeader = true;

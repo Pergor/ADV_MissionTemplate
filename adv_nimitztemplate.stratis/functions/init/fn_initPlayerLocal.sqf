@@ -199,12 +199,6 @@ adv_evh_preloadFinished = ["adv_preloadFinished_hints", "onPreloadFinished" , {
 
 waitUntil {adv_var_preloadFinished};
 
-//the view distance is updated to the saved variables:
-0 spawn {
-	waitUntil {!isNil "tawvd_foot" && !isNil "tawvd_air" && !isNil "tawvd_car" && !isNil "tawvd_drone"};
-	[] call TAWVD_fnc_updateViewDistance;
-};
-
 //titletext:
 sleep 4;
 titleText ["", "BLACK FADED",0];

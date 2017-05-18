@@ -25,15 +25,22 @@ _this spawn {
 		["_unit", player,[objNull]],
 		["_targetPos", [0,0,0], [[]]]
 	];
+	
+	private _enableUserInput = {
+		disableUserInput false;
+		disableUserInput true;
+		disableUserInput false;
+	};
 
 	if (!local _unit) exitWith {};
+	disableUserInput true;
 
 	//has the unit had a backpack?
 	_unit setVariable ["adv_var_parajump_backpack", backpack _unit];
 	_unit setVariable ["adv_var_parajump_backpackItems", backpackItems _unit];
-	if !((_unit getVariable "adv_var_parajump_backpack") == "") then {
+	if !((_unit getVariable "adv_var_parajump_backpack") isEqualTo "") then {
 		//removeBackpack _unit;
-		_gwh = "Weapon_Empty" createVehicle [0,0,0]; 
+		_gwh = "GroundWeaponHolder_Scripted" createVehicleLocal [0,0,0]; 
 		_unit setVariable ["adv_var_parajump_gwh", _gwh];
 		_unit action ["DropBag", _gwh, backpack _unit];
 		systemChat "Backpack saved. Wait after landing for it to be readded!";
@@ -51,6 +58,7 @@ _this spawn {
 	_target = [(_targetPos select 0)+(20+(random 10)), (_targetPos select 1)+(20+(random 10)), _startingHeight];
 	_unit setPos _target;
 	_unit allowDamage false;
+	call _enableUserInput;
 	_openingHeight =  if ( _openingHeight < 119 ) then { 120 } else { _openingHeight };
 
 	//safety:
@@ -58,7 +66,7 @@ _this spawn {
 	_unit moveTo _targetPos;
 	waitUntil {((getPos _unit) select 2) < _openingHeight};
 	if (isClass(configFile >> "CfgPatches" >> "ace_parachute")) then {
-		if !(backpack _unit == "ACE_ReserveParachute") then {
+		if !(toUpper (backpack _unit) isEqualTo "ACE_RESERVEPARACHUTE") then {
 			_unit action ["openParachute", _unit];
 		};
 	} else {
@@ -70,13 +78,14 @@ _this spawn {
 	_unit setVariable ["ACE_GForceCoef", _ACE_GForceCoef];
 
 	//removal of the parachute:
-	waitUntil {sleep 1; isTouchingGround _unit && !underWater _unit && ((getPosATL _unit) select 2) < 1 };
+	waitUntil {isTouchingGround _unit && !underWater _unit && ((getPosATL _unit) select 2) < 1 };
+	disableUserInput true;
 	if !(isClass(configFile >> "CfgPatches" >> "ace_parachute")) then { _unit playMove "AinvPercMstpSrasWrflDnon_Putdown_AmovPercMstpSrasWrflDnon"; };
 	sleep 1;
 	_unit action ["PutBag"];
 	sleep 1;
 	//and readding the old one:
-	if !((_unit getVariable "adv_var_parajump_backpack") == "") then {
+	if !((_unit getVariable "adv_var_parajump_backpack") isEqualTo "") then {
 		/*
 		_unit addBackpackGlobal (_unit getVariable "adv_var_parajump_backpack");
 		{ (backpackContainer _unit) addItemCargoGlobal [_x,1] } count (_unit getVariable "adv_var_parajump_backpackItems");
@@ -88,5 +97,7 @@ _this spawn {
 		deleteVehicle (_unit getVariable "adv_var_parajump_gwh");
 		systemChat "Backpack readded.";
 	};
+	sleep 1;
+	call _enableUserInput;
 };
 true;

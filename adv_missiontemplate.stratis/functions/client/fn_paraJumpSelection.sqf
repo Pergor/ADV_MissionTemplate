@@ -19,7 +19,7 @@ params [
 	["_unit",player,[objNull]]
 ];
 
-if (_unit == leader group _unit) then {
+if (_unit isEqualTo leader group _unit) then {
 	openmap true;
 	[_unit] onMapSingleClick "openmap false; { [_x,[(_pos select 0)+20+(random 20),(_pos select 1)+20+(random 20),(_pos select 2)+10+(random 10)]] remoteExec ['ADV_fnc_paraJump',0]; nil;} count (units (group (_this select 0))); onmapsingleclick '';";
 /*

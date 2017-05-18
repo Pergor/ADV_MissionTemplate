@@ -54,6 +54,7 @@ class FSM
        "tawvd_object = profileNamespace getVariable [""tawvd_object"",(getObjectViewDistance select 0)];" \n
        "" \n
        "tawvd_syncObject = false;" \n
+	   "[] call TAWVD_fnc_updateViewDistance;" \n
        "_actionID = player addAction[""<t color='#FF0000'>View Settings</t>"",TAWVD_fnc_openMenu,[],-99,false,false,"""",''];"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
