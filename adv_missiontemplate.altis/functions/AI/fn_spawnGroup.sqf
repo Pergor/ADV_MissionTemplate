@@ -45,12 +45,21 @@ if ( _side isEqualTo civilian ) then { _skill = [0.0,0.0]; };
 private _withVehicles = 0;
 private _vehicles = [];
 {
-	if ( _x isKindOf "LandVehicle" || _x isKindOf "SeaVehicle" ) then {
+	if ( _x isKindOf "LandVehicle" || _x isKindOf "SeaVehicle" || _x isKindOf "AIR" ) then {
 		private _veh = _x;
 		_units = _units-[_veh];
 		_vehicles pushBack _veh;
-		_withVehicles = if (_x isKindOf "SeaVehicle") then {2} else {1};
-		_start = if (_x isKindOf "SeaVehicle") then {ATLToASL _start} else {_start};
+		_withVehicles = call {
+			if (_x isKindOf "SeaVehicle") exitWith {3};
+			if (_x isKindOf "AIR") exitWith {2};
+			if (_x isKindOf "LandVehicle") exitWith {1};
+			_withVehicles
+		};
+		_start = call {
+			if (_x isKindOf "SeaVehicle") exitWith {ATLToASL _start};
+			if (_x isKindOf "AIR") exitWith {[_start select 0, _start select 1, (_start select 2) + 200]};
+			_start
+		};
 	};
 	nil;
 } count _units;
@@ -60,17 +69,21 @@ call {
 		_grp = [_start, _side, _units, [], [], _skill,[],[],_heading] call BIS_fnc_spawnGroup;
 	};
 	
-	private _movedPosition = [_start select 0,(_start select 1)+10,_start select 2];
+	private _movedPosition = [_start select 0,(_start select 1)+10,0];
 	_grp = [_movedPosition, _side, _units, [], [], _skill,[],[],_heading] call BIS_fnc_spawnGroup;
 	private _vehIsLeader = false;
 	{
-		private _newVeh = [_start, _heading, _x, _grp] call bis_fnc_spawnVehicle;
+		private _newVehArray = [_start, _heading, _x, _grp] call bis_fnc_spawnVehicle;
+		_newVehArray params ["_newVeh","_crew","_group"];
 		_start = [(_start select 0)+10, _start select 1, _start select 2];
-		_newVeh setVehicleRadar 0;
 		if !(_vehIsLeader) then {
-			_grp selectLeader (_newVeh select 0);
+			_grp selectLeader _newVeh;
 			_vehIsLeader = true;
 		};
+		if (_newVeh isKindOf "AIR") exitWith {
+			_newVeh setFeatureType 2;
+		};
+		_newVeh setVehicleRadar 0;
 		nil;
 	} count _vehicles;
 	if (_side isEqualTo civilian) then {
