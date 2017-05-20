@@ -799,22 +799,22 @@ class ace_advanced_fatigue_enabled {
     force = 0;
 };
 class ace_advanced_fatigue_performanceFactor {
-    value = 1.2;
+    value = 1.5;
     typeName = "SCALAR";
     force = 0;
 };
 class ace_advanced_fatigue_recoveryFactor {
-    value = 2;
+    value = 1.8;
     typeName = "SCALAR";
     force = 0;
 };
 class ace_advanced_fatigue_loadFactor {
-    value = 0.7;
+    value = 0.9;
     typeName = "SCALAR";
     force = 0;
 };
 class ace_advanced_fatigue_terrainGradientFactor {
-    value = 1;
+    value = 0.9;
     typeName = "SCALAR";
     force = 0;
 };

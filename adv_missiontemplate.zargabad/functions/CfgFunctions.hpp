@@ -101,6 +101,7 @@ class adv
 	class client_internal
 	{
 		file = "functions\client\internal";
+		class adminCommands {};
 		class dialogTeleport {};
 		class execTeleport {};
 		class moveRespMarker {};

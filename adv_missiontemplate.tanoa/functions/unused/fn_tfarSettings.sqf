@@ -61,7 +61,7 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	_settingsSREast = false call TFAR_fnc_generateSRSettings;
 	_settingsLrEast = false call TFAR_fnc_generateLrSettings;
 	
-	_settingsSRGuer = false call TFAR_fnc_generateSwSettings;
+	_settingsSRGuer = false call TFAR_fnc_generateSRSettings;
 	_settingsLrGuer = false call TFAR_fnc_generateLrSettings;
 	
 	_settingsSRWest set [2, _defaultFrequencies_sr_west];

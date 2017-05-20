@@ -88,5 +88,5 @@ class ace_rearm_level
 	ACE_setting = 1;
 	values[] = {0, 1, 2};
 	default = 1;
-	texts[] =  {"Entire vehicle", "Entire Magazine", "Amount based on caliber"};
+	texts[] =  {"Entire vehicle", "Entire magazine", "Amount based on caliber"};
 };

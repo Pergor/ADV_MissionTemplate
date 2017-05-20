@@ -126,19 +126,17 @@ if ( ( !(side (group _unit) isEqualTo east) && _par_NVGs isEqualTo 2) || (side (
 		for "_i" from 1 to _IRgrenade do {_unit addItem "ACE_IR_Strobe_Item";};
 	};
 	if ( isClass (configFile >> "CfgPatches" >> "ACE_nightvision") ) then {
-		ppEffectDestroy ace_nightvision_ppEffectFilmGrain;
 		{
-			if ( (toUpper _x) in ["NVGOGGLES","NVGOGGLES_OPFOR","NVGOGGLES_INDEP"] ) then {
-				_unit unlinkItem _x;
-				_unit removeItems _x;
-				if ( _x in _itemsLink ) then { _unit linkItem "ACE_NVG_Wide"; };
-				if ( _x in _items ) then { _unit addItem "ACE_NVG_Wide"; };
-				if ( _x in _itemsUniform ) then { _unit addItemToBackpack "ACE_NVG_Wide"; };
-				if ( _x in _itemsVest ) then { _unit addItemToVest "ACE_NVG_Wide"; };
-				if ( _x in _itemsBackpack ) then { _unit addItemToUniform "ACE_NVG_Wide"; };
-			};
+			_unit unlinkItem _x;
+			_unit removeItems _x;
+			if ( _x in (_itemsLink apply {toUpper _x;}) ) then { _unit linkItem "ACE_NVG_Wide"; };
+			if ( _x in (_items apply {toUpper _x;}) ) then { _unit addItem "ACE_NVG_Wide"; };
+			if ( _x in (_itemsUniform apply {toUpper _x;}) ) then { _unit addItemToUniform "ACE_NVG_Wide"; };
+			if ( _x in (_itemsVest apply {toUpper _x;}) ) then { _unit addItemToVest "ACE_NVG_Wide"; };
+			if ( _x in (_itemsBackpack apply {toUpper _x;}) ) then { _unit addItemToBackpack "ACE_NVG_Wide"; };
 			nil;
 		} count _NVGoggles;
+		ppEffectDestroy ace_nightvision_ppEffectFilmGrain;
 	};
 	if ( isClass(configFile >> "CfgPatches" >> "ACE_Vector") && (toUpper _binocular) isEqualTo "RANGEFINDER" ) then {
 		[_unit,"ACE_Vector",1] call BIS_fnc_addWeapon;

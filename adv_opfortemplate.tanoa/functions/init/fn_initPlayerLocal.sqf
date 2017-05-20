@@ -199,6 +199,12 @@ adv_evh_preloadFinished = ["adv_preloadFinished_hints", "onPreloadFinished" , {
 
 waitUntil {adv_var_preloadFinished};
 
+if ( serverCommandAvailable "#kick" ) then {
+	if	!( (call BIS_fnc_admin) isEqualTo 1 ) then {
+		call adv_fnc_adminCommands;
+	};
+};
+
 //titletext:
 sleep 4;
 titleText ["", "BLACK FADED",0];

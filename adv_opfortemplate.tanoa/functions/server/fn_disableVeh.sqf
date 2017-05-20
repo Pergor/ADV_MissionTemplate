@@ -25,6 +25,7 @@ if (count _this == 0) exitWith {};
 	if (isClass(configFile >> "CfgPatches" >> "ace_cargo")) then {
 		[_x] call ace_cargo_fnc_handleDestroyed
 	};
+	_veh setFeatureType 0;
 	nil;
 } count _this;
 	

@@ -168,6 +168,9 @@ adv_manageVeh_codeForAll = {
 	if !( (missionNamespace getVariable ["ADV_par_vehicleRespawn",300]) isEqualTo 9999 ) then {
 		[_veh, missionNamespace getVariable ["ADV_par_vehicleRespawn",300] , west] call ADV_fnc_respawnVeh;
 	};
+	if (_veh isKindOf 'AIR') exitWith {
+		//_veh setFeatureType 2;
+	};
 };
 
 //application of code:
