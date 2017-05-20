@@ -71,6 +71,8 @@ Misc. ACE-Settings:<br/>
 
 player createDiaryRecord ["debugMenu",["Server","
 <br/>
+AI-Settings:<br/>
+<br/>
 Zu wem soll GREENFOR verbündet sein?<br/>
 <br/>
 <font color='#A0F020'>
@@ -78,14 +80,22 @@ Zu wem soll GREENFOR verbündet sein?<br/>
 <execute expression='[east setFriend [resistance, 0]] call _remoteExecServer;[resistance setFriend [east, 0]] call _remoteExecServer;[resistance setFriend [west, 1]] call _remoteExecServer;[west setFriend [resistance, 1]] call _remoteExecServer;systemChat ""GREENFOR allied to BLUFOR"";'>BLUFOR</execute><br/>
 <execute expression='[east setFriend [resistance, 1]] call _remoteExecServer;[resistance setFriend [east, 1]] call _remoteExecServer;[resistance setFriend [west, 1]] call _remoteExecServer;[west setFriend [resistance, 1]] call _remoteExecServer;systemChat ""GREENFOR allied to ALL"";'>ALL</execute><br/>
 <execute expression='[east setFriend [resistance, 0]] call _remoteExecServer;[resistance setFriend [east, 0]] call _remoteExecServer;[resistance setFriend [west, 0]] call _remoteExecServer;[west setFriend [resistance, 0]] call _remoteExecServer;systemChat ""GREENFOR allied to NONE"";'>NONE</execute><br/>
+</font>
+<br/>
+-----------------------------
+<br/>
+Sonstige Server-Funktionen:<br/>
+<br/>
+<font color='#A0F020'>
+<execute expression='[[98] call adv_fnc_weather] call _remoteExecGlobal;systemChat ""Zufälliges Wetter eingestellt."";'>Zufälliges, konstantes Wetter einstellen (wechselt ohne Übergang!)</execute><br/>
 </font>"]];
 
 player createDiaryRecord ["debugMenu",["Ausrüstung","
 <br/>
 Loadout-Variables:<br/>
 <br/>
-Hier eingestellte Loadout-Variablen haben erst durch Neuausgabe der Ausrüstung einen Effekt.
-<br/><br/>
+Hier eingestellte Loadout-Variablen haben erst durch Neuausgabe der Ausrüstung einen Effekt.<br/>
+<br/>
 <font color='#A0F020'>
 <execute expression='missionNamespace setVariable [""adv_par_optics"",1,true];missionNamespace setVariable [""adv_par_opfOptics"",1,true];systemChat ""Scopes enabled."";'>Enable Scopes</execute><br/>
 <execute expression='missionNamespace setVariable [""adv_par_optics"",0,true];missionNamespace setVariable [""adv_par_opfOptics"",0,true];systemChat ""Scopes disabled."";'>Disable Scopes</execute><br/>
