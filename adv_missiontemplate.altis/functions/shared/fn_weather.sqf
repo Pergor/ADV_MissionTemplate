@@ -24,6 +24,7 @@ params [
 
 _handle = [_parWeather] spawn {
 	params ["_weather"];
+	if (_weather isEqualTo 99) exitWith {};
 	_randomWeathers = [1,2,2,2,3,3,4,5,6,7,8,9];
 	//_weatherValue = if (_weather == 98) then { (floor (random 9))+1 } else { _weather };
 	_weatherValue = if (_weather isEqualTo 98) then { selectRandom _randomWeathers } else { _weather };
