@@ -8,14 +8,14 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=132;
+		nextID=133;
 	};
 	class Camera
 	{
-		pos[]={5330.3179,26.341576,46.316875};
-		dir[]={-0.89968795,-0.37966561,-0.21575257};
-		up[]={-0.36927262,0.92508745,-0.088553675};
-		aside[]={-0.23321231,-4.262256e-007,0.97249913};
+		pos[]={7090.1323,33.817623,5939.9443};
+		dir[]={0.075859301,-0.64412355,0.7611534};
+		up[]={0.063879237,0.76492053,0.64094901};
+		aside[]={0.99507183,-1.9557774e-008,-0.099172346};
 	};
 };
 binarizationWanted=0;
@@ -110,7 +110,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=66;
+		items=67;
 		class Item0
 		{
 			dataType="Marker";
@@ -3680,6 +3680,21 @@ class Mission
 				};
 				nAttributes=5;
 			};
+		};
+		class Item66
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7092.502,7.2915659,5965.5249};
+			};
+			name="HC";
+			init="this allowDamage false;";
+			isPlayable=1;
+			description="Der lustige HC";
+			id=132;
+			type="HeadlessClient_F";
+			atlOffset=0.061154366;
 		};
 	};
 };
