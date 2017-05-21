@@ -18,7 +18,7 @@
 if !( serverCommandAvailable "#kick" ) exitWith { false };
 if ( (call BIS_fnc_admin) isEqualTo 1 ) exitWith { false };
 
-systemChat "ADMIN-COMMANDS has been added to the briefing.";
+systemChat "ADMIN-COMMANDS have been added to the briefing.";
 
 private _remoteExecServer = {
 	params ["_function"];

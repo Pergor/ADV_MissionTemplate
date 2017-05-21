@@ -169,6 +169,7 @@ adv_ind_manageVeh_codeForAll = {
 		[_veh,ADV_par_vehicleRespawn, independent] call ADV_fnc_respawnVeh;
 	};
 	if (_veh isKindOf 'AIR') then {
+		_veh setCollisionLight true;
 		if (_veh isKindOf 'PLANE') then {
 			_veh setFeatureType 2;
 		};
