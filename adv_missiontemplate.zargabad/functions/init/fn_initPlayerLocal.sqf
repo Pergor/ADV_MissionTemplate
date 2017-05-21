@@ -171,7 +171,7 @@ call {
 			player setDir (getDir respawn_helper_east);
 		}];
 	};
-	if ( side (group player) == independent && !isNil "respawn_helper_independent" ) exitWith {
+	if ( side (group player) isEqualTo independent && !isNil "respawn_helper_independent" ) exitWith {
 		adv_evh_respawnMover = player addEventhandler ["RESPAWN",{
 			player setPosATL (getPosATL respawn_helper_independent);
 			player setDir (getDir respawn_helper_independent);

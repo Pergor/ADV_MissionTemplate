@@ -22,7 +22,7 @@ params [
 	["_vehicleType", [""], [[]]]
 	,["_newVehs", [""], [[]]]
 ];
-if (count _vehicleType == 0) exitWith {};
+if (count _vehicleType isEqualTo 0) exitWith {};
 
 {
 	if (isNil _x) exitWith {};
@@ -40,7 +40,7 @@ if (count _vehicleType == 0) exitWith {};
 		{deleteVehicle _vehObj} count attachedObjects _vehObj;
 		deleteVehicle _vehObj;
 		sleep 1;
-		if (_newVehType == "") exitWith {}; 
+		if (_newVehType isEqualTo "") exitWith {}; 
 		private _veh = createVehicle [_newVehType, _pos, [], 0, "NONE"];
 		if ( isNull _veh ) exitWith { diag_log format ["The vehicle class %1 doesn't exist anymore. adv_fnc_changeVeh can't work.",_newVehType]; };
 		_veh allowDamage false;

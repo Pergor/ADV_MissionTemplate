@@ -137,7 +137,13 @@ switch ( _side ) do {
 if (isClass(configFile >> "CfgPatches" >> "ace_medical")) then {
 	ADV_logistic_crateTypeMedic="ACE_medicalSupplyCrate_advanced";
 };
-ADV_logistic_locationCrateLarge = format ["ADV_%1locationCrateLarge",ADV_logistic_var_sidePrefix];
+private _crateLargePos = format ["ADV_%1locationCrateLarge",ADV_logistic_var_sidePrefix];
+private _locationCrateLarge = call {
+	if !(isNull (missionNamespace getVariable _crateLargePos)) exitWith {
+		getPosATL (missionNamespace getVariable _crateLargePos);
+	};
+	getMarkerPos _crateLargePos;
+};
 
 if !(_forcePlacement) then {
 	switch ( toUpper (_crateSelection) ) do {
@@ -258,8 +264,9 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 	};
 	switch ( toUpper (_crateSelection) ) do {
 		case "ADV_LOGISTIC_CRATELARGE": {
-			{deleteVehicle _x} count (nearestObjects [(getMarkerPos ADV_logistic_locationCrateLarge), ["ReammoBox_F"], 5]);
-			[ADV_logistic_crateTypeLarge, getMarkerPos ADV_logistic_locationCrateLarge, ADV_logistic_var_sidePrefix] spawn {
+			if (_locationCrateLarge isEqualTo [0,0,0]) exitWith {false};
+			{deleteVehicle _x} count (nearestObjects [_locationCrateLarge, ["ReammoBox_F"], 8, true]);
+			[ADV_logistic_crateTypeLarge, _locationCrateLarge, ADV_logistic_var_sidePrefix] spawn {
 				params [
 					["_type", "", [""]]
 					,["_location", [0,0,0], [[]]]
@@ -268,6 +275,7 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 				sleep 1;
 				_box = createVehicle [_type,_location,[],0,"CAN_COLLIDE"];
 				_box allowDamage false;
+				_box setPosATL _location;
 				[_box] call ADV_fnc_clearCargo;
 				if ( missionNamespace getVariable ["adv_par_customLoad",1] isEqualTo 1 ) then {
 					[_box] remoteExec ["adv_fnc_gearsaving",0,true];
@@ -350,10 +358,10 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 			};
 		};
 		case "ADV_LOGISTIC_CRATEDELETE": {
-			{deleteVehicle _x} count (nearestObjects [player, ["ReammoBox_F"], 3]);
+			{deleteVehicle _x} count (nearestObjects [player, ["ReammoBox_F"], 3,true]);
 			if (isClass(configFile >> "CfgPatches" >> "ace_repair")) then {
-				{deleteVehicle _x} count (nearestObjects [player, ["ACE_Wheel"], 3]);
-				{deleteVehicle _x} count (nearestObjects [player, ["ACE_Track"], 3]);
+				{deleteVehicle _x} count (nearestObjects [player, ["ACE_Wheel"], 3, true]);
+				{deleteVehicle _x} count (nearestObjects [player, ["ACE_Track"], 3, true]);
 			};
 			_box = false;
 		};	

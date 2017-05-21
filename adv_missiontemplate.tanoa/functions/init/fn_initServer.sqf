@@ -83,13 +83,31 @@ adv_evh_emptyGroupsDeleter = addMissionEventHandler ["EntityKilled",{_grp = grou
 
 //spawns large crate right at the beginning:
 if ( (missionNamespace getVariable ["ADV_par_logisticTeam",1]) > 1 ) then {
-	if !(getMarkerPos "ADV_locationCrateLarge" isEqualTo [0,0,0]) then {
+	private _locationCrateLarge = call {
+		if !( isNull (missionNamespace getVariable ["ADV_locationCrateLarge",objNull]) ) exitWith {
+			getPosATL (missionNamespace getVariable "ADV_locationCrateLarge");
+		};
+		getMarkerPos "ADV_locationCrateLarge";
+	};
+	private _ind_locationCrateLarge = call {
+		if !(isNull (missionNamespace getVariable ["ADV_ind_locationCrateLarge",objNull])) exitWith {
+			getPosATL (missionNamespace getVariable "ADV_ind_locationCrateLarge");
+		};
+		getMarkerPos "ADV_ind_locationCrateLarge";
+	};
+	private _opf_locationCrateLarge = call {
+		if !( isNull (missionNamespace getVariable ["ADV_opf_locationCrateLarge",objNull]) ) exitWith {
+			getPosATL (missionNamespace getVariable "ADV_locationCrateLarge");
+		};
+		getMarkerPos "ADV_opf_locationCrateLarge";
+	};
+	if !(_locationCrateLarge isEqualTo [0,0,0]) then {
 		["ADV_LOGISTIC_CRATELARGE",true,west] call adv_fnc_dialogLogistic;
 	};
-	if !(getMarkerPos "ADV_ind_locationCrateLarge" isEqualTo [0,0,0]) then {
+	if !(_ind_locationCrateLarge isEqualTo [0,0,0]) then {
 		["ADV_LOGISTIC_CRATELARGE",true,independent] call adv_fnc_dialogLogistic;
 	};
-	if !(getMarkerPos "ADV_opf_locationCrateLarge" isEqualTo [0,0,0]) then {
+	if !(_opf_locationCrateLarge isEqualTo [0,0,0]) then {
 		["ADV_LOGISTIC_CRATELARGE",true,east] call adv_fnc_dialogLogistic;
 	};
 };

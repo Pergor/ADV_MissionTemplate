@@ -128,6 +128,7 @@ class adv
 		class teleport {};
 		class timedHint {};
 		class undercover {};
+		class vtolAction {};
 	};
 	class gear_internal
 	{
