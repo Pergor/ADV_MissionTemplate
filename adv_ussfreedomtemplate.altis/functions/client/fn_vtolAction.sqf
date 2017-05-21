@@ -33,8 +33,8 @@ if (_target isKindOf 'B_T_VTOL_01_vehicle_F') exitWith {
 			_target say3D "AlarmCar";
 			[[str _target],["B_T_VTOL_01_infantry_F"],west] remoteExec ["adv_fnc_changeVeh",2];
 			sleep 2;
-			systemChat "Sitze eingebaut";
-			["Sitze eingebaut",5] call adv_fnc_timedHint;
+			systemChat "Sitze eingebaut.";
+			["Sitze eingebaut.",5] call adv_fnc_timedHint;
 		};
 	},nil,50,true,true,"","isTouchingGround _target && count (crew _target) isEqualTo 0"];
 	true;
@@ -54,8 +54,8 @@ if (_target isKindOf 'B_T_VTOL_01_infantry_F') exitWith {
 			_target say3D "AlarmCar";
 			[[str _target],["B_T_VTOL_01_vehicle_F"],west] remoteExec ["adv_fnc_changeVeh",2];
 			sleep 2;
-			systemChat "Sitze ausgebaut";
-			["Sitze ausgebaut",5] call adv_fnc_timedHint;
+			systemChat "Sitze ausgebaut.";
+			["Sitze ausgebaut.",5] call adv_fnc_timedHint;
 		};
 	},nil,50,true,true,"","isTouchingGround _target && count (crew _target) isEqualTo 0"];
 	true;
