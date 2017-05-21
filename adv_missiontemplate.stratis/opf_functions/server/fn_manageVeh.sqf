@@ -170,8 +170,13 @@ adv_opf_manageVeh_codeForAll = {
 	if !( (missionNamespace getVariable ["ADV_par_vehicleRespawn",300]) isEqualTo 9999 ) then {
 		[_veh,ADV_par_vehicleRespawn, east] call ADV_fnc_respawnVeh;
 	};
-	if (_veh isKindOf 'AIR') exitWith {
-		//_veh setFeatureType 2;
+	if (_veh isKindOf 'AIR') then {
+		if (_veh isKindOf 'PLANE') then {
+			_veh setFeatureType 2;
+		};
+		_veh setVehicleReportRemoteTargets true;
+		_veh setVehicleReceiveRemoteTargets true;
+		_veh setVehicleReportOwnPosition true;
 	};
 };
 //application of code:
