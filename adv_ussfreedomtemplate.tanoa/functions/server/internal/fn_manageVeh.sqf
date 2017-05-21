@@ -175,8 +175,14 @@ adv_manageVeh_codeForAll = {
 		_veh setVehicleReportRemoteTargets true;
 		_veh setVehicleReceiveRemoteTargets true;
 		_veh setVehicleReportOwnPosition true;
+		if (_veh isKindOf 'Heli_Transport_03_base_F') then {
+			_veh animateDoor ["door_rear_source",1];
+		};
 		if (_veh isKindOf 'VTOL_01_BASE_F') then {
 			[_veh] remoteExec ["adv_fnc_vtolaction",0,true];
+			if (_veh isKindOf 'B_T_VTOL_01_infantry_F') then {
+				_veh animateDoor ["door_1_source",1];
+			};
 		};
 	};
 };

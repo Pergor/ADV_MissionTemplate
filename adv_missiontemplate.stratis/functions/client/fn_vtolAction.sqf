@@ -19,45 +19,60 @@ params [
 	["_target",objNull,[objNull]]
 ];
 
+if (_target isKindOf 'B_T_VTOL_01_vehicle_F' || _target isKindOf 'B_T_VTOL_01_infantry_F') then {
+	_target setFuel (missionNamespace getVariable ["adv_vtolAction_fuel",fuel _target]);
+	private _hitPoints = (missionNamespace getVariable ["adv_vtolAction_hitPoints",(getAllHitPointsDamage _target) select 0]);
+	private _hitPointDamage = (missionNamespace getVariable ["adv_vtolAction_hitPointsDamage",(getAllHitPointsDamage _target) select 2]);
+	{ _target setHitPointDamage [_x,(_hitPointDamage select _forEachIndex),false]; } forEach _hitPoints;
+	/*
+	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") ) then {
+		private _cargoLoad = (missionNamespace getVariable ["adv_vtolAction_ace_cargo_loaded",_target getVariable ["ace_cargo_loaded",[objNull]]]);
+		{ detach _x; nil; } count _cargoLoad;
+		_target setVariable ["ace_cargo_loaded",[],true];
+		{[_x,_target] call ace_cargo_fnc_loadItem; nil;} count _cargoLoad;
+	};
+	*/
+};
+
+adv_scriptFNC_vtolAction = {
+	params ["_target","_caller","_id","_args"];
+	_args params ["_vehType","_text"];
+	[_target,clientOwner] remoteExec ["setOwner",2];
+	missionNamespace setVariable ["adv_vtolAction_fuel",(fuel _target)];
+	missionNamespace setVariable ["adv_vtolAction_hitPoints",(getAllHitPointsDamage _target) select 0];
+	missionNamespace setVariable ["adv_vtolAction_hitPointsDamage",(getAllHitPointsDamage _target) select 2];
+	/*
+	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") ) then {
+		missionNamespace setVariable [ "adv_vtolAction_ace_cargo_loaded",_target getVariable ["ace_cargo_loaded",[objNull]] ];
+		private _cargoLoad = missionNamespace getVariable "adv_vtolAction_ace_cargo_loaded";
+		{ detach _x; nil; } count _cargoLoad;
+		_target setVariable ["ace_cargo_loaded",[],true];
+	};
+	*/
+	["<t color='#ff0000' size = '.8'>ACHTUNG!<br/>Sicherheitsabstand von mindestens 10 Metern!</t>",-1,0,4,1,0,789] spawn BIS_fnc_dynamicText;
+	_target animateDoor ["door_1_source",1];
+	for "_i" from 1 to 3 do {
+		[_target,["AlarmCar",15]] remoteExecCall ["say3D",0];
+		sleep 2;
+	};
+	[_target,["AlarmCar",15]] remoteExecCall ["say3D",0];
+	[[str _target],[_vehType],west] remoteExec ["adv_fnc_changeVeh",2];
+	sleep 2;
+	systemChat _text;
+	[_text,5] call adv_fnc_timedHint;
+};
+
 if (_target isKindOf 'B_T_VTOL_01_vehicle_F') exitWith {
 	_target addAction [("<t color='#00FF00' size='2' align='center'>" + ("Sitze einbauen") + "</t>"),{
-		_this spawn {
-			params ["_target","_caller","_id","_args"];
-			["<t color='#ff0000' size = '.8'>ACHTUNG!<br/>Sicherheitsabstand von mindestens 10 Metern!</t>",-1,0,4,1,0,789] spawn BIS_fnc_dynamicText;
-			_target say3D "AlarmCar";
-			sleep 2;
-			_target say3D "AlarmCar";
-			sleep 2;
-			_target say3D "AlarmCar";
-			sleep 2;
-			_target say3D "AlarmCar";
-			[[str _target],["B_T_VTOL_01_infantry_F"],west] remoteExec ["adv_fnc_changeVeh",2];
-			sleep 2;
-			systemChat "Sitze eingebaut.";
-			["Sitze eingebaut.",5] call adv_fnc_timedHint;
-		};
-	},nil,50,true,true,"","isTouchingGround _target && count (crew _target) isEqualTo 0"];
+		_this spawn adv_scriptFNC_vtolAction;
+	},["B_T_VTOL_01_infantry_F","Sitze eingebaut."],50,true,true,"","isTouchingGround _target && count (crew _target) isEqualTo 0"];
 	true;
 };
 
 if (_target isKindOf 'B_T_VTOL_01_infantry_F') exitWith {
 	_target addAction [("<t color='#00FF00' size='2' align='center'>" + ("Sitze ausbauen") + "</t>"),{
-		_this spawn {
-			params ["_target","_caller","_id","_args"];
-			["<t color='#ff0000' size = '.8'>ACHTUNG!<br/>Sicherheitsabstand von mindestens 10 Metern!</t>",-1,0,4,1,0,789] spawn BIS_fnc_dynamicText;
-			_target say3D "AlarmCar";
-			sleep 2;
-			_target say3D "AlarmCar";
-			sleep 2;
-			_target say3D "AlarmCar";
-			sleep 2;
-			_target say3D "AlarmCar";
-			[[str _target],["B_T_VTOL_01_vehicle_F"],west] remoteExec ["adv_fnc_changeVeh",2];
-			sleep 2;
-			systemChat "Sitze ausgebaut.";
-			["Sitze ausgebaut.",5] call adv_fnc_timedHint;
-		};
-	},nil,50,true,true,"","isTouchingGround _target && count (crew _target) isEqualTo 0"];
+		_this spawn adv_scriptFNC_vtolAction;
+	},["B_T_VTOL_01_vehicle_F","Sitze ausgebaut."],50,true,true,"","isTouchingGround _target && count (crew _target) isEqualTo 0"];
 	true;
 };
 
