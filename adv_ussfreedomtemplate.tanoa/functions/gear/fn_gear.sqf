@@ -66,7 +66,7 @@ call {
 		[[0],false] call adv_fnc_enableChannels;
 		[[1,2],true] call adv_fnc_enableChannels;
 	};
-	if ( ["LEADER", (str _unit) ] call BIS_fnc_inString || ["PILOT", (str _unit) ] call BIS_fnc_inString  || ["SNIPER", (str _unit) ] call BIS_fnc_inString  || ["SPOTTER", (str _unit) ] call BIS_fnc_inString ) exitWith {
+	if ( ["LEADER", (str _unit) ] call BIS_fnc_inString || ["LEADER", _fnc_scriptNameParent ] call BIS_fnc_inString || ["PILOT", _fnc_scriptNameParent ] call BIS_fnc_inString  || ["SNIPER", _fnc_scriptNameParent ] call BIS_fnc_inString  || ["SPOTTER", _fnc_scriptNameParent ] call BIS_fnc_inString ) exitWith {
 		[[0,1],false] call adv_fnc_enableChannels;
 		[[2],true] call adv_fnc_enableChannels;
 	};
@@ -262,10 +262,33 @@ if (!isNil "_unitTraits") then {
 };
 
 //NVG-Removal:
-if !( ["diver",_unit getVariable ["ADV_var_playerUnit","ADV_fnc_nil"]] call BIS_fnc_inString ) then {
+if !( ["diver",_fnc_scriptNameParent] call BIS_fnc_inString || ["pilot",_fnc_scriptNameParent] call BIS_fnc_inString ) then {
 	if ( ( !(side (group _unit) isEqualTo east) && _par_NVGs < 2 ) || ( side (group _unit) isEqualTo east && _par_opfNVGs < 2 ) ) then {
 		_unit unlinkItem (hmd _unit);
 		{ _unit removeItems _x; } count _NVGoggles;
+	};
+	if ( isClass(configFile >> "CfgPatches" >> "SAN_Headlamp") ) then {
+		if ( ( !(side (group _unit) isEqualTo east) && _par_NVGs isEqualTo 1 ) || ( side (group _unit) isEqualTo east && _par_opfNVGs isEqualTo 1 ) ) then {
+			private _lampHelmets = (missionNamespace getVariable ["SAN_Headlamp_Helmets",[]]) apply {toUpper _x};
+			private _headlamp = call {
+				if ( toUpper (headgear _unit) in _lampHelmets ) exitWith {""};
+				if ( side (group _unit) isEqualTo civilian ) exitWith {""};
+				if ( side (group _unit) isEqualTo independent && _par_indUni isEqualTo 20 ) exitWith {"SAN_Headlamp_v1"};
+				if ( side (group _unit) isEqualTo east && _par_opfUni isEqualTo 6 ) exitWith {""};
+				if ( side (group _unit) isEqualTo east && _par_opfWeap isEqualTo 2 ) exitWith {"SAN_Headlamp_v1"};
+				"SAN_Headlamp_v2"
+			};
+			{
+				_unit unlinkItem _x;
+				_unit removeItems _x;
+				if ( _x in (_itemsLink apply {toUpper _x;}) ) then { _unit linkItem _headlamp; };
+				if ( _x in (_items apply {toUpper _x;}) ) then { _unit addItem _headlamp; };
+				if ( _x in (_itemsUniform apply {toUpper _x;}) ) then { _unit addItemToUniform _headlamp; };
+				if ( _x in (_itemsVest apply {toUpper _x;}) ) then { _unit addItemToVest _headlamp; };
+				if ( _x in (_itemsBackpack apply {toUpper _x;}) ) then { _unit addItemToBackpack _headlamp; };
+				nil;
+			} count _NVGoggles;			
+		};
 	};
 };
 
