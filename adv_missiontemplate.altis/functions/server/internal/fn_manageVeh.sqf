@@ -169,6 +169,9 @@ adv_manageVeh_codeForAll = {
 		[_veh, missionNamespace getVariable ["ADV_par_vehicleRespawn",300] , west] call ADV_fnc_respawnVeh;
 	};
 	if (_veh isKindOf 'AIR') then {
+		_veh setVehicleReportRemoteTargets true;
+		_veh setVehicleReceiveRemoteTargets true;
+		_veh setVehicleReportOwnPosition true;
 		//_veh setFeatureType 2;
 		if (_veh isKindOf 'VTOL_01_BASE_F') then {
 			[_veh] remoteExec ["adv_fnc_vtolaction",0,true];
