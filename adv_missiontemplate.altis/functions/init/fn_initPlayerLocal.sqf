@@ -29,7 +29,7 @@ if (!isServer) then {
 };
 
 //waitUntil-player is initialized:
-waitUntil {player == player && !isNil "ADV_params_defined"};
+waitUntil {player isEqualTo player && !isNil "ADV_params_defined"};
 //disable channels (description.ext seems not to work correctly in that regard):
 [[1,3,4,5],true] call adv_fnc_enableChannels;
 [[0,2],false] call adv_fnc_enableChannels;
@@ -55,6 +55,13 @@ waitUntil {missionNamespace getVariable "bis_fnc_init"};
 if (!isServer) then {
 	call adv_fnc_collectCrates;
 	call adv_fnc_collectFlags;
+};
+
+//add admin commands to briefing screen:
+if ( serverCommandAvailable "#kick" ) then {
+	if	!( (call BIS_fnc_admin) isEqualTo 1 ) then {
+		call adv_fnc_adminCommands;
+	};
 };
 
 //title text:
@@ -198,12 +205,6 @@ adv_evh_preloadFinished = ["adv_preloadFinished_hints", "onPreloadFinished" , {
 }] call BIS_fnc_addStackedEventHandler;
 
 waitUntil {adv_var_preloadFinished};
-
-if ( serverCommandAvailable "#kick" ) then {
-	if	!( (call BIS_fnc_admin) isEqualTo 1 ) then {
-		call adv_fnc_adminCommands;
-	};
-};
 
 //titletext:
 sleep 4;
