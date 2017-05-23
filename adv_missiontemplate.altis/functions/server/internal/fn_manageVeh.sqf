@@ -166,7 +166,7 @@ adv_manageVeh_codeForAll = {
 	[_veh] call adv_fnc_retexture;
 	
 	if !( (missionNamespace getVariable ["ADV_par_vehicleRespawn",300]) isEqualTo 9999 ) then {
-		[_veh, missionNamespace getVariable ["ADV_par_vehicleRespawn",300] , west] call ADV_fnc_respawnVeh;
+		[_veh, missionNamespace getVariable ["ADV_par_vehicleRespawn",300], west] call ADV_fnc_respawnVeh;
 	};
 	if (_veh isKindOf 'AIR') then {
 		_veh setCollisionLight true;
