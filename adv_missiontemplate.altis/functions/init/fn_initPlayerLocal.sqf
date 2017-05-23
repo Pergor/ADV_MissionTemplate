@@ -57,13 +57,6 @@ if (!isServer) then {
 	call adv_fnc_collectFlags;
 };
 
-//add admin commands to briefing screen:
-if ( serverCommandAvailable "#kick" ) then {
-	if	!( (call BIS_fnc_admin) isEqualTo 1 ) then {
-		call adv_fnc_adminCommands;
-	};
-};
-
 //title text:
 titleText ["", "BLACK FADED"];
 titleText [format ["%1 \n\n\nThis mission was built by %2 \n\n\n Have Fun! :)", briefingName, missionNamespace getVariable ["ADV_missionAuthor","[SeL] Belbo // Adrian"]], "BLACK FADED",0];
@@ -205,6 +198,13 @@ adv_evh_preloadFinished = ["adv_preloadFinished_hints", "onPreloadFinished" , {
 }] call BIS_fnc_addStackedEventHandler;
 
 waitUntil {adv_var_preloadFinished};
+
+//add admin commands to briefing screen:
+if ( serverCommandAvailable "#kick" ) then {
+	if	!( (call BIS_fnc_admin) isEqualTo 1 ) then {
+		call adv_fnc_adminCommands;
+	};
+};
 
 //titletext:
 sleep 4;
