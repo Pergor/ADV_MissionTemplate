@@ -18,15 +18,6 @@
 if !( serverCommandAvailable "#kick" ) exitWith { false };
 if ( (call BIS_fnc_admin) isEqualTo 1 ) exitWith { false };
 
-private _remoteExecServer = {
-	params ["_function"];
-	{_function} remoteExec ["bis_fnc_call",2];
-};
-private _remoteExecGlobal = {
-	params ["_function"];
-	{_function} remoteExec ["bis_fnc_call",0];
-};
-
 player createDiarySubject ["debugMenu","ADMIN-COMMANDS"];
 
 player createDiaryRecord ["debugMenu",["ACE-Settings","
@@ -44,7 +35,7 @@ ACE-Medical-Settings:<br/>
 <execute expression='missionNamespace setVariable [""ace_medical_enableUnconsciousnessAI"",0,true];systemChat ""Unconscious AI disabled."";'>Disable Unconscious AI</execute><br/>
 <br/>
 <execute expression='missionNamespace setVariable [""ace_medical_useCondition_PAK"",1,true];systemChat ""Patient needs to be in stable condition for PAK."";'>Patient needs to be in stable condition for PAK</execute><br/>
-<execute expression='missionNamespace setVariable [""ace_medical_useCondition_PAK"",0,true];systemChat ""Patient doesn't need to be in stable condition for PAK"";'>Patient doesn't need to be in stable condition for PAK</execute><br/>
+<execute expression='missionNamespace setVariable [""ace_medical_useCondition_PAK"",0,true];systemChat ""Patient does not need to be in stable condition for PAK."";'>Patient does not need to be in stable condition for PAK</execute><br/>
 </font>
 <br/>
 -----------------------------
@@ -77,10 +68,10 @@ AI-Settings:<br/>
 Zu wem soll GREENFOR verbündet sein?<br/>
 <br/>
 <font color='#A0F020'>
-<execute expression='[east setFriend [resistance, 1]] call _remoteExecServer;[resistance setFriend [east, 1]] call _remoteExecServer;[resistance setFriend [west, 0]] call _remoteExecServer;[west setFriend [resistance, 0]] call _remoteExecServer;systemChat ""GREENFOR allied to OPFOR"";'>OPFOR</execute><br/>
-<execute expression='[east setFriend [resistance, 0]] call _remoteExecServer;[resistance setFriend [east, 0]] call _remoteExecServer;[resistance setFriend [west, 1]] call _remoteExecServer;[west setFriend [resistance, 1]] call _remoteExecServer;systemChat ""GREENFOR allied to BLUFOR"";'>BLUFOR</execute><br/>
-<execute expression='[east setFriend [resistance, 1]] call _remoteExecServer;[resistance setFriend [east, 1]] call _remoteExecServer;[resistance setFriend [west, 1]] call _remoteExecServer;[west setFriend [resistance, 1]] call _remoteExecServer;systemChat ""GREENFOR allied to ALL"";'>ALL</execute><br/>
-<execute expression='[east setFriend [resistance, 0]] call _remoteExecServer;[resistance setFriend [east, 0]] call _remoteExecServer;[resistance setFriend [west, 0]] call _remoteExecServer;[west setFriend [resistance, 0]] call _remoteExecServer;systemChat ""GREENFOR allied to NONE"";'>NONE</execute><br/>
+<execute expression='{east setFriend [resistance, 1]} remoteExec [""bis_fnc_call"",2];{west setFriend [resistance, 0]} remoteExec [""bis_fnc_call"",2];{resistance setFriend [east, 1]} remoteExec [""bis_fnc_call"",2];{resistance setFriend [west, 0]} remoteExec [""bis_fnc_call"",2];systemChat ""GREENFOR allied to OPFOR"";'>OPFOR</execute><br/>
+<execute expression='{east setFriend [resistance, 0]} remoteExec [""bis_fnc_call"",2];{west setFriend [resistance, 1]} remoteExec [""bis_fnc_call"",2];{resistance setFriend [east, 0]} remoteExec [""bis_fnc_call"",2];{resistance setFriend [west, 1]} remoteExec [""bis_fnc_call"",2];systemChat ""GREENFOR allied to BLUFOR"";'>BLUFOR</execute><br/>
+<execute expression='{east setFriend [resistance, 1]} remoteExec [""bis_fnc_call"",2];{west setFriend [resistance, 1]} remoteExec [""bis_fnc_call"",2];{resistance setFriend [east, 1]} remoteExec [""bis_fnc_call"",2];{resistance setFriend [west, 1]} remoteExec [""bis_fnc_call"",2];systemChat ""GREENFOR allied to ALL"";'>ALL</execute><br/>
+<execute expression='{east setFriend [resistance, 0]} remoteExec [""bis_fnc_call"",2];{west setFriend [resistance, 0]} remoteExec [""bis_fnc_call"",2];{resistance setFriend [east, 0]} remoteExec [""bis_fnc_call"",2];{resistance setFriend [west, 0]} remoteExec [""bis_fnc_call"",2];systemChat ""GREENFOR allied to NONE"";'>NONE</execute><br/>
 </font>
 <br/>
 -----------------------------
@@ -88,7 +79,11 @@ Zu wem soll GREENFOR verbündet sein?<br/>
 Sonstige Server-Funktionen:<br/>
 <br/>
 <font color='#A0F020'>
-<execute expression='[[98] call adv_fnc_weather] call _remoteExecGlobal;systemChat ""Zufälliges Wetter eingestellt."";'>Zufälliges, konstantes Wetter einstellen (wechselt ohne Übergang!)</execute><br/>
+<execute expression='{[98] call adv_fnc_weather} remoteExec [""bis_fnc_call"",0];systemChat ""Zufälliges Wetter eingestellt."";'>Zufälliges, konstantes Wetter einstellen (wechselt ohne Übergang!)</execute><br/>
+<br/>
+<execute expression='missionNamespace setVariable [""adv_par_logisticDrop"",1,true];systemChat ""Automatic logistic drop activated."";'>Activate automatic logistic drop</execute><br/>
+<execute expression='missionNamespace setVariable [""adv_par_logisticDrop"",0,true];systemChat ""Automatic logistic drop deactivated."";'>Deactivate automatic logistic drop</execute><br/>
+<br/>
 </font>"]];
 
 player createDiaryRecord ["debugMenu",["Ausrüstung","
@@ -110,11 +105,8 @@ Hier eingestellte Loadout-Variablen haben erst durch Neuausgabe der Ausrüstung 
 <execute expression='missionNamespace setVariable [""adv_par_NVGs"",1,true];missionNamespace setVariable [""adv_par_opfNVGs"",1,true];systemChat ""Flashlights enabled."";'>Enable flashlights</execute><br/>
 <execute expression='missionNamespace setVariable [""adv_par_NVGs"",0,true];missionNamespace setVariable [""adv_par_opfNVGs"",0,true];systemChat ""NVGs disabled."";'>Disable NVGs or flashlights</execute><br/>
 <br/>
-<execute expression='missionNamespace setVariable [""adv_par_logisticDrop"",1,true];systemChat ""Automatic logistic drop activated."";'>Activate automatic logistic drop</execute><br/>
-<execute expression='missionNamespace setVariable [""adv_par_logisticDrop"",0,true];systemChat ""Automatic logistic drop deactivated."";'>Deactivate automatic logistic drop</execute><br/>
-<br/>
-<execute expression='missionNamespace setVariable [""adv_par_noLRRadios"",false,true]systemChat ""Backpack radios enabled."";'>Enable backpack radios</execute><br/>
-<execute expression='missionNamespace setVariable [""adv_par_noLRRadios"",true,true]systemChat ""Backpack radios disabled."";'>Disable backpack radios</execute><br/>
+<execute expression='missionNamespace setVariable [""adv_par_noLRRadios"",false,true];systemChat ""Backpack radios enabled."";'>Enable backpack radios</execute><br/>
+<execute expression='missionNamespace setVariable [""adv_par_noLRRadios"",true,true];systemChat ""Backpack radios disabled."";'>Disable backpack radios</execute><br/>
 </font>
 <br/>
 -----------------------------
@@ -122,9 +114,9 @@ Hier eingestellte Loadout-Variablen haben erst durch Neuausgabe der Ausrüstung 
 Loadout-Functions:<br/>
 <br/>
 <font color='#A0F020'>
-<execute expression='[[] call adv_fnc_tfarSettings] call _remoteExecGlobal;[[] call adv_fnc_acreSettings] call _remoteExecGlobal;[[player] call adv_fnc_setFrequencies] call _remoteExecGlobal;systemChat ""Die Funkfrequenzen wurden neu eingestellt."";'>Funkfrequenzen neu einstellen und zurücksetzen</execute><br/>
+<execute expression='{[] call adv_fnc_tfarSettings} remoteExec [""bis_fnc_call"",0];{[] call adv_fnc_acreSettings} remoteExec [""bis_fnc_call"",0];{[player] call adv_fnc_setFrequencies} remoteExec [""bis_fnc_call"",0];systemChat ""Die Funkfrequenzen wurden neu eingestellt."";'>Funkfrequenzen neu einstellen und zurücksetzen</execute><br/>
 <br/>
-<executeClose expression='[[player] call adv_fnc_applyLoadout] call _remoteExecGlobal;systemChat ""Ausrüstung neu ausgegeben."";'>Ausrüstung aller Spieler neu ausgeben</executeClose><br/>
+<executeClose expression='{[player] call adv_fnc_applyLoadout} remoteExec [""bis_fnc_call"",0];systemChat ""Ausrüstung neu ausgegeben."";'>Ausrüstung aller Spieler neu ausgeben</executeClose><br/>
 </font>"]];
 
 player createDiaryRecord ["debugMenu",["Spieler","
@@ -132,7 +124,9 @@ player createDiaryRecord ["debugMenu",["Spieler","
 Spieler-Funktionen:<br/>
 <br/>
 <font color='#A0F020'>
-<executeClose expression='[[player] call adv_fnc_fullHeal] call _remoteExecGlobal; systemChat ""Alle Spieler wurden geheilt."";'>Alle Spieler heilen</executeClose><br/>
+<executeClose expression='{[player] call adv_fnc_fullHeal} remoteExec [""bis_fnc_call"",0]; systemChat ""Alle Spieler wurden geheilt."";'>Alle Spieler heilen</executeClose><br/>
+<br/><br/>
+<executeClose expression='{[player,1000] call adv_fnc_setRating} remoteExec [""bis_fnc_call"",0]; systemChat ""Rating aller Spieler wurde auf 1000 gesetzt."";'>Rating aller Spieler auf 1000 setzen</executeClose><br/>
 <br/><br/>
 <executeClose expression='missionNamespace setVariable [""L_suppress_active"",true,true]; systemChat ""L_suppress activated."";'>Activate Laxemann's Suppress</executeClose><br/>
 <executeClose expression='missionNamespace setVariable [""L_suppress_active"",false,true]; systemChat ""L_suppress deactivated."";'>Deactivate Laxemann's Suppress</executeClose><br/>

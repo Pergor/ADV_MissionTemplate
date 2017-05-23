@@ -22,11 +22,12 @@ if !(isClass(configFile >> "CfgPatches" >> "ace_explosives")) exitWith {};
 		private _mine = _x;
 		private _pos = getPosATL _mine;
 		private _vector = [vectorDir _mine,vectorUp _mine];
+		private _type = toUpper (typeOf _mine);
 		_replacementType = call {
-			if ( typeOf _mine == "IEDLANDBIG_REMOTE_AMMO" ) exitWith { "ACE_IEDLANDBIG_RANGE" };
-			if ( typeOf _mine == "IEDLANDSMALL_REMOTE_AMMO" || typeOf _mine == "CUP_IED_V3_AMMO" ) exitWith { "ACE_IEDLANDSMALL_RANGE" };
-			if ( typeOf _mine == "IEDURBANBIG_REMOTE_AMMO" || typeOf _mine == "CUP_IED_V2_AMMO"  || typeOf _mine == "CUP_IED_V4_AMMO" ) exitWith { "ACE_IEDURBANBIG_RANGE" };
-			if ( typeOf _mine == "IEDURBANSMALL_REMOTE_AMMO" || typeOf _mine == "CUP_IED_V1_AMMO" ) exitWith { "ACE_IEDURBANSMALL_RANGE" };
+			if ( _type isEqualTo "IEDLANDBIG_REMOTE_AMMO" ) exitWith { "ACE_IEDLANDBIG_RANGE" };
+			if ( _type isEqualTo "IEDLANDSMALL_REMOTE_AMMO" || _type isEqualTo "CUP_IED_V3_AMMO" ) exitWith { "ACE_IEDLANDSMALL_RANGE" };
+			if ( _type isEqualTo "IEDURBANBIG_REMOTE_AMMO" || _type isEqualTo "CUP_IED_V2_AMMO"  || _type isEqualTo "CUP_IED_V4_AMMO" ) exitWith { "ACE_IEDURBANBIG_RANGE" };
+			if ( _type isEqualTo "IEDURBANSMALL_REMOTE_AMMO" || _type isEqualTo "CUP_IED_V1_AMMO" ) exitWith { "ACE_IEDURBANSMALL_RANGE" };
 			"";
 		};
 		private _height = call {

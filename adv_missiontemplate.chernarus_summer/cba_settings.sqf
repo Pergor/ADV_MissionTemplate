@@ -65,6 +65,13 @@ STHud_Settings_TextShadow = 1;
 STHud_Settings_ColourBlindMode = "Normal";
 */
 
+//settings for SAN Headlamps:
+SAN_Headlamp_Arcade = false;
+SAN_Headlamp_RenderDistance = 1500;
+SAN_Headlamp_Multiplayer_UpdateRate = 30;
+SAN_Headlamp_AI_UpdateRate = 30;
+SAN_Headlamp_SoundClickEnabled = true;
+
 //settings for BWmod:
 BWA3_NaviPad_showMembers = true;
 

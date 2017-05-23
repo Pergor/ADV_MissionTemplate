@@ -74,6 +74,7 @@ class adv
 		class paraCrate {};
 		class respawnVeh {};
 		class retexture {};
+		class setRating {};
 		class zeusObjects {};
 	};
 	class serverGear

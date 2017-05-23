@@ -51,17 +51,19 @@ if (isMultiplayer) then {
 waitUntil {!isNil "BIS_fnc_init"};
 waitUntil {missionNamespace getVariable "bis_fnc_init"};
 
+//add onPreloadFinished-EVH, so after map the screen will revert to normal:
+adv_var_preloadFinished = false;
+adv_evh_preloadFinished = ["adv_preloadFinished_hints", "onPreloadFinished" , {
+	adv_var_preloadFinished = true;
+	["adv_preloadFinished_hints", "onPreloadFinished"] call BIS_fnc_removeStackedEventHandler;
+}] call BIS_fnc_addStackedEventHandler;
+
+["InitializePlayer", [player,false]] call BIS_fnc_dynamicGroups;
+
 //collections
 if (!isServer) then {
 	call adv_fnc_collectCrates;
 	call adv_fnc_collectFlags;
-};
-
-//add admin commands to briefing screen:
-if ( serverCommandAvailable "#kick" ) then {
-	if	!( (call BIS_fnc_admin) isEqualTo 1 ) then {
-		call adv_fnc_adminCommands;
-	};
 };
 
 //title text:
@@ -170,24 +172,24 @@ if !( isClass(configFile >> "CfgPatches" >> "ace_cargo") ) then {
 	ADV_handle_igiLoad = [] execVM "scripts\IgiLoad\IgiLoadInit.sqf";
 };
 
-//moves the player to position of object called "respawn_helper", if it's present (for Nimitz for example):
+//moves the player to position of object called respawn_west, respawn_east or respawn_guerrila, if it's present (for Nimitz for example):
 call {
-	if ( side (group player) isEqualTo east && !isNil "respawn_helper_east" ) exitWith {
+	if ( side (group player) isEqualTo east && !isNil "respawn_east" ) exitWith {
 		adv_evh_respawnMover = player addEventhandler ["RESPAWN",{
-			player setPosATL (getPosATL respawn_helper_east);
-			player setDir (getDir respawn_helper_east);
+			player setPosATL (getPosATL respawn_east);
+			player setDir (getDir respawn_east);
 		}];
 	};
-	if ( side (group player) isEqualTo independent && !isNil "respawn_helper_independent" ) exitWith {
+	if ( side (group player) isEqualTo independent && !isNil "respawn_guerrila" ) exitWith {
 		adv_evh_respawnMover = player addEventhandler ["RESPAWN",{
-			player setPosATL (getPosATL respawn_helper_independent);
-			player setDir (getDir respawn_helper_independent);
+			player setPosATL (getPosATL respawn_guerrila);
+			player setDir (getDir respawn_guerrila);
 		}];
 	};
-	if ( !isNil "respawn_helper" ) exitWith {
+	if ( !isNil "respawn_west" ) exitWith {
 		adv_evh_respawnMover = player addEventhandler ["RESPAWN",{
-			player setPosATL (getPosATL respawn_helper);
-			player setDir (getDir respawn_helper);
+			player setPosATL (getPosATL respawn_west);
+			player setDir (getDir respawn_west);
 		}];
 	};
 };
@@ -198,13 +200,20 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_explosives") ) then {
 };
 
 //variable for preload-check:
-adv_var_preloadFinished = false;
-adv_evh_preloadFinished = ["adv_preloadFinished_hints", "onPreloadFinished" , {
-	adv_var_preloadFinished = true;
-	["adv_preloadFinished_hints", "onPreloadFinished"] call BIS_fnc_removeStackedEventHandler;
-}] call BIS_fnc_addStackedEventHandler;
-
+//[{time > 40},{adv_var_preloadFinished = true}] call cba_fnc_waitUntilAndExecute;
 waitUntil {adv_var_preloadFinished};
+
+if (leader (group player) isEqualTo player) then {
+	["RegisterGroup", [group player, leader (group player), [player call BIS_fnc_getUnitInsignia,groupId (group player),false]]] call BIS_fnc_dynamicGroups;
+	//["RegisterGroup", [group player, leader (group player), [player call BIS_fnc_getUnitInsignia,groupId (group player),false]]] call BIS_fnc_dynamicGroups;
+};
+
+//add admin commands to briefing screen:
+if ( serverCommandAvailable "#kick" ) then {
+	if	!( (call BIS_fnc_admin) isEqualTo 1 ) then {
+		call adv_fnc_adminCommands;
+	};
+};
 
 //titletext:
 sleep 4;

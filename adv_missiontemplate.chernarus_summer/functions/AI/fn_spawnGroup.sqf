@@ -80,9 +80,11 @@ call {
 			_grp selectLeader _newVeh;
 			_vehIsLeader = true;
 		};
+		/*
 		if (_newVeh isKindOf "AIR") exitWith {
-			_newVeh setFeatureType 2;
 		};
+		*/
+		_newVeh setFeatureType 2;
 		_newVeh setVehicleRadar 0;
 		nil;
 	} count _vehicles;

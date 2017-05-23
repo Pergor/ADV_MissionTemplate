@@ -53,6 +53,8 @@ if ( isMultiplayer ) then {
 waitUntil {!isNil "BIS_fnc_init"};
 waitUntil {missionNamespace getVariable "bis_fnc_init"};
 
+["Initialize", [true]] call BIS_fnc_dynamicGroups;
+
 //custom vehicles:
 [] call ADV_fnc_manageVeh;
 [] call ADV_opf_fnc_manageVeh;

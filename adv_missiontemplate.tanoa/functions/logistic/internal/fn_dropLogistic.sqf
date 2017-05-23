@@ -32,10 +32,10 @@ ADV_sriptfnc_dropLogistic = {
 	_IRlight = createVehicle ["B_IRStrobe", (getPosATL _crate), [], 0, "NONE"];
 	{_x attachTo [_crate, [0, 0, 0]];} forEach [_light,_IRlight];
 	[_crate,"G_40mm_SmokeGreen"] spawn {
-		waitUntil {sleep 1; ((getPosATL (_this select 0)) select 2) < 30};
-		_smoke = createVehicle [(_this select 1), (getPosATL (_this select 0)), [], 0, "NONE"];
+		waitUntil {sleep 1; ((getPos (_this select 0)) select 2) < 40};
+		_smoke = createVehicle [(_this select 1), (getPos (_this select 0)), [], 0, "NONE"];
 		_smoke attachTo [(_this select 0), [0, 0, -1]];
-		waitUntil {sleep 1; ((getPosATL (_this select 0)) select 2) < 2};
+		waitUntil {sleep 1; ((getPos (_this select 0)) select 2) < 2};
 		detach (_this select 0);
 	};
 };

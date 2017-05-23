@@ -30,9 +30,12 @@ if (count _vehicleType isEqualTo 0) exitWith {};
 	//_isVehicle = _object in _vehicleType;
 	//if (_isVehicle) then {
 	[_vehObj,_newVehs] spawn {
-		private _vehObj = _this select 0;
-		private _newVehs = _this select 1;
+		params ["_vehObj","_newVehs"];
+		private _oldVehType = typeOf _vehObj;
+		private _oldVehParent = ([configfile >> "CfgVehicles" >> _oldVehType, true] call BIS_fnc_returnParents) select 1;
+		private _oldVehTextures = ([_vehObj] call BIS_fnc_getVehicleCustomization) select 0;
 		private _newVehType = selectRandom _newVehs;
+		private _newVehParent = ([configfile >> "CfgVehicles" >> _newVehType, true] call BIS_fnc_returnParents) select 1;
 		private _object = str _vehObj;
 		private _name = vehicleVarName _vehObj;
 		private _vector = [vectorDir _vehObj,vectorUp _vehObj];
@@ -40,7 +43,7 @@ if (count _vehicleType isEqualTo 0) exitWith {};
 		{deleteVehicle _vehObj} count attachedObjects _vehObj;
 		deleteVehicle _vehObj;
 		sleep 1;
-		if (_newVehType isEqualTo "") exitWith {}; 
+		if (_newVehType isEqualTo "") exitWith {};
 		private _veh = createVehicle [_newVehType, _pos, [], 0, "NONE"];
 		if ( isNull _veh ) exitWith { diag_log format ["The vehicle class %1 doesn't exist anymore. adv_fnc_changeVeh can't work.",_newVehType]; };
 		_veh allowDamage false;
@@ -49,6 +52,9 @@ if (count _vehicleType isEqualTo 0) exitWith {};
 		[_veh,_name] remoteExec ["setVehicleVarName",0];
 		_veh call compile format ["%1 = _this; publicVariable '%1'", _name];
 		sleep 1;
+		if (_oldVehParent isEqualTo _newVehParent) then {
+			[_veh,_oldVehTextures] call BIS_fnc_initVehicle;
+		};
 		//code for handled vehicles:
 		waitUntil {!isNil "ADV_veh_all" && !isNil "ADV_opf_veh_all" && !isNil "ADV_ind_veh_all"};
 		if ( (str _veh) in ADV_veh_all ) then {

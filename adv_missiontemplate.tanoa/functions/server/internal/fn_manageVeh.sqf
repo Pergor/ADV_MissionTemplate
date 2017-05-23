@@ -166,7 +166,7 @@ adv_manageVeh_codeForAll = {
 	[_veh] call adv_fnc_retexture;
 	
 	if !( (missionNamespace getVariable ["ADV_par_vehicleRespawn",300]) isEqualTo 9999 ) then {
-		[_veh, missionNamespace getVariable ["ADV_par_vehicleRespawn",300] , west] call ADV_fnc_respawnVeh;
+		[_veh, missionNamespace getVariable ["ADV_par_vehicleRespawn",300], west] call ADV_fnc_respawnVeh;
 	};
 	if (_veh isKindOf 'AIR') then {
 		_veh setCollisionLight true;
@@ -180,6 +180,10 @@ adv_manageVeh_codeForAll = {
 			_veh animateDoor ["door_rear_source",1];
 		};
 		if (_veh isKindOf 'VTOL_01_BASE_F') then {
+			private _baseUnits = allUnits select {side (group _x) isEqualTo west};
+			( _baseUnits select 0 ) action ["VTOLVectoring",_veh];
+			( _baseUnits select 0 ) action ["VectoringUp",_veh];
+			_veh animateSource ["thrustVector",1];
 			[_veh] remoteExec ["adv_fnc_vtolaction",0,true];
 			if (_veh isKindOf 'B_T_VTOL_01_infantry_F') then {
 				_veh animateDoor ["door_1_source",1];

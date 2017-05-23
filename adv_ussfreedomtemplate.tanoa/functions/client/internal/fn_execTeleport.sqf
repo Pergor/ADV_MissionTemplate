@@ -22,9 +22,11 @@ params [
 	"_target","_commander","_closest"
 ];
 
+/*
 if (isNil "adv_evh_teleport_cba_evh") then {
 	adv_evh_teleport_cba_evh = ["adv_teleport_evh", { _this call adv_fnc_paraJump }] call CBA_fnc_addEventHandler;
 };
+*/
 
 if ( (toUpper _selection) isEqualTo "PARAJUMP") exitWith {
 	closeDialog 1;
@@ -34,8 +36,8 @@ if ( (toUpper _selection) isEqualTo "PARAJUMP") exitWith {
 if ( (toUpper _selection) isEqualTo "PARAJUMP_GROUP") exitWith {
 	closeDialog 1;
 	openmap true;
-	[_unit] onMapSingleClick "openmap false; { ['adv_teleport_evh', [_x,[(_pos select 0)+20+(random 20),(_pos select 1)+20+(random 20),(_pos select 2)+10+(random 10)]], _x] call CBA_fnc_targetEvent; nil;} count (units (group (_this select 0))); onmapsingleclick '';";
-	//[_unit] onMapSingleClick "openmap false; { [_x,[(_pos select 0)+20+(random 20),(_pos select 1)+20+(random 20),(_pos select 2)+10+(random 10)]] remoteExec ['adv_fnc_paraJump',0]; nil;} count (units (group (_this select 0))); onmapsingleclick '';";
+	[_unit] onMapSingleClick "openmap false; params [""_unit""]; { [_x,[(_pos select 0)+20+(random 20),(_pos select 1)+20+(random 20),(_pos select 2)+10+(random 10)]] remoteExec ['adv_fnc_paraJump',0]; nil; } count ( (units (group _unit)) select { ((group _x) isEqualTo (group _unit)) && ((_x distance _unit) < 100) } ); onmapsingleclick '';";
+	//[_unit] onMapSingleClick "openmap false; { ['adv_teleport_evh', [_x,[(_pos select 0)+20+(random 20),(_pos select 1)+20+(random 20),(_pos select 2)+10+(random 10)]], _x] call CBA_fnc_targetEvent; nil;} count (units (group (_this select 0))); onmapsingleclick '';";
 	//[_unit] onMapSingleClick "openmap false; { { [_x,[(_pos select 0)+20+(random 20),(_pos select 1)+20+(random 20),(_pos select 2)+10+(random 10)]] call adv_fnc_paraJump; } remoteExec ['bis_fnc_call', 0]; nil;} count (units (group (_this select 0))); onmapsingleclick '';";
 };
 
