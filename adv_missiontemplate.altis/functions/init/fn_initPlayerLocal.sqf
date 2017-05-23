@@ -51,6 +51,8 @@ if (isMultiplayer) then {
 waitUntil {!isNil "BIS_fnc_init"};
 waitUntil {missionNamespace getVariable "bis_fnc_init"};
 
+["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
+
 //collections
 if (!isServer) then {
 	call adv_fnc_collectCrates;
