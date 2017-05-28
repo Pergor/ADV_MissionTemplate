@@ -125,9 +125,9 @@ Spieler-Funktionen:<br/>
 <br/>
 <font color='#A0F020'>
 <executeClose expression='{[player] call adv_fnc_fullHeal} remoteExec [""bis_fnc_call"",0]; systemChat ""Alle Spieler wurden geheilt."";'>Alle Spieler heilen</executeClose><br/>
-<br/><br/>
+<br/>
 <executeClose expression='{[player,1000] call adv_fnc_setRating} remoteExec [""bis_fnc_call"",0]; systemChat ""Rating aller Spieler wurde auf 1000 gesetzt."";'>Rating aller Spieler auf 1000 setzen</executeClose><br/>
-<br/><br/>
+<br/>
 <executeClose expression='missionNamespace setVariable [""L_suppress_active"",true,true]; systemChat ""L_suppress activated."";'>Activate Laxemann's Suppress</executeClose><br/>
 <executeClose expression='missionNamespace setVariable [""L_suppress_active"",false,true]; systemChat ""L_suppress deactivated."";'>Deactivate Laxemann's Suppress</executeClose><br/>
 </font>"]];
