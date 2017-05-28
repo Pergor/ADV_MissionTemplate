@@ -51,6 +51,13 @@ if (isMultiplayer) then {
 waitUntil {!isNil "BIS_fnc_init"};
 waitUntil {missionNamespace getVariable "bis_fnc_init"};
 
+//add admin commands to briefing screen:
+if ( serverCommandAvailable "#kick" ) then {
+	if	!( (call BIS_fnc_admin) isEqualTo 1 ) then {
+		call adv_fnc_adminCommands;
+	};
+};
+
 //add onPreloadFinished-EVH, so after map the screen will revert to normal:
 adv_var_preloadFinished = false;
 adv_evh_preloadFinished = ["adv_preloadFinished_hints", "onPreloadFinished" , {
@@ -151,9 +158,13 @@ if ( toUpper ([(str player),(count str player)-5] call BIS_fnc_trimString) isEqu
 
 //failsafe for missing curator interface:
 if ( toUpper (str player) in ["Z1","Z2","Z3","Z4","Z5","OPF_Z1","OPF_Z2","OPF_Z3","OPF_Z4","OPF_Z5","IND_Z1","IND_Z2","IND_Z3","IND_Z4","IND_Z5"] ) then {
+	private _loadoutHandle = player addAction [("<t color='#00FF00'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,-2,false,true,"","vehicle player isEqualTo player",5];
+	player setVariable ["adv_handle_loadoutAction",_loadoutHandle];
 	if ( isNull (getAssignedCuratorLogic player) ) then { [str player, 3] remoteExecCall ["adv_fnc_createZeus",2]; };
-	if ( isNil "adv_evh_createZeusRespawn" ) then {
-		adv_evh_createZeusRespawn = player addEventhandler ["RESPAWN",{
+	if ( isNil "adv_evh_zeusRespawn" ) then {
+		adv_evh_zeusRespawn = player addEventhandler ["RESPAWN",{
+			private _loadoutHandle = player addAction [("<t color='#00FF00'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,-2,false,true,"","vehicle player isEqualTo player",5];
+			player setVariable ["adv_handle_loadoutAction",_loadoutHandle];
 			if ( isNull (getAssignedCuratorLogic player) ) then { [str player, 3] remoteExecCall ["adv_fnc_createZeus",2]; };
 		}];
 	};
@@ -206,13 +217,6 @@ waitUntil {adv_var_preloadFinished};
 if (leader (group player) isEqualTo player) then {
 	["RegisterGroup", [group player, leader (group player), [player call BIS_fnc_getUnitInsignia,groupId (group player),false]]] call BIS_fnc_dynamicGroups;
 	//["RegisterGroup", [group player, leader (group player), [player call BIS_fnc_getUnitInsignia,groupId (group player),false]]] call BIS_fnc_dynamicGroups;
-};
-
-//add admin commands to briefing screen:
-if ( serverCommandAvailable "#kick" ) then {
-	if	!( (call BIS_fnc_admin) isEqualTo 1 ) then {
-		call adv_fnc_adminCommands;
-	};
 };
 
 //titletext:
