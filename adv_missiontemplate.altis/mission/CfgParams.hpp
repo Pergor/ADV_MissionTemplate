@@ -42,7 +42,7 @@ class param_minute
 class param_day
 {
 	title="Mondphase";
-	values[] = {14,23,29,7};
+	values[] = {14,23,30,6};
 	texts[] = {"Neumond","zunehmender Halbmond (sichtbar in der ersten Hälfte der Nacht)","Vollmond","abnehmender Halbmond (sichtbar in der zweiten Hälfte der Nacht)"};
 	default = 23;
 };
