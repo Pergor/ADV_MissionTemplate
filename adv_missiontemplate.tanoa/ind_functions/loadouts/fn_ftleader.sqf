@@ -273,11 +273,14 @@ switch (_par_indUni) do {
 
 ///// No editing necessary below this line /////
 
-if !(toUpper ((str _player) select [4,2]) == "FT") then {
+if !(toUpper ((str _player) select [4,2]) isEqualTo "FT") then {
 	_ACE_sprayPaintColor = "NONE";
 };
+if (toUpper ([str _player,4,16] call BIS_fnc_trimString) isEqualTo "FTLEADER_COMMAND") then {
+	_binoculars = "RANGEFINDER";
+};
 [_player] call ADV_fnc_gear;
-if (toUpper ((str _player) select [4,2]) == "FT") exitWith {nil;};
+if (toUpper ((str _player) select [4,2]) isEqualTo "FT") exitWith {nil;};
 
 switch ( toUpper ((str _player) select [4,4]) ) do {
 	case "CSW_": { [_player,1] call ADV_fnc_CSW; };
@@ -288,9 +291,9 @@ switch ( toUpper ((str _player) select [4,4]) ) do {
 	case "ATOW": { [_player,6] call ADV_fnc_CSW; };
 	default {
 		switch true do {
-			case (toUpper ((str _player) select [4,6]) == "ASSCSW"): { [_player,2] call ADV_fnc_CSW; };
-			case (toUpper ((str _player) select [4,9]) == "ASSMORTAR"): { [_player,4] call ADV_fnc_CSW; };
-			case (toUpper ((str _player) select [4,6]) == "ASSTOW"): { [_player,6] call ADV_fnc_CSW; };
+			case (toUpper ((str _player) select [4,6]) isEqualTo "ASSCSW"): { [_player,2] call ADV_fnc_CSW; };
+			case (toUpper ((str _player) select [4,9]) isEqualTo "ASSMORTAR"): { [_player,4] call ADV_fnc_CSW; };
+			case (toUpper ((str _player) select [4,6]) isEqualTo "ASSTOW"): { [_player,6] call ADV_fnc_CSW; };
 			default {};
 		};
 	};

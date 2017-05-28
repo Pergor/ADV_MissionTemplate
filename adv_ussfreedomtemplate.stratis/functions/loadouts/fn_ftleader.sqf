@@ -472,11 +472,14 @@ switch (_par_customUni) do {
 
 ///// No editing necessary below this line /////
 
-if !(toUpper ((str _player) select [0,2]) == "FT") then {
+if !(toUpper ((str _player) select [0,2]) isEqualTo "FT") then {
 	_ACE_sprayPaintColor = "NONE";
 };
+if (toUpper ([str _player,0,16] call BIS_fnc_trimString) isEqualTo "FTLEADER_COMMAND") then {
+	_binoculars = "RANGEFINDER";
+};
 [_player] call ADV_fnc_gear;
-if (toUpper ((str _player) select [0,2]) == "FT") exitWith {nil;};
+if (toUpper ((str _player) select [0,2]) isEqualTo "FT") exitWith {nil;};
 switch true do {
 	case (toUpper ((str _player) select [0,3]) == "CSW"): { [_player,1] call ADV_fnc_CSW;};
 	case (toUpper ((str _player) select [0,6]) == "ASSCSW"): { [_player,2] call ADV_fnc_CSW; };

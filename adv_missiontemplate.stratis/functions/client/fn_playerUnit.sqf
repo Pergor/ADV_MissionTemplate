@@ -8,7 +8,7 @@
  * 0: target - <OBJECT>
  *
  * Return Value:
- * targets new loadout function - <STRinG>
+ * targets new loadout function - <STRING>
  *
  * Example:
  * [player] call adv_fnc_playerUnit;
@@ -193,7 +193,7 @@ if ( _isCivLoadout ) then {
 	
 	_prefix = [_object,0,-2] call BIS_fnc_trimString;
 	_playerUnit = switch true do {
-		case ( (_object select [0,12]) isEqualTo "CIV_ENGinEER" ): {"ADV_FNC_CIVENGinEER"};
+		case ( (_object select [0,12]) isEqualTo "CIV_ENGINEER" ): {"ADV_FNC_CIVENGINEER"};
 		case ( (_object select [0,9]) isEqualTo "CIV_PILOT" ): {"ADV_FNC_CIVPILOT"};
 		case ( (_object select [0,9]) isEqualTo "CIV_DIVER" ): {"ADV_FNC_CIVDIVER"};
 		case ( (_object select [0,7]) isEqualTo "CIV_DOC" ): {"ADV_FNC_CIVDOC"};
