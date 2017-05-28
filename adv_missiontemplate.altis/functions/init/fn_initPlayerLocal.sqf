@@ -17,19 +17,24 @@
 
 if (!hasInterface) exitWith {};
 
+//parameter variables are initialized, if player is not hosting:
+waitUntil {player == player && !isNil "paramsArray"};
+if (!isServer) then {
+	//parameters and variables:
+	call adv_fnc_parVariables;
+	call adv_fnc_variables;
+	call adv_fnc_tfarSettings;
+	call adv_fnc_acreSettings;
+};
 //removes all the mission relevant markers from the map:
 call ADV_fnc_missionMarkers;
 call ADV_fnc_sideMarkers;
-//parameter variables are initialized, if player is not hosting:
-if (!isServer) then {
-	call ADV_fnc_parVariables;
-	call ADV_fnc_variables;
-	call ADV_fnc_tfarSettings;
-	call ADV_fnc_acreSettings;
-};
 
-//waitUntil-player is initialized:
-waitUntil {player isEqualTo player && !isNil "ADV_params_defined"};
+//waitUntil param variables are initialized:
+waitUntil {!isNil "ADV_params_defined"};
+//and if they're somehow still not, let's initialize them again:
+if (isNil "adv_par_customWeap") then { call adv_fnc_parVariables };
+
 //disable channels (description.ext seems not to work correctly in that regard):
 [[1,3,4,5],true] call adv_fnc_enableChannels;
 [[0,2],false] call adv_fnc_enableChannels;
@@ -37,9 +42,6 @@ waitUntil {player isEqualTo player && !isNil "ADV_params_defined"};
 if ( (missionNamespace getVariable ["adv_par_customLoad",1]) > 0 ) then {
 	player unlinkItem "ItemRadio";
 };
-
-//defines the player's unit:
-[player] call ADV_fnc_playerUnit;
 
 //prevents the player units from blabbering on their radios
 if (isMultiplayer) then {
@@ -151,6 +153,8 @@ if ( (missionNamespace getVariable ["ADV_par_fatigue",1]) isEqualTo 0 ) then {
 //adds action to throw it away if a disposable launcher is shot.
 if !(isClass (configFile >> "CfgPatches" >> "adv_dropLauncher")) then { ADV_index_dispLaunch = [] call ADV_fnc_dispLaunch; };
 
+//defines the player's unit:
+[player] call ADV_fnc_playerUnit;
 sleep 1;
 //loadouts and RespawnMPEVH are placed on the units on spawn. [target]
 [player] call ADV_fnc_applyLoadout;
