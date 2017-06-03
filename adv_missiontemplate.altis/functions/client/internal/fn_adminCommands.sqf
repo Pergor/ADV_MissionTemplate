@@ -18,6 +18,14 @@
 if !( serverCommandAvailable "#kick" ) exitWith { false };
 if ( (call BIS_fnc_admin) isEqualTo 1 ) exitWith { false };
 
+private _ships = allMissionObjects "Land_Carrier_01_base_F";
+private _freedomText = if (count _ships > 0) then {
+	"<execute expression='{[] call adv_fnc_clearFreedom} remoteExec [""bis_fnc_call"",2];systemChat ""Landedeck wird freigeräumt."";'>Landedeck der USS Freedom freiräumen (Fahrzeuge an Deck respawnen)</execute><br/>
+	<br/>"
+} else {
+	""
+};
+
 player createDiarySubject ["debugMenu","ADMIN-COMMANDS"];
 
 player createDiaryRecord ["debugMenu",["ACE-Settings","
@@ -61,7 +69,7 @@ Misc. ACE-Settings:<br/>
 <execute expression='missionNamespace setVariable [""ace_rearm_level"",2,true];systemChat ""Amount based on caliber."";'>Set Rearm to ""Amount based on caliber"".</execute><br/>
 </font>"]];
 
-player createDiaryRecord ["debugMenu",["Server","
+player createDiaryRecord ["debugMenu",["Server",("
 <br/>
 AI-Settings:<br/>
 <br/>
@@ -80,11 +88,11 @@ Sonstige Server-Funktionen:<br/>
 <br/>
 <font color='#A0F020'>
 <execute expression='{[98] call adv_fnc_weather} remoteExec [""bis_fnc_call"",0];systemChat ""Zufälliges Wetter eingestellt."";'>Zufälliges, konstantes Wetter einstellen (wechselt ohne Übergang!)</execute><br/>
-<br/>
+<br/>") + _freedomText + ("
 <execute expression='missionNamespace setVariable [""adv_par_logisticDrop"",1,true];systemChat ""Automatic logistic drop activated."";'>Activate automatic logistic drop</execute><br/>
 <execute expression='missionNamespace setVariable [""adv_par_logisticDrop"",0,true];systemChat ""Automatic logistic drop deactivated."";'>Deactivate automatic logistic drop</execute><br/>
 <br/>
-</font>"]];
+</font>")]];
 
 player createDiaryRecord ["debugMenu",["Ausrüstung","
 <br/>
