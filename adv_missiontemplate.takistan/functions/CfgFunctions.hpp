@@ -60,6 +60,7 @@ class adv
 		class artillery {};
 		class board {};
 		class CASRun {};
+		class clearFreedom {};
 		class createZeus {};
 		class disableTI {};
 		class disableVeh {};

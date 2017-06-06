@@ -261,7 +261,7 @@ if (!isNil "_unitTraits") then {
 	{ _unit setUnitTrait [_x select 0, _x select 1, true] } count _unitTraits;
 };
 
-//NVG-Removal:
+//NVG-Removal/headlamps:
 if !( ["diver",_fnc_scriptNameParent] call BIS_fnc_inString || ["pilot",_fnc_scriptNameParent] call BIS_fnc_inString ) then {
 	if ( ( !(side (group _unit) isEqualTo east) && _par_NVGs < 2 ) || ( side (group _unit) isEqualTo east && _par_opfNVGs < 2 ) ) then {
 		_unit unlinkItem (hmd _unit);
@@ -332,6 +332,23 @@ if ( str _unit in ["z1","z2","z3","z4","z5","opf_z1","opf_z2","opf_z3","opf_z4",
 };
 
 if ( toUpper ([(str _unit),(count str _unit)-5] call BIS_fnc_trimString) isEqualTo "RECON" ) then {
+};
+
+//gasmasks:
+if !( ["diver",_fnc_scriptNameParent] call BIS_fnc_inString || ["pilot",_fnc_scriptNameParent] call BIS_fnc_inString ) then {
+	private _par_gasmasks = missionNamespace getVariable ["adv_par_gasmasks",["param_gasmasks",0] call BIS_fnc_getParamValue];
+	private _maskType = if ( side (group _unit) isEqualTo east ) then {"MASK_M50"} else {"Mask_M40"};
+	call {
+		if ( _par_gasmasks isEqualTo 0 ) exitWith {
+			if ( (toUpper (goggles _unit)) in ["MASK_M40","MASK_M40_OD","MASK_M50"] ) then { removeGoggles _unit; };
+		};
+		if ( _par_gasmasks isEqualTo 1 ) exitWith {
+				_unit addGoggles _maskType;
+		};
+		if ( _par_gasmasks isEqualTo 2 ) exitWith {
+			(vestContainer _unit) addItemCargoGlobal [_maskType,1];
+		};
+	};
 };
 
 _unit setVariable ["ADV_var_hasLoadout",true];

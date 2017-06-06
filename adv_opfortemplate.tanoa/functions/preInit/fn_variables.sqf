@@ -22,6 +22,7 @@ missionNamespace setVariable ["ADV_var_useDLCContent",1];
 
 missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true];
 
+/*
 adv_par_customUni = missionNamespace getVariable ["adv_par_customUni", ["param_customUni",0] call BIS_fnc_getParamValue];
 adv_par_customWeap = missionNamespace getVariable ["adv_par_customWeap", ["param_customWeap",0] call BIS_fnc_getParamValue];
 adv_par_opfUni = missionNamespace getVariable ["adv_par_opfUni", ["param_opfUni",0] call BIS_fnc_getParamValue];
@@ -29,6 +30,7 @@ adv_par_opfWeap = missionNamespace getVariable ["adv_par_opfWeap", ["param_opfWe
 adv_par_indUni = missionNamespace getVariable ["adv_par_indUni", ["param_indUni",0] call BIS_fnc_getParamValue];
 adv_par_tablets = missionNamespace getVariable ["adv_par_tablets", ["param_tablets",1] call BIS_fnc_getParamValue];
 adv_par_l_suppress = missionNamespace getVariable ["adv_par_l_suppress", ["param_l_suppress",0] call BIS_fnc_getParamValue];
+*/
 		
 //map variables:
 ADV_var_aridMaps = [
@@ -51,11 +53,13 @@ ADV_var_europeMaps = [
 ADV_var_vanillaMaps = [
 	"STRATIS","ALTIS","TANOA"
 ];
+/*
 switch ( missionNamespace getVariable ["adv_par_customUni", ["param_customUni",0] call BIS_fnc_getParamValue] ) do {
 	case 1: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_lushMaps) then {2} else {1}; };
 	case 2: { ADV_par_customUni = if ((toUpper worldname) in ADV_var_aridMaps) then {1} else {2}; };
 	default {};
 };
+*/
 if ((toUpper worldname) isEqualTo "TANOA") then {
 	if ( (missionNamespace getVariable ["adv_par_customUni", 0]) isEqualTo 0 ) then { ADV_par_customUni = 20 };
 	if ( (missionNamespace getVariable ["adv_par_opfUni", 0]) isEqualTo 0 ) then { ADV_par_opfUni = 20 };

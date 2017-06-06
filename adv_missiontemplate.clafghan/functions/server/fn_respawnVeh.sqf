@@ -27,7 +27,7 @@ params [
 
 //delay
 if (_delay < 5) then {_delay = 5};
-if (_delay == 9999 || isNull _veh) exitWith {};
+if (_delay isEqualTo 9999 || isNull _veh) exitWith {};
 
 //vehicle side
 private _sidePrefix = switch (_side) do {
@@ -69,6 +69,7 @@ private _respawnEVHCode = {
 		if (_veh distance2D _respPos < 100) then { deleteVehicle _veh; };
 		_veh enableSimulation false;
 		sleep 2;
+		_respPos = [(_respPos select 0),(_respPos select 1),(_respPos select 2)+0.2];
 		_veh = createVehicle [_vehType, _respPos, [], 0, "NONE"];
 		_veh allowDamage false;
 		_veh setPosASL _respPos;

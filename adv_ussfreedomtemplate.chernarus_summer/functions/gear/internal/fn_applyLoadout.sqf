@@ -21,7 +21,7 @@ params [
 ];
 if (side _target isEqualTo sideLogic) exitWith {};
 _playerUnit = toUpper (_target getVariable ["ADV_var_playerUnit","ADV_fnc_nil"]);
-if ( _playerUnit isEqualTo "ADV_FNC_NIL") exitWith {};
+if ( _playerUnit isEqualTo "ADV_FNC_NIL" ) exitWith {};
 
 //mission variables and parameters:
 private [

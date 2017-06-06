@@ -18,6 +18,14 @@
 if !( serverCommandAvailable "#kick" ) exitWith { false };
 if ( (call BIS_fnc_admin) isEqualTo 1 ) exitWith { false };
 
+private _ships = allMissionObjects "Land_Carrier_01_base_F";
+private _freedomText = if (count _ships > 0) then {
+	"<execute expression='{[] call adv_fnc_clearFreedom} remoteExec [""bis_fnc_call"",2];systemChat ""Landedeck wird freigeräumt."";'>Landedeck der USS Freedom freiräumen (Fahrzeuge an Deck respawnen)</execute><br/>
+	<br/>"
+} else {
+	""
+};
+
 player createDiarySubject ["debugMenu","ADMIN-COMMANDS"];
 
 player createDiaryRecord ["debugMenu",["ACE-Settings","
@@ -61,7 +69,7 @@ Misc. ACE-Settings:<br/>
 <execute expression='missionNamespace setVariable [""ace_rearm_level"",2,true];systemChat ""Amount based on caliber."";'>Set Rearm to ""Amount based on caliber"".</execute><br/>
 </font>"]];
 
-player createDiaryRecord ["debugMenu",["Server","
+player createDiaryRecord ["debugMenu",["Server",("
 <br/>
 AI-Settings:<br/>
 <br/>
@@ -80,11 +88,11 @@ Sonstige Server-Funktionen:<br/>
 <br/>
 <font color='#A0F020'>
 <execute expression='{[98] call adv_fnc_weather} remoteExec [""bis_fnc_call"",0];systemChat ""Zufälliges Wetter eingestellt."";'>Zufälliges, konstantes Wetter einstellen (wechselt ohne Übergang!)</execute><br/>
-<br/>
+<br/>") + _freedomText + ("
 <execute expression='missionNamespace setVariable [""adv_par_logisticDrop"",1,true];systemChat ""Automatic logistic drop activated."";'>Activate automatic logistic drop</execute><br/>
 <execute expression='missionNamespace setVariable [""adv_par_logisticDrop"",0,true];systemChat ""Automatic logistic drop deactivated."";'>Deactivate automatic logistic drop</execute><br/>
 <br/>
-</font>"]];
+</font>")]];
 
 player createDiaryRecord ["debugMenu",["Ausrüstung","
 <br/>
@@ -104,6 +112,10 @@ Hier eingestellte Loadout-Variablen haben erst durch Neuausgabe der Ausrüstung 
 <execute expression='missionNamespace setVariable [""adv_par_NVGs"",2,true];missionNamespace setVariable [""adv_par_opfNVGs"",2,true];systemChat ""NVGs enabled."";'>Enable NVGs</execute><br/>
 <execute expression='missionNamespace setVariable [""adv_par_NVGs"",1,true];missionNamespace setVariable [""adv_par_opfNVGs"",1,true];systemChat ""Flashlights enabled."";'>Enable flashlights</execute><br/>
 <execute expression='missionNamespace setVariable [""adv_par_NVGs"",0,true];missionNamespace setVariable [""adv_par_opfNVGs"",0,true];systemChat ""NVGs disabled."";'>Disable NVGs or flashlights</execute><br/>
+<br/>
+<execute expression='missionNamespace setVariable [""adv_par_gasmasks"",2,true];systemChat ""Gasmasks in inventory enabled."";'>Enable gasmasks in inventory</execute><br/>
+<execute expression='missionNamespace setVariable [""adv_par_gasmasks"",1,true];systemChat ""Wearing gasmasks enabled."";'>Enable wearing gasmasks</execute><br/>
+<execute expression='missionNamespace setVariable [""adv_par_gasmasks"",0,true];systemChat ""Gasmasks disabled."";'>Disable gasmasks</execute><br/>
 <br/>
 <execute expression='missionNamespace setVariable [""adv_par_noLRRadios"",false,true];systemChat ""Backpack radios enabled."";'>Enable backpack radios</execute><br/>
 <execute expression='missionNamespace setVariable [""adv_par_noLRRadios"",true,true];systemChat ""Backpack radios disabled."";'>Disable backpack radios</execute><br/>
@@ -125,9 +137,9 @@ Spieler-Funktionen:<br/>
 <br/>
 <font color='#A0F020'>
 <executeClose expression='{[player] call adv_fnc_fullHeal} remoteExec [""bis_fnc_call"",0]; systemChat ""Alle Spieler wurden geheilt."";'>Alle Spieler heilen</executeClose><br/>
-<br/><br/>
+<br/>
 <executeClose expression='{[player,1000] call adv_fnc_setRating} remoteExec [""bis_fnc_call"",0]; systemChat ""Rating aller Spieler wurde auf 1000 gesetzt."";'>Rating aller Spieler auf 1000 setzen</executeClose><br/>
-<br/><br/>
+<br/>
 <executeClose expression='missionNamespace setVariable [""L_suppress_active"",true,true]; systemChat ""L_suppress activated."";'>Activate Laxemann's Suppress</executeClose><br/>
 <executeClose expression='missionNamespace setVariable [""L_suppress_active"",false,true]; systemChat ""L_suppress deactivated."";'>Deactivate Laxemann's Suppress</executeClose><br/>
 </font>"]];

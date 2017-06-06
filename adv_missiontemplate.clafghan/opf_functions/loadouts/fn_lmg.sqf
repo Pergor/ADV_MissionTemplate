@@ -28,7 +28,7 @@ _uniform = ["U_O_CombatUniform_ocamo"];
 _vest = ["V_HarnessOSpec_brn"];
 _headgear = ["H_HelmetSpecO_ocamo","H_HelmetO_ocamo"];
 _backpack = [""];
-if ( _par_opfWeap > 0 ) then { _backpack = ["B_AssaultPack_ocamo","B_AssaultPack_cbr"]; };
+_backpack = ["B_AssaultPack_ocamo","B_AssaultPack_cbr"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
@@ -45,7 +45,7 @@ if ( _par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [4,0];
+_primaryweaponAmmo = [5,0];
 if (worldName == "TANOA" || _par_opfWeap == 20 || _par_opfWeap == 21) then {
 	_primaryweapon = ["arifle_CTARS_blk_F"];
 	_silencer = "muzzle_snds_58_blk_F";

@@ -58,7 +58,7 @@ adv_scriptfnc_sirenOn = {
 	_tmp = true;
 	adv_handle_sirenActionOff = _target addAction ["Sirene Aus",{0 = _this spawn adv_scriptfnc_sirenOff},[],54,false,true,"","_target getVariable ['adv_siren_on',false] && (alive _target && driver _target isEqualTo _this)"];
 	while {_tmp} do {
-		_target say3D "AlarmCar";
+		[_target,["AlarmCar",120]] remoteExecCall ["say3D",0];
 		sleep 1.95;
 		_tmp = _target getVariable "adv_siren_on";
 	};

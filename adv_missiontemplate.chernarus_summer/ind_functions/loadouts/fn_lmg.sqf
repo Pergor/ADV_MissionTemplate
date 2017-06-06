@@ -27,7 +27,7 @@ params ["_player"];
 _uniform = ["U_I_CombatUniform","U_I_CombatUniform_shortsleeve"];
 _vest = ["V_PlateCarrierIA2_dgtl","V_PlateCarrierIA1_dgtl"];
 _headgear = ["H_HelmetIA"];
-_backpack = [""];
+_backpack = ["B_AssaultPack_dgtl"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "G_Combat";
@@ -44,8 +44,8 @@ if ( _par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H_MG";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [3,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
-_additionalAmmo = [0,0,false];
+_primaryweaponAmmo = [3,3];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_additionalAmmo = [3,2,true];
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;

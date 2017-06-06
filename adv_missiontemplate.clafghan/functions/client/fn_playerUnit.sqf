@@ -17,11 +17,13 @@
  */
 
  params [
-	["_target", player, [objNull]],
-	"_object","_zeus","_prefix","_playerUnit"
+	["_target", player, [objNull]]
 ];
-_object = toUpper (str _target);
-_prefix = _object select [0,3];
+private _object = toUpper (str _target);
+private _prefix = "";
+
+private _zeus = [];
+private _playerUnit = "ADV_FNC_NIL";
 
 if (side (group _target) isEqualTo sideLogic) exitWith {};
 private _isCivLoadout = if ( (_object select [0,3]) isEqualTo "CIV" ) then {true} else {false};

@@ -17,19 +17,24 @@
 
 if (!hasInterface) exitWith {};
 
+//parameter variables are initialized, if player is not hosting:
+waitUntil {player == player && !isNil "paramsArray"};
+if (!isServer) then {
+	//parameters and variables:
+	call adv_fnc_parVariables;
+	call adv_fnc_variables;
+	call adv_fnc_tfarSettings;
+	call adv_fnc_acreSettings;
+};
 //removes all the mission relevant markers from the map:
 call ADV_fnc_missionMarkers;
 call ADV_fnc_sideMarkers;
-//parameter variables are initialized, if player is not hosting:
-if (!isServer) then {
-	call ADV_fnc_parVariables;
-	call ADV_fnc_variables;
-	call ADV_fnc_tfarSettings;
-	call ADV_fnc_acreSettings;
-};
 
-//waitUntil-player is initialized:
-waitUntil {player isEqualTo player && !isNil "ADV_params_defined"};
+//waitUntil param variables are initialized:
+waitUntil {!isNil "ADV_params_defined"};
+//and if they're somehow still not, let's initialize them again:
+if (isNil "adv_par_customWeap") then { call adv_fnc_parVariables };
+
 //disable channels (description.ext seems not to work correctly in that regard):
 [[1,3,4,5],true] call adv_fnc_enableChannels;
 [[0,2],false] call adv_fnc_enableChannels;
@@ -37,9 +42,6 @@ waitUntil {player isEqualTo player && !isNil "ADV_params_defined"};
 if ( (missionNamespace getVariable ["adv_par_customLoad",1]) > 0 ) then {
 	player unlinkItem "ItemRadio";
 };
-
-//defines the player's unit:
-[player] call ADV_fnc_playerUnit;
 
 //prevents the player units from blabbering on their radios
 if (isMultiplayer) then {
@@ -50,6 +52,13 @@ if (isMultiplayer) then {
 //waituntil postinit is executed:
 waitUntil {!isNil "BIS_fnc_init"};
 waitUntil {missionNamespace getVariable "bis_fnc_init"};
+
+//add admin commands to briefing screen:
+if ( serverCommandAvailable "#kick" ) then {
+	if	!( (call BIS_fnc_admin) isEqualTo 1 ) then {
+		call adv_fnc_adminCommands;
+	};
+};
 
 //add onPreloadFinished-EVH, so after map the screen will revert to normal:
 adv_var_preloadFinished = false;
@@ -144,6 +153,8 @@ if ( (missionNamespace getVariable ["ADV_par_fatigue",1]) isEqualTo 0 ) then {
 //adds action to throw it away if a disposable launcher is shot.
 if !(isClass (configFile >> "CfgPatches" >> "adv_dropLauncher")) then { ADV_index_dispLaunch = [] call ADV_fnc_dispLaunch; };
 
+//defines the player's unit:
+[player] call ADV_fnc_playerUnit;
 sleep 1;
 //loadouts and RespawnMPEVH are placed on the units on spawn. [target]
 [player] call ADV_fnc_applyLoadout;
@@ -151,9 +162,13 @@ if ( toUpper ([(str player),(count str player)-5] call BIS_fnc_trimString) isEqu
 
 //failsafe for missing curator interface:
 if ( toUpper (str player) in ["Z1","Z2","Z3","Z4","Z5","OPF_Z1","OPF_Z2","OPF_Z3","OPF_Z4","OPF_Z5","IND_Z1","IND_Z2","IND_Z3","IND_Z4","IND_Z5"] ) then {
+	private _loadoutHandle = player addAction [("<t color='#00FF00'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,-2,false,true,"","vehicle player isEqualTo player",5];
+	player setVariable ["adv_handle_loadoutAction",_loadoutHandle];
 	if ( isNull (getAssignedCuratorLogic player) ) then { [str player, 3] remoteExecCall ["adv_fnc_createZeus",2]; };
-	if ( isNil "adv_evh_createZeusRespawn" ) then {
-		adv_evh_createZeusRespawn = player addEventhandler ["RESPAWN",{
+	if ( isNil "adv_evh_zeusRespawn" ) then {
+		adv_evh_zeusRespawn = player addEventhandler ["RESPAWN",{
+			private _loadoutHandle = player addAction [("<t color='#00FF00'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,-2,false,true,"","vehicle player isEqualTo player",5];
+			player setVariable ["adv_handle_loadoutAction",_loadoutHandle];
 			if ( isNull (getAssignedCuratorLogic player) ) then { [str player, 3] remoteExecCall ["adv_fnc_createZeus",2]; };
 		}];
 	};
@@ -206,13 +221,6 @@ waitUntil {adv_var_preloadFinished};
 if (leader (group player) isEqualTo player) then {
 	["RegisterGroup", [group player, leader (group player), [player call BIS_fnc_getUnitInsignia,groupId (group player),false]]] call BIS_fnc_dynamicGroups;
 	//["RegisterGroup", [group player, leader (group player), [player call BIS_fnc_getUnitInsignia,groupId (group player),false]]] call BIS_fnc_dynamicGroups;
-};
-
-//add admin commands to briefing screen:
-if ( serverCommandAvailable "#kick" ) then {
-	if	!( (call BIS_fnc_admin) isEqualTo 1 ) then {
-		call adv_fnc_adminCommands;
-	};
 };
 
 //titletext:

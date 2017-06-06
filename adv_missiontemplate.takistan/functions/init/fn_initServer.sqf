@@ -30,7 +30,7 @@ call adv_fnc_collectFlags;
 waitUntil {!isNil "ADV_params_defined"};
 
 //date:
-setDate [2016, 8, missionNamespace getVariable ["ADV_par_day",23], missionNamespace getVariable ["ADV_par_hour",6] , missionNamespace getVariable ["ADV_par_minute",0]];
+setDate [2017, 8, missionNamespace getVariable ["ADV_par_day",23], missionNamespace getVariable ["ADV_par_hour",6] , missionNamespace getVariable ["ADV_par_minute",0]];
 
 //stops the blabbering of AI units and players
 if ( isMultiplayer ) then {
