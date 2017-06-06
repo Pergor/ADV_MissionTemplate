@@ -121,8 +121,6 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_gunbag") && !isNil "_ace_gunbag"
 clearMagazineCargoGlobal (unitBackpack _unit);
 clearItemCargoGlobal (unitBackpack _unit);
 clearWeaponCargoGlobal (unitBackpack _unit);
-if ( _headgear isEqualType [] ) then { _headgear = selectRandom _headgear; };
-_unit addHeadgear _headgear;
 if ( (toUpper (goggles _unit)) in ["G_B_DIVING","G_O_DIVING","G_I_DIVING"] ) then { removeGoggles _unit; };
 if ( _useProfileGoggles isEqualTo 0 ) then {
 	removeGoggles _unit;
@@ -350,6 +348,10 @@ if !( ["diver",_fnc_scriptNameParent] call BIS_fnc_inString || ["pilot",_fnc_scr
 		};
 	};
 };
+
+//headgear:
+if ( _headgear isEqualType [] ) then { _headgear = selectRandom _headgear; };
+_unit addHeadgear _headgear;
 
 _unit setVariable ["ADV_var_hasLoadout",true];
 	
