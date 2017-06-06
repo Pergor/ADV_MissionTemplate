@@ -113,6 +113,10 @@ Hier eingestellte Loadout-Variablen haben erst durch Neuausgabe der Ausrüstung 
 <execute expression='missionNamespace setVariable [""adv_par_NVGs"",1,true];missionNamespace setVariable [""adv_par_opfNVGs"",1,true];systemChat ""Flashlights enabled."";'>Enable flashlights</execute><br/>
 <execute expression='missionNamespace setVariable [""adv_par_NVGs"",0,true];missionNamespace setVariable [""adv_par_opfNVGs"",0,true];systemChat ""NVGs disabled."";'>Disable NVGs or flashlights</execute><br/>
 <br/>
+<execute expression='missionNamespace setVariable [""adv_par_gasmasks"",2,true];systemChat ""Gasmasks in inventory enabled."";'>Enable gasmasks in inventory</execute><br/>
+<execute expression='missionNamespace setVariable [""adv_par_gasmasks"",1,true];systemChat ""Wearing gasmasks enabled."";'>Enable wearing gasmasks</execute><br/>
+<execute expression='missionNamespace setVariable [""adv_par_gasmasks"",0,true];systemChat ""Gasmasks disabled."";'>Disable gasmasks</execute><br/>
+<br/>
 <execute expression='missionNamespace setVariable [""adv_par_noLRRadios"",false,true];systemChat ""Backpack radios enabled."";'>Enable backpack radios</execute><br/>
 <execute expression='missionNamespace setVariable [""adv_par_noLRRadios"",true,true];systemChat ""Backpack radios disabled."";'>Disable backpack radios</execute><br/>
 </font>
