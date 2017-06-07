@@ -288,6 +288,11 @@ if !( ["diver",_fnc_scriptNameParent] call BIS_fnc_inString || ["pilot",_fnc_scr
 			} count _NVGoggles;			
 		};
 	};
+} else {
+	if ( ( !(side (group _unit) isEqualTo east) && _par_NVGs isEqualTo 0 ) || ( side (group _unit) isEqualTo east && _par_opfNVGs isEqualTo 0 ) ) then {
+		_unit unlinkItem (hmd _unit);
+		{ _unit removeItems _x; } count _NVGoggles;
+	};
 };
 
 //tablets & GPS:
@@ -351,6 +356,11 @@ if !( ["diver",_fnc_scriptNameParent] call BIS_fnc_inString || ["pilot",_fnc_scr
 
 //headgear:
 if ( _headgear isEqualType [] ) then { _headgear = selectRandom _headgear; };
+if ( isClass(configFile >> "CfgWeapons" >> "H_PilotHelmetHeli_B_NVG") ) then {
+	if ( ["HELMETHELI",_headgear] call BIS_fnc_inString && (( !(side (group _unit) isEqualTo east) && _par_NVGs isEqualTo 2 ) || ( side (group _unit) isEqualTo east && _par_opfNVGs isEqualTo 2 )) ) then {
+		_headgear = format ["%1_NVG",_headgear];
+	};
+};
 _unit addHeadgear _headgear;
 
 _unit setVariable ["ADV_var_hasLoadout",true];
