@@ -20,7 +20,9 @@ if ( (call BIS_fnc_admin) isEqualTo 1 ) exitWith { false };
 
 private _ships = allMissionObjects "Land_Carrier_01_base_F";
 private _freedomText = if (count _ships > 0) then {
-	"<execute expression='{[] call adv_fnc_clearFreedom} remoteExec [""bis_fnc_call"",2];systemChat ""Landedeck wird freigeräumt."";'>Landedeck der USS Freedom freiräumen (Fahrzeuge an Deck respawnen)</execute><br/>
+	"<execute expression='{[[],true] call adv_fnc_clearFreedom} remoteExec [""bis_fnc_call"",2];systemChat ""Landedeck wird freigeräumt."";'>Landedeck der USS Freedom von Wracks freiräumen.</execute><br/>
+	<br/>
+	<execute expression='{[[],false] call adv_fnc_clearFreedom} remoteExec [""bis_fnc_call"",2];systemChat ""Landedeck wird freigeräumt."";'>Landedeck der USS Freedom freiräumen (Fahrzeuge an Deck respawnen)</execute><br/>
 	<br/>"
 } else {
 	""
