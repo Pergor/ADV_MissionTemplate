@@ -24,11 +24,18 @@ _handle = _this spawn {
 		,["_wrecksOnly",true,[true]]
 	];
 
-	if ( _ship isEqualType 0 || isNull _ship || (_ship isEqualType [] && (count _ship) isEqualTo 0) ) then {
-		_ships = allMissionObjects "Land_Carrier_01_base_F";
-	};
-	if ( _ship isEqualType objNull && !isNull _ship ) then {
-		_ships = [_ship];
+	private _ships = call {
+		if ( _ship isEqualType [] ) exitWith {
+			if (count _ship isEqualTo 0) exitWith {
+				allMissionObjects "Land_Carrier_01_base_F"
+			};
+		};
+		if ( _ship isEqualType 0 || isNull _ship ) exitWith {
+			allMissionObjects "Land_Carrier_01_base_F"
+		};
+		if ( _ship isEqualType objNull && !isNull _ship ) exitWith {
+			[_ship]
+		};
 	};
 
 	private _airVehicles = [];
