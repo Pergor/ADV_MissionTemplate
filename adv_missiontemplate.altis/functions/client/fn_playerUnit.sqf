@@ -50,6 +50,7 @@ if ( side (group _target) isEqualTo west && !_isCivLoadout ) then {
 		case "CLS": {"ADV_FNC_CLS"};
 		case "DRI": {"ADV_FNC_DRIVER"};
 		case "LOG": {"ADV_FNC_LOG"};
+		case "JET": {"ADV_FNC_JETPILOT"};
 		case "PIL": {"ADV_FNC_PILOT"};
 		case "SNI": {"ADV_FNC_SNIPER"};
 		case "SPO": {"ADV_FNC_SPOTTER"};
@@ -103,6 +104,7 @@ if ( side (group _target) isEqualTo east && !_isCivLoadout ) then {
 		case "OPF_CLS": {"ADV_OPF_FNC_CLS"};
 		case "OPF_DRI": {"ADV_OPF_FNC_DRIVER"};
 		case "OPF_LOG": {"ADV_OPF_FNC_LOG"};
+		case "OPF_JET": {"ADV_OPF_FNC_JETPILOT"};
 		case "OPF_PIL": {"ADV_OPF_FNC_PILOT"};
 		case "OPF_SNI": {"ADV_OPF_FNC_SNIPER"};
 		case "OPF_SPO": {"ADV_OPF_FNC_SPOTTER"};
@@ -157,6 +159,7 @@ if ( side (group _target) isEqualTo independent && !_isCivLoadout ) then {
 		case "IND_CLS": {"ADV_IND_FNC_CLS"};
 		case "IND_LOG": {"ADV_IND_FNC_LOG"};
 		case "IND_DRI": {"ADV_IND_FNC_DRIVER"};
+		case "IND_JET": {"ADV_IND_FNC_JETPILOT"};
 		case "IND_PIL": {"ADV_IND_FNC_PILOT"};
 		case "IND_SNI": {"ADV_IND_FNC_SNIPER"};
 		case "IND_SPO": {"ADV_IND_FNC_SPOTTER"};
