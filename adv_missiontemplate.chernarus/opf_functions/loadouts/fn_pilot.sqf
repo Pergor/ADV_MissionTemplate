@@ -26,7 +26,7 @@ params ["_player"];
 //clothing - (string)
 _uniform = ["U_O_PilotCoveralls"];
 _vest = ["V_TacVest_khk"];
-_headgear = ["H_CrewHelmetHeli_O"];
+_headgear = ["H_CrewHelmetHeli_O","H_PilotHelmetHeli_O"];
 _backpack = ["B_Parachute"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).

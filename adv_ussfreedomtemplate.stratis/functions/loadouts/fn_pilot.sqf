@@ -26,7 +26,7 @@ params ["_player"];
 //clothing - (string)
 _uniform = ["U_B_HeliPilotCoveralls"];
 _vest = ["V_TacVest_blk"];
-_headgear = ["H_CrewHelmetHeli_B"];
+_headgear = ["H_CrewHelmetHeli_B","H_PilotHelmetHeli_B"];
 _backpack = ["B_Parachute"];
 _insignium = "";
 _useProfileGoggles = 0;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
@@ -303,6 +303,7 @@ switch (true) do {
 		//BWmod Tropen
 		_uniform = ["BWA3_Uniform_Helipilot"];
 		_vest = ["BWA3_Vest_Tropen"];
+		_helmet = ["BWA3_Knighthelm"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_items pushback "PBW_muetze1_tropen";
 		};
@@ -312,6 +313,7 @@ switch (true) do {
 		//BWmod Fleck
 		_uniform = ["BWA3_Uniform_Helipilot"];
 		_vest = ["BWA3_Vest_Fleck"];
+		_helmet = ["BWA3_Knighthelm"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_items pushback "PBW_muetze1_fleck";
 		};

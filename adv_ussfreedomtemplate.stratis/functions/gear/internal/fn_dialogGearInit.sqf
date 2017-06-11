@@ -53,6 +53,7 @@ _loadoutList = [
 	,"Logistiker"
 	,"Fahrzeugbesatzung"
 	,"Pilot"
+	,"Jet-Pilot"
 	,"---- SF-Loadouts ----"
 	,"Scharfschütze"
 	,"Beobachter"
@@ -123,11 +124,12 @@ if (side (group player) isEqualTo west) then {
 	lbSetData [7377, 24, "ADV_FNC_LOG"];
 	lbSetData [7377, 25, "ADV_FNC_DRIVER"];
 	lbSetData [7377, 26, "ADV_FNC_PILOT"];
-	lbSetData [7377, 28, "ADV_FNC_SNIPER"];
-	lbSetData [7377, 29, "ADV_FNC_SPOTTER"];
-	lbSetData [7377, 30, "ADV_FNC_DIVER"];
-	lbSetData [7377, 31, "ADV_FNC_DIVER_MEDIC"];
-	lbSetData [7377, 32, "ADV_FNC_DIVER_SPEC"];
+	lbSetData [7377, 27, "ADV_FNC_JETPILOT"];
+	lbSetData [7377, 29, "ADV_FNC_SNIPER"];
+	lbSetData [7377, 30, "ADV_FNC_SPOTTER"];
+	lbSetData [7377, 31, "ADV_FNC_DIVER"];
+	lbSetData [7377, 32, "ADV_FNC_DIVER_MEDIC"];
+	lbSetData [7377, 33, "ADV_FNC_DIVER_SPEC"];
 	//lbSetData [7377, 34, "CSW"];
 };
 if (side (group player) isEqualTo independent) then {
@@ -154,11 +156,12 @@ if (side (group player) isEqualTo independent) then {
 	lbSetData [7377, 24, "ADV_IND_FNC_LOG"];
 	lbSetData [7377, 25, "ADV_IND_FNC_DRIVER"];
 	lbSetData [7377, 26, "ADV_IND_FNC_PILOT"];
-	lbSetData [7377, 28, "ADV_IND_FNC_SNIPER"];
-	lbSetData [7377, 29, "ADV_IND_FNC_SPOTTER"];
-	lbSetData [7377, 30, "ADV_IND_FNC_DIVER"];
-	lbSetData [7377, 31, "ADV_IND_FNC_DIVER_MEDIC"];
-	lbSetData [7377, 32, "ADV_IND_FNC_DIVER_SPEC"];
+	lbSetData [7377, 27, "ADV_IND_FNC_JETPILOT"];
+	lbSetData [7377, 29, "ADV_IND_FNC_SNIPER"];
+	lbSetData [7377, 30, "ADV_IND_FNC_SPOTTER"];
+	lbSetData [7377, 31, "ADV_IND_FNC_DIVER"];
+	lbSetData [7377, 32, "ADV_IND_FNC_DIVER_MEDIC"];
+	lbSetData [7377, 33, "ADV_IND_FNC_DIVER_SPEC"];
 };
 if (side (group player) isEqualTo east) then {
 	//Loadouts:
@@ -184,11 +187,12 @@ if (side (group player) isEqualTo east) then {
 	lbSetData [7377, 24, "ADV_OPF_FNC_LOG"];
 	lbSetData [7377, 25, "ADV_OPF_FNC_DRIVER"];
 	lbSetData [7377, 26, "ADV_OPF_FNC_PILOT"];
-	lbSetData [7377, 28, "ADV_OPF_FNC_SNIPER"];
-	lbSetData [7377, 29, "ADV_OPF_FNC_SPOTTER"];
-	lbSetData [7377, 30, "ADV_OPF_FNC_DIVER"];
-	lbSetData [7377, 31, "ADV_OPF_FNC_DIVER_MEDIC"];
-	lbSetData [7377, 32, "ADV_OPF_FNC_DIVER_SPEC"];
+	lbSetData [7377, 27, "ADV_IND_FNC_JETPILOT"];
+	lbSetData [7377, 29, "ADV_OPF_FNC_SNIPER"];
+	lbSetData [7377, 30, "ADV_OPF_FNC_SPOTTER"];
+	lbSetData [7377, 31, "ADV_OPF_FNC_DIVER"];
+	lbSetData [7377, 32, "ADV_OPF_FNC_DIVER_MEDIC"];
+	lbSetData [7377, 33, "ADV_OPF_FNC_DIVER_SPEC"];
 };
 if (side (group player) isEqualTo civilian) then {
 	//Loadouts:

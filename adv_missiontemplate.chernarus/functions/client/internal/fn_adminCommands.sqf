@@ -20,9 +20,9 @@ if ( (call BIS_fnc_admin) isEqualTo 1 ) exitWith { false };
 
 private _ships = allMissionObjects "Land_Carrier_01_base_F";
 private _freedomText = if (count _ships > 0) then {
-	"<execute expression='{[[],true] call adv_fnc_clearFreedom} remoteExec [""bis_fnc_call"",2];systemChat ""Landedeck wird freigeräumt."";'>Landedeck der USS Freedom von Wracks freiräumen.</execute><br/>
-	<execute expression='{[[],false] call adv_fnc_clearFreedom} remoteExec [""bis_fnc_call"",2];systemChat ""Landedeck wird freigeräumt."";'>Landedeck der USS Freedom freiräumen (Fahrzeuge an Deck respawnen)</execute><br/>
-	<br/>"
+"<execute expression='{[[],true] call adv_fnc_clearFreedom} remoteExec [""call"",2];systemChat ""Landedeck wird freigeräumt."";'>Landedeck der USS Freedom von Wracks freiräumen.</execute><br/>
+<execute expression='{[[],false] call adv_fnc_clearFreedom} remoteExec [""call"",2];systemChat ""Landedeck wird freigeräumt."";'>Landedeck der USS Freedom freiräumen (Fahrzeuge an Deck respawnen)</execute><br/>
+<br/>"
 } else {
 	""
 };
@@ -77,10 +77,10 @@ AI-Settings:<br/>
 Zu wem soll GREENFOR verbündet sein?<br/>
 <br/>
 <font color='#A0F020'>
-<execute expression='{east setFriend [resistance, 1]} remoteExec [""bis_fnc_call"",2];{west setFriend [resistance, 0]} remoteExec [""bis_fnc_call"",2];{resistance setFriend [east, 1]} remoteExec [""bis_fnc_call"",2];{resistance setFriend [west, 0]} remoteExec [""bis_fnc_call"",2];systemChat ""GREENFOR allied to OPFOR"";'>OPFOR</execute><br/>
-<execute expression='{east setFriend [resistance, 0]} remoteExec [""bis_fnc_call"",2];{west setFriend [resistance, 1]} remoteExec [""bis_fnc_call"",2];{resistance setFriend [east, 0]} remoteExec [""bis_fnc_call"",2];{resistance setFriend [west, 1]} remoteExec [""bis_fnc_call"",2];systemChat ""GREENFOR allied to BLUFOR"";'>BLUFOR</execute><br/>
-<execute expression='{east setFriend [resistance, 1]} remoteExec [""bis_fnc_call"",2];{west setFriend [resistance, 1]} remoteExec [""bis_fnc_call"",2];{resistance setFriend [east, 1]} remoteExec [""bis_fnc_call"",2];{resistance setFriend [west, 1]} remoteExec [""bis_fnc_call"",2];systemChat ""GREENFOR allied to ALL"";'>ALL</execute><br/>
-<execute expression='{east setFriend [resistance, 0]} remoteExec [""bis_fnc_call"",2];{west setFriend [resistance, 0]} remoteExec [""bis_fnc_call"",2];{resistance setFriend [east, 0]} remoteExec [""bis_fnc_call"",2];{resistance setFriend [west, 0]} remoteExec [""bis_fnc_call"",2];systemChat ""GREENFOR allied to NONE"";'>NONE</execute><br/>
+<execute expression='{east setFriend [resistance, 1]} remoteExec [""call"",2];{west setFriend [resistance, 0]} remoteExec [""call"",2];{resistance setFriend [east, 1]} remoteExec [""call"",2];{resistance setFriend [west, 0]} remoteExec [""call"",2];systemChat ""GREENFOR allied to OPFOR"";'>OPFOR</execute><br/>
+<execute expression='{east setFriend [resistance, 0]} remoteExec [""call"",2];{west setFriend [resistance, 1]} remoteExec [""call"",2];{resistance setFriend [east, 0]} remoteExec [""call"",2];{resistance setFriend [west, 1]} remoteExec [""call"",2];systemChat ""GREENFOR allied to BLUFOR"";'>BLUFOR</execute><br/>
+<execute expression='{east setFriend [resistance, 1]} remoteExec [""call"",2];{west setFriend [resistance, 1]} remoteExec [""call"",2];{resistance setFriend [east, 1]} remoteExec [""call"",2];{resistance setFriend [west, 1]} remoteExec [""call"",2];systemChat ""GREENFOR allied to ALL"";'>ALL</execute><br/>
+<execute expression='{east setFriend [resistance, 0]} remoteExec [""call"",2];{west setFriend [resistance, 0]} remoteExec [""call"",2];{resistance setFriend [east, 0]} remoteExec [""call"",2];{resistance setFriend [west, 0]} remoteExec [""call"",2];systemChat ""GREENFOR allied to NONE"";'>NONE</execute><br/>
 </font>
 <br/>
 -----------------------------
@@ -88,7 +88,7 @@ Zu wem soll GREENFOR verbündet sein?<br/>
 Sonstige Server-Funktionen:<br/>
 <br/>
 <font color='#A0F020'>
-<execute expression='{[98] call adv_fnc_weather} remoteExec [""bis_fnc_call"",0];systemChat ""Zufälliges Wetter eingestellt."";'>Zufälliges, konstantes Wetter einstellen (wechselt ohne Übergang!)</execute><br/>
+<execute expression='{[98] call adv_fnc_weather} remoteExec [""call"",0];systemChat ""Zufälliges Wetter eingestellt."";'>Zufälliges, konstantes Wetter einstellen (wechselt ohne Übergang!)</execute><br/>
 <br/>") + _freedomText + ("
 <execute expression='missionNamespace setVariable [""adv_par_logisticDrop"",1,true];systemChat ""Automatic logistic drop activated."";'>Activate automatic logistic drop</execute><br/>
 <execute expression='missionNamespace setVariable [""adv_par_logisticDrop"",0,true];systemChat ""Automatic logistic drop deactivated."";'>Deactivate automatic logistic drop</execute><br/>
@@ -127,9 +127,9 @@ Hier eingestellte Loadout-Variablen haben erst durch Neuausgabe der Ausrüstung 
 Loadout-Functions:<br/>
 <br/>
 <font color='#A0F020'>
-<execute expression='{[] call adv_fnc_tfarSettings} remoteExec [""bis_fnc_call"",0];{[] call adv_fnc_acreSettings} remoteExec [""bis_fnc_call"",0];{[player] call adv_fnc_setFrequencies} remoteExec [""bis_fnc_call"",0];systemChat ""Die Funkfrequenzen wurden neu eingestellt."";'>Funkfrequenzen neu einstellen und zurücksetzen</execute><br/>
+<execute expression='{[] call adv_fnc_tfarSettings} remoteExec [""call"",0];{[] call adv_fnc_acreSettings} remoteExec [""call"",0];{[player] call adv_fnc_setFrequencies} remoteExec [""call"",0];systemChat ""Die Funkfrequenzen wurden neu eingestellt."";'>Funkfrequenzen neu einstellen und zurücksetzen</execute><br/>
 <br/>
-<executeClose expression='{[player] call adv_fnc_applyLoadout} remoteExec [""bis_fnc_call"",0];systemChat ""Ausrüstung neu ausgegeben."";'>Ausrüstung aller Spieler neu ausgeben</executeClose><br/>
+<executeClose expression='{[player] call adv_fnc_applyLoadout} remoteExec [""call"",0];systemChat ""Ausrüstung neu ausgegeben."";'>Ausrüstung aller Spieler neu ausgeben</executeClose><br/>
 </font>"]];
 
 player createDiaryRecord ["debugMenu",["Spieler","
@@ -137,9 +137,9 @@ player createDiaryRecord ["debugMenu",["Spieler","
 Spieler-Funktionen:<br/>
 <br/>
 <font color='#A0F020'>
-<executeClose expression='{[player] call adv_fnc_fullHeal} remoteExec [""bis_fnc_call"",0]; systemChat ""Alle Spieler wurden geheilt."";'>Alle Spieler heilen</executeClose><br/>
+<executeClose expression='{[player] call adv_fnc_fullHeal} remoteExec [""call"",0]; systemChat ""Alle Spieler wurden geheilt."";'>Alle Spieler heilen</executeClose><br/>
 <br/>
-<executeClose expression='{[player,1000] call adv_fnc_setRating} remoteExec [""bis_fnc_call"",0]; systemChat ""Rating aller Spieler wurde auf 1000 gesetzt."";'>Rating aller Spieler auf 1000 setzen</executeClose><br/>
+<executeClose expression='{[player,1000] call adv_fnc_setRating} remoteExec [""call"",0]; systemChat ""Rating aller Spieler wurde auf 1000 gesetzt."";'>Rating aller Spieler auf 1000 setzen</executeClose><br/>
 <br/>
 <executeClose expression='missionNamespace setVariable [""L_suppress_active"",true,true]; systemChat ""L_suppress activated."";'>Activate Laxemann's Suppress</executeClose><br/>
 <executeClose expression='missionNamespace setVariable [""L_suppress_active"",false,true]; systemChat ""L_suppress deactivated."";'>Deactivate Laxemann's Suppress</executeClose><br/>

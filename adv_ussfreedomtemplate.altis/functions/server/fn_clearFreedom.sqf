@@ -54,7 +54,7 @@ _handle = _this spawn {
 	
 	private _vehicles = _airVehicles+_landVehicles;
 	private _vehiclesToRemove = if ( _wrecksOnly ) then {
-		_vehicles select { count (crew _x) isEqualTo 0 && (damage _x) > 0.9 };
+		_vehicles select { count (crew _x) isEqualTo 0 && ((damage _x) > 0.9 || !(canMove _x)) };
 	} else {
 		_vehicles select { count (crew _x) isEqualTo 0 };
 	};

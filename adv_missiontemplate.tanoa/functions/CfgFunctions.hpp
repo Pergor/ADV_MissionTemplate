@@ -189,6 +189,7 @@ class adv
 		class log {};
 		class marksman {};
 		class medic {};
+		class jetPilot {};
 		class pilot {};
 		class sniper {};
 		class soldier {};
