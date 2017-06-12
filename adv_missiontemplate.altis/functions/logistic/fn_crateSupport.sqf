@@ -51,7 +51,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		_target addMagazineCargoGlobal ["B_IR_Grenade",1];
 	};
 	_target addItemCargoGlobal ["ToolKit",2];
-	_target addWeaponCargoGlobal ["BINOCULAR",2];
+	_target addItemCargoGlobal ["BINOCULAR",2];
 	
 	if ( _par_radios > 0 ) then {
 		call {
