@@ -98,18 +98,18 @@ if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) exitWith {
 			"Frequenzen",
 			"Funkfrequenzen:
 			<br/><br/>Shortrange-Funkgeräte:
-			<br/>Jupiter: SW CH1 41.0 MHz
-			<br/>Mars: SW CH2 42.0 MHz
-			<br/>Deimos: SW CH3 43.0 MHz
-			<br/>Phobos: SW CH4 44.0 MHz
-			<br/>Vulkan: SW CH5 45.0 MHz
+			<br/>Jupiter: SW CH1 41 MHz
+			<br/>Mars: SW CH2 42 MHz
+			<br/>Deimos: SW CH3 43 MHz
+			<br/>Phobos: SW CH4 44 MHz
+			<br/>Vulkan: SW CH5 45 MHz
 			<br/>Merkur, Apollo, Saturn, Diana nach Absprache.
 			<br/><br/>Longrange-Funkgeräte:
-			<br/>Convoyfunk: LR CH1 51.0 MHz
-			<br/>Kampfkreis: LR CH2 52.0 MHz
-			<br/>Einsatzunterstützung: LR CH7 57.0 MHz
-			<br/>Logistik: LR CH8 58.0 MHz
-			<br/>OPZ/Zeus: LR CH9 59.0 MHz
+			<br/>Convoyfunk: LR CH1 51 MHz
+			<br/>Kampfkreis: LR CH2 52 MHz
+			<br/>Einsatzunterstützung: LR CH7 57 MHz
+			<br/>Logistik: LR CH8 58 MHz
+			<br/>OPZ/Zeus: LR CH9 59 MHz
 			"
 		],
 		east,
@@ -118,18 +118,18 @@ if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) exitWith {
 			"Frequenzen",
 			"Funkfrequenzen:
 			<br/><br/>Shortrange-Funkgeräte:
-			<br/>Milan: SW CH1 41.0 MHz
-			<br/>Adler: SW CH2 42.0 MHz
-			<br/>Bussard: SW CH3 43.0 MHz
-			<br/>Condor: SW CH4 44.0 MHz
-			<br/>Drossel: SW CH5 45.0 MHz
+			<br/>Milan: SW CH1 41 MHz
+			<br/>Adler: SW CH2 42 MHz
+			<br/>Bussard: SW CH3 43 MHz
+			<br/>Condor: SW CH4 44 MHz
+			<br/>Drossel: SW CH5 45 MHz
 			<br/>Elster, Falke, Greif, Habicht nach Absprache.
 			<br/><br/>Longrange-Funkgeräte:
-			<br/>Convoyfunk: LR CH1 51.0 MHz
-			<br/>Kampfkreis: LR CH2 52.0 MHz
-			<br/>Einsatzunterstützung: LR CH7 57.0 MHz
-			<br/>Logistik: LR CH8 58.0 MHz
-			<br/>OPZ/Zeus: LR CH9 59.0 MHz
+			<br/>Convoyfunk: LR CH1 51 MHz
+			<br/>Kampfkreis: LR CH2 52 MHz
+			<br/>Einsatzunterstützung: LR CH7 57 MHz
+			<br/>Logistik: LR CH8 58 MHz
+			<br/>OPZ/Zeus: LR CH9 59 MHz
 			"
 		],
 		independent,
@@ -138,17 +138,17 @@ if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) exitWith {
 			"Frequenzen",
 			"Funkfrequenzen:
 			<br/><br/>Shortrange-Funkgeräte:
-			<br/>Natter: SW CH1 61.0 MHz
-			<br/>Anakonda: SW CH2 62.0 MHz
-			<br/>Boa: SW CH3 63.0 MHz
-			<br/>Cobra: SW CH4 64.0 MHz
+			<br/>Natter: SW CH1 61 MHz
+			<br/>Anakonda: SW CH2 62 MHz
+			<br/>Boa: SW CH3 63 MHz
+			<br/>Cobra: SW CH4 64 MHz
 			<br/>Viper, Drache nach Absprache.
 			<br/><br/>Longrange-Funkgeräte:
-			<br/>Convoyfunk: LR CH1 71.0 MHz
-			<br/>Kampfkreis: LR CH2 72.0 MHz
-			<br/>Einsatzunterstützung: LR CH7 77.0 MHz
-			<br/>Logistik: LR CH8 78.0 MHz
-			<br/>OPZ/Zeus: LR CH9 79.0 MHz	
+			<br/>Convoyfunk: LR CH1 71 MHz
+			<br/>Kampfkreis: LR CH2 72 MHz
+			<br/>Einsatzunterstützung: LR CH7 77 MHz
+			<br/>Logistik: LR CH8 78 MHz
+			<br/>OPZ/Zeus: LR CH9 79 MHz	
 			"
 		]
 	] call FHQ_TT_addBriefing;
