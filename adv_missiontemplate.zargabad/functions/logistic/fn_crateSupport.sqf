@@ -51,6 +51,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		_target addMagazineCargoGlobal ["B_IR_Grenade",1];
 	};
 	_target addItemCargoGlobal ["ToolKit",2];
+	_target addItemCargoGlobal ["BINOCULAR",2];
 	
 	if ( _par_radios > 0 ) then {
 		call {
@@ -137,7 +138,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		_ACE_microDAGR = 0;
 		_ACE_DAGR = 0;
 		_ACE_RangeTable_82mm = 1;
-		_ACE_rangefinder = 0;
+		_ACE_rangefinder = 2;
 		_ACE_NonSteerableParachute = 0;
 		_ACE_IR_Strobe = 4;
 		_ACE_M84 = 0;

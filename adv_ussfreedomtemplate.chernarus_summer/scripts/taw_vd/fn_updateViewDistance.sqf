@@ -34,5 +34,6 @@ if (tawvd_syncObject) then {
 	setObjectViewDistance _dist;
 	tawvd_object = _dist;
 	profileNamespace setVariable ["tawvd_object",2000];
+	profileNamespace setVariable ["tawvd_syncObject",true];
 };
 saveProfileNamespace;

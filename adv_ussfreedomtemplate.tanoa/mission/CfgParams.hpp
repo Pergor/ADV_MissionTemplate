@@ -19,6 +19,19 @@
  * Public: Yes
  */
 
+class dummy_base {
+	title = "---------------------- Basis-Parameter ----------------------";
+	values[] = {-99999};
+	default = -99999;
+	texts[] = {""};
+};
+class param_headlessClient
+{
+	title="Was für eine Art von Mission soll gespielt werden? - Wird eine Zeus-/Combat Patrol-Mission gespielt, steht UPSMON nicht automatisch zur Verfügung!";
+	values[]  = {3,2,1,0};
+	texts[] = {"Combat Patrol (wird am Briefing-Board gestartet)","Headless Client","Zeus","Weder, noch."};
+	default = 1;
+};
 class dummy_environment {
 	title = "---------------------- Umweltparameter ----------------------";
 	values[] = {-99999};
@@ -99,13 +112,6 @@ class param_sideRelations
 	values[]  = {3,2,1,0};
 	texts[] = {"Sowohl mit OPFOR, als auch mit BLUFOR","Mit OPFOR","Mit BLUFOR","Mit keiner"};
 	default = 0;
-};
-class param_headlessClient
-{
-	title="Wird mit Headless Client oder mit Zeus gespielt? - Wird mit Zeus gespielt, steht UPSMON nicht automatisch zur Verfügung!";
-	values[]  = {2,1,0};
-	texts[] = {"Headless Client","Zeus","Weder, noch."};
-	default = 1;
 };
 class param_invinciZeus
 {

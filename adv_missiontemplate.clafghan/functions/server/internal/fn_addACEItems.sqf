@@ -109,11 +109,16 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 	};
 	if (!isNil "_ACE_rangefinder") then {
 		if (!isNil "ADV_par_NVGs") then {
-			if (isClass(configFile >> "CfgPatches" >> "ACE_vector") && _par_NVGs == 1 ) then {
-				_target addItemCargoGlobal ["ACE_vector", _ACE_rangefinder];
-			};
-			if (isClass(configFile >> "CfgPatches" >> "ACE_yardage450") && _par_NVGs == 0 ) then {
-				_target addItemCargoGlobal ["ACE_yardage450", _ACE_rangefinder];
+			call {
+				if ( isClass(configFile >> "CfgPatches" >> "ACE_vector") ) exitWith {
+					if (_par_NVGs > 0 || _par_opfNVGs > 0) exitWith {
+						_target addItemCargoGlobal ["ACE_vector", _ACE_rangefinder];
+					};
+					_target addItemCargoGlobal ["ACE_VectorDay", _ACE_rangefinder];
+				};
+				if ( isClass(configFile >> "CfgPatches" >> "ACE_yardage450") ) exitWith {
+					_target addItemCargoGlobal ["ACE_yardage450", _ACE_rangefinder];
+				};
 			};
 		} else {
 			if (isClass(configFile >> "CfgPatches" >> "ACE_vector")) then {

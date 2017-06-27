@@ -44,6 +44,7 @@ class FSM
        "	profileNamespace setVariable [""tawvd_air"",viewDistance];" \n
        "	profileNamespace setVariable [""tawvd_drone"",viewDistance];" \n
        "	profileNamespace setVariable [""tawvd_object"",(getObjectViewDistance select 0)];" \n
+       "	profileNamespace setVariable [""tawvd_syncObject"",false];" \n
        "	saveProfileNamespace;" \n
        "};" \n
        "" \n
@@ -52,8 +53,8 @@ class FSM
        "tawvd_air = profileNamespace getVariable [""tawvd_air"",viewDistance];" \n
        "tawvd_drone = profileNamespace getVariable [""tawvd_drone"",viewDistance];" \n
        "tawvd_object = profileNamespace getVariable [""tawvd_object"",(getObjectViewDistance select 0)];" \n
+       "tawvd_syncObject = profileNamespace getVariable [""tawvd_syncObject"",false];" \n
        "" \n
-       "tawvd_syncObject = false;" \n
 	   "[] call TAWVD_fnc_updateViewDistance;" \n
        "_actionID = player addAction[""<t color='#FF0000'>View Settings</t>"",TAWVD_fnc_openMenu,[],-99,false,false,"""",''];"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;

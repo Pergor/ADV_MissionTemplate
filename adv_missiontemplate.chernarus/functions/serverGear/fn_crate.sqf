@@ -364,6 +364,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		if (_par_Radios == 1 || _par_Radios == 3) then {
 			_target addItemCargoGlobal ["ItemRadio",4];
 		};
+		_target addWeaponCargoGlobal ["BINOCULAR",5];
 
 		//ACE items (if ACE is running on the server) - (integers)
 		if (isClass (configFile >> "CfgPatches" >> "ACE_common")) then {
@@ -429,7 +430,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			_ACE_microDAGR = 0;
 			_ACE_DAGR = 0;
 			_ACE_RangeTable_82mm = 5;
-			_ACE_rangefinder = 0;
+			_ACE_rangefinder = 5;
 			_ACE_NonSteerableParachute = 0;
 			_ACE_IR_Strobe = 10;
 			_ACE_M84 = 0;

@@ -118,14 +118,17 @@ if ( (missionNamespace getVariable ["ADV_par_ChooseLoad",1]) isEqualTo 1 ) then 
 			if ( ["opf_briefing",str _x] call BIS_fnc_inString ) exitWith {
 				private _boardHandle = _x addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,50,true,true,"","!(side (group player) isEqualTo west || side (group player) isEqualTo independent)",5];
 				_x setVariable ["adv_handle_loadoutAction",_boardHandle];
+				_x addAction [("<t color='#FFFFFF' size='2' align='center'>" + ("Combat Patrol starten") + "</t>"), { {[] spawn bis_fnc_cpinit} remoteExec ["call",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 3 && player == (leader (group player))",5];
 			};
 			if ( ["ind_briefing",str _x] call BIS_fnc_inString ) exitWith {
 				private _boardHandle = _x addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,50,true,true,"","!(side (group player) isEqualTo east || side (group player) isEqualTo west)",5];
 				_x setVariable ["adv_handle_loadoutAction",_boardHandle];
+				_x addAction [("<t color='#FFFFFF' size='2' align='center'>" + ("Combat Patrol starten") + "</t>"), { {[] spawn bis_fnc_cpinit} remoteExec ["call",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 3 && player == (leader (group player))",5];
 			};
 			if ( ["briefing",str _x] call BIS_fnc_inString ) exitWith {
 				private _boardHandle = _x addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,50,true,true,"","!(side (group player) isEqualTo east || side (group player) isEqualTo independent)",5];
 				_x setVariable ["adv_handle_loadoutAction",_boardHandle];
+				_x addAction [("<t color='#FFFFFF' size='2' align='center'>" + ("Combat Patrol starten") + "</t>"), { {[] spawn bis_fnc_cpinit} remoteExec ["call",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 3 && player == (leader (group player))",5];
 			};
 		};
 		nil;

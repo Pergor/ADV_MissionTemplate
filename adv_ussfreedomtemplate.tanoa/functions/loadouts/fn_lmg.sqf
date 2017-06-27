@@ -238,7 +238,7 @@ switch (_par_customWeap) do {
 	case 3: {
 		//RHS Marines
 		_primaryWeapon = selectRandom ["rhs_weap_m249_pip_S","rhs_weap_m27iar","rhs_weap_m27iar"];
-		_optic = ["rhsusf_acc_ACOG","rhsusf_acc_ACOG3"];
+		_optic = ["rhsusf_acc_ACOG_USMC","rhsusf_acc_ACOG3_USMC"];
 		if ( _primaryWeapon == "rhs_weap_m27iar" ) then {
 			_primaryweaponAmmo = [7,9];
 			_additionalAmmo = [14,"30rnd_556x45_STANAG",true];
