@@ -243,7 +243,7 @@ switch (_par_customWeap) do {
 	case 3: {
 		//RHS Marines
 		_primaryweapon = ["rhs_weap_m16a4_carryhandle"];
-		_optic = ["rhsusf_acc_ACOG","rhsusf_acc_ACOG3"];
+		_optic = ["rhsusf_acc_ACOG_USMC","rhsusf_acc_ACOG3_USMC"];
 		_attachments = [""];
 		if ( _par_NVGs == 1 ) then { _attachments pushback "rhsusf_acc_M952V"; };
 		if ( _par_NVGs == 2 ) then { _attachments pushback "rhsusf_acc_anpeq15side_bk"; };
