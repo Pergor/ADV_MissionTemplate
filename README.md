@@ -84,3 +84,5 @@ Have Fun!
 	Noncommercial includes monetized servers: This mission or parts or derivatives of it may not be used on monetized servers.
 	Altis Life: This mission or parts or derivatives of it may not be used in any derivative of Life gamemode.
 	Steam Workshop: This mission or parts or derivatives of it may not be uploaded to Steam Workshop, neither individually nor as part of a collection.
+	
+	Different licences may apply to scripts not written by the author. The respective rights remain with the authors of these scripts.
