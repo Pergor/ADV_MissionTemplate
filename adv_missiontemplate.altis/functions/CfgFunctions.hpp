@@ -38,6 +38,7 @@ class adv
 	};
 	class shared
 	{
+		class CPInit {};
 		class jammer {};
 		class radioRelay {};
 		class weather {};
