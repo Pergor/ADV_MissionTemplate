@@ -101,7 +101,7 @@ _itemsUniform = [];
 _itemsVest = [];
 
 //items added specifically to Backpack: - (array)
-_itemsBackpack = ["ToolKit","MineDetector","SatchelCharge_Remote_Mag"];
+_itemsBackpack = ["ToolKit","MineDetector","SatchelCharge_Remote_Mag","DemoCharge_Remote_Mag","DemoCharge_Remote_Mag"];
 
 //linked items (don't put "ItemRadio" in here, as it's set with _equipRadio) - (array)
 _itemsLink = [

@@ -88,7 +88,7 @@ Zu wem soll GREENFOR verbündet sein?<br/>
 Missions-Funktionen:<br/>
 <br/>
 <font color='#A0F020'>
-<execute expression='{[] spawn bis_fnc_cpinit} remoteExec [""call"",0];systemChat ""CP startet..."";'>Starte Combat Patrol-Mission</execute><br/>
+<execute expression='[] remoteExec [""adv_fnc_cpinit"",0];systemChat ""CP startet..."";'>Starte Combat Patrol-Mission</execute><br/>
 <br/>
 -----------------------------
 <br/>
