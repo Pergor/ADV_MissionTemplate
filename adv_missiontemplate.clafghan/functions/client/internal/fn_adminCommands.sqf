@@ -89,6 +89,7 @@ Missions-Funktionen:<br/>
 <br/>
 <font color='#A0F020'>
 <execute expression='[] remoteExec [""adv_fnc_cpinit"",0];systemChat ""CP startet..."";'>Starte Combat Patrol-Mission</execute><br/>
+</font>
 <br/>
 -----------------------------
 <br/>
