@@ -7,7 +7,7 @@
  * 0: target - <OBJECT>
  *
  * Return Value:
- * Function executed - <BOOL>
+ * None
  *
  * Example:
  * [player] call adv_fnc_fullHeal
@@ -36,13 +36,27 @@ if (isClass(configFile >> "CfgPatches" >> "ace_medical")) exitWith {
 		
 		_target setVariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0], true];
 
+		{
+			[_target, _x, 0, false] call ace_medical_fnc_setHitPointDamage;
+			nil;
+		} count [
+			"HitHead"
+			,"HitBody"
+			,"HitArms"
+			,"HitLeftArm"
+			,"HitRightArm"
+			,"HitLegs"
+			,"HitLeftLeg"
+			,"HitRightLeg"
+		];
+		/*
 		_target setHitPointDamage ["hitHead", 0];
 		_target setHitPointDamage ["hitBody", 0];
 		_target setHitPointDamage ["hitArms", 0];
 		_target setHitPointDamage ["hitLegs", 0];
+		*/
 
 		[_target,false] call ACE_medical_fnc_setUnconscious;
 	};
+	nil
 };
-
-true;
