@@ -411,6 +411,13 @@ switch (_par_customUni) do {
 		_headgear = ["H_HelmetB_tna_F","H_HelmetB_Enh_tna_F","H_HelmetB_Light_tna_F"];
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
+	case 30: {
+		//Vanilla CTRG
+		_uniform = ["U_B_CTRG_1","U_B_CTRG_2","U_B_CTRG_3"];
+		if (worldName == "TANOA") then {
+			_uniform = ["U_B_CTRG_Soldier_F","U_B_CTRG_Soldier_2_F","U_B_CTRG_Soldier_3_F"];
+		};
+	};
 	default {};
 };
 
