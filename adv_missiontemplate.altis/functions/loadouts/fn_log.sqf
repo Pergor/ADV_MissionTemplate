@@ -428,8 +428,26 @@ switch (toUpper ([str (_this select 0),0,6] call BIS_fnc_trimString)) do {
 
 //LRRadios
 if (missionNamespace getVariable ["_par_noLRRadios",false]) then { _giveBackpackRadio = false };
-if ( (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = [_player] call adv_fnc_LRBackpack;
+if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (_par_CustomUni) do {
+		case 0: {["tfar_rt1523g_big"]};
+		case 1: {["tfar_rt1523g_big_bwmod_tropen"]};
+		case 2: {["tfar_rt1523g_big_bwmod"]};
+		case 3: {["tfar_rt1523g_sage"]};
+		case 12: {["UK3CB_BAF_B_Bergen_MTP_Radio_L_A","UK3CB_BAF_B_Bergen_MTP_Radio_L_B"]};
+		case 13: {["tfar_rt1523g_black"]};
+		case 14: {["tfar_rt1523g_black"]};
+		default {["tfar_rt1523g_big_rhs"]};
+	};
+};
+if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (_par_CustomUni) do {
+		case 1: {"BWA3_AssaultPack_Tropen"};
+		case 2: {"BWA3_AssaultPack_Fleck"};
+		case 12: {["UK3CB_BAF_B_Bergen_MTP_Radio_L_A","UK3CB_BAF_B_Bergen_MTP_Radio_L_B"]};
+		case 20: {"B_AssaultPack_tna_F"};
+		default {"B_AssaultPack_blk"};
+	};
 };
 
 ///// No editing necessary below this line /////
