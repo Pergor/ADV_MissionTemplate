@@ -281,7 +281,6 @@ if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios =
 		default { _backpack = ["tfar_anprc155_coyote"]; };
 	};
 };
-
 if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
 	_backpack = switch (_par_indUni) do {
 		case 0: {"B_AssaultPack_dgtl"};
