@@ -27,9 +27,9 @@ class dummy_base {
 };
 class param_headlessClient
 {
-	title="Was für eine Art von Mission soll gespielt werden? - Wird eine Zeus-/Combat Patrol-Mission gespielt, steht UPSMON nicht automatisch zur Verfügung!";
-	values[]  = {3,2,1,0};
-	texts[] = {"Combat Patrol (wird am Briefing-Board gestartet)","Headless Client","Zeus","Weder, noch."};
+	title="Was für eine Art von Mission soll gespielt werden?";
+	values[]  = {5,4,3,2,1,0};
+	texts[] = {"Combat Patrol (wird am Briefing-Board gestartet)","Headless Client mit UPSMON-KI","Headless Client","UPSMON-KI","Zeus","Weder, noch."};
 	default = 1;
 };
 class dummy_environment {
