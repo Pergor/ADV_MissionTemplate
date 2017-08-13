@@ -119,32 +119,70 @@ if (isServer) then {
 	// --- register enemy group configs
 	
 	_tanoaCamo = toLower worldName == "tanoa";
+	_rhsafrf = isClass(configFile >> "CfgPatches" >> "rhs_main");
+	_cup = isClass(configFile >> "CfgPatches" >> "CUP_Creatures_People_Core");
 	
-	BIS_CP_enemyGrp_sentry = if (BIS_CP_enemySide == EAST) then {
-		if (_tanoaCamo) then {
-			configFile >> "cfgGroups" >> "East" >> "OPF_T_F" >> "Infantry" >> "O_T_InfSentry"
-		} else {
+	BIS_CP_enemyGrp_sentry = call {
+		if (BIS_CP_enemySide == EAST) exitWith {
+			if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith {
+				configfile >> "CfgGroups" >> "East" >> "rhs_faction_msv" >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_MANEUVER"
+			};
+			if (_cup && (toUpper worldname) in ADV_var_aridMaps) exitWith {
+				configfile >> "CfgGroups" >> "East" >> "CUP_O_TK_MILITIA" >> "Infantry" >> "CUP_O_TK_MILITIA_Patrol"
+			};
+			if (_tanoaCamo) exitWith {
+				configFile >> "cfgGroups" >> "East" >> "OPF_T_F" >> "Infantry" >> "O_T_InfSentry"
+			};
 			configFile >> "cfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSentry"
 		};
-	} else {
+		if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith {
+			configfile >> "CfgGroups" >> "Indep" >> "rhsgref_faction_chdkz_g" >> "rhsgref_group_chdkz_ins_gurgents_infantry" >> "rhsgref_group_chdkz_infantry_at"
+		};
+		if (_cup && (toUpper worldname) in ADV_var_aridMaps) exitWith {
+			configfile >> "CfgGroups" >> "Indep" >> "CUP_I_TK_GUE" >> "Infantry" >> "CUP_I_TK_GUE_Patrol"
+		};
 		configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry"
 	};
 	BIS_CP_enemyGrp_fireTeam = if (BIS_CP_enemySide == EAST) then {
-		if (_tanoaCamo) then {
-			configFile >> "cfgGroups" >> "East" >> "OPF_T_F" >> "Infantry" >> "O_T_InfTeam"
-		} else {
+		if (BIS_CP_enemySide == EAST) exitWith {
+			if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith {
+				configfile >> "CfgGroups" >> "East" >> "rhs_faction_msv" >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_fireteam"
+			};
+			if (_cup && (toUpper worldname) in ADV_var_aridMaps) exitWith {
+				configfile >> "CfgGroups" >> "East" >> "CUP_O_TK_MILITIA" >> "Infantry" >> "CUP_O_TK_MILITIA_Patrol"
+			};
+			if (_tanoaCamo) exitWith {
+				configFile >> "cfgGroups" >> "East" >> "OPF_T_F" >> "Infantry" >> "O_T_InfTeam"
+			};
 			configFile >> "cfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam"
 		};
-	} else {
+		if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith {
+			configfile >> "CfgGroups" >> "Indep" >> "rhsgref_faction_chdkz_g" >> "rhsgref_group_chdkz_ins_gurgents_infantry" >> "rhsgref_group_chdkz_infantry_patrol"
+		};
+		if (_cup && (toUpper worldname) in ADV_var_aridMaps) exitWith {
+			configfile >> "CfgGroups" >> "Indep" >> "CUP_I_TK_GUE" >> "Infantry" >> "CUP_I_TK_GUE_Patrol"
+		};
 		configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfTeam"
 	};
 	BIS_CP_enemyGrp_rifleSquad = if (BIS_CP_enemySide == EAST) then {
-		if (_tanoaCamo) then {
-			configFile >> "cfgGroups" >> "East" >> "OPF_T_F" >> "SpecOps" >> "O_T_ViperTeam"
-		} else {
+		if (BIS_CP_enemySide == EAST) exitWith {
+			if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith {
+				configfile >> "CfgGroups" >> "East" >> "rhs_faction_msv" >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_fireteam"
+			};
+			if (_cup && (toUpper worldname) in ADV_var_aridMaps) exitWith {
+				configfile >> "CfgGroups" >> "East" >> "CUP_O_TK_MILITIA" >> "Infantry" >> "CUP_O_TK_MILITIA_Patrol"
+			};
+			if (_tanoaCamo) exitWith {
+				configFile >> "cfgGroups" >> "East" >> "OPF_T_F" >> "SpecOps" >> "O_T_ViperTeam"
+			};
 			configFile >> "cfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad"
 		};
-	} else {
+		if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith {
+			configfile >> "CfgGroups" >> "Indep" >> "rhsgref_faction_chdkz_g" >> "rhsgref_group_chdkz_ins_gurgents_infantry" >> "rhsgref_group_chdkz_infantry_patrol"
+		};
+		if (_cup && (toUpper worldname) in ADV_var_aridMaps) exitWith {
+			configfile >> "CfgGroups" >> "Indep" >> "CUP_I_TK_GUE" >> "Infantry" >> "CUP_I_TK_GUE_Patrol"
+		};
 		configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSquad"
 	};
 	
