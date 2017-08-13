@@ -48,9 +48,17 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 
 	//side settings:
 	//blufor:
-	private _defaultFrequencies_sr_west = ["41","42","43","44","45","46","47","48"];
-	private _defaultFrequencies_lr_west = ["51","52","53","54","55","56","57","58","59"];
-	private _west_code = "_bluefor";
+	_defaultFrequencies_sr_west = ["41","42","43","44","45","46","47","48"];
+	_defaultFrequencies_lr_west = ["51","52","53","54","55","56","57","58","59"];
+	_west_code = "_bluefor";
+	/*
+	//if you want to set different channel sets depending on certain conditions:
+	if ( ["LUCHS", (str player) ] call BIS_fnc_inString ) then {
+		_defaultFrequencies_sr_west = ["31","32","33","34","35","36","37","38"];
+		_defaultFrequencies_lr_west = ["51","52","53","54","55","56","57","58","59"];
+		_west_code = "_bluefor";
+	};
+	*/
 	
 	//opfor:
 	private _defaultFrequencies_sr_east = ["41","42","43","44","45","46","47","48"];

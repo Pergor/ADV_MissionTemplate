@@ -52,6 +52,10 @@ private _ace_PAKLocation = switch ( missionNamespace getVariable ["ace_medical_u
 	case 3: {"nur in Sanitätsfahrzeugen oder im Lazarett"};
 	default {"überall"};
 };
+private _ace_pakConsume = switch ( missionNamespace getVariable ["ace_medical_consumeItem_PAK",0] ) do {
+	case 1: {""};
+	default {"nicht"};
+};
 private _ace_advancedWounds = if ( (["ace_medical_enableAdvancedWounds",0] call BIS_fnc_getParamValue) isEqualTo 0 ) then {
 	"öffnen sich nicht."
 } else {
@@ -81,6 +85,7 @@ private _ace_repairLocation = switch ( missionNamespace getVariable ["ace_repair
 			<br/><br/>- ") + _respawnHandling + ("
 			<br/><br/>- Revive-Zeit: ") + _ace_reviveTime + (" Minuten.
 			<br/>- Revive durch PAK ist ") + _ace_pakLocation + (" möglich.
+			<br/>- PAKs verbrauchen sich ") + _ace_pakConsume + (".
 			<br/>- Wunden ") + _ace_advancedWounds + ("
 			<br/>- Es wird das ") + _ace_advancedFatigue + (" verwendet.
 			<br/><br/>- Reparatur nur für Pioniere und Logistiker mit Werkzeugkasten.

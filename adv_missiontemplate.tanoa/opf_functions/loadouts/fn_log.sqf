@@ -328,8 +328,27 @@ switch (toUpper ([str (_this select 0),3,10] call BIS_fnc_trimString)) do {
 
 //LRRadios
 if (missionNamespace getVariable ["_par_noLRRadios",false]) then { _giveBackpackRadio = false };
-if ( (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = [_player] call adv_fnc_LRBackpack;
+if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (_par_opfUni) do {
+		case 1: {["tfar_mr3000_rhs"]};
+		case 2: {["tfar_mr3000_rhs"]};
+		case 3: {["tfar_mr3000_rhs"]};
+		case 4: {["tfar_mr3000_rhs"]};
+		case 5: {[""]};
+		default {["tfar_mr3000"]};
+	};
+};
+if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (_par_opfUni) do {
+		case 1: {"rhs_assault_umbts"};
+		case 2: {"rhs_assault_umbts"};
+		case 3: {"rhs_assault_umbts"};
+		case 4: {"rhs_assault_umbts"};
+		case 5: {"B_AssaultPack_blk"};
+		case 6: {"rhs_sidor"};
+		case 20: {"B_AssaultPack_tna_F"};
+		default {"B_AssaultPack_blk"};
+	};
 };
 
 ///// No editing necessary below this line /////

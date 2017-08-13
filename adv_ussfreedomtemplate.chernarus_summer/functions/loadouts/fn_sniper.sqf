@@ -458,6 +458,13 @@ switch (_par_customUni) do {
 		//APEX NATO
 		_items = _items-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
+	case 30: {
+		//Vanilla CTRG
+		_vest = ["V_PlateCarrierL_CTRG","V_PlateCarrierH_CTRG"];
+		if (worldName == "TANOA") then {
+			_vest = ["V_PlateCarrier1_rgr_noflag_F","V_PlateCarrier2_rgr_noflag_F"];
+		};
+	};
 	default {};
 };
 

@@ -27,9 +27,9 @@ class dummy_base {
 };
 class param_headlessClient
 {
-	title="Was für eine Art von Mission soll gespielt werden? - Wird eine Zeus-/Combat Patrol-Mission gespielt, steht UPSMON nicht automatisch zur Verfügung!";
-	values[]  = {3,2,1,0};
-	texts[] = {"Combat Patrol (wird am Briefing-Board gestartet)","Headless Client","Zeus","Weder, noch."};
+	title="Was für eine Art von Mission soll gespielt werden?";
+	values[]  = {5,4,3,2,1,0};
+	texts[] = {"Combat Patrol (wird am Briefing-Board gestartet)","Headless Client mit UPSMON-KI","Headless Client","UPSMON-KI","Zeus","Weder, noch."};
 	default = 1;
 };
 class dummy_environment {
@@ -279,14 +279,14 @@ class param_customUni
 		,10,8,7
 		,6
 		,2,1
-		,9,20,0
+		,9,30,20,0
 	};
 	texts[] = {
 		"UK3CB - BAF"
 		,"RHS - MARPAT","RHS - UCP","RHS - OCP"
 		,"CUP - BAF"
 		,"BWmod - Flecktarn","BWmod - Tropentarn"
-		,"Vanilla - Guerilla","Apex - NATO","Vanilla - NATO"
+		,"Vanilla - Guerilla","Vanilla - CTRG","Apex - NATO","Vanilla - NATO"
 	};
 	default = 20;
 };
@@ -307,7 +307,7 @@ class param_customWeap
 		,"CUP BAF (benötigt CUP)","CUP Arma 2 (benötigt CUP)","CUP Operation Arrowhead (benötigt CUP)"
 		,"RHS SOF (benötigt RHSUSF)","RHS Marines (benötigt RHSUSF, optional HLC_MP5, HLC_M60)","RHS Army (benötigt RHSUSF, optional HLC_MP5)"
 		,"BWmod (benötigt BWmod, optional HLC_G36)"
-		,"Apex NATO","Vanilla NATO"
+		,"Apex - NATO","Vanilla - NATO"
 	};
 	default = 20;
 };
@@ -329,8 +329,8 @@ class param_indWeap
 	texts[] = {
 		"FAL, G3 und M60 - größtenteils ohne Optiken, keine Schalldämpfer (benötigt HLC_FAL, HLC_G3, HLC_MP5, HLC_M60)"
 		,"RHSUSF (benötigt RHSUSF, optional hlc_mp5 und RH-Pistols)"
-		,"Apex AKs - größtenteils ohne Optiken, keine Schalldämpfer","Apex SPAR"
-		,"Vanilla TRG","Vanilla Mk20"
+		,"Apex - AKs (größtenteils ohne Optiken, keine Schalldämpfer)","Apex - SPAR"
+		,"Vanilla - TRG","Vanilla - Mk20"
 	};
 	default = 21;
 };
@@ -342,8 +342,8 @@ class param_indUni
 		,20,1,0
 	};
 	texts[] = {
-		"TFA PMC"
-		,"Apex Syndikat","Vanilla PMC","Vanilla AAF"
+		"TFA - PMC"
+		,"Apex - Syndikat","Vanilla - PMC","Vanilla - AAF"
 	};
 	default = 20;
 };
@@ -392,7 +392,7 @@ class param_opfUni
 	texts[] = {
 		"Afghan Militia (EricJ's Afghan Fighters & RHS)"
 		,"EMR Desert (RHS)","Mountain Flora (RHS)","Flora (RHS)","EMR Summer (RHS)"
-		,"Vanilla Guerilla","Apex CSAT","Vanilla CSAT"
+		,"Vanilla - Guerilla","Apex - CSAT","Vanilla - CSAT"
 	};
 	default = 20;
 };
@@ -409,7 +409,7 @@ class param_opfWeap
 		"HLC AK Pack (no logistic, no ammo in vehicles), am besten mit RHSAFRF"
 		,"CUP (benötigt CUP)"
 		,"RHS-Guerillas (benötigt RHSAFRF)","RHS (benötigt RHSAFRF)"
-		,"Apex AK12","Apex CAR-95","Vanilla CSAT"
+		,"Apex - AK12","Apex - CAR-95","Vanilla - CSAT"
 	};
 	default = 20;
 };

@@ -410,6 +410,13 @@ switch (_par_customUni) do {
 		_headgear = ["TRYK_H_woolhat_WH","TRYK_H_woolhat_WH",""];
 		_backpack = ["TRYK_B_Belt_BLK"];
 	};
+	case 30: {
+		//Vanilla CTRG
+		_uniform = ["U_B_CTRG_1"];
+		if (worldName == "TANOA") then {
+			_uniform = ["U_B_CTRG_Soldier_F"];
+		};
+	};
 	default {};
 };
 

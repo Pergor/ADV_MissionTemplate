@@ -286,8 +286,18 @@ switch (toUpper ([str (_this select 0),3,10] call BIS_fnc_trimString)) do {
 
 //LRRadios
 if (missionNamespace getVariable ["_par_noLRRadios",false]) then { _giveBackpackRadio = false };
-if ( (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = [_player] call adv_fnc_LRBackpack;
+if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	switch (_par_indUni) do {
+		case 0: { _backpack = ["tfar_anprc155"]; };
+		default { _backpack = ["tfar_anprc155_coyote"]; };
+	};
+};
+if ( isClass (configFile >> "CfgPatches" >> "acre_main") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (_par_indUni) do {
+		case 0: {"B_AssaultPack_dgtl"};
+		case 20: {"B_AssaultPack_rgr"};
+		default {"B_AssaultPack_blk"};
+	};
 };
 
 ///// No editing necessary below this line /////

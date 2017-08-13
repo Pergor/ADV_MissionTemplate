@@ -439,6 +439,16 @@ switch (_par_customUni) do {
 		_vest = ["V_PlateCarrier1_tna_F"];
 		_items = _items-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
+	case 30: {
+		//Vanilla CTRG
+		_uniform = ["U_B_CTRG_1"];
+		_vest = ["V_PlateCarrierL_CTRG"];
+		_headgear = ["H_Beret_blk"];
+		if (worldName == "TANOA") then {
+			_uniform = ["U_B_CTRG_Soldier_F"];
+			_vest = ["V_PlateCarrier1_rgr_noflag_F"];
+		};
+	};
 	default {};
 };
 
