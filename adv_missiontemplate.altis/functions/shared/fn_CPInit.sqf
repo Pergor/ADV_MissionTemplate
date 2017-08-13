@@ -18,6 +18,10 @@
 cheat1 = FALSE;
 cheat2 = FALSE;
 
+params [
+	["_objective",-1,[0]]
+];
+
 // --- parameters input init
 
 if (count (missionNamespace getVariable ["paramsArray", []]) == 0) then {
@@ -34,7 +38,7 @@ _defaults = [
 	"BIS_CP_tickets", 		20,
 	"BIS_CP_enemyFaction", 		2,
 	"BIS_CP_locationSelection", 	0,
-	"BIS_CP_objective", 		-1
+	"BIS_CP_objective", 		_objective
 ];
 {
 	if (_forEachIndex % 2 == 0) then {
@@ -84,7 +88,7 @@ if (isServer) then {
 // --- variables init (static)
 
 BIS_CP_initModule = allPlayers select 0;
-BIS_CP_votingTimer = 15;
+BIS_CP_votingTimer = 10;
 BIS_CP_playerSide = WEST;
 if (BIS_CP_preset_enemyFaction == 2) then {BIS_CP_preset_enemyFaction = selectRandom [0, 1]};
 BIS_CP_enemySide = if (BIS_CP_preset_enemyFaction == 0) then {EAST} else {RESISTANCE};
@@ -143,7 +147,7 @@ if (isServer) then {
 		};
 		configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry"
 	};
-	BIS_CP_enemyGrp_fireTeam = if (BIS_CP_enemySide == EAST) then {
+	BIS_CP_enemyGrp_fireTeam = call {
 		if (BIS_CP_enemySide == EAST) exitWith {
 			if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith {
 				configfile >> "CfgGroups" >> "East" >> "rhs_faction_msv" >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_fireteam"
@@ -164,7 +168,7 @@ if (isServer) then {
 		};
 		configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfTeam"
 	};
-	BIS_CP_enemyGrp_rifleSquad = if (BIS_CP_enemySide == EAST) then {
+	BIS_CP_enemyGrp_rifleSquad = call {
 		if (BIS_CP_enemySide == EAST) exitWith {
 			if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith {
 				configfile >> "CfgGroups" >> "East" >> "rhs_faction_msv" >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_fireteam"

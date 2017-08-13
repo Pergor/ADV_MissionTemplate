@@ -115,20 +115,29 @@ ADV_objects_clearCargo call adv_fnc_gearsaving;
 if ( (missionNamespace getVariable ["ADV_par_ChooseLoad",1]) isEqualTo 1 ) then {
 	{
 		call {
+			_cpactions = {
+				params ["_target"];
+				_target addAction [("<t color='#FFFFFF' size='2'>" + ("Combat Patrol starten (RANDOM)") + "</t>"), { [-1] remoteExec ["adv_fnc_cpinit",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 5 && player == (leader (group player))",5];
+				_target addAction [("<t color='#FFFFFF' size='2'>" + ("Combat Patrol starten (SABOTAGE VEHICLES)") + "</t>"), { [1] remoteExec ["adv_fnc_cpinit",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 5 && player == (leader (group player))",5];
+				_target addAction [("<t color='#FFFFFF' size='2'>" + ("Combat Patrol starten (SABOTAGE COMMS)") + "</t>"), { [2] remoteExec ["adv_fnc_cpinit",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 5 && player == (leader (group player))",5];
+				_target addAction [("<t color='#FFFFFF' size='2'>" + ("Combat Patrol starten (ELIMINATE HVT)") + "</t>"), { [3] remoteExec ["adv_fnc_cpinit",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 5 && player == (leader (group player))",5];
+			};
+		
 			if ( ["opf_briefing",str _x] call BIS_fnc_inString ) exitWith {
 				private _boardHandle = _x addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,50,true,true,"","!(side (group player) isEqualTo west || side (group player) isEqualTo independent)",5];
 				_x setVariable ["adv_handle_loadoutAction",_boardHandle];
-				_x addAction [("<t color='#FFFFFF' size='2' align='center'>" + ("Combat Patrol starten") + "</t>"), { [] remoteExec ["adv_fnc_cpinit",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 5 && player == (leader (group player))",5];
+				[_x] call _cpActions;
 			};
 			if ( ["ind_briefing",str _x] call BIS_fnc_inString ) exitWith {
 				private _boardHandle = _x addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,50,true,true,"","!(side (group player) isEqualTo east || side (group player) isEqualTo west)",5];
 				_x setVariable ["adv_handle_loadoutAction",_boardHandle];
 				_x addAction [("<t color='#FFFFFF' size='2' align='center'>" + ("Combat Patrol starten") + "</t>"), { [] remoteExec ["adv_fnc_cpinit",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 5 && player == (leader (group player))",5];
+				[_x] call _cpActions;
 			};
 			if ( ["briefing",str _x] call BIS_fnc_inString ) exitWith {
 				private _boardHandle = _x addAction [("<t color='#00FF00' size='2' align='center'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,50,true,true,"","!(side (group player) isEqualTo east || side (group player) isEqualTo independent)",5];
 				_x setVariable ["adv_handle_loadoutAction",_boardHandle];
-				_x addAction [("<t color='#FFFFFF' size='2' align='center'>" + ("Combat Patrol starten") + "</t>"), { [] remoteExec ["adv_fnc_cpinit",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 5 && player == (leader (group player))",5];
+				[_x] call _cpActions;
 			};
 		};
 		nil;
