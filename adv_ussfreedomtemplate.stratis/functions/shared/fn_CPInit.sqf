@@ -171,7 +171,7 @@ if (isServer) then {
 	BIS_CP_enemyGrp_rifleSquad = call {
 		if (BIS_CP_enemySide == EAST) exitWith {
 			if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith {
-				configfile >> "CfgGroups" >> "East" >> "rhs_faction_msv" >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_fireteam"
+				configfile >> "CfgGroups" >> "East" >> "rhs_faction_msv" >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad"
 			};
 			if (_cup && (toUpper worldname) in ADV_var_aridMaps) exitWith {
 				configfile >> "CfgGroups" >> "East" >> "CUP_O_TK_MILITIA" >> "Infantry" >> "CUP_O_TK_MILITIA_Patrol"
@@ -199,22 +199,65 @@ if (isServer) then {
 	
 	// --- register enemy reinforcement types
 	
-	BIS_CP_enemyVeh_MRAP = if (BIS_CP_enemySide == EAST) then {if (_tanoaCamo) then {"O_T_LSV_02_unarmed_F"} else {"O_MRAP_02_F"}} else {"I_MRAP_03_F"};
-	BIS_CP_enemyVeh_Truck = if (BIS_CP_enemySide == EAST) then {
-		if (_tanoaCamo) then {
-			configFile >> "CfgGroups" >> "East" >> "OPF_T_F" >> "Motorized_MTP" >> "O_T_MotInf_Reinforcements"
-		} else {
-			configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Motorized_MTP" >> "OIA_MotInf_Reinforce"
+	BIS_CP_enemyVeh_MRAP = call {
+		if (BIS_CP_enemySide == EAST) exitWith {
+			if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith {"rhs_tigr_m_msv"};
+			if (_cup && (toUpper worldname) in ADV_var_aridMaps) exitWith {"CUP_O_LR_Transport_TKM"};
+			if (_tanoaCamo) then {"O_T_LSV_02_unarmed_F"} else {"O_MRAP_02_F"};
 		};
-	} else {
+		if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith {"rhsgref_ins_g_uaz"};
+		if (_cup && (toUpper worldname) in ADV_var_aridMaps) exitWith {"CUP_I_BTR40_TKG"};
+		"I_MRAP_03_F"
+	};
+
+	BIS_CP_enemyVeh_Truck = call {
+		if (BIS_CP_enemySide == EAST) exitWith {
+			if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith { configfile >> "CfgGroups" >> "East" >> "rhs_faction_msv" >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad" };
+			if (_cup && (toUpper worldname) in ADV_var_aridMaps) exitWith { configfile >> "CfgGroups" >> "East" >> "CUP_O_TK_MILITIA" >> "Motorized" >> "CUP_O_TK_MILITIA_MotorizedPatrolBTR40" };
+			if (_tanoaCamo) then {configFile >> "CfgGroups" >> "East" >> "OPF_T_F" >> "Motorized_MTP" >> "O_T_MotInf_Reinforcements"} else {configFile >> "CfgGroups" >> "East" >> "OPF_F" >> "Motorized_MTP" >> "OIA_MotInf_Reinforce"};
+		};
+		if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith { configfile >> "CfgGroups" >> "Indep" >> "rhsgref_faction_chdkz_g" >> "rhs_group_indp_ins_g_ural" >> "rhs_group_chdkz_ural_squad" };
+		if (_cup && (toUpper worldname) in ADV_var_aridMaps) exitWith { configfile >> "CfgGroups" >> "Indep" >> "CUP_I_TK_GUE" >> "Motorized" >> "CUP_I_TK_GUE_MotorizedPatrol" };
 		configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Motorized" >> "HAF_MotInf_Reinforce"
 	};
+
 	BIS_CP_enemyVeh_UAV_big = if (BIS_CP_enemySide == EAST) then {"O_UAV_02_F"} else {"I_UAV_02_F"};
 	BIS_CP_enemyVeh_UAV_small = if (BIS_CP_enemySide == EAST) then {"O_UAV_01_F"} else {"I_UAV_01_F"};
+	BIS_CP_enemyVeh_UAV_big = if (_cup && (toUpper worldname) in ADV_var_aridMaps) then {""} else {BIS_CP_enemyVeh_UAV_big};
+	BIS_CP_enemyVeh_UAV_small = if (_cup && (toUpper worldname) in ADV_var_aridMaps) then {""} else {BIS_CP_enemyVeh_UAV_small};
 	
-	BIS_CP_enemyVeh_reinf1 = if (BIS_CP_enemySide == EAST) then {if (_tanoaCamo) then {"O_T_APC_Wheeled_02_rcws_ghex_F"} else {"O_APC_Wheeled_02_rcws_F"}} else {"I_APC_Wheeled_03_cannon_F"};
-	BIS_CP_enemyVeh_reinf2 = if (BIS_CP_enemySide == EAST) then {if (_tanoaCamo) then {"O_T_APC_Tracked_02_cannon_ghex_F"} else {"O_APC_Tracked_02_cannon_F"}} else {"I_APC_tracked_03_cannon_F"};
-	BIS_CP_enemyVeh_reinfAir = if (BIS_CP_enemySide == EAST) then {"O_Heli_Transport_04_covered_F"} else {"I_Heli_Transport_02_F"};
+	BIS_CP_enemyVeh_reinf1 = call {
+		if (BIS_CP_enemySide == EAST) exitWith {
+			if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith { "rhs_btr80a_msv" };
+			if (_cup && (toUpper worldname) in ADV_var_aridMaps) exitWith { "cup_o_lr_mg_tkm" };
+			if (_tanoaCamo) then {"O_T_APC_Wheeled_02_rcws_ghex_F"} else {"O_APC_Wheeled_02_rcws_F"};
+		};
+		if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith { "rhs_gref_ins_g_btr70" };
+		if (_cup && (toUpper worldname) in ADV_var_aridMaps) exitWith { "cup_i_brdm2_tk_gue" };
+		"I_APC_Wheeled_03_cannon_F"
+	};
+
+	BIS_CP_enemyVeh_reinf2 = call {
+		if (BIS_CP_enemySide == EAST) exitWith {
+			if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith { "rhs_bmp2d_msv" };
+			if (_cup && (toUpper worldname) in ADV_var_aridMaps) exitWith { "cup_o_btr40_mg_tkm" };
+			if (_tanoaCamo) then {"O_T_APC_Tracked_02_cannon_ghex_F"} else {"O_APC_Tracked_02_cannon_F"};
+		};
+		if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith { "rhs_gref_ins_g_bmp2d" };
+		if (_cup && (toUpper worldname) in ADV_var_aridMaps) exitWith { "cup_i_bmp1_tk_gue" };
+		"I_APC_tracked_03_cannon_F"
+	};
+	
+	BIS_CP_enemyVeh_reinfAir = call {
+		if (BIS_CP_enemySide == EAST) exitWith {
+			if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith { "rhs_mi8mt_vdv" };
+			if (_cup && (toUpper worldname) in ADV_var_aridMaps) exitWith { "cup_o_mi17_tk" };
+			if (_tanoaCamo) then {"O_Heli_Transport_04_covered_F"};
+		};
+		if (_rhsafrf && (toUpper worldname) in ADV_var_europeMaps) exitWith { "rhsgref_ins_g_mi8amt" };
+		if (_cup && (toUpper worldname) in ADV_var_aridMaps) exitWith { "cup_i_uh1h_tk_gue" };
+		"I_Heli_Transport_02_F"
+	};
 	
 	// --- hold until a group with at least one player is present
 	

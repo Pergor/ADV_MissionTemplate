@@ -27,7 +27,7 @@ disableSerialization;
 
 ((findDisplay MENU_IDD) displayCtrl 2931) cbSetChecked tawvd_syncObject;
 
-if(tawvd_syncObject) then {
+if (tawvd_syncObject) then {
 	ctrlEnable [OBJECT_SLIDER,false];
 	ctrlEnable [OBJECT_EDIT,false];
 } else {

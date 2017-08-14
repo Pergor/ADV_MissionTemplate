@@ -154,7 +154,7 @@ class param_l_suppress
 	title="Soll Laxemans Suppression-Script aktiviert werden?";
 	values[] = {1,0};
 	texts[] = {"Ja","Nein"};
-	default = 0;
+	default = 1;
 };
 class dummy_tfar {
 	title = "---------------------- TFAR-Settings ----------------------";

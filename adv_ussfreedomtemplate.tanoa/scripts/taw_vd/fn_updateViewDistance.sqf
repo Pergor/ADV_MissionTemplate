@@ -35,5 +35,8 @@ if (tawvd_syncObject) then {
 	tawvd_object = _dist;
 	profileNamespace setVariable ["tawvd_object",2000];
 	profileNamespace setVariable ["tawvd_syncObject",true];
+} else {
+	profileNamespace setVariable ["tawvd_syncObject",false];
 };
+
 saveProfileNamespace;
