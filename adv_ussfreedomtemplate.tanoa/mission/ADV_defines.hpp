@@ -3,4 +3,4 @@
 #define MISSIONSUBTITLE "Viel Spaß beim Spielen!"
 #define MISSIONTEASER "Viel Spaß!"
 #define ONLOADINTRO "Viel Spaß!"
-#define MISSIONPLAYERS 44
+#define MISSIONPLAYERS 53
