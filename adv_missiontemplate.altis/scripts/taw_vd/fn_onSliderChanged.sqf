@@ -25,11 +25,11 @@ SVAR_MNS [SEL(_varData,0),round(_value)];
 ctrlSetText[SEL(_varData,1),str(GVAR_MNS SEL(_varData,0))];
 [] call TAWVD_fnc_updateViewDistance;
 
-if(EQUAL(_mode,3)) then {
+if (EQUAL(_mode,3)) then {
 	setObjectViewDistance [tawvd_object,100];
 };
 
-if(tawvd_syncObject) then {
+if (tawvd_syncObject) then {
 	sliderSetPosition[OBJECT_SLIDER, tawvd_object];
 	ctrlSetText[OBJECT_EDIT,str(tawvd_object)];
 };
