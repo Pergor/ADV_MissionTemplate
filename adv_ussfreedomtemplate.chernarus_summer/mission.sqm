@@ -8,7 +8,7 @@ class EditorData
 	toggles=2;
 	class ItemIDProvider
 	{
-		nextID=777;
+		nextID=779;
 	};
 	class MarkerIDProvider
 	{
@@ -16,15 +16,16 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={8589.7979,47.439529,148.94315};
-		dir[]={-0.81104606,-0.38501137,0.44045243};
-		up[]={-0.33834842,0.92290628,0.18374643};
-		aside[]={0.4772394,5.6403223e-008,0.87878811};
+		pos[]={8525.0166,101.56879,109.34554};
+		dir[]={0.45251027,-0.79366779,0.40664861};
+		up[]={0.59032518,0.60834616,0.53049558};
+		aside[]={0.6684224,-7.7772711e-007,-0.7438041};
 	};
 };
 binarizationWanted=0;
 addons[]=
 {
+	"cba_xeh"
 };
 class AddonsMetaData
 {
@@ -202,7 +203,7 @@ class Mission
 			};
 			id=611;
 			type="B_CargoNet_01_ammo_F";
-			atlOffset=158.72304;
+			atlOffset=158.72299;
 		};
 		class Item7
 		{
@@ -244,7 +245,7 @@ class Mission
 			};
 			id=613;
 			type="B_Heli_Transport_01_F";
-			atlOffset=156.70535;
+			atlOffset=156.70496;
 		};
 		class Item9
 		{
@@ -264,7 +265,7 @@ class Mission
 			};
 			id=614;
 			type="Land_MapBoard_F";
-			atlOffset=0.00097084045;
+			atlOffset=0.001543045;
 		};
 		class Item10
 		{
@@ -930,7 +931,7 @@ class Mission
 					};
 					id=645;
 					type="B_medic_F";
-					atlOffset=158.02795;
+					atlOffset=158.02797;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1073,7 +1074,7 @@ class Mission
 					};
 					id=650;
 					type="B_soldier_AAT_F";
-					atlOffset=158.19775;
+					atlOffset=158.19777;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1190,7 +1191,7 @@ class Mission
 			side="West";
 			class Entities
 			{
-				items=4;
+				items=5;
 				class Item0
 				{
 					dataType="Object";
@@ -1276,6 +1277,28 @@ class Mission
 					id=658;
 					type="B_engineer_F";
 					atlOffset=0.012916565;
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8594.1963,23.520088,170.45947};
+						angles[]={0,0.70395815,0};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						rank="CORPORAL";
+						name="log_4";
+						description="Logistiker";
+						isPlayable=1;
+					};
+					id=778;
+					type="B_engineer_F";
+					atlOffset=1.9073486e-006;
 				};
 			};
 			class Attributes
@@ -1487,7 +1510,7 @@ class Mission
 			};
 			id=662;
 			type="Box_NATO_Equip_F";
-			atlOffset=158.662;
+			atlOffset=158.66197;
 		};
 		class Item18
 		{
@@ -1505,7 +1528,7 @@ class Mission
 			};
 			id=663;
 			type="Box_NATO_Equip_F";
-			atlOffset=158.77425;
+			atlOffset=158.7742;
 		};
 		class Item19
 		{
@@ -1567,7 +1590,7 @@ class Mission
 			};
 			id=665;
 			type="B_Heli_Transport_01_F";
-			atlOffset=0.0025501251;
+			atlOffset=0.0031681061;
 		};
 		class Item21
 		{
@@ -1578,6 +1601,7 @@ class Mission
 				angles[]={0,5.3870497,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				name="air_cas_1";
@@ -1588,7 +1612,7 @@ class Mission
 			};
 			id=666;
 			type="B_Plane_Fighter_01_F";
-			atlOffset=154.56885;
+			atlOffset=0.0012435913;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1633,7 +1657,7 @@ class Mission
 			};
 			id=667;
 			type="B_Plane_Fighter_01_F";
-			atlOffset=0.00077819824;
+			atlOffset=0.0012226105;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1678,7 +1702,7 @@ class Mission
 			};
 			id=668;
 			type="B_Plane_Fighter_01_F";
-			atlOffset=0.28659248;
+			atlOffset=0.28711891;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1723,7 +1747,7 @@ class Mission
 			};
 			id=669;
 			type="B_Plane_Fighter_01_F";
-			atlOffset=0.29712868;
+			atlOffset=0.29782295;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1805,7 +1829,7 @@ class Mission
 			};
 			id=672;
 			type="B_LSV_01_armed_F";
-			atlOffset=156.76753;
+			atlOffset=156.76712;
 		};
 		class Item28
 		{
@@ -1822,7 +1846,7 @@ class Mission
 			};
 			id=673;
 			type="B_LSV_01_armed_F";
-			atlOffset=157.13391;
+			atlOffset=157.13351;
 		};
 		class Item29
 		{
@@ -1840,7 +1864,7 @@ class Mission
 			};
 			id=674;
 			type="B_Slingload_01_Cargo_F";
-			atlOffset=0.0014896393;
+			atlOffset=0.0020618439;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1947,7 +1971,7 @@ class Mission
 			};
 			id=676;
 			type="B_Heli_Transport_03_F";
-			atlOffset=0.0051898956;
+			atlOffset=0.009759903;
 		};
 		class Item32
 		{
@@ -2677,7 +2701,7 @@ class Mission
 				};
 			};
 			id=695;
-			atlOffset=0.0029296875;
+			atlOffset=0.0027160645;
 		};
 		class Item41
 		{
@@ -2697,7 +2721,7 @@ class Mission
 			};
 			id=697;
 			type="B_SAM_System_01_F";
-			atlOffset=0.0029296875;
+			atlOffset=0.0027160645;
 		};
 		class Item42
 		{
@@ -2750,7 +2774,7 @@ class Mission
 				};
 			};
 			id=698;
-			atlOffset=0.0013885498;
+			atlOffset=0.0035858154;
 		};
 		class Item43
 		{
@@ -2770,7 +2794,7 @@ class Mission
 			};
 			id=700;
 			type="B_AAA_System_01_F";
-			atlOffset=0.0013885498;
+			atlOffset=0.0035858154;
 		};
 		class Item44
 		{
@@ -2823,7 +2847,7 @@ class Mission
 				};
 			};
 			id=701;
-			atlOffset=159.19295;
+			atlOffset=159.1929;
 		};
 		class Item45
 		{
@@ -2843,7 +2867,7 @@ class Mission
 			};
 			id=703;
 			type="B_SAM_System_02_F";
-			atlOffset=159.19295;
+			atlOffset=159.1929;
 		};
 		class Item46
 		{
@@ -2969,7 +2993,7 @@ class Mission
 				};
 			};
 			id=707;
-			atlOffset=0.0018997192;
+			atlOffset=0.0024337769;
 		};
 		class Item49
 		{
@@ -2989,7 +3013,7 @@ class Mission
 			};
 			id=709;
 			type="B_SAM_System_01_F";
-			atlOffset=0.0018997192;
+			atlOffset=0.0024337769;
 		};
 		class Item50
 		{
@@ -3042,7 +3066,7 @@ class Mission
 				};
 			};
 			id=710;
-			atlOffset=0.0050125122;
+			atlOffset=0.0034255981;
 		};
 		class Item51
 		{
@@ -3062,7 +3086,7 @@ class Mission
 			};
 			id=712;
 			type="B_AAA_System_01_F";
-			atlOffset=0.0050125122;
+			atlOffset=0.0034255981;
 		};
 		class Item52
 		{
@@ -3116,7 +3140,7 @@ class Mission
 				};
 			};
 			id=713;
-			atlOffset=0.003534317;
+			atlOffset=0.0024738312;
 		};
 		class Item53
 		{
@@ -3136,7 +3160,7 @@ class Mission
 			};
 			id=715;
 			type="B_SAM_System_02_F";
-			atlOffset=0.003534317;
+			atlOffset=0.0024738312;
 		};
 		class Item54
 		{
@@ -3220,7 +3244,7 @@ class Mission
 			};
 			id=717;
 			type="B_Heli_Transport_03_F";
-			atlOffset=0.0031852722;
+			atlOffset=0.0048866272;
 		};
 		class Item56
 		{
@@ -3244,7 +3268,7 @@ class Mission
 			};
 			id=718;
 			type="B_T_VTOL_01_infantry_blue_F";
-			atlOffset=0.0019779205;
+			atlOffset=0.007982254;
 		};
 		class Item57
 		{
@@ -3267,7 +3291,7 @@ class Mission
 			};
 			id=731;
 			type="B_Heli_Light_01_dynamicLoadout_F";
-			atlOffset=0.012933731;
+			atlOffset=0.013475418;
 		};
 		class Item58
 		{
@@ -3289,7 +3313,7 @@ class Mission
 			};
 			id=732;
 			type="B_Heli_Light_01_dynamicLoadout_F";
-			atlOffset=0.0049228668;
+			atlOffset=0.0055103302;
 		};
 		class Item59
 		{
@@ -3546,7 +3570,7 @@ class Mission
 			};
 			id=739;
 			type="Land_WheelChock_01_F";
-			atlOffset=155.33159;
+			atlOffset=155.33156;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -3587,7 +3611,7 @@ class Mission
 			};
 			id=740;
 			type="Land_WheelChock_01_F";
-			atlOffset=0.00049781799;
+			atlOffset=0.00058174133;
 			class CustomAttributes
 			{
 				class Attribute0

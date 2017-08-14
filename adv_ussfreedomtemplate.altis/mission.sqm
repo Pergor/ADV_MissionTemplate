@@ -8,7 +8,7 @@ class EditorData
 	toggles=2;
 	class ItemIDProvider
 	{
-		nextID=2172;
+		nextID=2174;
 	};
 	class MarkerIDProvider
 	{
@@ -16,15 +16,16 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={19752.283,77.007355,23864.574};
-		dir[]={-0.47484294,-0.60875362,0.63572693};
-		up[]={-0.36439657,0.79321212,0.48786265};
-		aside[]={0.80126351,1.2171513e-006,0.59848434};
+		pos[]={19732.92,92.985321,24039.141};
+		dir[]={0.068077691,-0.68267286,-0.72769028};
+		up[]={0.063600227,0.73056877,-0.6798529};
+		aside[]={-0.99575406,1.4845828e-006,-0.09315519};
 	};
 };
 binarizationWanted=0;
 addons[]=
 {
+	"cba_xeh"
 };
 class AddonsMetaData
 {
@@ -46,15 +47,6 @@ randomSeed=15293006;
 class ScenarioData
 {
 	author="[SeL] Belbo";
-	disabledAI=1;
-	respawn=3;
-	respawnDelay=5;
-	class Header
-	{
-		gameType="Coop";
-		minPlayers=2;
-		maxPlayers=44;
-	};
 };
 class CustomAttributes
 {
@@ -1311,7 +1303,7 @@ class Mission
 			side="West";
 			class Entities
 			{
-				items=4;
+				items=5;
 				class Item0
 				{
 					dataType="Object";
@@ -1396,6 +1388,27 @@ class Mission
 					};
 					id=1648;
 					type="B_engineer_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={19740.039,23.569675,23962.662};
+						angles[]={0,2.9168549,0};
+					};
+					side="West";
+					class Attributes
+					{
+						skill=0.60000002;
+						rank="CORPORAL";
+						name="log_4";
+						description="Logistiker";
+						isPlayable=1;
+					};
+					id=2173;
+					type="B_engineer_F";
+					atlOffset=209.53824;
 				};
 			};
 			class Attributes

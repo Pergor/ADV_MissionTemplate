@@ -8,19 +8,20 @@ class EditorData
 	toggles=2;
 	class ItemIDProvider
 	{
-		nextID=207;
+		nextID=209;
 	};
 	class Camera
 	{
-		pos[]={5346.2563,35.758064,44.42572};
-		dir[]={-0.75855541,-0.41646975,-0.50130051};
-		up[]={-0.34751707,0.90910798,-0.22966385};
-		aside[]={-0.55138433,2.8411159e-007,0.83433229};
+		pos[]={5370.3867,38.010887,58.482231};
+		dir[]={0.027252149,-0.75409669,-0.6563195};
+		up[]={0.031288605,0.65672868,-0.75346601};
+		aside[]={-0.99920654,-1.7796247e-006,-0.041494031};
 	};
 };
 binarizationWanted=0;
 addons[]=
 {
+	"cba_xeh"
 };
 class AddonsMetaData
 {
@@ -42,15 +43,6 @@ randomSeed=14586590;
 class ScenarioData
 {
 	author="[SeL] Belbo";
-	disabledAI=1;
-	respawn=3;
-	respawnDelay=5;
-	class Header
-	{
-		gameType="Coop";
-		minPlayers=2;
-		maxPlayers=44;
-	};
 };
 class CustomAttributes
 {
@@ -2153,7 +2145,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={5339.395,24.300173,26.518982};
-						angles[]={-0,4.3831382,0};
+						angles[]={0,4.3831382,0};
 					};
 					side="West";
 					flags=6;
@@ -2177,7 +2169,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={5341.4946,24.299288,27.196716};
-						angles[]={-0,4.3831382,0};
+						angles[]={0,4.3831382,0};
 					};
 					side="West";
 					flags=4;
@@ -2199,7 +2191,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={5341.936,24.299288,25.792419};
-						angles[]={-0,4.3831558,0};
+						angles[]={0,4.3831558,0};
 					};
 					side="West";
 					flags=4;
@@ -2221,7 +2213,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={5342.4146,24.299288,23.987732};
-						angles[]={-0,4.5149455,0};
+						angles[]={0,4.5149455,0};
 					};
 					side="West";
 					flags=4;
@@ -2243,7 +2235,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={5343.2153,24.299959,22.077576};
-						angles[]={-0,4.3831382,0};
+						angles[]={0,4.3831382,0};
 					};
 					side="West";
 					flags=4;
@@ -3084,7 +3076,7 @@ class Mission
 			side="West";
 			class Entities
 			{
-				items=4;
+				items=5;
 				class Item0
 				{
 					dataType="Object";
@@ -3173,6 +3165,27 @@ class Mission
 					id=186;
 					type="B_engineer_F";
 					atlOffset=0.0014648438;
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5376.0381,24.298708,47.747585};
+						angles[]={0,2.9168549,0};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						rank="CORPORAL";
+						name="log_4";
+						description="Logistiker";
+						isPlayable=1;
+					};
+					id=208;
+					type="B_engineer_F";
 				};
 			};
 			class Attributes

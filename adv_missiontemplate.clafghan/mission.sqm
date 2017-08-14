@@ -1,4 +1,4 @@
-version=52;
+version=53;
 class EditorData
 {
 	moveGridStep=1;
@@ -8,22 +8,180 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=357;
+		nextID=359;
 	};
 	class Camera
 	{
-		pos[]={14213.811,980.41248,8599.0215};
-		dir[]={-0.29305044,-0.7521525,-0.59045368};
-		up[]={-0.33440721,0.65887445,-0.67378581};
-		aside[]={-0.8958323,-2.4418841e-006,0.44460946};
+		pos[]={14191.935,842.80493,8339.5059};
+		dir[]={-0.17140032,-0.98022419,-0.10015117};
+		up[]={-0.84624404,0.19821493,-0.49447218};
+		aside[]={-0.50455016,-4.4668996e-006,0.8634879};
 	};
 };
 binarizationWanted=0;
 addons[]=
 {
+	"cba_xeh",
+	"A3_Ui_F",
+	"A3_Structures_F_Mil_Flags",
+	"A3_Weapons_F_Ammoboxes",
+	"A3_Supplies_F_Heli_CargoNets",
+	"A3_Structures_F_EPA_Mil_Scrapyard",
+	"A3_Structures_F_Civ_InfoBoards",
+	"A3_Supplies_F_Heli_Slingload",
+	"A3_Modules_F_Curator_Curator",
+	"rhsusf_c_troops",
+	"A3_Characters_F",
+	"A3_Data_F_Exp_A_Virtual",
+	"A3_Data_F_Curator_Virtual",
+	"A3_Supplies_F_Exp_Ammoboxes",
+	"RHS_US_A2_AirImport",
+	"rhsusf_c_melb",
+	"rhsusf_c_RG33L",
+	"rhsusf_vehicles",
+	"rhsusf_c_statics",
+	"A3_Structures_F_Mil_BagFence",
+	"A3_Soft_F_MRAP_01",
+	"A3_Structures_F_Walls",
+	"CUP_CAMisc_E_WF",
+	"A3_Structures_F_Mil_Fortification",
+	"CUP_Misc_e_Config"
 };
 class AddonsMetaData
 {
+	class List
+	{
+		items=20;
+		class Item0
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="A3_Structures_F_Mil";
+			name="Arma 3 - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item2
+		{
+			className="A3_Weapons_F";
+			name="Arma 3 Alpha - Weapons and Accessories";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item3
+		{
+			className="A3_Supplies_F_Heli";
+			name="Arma 3 Helicopters - Ammoboxes and Supplies";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item4
+		{
+			className="A3_Structures_F_EPA";
+			name="Arma 3 Survive Episode - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item5
+		{
+			className="A3_Structures_F";
+			name="Arma 3 - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item6
+		{
+			className="A3_Modules_F_Curator";
+			name="Arma 3 Zeus Update - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item7
+		{
+			className="rhsusf_c_troops";
+			name="RHSUSF Infantry & Equipment";
+			url="http://www.rhsmods.org/";
+		};
+		class Item8
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item9
+		{
+			className="A3_Data_F_Exp_A";
+			name="Arma 3 Nexus Update - Main Configuration";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item10
+		{
+			className="A3_Data_F_Curator";
+			name="Arma 3 Zeus Update - Main Configuration";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item11
+		{
+			className="A3_Supplies_F_Exp";
+			name="Arma 3 Apex - Ammoboxes and Supplies";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item12
+		{
+			className="RHS_US_A2_AirImport";
+			name="RHSUSF A2 Air Ports";
+			url="http://www.rhsmods.org/";
+		};
+		class Item13
+		{
+			className="rhsusf_c_melb";
+			name="MELB";
+			url="http://www.rhsmods.org/";
+		};
+		class Item14
+		{
+			className="rhsusf_c_RG33L";
+			name="RG33L MRAP";
+			url="http://www.rhsmods.org/";
+		};
+		class Item15
+		{
+			className="rhsusf_vehicles";
+			name="rhsusf_vehicles";
+		};
+		class Item16
+		{
+			className="rhsusf_c_statics";
+			name="RHSUSF Static Weapons";
+			url="http://www.rhsmods.org/";
+		};
+		class Item17
+		{
+			className="A3_Soft_F";
+			name="Arma 3 Alpha - Unarmored Land Vehicles";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item18
+		{
+			className="CUP_CAMisc_E_WF";
+			name="CUP_CAMisc_E_WF";
+		};
+		class Item19
+		{
+			className="CUP_Misc_e_Config";
+			name="CUP_Misc_e_Config";
+		};
+	};
 };
 class DynamicSimulation
 {
@@ -32,7 +190,6 @@ class DynamicSimulation
 		EmptyVehicle=150;
 		Vehicle=1800;
 		Group=1800;
-		Prop=50;
 	};
 	class EnableRadiuseCoefs
 	{
@@ -78,13 +235,12 @@ class Mission
 		briefingName="ADV - Mission Template (RHS) by Belbo";
 		overviewText="Based on the ADV_MissionTemplate by Belbo.";
 		resistanceWest=0;
-		resistanceEast=0;
 		timeOfChanges=99999;
-		startWeather=0.3;
+		startWeather=0.30000001;
 		startWind=0.29999998;
 		startWindDir=30;
 		startWaves=0.69999999;
-		forecastWeather=0.3;
+		forecastWeather=0.30000001;
 		forecastWind=0.29999998;
 		forecastWaves=0.69999999;
 		forecastLightnings=0.099999994;
@@ -1150,9 +1306,9 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="SERGEANT";
-						init="(group this) setGroupId [""Vulkan""]";
-						name="leader_4";
-						description="Gruppenführer - Vulkan";
+						init="call{(group this) setGroupId [""Phobos""]}";
+						name="leader_3";
+						description="Gruppenführer - Phobos";
 						isPlayable=1;
 					};
 					id=98;
@@ -1161,6 +1317,25 @@ class Mission
 					class CustomAttributes
 					{
 						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male10ENG";
+								};
+							};
+						};
+						class Attribute1
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -1179,7 +1354,7 @@ class Mission
 								};
 							};
 						};
-						nAttributes=1;
+						nAttributes=2;
 					};
 				};
 				class Item1
@@ -1188,7 +1363,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={14177.258,813.81647,8317.2949};
-						angles[]={0,3.1538703,0};
+						angles[]={0,3.1538622,0};
 					};
 					side="West";
 					flags=4;
@@ -1196,7 +1371,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="CORPORAL";
-						name="medic_4";
+						name="medic_3";
 						description="Sanitäter";
 						isPlayable=1;
 					};
@@ -1205,6 +1380,25 @@ class Mission
 					class CustomAttributes
 					{
 						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male03ENG";
+								};
+							};
+						};
+						class Attribute1
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -1223,7 +1417,7 @@ class Mission
 								};
 							};
 						};
-						nAttributes=1;
+						nAttributes=2;
 					};
 				};
 				class Item2
@@ -1358,15 +1552,15 @@ class Mission
 					class PositionInfo
 					{
 						position[]={14168.287,813.81647,8315.3574};
-						angles[]={0,3.1402395,0};
+						angles[]={0,3.1402311,0};
 					};
 					side="West";
 					flags=4;
 					class Attributes
 					{
 						skill=0.60000002;
-						name="ft_7";
-						description="Truppführer - Vulkan 1";
+						name="ft_5";
+						description="Truppführer - Phobos 1";
 						isPlayable=1;
 					};
 					id=104;
@@ -1374,6 +1568,25 @@ class Mission
 					class CustomAttributes
 					{
 						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male02ENG";
+								};
+							};
+						};
+						class Attribute1
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -1392,7 +1605,7 @@ class Mission
 								};
 							};
 						};
-						nAttributes=1;
+						nAttributes=2;
 					};
 				};
 				class Item7
@@ -2266,7 +2479,7 @@ class Mission
 			side="West";
 			class Entities
 			{
-				items=4;
+				items=5;
 				class Item0
 				{
 					dataType="Object";
@@ -2350,6 +2563,27 @@ class Mission
 						isPlayable=1;
 					};
 					id=203;
+					type="rhsusf_army_ocp_engineer";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14184.945,813.81647,8337.6533};
+						angles[]={-0,4.2980452,0};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.60000002;
+						rank="CORPORAL";
+						name="log_4";
+						description="Logistiker";
+						isPlayable=1;
+					};
+					id=358;
 					type="rhsusf_army_ocp_engineer";
 				};
 			};
@@ -2669,6 +2903,7 @@ class Mission
 			};
 			id=243;
 			type="rhsusf_M1232_M2_usarmy_d";
+			atlOffset=-0.0026855469;
 		};
 		class Item45
 		{
@@ -3793,6 +4028,7 @@ class Mission
 			};
 			id=314;
 			type="RHS_M252_D";
+			atlOffset=-0.42773438;
 		};
 		class Item104
 		{
@@ -3877,6 +4113,7 @@ class Mission
 			};
 			id=328;
 			type="RHS_M252_D";
+			atlOffset=-0.42773438;
 		};
 		class Item109
 		{
@@ -3910,6 +4147,7 @@ class Mission
 			};
 			id=330;
 			type="RHS_M252_D";
+			atlOffset=-0.42773438;
 		};
 		class Item111
 		{
