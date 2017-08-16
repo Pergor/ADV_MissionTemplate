@@ -433,7 +433,7 @@ class ace_mk6mortar_allowCompass {
     typeName = "BOOL";
     force = 0;
 };
-class ace_mk6mortar_useAmmoHandling {
+class ace_mk6mortar_useAmmoHandling {		//will be overwritten with CfgACEParams.hpp values or setting in MP lobby!
     value = 0;
     typeName = "BOOL";
     force = 0;

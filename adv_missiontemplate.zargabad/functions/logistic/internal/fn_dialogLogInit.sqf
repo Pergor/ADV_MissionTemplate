@@ -20,18 +20,23 @@ lbClear _comboBox;
 
 //Loadout-Liste:
 _loadoutList = [
-	"Infanterie-Munition",
-	"MMG-Munition",
-	"AT-Raketen",
-	"AA-Raketen",
-	"Granaten",
-	"Medic-Kiste",
-	"Support-Kiste",
-	"EOD-Kiste",
-	"Leere Kiste",
-	"",
-	"Kisten in der Nähe löschen",
-	""
+	"Infanterie-Munition"
+	,"MMG-Munition"
+	,"AT-Raketen"
+	,"AA-Raketen"
+	,"Granaten"
+	,"Medic-Kiste"
+	,"Support-Kiste"
+	,"EOD-Kiste"
+];
+if ( missionNamespace getVariable ["ace_mk6mortar_useAmmoHandling",false] ) then {
+	_loadoutList append ["Mörsergranaten-Kiste"];
+};
+_loadoutList append [
+	"Leere Kiste"
+	,""
+	,"Kisten in der Nähe löschen"
+	,""
 ];
 if (isClass(configFile >> "CfgPatches" >> "ace_repair")) then {
 	_loadoutList append ["Ersatzreifen","Ersatzkette"];
@@ -60,11 +65,19 @@ lbSetData [7377, 4, "ADV_LOGISTIC_CRATEGRENADES"];
 lbSetData [7377, 5, "ADV_LOGISTIC_CRATEMEDIC"];
 lbSetData [7377, 6, "ADV_LOGISTIC_CRATESUPPORT"];
 lbSetData [7377, 7, "ADV_LOGISTIC_CRATEEOD"];
-lbSetData [7377, 8, "ADV_LOGISTIC_CRATEEMPTY"];
-lbSetData [7377, 9, "ADV_FNC_NIL"];
-lbSetData [7377, 10, "ADV_LOGISTIC_CRATEDELETE"];
-lbSetData [7377, 11, "ADV_FNC_NIL"];
-_lbSetDataCount = 11;
+_lbSetDataCount = 7;
+if ( missionNamespace getVariable ["ace_mk6mortar_useAmmoHandling",false] ) then {
+	_lbSetDataCount = _lbSetDataCount+1;
+	lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATESHELLS"];
+};
+_lbSetDataCount = _lbSetDataCount+1;
+lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATEEMPTY"];
+_lbSetDataCount = _lbSetDataCount+1;
+lbSetData [7377, _lbSetDataCount, "ADV_FNC_NIL"];
+_lbSetDataCount = _lbSetDataCount+1;
+lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATEDELETE"];
+_lbSetDataCount = _lbSetDataCount+1;
+lbSetData [7377, _lbSetDataCount, "ADV_FNC_NIL"];
 if (isClass(configFile >> "CfgPatches" >> "ace_repair")) then {
 	_lbSetDataCount = _lbSetDataCount+1;
 	lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_WHEEL"];

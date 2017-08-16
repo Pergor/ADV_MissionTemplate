@@ -130,7 +130,6 @@ switch _FAKtype do {
 				_ACE_elasticBandage = 32;
 				_ACE_packingBandage = 24;
 			};
-			_ACE_adenosine = 4;
 			_ACE_epinephrine = 12;
 			_ACE_morphine = 12;
 			_ACE_tourniquet = 6;

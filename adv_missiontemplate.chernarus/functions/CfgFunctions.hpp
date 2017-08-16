@@ -67,6 +67,7 @@ class adv
 		class disableVeh {};
 		class findNearestObject {};
 		class flare {};
+		class getGroupVehicles {};
 		class getOppPos {};
 		class getPos {};
 		class HCobjects {};
@@ -94,6 +95,7 @@ class adv
 		class setSide {};
 		class setSkill {};
 		class spawnAttack {};
+		class spawnConvoy {};
 		class spawnGroup {};
 		class spawnPatrol {};
 		class upsmon {
@@ -226,6 +228,7 @@ class adv
 		class crateMedic {};
 		class crateMG {};
 		class crateNormal {};
+		class crateShells {};
 		class crateStuff {};
 		class crateSupport {};
 		class crateTeam {};

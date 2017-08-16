@@ -33,7 +33,7 @@ if (!isServer && hasInterface) exitWith {};
 
 params [
 	["_location", [0,0,0], [[],"",objNull]]
-	,["_units", ["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"], [[]]]
+	,["_units", ["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"], [[],configNull]]
 	,["_side", east, [west]]
 	,["_mode", 0, [0]]
 	,["_radius", 300, [0]]

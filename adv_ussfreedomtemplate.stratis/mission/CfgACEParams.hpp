@@ -90,3 +90,11 @@ class ace_rearm_level
 	default = 1;
 	texts[] =  {"Entire vehicle", "Entire magazine", "Amount based on caliber"};
 };
+class ace_mk6mortar_useAmmoHandling
+{
+	title = "ACE-MK6 Mortar Ammo Handling";
+	ACE_setting = 1;
+	values[] = {0, 1};
+	default = 0;
+	texts[] =  {"Don't use ammunition handling","Use ammunition handling"};
+};
