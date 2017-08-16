@@ -46,6 +46,7 @@ if (isNil "ADV_logistic_maxAmount_crateGrenades") then {
 			ADV_logistic_maxAmount_crateMedic = 2;
 			ADV_logistic_maxAmount_crateEOD = 1;
 			ADV_logistic_maxAmount_crateSupport = 1;
+			ADV_logistic_maxAmount_crateShells = 2;
 		};
 		case 2: {
 			ADV_logistic_maxAmount_crateGrenades = 2;
@@ -56,6 +57,7 @@ if (isNil "ADV_logistic_maxAmount_crateGrenades") then {
 			ADV_logistic_maxAmount_crateMedic = 4;
 			ADV_logistic_maxAmount_crateEOD = 2;
 			ADV_logistic_maxAmount_crateSupport = 2;
+			ADV_logistic_maxAmount_crateShells = 4;
 		};
 		case 3: {
 			ADV_logistic_maxAmount_crateGrenades = 4;
@@ -66,6 +68,7 @@ if (isNil "ADV_logistic_maxAmount_crateGrenades") then {
 			ADV_logistic_maxAmount_crateMedic = 6;
 			ADV_logistic_maxAmount_crateEOD = 4;
 			ADV_logistic_maxAmount_crateSupport = 4;
+			ADV_logistic_maxAmount_crateShells = 6;
 		};
 		default {
 			ADV_logistic_maxAmount_crateGrenades = 999;
@@ -75,7 +78,8 @@ if (isNil "ADV_logistic_maxAmount_crateGrenades") then {
 			ADV_logistic_maxAmount_crateMG = 999;
 			ADV_logistic_maxAmount_crateMedic = 999;
 			ADV_logistic_maxAmount_crateEOD = 999;
-			ADV_logistic_maxAmount_crateSupport = 999;	
+			ADV_logistic_maxAmount_crateSupport = 999;
+			ADV_logistic_maxAmount_crateShells = 999;
 		};
 	};
 };
@@ -243,6 +247,17 @@ if !(_forcePlacement) then {
 			};
 			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
 		};
+		case "ADV_LOGISTIC_CRATESHELLS": {
+			_crateVariable = format ["ADV_logistic_amount_%1_crateShells",ADV_logistic_var_sidePrefix];
+			_crateAmount = missionNamespace getVariable [_crateVariable,ADV_logistic_maxAmount_crateShells];
+			if ( _crateAmount > 0 ) then {
+				[format ["%1 weitere Mörsergranaten-Kisten stehen zur Verfügung.", _crateAmount - 1],5] call adv_fnc_timedHint;
+				missionNamespace setVariable [_crateVariable,_crateAmount - 1,true];
+			} else {
+				["Von der ausgewählten Kategorie stehen keine weiteren Kisten mehr zur Verfügung.",5] call adv_fnc_timedHint;
+			};
+			ADV_var_logistic_isBoxAvailable = if ( _crateAmount > 0 ) then { 1 } else { 0 };
+		};
 		default { ADV_var_logistic_isBoxAvailable = 1; };
 	};
 } else {
@@ -252,8 +267,7 @@ if !(_forcePlacement) then {
 if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 	// Aufruf des ausgewählten Loadouts -> Übergabe aus Dialog
 	_functionForAll = {
-		private _target = _this select 0;
-		private _pos = _this select 1;
+		params ["_target","_pos"];
 		_target allowDamage false;
 		[_target] call ADV_fnc_clearCargo;
 		_target setPosASL _pos;
@@ -344,6 +358,12 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 			[_box,_position] call _functionForAll;
 			_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateSupport"];
 			[_box] remoteExecCall [_function,2];
+		};
+		case "ADV_LOGISTIC_CRATESHELLS": {
+			_box = createVehicle ["Box_Syndicate_WpsLaunch_F",_position,[],0,"CAN_COLLIDE"];
+			[_box] call ADV_fnc_clearCargo;
+			_box setPosASL _position;
+			[_box] remoteExecCall ["adv_fnc_crateShells",2];
 		};
 		case "ADV_LOGISTIC_WHEEL": {
 			if (isClass(configFile >> "CfgPatches" >> "ace_repair")) then {
