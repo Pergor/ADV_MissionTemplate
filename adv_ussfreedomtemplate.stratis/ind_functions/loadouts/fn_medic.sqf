@@ -279,22 +279,30 @@ switch (toUpper ([str _player,3,12] call BIS_fnc_trimString)) do {
 		_microDAGR = false;
 		_ACE_MapTools = 1;
 		_ACE_isMedic = 2;
+		_ACE_personalAidKit = 1;
 	};
 	case "MEDIC_LEA": {
 		_androidDevice = true;
 		_microDAGR = false;
+		_ACE_personalAidKit = 1;
 	};
 	case "MEDIC_LOG": {
 		_androidDevice = true;
 		_microDAGR = false;
 		_ACE_isMedic = 2;
+		_ACE_personalAidKit = 1;
 	};
 };
 
 if ( {[_player,_x] call adv_fnc_inGroup} count ["NATTER"] > 0 || [_player,"command"] call adv_fnc_findInGroup ) then {
+	_binocular = "Rangefinder";
+	_androidDevice = true;
+	_microDAGR = false;
+	_ACE_MapTools = 1;
 	_ACE_isMedic = 2;
 	_ACE_personalAidKit = 1;
 };
+
 ///// No editing necessary below this line /////
 
 [_player] call ADV_fnc_gear;

@@ -14,14 +14,21 @@ class ace_medical_level
 };
 class param_ace_medical_GivePAK
 {
-	title = "ACE-Medical: Wer soll PAKs verwenden können?";
+	title = "ACE-Medical: An wen sollen PAKs/Defibrillatoren (siehe nächsten Parameter) ausgegeben werden?";
 	values[] = {0, 1};
 	default = 0;
 	texts[] =  {"Nur der Zugsanitäter", "Zugsanitäter & Gruppensanitäter"};
 };
+class param_ace_aceCPR_AED
+{
+	title = "ACE-Medical: Sollen PAKs durch Defibrillatoren ausgetauscht werden? (Nur mit adv_aceCPR)";
+	values[] = {0, 1, 2};
+	default = 2;
+	texts[] =  {"Es werden nur PAKs ausgegeben","Es werden PAKs UND Defibrillatoren ausgegeben","Es werden nur Defibrillatoren ausgegeben"};
+};
 class param_adv_aceCPR_onlyDoctors
 {
-	title = "ACE-Medical: Wer soll Patienten mit CPR wiederbeleben können? (Nur im Zusammenhang mit adv_aceCPR.)";
+	title = "ACE-Medical: Wer soll Patienten mit CPR wiederbeleben können? (Nur mit adv_aceCPR)";
 	values[] = {0, 1, 2};
 	default = 0;
 	texts[] =  {"Jeder", "Medics & Doctors", "Doctors only"};

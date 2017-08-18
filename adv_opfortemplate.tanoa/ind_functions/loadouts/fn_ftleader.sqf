@@ -274,10 +274,18 @@ switch (_par_indUni) do {
 ///// No editing necessary below this line /////
 
 if !(toUpper ((str _player) select [4,2]) isEqualTo "FT") then {
+	_optic = [""];
+	_binocular = "RANGEFINDER";
 	_ACE_sprayPaintColor = "NONE";
+	_ACE_kestrel = 1;
+	_ACE_CableTie = 0;
+	_backpack = ["B_Carryall_oli"];
+	if (isClass(configFile >> "CfgPatches" >> "ACE_microDAGR") && !(_par_tablets isEqualTo 2)) then {
+		_itemsVest pushBack "ACE_microDAGR";
+	};
 };
 if (toUpper ([str _player,4,16] call BIS_fnc_trimString) isEqualTo "FTLEADER_COMMAND") then {
-	_binoculars = "RANGEFINDER";
+	_binocular = "RANGEFINDER";
 };
 [_player] call ADV_fnc_gear;
 if (toUpper ((str _player) select [4,2]) isEqualTo "FT") exitWith {nil;};
