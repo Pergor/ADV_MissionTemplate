@@ -333,20 +333,27 @@ if !( _par_opfUni isEqualTo 6 ) then {
 			_microDAGR = false;
 			_ACE_MapTools = 1;
 			_ACE_isMedic = 2;
+			_ACE_personalAidKit = 1;
 		};
 		case "MEDIC_LEA": {
 			_androidDevice = true;
 			_microDAGR = false;
+			_ACE_personalAidKit = 1;
 		};
 		case "MEDIC_LOG": {
 			_androidDevice = true;
 			_microDAGR = false;
 			_ACE_isMedic = 2;
+			_ACE_personalAidKit = 1;
 		};
 	};
 };
 
-if ( {[_player,_x] call adv_fnc_inGroup} count ["MILAN","LUCHS"] > 0 || [_player,"command"] call adv_fnc_findInGroup ) then {
+if ( ({[_player,_x] call adv_fnc_inGroup} count ["MILAN","LUCHS"] > 0 || [_player,"command"] call adv_fnc_findInGroup) && _par_opfUni isEqualTo 6 ) then {
+	_binocular = "Rangefinder";
+	_androidDevice = true;
+	_microDAGR = false;
+	_ACE_MapTools = 1;
 	_ACE_isMedic = 2;
 	_ACE_personalAidKit = 1;
 };
