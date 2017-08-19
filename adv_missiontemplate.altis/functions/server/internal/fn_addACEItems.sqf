@@ -50,6 +50,12 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 				if (!isNil "_ACE_salineIV_250") then { _target addItemCargoGlobal ["ACE_salineIV_250", _ACE_salineIV_250]; };
 				if (!isNil "_ACE_personalAidKit") then { _target addItemCargoGlobal ["ACE_personalAidKit", _ACE_personalAidKit]; };
 				if (!isNil "_ACE_surgicalKit" && (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false])) then { _target addItemCargoGlobal ["ACE_surgicalKit", _ACE_surgicalKit]; };
+				if (!isNil "_ACE_advACEsplint_splint" && isClass(configFile >> "CfgWeapons" >> "adv_aceSplint_splint") && !(missionnamespace getVariable ["ace_medical_healHitPointAfterAdvBandage",true]) ) then {
+					_target addItemCargoGlobal ["adv_aceSplint_splint",_ACE_advACEsplint_splint];
+				};
+				if (!isNil "_adv_aceCPR_AED" && isClass(configFile >> "CfgWeapons" >> "adv_aceCPR_AED")) then {
+					_target addItemCargoGlobal ["adv_aceCPR_AED",_adv_aceCPR_AED];
+				};
 			};
 			_target addItemCargoGlobal ["ACE_fieldDressing", _ACE_fieldDressing+_ACE_elasticBandage+_ACE_packingBandage+_ACE_quikclot];
 			_target addItemCargoGlobal ["ACE_bloodIV", _ACE_bloodIV+_ACE_plasmaIV+_ACE_salineIV];
