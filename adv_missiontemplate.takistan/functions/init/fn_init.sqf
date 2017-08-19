@@ -50,6 +50,6 @@ if ( (missionNamespace getVariable ["ADV_par_engineArtillery",0]) isEqualTo 1 ) 
 };
 
 //ACE stuff that's been forgotten by the developers:
-missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true];
+//missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true];
 
 //end of init.

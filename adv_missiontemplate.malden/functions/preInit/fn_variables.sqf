@@ -20,7 +20,7 @@ ADV_taskVar = missionNamespace getVariable ["ADV_taskVar",0];
 ADV_spawnVar = missionNamespace getVariable ["ADV_spawnVar",0];
 missionNamespace setVariable ["ADV_var_useDLCContent",1];
 
-missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true];
+//missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true];
 
 /*
 adv_par_customUni = missionNamespace getVariable ["adv_par_customUni", ["param_customUni",0] call BIS_fnc_getParamValue];
