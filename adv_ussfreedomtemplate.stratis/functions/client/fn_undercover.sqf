@@ -100,10 +100,11 @@ adv_undercover_scriptfnc_switch_onFoot = {
 		["_unit", player, [objNull]]
 		,["_weapon", currentWeapon player, [""]]
 	];
-	if (_weapon isEqualTo (binocular _unit)) exitWith {};
+	if ( _weapon isEqualTo (binocular _unit) ) exitWith {};
 	if ( toUpper (uniform _unit) in adv_undercover_uniforms ) exitWith {};
 	
-	private _nextEnemy = [_unit,60] call adv_fnc_findNearestEnemy;	private _enemyInRadius = [_unit,400] call adv_fnc_findNearestEnemy;
+	private _nextEnemy = [_unit,60] call adv_fnc_findNearestEnemy;
+	private _enemyInRadius = [_unit,400] call adv_fnc_findNearestEnemy;
 	
 	if ( _weapon isEqualTo "" && _nextEnemy distance _unit > 50 && _enemyInRadius knowsAbout _unit < 1.5 ) exitWith {
 		[_unit, true] call adv_undercover_scriptfnc_setCaptive;

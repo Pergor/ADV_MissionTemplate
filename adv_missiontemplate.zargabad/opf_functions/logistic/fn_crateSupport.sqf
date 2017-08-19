@@ -67,7 +67,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			_target addItemCargoGlobal ["NVGoggles_OPFOR",2];
 		};
 	};
-
+	
 	_ACE_fieldDressing = 0;
 	_ACE_packingBandage = 0;
 	_ACE_elasticBandage = 0;
@@ -88,6 +88,8 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 	_ACE_personalAidKit = 0;
 	_ACE_surgicalKit = 0;
 	_ACE_bodyBag = 5;
+	
+	_adv_aceCPR_AED = 1;
 	
 	_FAKs = 0;
 	_mediKit = 0;

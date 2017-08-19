@@ -394,6 +394,9 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 				_ACE_personalAidKit = 5;
 			};
 			_ACE_tourniquet = 20;
+			
+			_adv_aceCPR_AED = 5;
+			_ACE_advACEsplint_splint = 20;
 
 			_ACE_SpareBarrel = 5;
 			_ACE_tacticalLadder = 3;

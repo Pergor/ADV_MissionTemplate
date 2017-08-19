@@ -139,6 +139,8 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		_ACE_surgicalKit = 10;
 	};
 	
+	_ACE_advACEsplint_splint = 12;
+	
 	_FAKs = 20;
 	_mediKit = 1;
 	

@@ -259,7 +259,7 @@ class ace_medical_playerDamageThreshold {
     force = 0;
 };
 class ace_medical_AIDamageThreshold {
-    value = 0.9;
+    value = 1;
     typeName = "SCALAR";
     force = 0;
 };

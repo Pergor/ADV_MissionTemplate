@@ -274,6 +274,8 @@ _ACE_surgicalKit = 1;
 if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) > 0 ) then {
 	_ACE_surgicalKit = 10;
 };
+_adv_aceCPR_AED = 0;
+_ACE_advACEsplint_splint = 4;
 
 _FAKs = 5;
 _mediKit = 0;
@@ -309,6 +311,9 @@ if (_isMedic) then {
 	if ( (missionnamespace getVariable ["ace_medical_consumeItem_SurgicalKit",0]) > 0 ) then {
 		_ACE_surgicalKit = 10;
 	};
+	_adv_aceCPR_AED = 2;
+	_ACE_advACEsplint_splint = 24;
+	
 	_FAKs = 30;
 	_mediKit = 2;
 	

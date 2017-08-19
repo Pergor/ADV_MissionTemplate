@@ -49,6 +49,14 @@ class ace_medical_enableAdvancedWounds
 	default = 0;
 	texts[] =  {"Disabled", "Enabled"};
 };
+class ace_medical_healHitPointAfterAdvBandage
+{
+	title = "ACE-Medical Heal Hitpoint After Advanced Bandage";
+	ACE_setting = 1;
+	values[] = {0, 1};
+	default = 1;
+	texts[] =  {"Disabled", "Enabled"};
+};
 class ace_medical_preventInstaDeath
 {
 	title = "ACE-Medical Prevent Instant Death";
