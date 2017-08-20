@@ -482,7 +482,7 @@ switch (_par_customUni) do {
 
 ///// No editing necessary below this line /////
 
-if !(toUpper ((str _player) select [0,2]) isEqualTo "FT") then {
+if (["MORTAR", (str _player) ] call BIS_fnc_inString || ["CSW", (str _player) ] call BIS_fnc_inString || ["TOW", (str _player) ] call BIS_fnc_inString) then {
 	_optic = [""];
 	_binocular = "RANGEFINDER";
 	_ACE_sprayPaintColor = "NONE";
