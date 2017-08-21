@@ -294,7 +294,7 @@ switch (toUpper ([str _player,3,12] call BIS_fnc_trimString)) do {
 	};
 };
 
-if ( {[_player,_x] call adv_fnc_inGroup} count ["NATTER"] > 0 || [_player,"command"] call adv_fnc_findInGroup ) then {
+if ( {[_player,_x] call adv_fnc_inGroup} count ["NATTER","ZEUS"] > 0 || [_player,"command"] call adv_fnc_findInGroup ) then {
 	_binocular = "Rangefinder";
 	_androidDevice = true;
 	_microDAGR = false;
