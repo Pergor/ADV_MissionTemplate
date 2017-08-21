@@ -176,11 +176,6 @@ if (isClass(configFile >> "CfgPatches" >> "murshun_cigs")) then {
 {
 	_unit linkitem _x;
 } count _itemslink;
-if (_insignium isEqualTo "") then {
-	[_unit] call ADV_fnc_insignia;
-} else {
-	[_unit,_insignium] remoteExec ["BIS_fnc_setUnitInsignia",0];
-};
 //weapons
 if ( _binocular isEqualType [] ) then { _binocular = selectRandom _binocular; };
 [_unit,_binocular,1] call BIS_fnc_addWeapon;
@@ -327,11 +322,16 @@ if !(_backpack isEqualTo "") then {
 	if ( !isNil "_additionalAmmo5" ) then { [_unit,_additionalAmmo5 select 0,0,_additionalAmmo5 select 1,false] call ADV_fnc_addMagazine; };
 };
 
-if ( str _unit in ["z1","z2","z3","z4","z5","opf_z1","opf_z2","opf_z3","opf_z4","opf_z5","ind_z1","ind_z2","ind_z3","ind_z4","ind_z5"] ) then {
+if ( {[_unit,_x] call adv_fnc_inGroup} count ["ZEUS"] > 0 ) then {
+	if ( ["command",_fnc_scriptNameParent] call BIS_fnc_inString ) then {
+		if ( isClass (configFile >> "CfgPatches" >> "ace_medical") ) then { _unit addItem "ACE_personalAidKit"; };
+		if ( isClass(configFile >> "CfgPatches" >> "ACE_explosives") ) then { _unit addItem "ACE_DefusalKit"; };
+	};
+	
 	if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
 		["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;
 	};
-	[[0,1,2,3,4,5],true] call adv_fnc_enableChannels;
+	[[0,1,2,3,4,5],true] call adv_fnc_enableChannels;	
 };
 
 if ( toUpper ([(str _unit),(count str _unit)-5] call BIS_fnc_trimString) isEqualTo "RECON" ) then {
@@ -352,6 +352,13 @@ if !( ["diver",_fnc_scriptNameParent] call BIS_fnc_inString || ["pilot",_fnc_scr
 			(vestContainer _unit) addItemCargoGlobal [_maskType,1];
 		};
 	};
+};
+
+//insignia
+if (_insignium isEqualTo "") then {
+	[_unit] call ADV_fnc_insignia;
+} else {
+	[_unit,_insignium] call BIS_fnc_setUnitInsignia;
 };
 
 //headgear:

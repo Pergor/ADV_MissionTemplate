@@ -155,6 +155,7 @@ class adv
 		class addMagazine {};
 		class addRadios {};
 		class CSW {};
+		class defaultAttire {};
 		class gear {};
 		class insignia {};
 		class LRBackpack {};

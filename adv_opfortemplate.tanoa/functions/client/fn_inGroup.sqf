@@ -21,6 +21,6 @@ params [
 	,["_grpName", "", [""]]
 ];
 
-if ( [_grpName, groupID (group _target) ] call BIS_fnc_inString ) exitWith {true};
+if ( [_grpName, groupID (group _target)] call BIS_fnc_inString ) exitWith {true};
 
 false;

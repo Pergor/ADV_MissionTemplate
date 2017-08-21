@@ -349,7 +349,7 @@ if !( _par_opfUni isEqualTo 6 ) then {
 	};
 };
 
-if ( ({[_player,_x] call adv_fnc_inGroup} count ["MILAN","LUCHS"] > 0 || [_player,"command"] call adv_fnc_findInGroup) && _par_opfUni isEqualTo 6 ) then {
+if ( ({[_player,_x] call adv_fnc_inGroup} count ["MILAN","LUCHS","ZEUS"] > 0 || [_player,"command"] call adv_fnc_findInGroup) && _par_opfUni isEqualTo 6 ) then {
 	_binocular = "Rangefinder";
 	_androidDevice = true;
 	_microDAGR = false;
