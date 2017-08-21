@@ -176,11 +176,6 @@ if (isClass(configFile >> "CfgPatches" >> "murshun_cigs")) then {
 {
 	_unit linkitem _x;
 } count _itemslink;
-if (_insignium isEqualTo "") then {
-	[_unit] call ADV_fnc_insignia;
-} else {
-	[_unit,_insignium] remoteExec ["BIS_fnc_setUnitInsignia",0];
-};
 //weapons
 if ( _binocular isEqualType [] ) then { _binocular = selectRandom _binocular; };
 [_unit,_binocular,1] call BIS_fnc_addWeapon;
@@ -357,6 +352,13 @@ if !( ["diver",_fnc_scriptNameParent] call BIS_fnc_inString || ["pilot",_fnc_scr
 			(vestContainer _unit) addItemCargoGlobal [_maskType,1];
 		};
 	};
+};
+
+//insignia
+if (_insignium isEqualTo "") then {
+	[_unit] call ADV_fnc_insignia;
+} else {
+	[_unit,_insignium] call BIS_fnc_setUnitInsignia;
 };
 
 //headgear:
