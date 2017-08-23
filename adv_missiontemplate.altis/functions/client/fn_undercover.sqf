@@ -92,7 +92,10 @@ adv_undercover_scriptevh_uniform = ["loadout", {[_this select 0] call adv_underc
 if (_uniformsOnly) exitWith {true;};
 
 private _weapon = currentWeapon player;
-if (_weapon isEqualTo "" || _weapon isEqualTo (binocular player)) then {
+private _isBinocular = if ( _weapon isEqualTo (binocular _unit) ) then {true} else {false};
+private _hasWeapon = if !( (primaryWeapon _unit) isEqualTo "" && (secondaryWeapon _unit) isEqualTo "" ) then {true} else {false};
+private _noWeaponInHand = if ( _weapon isEqualTo "" || _isBinocular ) then {true} else {false};
+if ( (!_hasWeapon && _noWeaponInHand) || _isBinocular ) then {
 	player setCaptive true;
 };
 adv_undercover_scriptfnc_switch_onFoot = {
@@ -101,7 +104,8 @@ adv_undercover_scriptfnc_switch_onFoot = {
 		,["_weapon", currentWeapon player, [""]]
 	];
 	private _isBinocular = if ( _weapon isEqualTo (binocular _unit) ) then {true} else {false};
-	private _hasWeapon = if ( (primaryWeapon _unit) isEqualTo "" && (handgunWeapon _unit) isEqualTo "" && (secondaryWeapon _unit) isEqualTo "" ) then {false} else {true};
+	private _hasWeapon = if !( (primaryWeapon _unit) isEqualTo "" && (secondaryWeapon _unit) isEqualTo "" ) then {true} else {false};
+	private _noWeaponInHand = if ( _weapon isEqualTo "" || _isBinocular ) then {true} else {false};
 	if ( _isBinocular ) exitWith {};
 	if ( toUpper (uniform _unit) in adv_undercover_uniforms ) exitWith {};
 	
@@ -109,7 +113,7 @@ adv_undercover_scriptfnc_switch_onFoot = {
 	private _enemyInRadius = [_unit,400] call adv_fnc_findNearestEnemy;
 	
 	//if ( _weapon isEqualTo "" && _nextEnemy distance _unit > 50 && _enemyInRadius knowsAbout _unit < 1.5 ) exitWith {
-	if ( !_hasWeapon && _nextEnemy distance _unit > 50 && _enemyInRadius knowsAbout _unit < 1.5 ) exitWith {
+	if ( !_hasWeapon && _noWeaponInHand && _nextEnemy distance _unit > 50 && _enemyInRadius knowsAbout _unit < 1.5 ) exitWith {
 		[_unit, true] call adv_undercover_scriptfnc_setCaptive;
 		[_unit] call adv_undercover_scriptfnc_switch_tooclose;
 	};
