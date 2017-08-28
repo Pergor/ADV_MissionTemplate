@@ -15,6 +15,21 @@
  *
  * Public: Yes
  */
+
+ //removing the evhs if called twice:
+if (!isNil "adv_undercover_scriptevh_uniform") exitWith {
+	["loadout",adv_undercover_scriptevh_uniform] call CBA_fnc_removePlayerEventHandler;
+	adv_undercover_scriptevh_uniform = nil;
+	
+	[player, false] call adv_undercover_scriptfnc_setCaptive;
+	
+	if (!isNil "adv_undercover_scriptevh_onFoot") exitWith {
+		["weapon",adv_undercover_scriptevh_onFoot] call CBA_fnc_removePlayerEventHandler;
+		["vehicle",adv_undercover_scriptevh_inVeh] call CBA_fnc_removePlayerEventHandler;
+		adv_undercover_scriptevh_onFoot = nil;
+		adv_undercover_scriptevh_inVeh = nil;
+	};
+};
  
 params [
 	["_uniformsOnly",true,[true]]
@@ -68,10 +83,15 @@ adv_undercover_scriptfnc_setCaptive = {
 };
 
 adv_undercover_scriptfnc_switch_tooclose = {
+	if (player getVariable ["adv_undercover_tooClose_applied",false]) exitWith {};
+	
 	[ { ( !isNull ([player,8] call adv_fnc_findNearestEnemy) ) || (player getVariable ["adv_undercover_tooClose",false]) }, {
 		params ["_unit"];
 		[_unit, false] call adv_undercover_scriptfnc_setCaptive;
+		_unit setVariable ["adv_undercover_tooClose_applied",false];
 	},[player]] call CBA_fnc_waitUntilAndExecute;
+	
+	player setVariable ["adv_undercover_tooClose_applied",true];
 };
 
 adv_undercover_scriptfnc_switch_uniform = {
@@ -83,36 +103,42 @@ adv_undercover_scriptfnc_switch_uniform = {
 		[_unit, true] call adv_undercover_scriptfnc_setCaptive;
 		[_unit] call adv_undercover_scriptfnc_switch_tooclose;
 	};
+	private _hasWeapon = !( (primaryWeapon _unit) isEqualTo "" && (secondaryWeapon _unit) isEqualTo "" );
+	if (!_hasWeapon) exitWith {};
 	
 	[_unit, false] call adv_undercover_scriptfnc_setCaptive;
 };
 
 adv_undercover_scriptevh_uniform = ["loadout", {[_this select 0] call adv_undercover_scriptfnc_switch_uniform}] call CBA_fnc_addPlayerEventHandler;
 
-if (_uniformsOnly) exitWith {true;};
+if (_uniformsOnly) exitWith {true};
 
 private _weapon = currentWeapon player;
-private _isBinocular = if ( _weapon isEqualTo (binocular _unit) ) then {true} else {false};
-private _hasWeapon = if !( (primaryWeapon _unit) isEqualTo "" && (secondaryWeapon _unit) isEqualTo "" ) then {true} else {false};
-private _noWeaponInHand = if ( _weapon isEqualTo "" || _isBinocular ) then {true} else {false};
-if ( (!_hasWeapon && _noWeaponInHand) || _isBinocular ) then {
-	player setCaptive true;
+private _isBinocular = ( _weapon isEqualTo (binocular player) );
+private _hasWeapon = !( (primaryWeapon player) isEqualTo "" && (secondaryWeapon player) isEqualTo "" );
+private _noWeaponInHand = ( _weapon isEqualTo "" || _isBinocular );
+if ( !_hasWeapon && _noWeaponInHand ) then {
+	[player, true] call adv_undercover_scriptfnc_setCaptive;
 };
+
 adv_undercover_scriptfnc_switch_onFoot = {
 	params [
 		["_unit", player, [objNull]]
 		,["_weapon", currentWeapon player, [""]]
 	];
-	private _isBinocular = if ( _weapon isEqualTo (binocular _unit) ) then {true} else {false};
-	private _hasWeapon = if !( (primaryWeapon _unit) isEqualTo "" && (secondaryWeapon _unit) isEqualTo "" ) then {true} else {false};
-	private _noWeaponInHand = if ( _weapon isEqualTo "" || _isBinocular ) then {true} else {false};
+	
+	if !( (vehicle player) isEqualTo player ) exitWith {};
+
+	private _isBinocular = ( _weapon isEqualTo (binocular _unit) );
+	private _hasWeapon = !( (primaryWeapon _unit) isEqualTo "" && (secondaryWeapon _unit) isEqualTo "" );
+	private _noWeaponInHand = ( _weapon isEqualTo "" || _isBinocular );
+	
 	if ( _isBinocular ) exitWith {};
 	if ( toUpper (uniform _unit) in adv_undercover_uniforms ) exitWith {};
 	
 	private _nextEnemy = [_unit,60] call adv_fnc_findNearestEnemy;
 	private _enemyInRadius = [_unit,400] call adv_fnc_findNearestEnemy;
 	
-	//if ( _weapon isEqualTo "" && _nextEnemy distance _unit > 50 && _enemyInRadius knowsAbout _unit < 1.5 ) exitWith {
 	if ( !_hasWeapon && _noWeaponInHand && _nextEnemy distance _unit > 50 && _enemyInRadius knowsAbout _unit < 1.5 ) exitWith {
 		[_unit, true] call adv_undercover_scriptfnc_setCaptive;
 		[_unit] call adv_undercover_scriptfnc_switch_tooclose;
@@ -127,8 +153,15 @@ adv_undercover_scriptfnc_switch_inVeh = {
 		,["_veh", vehicle player, [objNull]]
 	];
 	
-	if ( (_veh currentWeaponTurret [-1]) isEqualTo "" && (_veh currentWeaponTurret [0]) isEqualTo "" ) exitWith {};
-	
+	private _weapons = weapons _veh;
+	//if !( count _weapons > 1 ) exitWith {};
+	if ( { !(["Horn",_x] call BIS_fnc_inString) } count _weapons isEqualTo 0 ) exitWith {
+		[_unit, true] call adv_undercover_scriptfnc_setCaptive;
+	};
+	if ( _veh isEqualTo _unit ) exitWith {
+		[_unit, currentWeapon _unit] call adv_undercover_scriptfnc_switch_onFoot;
+	};
+
 	[_unit, false] call adv_undercover_scriptfnc_setCaptive;
 };
 
