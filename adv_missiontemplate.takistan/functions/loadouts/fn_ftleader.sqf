@@ -488,6 +488,7 @@ if (["MORTAR", (str _player) ] call BIS_fnc_inString || ["CSW", (str _player) ] 
 	_ACE_sprayPaintColor = "NONE";
 	_ACE_kestrel = 1;
 	_ACE_CableTie = 0;
+	//_ACE_key = 1;
 	_backpack = ["B_Carryall_oli"];
 	if (isClass(configFile >> "CfgPatches" >> "ACE_microDAGR") && !(_par_tablets isEqualTo 2)) then {
 		_itemsVest pushBack "ACE_microDAGR";

@@ -188,15 +188,15 @@ _ACE_HandFlare_White = 0;
 _ACE_HandFlare_Yellow = 0;
 
 //AGM Variables (if AGM is running) - (bool)
-_ACE_isMedic = 2;		//0 = no medic; 1 = medic; 2 = doctor;
+_ACE_isMedic = 1;		//0 = no medic; 1 = medic; 2 = doctor;
 _ACE_isEngineer = 0;	//0 = no specialist; 1 = engineer; 2 = repair specialist;
 _ACE_isEOD = false;
 _ACE_isPilot = false;
 
 //Tablet-Items
 _tablet = false;
-_androidDevice = false;
-_microDAGR = true;
+_androidDevice = true;
+_microDAGR = false;
 _helmetCam = false;
 
 //scorch inv items
@@ -329,20 +329,15 @@ if !( _par_opfUni isEqualTo 6 ) then {
 	switch (toUpper ([str _player,3,12] call BIS_fnc_trimString)) do {
 		case "MEDIC_COM": {
 			_binocular = "Rangefinder";
-			_androidDevice = true;
-			_microDAGR = false;
 			_ACE_MapTools = 1;
 			_ACE_isMedic = 2;
 			_ACE_personalAidKit = 1;
 		};
 		case "MEDIC_LEA": {
-			_androidDevice = true;
-			_microDAGR = false;
+			_ACE_isMedic = 2;
 			_ACE_personalAidKit = 1;
 		};
 		case "MEDIC_LOG": {
-			_androidDevice = true;
-			_microDAGR = false;
 			_ACE_isMedic = 2;
 			_ACE_personalAidKit = 1;
 		};

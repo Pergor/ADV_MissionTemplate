@@ -48,6 +48,8 @@ ADV_veh_heavys = [];
 ADV_veh_tanks = [];
 ADV_veh_artys = [];
 
+//ADV_veh_empty = [];
+
 ///// No editing necessary below this line /////
 
 {
@@ -79,6 +81,8 @@ ADV_veh_artys = [];
 		case ( _vehicleName select [0,8] == "air_a164" ): { ADV_veh_airCAS pushBack _vehicleName; };
 		case ( _vehicleName select [0,7] == "air_cas" ): { ADV_veh_airCAS pushBack _vehicleName; };
 		case ( _vehicleName select [0,8] == "air_c130" ): { ADV_veh_airC130 pushBack _vehicleName; };
+		//empty
+		//case ( _vehicleName select [0,5] == "empty" ): { ADV_veh_empty pushBack _vehicleName; };
 		default {};
 	};
 	nil;

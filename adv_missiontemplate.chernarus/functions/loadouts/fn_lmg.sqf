@@ -27,7 +27,7 @@ params ["_player"];
 _uniform = ["U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam_vest","U_B_CombatUniform_mcam"];
 _vest = ["V_PlateCarrier2_rgr","V_PlateCarrier1_rgr"];
 _headgear = ["H_HelmetSpecB_paint1","H_HelmetSpecB_paint2","H_HelmetB_desert","H_HelmetB_grass","H_HelmetB_paint"];
-_backpack = ["B_AssaultPack_dgtl","B_AssaultPack_khk","B_AssaultPack_rgr","B_AssaultPack_cbr","B_AssaultPack_mcamo"];
+_backpack = ["B_AssaultPack_khk","B_AssaultPack_rgr","B_AssaultPack_cbr","B_AssaultPack_mcamo"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "G_Combat";

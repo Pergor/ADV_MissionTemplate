@@ -194,8 +194,8 @@ _ACE_isPilot = false;
 
 //Tablet-Items
 _tablet = false;
-_androidDevice = false;
-_microDAGR = true;
+_androidDevice = true;
+_microDAGR = false;
 _helmetCam = false;
 
 //scorch inv items
@@ -497,20 +497,15 @@ if (isClass(configFile >> "CfgPatches" >> "adv_insignia")) then {
 switch (toUpper ([str _player,0,8] call BIS_fnc_trimString)) do {
 	case "MEDIC_COM": {
 		_binocular = "Rangefinder";
-		_androidDevice = true;
-		_microDAGR = false;
 		_ACE_MapTools = 1;
 		_ACE_isMedic = 2;
 		_ACE_personalAidKit = 1;
 	};
 	case "MEDIC_LEA": {
-		_androidDevice = true;
-		_microDAGR = false;
+		_ACE_isMedic = 2;
 		_ACE_personalAidKit = 1;
 	};
 	case "MEDIC_LOG": {
-		_androidDevice = true;
-		_microDAGR = false;
 		_ACE_isMedic = 2;
 		_ACE_personalAidKit = 1;
 	};

@@ -116,6 +116,7 @@ class adv
 		class aceMine {};		
 		class changeName {};
 		class changeUnit {};
+		class disableInput {};
 		class dispLaunch {};
 		class enableChannels {};
 		class findInGroup {};

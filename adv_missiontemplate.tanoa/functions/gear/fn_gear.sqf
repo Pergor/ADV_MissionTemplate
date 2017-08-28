@@ -73,7 +73,7 @@ call {
 	[[0,1,2],false] call adv_fnc_enableChannels;
 };
 
-if ( toUpper ([(str _unit),(count str _unit)-5] call BIS_fnc_trimString) isEqualTo "RECON" ) then {
+if ( ["recon",str _unit] call BIS_fnc_inString ) then {
 	_unitTraits = [["medic",true],["engineer",true],["explosiveSpecialist",true],["UAVHacker",true],["camouflageCoef",1.5],["audibleCoef",0.5],["loadCoef",0.9]];
 	_par_Silencers = 2;
 	_par_opfSilencers = 2;
@@ -334,7 +334,7 @@ if ( {[_unit,_x] call adv_fnc_inGroup} count ["ZEUS"] > 0 ) then {
 	[[0,1,2,3,4,5],true] call adv_fnc_enableChannels;	
 };
 
-if ( toUpper ([(str _unit),(count str _unit)-5] call BIS_fnc_trimString) isEqualTo "RECON" ) then {
+if ( ["recon",str _unit] call BIS_fnc_inString ) then {
 };
 
 //gasmasks:
