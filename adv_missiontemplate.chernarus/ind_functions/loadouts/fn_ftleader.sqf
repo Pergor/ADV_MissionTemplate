@@ -37,7 +37,7 @@ _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],
 _primaryWeapon = ["arifle_Mk20_F","arifle_Mk20_plain_F"];
 
 //primary weapon items - (array)
-_optic = ["optic_Hamr"];
+_optic = ["optic_Hamr","optic_MRCO","optic_MRCO"];
 _attachments = [""];
 if ( _par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( _par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
@@ -235,7 +235,7 @@ switch (_par_indWeap) do {
 		_primaryWeapon = ["arifle_SPAR_01_blk_F"];
 		_silencer = "muzzle_snds_M";
 		_primaryweaponAmmo set [1,1];
-		_optic = ["optic_Arco_blk_F"];
+		_optic = ["optic_Arco_blk_F","optic_MRCO","optic_MRCO"];
 	};
 	case 21: {
 		//APEX AKM

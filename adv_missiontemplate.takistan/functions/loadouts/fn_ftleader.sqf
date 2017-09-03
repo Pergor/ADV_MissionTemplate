@@ -38,7 +38,7 @@ _primaryweapon = ["arifle_MX_Black_F","arifle_MX_Black_F","arifle_MX_Black_F","a
 if (worldName == "TANOA") then { _primaryweapon = ["arifle_MX_Black_F","arifle_MX_Black_F","arifle_MX_Black_F","arifle_MX_khk_F"]; };
 
 //primary weapon items - (array)
-_optic = ["optic_Hamr"];
+_optic = ["optic_Hamr","optic_MRCO","optic_MRCO"];
 _attachments = [""];
 if ( _par_NVGs == 1 ) then { _attachments pushback "acc_flashlight"; };
 if ( _par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
@@ -329,7 +329,7 @@ switch (_par_customWeap) do {
 		};
 		_silencer = "muzzle_snds_M";
 		_primaryweaponAmmo set [1,2];
-		_optic = ["optic_Arco_blk_F"];
+		_optic = ["optic_Arco_blk_F","optic_MRCO","optic_MRCO"];
 	};
 	default {};
 };

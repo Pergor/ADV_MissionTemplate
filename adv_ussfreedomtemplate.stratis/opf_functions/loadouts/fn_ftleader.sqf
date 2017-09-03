@@ -37,7 +37,7 @@ _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],
 _primaryweapon = "arifle_Katiba_F";
 
 //primary weapon items - (array)
-_optic = ["optic_Arco"];
+_optic = ["optic_Arco","optic_MRCO","optic_MRCO"];
 _attachments = [""];
 if ( _par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( _par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
@@ -45,6 +45,7 @@ _silencer = "muzzle_snds_H";		//if silencer is added
 
 if (worldName == "TANOA" || _par_opfWeap == 20) then {
 	_primaryweapon = ["arifle_CTAR_blk_F"];
+	_optic = ["optic_Arco_blk_F","optic_MRCO","optic_MRCO"];
 	_silencer = "muzzle_snds_58_blk_F";
 };
 

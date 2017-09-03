@@ -35,14 +35,17 @@ _unitTraits = [["medic",true]];
 
 //weapons - primary weapon - (string)
 _primaryweapon = ["arifle_MX_Black_F","arifle_MX_F"];
-if (worldName == "TANOA") then { _primaryweapon = ["arifle_MX_Black_F","arifle_MX_khk_F"]; };
 
 //primary weapon items - (array)
-_optic = ["optic_ACO","optic_Holosight"];
+_optic = ["optic_ACO","optic_Holosight","optic_Holosight_smg","optic_Aco_smg"];
 _attachments = [""];
 if ( _par_NVGs == 1 ) then { _attachments pushback "acc_flashlight"; };
 if ( _par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H";		//if silencer is added
+if (worldName == "TANOA") then {
+	_primaryweapon = ["arifle_MX_Black_F","arifle_MX_khk_F"];
+	_optic = _optic-["optic_Holosight","optic_Holosight_smg"]+["optic_Holosight_khk_F","optic_Holosight_smg_khk_F"];
+};
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [10,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.

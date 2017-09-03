@@ -38,15 +38,15 @@ _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],
 _primaryWeapon = ["arifle_MX_SW_Black_F","arifle_MX_SW_Black_F","arifle_MX_SW_F"];
 
 //primary weapon items - (array)
-_optic = ["optic_ACO","optic_Holosight"];
-if (worldName == "TANOA") then {
-	_primaryWeapon = ["arifle_MX_SW_Black_F","arifle_MX_SW_Black_F","arifle_MX_SW_khk_F"];
-	_optic = _optic-["optic_Holosight"]+["optic_Holosight_blk_F"];
-};
+_optic = ["optic_ACO","optic_Holosight","optic_Holosight_smg","optic_Aco_smg"];
 _attachments = ["bipod_01_F_blk"];
 if ( _par_NVGs == 1 ) then { _attachments pushback "acc_flashlight"; };
 if ( _par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H_MG";		//if silencer is added
+if (worldName == "TANOA") then {
+	_primaryWeapon = ["arifle_MX_SW_Black_F","arifle_MX_SW_Black_F","arifle_MX_SW_khk_F"];
+	_optic = _optic-["optic_Holosight","optic_Holosight_smg"]+["optic_Holosight_khk_F","optic_Holosight_smg_khk_F"];
+};
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 //_primaryweaponAmmo = [3,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
@@ -54,6 +54,7 @@ _primaryweaponAmmo = [3,0];
 _additionalAmmo = [3,1,true];
 if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) then {
 	_primaryWeapon = ["LMG_Mk200_F"];
+	_optic = ["optic_ACO","optic_Holosight","optic_Holosight_smg","optic_Aco_smg"];
 	_primaryweaponAmmo = if (isClass(configFile >> "CfgPatches" >> "ace_ballistics")) then {[3,4]} else {[3,3]};
 	_additionalAmmo = if (isClass(configFile >> "CfgPatches" >> "ace_ballistics")) then {[3,3,true]} else {[3,2,true]};
 };
@@ -317,7 +318,7 @@ switch (_par_customWeap) do {
 	case 20: {
 		//APEX HK416
 		_primaryWeapon = "LMG_03_F";
-		_optic = ["optic_ACO","optic_Holosight_blk_F"];
+		_optic = ["optic_ACO","optic_Holosight_blk_f","optic_Holosight_smg_blk_F","optic_Aco_smg"];
 		_silencer = "";
 		_primaryweaponAmmo = [3,1];
 	};
