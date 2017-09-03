@@ -133,7 +133,7 @@ if (_uniformsOnly) exitWith {true};
 
 if ( call adv_undercover_scriptfnc_noVisualWeapon ) then {
 	[player, true] call adv_undercover_scriptfnc_setCaptive;
-	["<t color='#ff0000' size = '.8'>From now on you are undercover,<br/>as long as you do not carry a rifle or a launcher or get inside an armed vehicle.<br/><br/>Carrying a pistol in the holster will not blow your cover.<br/><br/>Binoculars will not change your undercover-status.</t>",-1,0,10,1,0,789] spawn BIS_fnc_dynamicText;
+	["<t color='#ff0000' size = '.8'>From now on you are undercover,<br/>as long as you do not carry a rifle or a launcher or get inside an armed vehicle.<br/><br/>Carrying a pistol in the holster will not blow your cover.</t>",-1,0,10,1,0,789] spawn BIS_fnc_dynamicText;
 };
 
 adv_undercover_scriptfnc_switch_onFoot = {
@@ -144,9 +144,9 @@ adv_undercover_scriptfnc_switch_onFoot = {
 	
 	if !( (vehicle player) isEqualTo player ) exitWith {};
 
-	private _isBinocular = ( _weapon isEqualTo (binocular _unit) );
+	//private _isBinocular = ( _weapon isEqualTo (binocular _unit) );
 
-	if ( _isBinocular ) exitWith {};
+	//if ( _isBinocular ) exitWith {};
 
 	if ( toUpper (uniform _unit) in adv_undercover_uniforms ) exitWith {};
 
