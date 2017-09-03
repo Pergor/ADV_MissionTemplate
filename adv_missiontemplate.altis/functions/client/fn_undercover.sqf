@@ -18,6 +18,7 @@
 
  //removing the evhs if called twice:
 if (!isNil "adv_undercover_scriptevh_uniform") exitWith {
+	["<t color='#ff0000' size = '.8'>Your cover has been permanently compromised!</t>",-1,0,5,1,0,789] spawn BIS_fnc_dynamicText;
 	["loadout",adv_undercover_scriptevh_uniform] call CBA_fnc_removePlayerEventHandler;
 	adv_undercover_scriptevh_uniform = nil;
 	
@@ -34,6 +35,8 @@ if (!isNil "adv_undercover_scriptevh_uniform") exitWith {
 params [
 	["_uniformsOnly",true,[true]]
 ];
+
+adv_undercover_isUniformsOnly = _uniformsOnly;
 
 adv_undercover_uniforms_west = [
 	"U_B_COMBATUNIFORM_MCAM","U_B_COMBATUNIFORM_MCAM_TSHIRT","U_B_CTRG_1","U_B_CTRG_2","U_B_CTRG_3"
@@ -82,6 +85,20 @@ adv_undercover_scriptfnc_setCaptive = {
 	};
 };
 
+adv_undercover_scriptfnc_noEnemyClose = {
+	private _nextEnemy = [player,60] call adv_fnc_findNearestEnemy;
+	private _enemyInRadius = [player,400] call adv_fnc_findNearestEnemy;
+	private _return = (_nextEnemy distance player > 50 && _enemyInRadius knowsAbout player < 1.5);
+	_return;
+};
+adv_undercover_scriptfnc_noVisualWeapon = {
+	private _weapon = currentWeapon player;
+	private _isBinocular = ( _weapon isEqualTo (binocular player) );
+	private _noWeapon = ( (primaryWeapon player) isEqualTo "" && (secondaryWeapon player) isEqualTo "" );
+	private _noVisualWeapon = ( (_weapon isEqualTo "" || _isBinocular) && _noWeapon );
+	_noVisualWeapon;
+};
+
 adv_undercover_scriptfnc_switch_tooclose = {
 	if (player getVariable ["adv_undercover_tooClose_applied",false]) exitWith {};
 	
@@ -98,13 +115,14 @@ adv_undercover_scriptfnc_switch_uniform = {
 	params [
 		["_unit", player, [objNull]]
 	];
-	
-	if ( toUpper (uniform _unit) in adv_undercover_uniforms ) exitWith {
+	if ( toUpper (uniform _unit) in adv_undercover_uniforms && call adv_undercover_scriptfnc_noEnemyClose ) exitWith {
 		[_unit, true] call adv_undercover_scriptfnc_setCaptive;
 		[_unit] call adv_undercover_scriptfnc_switch_tooclose;
 	};
-	private _hasWeapon = !( (primaryWeapon _unit) isEqualTo "" && (secondaryWeapon _unit) isEqualTo "" );
-	if (!_hasWeapon) exitWith {};
+	if ( call adv_undercover_scriptfnc_noVisualWeapon && !adv_undercover_isUniformsOnly ) exitWith {
+		[_unit, true] call adv_undercover_scriptfnc_setCaptive;
+		[_unit] call adv_undercover_scriptfnc_switch_tooclose;
+	};
 	
 	[_unit, false] call adv_undercover_scriptfnc_setCaptive;
 };
@@ -113,12 +131,9 @@ adv_undercover_scriptevh_uniform = ["loadout", {[_this select 0] call adv_underc
 
 if (_uniformsOnly) exitWith {true};
 
-private _weapon = currentWeapon player;
-private _isBinocular = ( _weapon isEqualTo (binocular player) );
-private _hasWeapon = !( (primaryWeapon player) isEqualTo "" && (secondaryWeapon player) isEqualTo "" );
-private _noWeaponInHand = ( _weapon isEqualTo "" || _isBinocular );
-if ( !_hasWeapon && _noWeaponInHand ) then {
+if ( call adv_undercover_scriptfnc_noVisualWeapon ) then {
 	[player, true] call adv_undercover_scriptfnc_setCaptive;
+	["<t color='#ff0000' size = '.8'>From now on you are undercover,<br/>as long as you do not carry a rifle or a launcher or get inside an armed vehicle.<br/><br/>Carrying a pistol in the holster will not blow your cover.<br/><br/>Binoculars will not change your undercover-status.</t>",-1,0,10,1,0,789] spawn BIS_fnc_dynamicText;
 };
 
 adv_undercover_scriptfnc_switch_onFoot = {
@@ -130,16 +145,12 @@ adv_undercover_scriptfnc_switch_onFoot = {
 	if !( (vehicle player) isEqualTo player ) exitWith {};
 
 	private _isBinocular = ( _weapon isEqualTo (binocular _unit) );
-	private _hasWeapon = !( (primaryWeapon _unit) isEqualTo "" && (secondaryWeapon _unit) isEqualTo "" );
-	private _noWeaponInHand = ( _weapon isEqualTo "" || _isBinocular );
-	
+
 	if ( _isBinocular ) exitWith {};
+
 	if ( toUpper (uniform _unit) in adv_undercover_uniforms ) exitWith {};
-	
-	private _nextEnemy = [_unit,60] call adv_fnc_findNearestEnemy;
-	private _enemyInRadius = [_unit,400] call adv_fnc_findNearestEnemy;
-	
-	if ( !_hasWeapon && _noWeaponInHand && _nextEnemy distance _unit > 50 && _enemyInRadius knowsAbout _unit < 1.5 ) exitWith {
+
+	if ( call adv_undercover_scriptfnc_noVisualWeapon && call adv_undercover_scriptfnc_noEnemyClose ) exitWith {
 		[_unit, true] call adv_undercover_scriptfnc_setCaptive;
 		[_unit] call adv_undercover_scriptfnc_switch_tooclose;
 	};
