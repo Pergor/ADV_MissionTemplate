@@ -37,7 +37,7 @@ _unitTraits = [["medic",true],["engineer",false],["explosiveSpecialist",false],[
 _primaryweapon = "arifle_Katiba_F";
 
 //primary weapon items - (array)
-_optic = ["optic_Arco","optic_MRCO"];
+_optic = ["optic_ACO_grn","optic_Holosight"];
 _attachments = [""];
 if ( _par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( _par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
@@ -46,6 +46,7 @@ _silencer = "muzzle_snds_H";		//if silencer is added
 if (worldName == "TANOA" || _par_opfWeap == 20) then {
 	_primaryweapon = ["arifle_CTAR_blk_F"];
 	_silencer = "muzzle_snds_58_blk_F";
+	_optic = ["optic_ACO_grn","optic_Holosight_blk_f"];
 };
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)

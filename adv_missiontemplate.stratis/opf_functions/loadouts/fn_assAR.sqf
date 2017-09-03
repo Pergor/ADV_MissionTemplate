@@ -46,6 +46,7 @@ _silencer = "muzzle_snds_H";		//if silencer is added
 if (worldName == "TANOA" || _par_opfWeap == 20) then {
 	_primaryweapon = ["arifle_CTAR_blk_F"];
 	_silencer = "muzzle_snds_58_blk_F";
+	_optic = ["optic_ACO_grn","optic_Holosight_blk_f"];
 };
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
@@ -85,7 +86,7 @@ _launcher = "";
 _launcherAmmo = [0,0];
 
 //binocular - (string)
-_binocular = "Rangefinder";
+_binocular = "Binocular";
 
 //throwables - (integer)
 _grenadeSet = 1;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.

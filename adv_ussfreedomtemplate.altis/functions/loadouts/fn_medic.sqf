@@ -82,7 +82,7 @@ _launcher = "";
 _launcherAmmo = [0,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //binocular - (string)
-_binocular = "Binocular";
+_binocular = "";
 
 //throwables - (integer)
 _grenadeSet = 0;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.
@@ -500,14 +500,17 @@ switch (toUpper ([str _player,0,8] call BIS_fnc_trimString)) do {
 		_ACE_MapTools = 1;
 		_ACE_isMedic = 2;
 		_ACE_personalAidKit = 1;
+		_ACE_key = 0;
 	};
 	case "MEDIC_LEA": {
 		_ACE_isMedic = 2;
 		_ACE_personalAidKit = 1;
+		_ACE_key = 0;
 	};
 	case "MEDIC_LOG": {
 		_ACE_isMedic = 2;
 		_ACE_personalAidKit = 1;
+		_ACE_key = 0;
 	};
 };
 

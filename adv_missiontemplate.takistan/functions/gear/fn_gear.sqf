@@ -62,6 +62,7 @@ if ( [_unit,"command"] call adv_fnc_findInGroup ) then {
 	if (_ACE_key isEqualTo 0) then {_ACE_key = 1;};
 };
 call {
+	if ( {[_unit,_x] call adv_fnc_inGroup} count ["ZEUS"] > 0 ) exitWith {  };
 	if ( [_unit,"command"] call adv_fnc_findInGroup ) exitWith {
 		[[0],false] call adv_fnc_enableChannels;
 		[[1,2],true] call adv_fnc_enableChannels;

@@ -84,7 +84,7 @@ _launcher = "";
 _launcherAmmo = [0,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //binocular - (string)
-_binocular = "Rangefinder";
+_binocular = "";
 
 //throwables - (integer)
 _grenadeSet = 1;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.
@@ -348,9 +348,9 @@ switch (_par_customWeap) do {
 			case ((toUpper worldname) in _var_lushMaps): {_primaryWeapon append ["arifle_SPAR_01_khk_F"]};
 			default {};
 		};
+		_optic = ["optic_ACO","optic_Holosight_blk_F"];
 		_silencer = "muzzle_snds_M";
 		_primaryweaponAmmo set [1,2];
-		_optic = ["optic_ACO","optic_Holosight_blk_F"];
 	};
 	default {};
 };

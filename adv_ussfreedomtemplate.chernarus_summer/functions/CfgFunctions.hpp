@@ -92,6 +92,7 @@ class adv
 	{
 		class aiTask {};
 		class findNearestEnemy {};
+		class setSafe {};
 		class setSide {};
 		class setSkill {};
 		class spawnAttack {};

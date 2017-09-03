@@ -46,6 +46,7 @@ private _grp = [
 	,_vehicles
 	,_side
 ] call ADV_fnc_spawnGroup;
+[_grp,10] call adv_fnc_setSafe;
 
 //add waypoint:
 private _wp = _grp addWaypoint [_destination, 10];
@@ -55,6 +56,7 @@ _wp setWaypointCombatMode "GREEN";
 _wp setWaypointSpeed _speed;
 _wp setWaypointFormation "COLUMN";
 _wp setWaypointCompletionRadius 70;
+_wp setWaypointStatements ["true", "vehicle this land 'GET OUT'"];
 
 //get all vehicles of vehicle group:
 private _allVehiclesConvoy = [_grp] call adv_fnc_getGroupVehicles;
@@ -88,7 +90,17 @@ private _vehiclesConvoy = [];
 			,_units
 			,_side
 		] call ADV_fnc_spawnGroup;
+		[_grp_inf,10] call adv_fnc_setSafe;
 		[_grp_inf,_x] call _moveInCargo;
+		[_grp_inf] spawn {
+			params ["_grp_inf"];
+			sleep 20;
+			[
+				{ {vehicle _x isEqualTo _x} count (units (_this select 0)) > ((count units (_this select 0))/3) || !alive (leader (_this select 0)) }
+				,{ params ["_grp_inf"];[_grp_inf, getPos (leader _grp_inf), 100, 2, true] call CBA_fnc_taskDefend; }
+				,[_grp_inf]
+			] call CBA_fnc_waitUntilAndExecute;
+		};
 		nil;
 	} count _vehiclesConvoy;
 };

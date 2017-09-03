@@ -100,7 +100,8 @@ call {
 		_grp setBehaviour "CARELESS";
 		_grp setCombatMode "BLUE";
 		_grp setSpeedMode "LIMITED";
-		{ _x disableAI "AUTOCOMBAT"; _x setUnitPos "UP"; } count (units _grp);
+		_grp allowFleeing 0;
+		{ _x disableAI "AUTOCOMBAT"; _x setUnitPos "UP"; _x setSkill ["courage",0.7]; } count (units _grp);
 	};
 };
 

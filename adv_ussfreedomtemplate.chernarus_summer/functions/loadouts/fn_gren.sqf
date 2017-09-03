@@ -38,7 +38,7 @@ _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],
 _primaryweapon = ["arifle_MX_GL_Black_F","arifle_MX_GL_F"];
 
 //primary weapon items - (array)
-_optic = ["optic_Hamr","optic_Hamr","optic_ACO","optic_Holosight"];
+_optic = ["optic_ACO","optic_Holosight"];
 if (worldName == "TANOA") then {
 	_primaryweapon = ["arifle_MX_GL_Black_F","arifle_MX_GL_khk_F"];
 	_optic = _optic-["optic_Holosight"]+["optic_Holosight_khk_F"];
@@ -321,9 +321,9 @@ switch (_par_customWeap) do {
 			case ((toUpper worldname) in _var_lushMaps): {_primaryWeapon append ["arifle_SPAR_01_GL_khk_F"]};
 			default {};
 		};
+		_optic = ["optic_ACO","optic_Holosight_blk_F"];
 		_silencer = "muzzle_snds_M";
 		_primaryweaponAmmo set [1,2];
-		_optic = ["optic_ACO","optic_Arco_blk_F","optic_Arco_blk_F","optic_Holosight_blk_F"];
 	};
 	default {};
 };

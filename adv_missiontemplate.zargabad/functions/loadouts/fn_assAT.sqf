@@ -37,7 +37,7 @@ _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],
 _primaryweapon = ["arifle_MX_Black_F","arifle_MX_F"];
 
 //primary weapon items - (array)
-_optic = ["optic_Hamr","optic_MRCO","optic_Holosight"];
+_optic = ["optic_ACO","optic_Holosight"];
 if (worldName == "TANOA") then {
 	_primaryweapon = ["arifle_MX_Black_F","arifle_MX_khk_F"];
 	_optic = _optic-["optic_Holosight"]+["optic_Holosight_khk_F"];
@@ -83,7 +83,7 @@ _launcher = "";
 _launcherAmmo = [0,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //binocular - (string)
-_binocular = "Rangefinder";
+_binocular = "";
 
 //throwables - (integer)
 _grenadeSet = 1;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.
@@ -335,9 +335,9 @@ switch (_par_customWeap) do {
 			case ((toUpper worldname) in _var_lushMaps): {_primaryWeapon append ["arifle_SPAR_01_khk_F"]};
 			default {};
 		};
+		_optic = ["optic_ACO","optic_Holosight_blk_F"];
 		_silencer = "muzzle_snds_M";
 		_primaryweaponAmmo set [1,2];
-		_optic = ["optic_Arco_blk_F","optic_MRCO","optic_Holosight_blk_F"];
 	};
 	default {};
 };

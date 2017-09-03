@@ -37,7 +37,7 @@ _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],
 _primaryWeapon = ["arifle_Mk20_F","arifle_Mk20_plain_F"];
 
 //primary weapon items - (array)
-_optic = ["optic_Hamr","optic_MRCO","optic_Holosight"];
+_optic = ["optic_ACO","optic_Holosight"];
 _attachments = [""];
 if ( _par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( _par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
@@ -79,7 +79,7 @@ _launcher = "";
 _launcherAmmo = [0,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //binocular - (string)
-_binocular = "Rangefinder";
+_binocular = "";
 
 //throwables - (integer)
 _grenadeSet = 1;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.
@@ -239,7 +239,7 @@ switch (_par_indWeap) do {
 		_primaryWeapon = ["arifle_SPAR_01_blk_F"];
 		_silencer = "muzzle_snds_M";
 		_primaryweaponAmmo set [1,1];
-		_optic = ["optic_Arco_blk_F","optic_MRCO"];
+		_optic = ["optic_ACO","optic_Holosight_blk_F"];
 	};
 	case 21: {
 		//APEX AKM

@@ -38,7 +38,7 @@ _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],
 _primaryweapon = "LMG_Zafir_F";
 
 //primary weapon items - (array)
-_optic = ["optic_ACO_grn","optic_ARCO","optic_MRCO","optic_Holosight"];
+_optic = ["optic_ACO_grn","optic_Holosight"];
 _attachments = ["bipod_01_F_blk"];
 if ( _par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( _par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
@@ -48,6 +48,7 @@ _silencer = "";		//if silencer is added
 _primaryweaponAmmo = [5,0];
 if (worldName == "TANOA" || _par_opfWeap == 20 || _par_opfWeap == 21) then {
 	_primaryweapon = ["arifle_CTARS_blk_F"];
+	_optic = ["optic_ACO_grn","optic_Holosight_blk_f"];
 	_silencer = "muzzle_snds_58_blk_F";
 	_primaryweaponAmmo = [5,0];
 };

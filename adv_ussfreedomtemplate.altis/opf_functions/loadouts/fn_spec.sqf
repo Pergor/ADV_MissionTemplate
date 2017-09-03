@@ -37,7 +37,7 @@ _unitTraits = [["medic",false],["engineer",true],["explosiveSpecialist",true],["
 _primaryweapon = "arifle_Katiba_C_F";
 
 //primary weapon items - (array)
-_optic = ["optic_ACO_grn","optic_ARCO","optic_MRCO","optic_Holosight"];
+_optic = ["optic_ACO_grn","optic_Holosight"];
 _attachments = [""];
 if ( _par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( _par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
@@ -45,6 +45,7 @@ _silencer = "muzzle_snds_H";		//if silencer is added
 
 if (worldName == "TANOA" || _par_opfWeap == 20) then {
 	_primaryweapon = ["arifle_CTAR_blk_F"];
+	_optic = ["optic_ACO_grn","optic_Holosight_blk_f"];
 	_silencer = "muzzle_snds_58_blk_F";
 };
 
@@ -83,7 +84,7 @@ _launcher = "";
 _launcherAmmo = [0,0];
 
 //binocular - (string)
-_binocular = "Binocular";
+_binocular = "";
 
 //throwables - (integer)
 _grenadeSet = 1;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.

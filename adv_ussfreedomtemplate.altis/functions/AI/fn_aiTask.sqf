@@ -12,10 +12,10 @@
  * 		0 = regular patrol.
  *		1 = patrol with units searching buildings near waypoints.
  *		2 = garrison buildings in radius around center.
- *		3 = defend area (buildings are being defended, static guns manned and the group leader will patroul around; radius above 200 meters will revert to 200 meters).
+ *		3 = defend area (buildings are being defended, static guns manned and the group leader will patrol around; radius above 200 meters will revert to 200 meters).
  * 		4 = attack location around object, marker or position provided in _this select 5 - if nothing or a missing element is provided, the next enemy will be targeted.
  *			If no enemy is found within 5000 meters, safePositionAnchor of map will be used.
- * 4: radius around the spawn position for the group task. If spawn location is an area marker, the radius will be the geometric mean of the marker's radiuses (optional) - <NUMBER>
+ * 4: radius around the spawn position for the group task. If spawn location is an area marker and no radius provided, the radius will be the geometric mean of the marker's radiuses (optional) - <NUMBER>
  * 5: attack position/object/marker with radius. If a unit is provided, ai will continually stalk the unit. (optional - only necessary with behaviour mode 4) - <ARRAY> in format [position, <NUMBER>]
  *
  * Return Value:
@@ -36,7 +36,7 @@ params [
 	,["_units", ["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"], [[],configNull]]
 	,["_side", east, [west]]
 	,["_mode", 0, [0]]
-	,["_radius", 300, [0]]
+	,["_radius", -1, [0]]
 	,["_attack", [objNull,100], [[]]]
 ];
 
@@ -47,7 +47,7 @@ private _worldAnchor = getArray (configFile >> "CfgWorlds" >> worldName >> "safe
 private _start = [_location] call adv_fnc_getPos;
 
 //redefine radius, if the marker already has a radius:
-if (_location isEqualType "") then {
+if (_location isEqualType "" && _radius isEqualTo -1) then {
 	if (markerShape _location in ["ELLIPSE","RECTANGLE","POLYLINE"]) then {
 		private _size = markerSize _location;
 		private _biggerSide = (_size select 0) max (_size select 1);
@@ -63,6 +63,7 @@ private _spawn = [_pos,5,30,3,0,20,0,[],[_start,_start]] call BIS_fnc_findSafePo
 
 //spawn a group
 private _grp = [_spawn,_units,_side] call adv_fnc_spawnGroup;
+[_grp,10] call adv_fnc_setSafe;
 
 //give the group it's commands:
 call {
@@ -108,15 +109,21 @@ call {
 		_wp setWaypointCombatMode "YELLOW";
 		_wp setWaypointSpeed "NORMAL";
 		_wp setWaypointFormation "WEDGE";
-		if ( _obj isEqualType objNull && !(group _obj isEqualTo grpNull) ) then {
-			[_grp,group _obj,60,_attackRadius,{!alive _obj},1] spawn bis_fnc_stalk;
+		if ( _obj isEqualType objNull ) then {
+			if ( !(group _obj isEqualTo grpNull) ) then {
+				[_grp,group _obj,60,_attackRadius,{!alive _obj},1] spawn bis_fnc_stalk;
+			};
 		};
 	};
 	//regular patrol:
+	if (_side isEqualTo civilian) exitWith {
+		[_grp, _start, _radius, 4, "MOVE", "CARELESS", "BLUE", "LIMITED", "COLUMN", "", [1,1.5,2]] call CBA_fnc_taskPatrol;
+		_grp allowFleeing 0;
+	};
 	[_grp, _start, _radius, 7, "MOVE", "SAFE", "GREEN", "LIMITED", "STAG COLUMN", "", [1,1.5,2]] call CBA_fnc_taskPatrol;
 };
 
-if !(_mode isEqualTo 4) then {
+if !(_mode isEqualTo 4 || _mode isEqualTo 3) then {
 	_grp enableDynamicSimulation true;
 };
 

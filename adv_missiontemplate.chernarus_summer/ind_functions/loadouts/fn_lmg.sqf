@@ -37,7 +37,7 @@ _unitTraits = [["medic",false],["engineer",false],["explosiveSpecialist",false],
 _primaryweapon = "LMG_Mk200_F";
 
 //primary weapon items - (array)
-_optic = ["optic_ACO","optic_Hamr","optic_MRCO","optic_Holosight"];
+_optic = ["optic_ACO","optic_Holosight"];
 _attachments = ["bipod_01_F_blk"];
 if ( _par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 if ( _par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
@@ -228,7 +228,7 @@ switch (_par_indWeap) do {
 		//APEX HK416
 		_primaryWeapon = "LMG_03_F";
 		_silencer = "";
-		_optic = ["optic_ACO","optic_Arco_blk_F","optic_MRCO","optic_Holosight_blk_F"];
+		_optic = ["optic_ACO","optic_Holosight_blk_F"];
 	};
 	case 21: {
 		//APEX AKM

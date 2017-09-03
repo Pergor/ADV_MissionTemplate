@@ -15,7 +15,7 @@
  * 5 = Direct
  *
  * Return Value:
- * Function executed? - <BOOL>
+ * None
  *
  * Example:
  * [[0,1,2],false] call adv_fnc_enableChannels;
@@ -33,4 +33,4 @@ params [
 	nil;
 } count _channels;
 
-true;
+nil;
