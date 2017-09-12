@@ -101,7 +101,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			_target addMagazineCargoGlobal ["CUP_FlareYellow_GP25_M",4];
 		};
 		default {
-			_target addMagazineCargoGlobal ["HandGrenade",4];
+			_target addMagazineCargoGlobal ["MiniGrenade",4];
 			_target addMagazineCargoGlobal ["SmokeShell",4];
 			_target addMagazineCargoGlobal ["SmokeShellGreen",4];
 			_target addMagazineCargoGlobal ["1Rnd_HE_Grenade_shell",10];
