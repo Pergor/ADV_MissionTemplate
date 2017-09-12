@@ -23,16 +23,20 @@ params ["_player"];
  */
 
 //clothing - (string)
-_uniform = "U_C_Scientist";
-if (isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians")) then {
-	_uniform = ["rds_uniform_doctor"];
-	if (toUpper ([str _player,3,12] call BIS_fnc_trimString) isEqualTo "DOC_MEDIC") then {
-		_uniform = ["CUP_U_C_Rescuer_01"];
+_uniform = "U_C_Paramedic_01_F";
+_vest = ["V_LegStrapBag_black_F"];
+_backpack = ["B_Messenger_Gray_F"];
+call {
+	if (isClass(configFile >> "CfgPatches" >> "rds_A2_Civilians")) exitWith {
+		if ( ["DOC_MEDIC", (str _unit) ] call BIS_fnc_inString ) exitWith {
+			_uniform = ["CUP_U_C_Rescuer_01"];
+		};
+		_uniform = ["rds_uniform_doctor"];
+		_vest = [""];
+		_backpack = [""];
 	};
 };
-_vest = [""]; 
 _headgear = [""];
-_backpack = [""];
 _insignium = "";
 _useProfileGoggles = 0;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
@@ -117,7 +121,7 @@ _itemsLink = [
 	];
 		
 //items added to any container - (array)
-_items = [];
+_items = ["G_Respirator_white_F"];
 
 //MarksmenDLC-objects:
 if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {

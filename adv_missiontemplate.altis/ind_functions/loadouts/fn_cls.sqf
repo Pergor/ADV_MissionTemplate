@@ -28,7 +28,10 @@ _uniform = ["U_I_CombatUniform","U_I_CombatUniform_shortsleeve"];
 _vest = ["V_PlateCarrierIA2_dgtl","V_PlateCarrierIA1_dgtl"];
 _headgear = ["H_HelmetIA"];
 //_backpack = ["B_TacticalPack_rgr","B_TacticalPack_oli"];
-_backpack = ["B_Assaultpack_dgtl"];
+_backpack = ["B_FieldPack_oli"];
+if ( 571710 in (getDLCs 1) ) then {
+	_backpack = ["B_Messenger_Olive_F"];
+};
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "G_Combat";

@@ -112,7 +112,10 @@ _itemsLink = [
 ];
 		
 //items added to any container - (array)
-_items = [];
+_items = [""];
+if ( 571710 in (getDLCs 1) ) then {
+	_items pushBack "G_Respirator_white_F";
+};
 
 //MarksmenDLC-objects:
 if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {

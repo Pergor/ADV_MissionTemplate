@@ -28,6 +28,9 @@ _uniform = ["U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam_vest","U_B_C
 _vest = ["V_PlateCarrier2_rgr","V_PlateCarrier1_rgr"];
 _headgear = ["H_HelmetSpecB_paint1","H_HelmetSpecB_paint2","H_HelmetB_black","H_HelmetB","H_HelmetB_desert","H_HelmetB_grass","H_HelmetB_paint"];
 _backpack = ["B_FieldPack_khk","B_FieldPack_oli","B_FieldPack_cbr"];
+if ( 571710 in (getDLCs 1) ) then {
+	_backpack = ["B_Messenger_Coyote_F","B_Messenger_Olive_F"];
+};
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "G_Combat";
