@@ -240,8 +240,8 @@ class param_logisticAmount
 class param_logisticTeam
 {
 	title="Sollen den Spielern am Start Sonderkisten zur Verfügung stehen? (unbegrenzt)";
-	values[] = {3,2,1,0};
-	texts[] = {"Slingloadbare Kisten und Fire Team-Kisten","Slingloadbare Kiste mit mehr Ausrüstung (spawnt bei einem der Transporthubschrauber)","Kisten mit Ausrüstung für ein Fire Team","Nein"};
+	values[] = {5,4,3,2,1,0};
+	texts[] = {"Alle Sonderkisten und Drohnen","Ausrüstungsdrohnen mit Ausrüstung für ~ eine Person","Slingloadbare Kisten und Fire Team-Kisten","Slingloadbare Kiste mit mehr Ausrüstung (spawnt bei einem der Transporthubschrauber)","Kisten mit Ausrüstung für ein Fire Team","Nein"};
 	default = 2;
 };
 class param_logisticDrop
