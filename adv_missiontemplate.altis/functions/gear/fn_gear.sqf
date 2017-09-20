@@ -327,6 +327,7 @@ if ( {[_unit,_x] call adv_fnc_inGroup} count ["ZEUS"] > 0 ) then {
 		if ( isClass (configFile >> "CfgPatches" >> "ace_medical") ) then { _unit addItem "ACE_personalAidKit"; };
 		if ( isClass(configFile >> "CfgPatches" >> "ACE_explosives") ) then { _unit addItem "ACE_DefusalKit"; };
 	};
+	if ( isClass(configFile >> "CfgWeapons" >> "alive_tablet") ) then { _unit addItem "alive_tablet"; };
 	
 	if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
 		["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;
