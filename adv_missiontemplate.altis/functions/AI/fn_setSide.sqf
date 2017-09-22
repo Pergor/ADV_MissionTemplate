@@ -4,7 +4,7 @@
  * Sets side of group or array of units (groups units afterwards).
  *
  * Arguments:
- * 0: group/units - <OBJECT> or <ARRAY> of <OBJECTS>
+ * 0: group/units - <GROUP> or <ARRAY> of <OBJECTS>
  * 1: new side - <SIDE>
  *
  * Return Value:
