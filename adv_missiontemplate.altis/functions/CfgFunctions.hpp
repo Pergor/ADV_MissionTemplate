@@ -7,6 +7,11 @@ class adv
 		class init {};
 		class initPlayerLocal {};
 		class initServer {};
+		class storyboard
+		{
+			file = "mission\ADV_storyboard.sqf";
+			postInit = 1;
+		};
 	};
 	class settings
 	{
