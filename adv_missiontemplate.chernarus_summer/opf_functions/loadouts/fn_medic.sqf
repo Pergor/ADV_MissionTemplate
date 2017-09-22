@@ -27,7 +27,7 @@ params ["_player"];
 _uniform = ["U_O_CombatUniform_ocamo"];
 _vest = ["V_HarnessOSpec_brn"];
 _headgear = ["H_HelmetSpecO_ocamo","H_HelmetO_ocamo"];
-_backpack = ["B_Carryall_ocamo","B_Carryall_khk","B_Carryall_cbr"];
+_backpack = ["B_Carryall_ocamo","B_Kitbag_cbr"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
@@ -114,7 +114,10 @@ _itemsLink = [
 ];
 	
 //items added to any container - (array)
-_items = [];
+_items = [""];
+if ( 571710 in (getDLCs 1) ) then {
+	_items pushBack "G_Respirator_white_F";
+};
 
 //MarksmenDLC-objects:
 if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {

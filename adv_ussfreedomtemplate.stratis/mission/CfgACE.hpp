@@ -294,7 +294,7 @@ class ace_medical_amountOfReviveLives {
     force = 0;
 };
 class ace_medical_allowDeadBodyMovement {
-    value = 0;
+    value = 1;
     typeName = "BOOL";
     force = 0;
 };

@@ -108,12 +108,11 @@ _itemsBackpack = [];
 
 //linked items (don't put "ItemRadio" in here, as it's set with _equipRadio) - (array)
 _itemsLink = [
-		"ItemWatch",
-		"ItemCompass",
-		"ItemGPS",
-		"ItemMap",
-		"NVGoggles_OPFOR"
-	];
+	"ItemWatch",
+	"ItemCompass",
+	"ItemMap",
+	"NVGoggles_OPFOR"
+];
 		
 //items added to any container - (array)
 _items = [];

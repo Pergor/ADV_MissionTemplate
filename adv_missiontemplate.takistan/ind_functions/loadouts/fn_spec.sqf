@@ -103,7 +103,6 @@ _itemsBackpack = ["ToolKit","MineDetector","SatchelCharge_Remote_Mag","DemoCharg
 _itemsLink = [
 	"ItemWatch",
 	"ItemCompass",
-	"ItemGPS",
 	"ItemMap",
 	"NVGoggles_OPFOR"
 ];

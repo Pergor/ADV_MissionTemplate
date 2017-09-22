@@ -112,7 +112,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			_target addMagazineCargoGlobal ["SmokeShellYellow",4];
 		};
 		default {
-			_target addMagazineCargoGlobal ["MiniGrenade",100];
+			_target addMagazineCargoGlobal ["MiniGrenade",10];
 			_target addMagazineCargoGlobal ["SmokeShell",8];
 			_target addMagazineCargoGlobal ["SmokeShellYellow",4];
 		};

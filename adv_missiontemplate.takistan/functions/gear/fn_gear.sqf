@@ -29,7 +29,7 @@ private [
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 
 //a lot of arrays and variables:
-private _uavTisGiven = if ( { ["UAVTERMINAL",_x] call BIS_fnc_inString } count _itemsLink > 0 ) then {true} else {false};
+private _uavTisGiven = ( { ["UAVTERMINAL",_x] call BIS_fnc_inString } count _itemsLink+_items > 0 );
 private _allItems = _items+_itemsLink+_itemsUniform+_itemsVest+_itemsBackpack;
 private _medicBackPacks = [
 	"B_ASSAULTPACK_RGR_MEDIC","B_FIELDPACK_OCAMO_MEDIC","B_FIELDPACK_OUCAMO_MEDIC","B_ASSAULTPACK_RGR_RECONMEDIC",
@@ -292,9 +292,8 @@ if !( ["diver",_fnc_scriptNameParent] call BIS_fnc_inString || ["pilot",_fnc_scr
 };
 
 //tablets & GPS:
-if ( {(toUpper _x) isEqualTo "ITEMGPS"} count _allItems > 0 ) then {
-	[_unit] call ADV_fnc_addGPS;
-};
+[_unit] call ADV_fnc_addGPS;
+
 //ACE-Items:
 if ( isClass(configFile >> "CfgPatches" >> "ACE_common") ) then {
 	[_unit] call ADV_fnc_aceGear;
@@ -328,6 +327,7 @@ if ( {[_unit,_x] call adv_fnc_inGroup} count ["ZEUS"] > 0 ) then {
 		if ( isClass (configFile >> "CfgPatches" >> "ace_medical") ) then { _unit addItem "ACE_personalAidKit"; };
 		if ( isClass(configFile >> "CfgPatches" >> "ACE_explosives") ) then { _unit addItem "ACE_DefusalKit"; };
 	};
+	if ( isClass(configFile >> "CfgWeapons" >> "alive_tablet") ) then { _unit addItem "alive_tablet"; };
 	
 	if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
 		["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;

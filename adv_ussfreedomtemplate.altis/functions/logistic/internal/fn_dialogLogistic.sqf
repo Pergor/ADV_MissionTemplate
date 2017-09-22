@@ -92,6 +92,7 @@ switch ( _side ) do {
 		ADV_logistic_crateTypeSupport="Box_NATO_Support_F";ADV_logistic_crateTypeEOD="Box_NATO_AmmoOrd_F";
 		ADV_logistic_crateTypeGrenades="Box_NATO_Grenades_F";
 		ADV_logistic_crateTypeMedic="Box_NATO_Support_F";
+		ADV_logistic_crateTypeDrone="B_UAV_06_F";ADV_logistic_crateTypeDrone_medic="B_UAV_06_medical_F";
 		ADV_logistic_var_sidePrefix = "";
 		if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) then {
 			ADV_logistic_crateTypeAT="adv_Box_NATO_AT_F";ADV_logistic_crateTypeAA="adv_Box_NATO_AA_F";
@@ -105,6 +106,7 @@ switch ( _side ) do {
 		ADV_logistic_crateTypeSupport="Box_East_Support_F";ADV_logistic_crateTypeEOD="Box_East_AmmoOrd_F";
 		ADV_logistic_crateTypeGrenades="Box_East_Grenades_F";
 		ADV_logistic_crateTypeMedic="Box_East_Support_F";
+		ADV_logistic_crateTypeDrone="O_UAV_06_F";ADV_logistic_crateTypeDrone_medic="O_UAV_06_medical_F";
 		ADV_logistic_var_sidePrefix = "opf_";
 		if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) then {
 			ADV_logistic_crateTypeAT="adv_Box_EAST_AT_F";ADV_logistic_crateTypeAA="adv_Box_EAST_AA_F";
@@ -119,6 +121,7 @@ switch ( _side ) do {
 			ADV_logistic_crateTypeSupport="Box_IND_Support_F";ADV_logistic_crateTypeEOD="Box_IND_AmmoOrd_F";
 			ADV_logistic_crateTypeGrenades="Box_Ind_Grenades_F";
 			ADV_logistic_crateTypeMedic="Box_IND_Support_F";
+			ADV_logistic_crateTypeDrone="I_UAV_06_F";ADV_logistic_crateTypeDrone_medic="I_UAV_06_medical_F";
 			if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) then {
 				ADV_logistic_crateTypeAT="adv_Box_IND_AT_F";ADV_logistic_crateTypeAA="adv_Box_IND_AA_F";
 				ADV_logistic_crateTypeMG="adv_Box_IND_MMG_F";
@@ -364,6 +367,21 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 			[_box] call ADV_fnc_clearCargo;
 			_box setPosASL _position;
 			[_box] remoteExecCall ["adv_fnc_crateShells",2];
+		};
+		case "ADV_LOGISTIC_CRATEDRONE": {
+			_box = createVehicle [ADV_logistic_crateTypeDrone,_position,[],0,"CAN_COLLIDE"];
+			createVehicleCrew _box;
+			[_box] call ADV_fnc_clearCargo;
+			_box setPosASL _position;
+			_function = format ["adv_%1%2",ADV_logistic_var_sidePrefix,"fnc_crateDrone"];
+			[_box] remoteExecCall [_function,2];
+		};
+		case "ADV_LOGISTIC_CRATEDRONE_MEDIC": {
+			_box = createVehicle [ADV_logistic_crateTypeDrone_medic,_position,[],0,"CAN_COLLIDE"];
+			createVehicleCrew _box;
+			[_box] call ADV_fnc_clearCargo;
+			_box setPosASL _position;
+			[_box] remoteExecCall ["adv_fnc_crateDrone_medic",2];
 		};
 		case "ADV_LOGISTIC_WHEEL": {
 			if (isClass(configFile >> "CfgPatches" >> "ace_repair")) then {

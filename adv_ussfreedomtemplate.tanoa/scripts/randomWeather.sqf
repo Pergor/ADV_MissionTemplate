@@ -82,21 +82,23 @@ mb_fnc_InitialWeather = {
     _weatherInitialRainSnow = _weatherInitialSettings select 1;
     _weatherInitialFog = _weatherInitialSettings select 2;
     _weatherInitialWindEW = _weatherInitialSettings select 3;
-    _weatherInitialWindNS = _weatherInitialSettings select 4;	
+    _weatherInitialWindNS = _weatherInitialSettings select 4;
+	
+	missionNamespace setVariable ["adv_var_weather",_weatherInitialArray];
 
-		skipTime -24;
-        86400 setOvercast _weatherInitialOvercast;
-        1 setRain _weatherInitialRainSnow;
-        //86400 setFog _weatherInitialFog;
-		if (isServer) then {
-			1 setFog _weatherInitialFog;
-		};
-        setWind [_weatherInitialWindEW,_weatherInitialWindNS,true];
-		skipTime 24;
-		sleep 1;
-	    simulWeatherSync;
-			
-		if (rw2Debug == 1) then {hint format ["Debug Initialized Weather - %1\nOvercast: %2\nRain/Snow: %3\nFog: %4\nWind EW|NS: %5|%6",weatherCurrentName,_weatherInitialOvercast,_weatherInitialRainSnow,_weatherInitialFog,_weatherInitialWindEW,_weatherInitialWindNS];};
+	skipTime -24;
+	86400 setOvercast _weatherInitialOvercast;
+	1 setRain _weatherInitialRainSnow;
+	//86400 setFog _weatherInitialFog;
+	if (isServer) then {
+		1 setFog _weatherInitialFog;
+	};
+	setWind [_weatherInitialWindEW,_weatherInitialWindNS,true];
+	skipTime 24;
+	sleep 1;
+	simulWeatherSync;
+		
+	if (rw2Debug == 1) then {hint format ["Debug Initialized Weather - %1\nOvercast: %2\nRain/Snow: %3\nFog: %4\nWind EW|NS: %5|%6",weatherCurrentName,_weatherInitialOvercast,_weatherInitialRainSnow,_weatherInitialFog,_weatherInitialWindEW,_weatherInitialWindNS];};
 };
 
 // Setup Update Weather Function

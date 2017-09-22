@@ -79,7 +79,7 @@ _launcher = "";
 _launcherAmmo = [0,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //binocular - (string)
-_binocular = "Laserdesignator";
+_binocular = "Rangefinder";
 
 //throwables - (integer)
 _grenadeSet = 0;		//contains 2 HE grenades, 1 white and one coloured smoke grenade and 1 red chemlight. Select 0 if you want to define your own grenades.
@@ -177,8 +177,8 @@ _ACE_kestrel = 1;
 _ACE_altimeter = 0;
 _ACE_ATragMX = 1;
 _ACE_rangecard = 1;
-_ACE_DAGR = 0;
-_ACE_microDAGR = 1;
+_ACE_DAGR = 1;
+_ACE_microDAGR = 0;
 _ACE_RangeTable_82mm = 0;
 _ACE_MX2A = 0;
 _ACE_HuntIR_monitor = 0;

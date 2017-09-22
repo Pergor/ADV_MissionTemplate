@@ -2,6 +2,22 @@
 //Part of Werthles' Headless Kit v2.3
 //Split AI Groups Evenly Among Headless Clients
 
+// Werthles Headless Script Parameters v2.3
+// 1. Repeating - true/Once - false,
+// 2. Time between repeats (seconds),
+// 3. Debug available for all - true/Just available for admin/host - false,
+// 4. Advanced balancing - true/Simple balancing - false,
+// 5. Delay before executing (seconds),
+// 6. Additional syncing time between groups transferred to try to reduce bad unit transfer caused by desyncs (seconds)
+// 7. Display an initial setup report after the first cycle, showing the number of units moved to HCs,
+// 8. Addition phrases to look for when checking whether to ignore.
+// Unit names, group names, unit's current transport vehicle, modules synced to units and unit class names will all be checked for these phrases
+// Format:
+// ["UnitName","GroupCallsignName","SupportProviderModule1","TypeOfUnit"]
+// E.g. ["BLUE1","AlphaSquad","B_Heli_Transport_01_camo_F"] (including ""s)
+// Specifying "B_Heli" would stop all units with that class type from transferring to HCs
+// However, if you specify "BLUE1", "NAVYBLUE10" will also be ignored
+
 //private variables
 private ["_recurrent", "_timeBetween", "_debug", "_advanced", "_startDelay", "_pause", "_report", "_moreBadNames", "_badNames", "_syncGroup", "_trigSyncs", "_waySyncs", "_objSyncs", "_objs", "_wayPoint", "_localCount", "_groupMoving", "_HCName", "_transfers", "_hintType", "_hintParams", "_lineString", "_breakString", "_debugString", "_hintParams1", "_hintParams2", "_stringInfo1", "_stringInfo2", "_stringInfo3", "_stringInfo4", "_strTransfers", "_strRecurrent", "_arb", "_debugging", "_check", "_hcColour", "_z", "_On", "_counts", "_HCgroups", "_null", "_recurrentCheck", "_ll", "_who", "_amount", "_gg", "_whom", "_inWHKHeadlessArray", "_headlessCount", "_unitsInGroup", "_size", "_lead", "_leadOwner", "_leadHeadless", "_WHKDummyWaypoint", "_moveToHC", "_bad", "_syncTrigArray", "_syncWayArray", "_wayNum", "_syncedTrigs", "_syncedWays", "_syncObjectsArray", "_syncObjects", "_nameOfSync", "_found", "_zz", "_HC", "_fewest", "_local", "_newSum", "_firstWaypoint", "_balanced", "_maxHC", "_minHC", "_diff", "_maxHCName", "_maxGroupCount", "_maxGroup"];
 

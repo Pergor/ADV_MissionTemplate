@@ -63,16 +63,18 @@ adv_scriptFNC_vtolAction = {
 };
 
 if (_target isKindOf 'B_T_VTOL_01_vehicle_F') exitWith {
+	private _vtolType = if (_target isKindOf 'B_T_VTOL_01_vehicle_blue_F') then {"B_T_VTOL_01_infantry_blue_F"} else {"B_T_VTOL_01_infantry_F"};
 	_target addAction [("<t color='#00FF00' size='2' align='center'>" + ("Sitze einbauen") + "</t>"),{
 		_this spawn adv_scriptFNC_vtolAction;
-	},["B_T_VTOL_01_infantry_F","Sitze eingebaut."],50,true,true,"","isTouchingGround _target && count (crew _target) isEqualTo 0"];
+	},[_vtolType,"Sitze eingebaut."],50,true,true,"","isTouchingGround _target && count (crew _target) isEqualTo 0"];
 	true;
 };
 
 if (_target isKindOf 'B_T_VTOL_01_infantry_F') exitWith {
+	private _vtolType = if (_target isKindOf 'B_T_VTOL_01_infantry_blue_F') then {"B_T_VTOL_01_vehicle_blue_F"} else {"B_T_VTOL_01_vehicle_F"};
 	_target addAction [("<t color='#00FF00' size='2' align='center'>" + ("Sitze ausbauen") + "</t>"),{
 		_this spawn adv_scriptFNC_vtolAction;
-	},["B_T_VTOL_01_vehicle_F","Sitze ausgebaut."],50,true,true,"","isTouchingGround _target && count (crew _target) isEqualTo 0"];
+	},[_vtolType,"Sitze ausgebaut."],50,true,true,"","isTouchingGround _target && count (crew _target) isEqualTo 0"];
 	true;
 };
 

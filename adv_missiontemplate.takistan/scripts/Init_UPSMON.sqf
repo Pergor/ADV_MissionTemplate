@@ -1,7 +1,7 @@
 // only run on server (including SP, MP, Dedicated) and Headless Client 
 if (!isServer && hasInterface ) exitWith {};
 
-if !( (["param_headlessClient",1] call BIS_fnc_getParamValue) isEqualTo 2 || (["param_headlessClient",1] call BIS_fnc_getParamValue) isEqualTo 4 ) exitWith {};
+if !( (["param_headlessClient",1] call BIS_fnc_getParamValue) isEqualTo 2 ) exitWith {};
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 //        These Variables should be checked and set as required, to make the mission runs properly.

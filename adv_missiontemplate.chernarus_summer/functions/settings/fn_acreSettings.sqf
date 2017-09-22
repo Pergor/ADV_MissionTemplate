@@ -40,7 +40,7 @@ acre_eastRiflemanRadio = "ACRE_PRC343";
 acre_gerRiflemanRadio = "ACRE_PRC343";
 
 acre_westBackpackRadio = call {
-	//if ( _par_customUni isEqualTo 1 || _par_customUni isEqualTo 2 ) exitWith {"ACRE_SEM70"};
+	if ( _par_customUni isEqualTo 1 || _par_customUni isEqualTo 2 ) exitWith {"ACRE_SEM70"};
 	if ( _par_customUni isEqualTo 9 ) exitWith {"ACRE_PRC77"};
 	"ACRE_PRC117F"
 };

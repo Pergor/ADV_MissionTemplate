@@ -48,6 +48,7 @@ class adv_opf
 		file = "opf_functions\logistic";
 		class crateAA {};
 		class crateAT {};
+		class crateDrone {};
 		class crateEOD {};
 		class crateGrenades {};
 		class crateLarge {};

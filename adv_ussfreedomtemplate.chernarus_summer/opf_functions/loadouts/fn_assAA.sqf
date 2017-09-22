@@ -110,7 +110,6 @@ _itemsBackpack = [];
 _itemsLink = [
 	"ItemWatch",
 	"ItemCompass",
-	"ItemGPS",
 	"ItemMap",
 	"NVGoggles_OPFOR"
 ];

@@ -22,26 +22,15 @@ enableSaving [false, false];
 //waitUntil param variables are defined:
 waitUntil {!isNil "ADV_params_defined"};
 
-//mission storyboard (will be executed on server as long as HC param is not selected. If HC param is selected it will be executed on HC only)
-if (!isServer && !hasInterface) then { missionNamespace setVariable ["ADV_HCpresent",true,true]; };
 call {
-	if ( ((missionNamespace getVariable ["ADV_par_headlessClient",1]) isEqualTo 3 || (missionNamespace getVariable ["ADV_par_headlessClient",1]) isEqualTo 4) && (missionNamespace getVariable ["ADV_HCpresent",false]) ) exitWith {
-		if !(isServer || hasInterface) then {
-			ADV_handle_storyboard = [] execVM "mission\ADV_storyboard.sqf";
-		};
+	//randomweather:
+	if !( (missionNamespace getVariable ["ADV_par_randomWeather",99]) isEqualTo 99 ) exitWith {
+		ADV_handle_weather = [] spawn MtB_fnc_randomWeather;
 	};
-	if ( isServer ) then {
-		ADV_handle_storyboard = [] execVM "mission\ADV_storyboard.sqf";
+	//fixed weather:
+	if !( (missionNamespace getVariable ["ADV_par_weather",99]) isEqualTo 99 ) exitWith {
+		ADV_handle_weather = [] spawn adv_fnc_weather;
 	};
-};
-
-//randomweather:
-if !( (missionNamespace getVariable ["ADV_par_randomWeather",99]) isEqualTo 99 ) then {
-	ADV_handle_weather = [] spawn MtB_fnc_randomWeather;
-};
-//fixed weather:
-if !( (missionNamespace getVariable ["ADV_par_weather",99]) isEqualTo 99 ) then {
-	ADV_handle_weather = [] spawn adv_fnc_weather;
 };
 
 //engine artillery

@@ -18,7 +18,7 @@ switch (true) do {
 		profileNamespace setVariable ["tawvd_foot",_dist];
 	};
 	
-	case ((vehicle player) isKindOf "LandVehicle"): {
+	case ((vehicle player) isKindOf "LandVehicle" || (vehicle player) isKindof "Ship"): {
 		_dist = tawvd_car;
 		profileNamespace setVariable ["tawvd_car",_dist];
 	};

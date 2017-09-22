@@ -28,8 +28,8 @@ class dummy_base {
 class param_headlessClient
 {
 	title="Was für eine Art von Mission soll gespielt werden?";
-	values[]  = {5,4,3,2,1,0};
-	texts[] = {"Combat Patrol (wird am Briefing-Board gestartet)","Headless Client mit UPSMON-KI","Headless Client","UPSMON-KI","Zeus","Weder, noch."};
+	values[]  = {3,2,1,0};
+	texts[] = {"Combat Patrol (wird am Briefing-Board gestartet)","UPSMON-KI","Zeus","Weder, noch."};
 	default = 1;
 };
 class dummy_environment {
@@ -71,7 +71,7 @@ class param_weather
 	title="Dauerhaftes Wetter";
 	values[] = {99,1,2,3,4,5,6,7,8,9,98};
 	texts[] = {"Keine Veränderung","Sonnig","Klar","Bewölkt","Leichter Regen","Mittlerer Regen","Schwerer Regen","Leichter Nebel","Mittlerer Nebel","Dichter Nebel","Zufälliges Wetter"};
-	default = 99;
+	default = 98;
 };
 class dummy_respawn {
 	title = "---------------------- Respawn ----------------------";
@@ -233,8 +233,8 @@ class param_logisticAmount
 class param_logisticTeam
 {
 	title="Sollen den Spielern am Start Sonderkisten zur Verfügung stehen? (unbegrenzt)";
-	values[] = {3,2,1,0};
-	texts[] = {"Slingloadbare Kisten und Fire Team-Kisten","Slingloadbare Kiste mit mehr Ausrüstung (spawnt bei einem der Transporthubschrauber)","Kisten mit Ausrüstung für ein Fire Team","Nein"};
+	values[] = {5,4,3,2,1,0};
+	texts[] = {"Alle Sonderkisten und Drohnen","Ausrüstungsdrohnen mit Ausrüstung für ~ eine Person","Slingloadbare Kisten und Fire Team-Kisten","Slingloadbare Kiste mit mehr Ausrüstung (spawnt bei einem der Transporthubschrauber)","Kisten mit Ausrüstung für ein Fire Team","Nein"};
 	default = 2;
 };
 class param_logisticDrop

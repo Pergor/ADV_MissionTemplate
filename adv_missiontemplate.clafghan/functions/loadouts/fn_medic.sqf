@@ -113,7 +113,10 @@ _itemsLink = [
 ];
 		
 //items added to any container - (array)
-_items = [];
+_items = [""];
+if ( 571710 in (getDLCs 1) ) then {
+	_items pushBack "G_Respirator_white_F";
+};
 
 //MarksmenDLC-objects:
 if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
@@ -174,7 +177,7 @@ _ACE_kestrel = 0;
 _ACE_altimeter = 0;
 _ACE_ATragMX = 0;
 _ACE_rangecard = 0;
-_ACE_DAGR = 1;
+_ACE_DAGR = 0;
 _ACE_microDAGR = 0;
 _ACE_RangeTable_82mm = 0;
 _ACE_MX2A = 0;

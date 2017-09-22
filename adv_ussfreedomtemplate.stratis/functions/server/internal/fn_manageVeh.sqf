@@ -44,6 +44,8 @@ ADV_veh_UAVs = [];
 ADV_veh_UGVs = [];
 ADV_veh_UGVs_repair = [];
 
+ADV_veh_boats = [];
+
 ADV_veh_heavys = [];
 ADV_veh_tanks = [];
 ADV_veh_artys = [];
@@ -81,6 +83,8 @@ ADV_veh_artys = [];
 		case ( _vehicleName select [0,8] == "air_a164" ): { ADV_veh_airCAS pushBack _vehicleName; };
 		case ( _vehicleName select [0,7] == "air_cas" ): { ADV_veh_airCAS pushBack _vehicleName; };
 		case ( _vehicleName select [0,8] == "air_c130" ): { ADV_veh_airC130 pushBack _vehicleName; };
+		//boats
+		case ( _vehicleName select [0,4] == "boat" ): { ADV_veh_boats pushBack _vehicleName; };
 		//empty
 		//case ( _vehicleName select [0,5] == "empty" ): { ADV_veh_empty pushBack _vehicleName; };
 		default {};
@@ -95,7 +99,7 @@ ADV_veh_armored = ADV_veh_heavys+ADV_veh_tanks+ADV_veh_artys;
 ADV_veh_car = ADV_veh_MRAPS+ADV_veh_MRAPsHMG+ADV_veh_MRAPsGMG;
 ADV_veh_light = ADV_veh_ATVs+ADV_veh_UGVs+ADV_veh_UGVs_repair+ADV_veh_car+ADV_veh_transport+ADV_veh_logistic_fuel+ADV_veh_logistic_ammo+ADV_veh_logistic_repair+ADV_veh_logistic_medic;
 
-ADV_veh_all = ADV_veh_light+ADV_veh_armored+ADV_veh_air;
+ADV_veh_all = ADV_veh_light+ADV_veh_armored+ADV_veh_air+ADV_veh_boats;
 publicVariable "ADV_veh_all";
 
 //lobby params:

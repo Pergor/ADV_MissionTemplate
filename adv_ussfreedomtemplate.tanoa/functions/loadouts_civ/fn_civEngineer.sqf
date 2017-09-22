@@ -114,7 +114,7 @@ _itemsLink = [
 ];
 		
 //items added to any container - (array)
-_items = [];
+_items = ["ToolKit"];
 
 //MarksmenDLC-objects:
 if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {

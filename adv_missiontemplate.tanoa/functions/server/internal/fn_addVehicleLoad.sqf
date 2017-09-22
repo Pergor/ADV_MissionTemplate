@@ -51,7 +51,10 @@ if (!isServer) exitWith {};
 		};
 		case (str _x in ADV_veh_UGVs_repair): {
 			[_x,false,false,0,true] call ADV_fnc_vehicleLoad;
-		};	
+		};
+		case (str _x in ADV_veh_boats): {
+			[_x,false,true,0] call ADV_fnc_vehicleLoad;
+		};
 	};
 	nil;
 } count _this;

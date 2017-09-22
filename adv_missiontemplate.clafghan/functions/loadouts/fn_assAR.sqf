@@ -109,7 +109,6 @@ _itemsBackpack = [];
 _itemsLink = [
 	"ItemWatch",
 	"ItemCompass",
-	"ItemGPS",
 	"ItemMap",
 	"NVGoggles_OPFOR"
 ];
@@ -176,7 +175,7 @@ _ACE_kestrel = 0;
 _ACE_altimeter = 0;
 _ACE_ATragMX = 0;
 _ACE_rangecard = 0;
-_ACE_DAGR = 1;
+_ACE_DAGR = 0;
 _ACE_microDAGR = 0;
 _ACE_RangeTable_82mm = 0;
 _ACE_MX2A = 0;

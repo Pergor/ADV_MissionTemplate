@@ -7,6 +7,11 @@ class adv
 		class init {};
 		class initPlayerLocal {};
 		class initServer {};
+		class storyboard
+		{
+			file = "mission\ADV_storyboard.sqf";
+			postInit = 1;
+		};
 	};
 	class settings
 	{
@@ -209,6 +214,7 @@ class adv
 		class civ {};
 		class civDiver {};
 		class civEngineer {};
+		class civEOD {};
 		class civPilot {};
 		class civDoc {};
 		class civPolice {};
@@ -225,6 +231,8 @@ class adv
 	{
 		class crateAA {};
 		class crateAT {};
+		class crateDrone {};
+		class crateDrone_medic {};
 		class crateEOD {};
 		class crateGrenades {};
 		class crateLarge {};

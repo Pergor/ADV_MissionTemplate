@@ -120,10 +120,10 @@ if ( (missionNamespace getVariable ["ADV_par_ChooseLoad",1]) isEqualTo 1 ) then 
 		call {
 			_cpactions = {
 				params ["_target"];
-				_target addAction [("<t color='#FFFFFF' size='2'>" + ("Combat Patrol starten (RANDOM)") + "</t>"), { [-1] remoteExec ["adv_fnc_cpinit",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 5 && player == (leader (group player))",5];
-				_target addAction [("<t color='#FFFFFF' size='2'>" + ("Combat Patrol starten (SABOTAGE VEHICLES)") + "</t>"), { [1] remoteExec ["adv_fnc_cpinit",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 5 && player == (leader (group player))",5];
-				_target addAction [("<t color='#FFFFFF' size='2'>" + ("Combat Patrol starten (SABOTAGE COMMS)") + "</t>"), { [2] remoteExec ["adv_fnc_cpinit",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 5 && player == (leader (group player))",5];
-				_target addAction [("<t color='#FFFFFF' size='2'>" + ("Combat Patrol starten (ELIMINATE HVT)") + "</t>"), { [3] remoteExec ["adv_fnc_cpinit",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 5 && player == (leader (group player))",5];
+				_target addAction [("<t color='#FFFFFF' size='2'>" + ("Combat Patrol starten (RANDOM)") + "</t>"), { [-1] remoteExec ["adv_fnc_cpinit",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 3 && player == (leader (group player))",5];
+				_target addAction [("<t color='#FFFFFF' size='2'>" + ("Combat Patrol starten (SABOTAGE VEHICLES)") + "</t>"), { [1] remoteExec ["adv_fnc_cpinit",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 3 && player == (leader (group player))",5];
+				_target addAction [("<t color='#FFFFFF' size='2'>" + ("Combat Patrol starten (SABOTAGE COMMS)") + "</t>"), { [2] remoteExec ["adv_fnc_cpinit",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 3 && player == (leader (group player))",5];
+				_target addAction [("<t color='#FFFFFF' size='2'>" + ("Combat Patrol starten (ELIMINATE HVT)") + "</t>"), { [3] remoteExec ["adv_fnc_cpinit",0] },nil,40,true,true,"","adv_par_headlessClient isEqualTo 3 && player == (leader (group player))",5];
 			};
 		
 			if ( ["opf_briefing",str _x] call BIS_fnc_inString ) exitWith {

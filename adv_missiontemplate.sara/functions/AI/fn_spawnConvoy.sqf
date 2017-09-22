@@ -13,13 +13,18 @@
  * 2: vehicles classnames array - <ARRAY> of <STRINGS>
  * 3: units classnames array - <ARRAY> of <STRINGS>
  * 4: side of all units in convoy - <SIDE>
- * 5: Speedmode, can be "LIMITED" (default), "NORMAL", "FULL" (optional) - <STRING>
+ * 5: Parameters for convoy: - <ARRAY> of <STRINGS> (optional)
+ *		1: Speed, can be "LIMITED", "NORMAL", "FULL" - <STRING>
+ *		2: Behaviour, can be "CARELESS", "SAFE", "AWARE", "COMBAT", "STEALTH" - <STRING>
+ *		3: Combat Mode, can be "BLUE", "GREEN", "WHITE", "YELLOW", "RED" - <STRING>
+ *		4: Formation, can be "COLUMN", "STAG COLUMN", "WEDGE", "ECH LEFT", "ECH RIGHT", "VEE", "LINE", "FILE", "DIAMOND" - <STRING>
+ * 6: stations along the way )has to be an array of positions, objects or markers) - <ARRAY> of <ARRAYS, <OBJECTS> or <STRINGS>  (optional)
  *
  * Return Value:
- * spawned group of vehicles - <GROUP>
+ * Array containing spawned group of vehicles, followed by an array of the groups on the vehicles - <ARRAY> in format: [<GROUP>,[<GROUP>, <GROUP>, ...]]
  *
  * Example:
- * [spawnLogic,destinationLogic["O_MRAP_02_hmg_F","O_Truck_02_transport_F","O_Truck_02_transport_F","O_Truck_02_transport_F","O_MRAP_02_hmg_F"],["O_Soldier_SL_F","O_Soldier_AR_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_LAT_F","O_medic_F"],east,"LIMITED"] call ADV_fnc_spawnConvoy;
+ * [spawnLogic,destinationLogic,["O_MRAP_02_hmg_F","O_Truck_02_transport_F","O_Truck_02_transport_F","O_Truck_02_transport_F","O_MRAP_02_hmg_F"],["O_Soldier_SL_F","O_Soldier_AR_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_LAT_F","O_medic_F"],east,["LIMITED","SAFE","GREEN","COLUMN"],[stationLogic_1,stationLogic_2]] call ADV_fnc_spawnConvoy;
  *
  * Public: Yes
  */
@@ -32,13 +37,23 @@ params [
 	,["_vehicles", ["O_MRAP_02_hmg_F","O_Truck_02_transport_F","O_Truck_02_transport_F","O_Truck_02_transport_F","O_MRAP_02_hmg_F"], [[],configNull]]
 	,["_units", ["O_Soldier_SL_F","O_Soldier_AR_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_LAT_F","O_Soldier_F","O_Soldier_A_F","O_medic_F"], [[],configNull]]
 	,["_side", east, [west]]
-	,["_speed","LIMITED",[""]]
+	,["_modifiers",["LIMITED","AWARE","GREEN","COLUMN"],[[]]]
+	,["_stations",[],[[]]]
 ];
 
 //select target pos depending on given parameter:
 private _destination = [_targetLocation] call adv_fnc_getPos;
 //select starting pos depending on given parameter:
 private _start = [_location] call adv_fnc_getPos;
+//different standards for the _modifiers array:
+_modifiers params [
+	["_speed","LIMITED",[""]]
+	,["_behaviour","AWARE",[""]]
+	,["_combatMode","GREEN",[""]]
+	,["_formation","COLUMN",[""]]
+];
+//get positions for given stations:
+private _stationsPos = _stations apply { [_x] call adv_fnc_getPos };
 
 //create group of vehicles first:
 private _grp = [
@@ -48,14 +63,28 @@ private _grp = [
 ] call ADV_fnc_spawnGroup;
 [_grp,10] call adv_fnc_setSafe;
 
-//add waypoint:
+//adds waypoints for way stations:
+if !(_stations isEqualTo []) then {
+	{
+		private _wp = _grp addWaypoint [_x, 1];
+		_wp setWaypointType "MOVE";
+		_wp setWaypointCompletionRadius 50;
+		_wp setWaypointBehaviour _behaviour;
+		_wp setWaypointCombatMode _combatMode;
+		_wp setWaypointSpeed _speed;
+		_wp setWaypointFormation _formation;
+		nil;
+	} count _stationsPos;
+};
+
+//add destination waypoint:
 private _wp = _grp addWaypoint [_destination, 10];
 _wp setWaypointType "TR UNLOAD";
-_wp setWaypointBehaviour "SAFE";
-_wp setWaypointCombatMode "GREEN";
+_wp setWaypointCompletionRadius 50;
+_wp setWaypointBehaviour _behaviour;
+_wp setWaypointCombatMode _combatMode;
 _wp setWaypointSpeed _speed;
-_wp setWaypointFormation "COLUMN";
-_wp setWaypointCompletionRadius 70;
+_wp setWaypointFormation _formation;
 _wp setWaypointStatements ["true", "vehicle this land 'GET OUT'"];
 
 //get all vehicles of vehicle group:
@@ -69,40 +98,41 @@ private _vehiclesConvoy = [];
 	};
 } forEach _allVehiclesConvoy;
 
-[_start,_vehiclesConvoy,_units,_side] spawn {
-	params ["_start","_vehiclesConvoy","_units","_side"];
-
-	//assignAsCargo and moveInCargo in one:
-	private _moveInCargo = {
-		params ["_grp","_vehicle"];
-		{
-			_x assignAsCargo _vehicle;
-			_x moveInCargo _vehicle;
-			nil;
-		} count (units _grp);
-	};
-	//longer sleep so vehicles can start to move:
-	sleep 20;
-	//spawn a group for each vehicle and move it in cargo positions:
+//assignAsCargo and moveInCargo in one:
+private _moveInCargo = {
+	params ["_grp","_vehicle"];
 	{
-		_grp_inf = [
-			[(_start select 0),(_start select 1)-50,0]
-			,_units
-			,_side
-		] call ADV_fnc_spawnGroup;
-		[_grp_inf,10] call adv_fnc_setSafe;
-		[_grp_inf,_x] call _moveInCargo;
-		[_grp_inf] spawn {
-			params ["_grp_inf"];
-			sleep 20;
-			[
-				{ {vehicle _x isEqualTo _x} count (units (_this select 0)) > ((count units (_this select 0))/3) || !alive (leader (_this select 0)) }
-				,{ params ["_grp_inf"];[_grp_inf, getPos (leader _grp_inf), 100, 2, true] call CBA_fnc_taskDefend; }
-				,[_grp_inf]
-			] call CBA_fnc_waitUntilAndExecute;
-		};
+		_x assignAsCargo _vehicle;
+		_x moveInCargo _vehicle;
 		nil;
-	} count _vehiclesConvoy;
+	} count (units _grp);
 };
 
-_grp;
+//collection array for infantry groups:
+private _infantryGroups = [];
+
+//spawn a group for each vehicle and move it in cargo positions:
+{
+	private _grp_inf = [
+		[(_start select 0),(_start select 1)-50,0]
+		,_units
+		,_side
+	] call ADV_fnc_spawnGroup;
+	[_grp_inf,10] call adv_fnc_setSafe;
+	[_grp_inf,_x] call _moveInCargo;
+	_infantryGroups pushback _grp_inf;
+	[_grp_inf] spawn {
+		params ["_grp_inf"];
+		sleep 20;
+		[
+			{ {vehicle _x isEqualTo _x} count (units (_this select 0)) > ((count units (_this select 0))/3) || !alive (leader (_this select 0)) }
+			,{ params ["_grp_inf"];[_grp_inf, getPos (leader _grp_inf), 150, 2, true] call CBA_fnc_taskDefend; }
+			,[_grp_inf]
+		] call CBA_fnc_waitUntilAndExecute;
+	};
+	nil;
+} count _vehiclesConvoy;
+
+//return:
+private _return = [_grp,_infantryGroups];
+_return;

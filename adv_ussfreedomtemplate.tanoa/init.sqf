@@ -29,6 +29,3 @@ waitUntil {time > 0};
 
 //turn a vehicle into a radio jammer that jams radio signals in the given radius:
 	//adv_handle_jammer_west = [MRAP_1,500] call adv_fnc_jammer;
-
-//Werthles Headless Client, script version:
-	//adv_handle_werthles = [true, 30, false, false, 30, 3, false, []] spawn whk_fnc_headless;

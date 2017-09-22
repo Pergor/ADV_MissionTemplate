@@ -47,6 +47,7 @@ class adv_ind
 		file = "ind_functions\logistic";
 		class crateAA {};
 		class crateAT {};
+		class crateDrone {};
 		class crateEOD {};
 		class crateGrenades {};
 		class crateLarge {};

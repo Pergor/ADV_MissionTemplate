@@ -117,7 +117,7 @@ call {
 	};
 	//regular patrol:
 	if (_side isEqualTo civilian) exitWith {
-		[_grp, _start, _radius, 4, "MOVE", "CARELESS", "BLUE", "LIMITED", "COLUMN", "", [1,1.5,2]] call CBA_fnc_taskPatrol;
+		[_grp, _start, _radius, 4, "MOVE", "CARELESS", "BLUE", "LIMITED", "STAG COLUMN", "", [1,1.5,2]] call CBA_fnc_taskPatrol;
 		_grp allowFleeing 0;
 	};
 	[_grp, _start, _radius, 7, "MOVE", "SAFE", "GREEN", "LIMITED", "STAG COLUMN", "", [1,1.5,2]] call CBA_fnc_taskPatrol;

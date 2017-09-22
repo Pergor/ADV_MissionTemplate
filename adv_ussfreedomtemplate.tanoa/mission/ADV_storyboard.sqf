@@ -1,26 +1,38 @@
 ﻿/*
  * Author: Belbo
  *
- * Contains the "storyboard" of the mission.
+ * Contains the "storyboard" of the mission. Beware, the storyboard function is not scheduled!
  *
  * Arguments:
  * None
  *
  * Return Value:
- * Script handle - <HANDLE>
+ * None
  *
  * Example:
- * _handle = execVM "mission\adv_storyboard.sqf";
+ * is being called via postInit-command!
  *
  * Public: No
  */
 
-if (!isServer && hasInterface) exitWith {};
+//Don't change anything from here...
+if ( (!isServer && hasInterface) || !isNil "adv_var_HCpresent" ) exitWith {};
+
+private _hc = (count entities "HeadlessClient_F" > 0);
+if (_hc && isServer) exitWith {
+	{ adv_handle_werthles = [true, 30, false, false, 30, 3, false, []] spawn whk_fnc_headless } remoteExec ["call",0,true];
+};
+
+private _isHC = !(hasInterface || isServer);
+missionNamespace setVariable ["adv_var_HCpresent",_isHC,true];
+
 ADV_taskVar = missionNamespace getVariable ["ADV_taskVar",0];
 ADV_spawnVar = missionNamespace getVariable ["ADV_spawnVar",0];
 
 //failsafe for finishing the mission:
 [{missionNamespace getVariable ["ADV_taskVar",0] isEqualTo 99}, { [] spawn { ["task_1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState; sleep 20; ["End2",true,8] remoteExec ["BIS_fnc_endMission",0]; }; }] call CBA_fnc_waitUntilAndExecute;
+
+//... to here. The rest is up to you!
 
 //Use CBA_fnc_waitUntilAndExecute for the following mission parts:
 private _taskVar_1_code = {

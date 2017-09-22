@@ -48,6 +48,8 @@ switch ( _par_logisticTeam ) do {
 	case 1: { _loadoutList append ["","Fire Team-Kiste"]; };
 	case 2: { _loadoutList append ["","Slingloading-Ausrüstungskiste"]; };
 	case 3: { _loadoutList append ["","Fire Team-Kiste","Slingloading-Ausrüstungskiste"]; };
+	case 4: { _loadoutList append ["","Ausrüstungs-Drohne","Sanitäts-Drohne"]; };
+	case 5: { _loadoutList append ["","Fire Team-Kiste","Slingloading-Ausrüstungskiste","Ausrüstungs-Drohne","Sanitäts-Drohne"]; };
 	default { _loadoutList append [""] };
 };
 if ( isClass(configFile >> "CfgPatches" >> "scorch_invitems") || isClass(configFile >> "CfgPatches" >> "murshun_cigs") ) then {
@@ -108,6 +110,26 @@ switch ( _par_logisticTeam ) do {
 		lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATETEAM"];
 		_lbSetDataCount = _lbSetDataCount+1;
 		lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATELARGE"]; 
+	};
+	case 4: {
+		_lbSetDataCount = _lbSetDataCount+1;
+		lbSetData [7377, _lbSetDataCount, "ADV_FNC_NIL"];
+		_lbSetDataCount = _lbSetDataCount+1;
+		lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATEDRONE"];
+		_lbSetDataCount = _lbSetDataCount+1;
+		lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATEDRONE_MEDIC"];
+	};
+	case 5: {
+		_lbSetDataCount = _lbSetDataCount+1;
+		lbSetData [7377, _lbSetDataCount, "ADV_FNC_NIL"];
+		_lbSetDataCount = _lbSetDataCount+1;
+		lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATETEAM"];
+		_lbSetDataCount = _lbSetDataCount+1;
+		lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATELARGE"]; 
+		_lbSetDataCount = _lbSetDataCount+1;
+		lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATEDRONE"];
+		_lbSetDataCount = _lbSetDataCount+1;
+		lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATEDRONE_MEDIC"];
 	};
 	default {
 		_lbSetDataCount = _lbSetDataCount+1;
