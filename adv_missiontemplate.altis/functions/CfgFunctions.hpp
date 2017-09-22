@@ -175,6 +175,7 @@ class adv
 	{
 		class gearloading {};
 		class gearsaving {};
+		class loadoutStats {};
 		class saveGear {};
 		class readdGear {};
 	};
