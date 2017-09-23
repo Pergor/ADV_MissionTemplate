@@ -7,7 +7,7 @@
  * None
  *
  * Return Value:
- * Array of player's name and loadout in Format [["NAME1",getUnitLoadout player1],["NAME2", getUnitLoadout player2],...]; - <ARRAY>
+ * Array of player's name, player's unit and loadout in Format [["NAME1",getUnitLoadout player1],["NAME2", getUnitLoadout player2],...]; - <ARRAY>
  *
  * Example:
  * copyToClipboard str (call adv_fnc_loadoutStats);
