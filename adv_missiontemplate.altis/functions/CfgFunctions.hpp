@@ -72,6 +72,7 @@ class adv
 		class disableVeh {};
 		class findNearestObject {};
 		class flare {};
+		class getClassNames {};
 		class getGroupVehicles {};
 		class getOppPos {};
 		class getPos {};
@@ -283,5 +284,22 @@ class whk
 	class headlessClient
 	{
 		class headless {file = "scripts\WerthlesHeadless.sqf";};
+	};
+};
+class engima
+{
+	tag = "engima";
+	class civilians
+	{
+		class civilians_init
+		{
+			file = "scripts\engima\civilians\init.sqf";
+			postInit = 1;
+		};
+		class traffic_init
+		{
+			file = "scripts\engima\traffic\init.sqf";
+			postInit = 1;
+		};
 	};
 };
