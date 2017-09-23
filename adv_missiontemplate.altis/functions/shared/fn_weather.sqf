@@ -23,9 +23,9 @@ params [
 ];
 
 if (_parWeather isEqualTo 99) exitWith {};
-private _randomWeathers = [1,2,2,2,2,2,2,3,3,3,4,4,5,6,7,8,9];
+private _randomWeathers = [1,2,3,4,5,6,7,8,9];
 //_weatherValue = if (_weather == 98) then { (floor (random 9))+1 } else { _weather };
-private _weatherValue = if (_parWeather isEqualTo 98) then { selectRandom _randomWeathers } else { _parWeather };
+private _weatherValue = if (_parWeather isEqualTo 98) then { _randomWeathers selectRandomWeighted [0.4,0.6,0.4,0.2,0.2,0.1,0.2,0.2,0.1] } else { _parWeather };
 private _weatherArray = switch (_weatherValue) do {
 	case 2: {["clear",0.3, 0, [0, 0, 0], [1-(random 2), 1-(random 2), true], 0, 0.3]};	//clear
 	case 3: {["overcast",0.6, 0, [0.05, 0.1, 10], [2-(random 4), 2-(floor random 4), true], 0.2, 0.6]};	//overcast
