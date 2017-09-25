@@ -1,0 +1,195 @@
+-------------------------------------
+ - ENGIMA'S TRAFFIC (VERSION 1.6.1) -
+-------------------------------------
+
+Engima's Traffic is a scripts that adds traffic to an Arma 3 mission.
+
+Vehicles of different types are spawned in out of sight for the player(s). They get a waypoint to a random road segment 
+on the map, but are removed at a certain distance from the nearest player.
+
+Script can run different isntances of traffic, with different customized behaviors, simultaneously. For example, you 
+can run one script that puts a lot of civilians on the entire map, and one more that simultaneously control a few enemy armored 
+vehicles in one area and friendly vehicles in another (see USING MORE THAN ONE INSTANCE below).
+
+Script works in singleplayer, multiplayer, hosted, dedicated for JIPs, and on any map (at least official if it has roads).
+
+
+--- VERSION HISTORY ---
+
+1.6.1: Adjusted vehicle spawn distances.
+1.6:   Improved traffic flow by removing immobile vehicles outside visual range.
+       Fixed: Many traffic units not moving at all on maps with several small islands (like Tanoa).
+       Fixed: Units get stuck on small paths in the woods (like on Tanoa). Paths are now ignored.
+       Fixed: Number of vehicles not relative to traffic area coverage.
+1.5:   Added callback ON_UNIT_CREATING which fires right before a vehicle spawns.
+       Replaced callback ON_SPAWN_CALLBACK with ON_UNIT_CREATED.
+       Replaced callback ON_REMOVE_CALLBACK with ON_UNIT_REMOVING.
+       Added configuration parameter MAX_GROUPS_COUNT.
+       Fixed: Vehicles tend to spawn more often behind the players than ahead of them.
+1.42:  Changed colors on debug markers to match unit's side.
+1.4:   Added support for headless clients.
+1.3.1: Script no longer tries to terminate scripts that were started in spawn callback.
+1.3:   Possibility to select areas (markers) where the traffic will be.
+       Better performance on large maps (like Altis).
+1.21:  New file structure that will better allow for future updates.
+       Removed dependency to Engima.CommonLib.
+1.2:   Fixed: Vehicles that reached their destination were not assigned a new destination.
+1.1:   Optimizations.
+       Fixed: Script error when a player die in MP.
+       Rework of file structure.
+1.0:   First version.
+
+
+--- CUSTOMIZATION ---
+
+The script can be customized for different behaviors. Customize a script by editing the startup parameters. The startup 
+parameters list is an array of key value pairs. A key value pair is a small array where the key object is a string 
+with the name of the parameter setting and the value object is the actual value.
+
+Here is the simplest example that starts the traffic script with all default parameters (civilian traffic). This code are to 
+be put in Engima\Traffic\ConfigAndStart.sqf.
+
+[] spawn ENGIMA_TRAFFIC_StartTraffic;
+
+Here is an example that uses all parameters and first saves them in a variable named "_parameters". The function call (or spawn) 
+that starts the traffic is beneath. This code are to be put in Engima\Traffic\ConfigAndStart.sqf.
+
+// Set traffic parameters.
+_parameters = [
+	["SIDE", civilian],
+	["VEHICLES", ["C_Offroad_01_F", "C_Offroad_01_repair_F", "C_Quadbike_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_SUV_01_F", "C_Van_01_transport_F", "C_Van_01_box_F", "C_Van_01_fuel_F"]],
+	["VEHICLES_COUNT", 10],
+	["MAX_GROUPS_COUNT", 0],
+	["MIN_SPAWN_DISTANCE", 800],
+	["MAX_SPAWN_DISTANCE", 1200],
+	["MIN_SKILL", 0.4],
+	["MAX_SKILL", 0.6],
+	["AREA_MARKER", "EnemyMarker1"],
+	["HIDE_AREA_MARKER", true],
+	["ON_UNIT_CREATING", { true }],
+	["ON_UNIT_CREATED", {}],
+	["ON_UNIT_REMOVING", {}],
+	["ON_SPAWN_CALLBACK", {}],  // Obsolete! Use ON_UNIT_CREATED instead.
+	["ON_REMOVE_CALLBACK", {}], // Obsolete! Use ON_UNIT_REMOVING instead.
+	["DEBUG", false]
+];
+
+// Start an instance of the traffic
+_parameters spawn ENGIMA_TRAFFIC_StartTraffic;
+
+Here is a complete list of the parameters and what they do:
+
+* SIDE (Side): Which side the spawned vehicles will be. Can be east, west, independent or civilian.
+
+* VEHICLES (Array): Array of vehicle classes that may be spawned. If you want to see more of one vehicle than another, 
+  then have it occur a couple of more often in the array. The following example will spawn traffic where 75% of vehicles 
+  are quadbikes and 25% is transports:
+  Example: ["C_Quadbike_01_F", "C_Quadbike_01_F", "C_Quadbike_01_F", "C_Van_01_transport_F"]
+  
+* VEHICLES_COUNT (Scalar): Number of moving vehicles that exists on the map for the current traffic instance. If
+  a vehicle is damage to a degree that it cannot move (!canMove vehicle), then it will not be counted, and a new 
+  vehicle will be created. But only if allowed by MAX_GROUPS_COUNT (se below).
+  Example: If in single player and VEHICLES_COUNT is set to 10, MAX_GROUPS_COUNT set to 15, and MAX_SPAWN_DISTANCE is 
+  set to 1000, then there will be 10 vehicles on an area of 3.14 sqkm (1000^2 * pi). If one of them gets damaged 
+  so it cannot move, then an 11th will spawn (and so on up to 15). In a multiplayer game the vehicles will be spread
+  over total area covered by the players.
+
+* MAX_GROUPS_COUNT (Scalar): Maximum number of groups that the script will ever have created at the same time. If set
+  to 0 (default) then the VEHICLES_COUNT value will be used. If set to a value greater than 0 and less than 
+  VEHICLES_COUNT will limit the number of vehicles to MAX_GROUPS_COUNT. If set to a value greater than VEHICLES_COUNT,
+  then the script is given the possibility to spawn in new vehicles when one is damaged to a degree when it cannot move.
+  (See also VEHICLES_COUNT above.)
+  Example: If VEHICLES_COUNT is set to 10 and MAX_GROUPS_COUNT is set to 15, and all ten vehicles are destroyed, then
+  the script will spawn in 5 new vehicles. Damaged vehicles will be removed when players move away far enough as usual.
+
+* MIN_SPAWN_DISTANCE (Scalar): Minimum spawn distance in meters from nearest human player on the map. Should be at least 100 
+  meters less than MAX_SPAWN_DISTANCE.
+  Example: 800
+
+* MAX_SPAWN_DISTANCE (Scalar): Maximum spawn distance in meters from nearest player on the map. Vehicles beyond this 
+  distance will be removed. Should be at least 100 meters greater than MIN_SPAWN_DISTANCE.
+  Example: 1200
+  
+* MIN_SKILL (Scalar): Vehicle crew's minimum skill. Must be between 0 and 1 and less than or equal to MAX_SKILL. Actual 
+  skill of each spawned vehicle (and crew) will be a random number between MIN_SKILL and MAX_SKILL.
+  Example: 0.4
+
+* MAX_SKILL (Scalar): Vehicle crew's maximum skill. Must be between 0 and 1 and greater than or equal to MIN_SKILL. Actual 
+  skill of each spawned vehicle (and crew) will be a random number between MIN_SKILL and MAX_SKILL.
+  Example: 0.6
+  
+* AREA_MARKER (String): Name of a marker that sets bounds for the traffic. The marker needs to be of shape rectancle or
+  ellipse (not icon for obvious reasons), and it needs to contains road segments. All vehicles for the current traffic 
+  will spawn inside this area, and all waypoints set to these vehicles will also be inside the area. However, it is Arma
+  that routes the vehicle to the destination, and so it can come to decide to use roads that are outside of the marker. Be
+  aware of this when you are planning the marker positions. Default value is an empty string ("") which means "the entire 
+  map".
+  
+* HIDE_AREA_MARKER (Boolean): Wether the area marker should be hidden or not. If true then the marker will be hidden on 
+  the map for the players, otherwise it will be visible. Default value is true.
+
+* ON_UNIT_CREATING (Code): Callback that is executed right before a vehicle spawns. Return true to go on with
+  the vehicle spawn. Return false to prohibit the spawn. Parameter _this is an array with the following items:
+    0 (Array): An array with spawn arguments. This array can be manipulated. Change the first item to spawn on 
+    another position, and change the second parameter to spawn a vehicle of another class than suggested. The spawn
+    arguments array is specified like this:
+      0 (Array): The position where the vehicle is suggested to spawn (can be modified).
+      1 (String): The classname for the vehicle to spawn (can be modified).
+    1 (Scalar): Number of vehicles spawned and currently controlled by the script.
+    2 (Scalar): Calculated maximun number of vehicles that the script will try to spawn (depends on spawn markers etc.). It
+    is always a value between 0 and VEHICLES_COUNT (including).
+  The example below will not spawn traffic during the night:
+  Example: { private _goOnWithSpawn = (dayTime > 8 && dayTime < 22); _goOnWithSpawn )
+
+* ON_UNIT_CREATED (Code): Code that is executed when a vehicle has spawned. Parameter _this is an array:
+    0 (Object): The vehicle that was created.
+    1 (Group): The group that the vehicle belongs to.
+    2 (Scalar): Number of vehicles spawned and currently controlled by the script.
+    3 (Scalar): Calculated maximun number of units that the script will try to spawn (depends on spwn markers
+    etc.).
+  Example: { hint ("Vehicle of type " + typeOf (_this select 0) + " created!")
+
+* ON_UNIT_REMOVING (Code): Code that is executed just before a vehicle and its group is being removed. Vehicle is 
+  sent in as a parameter _this.
+    0 (Object): The vehicle that will be removed.
+    1 (Group): The group that the vehicle belongs to.
+    2 (Scalar): Number of vehicles spawned and currently controlled by the script.
+    3 (Scalar): Calculated maximun number of units that the script will try to spawn (depends on spwn markers
+    etc.).
+  Example: { hint "Vehicle of type " + typename _this + " is being removed!"; }
+
+* ON_SPAWN_CALLBACK (Code): Obsolete! Use ON_UNIT_CREATED instead.
+
+* ON_REMOVE_CALLBACK (Code): Obsolete! Use ON_UNIT_REMOVING instead.
+
+* DEBUG (Boolean): Whether script is running in debug mode or not. In debug mode all vehicles are marked as dots on the map.
+  Can be true or false. Default value is false.
+
+
+- USING MORE THAN ONE INSTANCE -
+
+It is fully possible and supported to start more than one instance of the traffic script. For example you can have 
+opfor traffic on the east side of the map and blufor traffic on the west, and with overlapping areas to for that 
+matter.
+
+To excecute more instances of the script simultaneously, copy the parameters and the start spawn command in 
+Engima\Traffic\ConfigAndStart.sqf and add them at bottom of the ConfigAndStart.sqf.
+
+IMPORTANT: It is important that all calls to ENGIMA_TRAFFIC_startTraffic is made within two seconds. Otherwise 
+the map's road segments will not be collected needed in the script's initialization phase.
+
+
+- RUNNING ON HEADLESS CLIENT -
+
+This script can be routed to execute on a headless client. All instances that you define for start in the file
+Engima\Traffic\ConfigAndStart.sqf will execute on either the server (default) or on a headless client.
+
+To route the execution to a headless client, follow these steps:
+
+1. Create a headless client unit in the Arma 3 editor and give it a name.
+2. Edit the file Engima\Traffic\HeadlessClient.sqf and assign the variable 
+   Engima_Traffic_HeadlessClientName the name of your headless client unit.
+   Example: Engima_Traffic_HeadlessClientName = "HC1";
+3. Have your server support headless clients.
+
+For more information (for step 3 in particular), see the official and general documentation about headless clients.
