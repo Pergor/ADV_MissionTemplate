@@ -76,7 +76,7 @@ if ( side (group _target) isEqualTo west && !_isCivLoadout ) then {
 				case ( (_object select [0,6]) isEqualTo "ASSCSW" ): {"ADV_FNC_FTLEADER"};			//ASST. CREW SERVED WEAPON
 				case ( (_object select [0,9]) isEqualTo "ASSMORTAR" ): {"ADV_FNC_FTLEADER"};		//ASST. MORTAR GUNNER
 				case ( (_object select [0,6]) isEqualTo "ASSTOW" ): {"ADV_FNC_FTLEADER"};		//ASST. MORTAR GUNNER
-				case ( (_object) in _ZEUS ): {"ADV_FNC_ZEUS"};
+				case ( (_object) in _ZEUS || !isNull getAssignedCuratorLogic _target ): {"ADV_FNC_ZEUS"};
 				default {"ADV_FNC_NIL"};
 			};
 		};	
@@ -131,7 +131,7 @@ if ( side (group _target) isEqualTo east && !_isCivLoadout ) then {
 				case ( (_object select [0,10]) isEqualTo "OPF_ASSCSW" ): {"ADV_OPF_FNC_FTLEADER"};			//ASST. CREW SERVED WEAPON
 				case ( (_object select [0,13]) isEqualTo "OPF_ASSMORTAR" ): {"ADV_OPF_FNC_FTLEADER"};		//ASST. MORTAR GUNNER
 				case ( (_object select [0,10]) isEqualTo "OPF_ASSTOW" ): {"ADV_OPF_FNC_FTLEADER"};		//ASST. MORTAR GUNNER
-				case ( (_object) in _ZEUS ): {"ADV_FNC_ZEUS"};
+				case ( (_object) in _ZEUS || !isNull getAssignedCuratorLogic _target ): {"ADV_FNC_ZEUS"};
 				default {"ADV_FNC_NIL"};
 			};
 		};	
@@ -186,7 +186,7 @@ if ( side (group _target) isEqualTo independent && !_isCivLoadout ) then {
 				case ( (_object select [0,10]) isEqualTo "IND_ASSCSW" ): {"ADV_IND_FNC_FTLEADER"};			//ASST. CREW SERVED WEAPON
 				case ( (_object select [0,13]) isEqualTo "IND_ASSMORTAR" ): {"ADV_IND_FNC_FTLEADER"};		//ASST. MORTAR GUNNER
 				case ( (_object select [0,10]) isEqualTo "IND_ASSTOW" ): {"ADV_IND_FNC_FTLEADER"};		//ASST. MORTAR GUNNER
-				case ( (_object) in _ZEUS ): {"ADV_FNC_ZEUS"};
+				case ( (_object) in _ZEUS || !isNull getAssignedCuratorLogic _target ): {"ADV_FNC_ZEUS"};
 				default {"ADV_FNC_NIL"};
 			};
 		};	

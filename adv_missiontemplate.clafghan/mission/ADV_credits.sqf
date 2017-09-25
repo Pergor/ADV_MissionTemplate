@@ -19,11 +19,11 @@ publicVariable "ADV_missionAuthor";
 		["Credits",
 			"Verwendete Scripts", 
 				"In dieser Mission wurden folgende Scripts verwendet:<br/><br/>
+				Civilians und Traffic von Engima,<br/>
 				FHQ TaskTracker von Varanon,<br/>
 				IgiLoad von Igi_PL,<br/>
 				RandomWeather von Meatball,<br/>
 				TAW View Distance von Tonic,<br/>
-				TPW CIVS von tpw,<br/>
 				UPSMON von Monsada,<br/>
 				Werthles' Headless Script von Werthles,<br/>
 				fn_ZenOccupyHouse by Zenophon,<br/>

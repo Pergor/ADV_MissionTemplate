@@ -32,6 +32,20 @@ class param_headlessClient
 	texts[] = {"Combat Patrol (wird am Briefing-Board gestartet)","UPSMON-KI","Zeus","Weder, noch."};
 	default = 1;
 };
+class param_sideRelations
+{
+	title="Mit welcher Seite soll GREENFOR verbündet sein?";
+	values[]  = {3,2,1,0};
+	texts[] = {"Sowohl mit OPFOR, als auch mit BLUFOR","Mit OPFOR","Mit BLUFOR","Mit keiner"};
+	default = 0;
+};
+class param_civilians
+{
+	title="Sollen automatisch Zivilisten gespawnt werden? (mapabhängige Zivilisten, nur server-/HC-seitig, nur in der Nähe von Spielern, werden automatisch gelöscht)";
+	values[] = {3,2,1,0};
+	texts[] = {"Fahrzeuge und Fußgänger","Nur Fahrzeuge","Nur Fußgänger","Nein"};
+	default = 0;
+};
 class dummy_environment {
 	title = "---------------------- Umweltparameter ----------------------";
 	values[] = {-99999};
@@ -105,13 +119,6 @@ class dummy_settings_game {
 	values[] = {-99999};
 	default = -99999;
 	texts[] = {""};
-};
-class param_sideRelations
-{
-	title="Mit welcher Seite soll GREENFOR verbündet sein?";
-	values[]  = {3,2,1,0};
-	texts[] = {"Sowohl mit OPFOR, als auch mit BLUFOR","Mit OPFOR","Mit BLUFOR","Mit keiner"};
-	default = 0;
 };
 class param_invinciZeus
 {

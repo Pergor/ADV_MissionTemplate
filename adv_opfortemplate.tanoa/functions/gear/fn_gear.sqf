@@ -62,7 +62,7 @@ if ( [_unit,"command"] call adv_fnc_findInGroup ) then {
 	if (_ACE_key isEqualTo 0) then {_ACE_key = 1;};
 };
 call {
-	if ( {[_unit,_x] call adv_fnc_inGroup} count ["ZEUS"] > 0 ) exitWith {  };
+	if ( {[_unit,_x] call adv_fnc_inGroup} count ["ZEUS"] > 0 || !isNull getAssignedCuratorLogic _unit || serverCommandAvailable "#kick" ) exitWith {  };
 	if ( [_unit,"command"] call adv_fnc_findInGroup ) exitWith {
 		[[0],false] call adv_fnc_enableChannels;
 		[[1,2],true] call adv_fnc_enableChannels;
@@ -322,12 +322,12 @@ if !(_backpack isEqualTo "") then {
 	if ( !isNil "_additionalAmmo5" ) then { [_unit,_additionalAmmo5 select 0,0,_additionalAmmo5 select 1,false] call ADV_fnc_addMagazine; };
 };
 
-if ( {[_unit,_x] call adv_fnc_inGroup} count ["ZEUS"] > 0 ) then {
+if ( !isNull getAssignedCuratorLogic _unit ) then {
 	if ( ["command",_fnc_scriptNameParent] call BIS_fnc_inString ) then {
 		if ( isClass (configFile >> "CfgPatches" >> "ace_medical") ) then { _unit addItem "ACE_personalAidKit"; };
 		if ( isClass(configFile >> "CfgPatches" >> "ACE_explosives") ) then { _unit addItem "ACE_DefusalKit"; };
 	};
-	if ( isClass(configFile >> "CfgWeapons" >> "alive_tablet") ) then { _unit addItem "alive_tablet"; };
+	if ( isClass(configFile >> "CfgWeapons" >> "alive_tablet") && count (entities "ALiVE_require") > 0 ) then { _unit addItem "alive_tablet"; };
 	
 	if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
 		["en","ru","gr"] call acre_api_fnc_babelSetSpokenLanguages;

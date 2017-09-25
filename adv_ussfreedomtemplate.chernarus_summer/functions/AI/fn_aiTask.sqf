@@ -63,7 +63,7 @@ private _spawn = [_pos,5,30,3,0,20,0,[],[_start,_start]] call BIS_fnc_findSafePo
 
 //spawn a group
 private _grp = [_spawn,_units,_side] call adv_fnc_spawnGroup;
-[_grp,10] call adv_fnc_setSafe;
+[units _grp,10] call adv_fnc_setSafe;
 
 //give the group it's commands:
 call {

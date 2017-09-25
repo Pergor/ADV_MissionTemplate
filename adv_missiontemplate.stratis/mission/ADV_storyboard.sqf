@@ -20,7 +20,7 @@ if ( (!isServer && hasInterface) || !isNil "adv_var_HCpresent" ) exitWith {};
 
 private _hc = (count entities "HeadlessClient_F" > 0);
 if (_hc && isServer) exitWith {
-	{ adv_handle_werthles = [true, 30, false, false, 30, 3, false, []] spawn whk_fnc_headless } remoteExec ["call",0,true];
+	{ adv_handle_werthles = [true, 30, false, false, 30, 5, false, []] spawn whk_fnc_headless } remoteExec ["call",0,true];
 };
 
 private _isHC = !(hasInterface || isServer);

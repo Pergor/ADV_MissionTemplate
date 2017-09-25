@@ -33,6 +33,8 @@ private _targets = call {
 	params ["_targets","_time"];
 	sleep _time;
 	{_x setCaptive false} count _targets;
+	sleep 1;
+	{_x setCaptive false} count _targets;
 };
 
 nil;
