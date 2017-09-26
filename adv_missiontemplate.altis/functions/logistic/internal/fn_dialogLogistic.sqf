@@ -418,7 +418,8 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 					case east: { _vehiclesInVicinity remoteExecCall ["adv_opf_fnc_addVehicleLoad",2]; };
 					case independent: { _vehiclesInVicinity remoteExecCall ["adv_opf_fnc_addVehicleLoad",2]; };
 				};
-				["Vehicle inventory replenished.",5] call adv_fnc_timedHint;
+				private _vehicleDescriptions = _vehiclesInVicinity apply { getText (configFile >> "CfgVehicles" >> (typeOf _x) >> "displayName") };
+				[(format ["Inventory replenished for: %1.",_vehicleDescriptions]),5] call adv_fnc_timedHint;
 			};
 		};
 		case "ADV_LOGISTIC_CRATEEMPTY": {
