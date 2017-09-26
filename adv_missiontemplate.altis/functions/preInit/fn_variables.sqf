@@ -21,6 +21,10 @@ ADV_spawnVar = missionNamespace getVariable ["ADV_spawnVar",0];
 missionNamespace setVariable ["ADV_var_useDLCContent",1];
 
 //missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true];
+if (isClass(configFile >> "CfgPatches" >> "ace_cookoff")) then {
+	["O_APC_Wheeled_02_base_F", "init", { (_this select 0) setVariable ["ace_cookoff_enable", false, true]; }, true, [], true] call CBA_fnc_addClassEventHandler;
+	["B_APC_Tracked_01_base_F", "init", { (_this select 0) setVariable ["ace_cookoff_enable", false, true]; }, true, ["B_APC_Tracked_01_AA_F"], true] call CBA_fnc_addClassEventHandler;
+};
 
 /*
 adv_par_customUni = missionNamespace getVariable ["adv_par_customUni", ["param_customUni",0] call BIS_fnc_getParamValue];
