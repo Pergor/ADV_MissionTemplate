@@ -30,8 +30,19 @@ _headgear = ["H_HelmetSpecO_ocamo","H_HelmetO_ocamo"];
 _backpack = ["B_Carryall_khk"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
-_goggles = "";
+_goggles = "G_Combat";
 _unitTraits = [["medic",false],["engineer",true],["explosiveSpecialist",true],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0]];
+if (_special isEqualTo "EOD") then {
+	_vest = "V_EOD_coyote_F";
+	_headgear = "H_PASGT_basic_olive_F";
+	_backpack = ["B_Messenger_Coyote_F"];
+	_useProfileGoggles = 0;
+	(_unitTraits select 1) set [1,false];
+};
+if (_special isEqualTo "REPAIR") then {
+	_backpack = ["B_Assaultpack_cbr"];
+	(_unitTraits select 2) set [1,false];
+};
 
 //weapons - primary weapon - (string)
 _primaryweapon = "arifle_Katiba_C_F";
@@ -269,6 +280,14 @@ switch (_par_opfUni) do {
 		_vest = ["rhs_6b23_digi_6sh92","rhs_6b13_Flora_6sh92","rhs_6b13_6sh92"];
 		_headgear = ["rhs_6b28","rhs_6b28_ess","rhs_6b26_green","rhs_6b26_ess_green","rhs_6b27m_green","rhs_6b27m_green_ess","rhs_6b27m","rhs_6b27m_ess","rhs_6b28_green","rhs_6b28_green_ess"];
 		_backpack = ["B_Carryall_oli"];
+		if (_special isEqualTo "EOD") then {
+			_vest = "rhs_6b13_EMR";
+			_headgear = ["rhs_altyn_visordown"];
+			_backpack = ["rhs_assault_umbts_engineer_empty"];
+		};
+		if (_special isEqualTo "REPAIR") then {
+			_backpack = ["rhs_assault_umbts_engineer_empty"];
+		};
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 2: {
@@ -277,6 +296,14 @@ switch (_par_opfUni) do {
 		_vest = ["rhs_6b13_Flora_6sh92","rhs_6b13_6sh92"];
 		_headgear = ["rhs_6b26","rhs_6b26_ess","rhs_6b26_green","rhs_6b26_ess_green","rhs_6b27m_green","rhs_6b27m_green_ess","rhs_6b27m","rhs_6b27m_ess","rhs_6b28_green","rhs_6b28_green_ess"];
 		_backpack = ["B_Carryall_oli"];
+		if (_special isEqualTo "EOD") then {
+			_vest = "rhs_6b13_Flora";
+			_headgear = ["rhs_altyn_visordown"];
+			_backpack = ["rhs_assault_umbts_engineer_empty"];
+		};
+		if (_special isEqualTo "REPAIR") then {
+			_backpack = ["rhs_assault_umbts_engineer_empty"];
+		};
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 3: {
@@ -285,6 +312,14 @@ switch (_par_opfUni) do {
 		_vest = ["rhs_6b23_ML_6sh92"];
 		_headgear = ["rhs_6b26_green","rhs_6b26_ess_green","rhs_6b27m_green","rhs_6b27m_green_ess","rhs_6b27m","rhs_6b27m_ess","rhs_6b28_green","rhs_6b28_green_ess"];
 		_backpack = ["B_Carryall_oli"];
+		if (_special isEqualTo "EOD") then {
+			_vest = "rhs_6b13_6sh92_headset_mapcase";
+			_headgear = ["rhs_altyn_visordown"];
+			_backpack = ["rhs_assault_umbts_engineer_empty"];
+		};
+		if (_special isEqualTo "REPAIR") then {
+			_backpack = ["rhs_assault_umbts_engineer_empty"];
+		};
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 4: {
@@ -294,20 +329,32 @@ switch (_par_opfUni) do {
 		_headgear = ["rhs_6b7_1m_olive","rhs_6b7_1m_bala2_olive","rhs_6b7_1m","rhs_6b7_1m_bala2","rhs_6b28_green","rhs_6b28_green_bala",
 			"rhs_6b27m_green","rhs_6b27m_green_bala","rhs_6b27m_green_ess","rhs_6b26","rhs_6b26_bala","rhs_6b26_ess"];
 		_backpack = ["B_Carryall_oli"];
+		if (_special isEqualTo "EOD") then {
+			_vest = "rhs_6b13_6sh92_headset_mapcase";
+			_headgear = ["rhs_altyn_visordown"];
+			_backpack = ["rhs_assault_umbts_engineer_empty"];
+		};
+		if (_special isEqualTo "REPAIR") then {
+			_backpack = ["rhs_assault_umbts_engineer_empty"];
+		};
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 5: {
 		//Guerilla
-		_uniform = ["U_OG_Guerrilla_6_1","U_OG_Guerilla2_2","U_OG_Guerilla2_1","U_OG_Guerilla2_3","U_OG_Guerilla3_1"];
+		_uniform = ["U_OG_Guerrilla_6_1","U_OG_Guerilla2_2","U_OG_Guerilla2_1","U_OG_Guerilla2_3"];
 		_headgear = ["H_Watchcap_cbr","H_Watchcap_camo","H_Booniehat_khk","H_Booniehat_oli","H_Cap_blk","H_Cap_oli","H_Cap_tan","H_Cap_brn_SPECOPS","H_MilCap_ocamo",
 			"H_Cap_headphones","H_ShemagOpen_tan"];
-		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag","APERSTripMine_Wire_Mag"];
+		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDLandSmall_Remote_Mag","APERSTripMine_Wire_Mag","APERSTripMine_Wire_Mag"];
+		if (_special isEqualTo "EOD") then {
+			_vest = ["V_EOD_olive_F","V_EOD_coyote_F"];
+			_headgear = ["H_PASGT_basic_olive_F"];
+			_backpack = ["B_Messenger_Coyote_F","B_Messenger_Black_F","B_Messenger_Olive_F","B_Messenger_Gray_F"];
+		};
 		_ACE_Clacker = 0;
 		_ACE_M26_Clacker = 0;
 		_ACE_DeadManSwitch = 0;
 		_ACE_DefusalKit = 0;
 		_ACE_Cellphone = 1;
-		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDLandSmall_Remote_Mag","APERSTripMine_Wire_Mag","APERSTripMine_Wire_Mag"];
 	};
 	case 6: {
 		//Afghan Militia (EricJ's Taliban)
@@ -317,13 +364,13 @@ switch (_par_opfUni) do {
 		_headgear = ["","H_Shemag_olive","H_ShemagOpen_tan","H_ShemagOpen_khk","Afghan_01Hat","Afghan_02Hat","Afghan_03Hat","Afghan_04Hat","Afghan_05Hat","Afghan_06Hat"];
 		_goggles = "";
 		_useProfileGoggles = 0;
+		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDLandSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag","IEDLandSmall_Remote_Mag"];
 		_backpack = ["B_Carryall_oli"];
 		_ACE_Clacker = 0;
 		_ACE_M26_Clacker = 0;
 		_ACE_DeadManSwitch = 0;
 		_ACE_DefusalKit = 0;
 		_ACE_Cellphone = 1;
-		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDLandSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag","IEDLandSmall_Remote_Mag"];
 	};
 	case 20: {
 		//Apex Green Hex
@@ -331,9 +378,43 @@ switch (_par_opfUni) do {
 		_vest = ["V_HarnessO_ghex_F","V_HarnessO_ghex_F","V_HarnessOSpec_brn","V_TacVest_oli"];
 		_headgear = ["H_HelmetO_ghex_F","H_HelmetSpecO_ghex_F"];
 		_backpack = ["B_Carryall_ghex_F"];
+		if (_special isEqualTo "EOD") then {
+			_vest = "V_EOD_olive_F";
+			_headgear = "H_PASGT_basic_olive_F";
+			_backpack = ["B_Messenger_olive_F"];
+		};
+		if (_special isEqualTo "REPAIR") then {
+			_backpack = ["B_FieldPack_ghex_F"];
+		};
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	default {};
+};
+
+if (_special isEqualTo "REPAIR") then {
+	_itemsBackpack = ["ToolKit"];
+	_ACE_key = 1;
+	_ACE_M26_Clacker = 0;
+	_ACE_DefusalKit = 0;
+	_ACE_Cellphone = 0;
+	_ACE_sprayPaintColor = "NONE";
+	_ACE_EntrenchingTool = 0;
+	_ACE_isEngineer = 2;
+	_ACE_isEOD = false;
+};
+if (_special isEqualTo "EOD") then {
+	_useProfileGoggles = 0;
+	_primaryweaponAmmo set [0,6];
+	_itemsBackpack = ["ToolKit","MineDetector","DemoCharge_Remote_Mag","DemoCharge_Remote_Mag"];
+	if (isClass(configFile >> "CfgPatches" >> "ace_explosives")) then {
+		_itemsBackpack = _itemsBackpack-["ToolKit"];
+	};
+	_ACE_M26_Clacker = 0;
+	_ACE_Clacker = 1;
+	_ACE_Cellphone = 0;
+	_ACE_key = 0;
+	_ACE_isEngineer = 0;
+	_ACE_EntrenchingTool = 0;
 };
 
 ///// No editing necessary below this line /////
