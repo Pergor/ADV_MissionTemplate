@@ -485,6 +485,7 @@ switch (_par_customUni) do {
 if (_special in ["CSW","ACSW","TOW","ATOW"]) then {
 	_optic = [""];
 	_binocular = "";
+	_givePersonalRadio = false;
 	_ACE_sprayPaintColor = "NONE";
 	_ACE_CableTie = 0;
 	_ACE_MapTools = 0;
@@ -507,7 +508,7 @@ if (toUpper ([str _player,0,16] call BIS_fnc_trimString) isEqualTo "FTLEADER_COM
 	_binocular = "RANGEFINDER";
 };
 [_player] call ADV_fnc_gear;
-if (_special isEqualTo "") exitWith {nil};
+if (_special isEqualTo "") exitWith {true};
 switch true do {
 	case (_special isEqualTo "CSW"): { [_player,1] call ADV_fnc_CSW; };
 	case (_special isEqualTo "ACSW"): { [_player,2] call ADV_fnc_CSW; };

@@ -534,7 +534,6 @@ switch (_par_customUni) do {
 };
 
 if (_special isEqualTo "REPAIR") then {
-	_unitTraits = [["medic",false],["engineer",true],["explosiveSpecialist",false],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0]];
 	_itemsBackpack = ["ToolKit"];
 	_ACE_key = 1;
 	_ACE_M26_Clacker = 0;
