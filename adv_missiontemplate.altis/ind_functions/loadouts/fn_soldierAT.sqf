@@ -5,7 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
-params ["_player"];
+params ["_player","_special"];
 /*
  * Author: Belbo
  *
@@ -216,7 +216,7 @@ switch (_par_indWeap) do {
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
-		_launcher="rhs_weap_M136";
+		if (_special isEqualTo "AT") then { _launcher = "rhs_weap_M136"; };
 	};
 	case 3: {
 		_primaryWeapon = ["hlc_rifle_FAL5061","hlc_rifle_g3a3ris","hlc_rifle_STG58F","hlc_rifle_L1A1SLR"];
