@@ -79,12 +79,18 @@ if (side (group player) isEqualTo east) then {
 if (side (group player) isEqualTo independent) then {
 
 };
-if ( _par_customWeap isEqualTo 1 && (side (group player) isEqualTo west) ) then {
-	_loadoutList set [9,"Schütze (Pzf3)"];
-	_loadoutList set [15,"Schütze (Pzf3)"];
-	_loadoutList set [16,"Schütze (RGW90)"];
-	_loadoutList set [17,"Luftabwehrschütze"];
-	_loadoutList set [18,"asst. Luftabwehrschütze"];
+if ( side (group player) isEqualTo west ) then {
+	if ( _par_customWeap in [5,6,7] ) then {
+		_loadoutList set [17,"AA-Spezialist (nicht nachladbar)"];
+		_loadoutList set [18,"AA-Spezialist (nicht nachladbar)"];
+	};
+	if ( _par_customWeap isEqualTo 1 ) then {
+		_loadoutList set [9,"Schütze (Pzf3)"];
+		_loadoutList set [15,"Schütze (Pzf3)"];
+		_loadoutList set [16,"Schütze (RGW90)"];
+		_loadoutList set [17,"Luftabwehrschütze"];
+		_loadoutList set [18,"asst. Luftabwehrschütze"];
+	};
 };
 
 { lbAdd [7377, _x]; nil; } count _loadoutList;
@@ -121,9 +127,9 @@ if (side (group player) isEqualTo west) then {
 	lbSetData [7377, 11, "['ADV_FNC_CLS','']"];
 	lbSetData [7377, 13, "['ADV_FNC_AR','']"];
 	lbSetData [7377, 14, "['ADV_FNC_ASSAR','']"];
-	lbSetData [7377, 15, "['ADV_FNC_AT','']"];
+	lbSetData [7377, 15, "['ADV_FNC_AT','AT']"];
 	lbSetData [7377, 16, "['ADV_FNC_ASSAT','']"];
-	lbSetData [7377, 17, "['ADV_FNC_AA','']"];
+	lbSetData [7377, 17, "['ADV_FNC_AT','AA']"];
 	lbSetData [7377, 18, "['ADV_FNC_ASSAA','']"];
 	lbSetData [7377, 20, "['ADV_FNC_SPEC','']"];
 	lbSetData [7377, 21, "['ADV_FNC_SPEC','EOD']"];
@@ -159,9 +165,9 @@ if (side (group player) isEqualTo independent) then {
 	lbSetData [7377, 11, "['ADV_IND_FNC_CLS','']"];
 	lbSetData [7377, 13, "['ADV_IND_FNC_AR','']"];
 	lbSetData [7377, 14, "['ADV_IND_FNC_ASSAR','']"];
-	lbSetData [7377, 15, "['ADV_IND_FNC_AT','']"];
+	lbSetData [7377, 15, "['ADV_IND_FNC_AT','AT']"];
 	lbSetData [7377, 16, "['ADV_IND_FNC_ASSAT','']"];
-	lbSetData [7377, 17, "['ADV_IND_FNC_AA','']"];
+	lbSetData [7377, 17, "['ADV_IND_FNC_AT','AA']"];
 	lbSetData [7377, 18, "['ADV_IND_FNC_ASSAA','']"];
 	lbSetData [7377, 20, "['ADV_IND_FNC_SPEC','']"];
 	lbSetData [7377, 21, "['ADV_IND_FNC_SPEC','EOD']"];
@@ -197,9 +203,9 @@ if (side (group player) isEqualTo east) then {
 	lbSetData [7377, 11, "['ADV_OPF_FNC_CLS','']"];
 	lbSetData [7377, 13, "['ADV_OPF_FNC_AR','']"];
 	lbSetData [7377, 14, "['ADV_OPF_FNC_ASSAR','']"];
-	lbSetData [7377, 15, "['ADV_OPF_FNC_AT','']"];
+	lbSetData [7377, 15, "['ADV_OPF_FNC_AT','AT']"];
 	lbSetData [7377, 16, "['ADV_OPF_FNC_ASSAT','']"];
-	lbSetData [7377, 17, "['ADV_OPF_FNC_AA','']"];
+	lbSetData [7377, 17, "['ADV_OPF_FNC_AT','AA']"];
 	lbSetData [7377, 18, "['ADV_OPF_FNC_ASSAA','']"];
 	lbSetData [7377, 20, "['ADV_OPF_FNC_SPEC','']"];
 	lbSetData [7377, 21, "['ADV_OPF_FNC_SPEC','EOD']"];

@@ -219,7 +219,6 @@ switch (_par_customWeap) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "";		//if silencer is added
 		_launcher = "BWA3_Fliegerfaust";
-		_binocular = "BWA3_Vector";
 	};
 	case 2: {
 		//RHS ARMY

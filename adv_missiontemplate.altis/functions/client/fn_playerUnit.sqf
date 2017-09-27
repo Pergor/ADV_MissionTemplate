@@ -40,8 +40,8 @@ if ( side (group _target) isEqualTo west && !_isCivLoadout ) then {
 		case "AR_": {["ADV_FNC_AR",""]};
 		case "MMG": {["ADV_FNC_AR",""]};
 		case "GRE": {["ADV_FNC_GREN",""]};
-		case "AT_": {["ADV_FNC_AT",""]};
-		case "AA_": {["ADV_FNC_AA",""]};
+		case "AT_": {["ADV_FNC_AT","AT"]};
+		case "AA_": {["ADV_FNC_AT","AA"]};
 		case "COM": {["ADV_FNC_COMMAND",""]};
 		case "MED": {["ADV_FNC_MEDIC",""]};
 		case "SPE": {["ADV_FNC_SPEC",""]};
@@ -96,8 +96,8 @@ if ( side (group _target) isEqualTo east && !_isCivLoadout ) then {
 		case "OPF_AR_": {["ADV_OPF_FNC_AR",""]};
 		case "OPF_MMG": {["ADV_OPF_FNC_AR",""]};
 		case "OPF_GRE": {["ADV_OPF_FNC_GREN",""]};
-		case "OPF_AT_": {["ADV_OPF_FNC_AT",""]};
-		case "OPF_AA_": {["ADV_OPF_FNC_AA",""]};
+		case "OPF_AT_": {["ADV_OPF_FNC_AT","AT"]};
+		case "OPF_AA_": {["ADV_OPF_FNC_AT","AA"]};
 		case "OPF_COM": {["ADV_OPF_FNC_COMMAND",""]};
 		case "OPF_MED": {["ADV_OPF_FNC_MEDIC",""]};
 		case "OPF_SPE": {["ADV_OPF_FNC_SPEC",""]};
@@ -153,8 +153,8 @@ if ( side (group _target) isEqualTo independent && !_isCivLoadout ) then {
 		case "IND_AR_": {["ADV_IND_FNC_AR",""]};
 		case "IND_MMG": {["ADV_IND_FNC_AR",""]};
 		case "IND_GRE": {["ADV_IND_FNC_GREN",""]};
-		case "IND_AT_": {["ADV_IND_FNC_AT",""]};
-		case "IND_AA_": {["ADV_IND_FNC_AA",""]};
+		case "IND_AT_": {["ADV_IND_FNC_AT","AT"]};
+		case "IND_AA_": {["ADV_IND_FNC_AT","AA"]};
 		case "IND_COM": {["ADV_IND_FNC_COMMAND",""]};
 		case "IND_MED": {["ADV_IND_FNC_MEDIC",""]};
 		case "IND_SPE": {["ADV_IND_FNC_SPEC",""]};
