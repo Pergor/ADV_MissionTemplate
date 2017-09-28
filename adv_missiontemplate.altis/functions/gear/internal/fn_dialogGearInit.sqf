@@ -135,7 +135,7 @@ if (side (group player) isEqualTo west) then {
 	lbSetData [7377, 21, "['ADV_FNC_SPEC','EOD']"];
 	lbSetData [7377, 22, "['ADV_FNC_MARKSMAN','']"];
 	lbSetData [7377, 23, "['ADV_FNC_JETPILOT','']"];
-	lbSetData [7377, 25, "['ADV_FNC_UAVOP','']"];
+	lbSetData [7377, 24, "['ADV_FNC_UAVOP','']"];
 	lbSetData [7377, 26, "['ADV_FNC_LOG','']"];
 	lbSetData [7377, 27, "['ADV_FNC_SPEC','REPAIR']"];
 	lbSetData [7377, 28, "['ADV_FNC_DRIVER','']"];
