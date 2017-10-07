@@ -215,11 +215,11 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 switch (_par_opfWeap) do {
 	case 1: {
 		//RHS
-		_primaryweapon = ["rhs_weap_svdp"];
+		_primaryweapon = ["rhs_weap_t5000"];
 		_optic = [""];
-		_attachments = ["rhs_acc_pso1m2"];
-		_handgun = "rhs_weap_pya";
-		_itemsHandgun = [];
+		_attachments = ["optic_LRPS","rhs_acc_harris_swivel"];
+		_handgun = "rhs_weap_pb_6p9";
+		_itemsHandgun = ["rhs_acc_6p9_suppressor"];
 		_handgunSilencer = "";
 	};
 	case 2: {

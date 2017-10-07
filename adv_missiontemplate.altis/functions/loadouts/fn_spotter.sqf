@@ -254,7 +254,7 @@ switch (_par_customWeap) do {
 			_handgun = "RH_m9";
 			_itemsHandgun = ["RH_x300","RH_m9qd"];
 		};
-		_additionalAmmo = [5,"rhsusf_5Rnd_300winmag_xm2010",true];
+		_additionalAmmo = [5,"rhsusf_10Rnd_762x51_m118_special_Mag",true];
 	};
 	case 3: {
 		//RHS Marines
@@ -412,13 +412,13 @@ switch (_par_customUni) do {
 	};
 	case 7: {
 		//RHS OCP
-		_vest = ["rhsusf_iotv_ocp_Teamleader"];
+		_vest = ["rhsusf_mbav_grenadier"];
 		_backpack = ["rhsusf_falconii"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_14"];
 	};
 	case 8: {
 		//RHS UCP
-		_vest = ["rhsusf_iotv_ucp_Teamleader"];
+		_vest = ["rhsusf_mbav_grenadier"];
 		_backpack = ["rhsusf_falconii"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_14"];
 	};
@@ -432,7 +432,7 @@ switch (_par_customUni) do {
 				_headgear = ["rhs_Booniehat_marpatwd"];
 			};
 		};
-		_vest = ["rhsusf_spc_teamleader"];
+		_vest = ["rhsusf_mbav_grenadier"];
 		_backpack = ["rhsusf_falconii"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_14"];
 	};	

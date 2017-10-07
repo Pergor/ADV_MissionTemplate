@@ -303,7 +303,7 @@ switch (true) do {
 		//BWmod Tropen
 		_uniform = ["BWA3_Uniform_Helipilot"];
 		_vest = ["BWA3_Vest_Tropen"];
-		_helmet = ["BWA3_Knighthelm"];
+		_headgear = ["BWA3_Knighthelm"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_items pushback "PBW_muetze1_tropen";
 		};
@@ -313,15 +313,15 @@ switch (true) do {
 		//BWmod Fleck
 		_uniform = ["BWA3_Uniform_Helipilot"];
 		_vest = ["BWA3_Vest_Fleck"];
-		_helmet = ["BWA3_Knighthelm"];
+		_headgear = ["BWA3_Knighthelm"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_items pushback "PBW_muetze1_fleck";
 		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
 	};	
-	case (_par_customUni >= 3 && _par_customUni < 7): {
-		//TFA Mixed
-	};	
+	case (_par_customUni in [7,8,10]): {
+		_headgear = ["rhsusf_hgu56p_black","rhsusf_hgu56p_visor_black","rhsusf_hgu56p_green","rhsusf_hgu56p_visor_green","rhsusf_hgu56p","rhsusf_hgu56p_visor","rhsusf_hgu56p_saf","rhsusf_hgu56p_visor_saf"];
+	};
 	case (_par_customUni == 9): {
 		_giveRiflemanRadio = true;
 		_givePersonalRadio = false;

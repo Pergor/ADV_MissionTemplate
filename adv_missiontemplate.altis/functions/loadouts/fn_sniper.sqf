@@ -218,18 +218,21 @@ switch (_par_customWeap) do {
 	};
 	case 2: {
 		//RHS Army
-		_primaryweapon = ["rhs_weap_XM2010"];
-		_attachments = ["rhsusf_acc_LEUPOLDMK4_2"];
+		_primaryweapon = ["rhs_weap_m40a5"];
+		_attachments = ["rhsusf_acc_M8541_low"];
 		switch (true) do {
-			case ((toUpper worldname) in _var_lushMaps): {_primaryWeapon = ["rhs_weap_XM2010_wd"];};
+			case ((toUpper worldname) in _var_lushMaps): {
+				_primaryWeapon = ["rhs_weap_m40a5_wd"];
+				_attachments = ["rhsusf_acc_M8541_low_wd"];
+			};
 			case ((toUpper worldname) in _var_aridMaps): {
-				_primaryWeapon = ["rhs_weap_XM2010_d"];
-				_attachments = ["rhsusf_acc_LEUPOLDMK4_2_d"];
+				_primaryWeapon = ["rhs_weap_m40a5_d"];
+				_attachments = ["rhsusf_acc_M8541_low_d"];
 			};
 			default {};
 		};
 		_attachments pushback "rhsusf_acc_harris_bipod";
-		_silencer = "rhsusf_acc_M2010S";
+		_silencer = "";
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
@@ -249,7 +252,7 @@ switch (_par_customWeap) do {
 		};
 		*/
 		_primaryweapon = ["rhs_weap_m24sws_blk"];
-		_attachments = ["rhsusf_acc_premier","bipod_02_F_blk"];
+		_attachments = ["rhsusf_acc_M8541","bipod_02_F_blk"];
 		_silencer = "";
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
@@ -396,13 +399,13 @@ switch (_par_customUni) do {
 	};
 	case 7: {
 		//RHS OCP
-		_vest = ["rhsusf_iotv_ocp_Squadleader"];
+		_vest = ["rhsusf_mbav_medic"];
 		_backpack = ["rhsusf_falconii"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_14"];
 	};
 	case 8: {
 		//RHS UCP
-		_vest = ["rhsusf_iotv_ucp_Squadleader"];
+		_vest = ["rhsusf_mbav_medic"];
 		_backpack = ["rhsusf_falconii"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_14"];
 	};
@@ -416,7 +419,7 @@ switch (_par_customUni) do {
 				_headgear = ["rhs_Booniehat_marpatwd"];
 			};
 		};
-		_vest = ["rhsusf_spc_rifleman"];
+		_vest = ["rhsusf_mbav_medic"];
 		_backpack = ["rhsusf_falconii"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_14"];
 	};	

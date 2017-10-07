@@ -276,17 +276,15 @@ switch (true) do {
 	case (_par_customUni isEqualTo 1): {
 		//BWmod Tropen
 		_uniform = ["BWA3_Uniform_Helipilot"];
-		_helmet = ["BWA3_Knighthelm"];
+		_headgear = ["BWA3_Knighthelm"];
 	};
 	case (_par_customUni isEqualTo 2): {
 		//BWmod Fleck
 		_uniform = ["BWA3_Uniform_Helipilot"];
-		_helmet = ["BWA3_Knighthelm"];
+		_headgear = ["BWA3_Knighthelm"];
 	};	
-	case (_par_customUni >= 3 && _par_customUni < 7): {
-		//TFA Mixed
-	};	
-	case (_par_customUni isEqualTo 9): {
+	case (_par_customUni in [7,8,10]): {
+		_headgear = ["RHS_jetpilot_usaf"];
 	};
 	case (_par_customUni isEqualTo 12): {
 		//BWmod Fleck

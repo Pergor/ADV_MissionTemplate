@@ -348,15 +348,15 @@ switch (_par_customUni) do {
 		//RHS OCP
 		_uniform = ["rhs_uniform_cu_ocp"];
 		_vest = ["rhsusf_iotv_ocp_Repair"];
-		_headgear = ["rhsusf_mich_bare_tan_headset","rhsusf_ach_bare_tan_headset_ess"];
+		_headgear = ["rhsusf_cvc_green_helmet","rhsusf_cvc_green_alt_helmet","rhsusf_cvc_green_ess"];
 		_items pushBack "rhsusf_patrolcap_ocp";
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};
 	case 8: {
 		//RHS UCP
-		_uniform = ["rhs_uniform_cu_ucp"];
+		_uniform = ["rhs_uniform_acu_ucp"];
 		_vest = ["rhsusf_iotv_ucp_Repair"];
-		_headgear = ["rhsusf_ach_bare_headset_ess","rhsusf_mich_bare_headset"];
+		_headgear = ["rhsusf_cvc_helmet","rhsusf_cvc_alt_helmet","rhsusf_cvc_ess"];
 		_items pushBack "rhsusf_patrolcap_ucp";
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};
