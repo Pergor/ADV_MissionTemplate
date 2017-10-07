@@ -24,7 +24,7 @@ params [
 ];
 
 private _allComponents = ["MineDetectorDisplayComponent","MinimapDisplayComponent","CrewDisplayComponent","TransportFeedDisplayComponent","SensorsDisplayComponent","SlingLoadDisplayComponent"];
-private _components = _allComponents-_excluded;
+private _components = if (count _excluded > 0) then {_allComponents-_exclude} else {_allComponents};
 
 {_target enableInfoPanelComponent ["left",_x,_enable]; nil;} count _components;
 {_target enableInfoPanelComponent ["right",_x,_enable]; nil;} count _components;
