@@ -597,8 +597,8 @@ class param_opfTankAssets
 class param_opfHeliAssets
 {
 	title="Sollen Helikopter durch AddOn-Helikopter ersetzt werden?";
-	values[] = {99,24,23,22,21,20,0};
-	texts[] = {"Keine Helikopter","RHS Civilian","RHS CAS only","RHS Transport + Ka52","RHS Transport + Mi24","RHS Transport","Nein"};
+	values[] = {99,25,24,23,22,21,20,0};
+	texts[] = {"Keine Helikopter","RHS Civilian","RHS CAS only", "RHS Transport + Mi28", "RHS Transport + Ka52","RHS Transport + Mi24","RHS Transport","Nein"};
 	default = 0;
 };
 class param_opfAirAssets
