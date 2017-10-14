@@ -100,14 +100,7 @@ if ( isClass(configFile >> "CfgPatches" >> "rhs_main") ) then {
 };
 
 if !(backpack _target isEqualTo "") then { removeBackpack _target; };
-if ( isClass(configFile >> "CfgPatches" >> "ace_mk6mortar") && (_type isEqualTo 3 || _type isEqualTo 4) ) then {
-	_target addItem "ACE_RangeTable_82mm";
-};
-if ( isClass(configFile >> "CfgPatches" >> "ACE_trenches") && !isNil "_ACE_EntrenchingTool" && (_type isEqualTo 3 || _type isEqualTo 4) ) then {
-	if (_ACE_EntrechningTool isEqualTo 0) then {
-		_target addItem "ACE_EntrenchingTool";
-	};
-};
+
 _target addBackpack _backpack;
 
 true;

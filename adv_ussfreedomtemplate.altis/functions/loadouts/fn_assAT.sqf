@@ -5,7 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
-params ["_player"];
+params ["_player","_special"];
 /*
  * Author: Belbo
  *
@@ -27,7 +27,7 @@ params ["_player"];
 _uniform = ["U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam_vest"];
 _vest = ["V_PlateCarrier2_rgr","V_PlateCarrier1_rgr"];
 _headgear = ["H_HelmetB_paint"];
-_backpack = ["B_Kitbag_cbr"];
+_backpack = ["B_Carryall_cbr"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";

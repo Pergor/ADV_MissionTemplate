@@ -5,7 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
-params ["_player"];
+params ["_player","_special"];
 /*
  * Author: Belbo
  *
@@ -27,7 +27,7 @@ params ["_player"];
 _uniform = ["U_O_CombatUniform_ocamo"];
 _vest = ["V_HarnessOSpec_brn"];
 _headgear = ["H_HelmetSpecO_ocamo","H_HelmetO_ocamo"];
-_backpack = [""];
+_backpack = if (_special isEqualTo "AT") then {["backpackdummy"]} else {[""]};
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
@@ -82,6 +82,14 @@ _launcher = "";
 
 //launcher ammo (if a launcher is given) - (integer) 
 _launcherAmmo = [0,0];
+
+if (_special isEqualTo "AT") then {
+	_launcher = "launch_RPG32_F";
+	if (worldName == "TANOA" || _par_opfWeap == 20) then {
+		_launcher = "launch_RPG32_ghex_F";
+	};
+	_launcherAmmo = [1,0];
+};
 
 //binocular - (string)
 _binocular = "";
@@ -216,6 +224,7 @@ switch (_par_opfWeap) do {
 		_handgun = "rhs_weap_makarov_pmm";
 		_itemsHandgun = [];
 		_handgunSilencer = "";
+		if (_special isEqualTo "AT") then { _launcher = "rhs_weap_rshg2"; };
 	};
 	case 2: {
 		//RHS Guerilla
@@ -226,6 +235,7 @@ switch (_par_opfWeap) do {
 		_handgun = "";
 		_itemsHandgun = [];
 		_handgunSilencer = "";
+		if (_special isEqualTo "AT") then { _launcher = "rhs_weap_rpg26"; };
 	};
 	case 3: {
 		//CUP
@@ -236,6 +246,7 @@ switch (_par_opfWeap) do {
 		_handgun = "CUP_hgun_PB6P9";
 		_itemsHandgun = [];
 		_handgunSilencer = "CUP_muzzle_PB6P9";
+		if (_special isEqualTo "AT") then { _launcher = "CUP_launch_RPG18"; };
 	};
 	case 4: {
 		//HLC AK
@@ -248,11 +259,15 @@ switch (_par_opfWeap) do {
 			_itemsHandgun = [""];
 			_handgunSilencer = "RH_pmsd";
 		};
+		if ( isClass (configFile >> "CfgPatches" >> "rhs_main") && _special isEqualTo "AT" ) then {
+			_launcher = "rhs_weap_rshg2";
+		};
 	};
 	case 21: {
 		//Apex AK12
 		_primaryWeapon = "arifle_AK12_F";
 		_silencer = "muzzle_snds_B";
+		if (_special isEqualTo "AT") then { _launcher = "launch_RPG32_ghex_F"; };
 	};
 	default {};
 };
@@ -300,6 +315,10 @@ switch (_par_opfUni) do {
 		_headgear = ["","H_Shemag_olive","H_ShemagOpen_tan","H_ShemagOpen_khk","Afghan_01Hat","Afghan_02Hat","Afghan_03Hat","Afghan_04Hat","Afghan_05Hat","Afghan_06Hat"];
 		_goggles = "";
 		_useProfileGoggles = 0;
+		if (_special isEqualTo "AT") then {
+			if ( _par_opfWeap==1 || _par_opfWeap==2 ) then {_launcher = "rhs_weap_rpg7";};
+			if (_par_opfWeap==3) then {_launcher = "CUP_launch_RPG7V";};
+		};
 	};
 	case 20: {
 		//Apex Green Hex

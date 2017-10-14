@@ -5,7 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
-params ["_player"];
+params ["_player","_special"];
 /*
  * Author: Belbo
  *
@@ -219,7 +219,7 @@ switch (_par_customWeap) do {
 		_handgun = "BWA3_P8";
 		_itemsHandgun = [];
 		_handgunSilencer = "";
-		_launcher = "BWA3_Pzf3";
+		if (_special isEqualTo "AT") then { _launcher = "BWA3_Pzf3" };
 	};
 	case 2: {
 		//RHS ARMY
@@ -242,7 +242,7 @@ switch (_par_customWeap) do {
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
-		_launcher=["rhs_weap_M136","rhs_weap_m72a7"];
+		if (_special isEqualTo "AT") then { _launcher=["rhs_weap_M136","rhs_weap_m72a7"] };
 	};
 	case 3: {
 		//RHS Marines
@@ -280,7 +280,7 @@ switch (_par_customWeap) do {
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=[];
 		_handgunSilencer = "CUP_muzzle_snds_M9";
-		_launcher="CUP_launch_M136";
+		if (_special isEqualTo "AT") then { _launcher="CUP_launch_M136"; };
 	};
 	case 6: {
 		//SELmods CUP M4
@@ -291,7 +291,7 @@ switch (_par_customWeap) do {
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=[];
 		_handgunSilencer = "CUP_muzzle_snds_M9";
-		_launcher="CUP_launch_M136";
+		if (_special isEqualTo "AT") then { _launcher="CUP_launch_M136"; };
 	};
 	case 7: {
 		//BAF

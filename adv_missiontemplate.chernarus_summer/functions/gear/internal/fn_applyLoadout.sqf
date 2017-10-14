@@ -16,12 +16,14 @@
  */
 
 params [
-	["_target", player, [objNull]],
-	"_playerUnit"
+	["_target", player, [objNull]]
 ];
 if (side _target isEqualTo sideLogic) exitWith {};
-_playerUnit = toUpper (_target getVariable ["ADV_var_playerUnit","ADV_fnc_nil"]);
-if ( _playerUnit isEqualTo "ADV_FNC_NIL" ) exitWith {};
+
+private _playerUnit = (_target getVariable ["ADV_var_playerUnit",["ADV_fnc_nil",""]]) apply {toUpper _x};
+_playerUnit params ["_function","_special"];
+
+if ( _function isEqualTo "ADV_FNC_NIL" ) exitWith {};
 
 //mission variables and parameters:
 private [
@@ -32,8 +34,8 @@ private [
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 
 //special stuff for zeus
-if (_playerUnit isEqualTo "ADV_FNC_ZEUS") then {
-	_playerUnit = switch ( side (group _target) ) do {
+if (_function isEqualTo "ADV_FNC_ZEUS") then {
+	_function = switch ( side (group _target) ) do {
 		case west: {"ADV_FNC_COMMAND"};
 		case east: {"ADV_OPF_FNC_COMMAND"};
 		case independent: {"ADV_IND_FNC_COMMAND"};
@@ -50,7 +52,7 @@ if (_playerUnit isEqualTo "ADV_FNC_ZEUS") then {
 
 //respawn gear switch
 if (_par_customLoad > 0) then {
-	_target call compile format ["[_this] call %1",_playerUnit];
+	[_target,_special] call compile format ["_this call %1",_function];
 
 	[_target] spawn {
 		params ["_target"];

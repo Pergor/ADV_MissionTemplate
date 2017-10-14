@@ -55,6 +55,7 @@ class adv
 		class addVehicleLoad {};
 		class changeVeh {};
 		class disableVehSelector {};
+		class enableInfoComponent {};
 		class manageVeh {};
 		class nil {};
 		class rhsDecals {};

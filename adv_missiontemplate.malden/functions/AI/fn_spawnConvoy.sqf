@@ -85,7 +85,10 @@ _wp setWaypointBehaviour _behaviour;
 _wp setWaypointCombatMode _combatMode;
 _wp setWaypointSpeed _speed;
 _wp setWaypointFormation _formation;
-_wp setWaypointStatements ["true", "vehicle this land 'GET OUT'"];
+_wp setWaypointStatements ["true", "vehicle this land 'GET OUT'; driver (vehicle this) disableAi 'FSM'; driver (vehicle this) disableAi 'AUTOTARGET';"];
+
+private _wpFollow = _grp addWaypoint [getWPPos _wp, 0];
+_wpFollow setWaypointStatements ["true", "driver (vehicle this) enableAi 'FSM'; driver (vehicle this) enableAi 'AUTOTARGET';"];
 
 //get all vehicles of vehicle group:
 private _allVehiclesConvoy = [_grp] call adv_fnc_getGroupVehicles;

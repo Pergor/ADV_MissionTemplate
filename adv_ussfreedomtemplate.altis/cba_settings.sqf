@@ -104,3 +104,6 @@ asr_ai3_main_debug_setcamo = false;
 asr_ai3_main_debug_findcover = false;
 asr_ai3_main_debug_rearm = false;
 asr_ai3_main_debug_reveal = false;
+
+//NIArms:
+niarms_magSwitch = true;

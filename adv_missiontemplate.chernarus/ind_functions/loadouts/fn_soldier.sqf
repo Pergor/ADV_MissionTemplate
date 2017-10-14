@@ -5,7 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
-params ["_player"];
+params ["_player","_special"];
 /*
  * Author: Belbo
  *
@@ -27,7 +27,7 @@ params ["_player"];
 _uniform = ["U_I_CombatUniform","U_I_CombatUniform_shortsleeve"];
 _vest = ["V_PlateCarrierIA2_dgtl","V_PlateCarrierIA1_dgtl"];
 _headgear = ["H_HelmetIA"];
-_backpack = [""];
+_backpack = if (_special isEqualTo "AT") then {["backpackdummy"]} else {[""]};
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "G_Combat";
@@ -72,10 +72,10 @@ _handgunSilencer = "muzzle_snds_acp";
 _handgunAmmo = [2,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //weapons - launcher - (string)
-_launcher = "";
+_launcher = if (_special isEqualTo "AT") then {"launch_NLAW_F"} else {""};
 
 //launcher ammo (if a launcher is given) - (integer) 
-_launcherAmmo = [0,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_launcherAmmo = if (_special isEqualTo "AT") then {[1,0]} else {[0,0]};		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //binocular - (string)
 _binocular = "";
@@ -216,6 +216,7 @@ switch (_par_indWeap) do {
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
+		if (_special isEqualTo "AT") then { _launcher = "rhs_weap_M136"; };
 	};
 	case 3: {
 		_primaryWeapon = ["hlc_rifle_FAL5061","hlc_rifle_g3a3ris","hlc_rifle_STG58F","hlc_rifle_L1A1SLR"];
@@ -226,6 +227,9 @@ switch (_par_indWeap) do {
 			_handgun = ["RH_m1911"];
 			_itemsHandgun = [""];
 			_handgunSilencer = "";
+		};
+		if (isClass(configFile >> "CfgPatches" >> "rhsusf_main") && _special isEqualTo "AT") then {
+			_launcher = "rhs_weap_M136";
 		};
 	};
 	case 20: {
@@ -241,6 +245,10 @@ switch (_par_indWeap) do {
 		_optic = [""];
 		if ( _par_NVGs == 2 ) then { _attachments = _attachments-["acc_pointer_IR"]; };
 		_silencer = "";
+		if (_special isEqualTo "AT") then {
+			_launcher = "launch_RPG7_F";
+			_launcherAmmo = [1,0];
+		};
 	};
 	default {};
 };

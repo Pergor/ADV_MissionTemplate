@@ -5,7 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
-params ["_player"];
+params ["_player","_special"];
 /*
  * Author: Belbo
  *
@@ -77,6 +77,7 @@ _handgunAmmo = [2,0];		//first number: Amount of magazines, second number: confi
 
 //weapons - launcher - (string)
 _launcher = "launch_B_Titan_short_F";
+if (_special isEqualTo "AA") then {_launcher = "launch_B_Titan_F"};
 
 //launcher ammo (if a launcher is given) - (integer) 
 _launcherAmmo = [2,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
@@ -220,7 +221,11 @@ switch (_par_customWeap) do {
 		_itemsHandgun = [];
 		_handgunSilencer = "";
 		_launcher = "BWA3_Pzf3";
-		_launcherAmmo = [1,0];
+		if (_special isEqualTo "AA") then {
+			_launcher = "BWA3_Fliegerfaust";
+		} else {
+			_launcherAmmo = [1,0];
+		};
 	};
 	case 2: {
 		//RHS ARMY
@@ -235,6 +240,10 @@ switch (_par_customWeap) do {
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
 		_launcher = "rhs_weap_fgm148";
+		_backpack = ["B_Carryall_cbr"];
+		if (_special isEqualTo "AA") then {
+			_launcher="rhs_weap_fim92";
+		};
 	};
 	case 3: {
 		//RHS Marines
@@ -247,9 +256,14 @@ switch (_par_customWeap) do {
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
-		_launcher = "rhs_weap_smaw_green";
-		_additionalAmmo = [2,"rhs_mag_smaw_SR"];
-		if (_par_optics > 0) then { _items pushBack "rhs_weap_optic_smaw"; };
+		if (_special isEqualTo "AA") then {
+			_launcher="rhs_weap_fim92";
+		} else {
+			_backpack = ["B_Carryall_cbr"];
+			_launcher = "rhs_weap_smaw_green";
+			_additionalAmmo = [2,"rhs_mag_smaw_SR"];
+			if (_par_optics > 0) then { _items pushBack "rhs_weap_optic_smaw"; };
+		};
 	};
 	case 4: {
 		//RHS SOF
@@ -263,7 +277,11 @@ switch (_par_customWeap) do {
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
+		_backpack = ["B_Carryall_cbr"];
 		_launcher = "rhs_weap_fgm148";
+		if (_special isEqualTo "AA") then {
+			_launcher="rhs_weap_fim92";
+		};
 	};
 	case 5: {
 		//SELmods Mk16
@@ -275,6 +293,11 @@ switch (_par_customWeap) do {
 		_itemsHandgun=[];
 		_handgunSilencer = "CUP_muzzle_snds_M9";
 		_launcher="CUP_launch_Javelin";
+		_backpack = ["B_Carryall_cbr"];
+		if (_special isEqualTo "AA") then {
+			_launcher="CUP_launch_FIM92Stinger";
+			_launcherAmmo = [1,0];
+		};
 	};
 	case 6: {
 		//SELmods M4
@@ -286,6 +309,11 @@ switch (_par_customWeap) do {
 		_itemsHandgun=[];
 		_handgunSilencer = "CUP_muzzle_snds_M9";
 		_launcher="CUP_launch_Javelin";
+		_backpack = ["B_Carryall_cbr"];
+		if (_special isEqualTo "AA") then {
+			_launcher="CUP_launch_FIM92Stinger";
+			_launcherAmmo = [1,0];
+		};
 	};
 	case 7: {
 		//BAF
@@ -297,6 +325,11 @@ switch (_par_customWeap) do {
 		_itemsHandgun=["CUP_acc_Glock17_Flashlight"];
 		_handgunSilencer = "muzzle_snds_L";
 		_launcher="CUP_launch_Javelin";
+		_backpack = ["B_Carryall_cbr"];
+		if (_special isEqualTo "AA") then {
+			_launcher="CUP_launch_FIM92Stinger";
+			_launcherAmmo = [1,0];
+		};
 	};
 	case 8: {
 		//UK3CB
@@ -308,8 +341,10 @@ switch (_par_customWeap) do {
 		_handgun = "UK3CB_BAF_L131A1";
 		_itemsHandgun=["UK3CB_BAF_Flashlight_L131A1"];
 		_handgunSilencer = "muzzle_snds_L";
-		_launcher = "UK3CB_BAF_Javelin_Slung_Tube";
-		_binocular = "UK3CB_BAF_Javelin_CLU";
+		if !(_special isEqualTo "AA") then {
+			_launcher = "UK3CB_BAF_Javelin_Slung_Tube";
+			_binocular = "UK3CB_BAF_Javelin_CLU";
+		};
 	};
 	case 9: {
 		_primaryWeapon = ["hlc_rifle_g3a3ris","hlc_rifle_g3a3ris","hlc_rifle_g3a3ris","hlc_rifle_FAL5061","hlc_rifle_STG58F","hlc_rifle_L1A1SLR"];
@@ -323,6 +358,10 @@ switch (_par_customWeap) do {
 		};
 		if (isClass(configFile >> "CfgPatches" >> "rhsusf_main")) then {
 			_launcher="rhs_weap_fgm148";
+			_backpack = ["B_Carryall_cbr"];
+			if (_special isEqualTo "AA") then {
+				_launcher="rhs_weap_fim92";
+			};
 		};
 	};
 	case 20: {
@@ -336,7 +375,10 @@ switch (_par_customWeap) do {
 		_silencer = "muzzle_snds_M";
 		_primaryweaponAmmo set [1,2];
 		_optic = ["optic_ACO","optic_Holosight_blk_F"];
-		if !((toUpper worldname) in _var_aridMaps) then { _launcher = "launch_B_Titan_short_tna_F"; };
+		if ((toUpper worldname) in _var_lushMaps) then {
+			_launcher = "launch_B_Titan_short_tna_F";
+			if (_special isEqualTo "AA") then {_launcher = "launch_B_Titan_tna_F"};
+		};
 	};
 	default {};
 };
@@ -367,15 +409,6 @@ switch (_par_customUni) do {
 			_items pushback "PBW_muetze1_fleck";
 		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
-	};
-	case 3: {
-		//TFA Mixed
-	};
-	case 4: {
-		//TFA Woodland
-	};
-	case 5: {
-		//TFA Desert
 	};
 	case 6: {
 		//CUP BAF
@@ -494,7 +527,8 @@ switch (_par_customUni) do {
 	default {};
 };
 
-if (_par_customWeap == 1 || _par_customWeap == 6) then { _backpack = ["backpackdummy"]; };
+if ( _par_customWeap in [1] && !(_special isEqualTo "AA") ) then { _backpack = ["backpackdummy"]; };
+if ( _par_customWeap in [5,6,7] && (_special isEqualTo "AA") ) then { _backpack = ["backpackdummy"]; };
 
 ///// No editing necessary below this line /////
 

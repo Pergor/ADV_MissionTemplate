@@ -5,7 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
-params ["_player"];
+params ["_player","_special"];
 /*
  * Author: Belbo
  *
@@ -225,10 +225,10 @@ switch (_par_opfWeap) do {
 		_attachments = ["rhs_acc_dtk4short"];
 		if ( _par_opfNVGs == 1 ) then { _attachments pushBack "rhs_acc_2dpZenit"; };
 		if ( _par_opfNVGs == 2 ) then { _attachments pushback "rhs_acc_perst1ik"; };
-		_handgun = "rhs_weap_pya";
-		_itemsHandgun = [];
+		_handgun = "rhs_weap_pb_6p9";
+		_itemsHandgun = ["rhs_acc_6p9_suppressor"];
 		_handgunSilencer = "";
-		_additionalAmmo = [5,"rhs_10Rnd_762x54mmR_7N1",true];
+		_additionalAmmo = [5,"rhs_5Rnd_338lapua_t5000",true];
 	};
 	case 2: {
 		//RHS Guerilla

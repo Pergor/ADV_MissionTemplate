@@ -5,7 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
-params ["_player"];
+params ["_player","_special"];
 /*
  * Author: Belbo
  *
@@ -30,8 +30,19 @@ _headgear = ["H_HelmetIA"];
 _backpack = ["B_Carryall_oli"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
-_goggles = "G_Lowprofile";
+_goggles = "G_Combat";
 _unitTraits = [["medic",false],["engineer",true],["explosiveSpecialist",true],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0]];
+if (_special isEqualTo "EOD") then {
+	_vest = "V_EOD_olive_F";
+	_headgear = ["H_PASGT_basic_olive_F"];
+	_backpack = ["B_Messenger_Coyote_F"];
+	_useProfileGoggles = 0;
+	(_unitTraits select 1) set [1,false];
+};
+if (_special isEqualTo "REPAIR") then {
+	_backpack = ["B_Assaultpack_rgr"];
+	(_unitTraits select 2) set [1,false];
+};
 
 //weapons - primary weapon - (string)
 _primaryWeapon = ["arifle_Mk20C_F","arifle_Mk20C_plain_F","arifle_Mk20_F","arifle_Mk20_plain_F"];
@@ -248,10 +259,15 @@ switch (_par_indWeap) do {
 switch (_par_indUni) do {
 	case 1: {
 	//PMC uniforms
-		_uniform = ["U_IG_Guerrilla_6_1","U_IG_Guerilla2_2","U_IG_Guerilla2_1","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_C_HunterBody_grn","U_Rangemaster","U_C_Poor_1","U_Competitor"];
+		_uniform = ["U_IG_Guerrilla_6_1","U_IG_Guerilla2_2","U_IG_Guerilla2_1","U_IG_Guerilla2_3","U_Rangemaster","U_C_Poor_1","U_Competitor"];
 		_vest = ["V_PlateCarrier1_blk","V_PlateCarrierIAGL_oli","V_PlateCarrierGL_blk"];
 		_headgear = ["H_Cap_blk","H_Cap_blu","H_Cap_blk_CMMG","H_Cap_grn","H_Cap_oli","H_Cap_oli_hs","H_Cap_red","H_Cap_tan","H_MilCap_blue","H_MilCap_gry","H_Cap_headphones"];
 		_backpack = ["B_Carryall_khk"];
+		if (_special isEqualTo "EOD") then {
+			_vest = "V_EOD_olive_F";
+			_headgear = ["H_PASGT_basic_olive_F"];
+			_backpack = ["B_Messenger_Coyote_F","B_Messenger_Black_F","B_Messenger_Olive_F","B_Messenger_Gray_F"];
+		};
 	};
 	case 2: {
 	//TFA uniforms
@@ -265,12 +281,43 @@ switch (_par_indUni) do {
 		_vest = ["V_TacChestrig_grn_F","V_TacChestrig_cbr_F","V_TacChestrig_oli_F","V_HarnessO_brn","V_HarnessO_ghex_F","V_TacVest_oli","V_I_G_resistanceLeader_F"];
 		_headgear = ["H_Cap_headphones","H_Shemag_olive","H_MilCap_gry","H_MilCap_blue","H_Cap_oli","H_Cap_grn","H_Booniehat_oli","H_Bandanna_khk","","","",""];
 		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDLandSmall_Remote_Mag","APERSTripMine_Wire_Mag","APERSTripMine_Wire_Mag"];
+		if (_special isEqualTo "EOD") then {
+			_vest = ["V_EOD_olive_F","V_EOD_coyote_F"];
+			_headgear = ["H_PASGT_basic_olive_F"];
+			_backpack = ["B_Messenger_Coyote_F","B_Messenger_Black_F","B_Messenger_Olive_F","B_Messenger_Gray_F"];
+		};
 		_ACE_Clacker = 0;
 		_ACE_M26_Clacker = 0;
 		_ACE_DeadManSwitch = 0;
 		_ACE_DefusalKit = 0;
 		_ACE_Cellphone = 1;
 	};
+};
+
+if (_special isEqualTo "REPAIR") then {
+	_itemsBackpack = ["ToolKit"];
+	_ACE_key = 1;
+	_ACE_M26_Clacker = 0;
+	_ACE_DefusalKit = 0;
+	_ACE_Cellphone = 0;
+	_ACE_sprayPaintColor = "NONE";
+	_ACE_EntrenchingTool = 0;
+	_ACE_isEngineer = 2;
+	_ACE_isEOD = false;
+};
+if (_special isEqualTo "EOD") then {
+	_useProfileGoggles = 0;
+	_primaryweaponAmmo set [0,6];
+	_itemsBackpack = ["ToolKit","MineDetector","DemoCharge_Remote_Mag","DemoCharge_Remote_Mag"];
+	if (isClass(configFile >> "CfgPatches" >> "ace_explosives")) then {
+		_itemsBackpack = _itemsBackpack-["ToolKit"];
+	};
+	_ACE_M26_Clacker = 0;
+	_ACE_Clacker = 1;
+	_ACE_Cellphone = 0;
+	_ACE_key = 0;
+	_ACE_isEngineer = 0;
+	_ACE_EntrenchingTool = 0;
 };
 
 ///// No editing necessary below this line /////

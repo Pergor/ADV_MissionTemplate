@@ -21,6 +21,10 @@ ADV_spawnVar = missionNamespace getVariable ["ADV_spawnVar",0];
 missionNamespace setVariable ["ADV_var_useDLCContent",1];
 
 //missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true];
+if (isClass(configFile >> "CfgPatches" >> "ace_cookoff")) then {
+	["O_APC_Wheeled_02_base_F", "init", { (_this select 0) setVariable ["ace_cookoff_enable", false, true]; }, true, [], true] call CBA_fnc_addClassEventHandler;
+	["B_APC_Tracked_01_base_F", "init", { (_this select 0) setVariable ["ace_cookoff_enable", false, true]; }, true, ["B_APC_Tracked_01_AA_F"], true] call CBA_fnc_addClassEventHandler;
+};
 
 /*
 adv_par_customUni = missionNamespace getVariable ["adv_par_customUni", ["param_customUni",0] call BIS_fnc_getParamValue];
@@ -34,25 +38,32 @@ adv_par_l_suppress = missionNamespace getVariable ["adv_par_l_suppress", ["param
 		
 //map variables:
 ADV_var_aridMaps = [
-	"MCN_ALIABAD","BMFAYSHKHABUR","CLAFGHAN","FALLUJAH","FATA","HELLSKITCHEN","HELLSKITCHENS","MCN_HAZARKOT","PRAA_AV","RESHMAAN",
-	"SHAPUR_BAF","TAKISTAN","TORABORA","TUP_QOM","ZARGABAD","PJA307","PJA306","MOUNTAINS_ACR","TUNBA","KUNDUZ","PORTO"
+	"SHAPUR_BAF","TAKISTAN","MOUNTAINS_ACR","ZARGABAD","PORTO"
+	,"MCN_ALIABAD","BMFAYSHKHABUR","CLAFGHAN","FALLUJAH","FATA","HELLSKITCHEN","HELLSKITCHENS","MCN_HAZARKOT","PRAA_AV","RESHMAAN","FAYSHKHABUR"
+	,"TORABORA","TUP_QOM","PJA307","PJA306","TUNBA","KUNDUZ","AUSTRALIA","DINGOR3"
 ];
 ADV_var_sAridMaps = [
-	"STRATIS","ALTIS","MALDEN","ISLADUALA3"
+	"STRATIS","ALTIS","MALDEN"
+	,"SARA","SARALITE","SARA_DBE1"
+	,"ISLADUALA3","GORGONA"
 ];
 ADV_var_lushMaps = [
-	"LINGOR3","MAK_JUNGLE","PJA305","TROPICA","TIGERIA","TIGERIA_SE","SARA","SARALITE","SARA_DBE1","INTRO","CHERNARUS","CHERNARUS_SUMMER",
-	"FDF_ISLE1_A","MBG_CELLE2","WOODLAND_ACR","BOOTCAMP_ACR","THIRSK","BORNHOLM","UTES","ANIM_HELVANTIS_V2","ABRAMIA","PANTHERA3","VT5",
 	"TANOA"
+	,"INTRO","CHERNARUS","CHERNARUS_SUMMER","UTES","WOODLAND_ACR","BOOTCAMP_ACR"
+	,"LINGOR3","MAK_JUNGLE","PJA305","TROPICA","TIGERIA","TIGERIA_SE","FDF_ISLE1_A","MBG_CELLE2","CELLE","THIRSK","BORNHOLM","ABRAMIA","PANTHERA3","VT5"
+	,"PREI_KHMAOCH_LUONG","CARIBOU","NOGOVA2010","ESSEKER"
 ];
 ADV_var_jungleMaps = [
-	"TANOA",
-	"LINGOR3","MAK_JUNGLE","PJA305","TROPICA","TIGERIA","TIGERIA_SE"
+	"TANOA"
+	,"PREI_KHMAOCH_LUONG","LINGOR3","MAK_JUNGLE","PJA305","TROPICA","TIGERIA","TIGERIA_SE"
+];
+ADV_var_snowMaps = [
+	"ANIM_HELVANTIS_V2","THIRSK_WINTER","ANTARCTICA","NAMALSK"
 ];
 ADV_var_europeMaps = [
-	"STRATIS","ALTIS","MALDEN",
-	"SARA","SARALITE","SARA_DBE1","INTRO","CHERNARUS","CHERNARUS_SUMMER",
-	"FDF_ISLE1_A","MBG_CELLE2","WOODLAND_ACR","BOOTCAMP_ACR","THIRSK","BORNHOLM","UTES","ANIM_HELVANTIS_V2","ABRAMIA","PANTHERA3","VT5"
+	"STRATIS","ALTIS","MALDEN"
+	,"SARA","SARALITE","SARA_DBE1","INTRO","CHERNARUS","CHERNARUS_SUMMER","WOODLAND_ACR","BOOTCAMP_ACR","UTES"
+	,"FDF_ISLE1_A","MBG_CELLE2","CELLE","THIRSK","THIRSK_WINTER","BORNHOLM","ANIM_HELVANTIS_V2","ABRAMIA","PANTHERA3","VT5","GORGONA","CARIBOU","NAMALSK","NOGOVA2010","ESSEKER"
 ];
 ADV_var_vanillaMaps = [
 	"STRATIS","ALTIS","TANOA","MALDEN"

@@ -5,7 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
-params ["_player"];
+params ["_player","_special"];
 /*
  * Author: Belbo
  *
@@ -27,7 +27,7 @@ params ["_player"];
 _uniform = ["U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam_vest","U_B_CombatUniform_mcam","U_B_CombatUniform_mcam"];
 _vest = ["V_PlateCarrier2_rgr","V_PlateCarrier1_rgr"];
 _headgear = ["H_HelmetSpecB_paint1","H_HelmetSpecB_paint2","H_HelmetB_black","H_HelmetB","H_HelmetB_desert","H_HelmetB_grass","H_HelmetB_paint"];
-_backpack = [""];
+_backpack = if (_special isEqualTo "AT") then {["backpackdummy"]} else {[""]};
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "G_Combat";
@@ -76,10 +76,10 @@ _handgunSilencer = "muzzle_snds_acp";
 _handgunAmmo = [2,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //weapons - launcher - (string)
-_launcher = "";
+_launcher = if (_special isEqualTo "AT") then {"launch_NLAW_F"} else {""};
 
 //launcher ammo (if a launcher is given) - (integer) 
-_launcherAmmo = [0,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_launcherAmmo = if (_special isEqualTo "AT") then {[1,0]} else {[0,0]};		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //binocular - (string)
 _binocular = "";
@@ -118,7 +118,7 @@ _items = [];
 if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 };
 
-	//CustomMod items//
+//CustomMod items//
 
 //TFAR or ACRE radios
 _giveRiflemanRadio = true;
@@ -219,6 +219,7 @@ switch (_par_customWeap) do {
 		_handgun = "BWA3_P8";
 		_itemsHandgun = [];
 		_handgunSilencer = "";
+		if (_special isEqualTo "AT") then { _launcher = "BWA3_Pzf3"; };
 	};
 	case 2: {
 		//RHS ARMY
@@ -241,6 +242,7 @@ switch (_par_customWeap) do {
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
+		if (_special isEqualTo "AT") then { _launcher = ["rhs_weap_M136","rhs_weap_m72a7"]; };
 	};
 	case 3: {
 		//RHS Marines
@@ -253,6 +255,7 @@ switch (_par_customWeap) do {
 		_handgun = "rhsusf_weap_m1911a1";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
+		if (_special isEqualTo "AT") then { _launcher=["rhs_weap_M136","rhs_weap_m72a7"]; };
 	};
 	case 4: {
 		//RHS SOF
@@ -266,6 +269,7 @@ switch (_par_customWeap) do {
 		_handgun = "rhsusf_weap_m9";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
+		if (_special isEqualTo "AT") then { _launcher=["rhs_weap_M136","rhs_weap_m72a7"]; };
 	};
 	case 5: {
 		//CUP Mk16
@@ -277,6 +281,7 @@ switch (_par_customWeap) do {
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=[];
 		_handgunSilencer = "CUP_muzzle_snds_M9";
+		if (_special isEqualTo "AT") then { _launcher="CUP_launch_M136"; };
 	};
 	case 6: {
 		//CUP M4
@@ -288,15 +293,18 @@ switch (_par_customWeap) do {
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=[];
 		_handgunSilencer = "CUP_muzzle_snds_M9";
+		if (_special isEqualTo "AT") then { _launcher="CUP_launch_M136"; };
 	};
 	case 7: {
 		//BAF
 		_primaryweapon="CUP_arifle_L85A2";
 		_optic = ["CUP_optic_SUSAT","CUP_optic_ACOG"];
+		_attachments = [];
 		_silencer = "CUP_muzzle_snds_L85";
 		_handgun="CUP_hgun_Glock17";
 		_itemsHandgun=["CUP_acc_Glock17_Flashlight"];
 		_handgunSilencer = "muzzle_snds_L";
+		if (_special isEqualTo "AT") then { _launcher = "CUP_launch_M136"; };
 	};
 	case 8: {
 		//UK3CB
@@ -308,6 +316,7 @@ switch (_par_customWeap) do {
 		_handgun = "UK3CB_BAF_L131A1";
 		_itemsHandgun=["UK3CB_BAF_Flashlight_L131A1"];
 		_handgunSilencer = "muzzle_snds_L";
+		if (_special isEqualTo "AT") then { _launcher = "UK3CB_BAF_AT4_AP_Launcher"; };
 	};
 	case 9: {
 		//HLC
@@ -319,6 +328,9 @@ switch (_par_customWeap) do {
 			_handgun = ["RH_m1911"];
 			_itemsHandgun = [""];
 			_handgunSilencer = "";
+		};
+		if (isClass(configFile >> "CfgPatches" >> "rhsusf_main") && _special isEqualTo "AT") then {
+			_launcher = "rhs_weap_M136";
 		};
 	};
 	case 20: {
@@ -430,7 +442,7 @@ switch (_par_customUni) do {
 		_headgear = ["UK3CB_BAF_H_Mk7_Camo_A","UK3CB_BAF_H_Mk7_Camo_B","UK3CB_BAF_H_Mk7_Camo_C","UK3CB_BAF_H_Mk7_Camo_D","UK3CB_BAF_H_Mk7_Camo_E","UK3CB_BAF_H_Mk7_Camo_F","UK3CB_BAF_H_Mk7_Net_A","UK3CB_BAF_H_Mk7_Net_B","UK3CB_BAF_H_Mk7_Net_C","UK3CB_BAF_H_Mk7_Net_D"];
 		//_backpack = ["UK3CB_BAF_B_Bergen_MTP_Rifleman_H_A","UK3CB_BAF_B_Bergen_MTP_Rifleman_H_B","UK3CB_BAF_B_Bergen_MTP_Rifleman_H_C"];
 		_items pushBack "UK3CB_BAF_H_Beret_RM_Bootneck";
-		_itemsLink = (_itemsLink-["NVGoggles_OPFOR"]) pushBack "UK3CB_BAF_HMNVS";
+		_itemsLink = _itemsLink-["NVGoggles_OPFOR"] + "UK3CB_BAF_HMNVS";
 	};
 	case 13: {
 		//TRYK SpecOps

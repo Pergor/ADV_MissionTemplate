@@ -5,7 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
-params ["_player"];
+params ["_player","_special"];
 /*
  * Author: Belbo
  *
@@ -126,8 +126,8 @@ _ACE_EarPlugs = 1;
 
 _ace_FAK = 1;		//Adds a standard amount of medical items. Defined in fn_aceFAK.sqf
 _ACE_fieldDressing = 0;
-_ACE_packingBandage = 0;
 _ACE_elasticBandage = 0;
+_ACE_packingBandage = 0;
 _ACE_quikclot = 0;
 _ACE_atropine = 0;
 _ACE_adenosine = 0;
@@ -144,10 +144,11 @@ _ACE_salineIV = 0;
 _ACE_salineIV_500 = 0;
 _ACE_salineIV_250 = 0;
 _ACE_bodyBag = 0;
-_ACE_personalAidKit = 0;
 _ACE_surgicalKit = 0;
+_ACE_personalAidKit = 0;
 
 _ACE_SpareBarrel = 0;
+_ACE_EntrenchingTool = 0;
 _ACE_UAVBattery = 0;
 _ACE_wirecutter = 0;
 _ACE_Clacker = 0;
@@ -158,7 +159,6 @@ _ACE_Cellphone = 0;
 _ACE_FlareTripMine = 0;
 _ACE_MapTools = 1;
 _ACE_CableTie = 0;
-_ACE_EntrenchingTool = 0;
 _ACE_sprayPaintColor = "NONE";
 _ACE_gunbag = 0;
 
@@ -182,7 +182,7 @@ _ACE_HandFlare_Yellow = 0;
 
 //AGM Variables (if AGM is running) - (bool)
 _ACE_isMedic = 0;		//0 = no medic; 1 = medic; 2 = doctor;
-_ACE_isEngineer = 0;	//0 = no specialist; 1 = engineer; 2 = repair specialist;
+_ACE_isEngineer = 1;	//0 = no specialist; 1 = engineer; 2 = repair specialist;
 _ACE_isEOD = false;
 _ACE_isPilot = false;
 

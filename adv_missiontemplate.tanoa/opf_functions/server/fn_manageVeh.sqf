@@ -253,18 +253,18 @@ switch ( missionNamespace getVariable ["ADV_par_opfHeavyAssets",0] ) do {
 switch ( _par_opfTankAssets ) do {
 	//RHS T90
 	case 20: {
-		[ADV_opf_veh_tanks,["rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv"],east] call ADV_fnc_changeVeh;
-		[ADV_opf_veh_artys,["rhs_d30_msv"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_tanks,["rhs_t90a_tv"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_artys,["rhs_2s3_tv","rhs_2s3_tv","RHS_BM21_VSV_01"],east] call ADV_fnc_changeVeh;
 	};
 	//RHS T80
 	case 21: {
-		[ADV_opf_veh_tanks,["rhs_t80a","rhs_t80b","rhs_t80bk","rhs_t80bv","rhs_t80bvk","rhs_t80u"],east] call ADV_fnc_changeVeh;
-		[ADV_opf_veh_artys,["rhs_2s3_tv"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_tanks,["rhs_t80uk","rhs_t80ue1"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_artys,["rhs_d30_msv","rhs_d30_msv","RHS_BM21_VSV_01"],east] call ADV_fnc_changeVeh;
 	};
 	//RHS T72
 	case 22: {
-		[ADV_opf_veh_tanks,["rhs_t90_tv"],east] call ADV_fnc_changeVeh;
-		[ADV_opf_veh_artys,["rhs_2s3_tv"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_tanks,["rhs_t72bd_tv"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_artys,["rhs_d30_msv","rhs_d30_msv","RHS_BM21_VSV_01"],east] call ADV_fnc_changeVeh;
 	};
 	//CUP T55
 	case 30: {
@@ -297,31 +297,41 @@ switch ( _par_opfTankAssets ) do {
 switch ( _par_opfHeliAssets ) do {
 	//RHS transport
 	case 20: {
-		[ADV_opf_veh_airTransport+ADV_opf_veh_airLogistic,["rhs_mi8amt_vvsc","rhs_mi8amt_vvs","rhs_mi8amtsh_vvsc","rhs_mi8amtsh_vvs","rhs_mi8mt_vvsc","rhs_mi8mt_vvs","rhs_mi8mtv3_vvsc","rhs_mi8mtv3_vvs"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airTransport,["RHS_Mi8MT_vdv","RHS_Mi8MT_vvs","RHS_Mi8MT_vvss"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airLogistic,["RHS_Mi8mt_Cargo_vdv","RHS_Mi8mt_Cargo_vvs","RHS_Mi8mt_Cargo_vvsc"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airRecon,["rhs_ka60_c","rhs_ka60_grey"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] call ADV_fnc_changeVeh;
 	};
 	//RHS transport Mi24
 	case 21: {
-		[ADV_opf_veh_airTransport+ADV_opf_veh_airLogistic,["rhs_mi8amt_vvsc","rhs_mi8amt_vvs","rhs_mi8amtsh_vvsc","rhs_mi8amtsh_vvs","rhs_mi8mt_vvsc","rhs_mi8mt_vvs","rhs_mi8mtv3_vvsc","rhs_mi8mtv3_vvs"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airTransport,["RHS_Mi8MTV3_heavy_vdv","RHS_Mi8MTV3_heavy_vvs","RHS_Mi8MTV3_heavy_vvsc","RHS_Mi8MT_vdv","RHS_Mi8MT_vvs","RHS_Mi8MT_vvss"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airLogistic,["RHS_Mi8mt_Cargo_vdv","RHS_Mi8mt_Cargo_vvs","RHS_Mi8mt_Cargo_vvsc"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airRecon,["rhs_mi24p_vvs","rhs_mi24p_vvsc","rhs_mi24v_vvs","rhs_mi24v_vvsc"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] call ADV_fnc_changeVeh;
 	};
 	//RHS transport Ka52
 	case 22: {
-		[ADV_opf_veh_airTransport+ADV_opf_veh_airLogistic,["rhs_mi8amt_vvsc","rhs_mi8amt_vvs","rhs_mi8amtsh_vvsc","rhs_mi8amtsh_vvs","rhs_mi8mt_vvsc","rhs_mi8mt_vvs","rhs_mi8mtv3_vvsc","rhs_mi8mtv3_vvs"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airTransport,["RHS_Mi8MTV3_heavy_vdv","RHS_Mi8MTV3_heavy_vvs","RHS_Mi8MTV3_heavy_vvsc","RHS_Mi8MT_vdv","RHS_Mi8MT_vvs","RHS_Mi8MT_vvss"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airLogistic,["RHS_Mi8mt_Cargo_vdv","RHS_Mi8mt_Cargo_vvs","RHS_Mi8mt_Cargo_vvsc"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airRecon,["rhs_ka52_vvsc","rhs_ka52_vvs"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] call ADV_fnc_changeVeh;
+	};
+	//RHS transport Mi28
+	case 23: {
+		[ADV_opf_veh_airTransport,["RHS_Mi8MTV3_heavy_vdv","RHS_Mi8MTV3_heavy_vvs","RHS_Mi8MTV3_heavy_vvsc","RHS_Mi8MT_vdv","RHS_Mi8MT_vvs","RHS_Mi8MT_vvss"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airLogistic,["RHS_Mi8mt_Cargo_vdv","RHS_Mi8mt_Cargo_vvs","RHS_Mi8mt_Cargo_vvsc"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airRecon,["rhs_mi28n_vvs","rhs_mi28n_vvsc"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] call ADV_fnc_changeVeh;
 	};
 	//RHS CAS only
-	case 23: {
-		[ADV_opf_veh_airLogistic,["rhs_mi8amt_vvsc","rhs_mi8amt_vvs","rhs_mi8amtsh_vvsc","rhs_mi8amtsh_vvs","rhs_mi8mt_vvsc","rhs_mi8mt_vvs","rhs_mi8mtv3_vvsc","rhs_mi8mtv3_vvs"],east] call ADV_fnc_changeVeh;
+	case 24: {
+		[ADV_opf_veh_airLogistic,["RHS_Mi8MTV3_heavy_vdv","RHS_Mi8MTV3_heavy_vvs","RHS_Mi8MTV3_heavy_vvsc"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airTransport,["rhs_mi24p_vvs","rhs_mi24p_vvsc","rhs_mi24v_vvs","rhs_mi24v_vvsc"],east] call ADV_fnc_changeVeh;
-		[ADV_opf_veh_airRecon,["rhs_ka52_vvsc","rhs_ka52_vvs"],east] call ADV_fnc_changeVeh;
+		[ADV_opf_veh_airRecon,["rhs_ka52_vvsc","rhs_ka52_vvs","rhs_mi28n_vvs","rhs_mi28n_vvsc"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] call ADV_fnc_changeVeh;
 	};
 	//RHS civilian
-	case 24: {
+	case 25: {
 		[ADV_opf_veh_helis,["RHS_Mi8amt_civilian"],east] call ADV_fnc_changeVeh;
 		[ADV_opf_veh_airContainerMedic+ADV_opf_veh_airContainerTransport,[""],east] call ADV_fnc_changeVeh;
 	};

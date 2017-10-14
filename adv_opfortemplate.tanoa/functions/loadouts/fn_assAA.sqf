@@ -5,7 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
-params ["_player"];
+params ["_player","_special"];
 /*
  * Author: Belbo
  *
@@ -272,7 +272,6 @@ switch (_par_customWeap) do {
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=[];
 		_handgunSilencer = "CUP_muzzle_snds_M9";		//if silencer is added
-		_additionalAmmo = [2,"CUP_Stinger_M"];
 	};
 	case 6: {
 		//SELmods CUP M4
@@ -283,7 +282,6 @@ switch (_par_customWeap) do {
 		_handgun="CUP_hgun_M9";
 		_itemsHandgun=[];
 		_handgunSilencer = "CUP_muzzle_snds_M9";		//if silencer is added
-		_additionalAmmo = [2,"CUP_Stinger_M"];
 	};
 	case 7: {
 		//BAF
@@ -294,7 +292,6 @@ switch (_par_customWeap) do {
 		_handgun="CUP_hgun_Glock17";
 		_itemsHandgun=["CUP_acc_Glock17_Flashlight"];
 		_handgunSilencer = "muzzle_snds_L";		//if silencer is added
-		_additionalAmmo = [2,"CUP_Stinger_M"];
 	};
 	case 8: {
 		//UK3CB
@@ -487,6 +484,13 @@ switch (_par_customUni) do {
 		};
 	};
 	default {};
+};
+
+if (_par_customWeap in [5,6,7]) then {
+	_additionalAmmo = [0,""];
+	_backpack = "";
+	_launcher="CUP_launch_FIM92Stinger";
+	_launcherAmmo = [1,0];
 };
 
 ///// No editing necessary below this line /////

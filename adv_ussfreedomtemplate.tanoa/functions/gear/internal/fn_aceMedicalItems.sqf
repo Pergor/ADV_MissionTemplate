@@ -120,7 +120,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_medical") ) exitWith {
 	} else {
 		if ( !(backpack _unit == "") && (_mediKit >= 1 || _FirstAidKits >= 5) ) then {
 			_mediBack = unitBackpack _unit;
-			_mediBack addItemCargoGlobal ["ACE_fieldDressing", _ACE_elasticBandage+_ACE_packingBandage+_ACE_packingBandage+_ACE_quikclot];
+			_mediBack addItemCargoGlobal ["ACE_fieldDressing", _ACE_elasticBandage+_ACE_fieldDressing+_ACE_packingBandage+_ACE_quikclot];
 			_mediBack addItemCargoGlobal ["ACE_morphine", _ACE_morphine];
 			_mediBack addItemCargoGlobal ["ACE_epinephrine", _ACE_epinephrine];
 			
@@ -130,7 +130,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_medical") ) exitWith {
 			
 			_mediBack addItemCargoGlobal ["ACE_bodyBag", _ACE_bodyBag];
 		} else {
-			for "_i" from 1 to _ACE_elasticBandage+_ACE_elasticBandage+_ACE_packingBandage+_ACE_quikclot do { _unit addItem "ACE_fieldDressing"; };
+			for "_i" from 1 to _ACE_elasticBandage+_ACE_fieldDressing+_ACE_packingBandage+_ACE_quikclot do { _unit addItem "ACE_fieldDressing"; };
 			for "_i" from 1 to _ACE_morphine do { _unit addItem "ACE_morphine";};
 			for "_i" from 1 to _ACE_epinephrine do { _unit addItem "ACE_epinephrine"; };
 			

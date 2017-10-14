@@ -308,13 +308,15 @@ switch ( _par_modTruckAssets ) do {
 			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_transport,["rhsusf_M1083A1P2_d_fmtv_usarmy","rhsusf_M1083A1P2_B_d_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_d_fmtv_usarmy"],west] call ADV_fnc_changeVeh;
 				[ADV_veh_logistic_repair,["rhsusf_M977A4_REPAIR_usarmy_d","rhsusf_M977A4_REPAIR_BKIT_usarmy_d","rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_d"],west] call ADV_fnc_changeVeh;
-				[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_usarmy_d","rhsusf_M977A4_AMMO_BKIT_usarmy_d","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_d"],west] call ADV_fnc_changeVeh;
+				//[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_usarmy_d","rhsusf_M977A4_AMMO_BKIT_usarmy_d","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_d"],west] call ADV_fnc_changeVeh;
 				[ADV_veh_logistic_fuel,["rhsusf_M978A4_usarmy_d","rhsusf_M978A4_BKIT_usarmy_d"],west] call ADV_fnc_changeVeh;
+				[ADV_veh_logistic_medic,["rhsusf_M1085A1P2_B_D_Medical_fmtv_usarmy"],west] call ADV_fnc_changeVeh;
 			};
 			[ADV_veh_transport,["rhsusf_M1083A1P2_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy"],west] call ADV_fnc_changeVeh;
 			[ADV_veh_logistic_repair,["rhsusf_M977A4_REPAIR_usarmy_wd","rhsusf_M977A4_REPAIR_BKIT_usarmy_wd","rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_wd"],west] call ADV_fnc_changeVeh;
-			[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd"],west] call ADV_fnc_changeVeh;
+			//[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd"],west] call ADV_fnc_changeVeh;
 			[ADV_veh_logistic_fuel,["rhsusf_M978A4_usarmy_wd","rhsusf_M978A4_BKIT_usarmy_wd"],west] call ADV_fnc_changeVeh;
+			[ADV_veh_logistic_medic,["rhsusf_M1085A1P2_B_WD_Medical_fmtv_usarmy"],west] call ADV_fnc_changeVeh;
 		};
 	};
 	//CUP MTVR
@@ -395,16 +397,10 @@ switch ( _par_modHeavyAssets ) do {
 				if ( _par_modTruckAssets isEqualTo 0 ) then {
 					[ADV_veh_logistic_ammo,["rhsusf_m113d_usarmy_supply"],west] call ADV_fnc_changeVeh;
 				};
-				if ( _par_modTruckAssets >= 20 && _par_modTruckAssets < 30 ) then {
-					[ADV_veh_logistic_medic,["rhsusf_m113d_usarmy_medical"],west] call ADV_fnc_changeVeh;
-				};
 			};
 			[ADV_veh_heavys,["RHS_M2A2_wd","RHS_M2A2_BUSKI_WD","RHS_M2A3_wd","RHS_M2A3_BUSKI_wd","RHS_M2A3_BUSKIII_wd"],west] call ADV_fnc_changeVeh;
 				if ( _par_modTruckAssets isEqualTo 0 ) then {
 				[ADV_veh_logistic_ammo,["rhsusf_m113_usarmy_supply"],west] call ADV_fnc_changeVeh;
-			};
-			if ( _par_modTruckAssets >= 20 && _par_modTruckAssets < 30 ) then {
-				[ADV_veh_logistic_medic,["rhsusf_m113_usarmy_medical"],west] call ADV_fnc_changeVeh;
 			};
 		};
 	};
@@ -416,7 +412,7 @@ switch ( _par_modHeavyAssets ) do {
 				if ( _par_modTruckAssets isEqualTo 0 ) then {
 					[ADV_veh_logistic_ammo,["rhsusf_m113d_usarmy_supply"],west] call ADV_fnc_changeVeh;
 				};
-				if ( _par_modTruckAssets >= 20 && _par_modTruckAssets < 30 ) then {
+				if ( _par_modTruckAssets == 0 ) then {
 					[ADV_veh_logistic_medic,["rhsusf_m113d_usarmy_medical"],west] call ADV_fnc_changeVeh;
 				};
 			};
@@ -424,7 +420,7 @@ switch ( _par_modHeavyAssets ) do {
 			if ( _par_modTruckAssets isEqualTo 0 ) then {
 				[ADV_veh_logistic_ammo,["rhsusf_m113_usarmy_supply"],west] call ADV_fnc_changeVeh;
 			};
-			if ( _par_modTruckAssets >= 20 && _par_modTruckAssets < 30 ) then {
+			if ( _par_modTruckAssets == 0 ) then {
 				[ADV_veh_logistic_medic,["rhsusf_m113_usarmy_medical"],west] call ADV_fnc_changeVeh;
 			};
 		};
@@ -433,15 +429,9 @@ switch ( _par_modHeavyAssets ) do {
 	case 22: {
 		[] call {
 			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
-				[ADV_veh_heavys,["rhsusf_M1232_M2_usarmy_d","rhsusf_M1237_M2_usarmy_d"],west] call ADV_fnc_changeVeh;
-				if ( _par_modTruckAssets isEqualTo 2 ) then {
-					[ADV_veh_logistic_medic,["rhsusf_m113d_usarmy_medical"],west] call ADV_fnc_changeVeh;
-				};
+				[ADV_veh_heavys,["rhsusf_rg33_m2_usmc_d","rhsusf_M1220_M2_usarmy_d","rhsusf_M1230_M2_usarmy_d","rhsusf_M1232_M2_usarmy_d","rhsusf_M1237_M2_usarmy_d","rhsusf_M1220_MK19_usarmy_d","rhsusf_M1230_MK19_usarmy_d","rhsusf_M1232_MK19_usarmy_d","rhsusf_M1237_MK19_usarmy_d"],west] call ADV_fnc_changeVeh;
 			};
-			[ADV_veh_heavys,["rhsusf_M1232_M2_usarmy_wd","rhsusf_M1237_M2_usarmy_wd"],west] call ADV_fnc_changeVeh;
-			if ( _par_modTruckAssets >= 20 && _par_modTruckAssets < 30 ) then {
-				[ADV_veh_logistic_medic,["rhsusf_m113_usarmy_medical"],west] call ADV_fnc_changeVeh;
-			};
+			[ADV_veh_heavys,["rhsusf_rg33_m2_usmc_wd","rhsusf_M1220_M2_usarmy_wd","rhsusf_M1230_M2_usarmy_wd","rhsusf_M1232_M2_usarmy_wd","rhsusf_M1237_M2_usarmy_wd","rhsusf_M1220_MK19_usarmy_wd","rhsusf_M1230_MK19_usarmy_wd","rhsusf_M1232_MK19_usarmy_wd","rhsusf_M1237_MK19_usarmy_wd"],west] call ADV_fnc_changeVeh;
 		};
 	};
 	//CUP Stryker

@@ -5,7 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
-params ["_player"];
+params ["_player","_special"];
 /*
  * Author: Belbo
  *
@@ -346,7 +346,7 @@ switch (_par_customUni) do {
 	};
 	case 8: {
 		//RHS UCP
-		_uniform = ["rhs_uniform_cu_ucp"];
+		_uniform = ["rhs_uniform_acu_ucp"];
 		_vest = ["rhsusf_iotv_ucp_Repair"];
 		_headgear = ["rhsusf_ach_bare_headset_ess","rhsusf_mich_bare_headset"];
 		_items pushBack "rhsusf_patrolcap_ucp";

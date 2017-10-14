@@ -5,7 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
-params ["_player"];
+params ["_player","_special"];
 /*
  * Author: Belbo
  *
@@ -482,12 +482,22 @@ switch (_par_customUni) do {
 
 ///// No editing necessary below this line /////
 
-if (["MORTAR", (str _player) ] call BIS_fnc_inString || ["CSW", (str _player) ] call BIS_fnc_inString || ["TOW", (str _player) ] call BIS_fnc_inString) then {
+if (_special in ["CSW","ACSW","TOW","ATOW"]) then {
+	_optic = [""];
+	_binocular = "";
+	_givePersonalRadio = false;
+	_ACE_sprayPaintColor = "NONE";
+	_ACE_CableTie = 0;
+	_ACE_MapTools = 0;
+};
+if (_special in ["MORTAR","AMORTAR"]) then {
 	_optic = [""];
 	_binocular = "RANGEFINDER";
 	_ACE_sprayPaintColor = "NONE";
 	_ACE_kestrel = 1;
 	_ACE_CableTie = 0;
+	_ACE_EntrenchingTool = 1;
+	_ACE_RangeTable_82mm = 1;
 	//_ACE_key = 1;
 	_backpack = ["B_Carryall_oli"];
 	if (isClass(configFile >> "CfgPatches" >> "ACE_microDAGR") && !(_par_tablets isEqualTo 2)) then {
@@ -498,17 +508,14 @@ if (toUpper ([str _player,0,16] call BIS_fnc_trimString) isEqualTo "FTLEADER_COM
 	_binocular = "RANGEFINDER";
 };
 [_player] call ADV_fnc_gear;
-if (toUpper ((str _player) select [0,2]) isEqualTo "FT") exitWith {nil;};
+if (_special isEqualTo "") exitWith {true};
 switch true do {
-	case (toUpper ((str _player) select [0,3]) == "CSW"): { [_player,1] call ADV_fnc_CSW; };
-	case (toUpper ((str _player) select [0,6]) == "ASSCSW"): { [_player,2] call ADV_fnc_CSW; };
-	case (toUpper ((str _player) select [0,4]) == "ACSW"): { [_player,2] call ADV_fnc_CSW; };
-	case (toUpper ((str _player) select [0,6]) == "MORTAR"): { [_player,3] call ADV_fnc_CSW; };
-	case (toUpper ((str _player) select [0,9]) == "ASSMORTAR"): { [_player,4] call ADV_fnc_CSW; };
-	case (toUpper ((str _player) select [0,7]) == "AMORTAR"): { [_player,4] call ADV_fnc_CSW; };
-	case (toUpper ((str _player) select [0,3]) == "TOW"): { [_player,5] call ADV_fnc_CSW; };
-	case (toUpper ((str _player) select [0,6]) == "ASSTOW"): { [_player,6] call ADV_fnc_CSW; };
-	case (toUpper ((str _player) select [0,4]) == "ATOW"): { [_player,6] call ADV_fnc_CSW; };
+	case (_special isEqualTo "CSW"): { [_player,1] call ADV_fnc_CSW; };
+	case (_special isEqualTo "ACSW"): { [_player,2] call ADV_fnc_CSW; };
+	case (_special isEqualTo "MORTAR"): { [_player,3] call ADV_fnc_CSW; };
+	case (_special isEqualTo "AMORTAR"): { [_player,4] call ADV_fnc_CSW; };
+	case (_special isEqualTo "TOW"): { [_player,5] call ADV_fnc_CSW; };
+	case (_special isEqualTo "ATOW"): { [_player,6] call ADV_fnc_CSW; };
 	default {};
 };
 

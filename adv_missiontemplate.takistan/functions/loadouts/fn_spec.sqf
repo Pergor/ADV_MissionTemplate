@@ -5,7 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
-params ["_player"];
+params ["_player","_special"];
 /*
  * Author: Belbo
  *
@@ -24,14 +24,27 @@ params ["_player"];
  */
 
 //clothing - (string)
-_uniform = ["U_B_CombatUniform_mcam_worn"];
+_uniform = ["U_B_CombatUniform_mcam_vest"];
 _vest = ["V_PlateCarrierGL_rgr"];
 _headgear = ["H_HelmetB_grass"];
 _backpack = ["B_Carryall_khk"];
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
-_goggles = "G_Lowprofile";
+_goggles = "G_Combat";
 _unitTraits = [["medic",false],["engineer",true],["explosiveSpecialist",true],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0]];
+if (_special isEqualTo "EOD") then {
+	_vest = "V_EOD_olive_F";
+	_headgear = ["H_HelmetB"];
+	_backpack = ["B_Messenger_Coyote_F"];
+	_useProfileGoggles = 0;
+	(_unitTraits select 1) set [1,false];
+};
+if (_special isEqualTo "REPAIR") then {
+	_vest = ["V_PlateCarrier2_rgr","V_PlateCarrier1_rgr"];
+	_headgear = ["H_HelmetB"];
+	_backpack = ["B_Assaultpack_rgr"];
+	(_unitTraits select 2) set [1,false];
+};
 
 //weapons - primary weapon - (string)
 _primaryweapon = ["arifle_MX_Black_F","arifle_MX_F","arifle_MXC_Black_F","arifle_MXC_F"];
@@ -163,7 +176,7 @@ _ACE_DefusalKit = 1;
 _ACE_Cellphone = 0;
 _ACE_FlareTripMine = 0;
 _ACE_MapTools = 0;
-_ACE_CableTie = 2;
+_ACE_CableTie = 0;
 _ACE_sprayPaintColor = "RED";
 _ACE_gunbag = 0;
 
@@ -336,6 +349,14 @@ switch (_par_customUni) do {
 			_headgear = ["PBW_Helm4_tropen_HBO","PBW_Helm1_tropen_HBO"];
 			_items pushback "PBW_muetze1_tropen";
 		};
+		if (_special in ["EOD","REPAIR"]) then {
+			_headgear = "BWA3_MICH_Tropen";
+			_backpack = ["BWA3_AssaultPack_Fleck"];
+		};
+		if (_special isEqualTo "EOD") then {
+			_headgear = "H_PASGT_basic_olive_F";
+			_vest = ["V_EOD_olive_F"];
+		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
 	};
 	case 2: {
@@ -350,16 +371,15 @@ switch (_par_customUni) do {
 			_headgear = ["PBW_Helm4_fleck_HBO","PBW_Helm1_fleck_HBO"];
 			_items pushback "PBW_muetze1_fleck";
 		};
+		if (_special in ["EOD","REPAIR"]) then {
+			_headgear = "BWA3_MICH_Fleck";
+			_backpack = ["BWA3_AssaultPack_Fleck"];
+		};
+		if (_special isEqualTo "EOD") then {
+			_headgear = "H_PASGT_basic_olive_F";
+			_vest = ["V_EOD_olive_F"];
+		};
 		if ( isClass(configFile >> "CfgPatches" >> "Dsk_lucie_config") ) then { _itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["dsk_nsv"]; };
-	};
-	case 3: {
-		//TFA Mixed
-	};
-	case 4: {
-		//TFA Woodland
-	};
-	case 5: {
-		//TFA Desert
 	};
 	case 6: {
 		//CUP BAF
@@ -369,18 +389,24 @@ switch (_par_customUni) do {
 				_vest = ["CUP_V_BAF_Osprey_Mk2_DDPM_Soldier1","CUP_V_BAF_Osprey_Mk2_DDPM_Soldier2","CUP_V_BAF_Osprey_Mk2_DDPM_Officer","CUP_V_BAF_Osprey_Mk2_DDPM_Sapper"];
 				_headgear = ["CUP_H_BAF_Helmet_1_DDPM","CUP_H_BAF_Helmet_Net_2_DDPM","CUP_H_BAF_Helmet_4_DDPM"];
 				_backpack = ["B_Carryall_cbr"];
+				if (_special isEqualTo "EOD") then {
+				};
 			};
 			case ((toUpper worldname) in _var_lushMaps): {
 				_uniform = ["CUP_U_B_BAF_DPM_S2_UnRolled","CUP_U_B_BAF_DPM_S1_RolledUp","CUP_U_B_BAF_DPM_S1_RolledUp","CUP_U_B_BAF_DPM_Tshirt"];
 				_vest = ["CUP_V_BAF_Osprey_Mk2_DPM_Soldier1","CUP_V_BAF_Osprey_Mk2_DPM_Soldier2","CUP_V_BAF_Osprey_Mk2_DPM_Officer","CUP_V_BAF_Osprey_Mk2_DPM_Sapper"];
 				_headgear = ["CUP_H_BAF_Helmet_1_DPM","CUP_H_BAF_Helmet_Net_2_DPM","CUP_H_BAF_Helmet_4_DPM"];
 				_backpack = ["B_Carryall_oli"];
+				if (_special isEqualTo "EOD") then {
+				};
 			};
 			default {
 				_uniform = ["CUP_U_B_BAF_MTP_S2_UnRolled","CUP_U_B_BAF_MTP_S1_RolledUp","CUP_U_B_BAF_MTP_Tshirt","CUP_U_B_BAF_MTP_S3_RolledUp","CUP_U_B_BAF_MTP_S5_UnRolled","CUP_U_B_BAF_MTP_S6_UnRolled"];
 				_vest = ["CUP_V_BAF_Osprey_Mk4_MTP_Grenadier","CUP_V_BAF_Osprey_Mk4_MTP_Rifleman","CUP_V_BAF_Osprey_Mk4_MTP_SquadLeader"];
 				_headgear = ["CUP_H_BAF_Helmet_1_MTP","CUP_H_BAF_Helmet_Net_2_MTP","CUP_H_BAF_Helmet_4_MTP"];
 				_backpack = ["B_Carryall_cbr"];
+				if (_special isEqualTo "EOD") then {
+				};
 			};
 		};
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["CUP_NVG_HMNVS"];
@@ -393,6 +419,9 @@ switch (_par_customUni) do {
 			"rhsusf_mich_bare_tan","rhsusf_mich_bare_tan_headset","rhsusf_ach_bare_tan_ess","rhsusf_ach_bare_tan_headset_ess"];
 		_items pushBack "rhsusf_patrolcap_ocp";
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
+		if (_special isEqualTo "EOD") then {
+			_vest = "V_EOD_coyote_F";
+		};
 	};
 	case 8: {
 		//RHS UCP:
@@ -402,9 +431,13 @@ switch (_par_customUni) do {
 			"rhsusf_mich_bare_norotos_alt","rhsusf_mich_bare_headset","rhsusf_ach_bare_ess","rhsusf_ach_bare_headset_ess"];
 		_items pushBack "rhsusf_patrolcap_ucp";
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
+		if (_special isEqualTo "EOD") then {
+			_vest = "V_EOD_coyote_F";
+		};
 	};
 	case 10: {
 	//RHS MARPAT
+		_vest = ["rhsusf_spc_mg"];
 		switch (true) do {
 			case ((toUpper worldname) in _var_aridMaps): {
 				_uniform = ["rhs_uniform_FROG01_d"];
@@ -419,23 +452,28 @@ switch (_par_customUni) do {
 				_items pushBack "rhs_Booniehat_marpatwd";
 			};
 		};
-		_vest = ["rhsusf_spc_mg"];
+		if (_special isEqualTo "EOD") then {
+			_vest = "V_EOD_coyote_F";
+			_backpack = "rhsusf_falconii_coy";
+		};
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};	
 	case 11: {
 	};
 	case 9: {
 		//Guerilla
-		_uniform = ["U_BG_Guerrilla_6_1","U_BG_Guerilla2_2","U_BG_Guerilla2_1","U_BG_Guerilla2_3","U_BG_Guerilla3_1"];
+		_uniform = ["U_BG_Guerrilla_6_1","U_BG_Guerilla2_2","U_BG_Guerilla2_1","U_BG_Guerilla2_3"];
 		_headgear = ["H_Shemag_olive","H_ShemagOpen_tan","H_ShemagOpen_khk","H_Cap_headphones","H_MilCap_mcamo","H_MilCap_gry","H_MilCap_blue","H_Cap_tan_specops_US",
 			"H_Cap_usblack","H_Cap_oli_hs","H_Cap_blk","H_Booniehat_tan","H_Booniehat_oli","H_Booniehat_khk","H_Watchcap_khk","H_Watchcap_cbr","H_Watchcap_camo"];
-		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag","APERSTripMine_Wire_Mag"];
+		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDLandSmall_Remote_Mag","APERSTripMine_Wire_Mag","APERSTripMine_Wire_Mag"];
 		_ACE_Clacker = 0;
 		_ACE_M26_Clacker = 0;
 		_ACE_DeadManSwitch = 0;
 		_ACE_DefusalKit = 0;
 		_ACE_Cellphone = 1;
-		_itemsBackpack = ["ToolKit","IEDUrbanSmall_Remote_Mag","IEDLandSmall_Remote_Mag","APERSTripMine_Wire_Mag","APERSTripMine_Wire_Mag"];
+		if (_special isEqualTo "EOD") then {
+			_headgear = ["H_PASGT_basic_blue_F","H_PASGT_basic_olive_F"];
+		};
 	};
 	case 12: {
 		//UK3CB
@@ -461,6 +499,8 @@ switch (_par_customUni) do {
 		_vest = ["TRYK_V_ArmorVest_Winter"];
 		_headgear = ["TRYK_H_woolhat_WH","TRYK_H_woolhat_WH",""];
 		_backpack = ["TRYK_B_Carryall_wh"];
+		if (_special isEqualTo "EOD") then {
+		};
 		_useProfileGoggles = 0;
 		_goggles = ["TRYK_kio_balaclava_WH","",""];
 	};
@@ -470,6 +510,10 @@ switch (_par_customUni) do {
 		_vest = ["V_PlateCarrier1_tna_F","V_PlateCarrier2_tna_F"];
 		_headgear = ["H_HelmetB_tna_F","H_HelmetB_Enh_tna_F","H_HelmetB_Light_tna_F"];
 		_backpack = ["B_Carryall_oli"];
+		if (_special isEqualTo "EOD") then {
+			_vest = "V_EOD_olive_F";
+			_backpack = ["B_Messenger_Olive_F"];
+		};
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	case 30: {
@@ -481,8 +525,38 @@ switch (_par_customUni) do {
 			_vest = ["V_PlateCarrier1_rgr_noflag_F","V_PlateCarrier2_rgr_noflag_F"];
 			_headgear = ["H_HelmetB_TI_tna_F"];
 		};
+		if (_special isEqualTo "EOD") then {
+			_vest = "V_EOD_olive_F";
+			_backpack = ["B_Messenger_Olive_F"];
+		};
 	};
 	default {};
+};
+
+if (_special isEqualTo "REPAIR") then {
+	_itemsBackpack = ["ToolKit"];
+	_ACE_key = 1;
+	_ACE_M26_Clacker = 0;
+	_ACE_DefusalKit = 0;
+	_ACE_Cellphone = 0;
+	_ACE_sprayPaintColor = "NONE";
+	_ACE_EntrenchingTool = 0;
+	_ACE_isEngineer = 2;
+	_ACE_isEOD = false;
+};
+if (_special isEqualTo "EOD") then {
+	_useProfileGoggles = 0;
+	_primaryweaponAmmo set [0,6];
+	_itemsBackpack = ["ToolKit","MineDetector","DemoCharge_Remote_Mag","DemoCharge_Remote_Mag"];
+	if (isClass(configFile >> "CfgPatches" >> "ace_explosives")) then {
+		_itemsBackpack = _itemsBackpack-["ToolKit"];
+	};
+	_ACE_M26_Clacker = 0;
+	_ACE_Clacker = 1;
+	_ACE_Cellphone = 0;
+	_ACE_key = 0;
+	_ACE_isEngineer = 0;
+	_ACE_EntrenchingTool = 0;
 };
 
 ///// No editing necessary below this line /////

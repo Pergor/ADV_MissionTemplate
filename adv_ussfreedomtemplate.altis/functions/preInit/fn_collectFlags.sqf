@@ -36,6 +36,6 @@ adv_objects_indFlags = [];
 		};
 	};
 	nil;
-} count (allMissionObjects "FlagCarrier");
+} count (allMissionObjects "FlagCarrierCore");
 
 true;

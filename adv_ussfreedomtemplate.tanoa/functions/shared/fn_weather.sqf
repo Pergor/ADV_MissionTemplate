@@ -10,7 +10,7 @@
  * Description of weather - <STRING>
  *
  * Example:
- * _handle = [] call adv_fnc_weather;
+ * _description = [] call adv_fnc_weather;
  *
  * Public: No
  */

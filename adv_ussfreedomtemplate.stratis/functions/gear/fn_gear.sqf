@@ -245,10 +245,10 @@ if ( _removeBackpackAfterWeapons ) then {
 _unit selectWeapon "SmokeShellMuzzle";
 
 //container items
+{ _unit addItem _x } count _items;
 { (uniformContainer _unit) addItemCargoGlobal [_x,1] } count _itemsUniform;
 { (vestContainer _unit) addItemCargoGlobal [_x,1] } count _itemsVest;
 { (backpackContainer _unit) addItemCargoGlobal [_x,1] } count _itemsBackpack;
-{_unit addItem _x} count _items;
 
 //unitTraits:
 if (!isNil "_unitTraits") then {
