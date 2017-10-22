@@ -134,8 +134,8 @@ if (side (group player) isEqualTo west) then {
 	lbSetData [7377, 20, "['ADV_FNC_SPEC','']"];
 	lbSetData [7377, 21, "['ADV_FNC_SPEC','EOD']"];
 	lbSetData [7377, 22, "['ADV_FNC_MARKSMAN','']"];
-	lbSetData [7377, 23, "['ADV_FNC_JETPILOT','']"];
-	lbSetData [7377, 24, "['ADV_FNC_UAVOP','']"];
+	lbSetData [7377, 23, "['ADV_FNC_UAVOP','']"];
+	lbSetData [7377, 24, "['ADV_FNC_JETPILOT','']"];
 	lbSetData [7377, 26, "['ADV_FNC_LOG','']"];
 	lbSetData [7377, 27, "['ADV_FNC_SPEC','REPAIR']"];
 	lbSetData [7377, 28, "['ADV_FNC_DRIVER','']"];
@@ -172,8 +172,8 @@ if (side (group player) isEqualTo independent) then {
 	lbSetData [7377, 20, "['ADV_IND_FNC_SPEC','']"];
 	lbSetData [7377, 21, "['ADV_IND_FNC_SPEC','EOD']"];
 	lbSetData [7377, 22, "['ADV_IND_FNC_MARKSMAN','']"];
-	lbSetData [7377, 23, "['ADV_IND_FNC_JETPILOT','']"];
-	lbSetData [7377, 25, "['ADV_IND_FNC_UAVOP','']"];
+	lbSetData [7377, 23, "['ADV_IND_FNC_UAVOP','']"];
+	lbSetData [7377, 24, "['ADV_IND_FNC_JETPILOT','']"];
 	lbSetData [7377, 26, "['ADV_IND_FNC_LOG','']"];
 	lbSetData [7377, 27, "['ADV_IND_FNC_SPEC','REPAIR']"];
 	lbSetData [7377, 28, "['ADV_IND_FNC_DRIVER','']"];
@@ -210,8 +210,8 @@ if (side (group player) isEqualTo east) then {
 	lbSetData [7377, 20, "['ADV_OPF_FNC_SPEC','']"];
 	lbSetData [7377, 21, "['ADV_OPF_FNC_SPEC','EOD']"];
 	lbSetData [7377, 22, "['ADV_OPF_FNC_MARKSMAN','']"];
-	lbSetData [7377, 23, "['ADV_OPF_FNC_JETPILOT','']"];
-	lbSetData [7377, 25, "['ADV_OPF_FNC_UAVOP','']"];
+	lbSetData [7377, 23, "['ADV_OPF_FNC_UAVOP','']"];
+	lbSetData [7377, 24, "['ADV_OPF_FNC_JETPILOT','']"];
 	lbSetData [7377, 26, "['ADV_OPF_FNC_LOG','']"];
 	lbSetData [7377, 27, "['ADV_OPF_FNC_SPEC','REPAIR']"];
 	lbSetData [7377, 28, "['ADV_OPF_FNC_DRIVER','']"];

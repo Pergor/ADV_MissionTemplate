@@ -153,6 +153,7 @@ class adv
 		class dialogGearInit {};
 		class dialogLoadout {};
 		class loadoutVariables {};
+		class rhsNametag {};
 	};
 	class gear
 	{

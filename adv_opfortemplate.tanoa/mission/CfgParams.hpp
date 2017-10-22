@@ -284,18 +284,18 @@ class param_customUni
 	values[] = {
 		12
 		,10,8,7
-		,6
+		,6, 13
 		,2,1
 		,9,30,20,0
 	};
 	texts[] = {
 		"UK3CB - BAF"
 		,"RHS - MARPAT","RHS - UCP","RHS - OCP"
-		,"CUP - BAF"
+		,"CUP - BAF","CUP - PMC"
 		,"BWmod - Flecktarn","BWmod - Tropentarn"
 		,"Vanilla - Guerilla","Vanilla - CTRG","Apex - NATO","Vanilla - NATO"
 	};
-	default = 20;
+	default = 0;
 };
 class param_customWeap
 {

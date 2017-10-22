@@ -361,6 +361,9 @@ if (_insignium isEqualTo "") then {
 } else {
 	[_unit,_insignium] call BIS_fnc_setUnitInsignia;
 };
+if (toLower (uniform _unit) isEqualTo "rhs_uniform_acu_ucp" && isClass (configFile >> "CfgPatches" >> "adv_insignia")) then {
+	[_unit] call adv_fnc_rhsNametag;
+};
 
 //headgear:
 if ( _headgear isEqualType [] ) then { _headgear = selectRandom _headgear; };

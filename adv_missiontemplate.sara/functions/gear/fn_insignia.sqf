@@ -20,7 +20,6 @@ params [
 	"_insigniaArray"
 ];
 
-
 //mission variables and parameters:
 private [
 	"_par_customWeap","_par_opfWeap","_par_indWeap","_par_customUni","_par_indUni","_par_opfUni","_par_NVGs","_par_opfNVGs","_par_optics","_par_opfOptics","_par_Silencers","_par_opfSilencers"
@@ -71,14 +70,26 @@ if (isClass (configFile >> "CfgPatches" >> "adv_insignia")) exitWith {
 		[_target,"ADV_insignia_medic"] call BIS_fnc_setUnitInsignia;
 	};
 	if ( ( side (group _target) isEqualTo west && !(_par_customUni isEqualTo 1 || _par_customUni isEqualTo 2 || _par_customUni isEqualTo 9) ) || ( (side (group _target) isEqualTo independent) && _par_indUni isEqualTo 1 ) ) exitWith {
-		_insigniaArray = switch (rank _target) do {
-			case "PRIVATE": {["ADV_insignia_usarmy_00","ADV_insignia_usarmy_01","ADV_insignia_usarmy_02","ADV_insignia_usarmy_02"];};
-			case "CORPORAL": {["ADV_insignia_usarmy_03"];};
-			case "SERGEANT": {["ADV_insignia_usarmy_04","ADV_insignia_usarmy_04","ADV_insignia_usarmy_05","ADV_insignia_usarmy_06","ADV_insignia_usarmy_07"];};
-			case "LIEUTENANT": {["ADV_insignia_usarmy_08","ADV_insignia_usarmy_09","ADV_insignia_usarmy_09"];};
-			case "CAPTAIN": {["ADV_insignia_usarmy_10"];};
-			case "MAJOR": {["ADV_insignia_usarmy_11","ADV_insignia_usarmy_11","ADV_insignia_usarmy_12"];};
-			case "COLONEL": {["ADV_insignia_usarmy_13"];};
+		_insigniaArray = if ( ["ucp", uniform _target] call BIS_fnc_inString ) then {
+			switch (rank _target) do {
+				case "PRIVATE": {["ADV_insignia_usarmy_ucp_00","ADV_insignia_usarmy_ucp_01","ADV_insignia_usarmy_ucp_02","ADV_insignia_usarmy_ucp_02"];};
+				case "CORPORAL": {["ADV_insignia_usarmy_ucp_03"];};
+				case "SERGEANT": {["ADV_insignia_usarmy_ucp_04","ADV_insignia_usarmy_ucp_04","ADV_insignia_usarmy_ucp_05","ADV_insignia_usarmy_ucp_06","ADV_insignia_usarmy_ucp_07"];};
+				case "LIEUTENANT": {["ADV_insignia_usarmy_ucp_08","ADV_insignia_usarmy_ucp_09","ADV_insignia_usarmy_ucp_09"];};
+				case "CAPTAIN": {["ADV_insignia_usarmy_ucp_10"];};
+				case "MAJOR": {["ADV_insignia_usarmy_ucp_11","ADV_insignia_usarmy_ucp_11","ADV_insignia_usarmy_ucp_12"];};
+				case "COLONEL": {["ADV_insignia_usarmy_ucp_13"];};
+			};	
+		} else {
+			switch (rank _target) do {
+				case "PRIVATE": {["ADV_insignia_usarmy_00","ADV_insignia_usarmy_01","ADV_insignia_usarmy_02","ADV_insignia_usarmy_02"];};
+				case "CORPORAL": {["ADV_insignia_usarmy_03"];};
+				case "SERGEANT": {["ADV_insignia_usarmy_04","ADV_insignia_usarmy_04","ADV_insignia_usarmy_05","ADV_insignia_usarmy_06","ADV_insignia_usarmy_07"];};
+				case "LIEUTENANT": {["ADV_insignia_usarmy_08","ADV_insignia_usarmy_09","ADV_insignia_usarmy_09"];};
+				case "CAPTAIN": {["ADV_insignia_usarmy_10"];};
+				case "MAJOR": {["ADV_insignia_usarmy_11","ADV_insignia_usarmy_11","ADV_insignia_usarmy_12"];};
+				case "COLONEL": {["ADV_insignia_usarmy_13"];};
+			};
 		};
 		_insignia = selectRandom _insigniaArray;
 		//[_target,_insignia] remoteExecCall ["BIS_fnc_setUnitInsignia",0,true];

@@ -223,7 +223,7 @@ switch (_par_customWeap) do {
 	case 2: {
 		//RHS ARMY
 		_primaryweapon = ["rhs_weap_m4_carryhandle","rhs_weap_m4_carryhandle_mstock","rhs_weap_m4a1_carryhandle"];
-		_optic = ["rhsusf_acc_compm4","rhsusf_acc_eotech_552","rhsusf_acc_eotech_552","rhsusf_acc_ACOG","rhsusf_acc_SpecterDR"];
+		_optic = ["rhsusf_acc_ACOG","rhsusf_acc_ACOG3","rhsusf_acc_T1_high","rhsusf_acc_eotech_552","rhsusf_acc_compm4","rhsusf_acc_eotech_xps3"];
 		if ( _par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
 		if ( _par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_attachments pushBack (["","","","","rhsusf_acc_grip1","rhsusf_acc_grip2","rhsusf_acc_grip2_tan","rhsusf_acc_grip3"] call BIS_fnc_selectRandom);
@@ -237,7 +237,7 @@ switch (_par_customWeap) do {
 	case 3: {
 		//RHS Marines
 		_primaryweapon = ["rhs_weap_m16a4_carryhandle"];
-		_optic = ["rhsusf_acc_compm4","rhsusf_acc_eotech_552","rhsusf_acc_eotech_552","rhsusf_acc_ACOG_USMC","rhsusf_acc_ACOG3_USMC"];
+		_optic = ["rhsusf_acc_ACOG_USMC","rhsusf_acc_ACOG3_USMC","rhsusf_acc_T1_high","rhsusf_acc_eotech_552","rhsusf_acc_compm4","rhsusf_acc_eotech_xps3"];
 		if ( _par_NVGs == 1 ) then { _attachments = ["rhsusf_acc_M952V"]; };
 		if ( _par_NVGs == 2 ) then { _attachments = ["rhsusf_acc_anpeq15side_bk"]; };
 		_silencer = "rhsusf_acc_rotex5_grey";
@@ -451,13 +451,13 @@ switch (_par_customUni) do {
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["UK3CB_BAF_HMNVS"];
 	};
 	case 13: {
-		//TRYK SpecOps
-		_uniform = ["TRYK_U_denim_hood_mc","TRYK_shirts_DENIM_od","TRYK_U_denim_hood_blk","TRYK_U_denim_hood_nc","TRYK_hoodie_FR","TRYK_U_pad_hood_odBK","TRYK_U_pad_hood_Cl",
-			"TRYK_shirts_TAN_PAD_YEL","TRYK_U_B_PCUs"];
-		_vest append ["TRYK_V_Sheriff_BA_TBL","TRYK_V_Sheriff_BA_TB3","TRYK_V_tacv1_BK","TRYK_V_tacv10LC_OD","TRYK_V_ArmorVest_Brown2",
-			"TRYK_V_ArmorVest_Ranger2","TRYK_V_ArmorVest_rgr","TRYK_V_ArmorVest_khk","TRYK_V_ArmorVest_coyo","TRYK_V_IOTV_BLK"];
-		_headgear append ["TRYK_R_CAP_OD_US","TRYK_R_CAP_BLK","H_Cap_headphones","H_Cap_oli_hs","H_Cap_blk","TRYK_ESS_CAP_tan",
-			"TRYK_H_PASGT_COYO","TRYK_H_PASGT_OD"];
+		//CUP PMC
+		_uniform = ["CUP_I_B_PMC_Unit_20","CUP_I_B_PMC_Unit_17","CUP_I_B_PMC_Unit_13","CUP_I_B_PMC_Unit_15","CUP_I_B_PMC_Unit_3"
+			,"CUP_I_B_PMC_Unit_5","CUP_I_B_PMC_Unit_6","CUP_I_B_PMC_Unit_24","CUP_I_B_PMC_Unit_23","CUP_I_B_PMC_Unit_11"];
+		_vest = ["V_PlateCarrier1_blk","V_PlateCarrier1_rgr","V_PlateCarrier2_blk","V_PlateCarrier2_rgr","V_PlateCarrier1_rgr_noflag_F","V_PlateCarrier2_rgr_noflag_F"];
+		_headgear = ["H_Cap_headphones","H_MilCap_blue","H_Cap_oli_hs","H_Cap_blk","",""
+			,"CUP_H_PMC_Cap_Grey","CUP_H_PMC_Cap_Tan","CUP_H_C_TrackIR_01","CUP_H_PMC_Cap_EP_Grey","CUP_H_PMC_Cap_EP_Tan"
+			,"CUP_H_PMC_Cap_Back_EP_Grey","CUP_H_PMC_Cap_Back_EP_Tan","CUP_H_FR_Cap_Headset_Green","CUP_H_FR_Headset","CUP_H_FR_Headset"];
 	};
 	case 14: {
 		//TRYK Snow

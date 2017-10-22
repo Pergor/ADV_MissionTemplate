@@ -327,12 +327,16 @@ switch (true) do {
 		_givePersonalRadio = false;
 	};
 	case (_par_customUni == 12): {
-		//BWmod Fleck
 		_uniform = ["UK3CB_BAF_U_HeliPilotCoveralls_RN"];
 		_vest = ["UK3CB_BAF_V_Pilot_A"];
 		_headgear = ["UK3CB_BAF_H_PilotHelmetHeli_A"];
 	};
-	case (_par_customUni == 13 && _par_customUni == 14): {
+	case (_par_customUni isEqualTo 13): {
+		_uniform = ["CUP_U_B_USMC_PilotOverall","CUP_U_I_RACS_PilotOverall"];
+		_vest = ["CUP_V_B_PilotVest"];
+		_headgear = ["CUP_H_USMC_Helmet_Pilot","CUP_H_TK_PilotHelmet","CUP_H_BAF_Helmet_Pilot"];
+	};
+	case (_par_customUni == 14): {
 		//Tryks
 		_uniform = ["TRYK_HRP_USMC"];
 		_vest = ["TRYK_Hrp_vest_od"];

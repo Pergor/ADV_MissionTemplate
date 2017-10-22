@@ -292,8 +292,6 @@ switch (true) do {
 		_vest = ["UK3CB_BAF_V_Pilot_A"];
 		_headgear = ["UK3CB_BAF_H_PilotHelmetHeli_A"];
 	};
-	case (_par_customUni isEqualTo 13 && _par_customUni isEqualTo 14): {
-	};
 	default {};
 };
 
