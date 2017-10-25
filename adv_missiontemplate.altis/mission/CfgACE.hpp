@@ -98,6 +98,11 @@ class ace_interaction_enableTeamManagement {
     typeName = "BOOL";
     force = 0;
 };
+class ace_interaction_disableNegativeRating {
+    value = 0;
+    typeName = "BOOL";
+    force = 1;
+};
 class ace_laser_dispersionCount {
     value = 2;
     typeName = "SCALAR";
@@ -187,6 +192,16 @@ class ace_map_gestures_interval {
     value = 0.03;
     typeName = "SCALAR";
     force = 0;
+};
+class ace_markers_movableMarkersEnabled {
+    value = 1;
+    typeName = "BOOL";
+    force = 1;
+};
+class ace_markers_moveRestriction {
+    value = 3;
+    typeName = "SCALAR";
+    force = 1;
 };
 class ace_medical_blood_enabledFor {
     value = 2;
@@ -957,7 +972,47 @@ class ace_advanced_ballistics_simulationRadius {
     value = 3000;
     typeName = "SCALAR";
     force = 0;
-}
+};
+class ace_pylons_enabled {
+    value = 1;
+    typeName = "BOOL";
+    force = 0;
+};
+class ace_pylons_rearmNewPylons {
+    value = 1;
+    typeName = "BOOL";
+    force = 0;
+};
+class ace_pylons_searchDistance {
+    value = 20;
+    typeName = "SCALAR";
+    force = 0;
+};
+class ace_pylons_timePerPylon {
+    value = 5;
+    typeName = "SCALAR";
+    force = 0;
+};
+class ace_pylons_requireEngineer {
+    value = 0;
+    typeName = "BOOL";
+    force = 0;
+};
+class ace_pylons_requireToolkit {
+    value = 1;
+    typeName = "BOOL";
+    force = 0;
+};
+class ace_quickmount_distance {
+    value = 3;
+    typeName = "SCALAR";
+    force = 0;
+};
+class ace_quickmount_speed {
+    value = 18;
+    typeName = "SCALAR";
+    force = 0;
+};
 
 class ace_ui_allowSelectiveUI {
     value = 0;
