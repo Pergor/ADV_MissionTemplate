@@ -11,16 +11,18 @@
 private _blacklistMarkers = [];
 
 private _unitConfig = call {
+	/*
 	if ( toUpper worldname in ADV_var_aridMaps && isClass(configfile >> "CfgPatches" >> "adv_civilians_cup") ) exitWith {
 		[
 			["adv_civ_tk_1","adv_civ_tk_1_j","adv_civ_tk_2","adv_civ_tk_2_j","adv_civ_tk_3","adv_civ_tk_3_j","adv_civ_tk_4","adv_civ_tk_4_j","adv_civ_tk_5","adv_civ_tk_5_j","adv_civ_tk_6","adv_civ_tk_6_j","adv_civ_tk_7","adv_civ_tk_7_j","adv_civ_tk_8","adv_civ_tk_8_j","adv_civ_tk_9","adv_civ_tk_9_j","adv_civ_tk_10"]
-			, { }
+			, {}
 		]
 	};
+	*/
 	if ( toUpper worldname in ADV_var_aridMaps && isClass(configfile >> "CfgPatches" >> "CUP_Creatures_People_Core") ) exitWith {
 		[
-			["CUP_I_TK_GUE_Soldier_AA","CUP_I_TK_GUE_Soldier_AR","CUP_I_TK_GUE_Soldier_HAT","CUP_I_TK_GUE_Soldier_Enfield","CUP_I_TK_GUE_Soldier_M16A2","CUP_I_TK_GUE_Soldier_AAT","CUP_I_TK_GUE_Soldier_TL","CUP_I_TK_GUE_Soldier_MG","CUP_I_TK_GUE_Soldier_Commander","CUP_O_TK_INS_Soldier_FNFAL"]
-			, { params ["_unit"]; removeVest _unit; removeBackpack _unit; removeAllWeapons _unit; }
+			["CUP_C_TK_Man_04","CUP_C_TK_Man_04_Jack","CUP_C_TK_Man_04_Waist","CUP_C_TK_Man_07","CUP_C_TK_Man_07_Coat","CUP_C_TK_Man_07_Waist","CUP_C_TK_Man_08","CUP_C_TK_Man_08_Jack","CUP_C_TK_Man_08_Waist","CUP_C_TK_Man_05_Coat","CUP_C_TK_Man_05_Jack","CUP_C_TK_Man_05_Waist","CUP_C_TK_Man_06_Coat","CUP_C_TK_Man_06_Jack","CUP_C_TK_Man_06_Waist","CUP_C_TK_Man_02","CUP_C_TK_Man_02_Jack","CUP_C_TK_Man_02_Waist","CUP_C_TK_Man_01_Waist","CUP_C_TK_Man_01_Coat","CUP_C_TK_Man_01_Jack","CUP_C_TK_Man_03_Coat","CUP_C_TK_Man_03_Jack","CUP_C_TK_Man_03_Waist"]
+			, {}
 		]
 	};
 	if ( toUpper worldname in ADV_var_europeMaps && !(toUpper worldname in ADV_var_vanillaMaps) && isClass(configfile >> "CfgPatches" >> "CUP_Creatures_People_Core") ) exitWith {

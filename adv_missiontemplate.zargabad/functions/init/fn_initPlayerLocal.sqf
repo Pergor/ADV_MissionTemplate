@@ -228,6 +228,10 @@ call {
 if ( isClass(configFile >> "CfgPatches" >> "ace_explosives") ) then {
 	[] call adv_fnc_aceMine;
 };
+//raise jam chance for enemy weapons:
+if ( isClass(configFile >> "CfgPatches" >> "ace_overheating") && missionNamespace getVariable ["adv_par_jamChance",0] isEqualTo 1 ) then {
+	[] call adv_fnc_jamChance;
+};
 
 //variable for preload-check:
 //[{time > 40},{adv_var_preloadFinished = true}] call cba_fnc_waitUntilAndExecute;

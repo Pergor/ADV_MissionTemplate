@@ -25,13 +25,29 @@
 
 	if (hasInterface) then {
 		waitUntil {player == player};
-		if ((side player) == west) then {
+		if ((side player) == west) exitWith {
 			{deleteMarkerLocal _x; nil;} count _opforMarker+_indMarker;
+			waitUntil {!isNil "ADV_params_defined"};
+			private _uniforms = missionNamespace getVariable ["ADV_par_customUni",0];
+			switch ( true ) do {
+				case ( _uniforms in [2,1] ): { "base" setMarkerTypeLocal "flag_Germany"; };
+				case ( _uniforms in [12,6,30] ): { "base" setMarkerTypeLocal "flag_UK"; };
+				case ( _uniforms in [10,8,7] ): { "base" setMarkerTypeLocal "flag_USA"; };
+				default {};
+			};
 		};
-		if ((side player) == east) then {
+		if ((side player) == east) exitWith {
 			{deleteMarkerLocal _x; nil;} count _bluforMarker+_indMarker;
+			waitUntil {!isNil "ADV_params_defined"};
+			private _uniforms = missionNamespace getVariable ["ADV_par_opfUni",0];
+			switch ( true ) do {
+				case ( _uniforms in [4,3,2,1] ): {
+					"opf_base" setMarkerTypeLocal "rhs_flag_Russia";
+				};
+				default {};
+			};	
 		};
-		if ((side player) == independent) then {
+		if ((side player) == independent) exitWith {
 			{deleteMarkerLocal _x; nil;} count _bluforMarker+_opforMarker;
 			waitUntil {!isNil "ADV_params_defined"};
 			switch ( missionNamespace getVariable ["ADV_par_indUni",0] ) do {
@@ -48,7 +64,7 @@
 				default {};
 			};
 		};
-		if ((side player) == sideEnemy) then {
+		if ((side player) == sideEnemy) exitWith {
 			{deleteMarkerLocal _x; nil;} count _bluforMarker+_opforMarker+_indMarker;
 		};
 	};

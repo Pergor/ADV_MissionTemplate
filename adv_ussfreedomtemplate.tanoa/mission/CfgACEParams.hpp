@@ -4,6 +4,13 @@
 	default = -99999;
 	texts[] = {""};
 };
+class param_jamChance
+{
+	title="ACE-Overheating: Soll die Jamming-Wahrscheinlichkeit für aufgehobene Feindwaffen erhöht werden?";
+	values[] = {1,0};
+	texts[] = {"Ja","Nein"};
+	default = 1;
+};
 class ace_medical_level
 {
 	title = "ACE-Medical Level";

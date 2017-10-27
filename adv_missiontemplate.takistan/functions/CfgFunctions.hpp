@@ -131,6 +131,7 @@ class adv
 		class flag {};
 		class fullHeal {};
 		class inGroup {};
+		class jamChance {};
 		class paraJump {};
 		class paraJumpSelection {};
 		class playerUnit {};
