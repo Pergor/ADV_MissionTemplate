@@ -122,7 +122,7 @@ class Mission
 			position[]={15171.595,17.857042,17314.756};
 			name="garage_1";
 			text="Fahrzeuge";
-			type="Select";
+			type="b_motor_inf";
 			colorName="ColorWEST";
 			a=0.69999999;
 			b=0.69999999;
@@ -134,7 +134,7 @@ class Mission
 			position[]={15197.47,17.921991,17333.385};
 			name="crates";
 			text="Zusatzausrüstung";
-			type="Select";
+			type="b_maint";
 			colorName="ColorWEST";
 			a=0.69999999;
 			b=0.69999999;
@@ -158,7 +158,7 @@ class Mission
 			position[]={15095.728,17.99967,17244.922};
 			name="garage_air_1";
 			text="Lufttransport";
-			type="Select";
+			type="b_air";
 			colorName="ColorWEST";
 			a=0.69999999;
 			b=0.69999999;
@@ -170,7 +170,7 @@ class Mission
 			position[]={15226.947,2.0608878e+025,17212.875};
 			name="garage_heavy_1";
 			text="Artillerie";
-			type="Select";
+			type="b_art";
 			colorName="ColorWEST";
 			a=0.69999999;
 			b=0.69999999;
@@ -195,7 +195,7 @@ class Mission
 			position[]={14301.508,19.536457,16267.541};
 			name="garage_air_2";
 			text="Luftunterstützung";
-			type="Select";
+			type="b_plane";
 			colorName="ColorWEST";
 			a=0.69999999;
 			b=0.69999999;
@@ -207,7 +207,7 @@ class Mission
 			position[]={15132.758,17.836042,17281.703};
 			name="garage_heavy_2";
 			text="Panzer";
-			type="Select";
+			type="b_armor";
 			colorName="ColorWEST";
 			a=0.69999999;
 			b=0.69999999;
@@ -219,7 +219,7 @@ class Mission
 			position[]={15163.733,17.908665,17266};
 			name="garage_2";
 			text="Logistik";
-			type="Select";
+			type="b_service";
 			colorName="ColorWEST";
 			a=0.69999999;
 			b=0.69999999;
@@ -250,7 +250,7 @@ class Mission
 			position[]={20816.084,27.950001,7262.2183};
 			name="opf_garage_1";
 			text="Fahrzeuge";
-			type="Select";
+			type="o_motor_inf";
 			colorName="ColorEAST";
 			a=0.69999999;
 			b=0.69999999;
@@ -262,7 +262,7 @@ class Mission
 			position[]={20827.154,27.329241,7294.4399};
 			name="opf_crates";
 			text="Zusatzausrüstung";
-			type="Select";
+			type="o_maint";
 			colorName="ColorEAST";
 			a=0.69999999;
 			b=0.69999999;
@@ -287,7 +287,7 @@ class Mission
 			position[]={21136.51,23.015015,7194.6333};
 			name="opf_garage_air_1";
 			text="Lufttransport";
-			type="Select";
+			type="o_air";
 			colorName="ColorEAST";
 			a=0.69999999;
 			b=0.69999999;
@@ -299,7 +299,7 @@ class Mission
 			position[]={20979.568,24.786306,7341.644};
 			name="opf_garage_heavy_1";
 			text="Artillerie";
-			type="Select";
+			type="o_art";
 			colorName="ColorEAST";
 			a=0.69999999;
 			b=0.69999999;
@@ -323,7 +323,7 @@ class Mission
 			position[]={20967.473,25.115364,7329.1216};
 			name="opf_garage_heavy_2";
 			text="Panzer";
-			type="Select";
+			type="o_armor";
 			colorName="ColorEAST";
 			a=0.69999999;
 			b=0.69999999;
@@ -336,7 +336,7 @@ class Mission
 			position[]={21164.838,18.590202,7551.3398};
 			name="opf_garage_air_2";
 			text="Luftunterstützung";
-			type="Select";
+			type="o_plane";
 			colorName="ColorEAST";
 			a=0.69999999;
 			b=0.69999999;
@@ -390,7 +390,7 @@ class Mission
 			position[]={20957.27,15.969238,19223.139};
 			name="ind_crates";
 			text="Ausrüstung";
-			type="Select";
+			type="n_maint";
 			colorName="ColorGUER";
 			id=25;
 			atlOffset=-0.8807621;
@@ -411,7 +411,7 @@ class Mission
 			position[]={20944.227,14.914063,19278.42};
 			name="ind_garage_1";
 			text="Fahrzeuge";
-			type="Select";
+			type="n_motor_inf";
 			colorName="ColorGUER";
 			id=27;
 			atlOffset=-1.211133;
