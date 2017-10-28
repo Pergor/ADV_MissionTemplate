@@ -16,10 +16,13 @@
  * Public: No
  */
  
-//forbidden and allowed weapons (important if players and enemies use same weapons):
 private _side = side (group player);
 if ( _side isEqualTo independent ) exitWith { false };
 
+//base variable:
+player setVariable ["adv_jc_hasWrongWeapon",false,true];
+
+//forbidden and allowed weapons (important if players and enemies use same weapons):
 private _varForbidden = format ["adv_jc_forbiddenWeapons_%1",_side];
 private _varAllowed = format ["adv_jc_allowedWeapons_%1",_side];
 private _forbiddenWeapons = missionNamespace getVariable [_varForbidden,[]];
@@ -51,7 +54,7 @@ missionNamespace setVariable [_varAllowed,_allowedWeapons];
 	private _forbiddenWeapons = missionNamespace getVariable [_varForbidden,[]];
 	private _allowedWeapons = missionNamespace getVariable [_varAllowed,[]];
 	private _playerWeapon = toUpper ([primaryWeapon player] call adv_fnc_getBaseClass);
-	private _playerWeapons = ( allPlayers select {(side (group _x)) isEqualTo _side} ) apply { [primaryWeapon _x] call adv_fnc_getBaseClass; };
+	private _playerWeapons = ( allPlayers select { (side (group _x)) isEqualTo _side && !(_x getVariable ["adv_jc_hasWrongWeapon",false]) } ) apply { [primaryWeapon _x] call adv_fnc_getBaseClass; };
 	//add weapons to arrays:
 	_allowedWeapons pushBackUnique _playerWeapon;
 	private _forcedWeapons = _allowedWeapons arrayIntersect _forbiddenWeapons;
@@ -95,9 +98,6 @@ adv_evh_jamchance_entitykilled = addMissionEventHandler [
 	}
 ];
 
-//base variable:
-adv_jamchance_isWrongWeapon = false;
-
 //script fnc that adds and removes the evh if the new weapon is wrong:
 adv_jamchance_scriptfnc_addEVH = {
 	adv_jamchance_evh_fired = player addEventhandler ["fired", {
@@ -106,7 +106,7 @@ adv_jamchance_scriptfnc_addEVH = {
 			[_unit, currentWeapon _unit] call ace_overheating_fnc_jamWeapon;
 		};
 	}];
-	[ { !adv_jamchance_isWrongWeapon }, {player removeEventHandler ["fired",adv_jamchance_evh_fired]}, []] call CBA_fnc_waitUntilAndExecute;
+	[ { !(player getVariable ["adv_jc_hasWrongWeapon",false]) }, {player removeEventHandler ["fired",adv_jamchance_evh_fired]}, []] call CBA_fnc_waitUntilAndExecute;
 };
 
 //player eventhandler:
@@ -129,14 +129,15 @@ adv_jamchance_scriptfnc_addEVH = {
 		private _rightWeapon = { (currentWeapon _unit) isKindOf [_x, configFile >> "CfgWeapons"] } count _forcedWeapons;
 		//execute evh if weapon is wrong:
 		if ( _wrongWeapon > 0 && _rightWeapon isEqualTo 0 ) then {
-			adv_jamchance_isWrongWeapon = true;
+			player setVariable ["adv_jc_hasWrongWeapon",true,true];
 			call adv_jamchance_scriptfnc_addEVH;
 			["You have taken an enemy's weapon.<br/>Beware, they often misfire!", 2.5] call ace_common_fnc_displayTextStructured;
 		} else {
-			adv_jamchance_isWrongWeapon = false;
+			player setVariable ["adv_jc_hasWrongWeapon",false,true];
 			//add weapons to arrays:
 			private _playerWeapon = toUpper ([primaryWeapon _unit] call adv_fnc_getBaseClass);
 			_allowedWeapons pushBackUnique _playerWeapon;
+			missionNamespace setVariable [_varAllowed,_allowedWeapons,true];
 		};
 	}
 ] call CBA_fnc_addPlayerEventHandler;
