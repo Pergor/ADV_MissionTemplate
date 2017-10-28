@@ -117,7 +117,7 @@ adv_jamchance_scriptfnc_addEVH = {
 		//exit, if new weapon isn't his primary weapon:
 		if !( _newSelectedWeapon isEqualTo (primaryWeapon _unit) ) exitWith {};
 		//get var names:
-		private _side = side (group player);
+		private _side = side (group _unit);
 		private _varForbidden = format ["adv_jc_forbiddenWeapons_%1",_side];
 		private _varAllowed = format ["adv_jc_allowedWeapons_%1",_side];
 		//get arrays:
@@ -129,11 +129,11 @@ adv_jamchance_scriptfnc_addEVH = {
 		private _rightWeapon = { (currentWeapon _unit) isKindOf [_x, configFile >> "CfgWeapons"] } count _forcedWeapons;
 		//execute evh if weapon is wrong:
 		if ( _wrongWeapon > 0 && _rightWeapon isEqualTo 0 ) then {
-			player setVariable ["adv_jc_hasWrongWeapon",true,true];
+			_unit setVariable ["adv_jc_hasWrongWeapon",true,true];
 			call adv_jamchance_scriptfnc_addEVH;
 			["You have taken an enemy's weapon.<br/>Beware, they often misfire!", 2.5] call ace_common_fnc_displayTextStructured;
 		} else {
-			player setVariable ["adv_jc_hasWrongWeapon",false,true];
+			_unit setVariable ["adv_jc_hasWrongWeapon",false,true];
 			//add weapons to arrays:
 			private _playerWeapon = toUpper ([primaryWeapon _unit] call adv_fnc_getBaseClass);
 			_allowedWeapons pushBackUnique _playerWeapon;
