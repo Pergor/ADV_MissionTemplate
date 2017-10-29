@@ -73,6 +73,7 @@ class adv
 		class disableVeh {};
 		class findNearestObject {};
 		class flare {};
+		class getBaseClass {};
 		class getClassNames {};
 		class getGroupVehicles {};
 		class getOppPos {};

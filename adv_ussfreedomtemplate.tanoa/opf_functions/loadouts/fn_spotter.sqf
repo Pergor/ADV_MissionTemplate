@@ -37,13 +37,13 @@ _goggles = "";
 _unitTraits = [["medic",true],["engineer",true],["explosiveSpecialist",true],["UAVHacker",true],["camouflageCoef",1.5],["audibleCoef",0.5]];
 
 //weapons - primary weapon - (string)
-_primaryweapon = "arifle_Katiba_GL_F";
+_primaryweapon = "arifle_Katiba_C_F";
 
 //primary weapon items - (array)
 _optic = ["optic_Holosight"];
 _attachments = ["muzzle_snds_H"];
 if (worldName == "TANOA" || _par_opfWeap == 20) then {
-	_primaryweapon = ["arifle_CTAR_GL_blk_F"];
+	_primaryweapon = ["arifle_CTAR_blk_F"];
 	_attachments = ["muzzle_snds_58_blk_F"];
 };
 if ( _par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
@@ -220,9 +220,9 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_candybar","","",""];
 switch (_par_opfWeap) do {
 	case 1: {
 		//RHS
-		_primaryweapon = ["rhs_weap_ak74m_gp25"];
+		_primaryweapon = ["rhs_weap_asval","rhs_weap_asval_grip"];
 		_optic = ["rhs_acc_ekp1","rhs_acc_1p63"];
-		_attachments = ["rhs_acc_dtk4short"];
+		_attachments = [""];
 		if ( _par_opfNVGs == 1 ) then { _attachments pushBack "rhs_acc_2dpZenit"; };
 		if ( _par_opfNVGs == 2 ) then { _attachments pushback "rhs_acc_perst1ik"; };
 		_handgun = "rhs_weap_pb_6p9";
@@ -232,7 +232,7 @@ switch (_par_opfWeap) do {
 	};
 	case 2: {
 		//RHS Guerilla
-		_primaryweapon = ["rhs_weap_akm_gp25"];
+		_primaryweapon = ["rhs_weap_vss","rhs_weap_vss_grip"];
 		_optic = [""];
 		_attachments = [""];
 		_silencer = "";		//if silencer is added		
@@ -246,10 +246,6 @@ switch (_par_opfWeap) do {
 		_attachments = ["CUP_muzzle_Bizon"];
 		_optic = ["CUP_optic_Kobra"];
 		_primaryweaponAmmo = [4,0];
-		_40mmHeGrenadesAmmo = 0;
-		_40mmSmokeGrenadesWhite = 0;
-		_40mmSmokeGrenadesRed = 0;
-		_40mmSmokeGrenadesGreen = 0;
 		_handgun = "CUP_hgun_PB6P9";
 		_itemsHandgun = ["CUP_muzzle_PB6P9"];
 		_handgunSilencer = "";
@@ -261,10 +257,6 @@ switch (_par_opfWeap) do {
 		_optic = [""];
 		_attachments = ["hlc_muzzle_545SUP_AK"];
 		_silencer = "";		//if silencer is added
-		_40mmHeGrenadesAmmo = 0;
-		_40mmSmokeGrenadesWhite = 0;
-		_40mmSmokeGrenadesRed = 0;
-		_40mmSmokeGrenadesGreen = 0;
 		_primaryweaponAmmo set [1,4];
 		if (isClass(configFile >> "CfgPatches" >> "RH_de_cfg")) then {
 			_handgun = "RH_mak";
@@ -279,7 +271,7 @@ switch (_par_opfWeap) do {
 	};
 	case 21: {
 		//Apex AK12
-		_primaryWeapon = "arifle_AK12_GL_F";
+		_primaryWeapon = "arifle_AK12_F";
 		_attachments = ["muzzle_snds_B"];
 		if ( _par_opfNVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
 		if ( _par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };

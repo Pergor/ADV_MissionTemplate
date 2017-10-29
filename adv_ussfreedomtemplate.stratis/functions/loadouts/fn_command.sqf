@@ -377,7 +377,7 @@ switch (_par_customUni) do {
 	case 8: {
 		//RHS UCP:
 		_uniform = ["rhs_uniform_acu_ucp"];
-		_vest = if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") ) then { [""] } else { ["rhsusf_iotv_ucp_Squadleader"] };
+		_vest = if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") ) then { ["V_Rangemaster_belt"] } else { ["rhsusf_iotv_ucp_Squadleader"] };
 		_headgear = ["rhsusf_patrolcap_ucp"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhsusf_ANPVS_15"];
 	};

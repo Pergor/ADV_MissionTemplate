@@ -394,7 +394,7 @@ class ace_medical_painIsOnlySuppressed {
     force = 0;
 };
 class ace_medical_allowUnconsciousAnimationOnTreatment {
-    value = 0;
+    value = 1;
     typeName = "BOOL";
     force = 0;
 };

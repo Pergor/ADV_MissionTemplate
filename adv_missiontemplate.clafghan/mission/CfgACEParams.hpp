@@ -6,7 +6,7 @@
 };
 class param_jamChance
 {
-	title="ACE-Overheating: Soll die Jamming-Wahrscheinlichkeit für aufgehobene Feindwaffen erhöht werden?";
+	title="ACE-Overheating: Soll die Jamming-Wahrscheinlichkeit für aufgehobene Feindwaffen erhöht werden? (Betrifft nur OPFOR- und BLUFOR-Spieler)";
 	values[] = {1,0};
 	texts[] = {"Ja","Nein"};
 	default = 1;

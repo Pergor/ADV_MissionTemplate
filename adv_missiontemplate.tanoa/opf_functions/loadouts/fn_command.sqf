@@ -259,28 +259,28 @@ switch (_par_opfUni) do {
 	case 1: {
 		//RHS EMR-Summer
 		_uniform = ["rhs_uniform_emr_patchless"];
-		_vest = ["rhs_6b23_digi_crewofficer","rhs_6b13_Flora_crewofficer","rhs_6b13_crewofficer"];
+		_vest = if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") ) then { ["rhs_vest_commander"] } else { ["rhs_6b23_digi_crewofficer","rhs_6b13_Flora_crewofficer","rhs_6b13_crewofficer"] };
 		_headgear = ["rhs_beret_milp"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 2: {
 		//RHS Flora
 		_uniform = ["rhs_uniform_flora"];
-		_vest = ["rhs_6b13_Flora_crewofficer","rhs_6b13_crewofficer"];
+		_vest = if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") ) then { ["rhs_vest_commander"] } else { ["rhs_6b13_Flora_crewofficer","rhs_6b13_crewofficer"] };
 		_headgear = ["rhs_beret_milp"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};
 	case 3: {
 		//RHS Mountain Flora
 		_uniform = ["rhs_uniform_m88_patchless"];
-		_vest = ["rhs_6b23_ML_crewofficer"];
+		_vest = if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") ) then { ["rhs_vest_commander"] } else { ["rhs_6b23_ML_crewofficer"] };;
 		_headgear = ["rhs_beret_milp"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};	
 	case 4: {
 		//RHS EMR Desert
 		_uniform = ["rhs_uniform_m88_patchless"];
-		_vest = ["rhs_6b23_ML_crewofficer"];
+		_vest = if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") ) then { [""] } else { ["rhs_6b23_ML_crewofficer"] };
 		_headgear = ["rhs_beret_milp"];
 		_items = _items-["NVGoggles_OPFOR"]+["rhs_1PN138"];
 	};

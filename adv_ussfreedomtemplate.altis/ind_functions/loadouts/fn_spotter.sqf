@@ -34,7 +34,7 @@ _goggles = "";
 _unitTraits = [["medic",true],["engineer",true],["explosiveSpecialist",true],["UAVHacker",true],["camouflageCoef",1.5],["audibleCoef",0.5]];
 
 //weapons - primary weapon - (string)
-_primaryWeapon = ["arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F"];
+_primaryWeapon = ["arifle_Mk20_F","arifle_Mk20_plain_F"];
 
 //primary weapon items - (array)
 _optic = ["optic_Holosight"];
@@ -48,14 +48,14 @@ _primaryweaponAmmo = [8,0];		//first number: Amount of magazines, second number:
 _additionalAmmo = [5,"7Rnd_408_Mag",true];
 
 //40mm Grenades - (integer)
-_40mmHeGrenadesAmmo = 4;
-_40mmSmokeGrenadesWhite = 1;
+_40mmHeGrenadesAmmo = 0;
+_40mmSmokeGrenadesWhite = 0;
 _40mmSmokeGrenadesYellow = 0;
 _40mmSmokeGrenadesOrange = 0;
-_40mmSmokeGrenadesRed = 1;
+_40mmSmokeGrenadesRed = 0;
 _40mmSmokeGrenadesPurple = 0;
 _40mmSmokeGrenadesBlue = 0;
-_40mmSmokeGrenadesGreen = 1;
+_40mmSmokeGrenadesGreen = 0;
 _40mmFlareWhite = 0;
 _40mmFlareYellow = 0;
 _40mmFlareRed = 0;
@@ -212,12 +212,12 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar",""
 switch (_par_indWeap) do {
 	case 1: {
 		//Vanilla trg21
-		_primaryWeapon = ["arifle_TRG21_GL_F"];
+		_primaryWeapon = ["arifle_TRG21_F"];
 		_silencer = ["muzzle_snds_M"];
 	};
 	case 2: {
 		//SELmods
-		_primaryweapon = ["rhs_weap_m4a1_blockII_M203","rhs_weap_m4a1_blockII_M203","rhs_weap_m4a1_m320"];
+		_primaryweapon = ["rhs_weap_mk18_wd"];
 		_optic = ["rhsusf_acc_SpecterDR_CX_3D","rhsusf_acc_SpecterDR_3d","rhsusf_acc_SpecterDR_OD_3D","rhsusf_acc_SpecterDR_D_3D"];
 		_attachments = ["rhsusf_acc_rotex5_grey"];
 		if ( _par_NVGs == 1 ) then { _attachments pushback "rhsusf_acc_M952V"; };
@@ -234,7 +234,7 @@ switch (_par_indWeap) do {
 		_additionalAmmo = [5,"rhsusf_5Rnd_300winmag_xm2010",true];
 	};
 	case 3: {
-		_primaryWeapon = ["hlc_smg_9mmar"];
+		_primaryWeapon = ["hlc_smg_mp5sd6"];
 		_optic = [""];
 		_attachments = [""];
 		_silencer = "";
@@ -246,7 +246,7 @@ switch (_par_indWeap) do {
 	};
 	case 20: {
 		//APEX HK416
-		_primaryWeapon = "arifle_SPAR_01_GL_blk_F";
+		_primaryWeapon = "arifle_SPAR_01_blk_F";
 		_attachments pushBack "muzzle_snds_M";
 		_primaryweaponAmmo set [1,1];
 		_optic = ["optic_Holosight_blk_F"];
@@ -254,7 +254,7 @@ switch (_par_indWeap) do {
 	};
 	case 21: {
 		//APEX AKM
-		_primaryWeapon = "arifle_AK12_GL_F";
+		_primaryWeapon = "arifle_AK12_F";
 		_optic = [""];
 		_attachments = ["muzzle_snds_B"];
 		if ( _par_NVGs == 1 ) then { _attachments pushBack "acc_flashlight"; };
