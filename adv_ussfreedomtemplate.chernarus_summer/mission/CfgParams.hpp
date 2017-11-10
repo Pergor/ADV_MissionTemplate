@@ -404,7 +404,7 @@ class param_opfUni
 		,5,20,0
 	};
 	texts[] = {
-		"Afghan Militia (EricJ's Afghan Fighters & RHS)"
+		"Afghan Militia (CUP)"
 		,"EMR Desert (RHS)","Mountain Flora (RHS)","Flora (RHS)","EMR Summer (RHS)"
 		,"Vanilla - Guerilla","Apex - CSAT","Vanilla - CSAT"
 	};

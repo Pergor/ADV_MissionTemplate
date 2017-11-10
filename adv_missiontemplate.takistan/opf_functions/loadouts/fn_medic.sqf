@@ -302,16 +302,24 @@ switch (_par_opfUni) do {
 		_givePersonalRadio = false;
 	};
 	case 6: {
-		//Afghan Militia (EricJ's Taliban)
-		_uniform = ["U_Afghan01NH","U_Afghan02NH","U_Afghan03NH"];
-		if (isClass(configFile >> "CfgPatches" >> "maa_Uniform")) then {_uniform append ["TRYK_U_taki_BL","TRYK_U_taki_COY","TRYK_U_taki_wh","TRYK_U_taki_G_BL","TRYK_U_taki_G_COY","TRYK_U_taki_G_WH","TRYK_ZARATAKI","TRYK_ZARATAKI2","TRYK_ZARATAKI3"]};
-		_vest = ["V_HarnessOGL_brn","V_HarnessOGL_gry","rhs_vest_commander","V_BandollierB_cbr","V_BandollierB_khk"];
-		_headgear = ["","H_Shemag_olive","H_ShemagOpen_tan","H_ShemagOpen_khk","Afghan_01Hat","Afghan_02Hat","Afghan_03Hat","Afghan_04Hat","Afghan_05Hat","Afghan_06Hat"];
+		//CUP Taliban
+		_uniform = ["CUP_O_TKI_Khet_Partug_01","CUP_O_TKI_Khet_Partug_02","CUP_O_TKI_Khet_Partug_03","CUP_O_TKI_Khet_Partug_04"
+			,"CUP_O_TKI_Khet_Partug_05","CUP_O_TKI_Khet_Partug_06","CUP_O_TKI_Khet_Partug_07","CUP_O_TKI_Khet_Partug_08"];
+		_vest = ["CUP_V_I_Guerilla_Jacket","CUP_V_OI_TKI_Jacket4_01","CUP_V_OI_TKI_Jacket4_02","CUP_V_OI_TKI_Jacket4_03","CUP_V_OI_TKI_Jacket4_04","CUP_V_OI_TKI_Jacket4_05","CUP_V_OI_TKI_Jacket4_06"
+			,"CUP_V_OI_TKI_Jacket5_01","CUP_V_OI_TKI_Jacket5_02","CUP_V_OI_TKI_Jacket5_03","CUP_V_OI_TKI_Jacket5_04","CUP_V_OI_TKI_Jacket5_05","CUP_V_OI_TKI_Jacket5_06"
+			,"CUP_V_OI_TKI_Jacket3_01","CUP_V_OI_TKI_Jacket3_02","CUP_V_OI_TKI_Jacket3_03","CUP_V_OI_TKI_Jacket3_04","CUP_V_OI_TKI_Jacket3_05","CUP_V_OI_TKI_Jacket3_06"
+			,"CUP_V_OI_TKI_Jacket2_01","CUP_V_OI_TKI_Jacket2_02","CUP_V_OI_TKI_Jacket2_03","CUP_V_OI_TKI_Jacket2_04","CUP_V_OI_TKI_Jacket2_05","CUP_V_OI_TKI_Jacket2_06"
+		];
+		_backpack = ["CUP_B_SLA_Medicbag"];
+		_headgear = ["CUP_H_TK_Lungee","CUP_H_TKI_Lungee_Open_02","CUP_H_TKI_Lungee_Open_05","CUP_H_TKI_Lungee_Open_06","CUP_H_TKI_Lungee_01","CUP_H_TKI_Lungee_04","CUP_H_TKI_Lungee_05","CUP_H_TKI_Lungee_06"
+			,"CUP_H_TKI_Pakol_1_01","CUP_H_TKI_Pakol_1_02","CUP_H_TKI_Pakol_1_03","CUP_H_TKI_Pakol_1_04","CUP_H_TKI_Pakol_1_05","CUP_H_TKI_Pakol_1_06"
+			,"CUP_H_TKI_Pakol_2_01","CUP_H_TKI_Pakol_2_02","CUP_H_TKI_Pakol_2_03","CUP_H_TKI_Pakol_2_04","CUP_H_TKI_Pakol_2_05","CUP_H_TKI_Pakol_2_06"
+		];
 		_goggles = "";
 		_useProfileGoggles = 0;
-		_backpack = ["rhs_assault_umbts"];
-		_giveRiflemanRadio = true;
+		_giveRiflemanRadio = false;
 		_givePersonalRadio = false;
+		_giveBackpackRadio = false;
 	};
 	case 20: {
 		//Apex Green Hex
@@ -331,7 +339,9 @@ if (isClass(configFile >> "CfgPatches" >> "adv_insignia")) then {
 if !( _par_opfUni isEqualTo 6 ) then {
 	switch (toUpper ([str _player,3,12] call BIS_fnc_trimString)) do {
 		case "MEDIC_COM": {
-			_binocular = "Rangefinder";
+			if !( _par_opfUni in [6,5] ) then {
+				_binocular = "Rangefinder";
+			};
 			_ACE_MapTools = 1;
 			_ACE_isMedic = 2;
 			_ACE_personalAidKit = 1;
@@ -347,7 +357,7 @@ if !( _par_opfUni isEqualTo 6 ) then {
 	};
 };
 
-if ( ({[_player,_x] call adv_fnc_inGroup} count ["MILAN","LUCHS","ZEUS"] > 0 || [_player,"command"] call adv_fnc_findInGroup) && _par_opfUni isEqualTo 6 ) then {
+if ( ( ({[_player,_x] call adv_fnc_inGroup} count ["MILAN","LUCHS","ZEUS"] > 0 || [_player,"command"] call adv_fnc_findInGroup) ) && !(_par_opfUni in [6,5]) ) then {
 	_binocular = "Rangefinder";
 	_androidDevice = true;
 	_microDAGR = false;
