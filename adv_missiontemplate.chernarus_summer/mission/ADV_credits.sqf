@@ -1,11 +1,9 @@
 ﻿//////// You are not allowed to change anything below this line! ////////
-ADV_missionAuthor = getText (missionconfigfile >> "Author");
-publicVariable "ADV_missionAuthor";
 [
 	{true},
 		["Credits",
 			"Mission", 
-				format ["Diese Mission wurde von %1 höchstpersönlich gebaut.", ADV_missionAuthor]
+				format ["Diese Mission wurde von %1 höchstpersönlich gebaut.", getMissionConfig "Author"]
 		],
 		["Credits",
 			"ADV_MissionTemplate", 

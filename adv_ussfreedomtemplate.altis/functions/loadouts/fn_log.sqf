@@ -27,7 +27,7 @@ params ["_player","_special"];
 _uniform = ["U_B_CombatUniform_mcam_worn","U_B_CombatUniform_mcam","U_B_CombatUniform_mcam_vest"];
 _vest = ["V_TacVest_blk"];
 _headgear = ["H_HelmetB_sand"];
-_backpack = ["B_Assaultpack_blk"];
+_backpack = if ( 571710 in (getDLCs 1) ) then { ["B_LegStrapBag_black_F","B_LegStrapBag_olive_F","B_LegStrapBag_coyote_F"] } else { ["B_Assaultpack_blk"] };
 _insignium = "";
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "G_Aviator";
@@ -410,10 +410,12 @@ switch (_par_customUni) do {
 		_uniform = ["U_B_T_Soldier_SL_F","U_B_T_Soldier_F"];
 		_headgear = ["H_HelmetB_tna_F","H_HelmetB_Enh_tna_F","H_HelmetB_Light_tna_F"];
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
+		if ( 571710 in (getDLCs 1) ) then { _backpack = ["B_LegStrapBag_black_F","B_LegStrapBag_olive_F"] };
 	};
 	case 30: {
 		//Vanilla CTRG
 		_uniform = ["U_B_CTRG_1","U_B_CTRG_2","U_B_CTRG_3"];
+		if ( 571710 in (getDLCs 1) ) then { _backpack = ["B_LegStrapBag_black_F"] };
 		if (worldName == "TANOA") then {
 			_uniform = ["U_B_CTRG_Soldier_F","U_B_CTRG_Soldier_2_F","U_B_CTRG_Soldier_3_F"];
 		};
