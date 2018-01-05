@@ -3,7 +3,7 @@
 	{true},
 		["Credits",
 			"Mission", 
-				format ["Diese Mission wurde von %1 höchstpersönlich gebaut.", getMissionConfig "Author"]
+				format ["Diese Mission wurde von %1 höchstpersönlich gebaut.", getMissionConfigValue ["Author","[SeL] Belbo"]]
 		],
 		["Credits",
 			"ADV_MissionTemplate", 

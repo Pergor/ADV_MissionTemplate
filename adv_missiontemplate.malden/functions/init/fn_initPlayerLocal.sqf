@@ -77,7 +77,7 @@ if (!isServer) then {
 
 //title text:
 titleText ["", "BLACK FADED"];
-titleText [format ["%1 \n\n\nThis mission was built by %2 \n\n\n Have Fun! :)", briefingName, getMissionConfig "Author"], "BLACK FADED",0];
+titleText [format ["%1 \n\n\nThis mission was built by %2 \n\n\n Have Fun! :)", briefingName, getMissionConfigValue ["Author","[SeL] Belbo"]], "BLACK FADED",0];
 
 //fuck mcc
 if (!isNil "mcc_actionInedx") then { player removeAction mcc_actionInedx; };

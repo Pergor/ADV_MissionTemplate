@@ -21,6 +21,7 @@ if !(_state) exitWith {
 	disableUserInput false;
 	disableUserInput true;
 	disableUserInput false;
+	disableUserInput false;
 };
 
 disableUserInput true;
