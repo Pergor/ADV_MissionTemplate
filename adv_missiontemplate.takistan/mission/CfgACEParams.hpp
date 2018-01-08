@@ -1,8 +1,35 @@
-﻿class dummy_settings_ace {
+﻿class dummy_settings_adv_aceCPR {
+	title = "---------------------- ADV_ACECPR-Settings ----------------------";
+	values[] = {-99999};
+	default = -99999;
+	texts[] = {""};
+};
+class param_adv_aceCPR_onlyDoctors
+{
+	title = "ACE-Medical: Wer soll Patienten mit CPR wiederbeleben können? (Nur mit adv_aceCPR)";
+	values[] = {0, 1, 2};
+	default = 0;
+	texts[] =  {"Jeder", "Medics & Doctors", "Doctors only"};
+};
+class param_adv_aceCPR_AED
+{
+	title = "ACE-Medical: Sollen PAKs durch Defibrillatoren ausgetauscht werden? (Nur mit adv_aceCPR)";
+	values[] = {0, 1, 2};
+	default = 2;
+	texts[] =  {"Es werden nur PAKs ausgegeben","Es werden PAKs UND Defibrillatoren ausgegeben","Es werden nur Defibrillatoren ausgegeben"};
+};
+class dummy_settings_ace {
 	title = "---------------------- ACE-Settings ----------------------";
 	values[] = {-99999};
 	default = -99999;
 	texts[] = {""};
+};
+class param_ace_medical_GivePAK
+{
+	title = "ACE-Medical: An wen sollen PAKs/Defibrillatoren ausgegeben werden?";
+	values[] = {0, 1};
+	default = 0;
+	texts[] =  {"Nur an Zugsanitäter", "Zugsanitäter & Gruppensanitäter"};
 };
 class param_jamChance
 {
@@ -11,6 +38,12 @@ class param_jamChance
 	texts[] = {"Ja","Nein"};
 	default = 1;
 };
+class dummy_settings_ace_old {
+	title = "----- ACE-Settings (overwriting both mission & server cba settings) -----";
+	values[] = {-99999};
+	default = -99999;
+	texts[] = {""};
+};
 class ace_medical_level
 {
 	title = "ACE-Medical Level";
@@ -18,27 +51,6 @@ class ace_medical_level
 	values[] = {1, 2};
 	default = 2;
 	texts[] =  {"Basic", "Advanced"};
-};
-class param_ace_medical_GivePAK
-{
-	title = "ACE-Medical: An wen sollen PAKs/Defibrillatoren (siehe nächsten Parameter) ausgegeben werden?";
-	values[] = {0, 1};
-	default = 0;
-	texts[] =  {"Nur der Zugsanitäter", "Zugsanitäter & Gruppensanitäter"};
-};
-class param_ace_aceCPR_AED
-{
-	title = "ACE-Medical: Sollen PAKs durch Defibrillatoren ausgetauscht werden? (Nur mit adv_aceCPR)";
-	values[] = {0, 1, 2};
-	default = 2;
-	texts[] =  {"Es werden nur PAKs ausgegeben","Es werden PAKs UND Defibrillatoren ausgegeben","Es werden nur Defibrillatoren ausgegeben"};
-};
-class param_adv_aceCPR_onlyDoctors
-{
-	title = "ACE-Medical: Wer soll Patienten mit CPR wiederbeleben können? (Nur mit adv_aceCPR)";
-	values[] = {0, 1, 2};
-	default = 0;
-	texts[] =  {"Jeder", "Medics & Doctors", "Doctors only"};
 };
 class ace_medical_consumeItem_PAK
 {

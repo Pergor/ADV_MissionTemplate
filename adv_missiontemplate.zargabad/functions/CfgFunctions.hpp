@@ -20,6 +20,7 @@ class adv
 	};
 	class preInit
 	{
+		class aceParams { postInit = 1; };
 		class collectCrates {};
 		class collectFlags {};
 		class parVariables {};

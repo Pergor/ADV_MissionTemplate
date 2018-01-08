@@ -50,10 +50,10 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_medical") ) exitWith {
 	if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 ) then {
 		if ( (missionnamespace getVariable ["ace_medical_consumeItem_PAK",0]) isEqualTo 0 && _ACE_personalAidKit > 1 ) then { _ACE_personalAidKit = 1; };
 		if ( _ACE_personalAidKit > 0 ) then {
-			if ( isClass(configFile >> "CfgWeapons" >> "adv_aceCPR_AED") && missionNamespace getVariable ["adv_par_ace_aceCPR_AED",1] > 0 ) then {
+			if ( isClass(configFile >> "CfgWeapons" >> "adv_aceCPR_AED") && missionNamespace getVariable ["adv_par_adv_aceCPR_AED",1] > 0 ) then {
 				_unit removeItems "adv_aceCPR_AED";
 				_unit addItem "adv_aceCPR_AED";
-				_ACE_personalAidKit = if (missionNamespace getVariable ["adv_par_ace_aceCPR_AED",1] isEqualTo 2) then {0} else {_ACE_personalAidKit};
+				_ACE_personalAidKit = if (missionNamespace getVariable ["adv_par_adv_aceCPR_AED",1] isEqualTo 2) then {0} else {_ACE_personalAidKit};
 			};
 			for "_i" from 1 to _ACE_personalAidKit do { _unit addItem "ACE_personalAidKit"; };
 		};

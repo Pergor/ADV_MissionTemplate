@@ -18,10 +18,13 @@
 private _arrayCreation = {
 	{
 		private _param = configName ((missionConfigFile >> "Params") select _ForEachIndex);
-		private _suffix = [_param,6] call BIS_fnc_trimString;
+		private _suffix = _param;
+		if ( ["param_",_param] call BIS_fnc_inString ) then {
+			_suffix = [_param,6] call BIS_fnc_trimString;
+		};
 		private _value = paramsArray select _ForEachIndex;
 		private _var = format ["adv_par_%1 = %2",_suffix, _value];
-		if( _suffix != "" ) then {
+		if !(_suffix isEqualTo "") then {
 			call compileFinal _var;
 		};
 	} forEach paramsArray;
@@ -54,8 +57,10 @@ private _variables = {
 		missionNamespace setVariable ["ace_mk6mortar_airResistanceEnabled",false];
 	};
 	
+	[] call adv_fnc_aceParams;
+	
 	adv_aceCPR_onlyDoctors = missionNamespace getVariable ["adv_par_adv_aceCPR_onlyDoctors",0];
-	if ( isClass(configFile >> "CfgWeapons" >> "adv_aceCPR_AED") && missionNamespace getVariable ["adv_par_ace_aceCPR_AED",1] isEqualTo 2 ) then {
+	if ( isClass(configFile >> "CfgWeapons" >> "adv_aceCPR_AED") && missionNamespace getVariable ["adv_par_adv_aceCPR_AED",1] isEqualTo 2 ) then {
 		adv_aceCPR_probabilities = [30,10,5,85];
 	};
 

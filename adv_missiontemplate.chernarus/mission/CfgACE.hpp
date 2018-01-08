@@ -1,3 +1,5 @@
+//Deprecated with ace version 3.12.0.
+
 class ace_common_forceAllSettings {
     value = 0;
     typeName = "BOOL";
