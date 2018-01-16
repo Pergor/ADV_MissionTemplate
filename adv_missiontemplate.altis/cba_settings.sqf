@@ -271,7 +271,7 @@ force ace_nametags_showCursorTagForVehicles = false;
 
 force ace_nightvision_aimDownSightsBlur = 0.2;
 force ace_nightvision_disableNVGsWithSights = false;
-force ace_nightvision_effectScaling = 0.1;
+force ace_nightvision_effectScaling = 0.4;
 force ace_nightvision_fogScaling = 0.5;
 
 force ace_noradio_enabled = true;
@@ -309,7 +309,6 @@ force ace_repair_addSpareParts = true;
 force ace_repair_autoShutOffEngineWhenStartingRepair = true;
 force ace_repair_consumeItem_toolKit = 0;
 force ace_repair_engineerSetting_fullRepair = 2;
-
 force ace_repair_engineerSetting_repair = 1;
 force ace_repair_engineerSetting_wheel = 0;
 force ace_repair_fullRepairLocation = 0;
