@@ -19,7 +19,7 @@ missionNamespace setVariable ["ace_medical_level",missionNamespace getVariable [
 missionNamespace setVariable ["ace_medical_consumeItem_PAK",missionNamespace getVariable ["adv_par_ace_medical_consumeItem_PAK",0]];
 missionNamespace setVariable ["ace_medical_enableRevive",missionNamespace getVariable ["adv_par_ace_medical_enableRevive",1]];
 missionNamespace setVariable ["ace_medical_maxReviveTime",missionNamespace getVariable ["adv_par_ace_medical_maxReviveTime",900]];
-missionNamespace setVariable ["ace_medical_enableFor",missionNamespace getVariable ["adv_par_ace_medical_enableUnconsciousnessAI",0]];
+missionNamespace setVariable ["ace_medical_enableFor",missionNamespace getVariable ["adv_par_ace_medical_enableFor",0]];
 missionNamespace setVariable ["ace_medical_enableUnconsciousnessAI",missionNamespace getVariable ["adv_par_ace_medical_enableUnconsciousnessAI",0]];
 missionNamespace setVariable ["ace_rearm_level",missionNamespace getVariable ["adv_par_ace_rearm_level",1]];
 
@@ -35,7 +35,6 @@ missionNamespace setVariable ["ace_rearm_level",missionNamespace getVariable ["a
 } count [
 	"ace_medical_enableAdvancedWounds"
 	,"ace_medical_healHitPointAfterAdvBandage"
-	,"ace_medical_preventInstaDeath"
 	,"ace_medical_preventInstaDeath"
 	,"ace_mk6mortar_useAmmoHandling"
 ];

@@ -71,10 +71,8 @@ switch _FAKtype do {
 		if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 ) then {
 			call {
 				if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) exitWith {
-					_ACE_fieldDressing = 8;
 					_ACE_elasticBandage = 4;
-					_ACE_packingBandage = 4;
-					_ACE_quikclot = 4;
+					_ACE_packingBandage = 10;
 				};
 				_ACE_fieldDressing = 10;
 				_ACE_elasticBandage = 2;
@@ -123,9 +121,9 @@ switch _FAKtype do {
 		if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 || (missionnamespace getVariable ["ace_medical_medicSetting",2]) > 1 ) then {
 			call {
 				if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) exitWith {
-					_ACE_fieldDressing = 32;
+					_ACE_fieldDressing = 12;
 					_ACE_elasticBandage = 32;
-					_ACE_packingBandage = 12;
+					_ACE_packingBandage = 32;
 					_ACE_quikclot = 12;
 				};
 				_ACE_fieldDressing = 32;

@@ -47,7 +47,10 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 	_ACE_fieldDressing = 32;
 	_ACE_packingBandage = 32;
 	_ACE_elasticBandage = 32;
-	_ACE_quikclot = if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) then { 32 } else { 0 };
+	_ACE_quikclot = 0;
+	if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) then {
+		_ACE_quikclot = 32;
+	};
 	_ACE_adenosine = 5;
 	_ACE_atropine = 5;
 	_ACE_epinephrine = 12;

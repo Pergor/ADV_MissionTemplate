@@ -203,7 +203,7 @@ _scorchItemsRandom = [""];
 switch (_par_customWeap) do {
 	case 1: {
 		//BWmod
-		_primaryweapon = "BWA3_MG5";
+		_primaryweapon = "BWA3_MG3";
 		_optic = ["BWA3_optic_ZO4x30"];
 		_additionalAmmo set [0,4];
 		_silencer = "BWA3_muzzle_snds_MG5";
