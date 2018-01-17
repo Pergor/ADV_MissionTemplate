@@ -271,7 +271,7 @@ force ace_nametags_showCursorTagForVehicles = false;
 
 force ace_nightvision_aimDownSightsBlur = 0.2;
 force ace_nightvision_disableNVGsWithSights = false;
-force ace_nightvision_effectScaling = 0.4;
+force ace_nightvision_effectScaling = 0.3;
 force ace_nightvision_fogScaling = 0.5;
 
 force ace_noradio_enabled = true;
