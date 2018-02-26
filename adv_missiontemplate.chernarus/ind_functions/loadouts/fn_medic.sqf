@@ -251,7 +251,7 @@ switch (_par_indUni) do {
 	case 1: {
 	//PMC uniforms
 		_uniform = ["U_IG_Guerrilla_6_1","U_IG_Guerilla2_2","U_IG_Guerilla2_1","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_C_HunterBody_grn","U_Rangemaster","U_C_Poor_1","U_Competitor"];
-		_vest = ["V_PlateCarrier1_blk","V_PlateCarrierIAGL_oli"];
+		_vest = ["V_TacVestIR_blk","V_Chestrig_blk","V_Chestrig_rgr","V_PlateCarrier1_rgr_noflag_F"];
 		_headgear = ["H_Cap_blk","H_Cap_blu","H_Cap_blk_CMMG","H_Cap_grn","H_Cap_oli","H_Cap_oli_hs","H_Cap_red","H_Cap_tan","H_MilCap_blue","H_MilCap_gry","H_Cap_headphones"];
 		_backpack = ["B_Kitbag_rgr"];
 	};

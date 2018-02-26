@@ -57,7 +57,7 @@
 					//{_x setMarkerColorLocal "ColorBrown"} forEach _indMarker;
 				};
 				case 1: {
-					"ind_base" setMarkerTypeLocal "Ioc_WaterTower";
+					"ind_base" setMarkerTypeLocal "loc_WaterTower";
 					"ind_base" setMarkerTextLocal "Brackwasser Security Consulting";
 					"ind_base" setMarkerColorLocal "ColorGUER";
 				};
