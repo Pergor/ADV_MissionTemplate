@@ -3,16 +3,6 @@
  *
  * Contains all the variables important for acre. Basic settings have to be set in cba_settings.sqf in main mission folder.
  *
- * Arguments:
- * None
- *
- * Return Value:
- * acre present and set? - <BOOL>
- *
- * Example:
- * [] call adv_fnc_acreSettings;
- *
- * Public: No
  */
  
 if !( isClass (configFile >> "CfgPatches" >> "acre_main") ) exitWith { false };

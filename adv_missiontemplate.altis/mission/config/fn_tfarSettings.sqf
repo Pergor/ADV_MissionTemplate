@@ -3,22 +3,12 @@
  *
  * Contains all the variables important for tfar. Basic settings have to be set in cba_settings.sqf in main mission folder.
  *
- * Arguments:
- * None
- *
- * Return Value:
- * tfar present and set? - <BOOL>
- *
- * Example:
- * [] call adv_fnc_tfarSettings;
- *
- * Public: No
  */
 
 if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	//general:
 	tfar_terrain_interception_coefficient = 3.0;
-	tfar_speakerDistance = 10;
+	tfar_speakerDistance = 20;
 
 	//radios:
 	TFAR_DefaultRadio_Personal_West = "tfar_anprc152";
