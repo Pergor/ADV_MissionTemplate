@@ -487,6 +487,7 @@ switch (_par_customUni) do {
 		//Vanilla CTRG
 		_uniform = ["U_B_CTRG_1","U_B_CTRG_2","U_B_CTRG_3"];
 		_vest = ["V_PlateCarrierL_CTRG","V_PlateCarrierH_CTRG"];
+		if ( _par_NVGs == 1 ) then { _backpack = ["B_AssaultPack_khk","B_AssaultPack_rgr"]; };
 		if (worldName == "TANOA") then {
 			_uniform = ["U_B_CTRG_Soldier_F","U_B_CTRG_Soldier_2_F","U_B_CTRG_Soldier_3_F"];
 			_vest = ["V_PlateCarrier1_rgr_noflag_F","V_PlateCarrier2_rgr_noflag_F"];

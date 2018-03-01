@@ -23,6 +23,7 @@ if (!isServer) then {
 	//parameters and variables:
 	call adv_fnc_parVariables;
 	call adv_fnc_variables;
+	call adv_fnc_userVariables;
 	call adv_fnc_tfarSettings;
 	call adv_fnc_acreSettings;
 };

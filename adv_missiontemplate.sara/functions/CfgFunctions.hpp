@@ -13,10 +13,13 @@ class adv
 			postInit = 1;
 		};
 	};
-	class settings
+	class userSettings
 	{
-		class acreSettings {};
-		class tfarSettings {};
+		class acreSettings { file = "mission\config\fn_acreSettings.sqf"; };
+		class radioGroups { file = "mission\config\fn_radioGroups.sqf"; };
+		class tfarSettings { file = "mission\config\fn_tfarSettings.sqf"; };
+		class userMarkers { file = "mission\config\fn_userMarkers.sqf"; };
+		class userVariables { file = "mission\config\fn_userVariables.sqf"; };
 	};
 	class preInit
 	{

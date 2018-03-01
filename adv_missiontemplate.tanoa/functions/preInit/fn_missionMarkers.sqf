@@ -39,9 +39,4 @@ for "_x" from 1 to 100 do {
 	//format ["%1%2","missionMarker_",_x] setMarkerAlphaLocal 0;
 };
 
-//opacity for _opacMarker (range from 0.0 to 1.0)
-_opacity = 0.7;
-//mission markers with lower opacity:
-{_x setmarkeralpha _opacity;} count _opacMarker;
-
 true;

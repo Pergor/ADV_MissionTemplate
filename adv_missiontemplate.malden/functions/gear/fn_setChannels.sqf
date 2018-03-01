@@ -31,105 +31,127 @@ LR-Kreise:
 8. Logistik
 9. OPZ/Zeus
 */
+
+private _groups = call adv_fnc_radioGroups;
+_groups = _groups apply { _x apply {toUpper _x} };
+_groups params [
+	"_sr_0","_sr_1","_sr_2","_sr_3","_sr_4","_sr_5","_sr_6","_sr_7"
+	,"_lr_1","_lr_2","_lr_3","_lr_4","_lr_5","_lr_6","_lr_7","_lr_8","_lr_9"
+];
+
 //set frequencies depending on group for tfar
 if ( isClass (configFile >> "CfgPatches" >> "tfar_core") && hasInterface ) exitWith {
 	waitUntil { time > 1 && call TFAR_fnc_haveSWRadio };
+	[_unit] call adv_fnc_setFrequencies;
 	call {
 		private _activeSWRadio = call TFAR_fnc_activeSwRadio;
+		if ( toUpper (groupID group _unit) in _sr_1 ) exitWith {
+			[_activeSWRadio, 1] call TFAR_fnc_setSwChannel;
+		};
+		if ( toUpper (groupID group _unit) in _sr_2 ) exitWith {
+			[_activeSWRadio, 2] call TFAR_fnc_setSwChannel;
+		};
+		if ( toUpper (groupID group _unit) in _sr_3 ) exitWith {
+			[_activeSWRadio, 3] call TFAR_fnc_setSwChannel;
+		};
+		if ( toUpper (groupID group _unit) in _sr_4 ) exitWith {
+			[_activeSWRadio, 4] call TFAR_fnc_setSwChannel;
+		};
+		if ( toUpper (groupID group _unit) in _sr_5 ) exitWith {
+			[_activeSWRadio, 5] call TFAR_fnc_setSwChannel;
+		};
+		if ( toUpper (groupID group _unit) in _sr_6 ) exitWith {
+			[_activeSWRadio, 6] call TFAR_fnc_setSwChannel;
+		};
+		if ( toUpper (groupID group _unit) in _sr_7 ) exitWith {
+			[_activeSWRadio, 7] call TFAR_fnc_setSwChannel;
+		};
+		[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
+	};
+	call {
 		private _hasLRRadio = call TFAR_fnc_haveLRRadio;
 		private _activeLRRadio = if (_hasLRRadio) then {call TFAR_fnc_activeLRRadio} else {[""]};
-		[_unit] call adv_fnc_setFrequencies;
-		
-		if ( toUpper (groupID group _unit) in ["JUPITER","NATTER","LUCHS","MILAN"] ) exitWith {
-			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio, 1] call TFAR_fnc_setLRChannel; };
+		if !( _hasLRRadio ) exitWith {};
+		if ( toUpper (groupID group _unit) in _lr_2 ) exitWith {
+			[_activeLRRadio, 2] call TFAR_fnc_setLRChannel;
 		};
-		if ( toUpper (groupID group _unit) in ["MARS","ANAKONDA","LÖWE","ADLER"] ) exitWith {
-			[_activeSWRadio, 1] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio, 1] call TFAR_fnc_setLRChannel; };
+		if ( toUpper (groupID group _unit) in _lr_3 ) exitWith {
+			[_activeLRRadio, 3] call TFAR_fnc_setLRChannel;
 		};
-		if ( toUpper (groupID group _unit) in ["DEIMOS","BOA","TIGER","BUSSARD"] ) exitWith {
-			[_activeSWRadio, 2] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio, 1] call TFAR_fnc_setLRChannel; };
+		if ( toUpper (groupID group _unit) in _lr_4 ) exitWith {
+			[_activeLRRadio, 4] call TFAR_fnc_setLRChannel;
 		};
-		if ( toUpper (groupID group _unit) in ["PHOBOS","COBRA","PANTHER","CONDOR"] ) exitWith {
-			[_activeSWRadio, 3] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio, 1] call TFAR_fnc_setLRChannel; };
+		if ( toUpper (groupID group _unit) in _lr_5 ) exitWith {
+			[_activeLRRadio, 5] call TFAR_fnc_setLRChannel;
 		};
-		if ( toUpper (groupID group _unit) in ["VULKAN","LEOPARD","DROSSEL"] ) exitWith {
-			[_activeSWRadio, 4] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio, 1] call TFAR_fnc_setLRChannel; };
+		if ( toUpper (groupID group _unit) in _lr_6 ) exitWith {
+			[_activeLRRadio, 6] call TFAR_fnc_setLRChannel;
 		};
-		if ( toUpper (groupID group _unit) in ["APOLLO","DRACHE","ORCA","FALKE"] ) exitWith {
-			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio, 6] call TFAR_fnc_setLRChannel; };
+		if ( toUpper (groupID group _unit) in _lr_7 ) exitWith {
+			[_activeLRRadio, 7] call TFAR_fnc_setLRChannel;
 		};
-		if ( toUpper (groupID group _unit) in ["MERKUR","GEPARD","ELSTER"] ) exitWith {
-			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio, 7] call TFAR_fnc_setLRChannel; };
+		if ( toUpper (groupID group _unit) in _lr_8 ) exitWith {
+			[_activeLRRadio, 8] call TFAR_fnc_setLRChannel;
 		};
-		if ( toUpper (groupID group _unit) in ["DIANA","JAGUAR","VIPER","HABICHT"]) exitWith {
-			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio, 6] call TFAR_fnc_setLRChannel; };
-		};
-		if ( toUpper (groupID group _unit) in ["SATURN","OZELOT","GREIF"]) exitWith {
-			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio, 0] call TFAR_fnc_setLRChannel; };
-		};
-		if ( toUpper (groupID group _unit) isEqualTo "ZEUS" ) exitWith {
-			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio, 8] call TFAR_fnc_setLRChannel; };
-		};
+		[_activeLRRadio, 1] call TFAR_fnc_setLRChannel;
 	};
 	true;
 };
 
 if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") && hasInterface ) exitWith {
 	waitUntil { time > 1 && call TFAR_fnc_haveSWRadio };
+
 	call {
 		private _activeSWRadio = call TFAR_fnc_activeSwRadio;
-		private _hasLRRadio = call TFAR_fnc_haveLRRadio;			
-		private _activeLRRadio = if (_hasLRRadio) then {call TFAR_fnc_activeLRRadio} else {["",0]};
-		if ( toUpper (groupID group _unit) in ["JUPITER","NATTER","LUCHS","MILAN"] ) exitWith {
-			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 1] call TFAR_fnc_setLRChannel; };
-		};
-		if ( toUpper (groupID group _unit) in ["MARS","ANAKONDA","LÖWE","ADLER"] ) exitWith {
+		if ( toUpper (groupID group _unit) in _sr_1 ) exitWith {
 			[_activeSWRadio, 1] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 1] call TFAR_fnc_setLRChannel; };
 		};
-		if ( toUpper (groupID group _unit) in ["DEIMOS","BOA","TIGER","BUSSARD"] ) exitWith {
+		if ( toUpper (groupID group _unit) in _sr_2 ) exitWith {
 			[_activeSWRadio, 2] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 1] call TFAR_fnc_setLRChannel; };
 		};
-		if ( toUpper (groupID group _unit) in ["PHOBOS","COBRA","PANTHER","CONDOR"] ) exitWith {
+		if ( toUpper (groupID group _unit) in _sr_3 ) exitWith {
 			[_activeSWRadio, 3] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 1] call TFAR_fnc_setLRChannel; };
 		};
-		if ( toUpper (groupID group _unit) in ["VULKAN","LEOPARD","DROSSEL"] ) exitWith {
+		if ( toUpper (groupID group _unit) in _sr_4 ) exitWith {
 			[_activeSWRadio, 4] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 1] call TFAR_fnc_setLRChannel; };
 		};
-		if ( toUpper (groupID group _unit) in ["APOLLO","DRACHE","ORCA","FALKE"] ) exitWith {
-			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 6] call TFAR_fnc_setLRChannel; };
+		if ( toUpper (groupID group _unit) in _sr_5 ) exitWith {
+			[_activeSWRadio, 5] call TFAR_fnc_setSwChannel;
 		};
-		if ( toUpper (groupID group _unit) in ["MERKUR","GEPARD","ELSTER"] ) exitWith {
-			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 7] call TFAR_fnc_setLRChannel; };
+		if ( toUpper (groupID group _unit) in _sr_6 ) exitWith {
+			[_activeSWRadio, 6] call TFAR_fnc_setSwChannel;
 		};
-		if ( toUpper (groupID group _unit) in ["DIANA","JAGUAR","VIPER","HABICHT"]) exitWith {
-			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 6] call TFAR_fnc_setLRChannel; };
+		if ( toUpper (groupID group _unit) in _sr_7 ) exitWith {
+			[_activeSWRadio, 7] call TFAR_fnc_setSwChannel;
 		};
-		if ( toUpper (groupID group _unit) in ["SATURN","OZELOT","GREIF"]) exitWith {
-			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 0] call TFAR_fnc_setLRChannel; };
+		[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
+	};
+	call {
+		private _hasLRRadio = call TFAR_fnc_haveLRRadio;
+		private _activeLRRadio = if (_hasLRRadio) then {call TFAR_fnc_activeLRRadio} else {[""]};
+		if !( _hasLRRadio ) exitWith {};
+		if ( toUpper (groupID group _unit) in _lr_2 ) exitWith {
+			[_activeLRRadio select 0, _activeLRRadio select 1, 2] call TFAR_fnc_setLRChannel;
 		};
-		if ( toUpper (groupID group _unit) isEqualTo "ZEUS" ) exitWith {
-			[_activeSWRadio, 0] call TFAR_fnc_setSwChannel;
-			if (_hasLRRadio) then { [_activeLRRadio select 0, _activeLRRadio select 1, 8] call TFAR_fnc_setLRChannel; };
+		if ( toUpper (groupID group _unit) in _lr_3 ) exitWith {
+			[_activeLRRadio select 0, _activeLRRadio select 1, 3] call TFAR_fnc_setLRChannel;
 		};
+		if ( toUpper (groupID group _unit) in _lr_4 ) exitWith {
+			[_activeLRRadio select 0, _activeLRRadio select 1, 4] call TFAR_fnc_setLRChannel;
+		};
+		if ( toUpper (groupID group _unit) in _lr_5 ) exitWith {
+			[_activeLRRadio select 0, _activeLRRadio select 1, 5] call TFAR_fnc_setLRChannel;
+		};
+		if ( toUpper (groupID group _unit) in _lr_6 ) exitWith {
+			[_activeLRRadio select 0, _activeLRRadio select 1, 6] call TFAR_fnc_setLRChannel;
+		};
+		if ( toUpper (groupID group _unit) in _lr_7 ) exitWith {
+			[_activeLRRadio select 0, _activeLRRadio select 1, 7] call TFAR_fnc_setLRChannel;
+		};
+		if ( toUpper (groupID group _unit) in _lr_8 ) exitWith {
+			[_activeLRRadio select 0, _activeLRRadio select 1, 8] call TFAR_fnc_setLRChannel;
+		};
+		[_activeLRRadio select 0, _activeLRRadio select 1, 1] call TFAR_fnc_setLRChannel;
 	};
 	true;
 };

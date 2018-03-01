@@ -18,7 +18,7 @@
 //standard Variables:
 ADV_taskVar = missionNamespace getVariable ["ADV_taskVar",0];
 ADV_spawnVar = missionNamespace getVariable ["ADV_spawnVar",0];
-missionNamespace setVariable ["ADV_var_useDLCContent",1];
+missionNamespace setVariable ["ADV_var_useDLCContent",missionNamespace getVariable ["ADV_var_useDLCContent",1]];
 
 //missionNamespace setVariable ["ace_medical_healHitPointAfterAdvBandage",true];
 /*
@@ -115,16 +115,8 @@ call {
 	L_suppress_active = false;
 };
 
-//DLP:
-//CL_IE_Module_Enabled = true;
-
-//tawVD:
-tawvd_disablenone = true;
-tawvd_maxRange = 12000;
-
 //sthud:
 STHud_NoSquadBarMode = true;
-STHud_ShowBearingInVehicle = false;
 
 //finalization:
 ADV_variables_defined = true;

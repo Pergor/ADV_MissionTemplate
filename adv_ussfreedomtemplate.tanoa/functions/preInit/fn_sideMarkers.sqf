@@ -17,14 +17,26 @@
 
 [] spawn {
 	//startMarkers:
-	_bluforMarker = ["base","base_1","flagMarker","flagMarker_1","briefArea","briefArea_1","crates","crates_1","garage_1","garage_2","garage_heavy_1","garage_heavy_2","garage_heavy_3","garage_air_1","garage_air_2"];
-	_opforMarker = ["opf_base","opf_base_1","opf_flagMarker","opf_flagMarker_1","opf_briefArea","opf_briefArea_1","opf_crates","opf_crates_1","opf_garage_1","opf_garage_2","opf_garage_heavy_1","opf_garage_heavy_2","opf_garage_heavy_3","opf_garage_air_1","opf_garage_air_2"];
-	_indMarker = ["ind_base","ind_base_1","ind_flagMarker","ind_flagMarker_1","ind_briefArea","ind_briefArea_1","ind_crates","ind_crates_1","ind_garage_1","ind_garage_2","ind_garage_heavy_1","ind_garage_heavy_2","ind_garage_heavy_3","ind_garage_air_1","ind_garage_air_2"];
+	
+	private _markerArray = [] call adv_fnc_userMarkers;
+	_markerArray params [
+		"_bluforMarker"
+		,"_opforMarker"
+		,"_indMarker"
+		,"_opacMarker"
+	];
 
 	///// No editing necessary below this line /////
 
 	if (hasInterface) then {
+		//opacity for _opacMarker (range from 0.0 to 1.0)
+		private _opacity = 0.7;
+		//mission markers with lower opacity:
+		{_x setmarkeralphaLocal _opacity;} count _opacMarker;
+
 		waitUntil {player == player};
+		
+		//remove/change markers:
 		if ((side player) == west) exitWith {
 			{deleteMarkerLocal _x; nil;} count _opforMarker+_indMarker;
 			waitUntil {!isNil "ADV_params_defined"};

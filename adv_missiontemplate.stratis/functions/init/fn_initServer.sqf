@@ -20,6 +20,7 @@ if (!isServer) exitWith {};
 //parameters:
 call ADV_fnc_parVariables;
 call ADV_fnc_variables;
+call adv_fnc_userVariables;
 call ADV_fnc_tfarSettings;
 call ADV_fnc_acreSettings;
 //collections:
