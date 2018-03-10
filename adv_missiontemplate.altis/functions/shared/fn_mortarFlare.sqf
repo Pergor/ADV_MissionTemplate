@@ -8,7 +8,7 @@
  * NONE
  *
  * Return Value:
- * True if executer is server - false if not - <BOOL>
+ * True if execut.0r is server - false if not - <BOOL>
  *
  * Example:
  * [] remoteExec ["adv_fnc_mortarFlare",0];
@@ -40,7 +40,7 @@ adv_mortarFlare_scriptfnc_EVH = {
 	params ["_unit"];
 	_index = _unit addEventHandler ["Fired",{
 		params ["_unit","_weapon","_muzzle","_mode","_ammo","_magazine","_projectile","_gunner"];
-		if !(_ammo == "Flare_82mm_AMOS_White") exitWith {};
+		if !(_ammo == "Flare_82mm_AMOS_White" && local _unit) exitWith {};
 		private _light = createVehicle ["#lightpoint", getPos _projectile, [], 0, "NONE"];
 		_light attachTo [_projectile];
 		
