@@ -15,10 +15,12 @@
  *
  * Public: No
  */
+ 
+if ( isClass(configFile >> "CfgPatches" >> "adv_configsVanilla") ) exitWith { false };
 
 adv_mortarFlare_scriptfnc_setLight = {
 	_this spawn {
-		params ["_evhVars","_flareSize", "_flareBrightness", "_flareIntensity", "_flareColor"];
+		params ["_evhVars","_light","_flareSize","_flareBrightness","_flareIntensity","_flareColor"];
 		_evhVars params ["_unit","_weapon","_muzzle","_mode","_ammo","_magazine","_projectile","_gunner"];
 		
 		private _activationTime = 10;
@@ -26,11 +28,11 @@ adv_mortarFlare_scriptfnc_setLight = {
 		if !(local _unit) exitWith {
 			_light setLightUseFlare true;
 			_light setLightFlareSize _flareSize;
+			_light setLightFlareMaxDistance 12000;
 			_light setLightBrightness _flareBrightness;
 			_light setLightIntensity _flareIntensity;
 			_light setLightColor _flareColor;
 			_light setLightAmbient _flareColor;
-			_light setLightFlareMaxDistance 12000;
 			_light setLightDayLight true;
 		};
 		private _timeToLive = getNumber (configFile >> "CfgAmmo" >> _ammo >> "timeToLive");
@@ -51,7 +53,7 @@ adv_mortarFlare_scriptfnc_EVH = {
 		private _brightness = getNumber (configFile >> "CfgAmmo" >> _ammo >> "brightness");
 		private _intensity = getNumber (configFile >> "CfgAmmo" >> _ammo >> "intensity");
 		
-		[[_this, _flareSize, _brightness, _intensity, [0.95,0.95,1]],adv_mortarFlare_scriptfnc_setLight] remoteExec ["call",0];
+		[[_this, _light, _flareSize, _brightness, _intensity, [0.95,0.95,1]],adv_mortarFlare_scriptfnc_setLight] remoteExec ["call",0];
 	}];
 	_index
 };
