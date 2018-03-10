@@ -18,18 +18,21 @@
 
 adv_mortarFlare_scriptfnc_setLight = {
 	_this spawn {
-		params ["_light", "_projectile", "_ammo", "_flareSize", "_flareBrightness", "_flareIntensity", "_flareColor"];
+		params ["_evhVars","_flareSize", "_flareBrightness", "_flareIntensity", "_flareColor"];
+		_evhVars params ["_unit","_weapon","_muzzle","_mode","_ammo","_magazine","_projectile","_gunner"];
 		
 		private _activationTime = 10;
 		sleep _activationTime;
-		_light setLightUseFlare true;
-		_light setLightFlareSize _flareSize;
-		_light setLightBrightness _flareBrightness;
-		_light setLightIntensity _flareIntensity;
-		_light setLightColor _flareColor;
-		_light setLightAmbient _flareColor;
-		_light setLightFlareMaxDistance 12000;
-		_light setLightDayLight true;
+		if !(local _unit) exitWith {
+			_light setLightUseFlare true;
+			_light setLightFlareSize _flareSize;
+			_light setLightBrightness _flareBrightness;
+			_light setLightIntensity _flareIntensity;
+			_light setLightColor _flareColor;
+			_light setLightAmbient _flareColor;
+			_light setLightFlareMaxDistance 12000;
+			_light setLightDayLight true;
+		};
 		private _timeToLive = getNumber (configFile >> "CfgAmmo" >> _ammo >> "timeToLive");
 		sleep _timeToLive-_activationTime;
 		deleteVehicle _light;
@@ -41,7 +44,6 @@ adv_mortarFlare_scriptfnc_EVH = {
 	_index = _unit addEventHandler ["Fired",{
 		params ["_unit","_weapon","_muzzle","_mode","_ammo","_magazine","_projectile","_gunner"];
 		if !(_ammo == "Flare_82mm_AMOS_White") exitWith {};
-		if ( local _unit ) exitWith {};
 		private _light = createVehicle ["#lightpoint", getPos _projectile, [], 0, "NONE"];
 		_light attachTo [_projectile];
 		
@@ -49,7 +51,7 @@ adv_mortarFlare_scriptfnc_EVH = {
 		private _brightness = getNumber (configFile >> "CfgAmmo" >> _ammo >> "brightness");
 		private _intensity = getNumber (configFile >> "CfgAmmo" >> _ammo >> "intensity");
 		
-		[[_light, _projectile, _ammo, _flareSize, _brightness, _intensity, [0.95,0.95,1]],adv_mortarFlare_scriptfnc_setLight] remoteExec ["call",0];
+		[[_this, _flareSize, _brightness, _intensity, [0.95,0.95,1]],adv_mortarFlare_scriptfnc_setLight] remoteExec ["call",0];
 	}];
 	_index
 };
