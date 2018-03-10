@@ -18,7 +18,7 @@
 
 adv_mortarFlare_scriptfnc_setLight = {
 	_this spawn {
-		params ["_light", "_projectile", "_flareSize", "_flareBrightness", "_flareIntensity", "_flareColor"];
+		params ["_light", "_projectile", "_ammo", "_flareSize", "_flareBrightness", "_flareIntensity", "_flareColor"];
 		
 		private _activationTime = 10;
 		sleep _activationTime;
@@ -30,8 +30,7 @@ adv_mortarFlare_scriptfnc_setLight = {
 		_light setLightAmbient _flareColor;
 		_light setLightFlareMaxDistance 12000;
 		_light setLightDayLight true;
-		//waitUntil {sleep 1;!alive _projectile};
-		private _timeToLive = getNumber (configFile >> "CfgAmmo" >> "Flare_82mm_AMOS_White" >> "timeToLive");
+		private _timeToLive = getNumber (configFile >> "CfgAmmo" >> _ammo >> "timeToLive");
 		sleep _timeToLive-_activationTime;
 		deleteVehicle _light;
 	};
@@ -44,7 +43,12 @@ adv_mortarFlare_scriptfnc_EVH = {
 		if !(_ammo == "Flare_82mm_AMOS_White") exitWith {};
 		private _light = createVehicle ["#lightpoint", getPos _projectile, [], 0, "NONE"];
 		_light attachTo [_projectile];
-		[[_light, _projectile, 18, 2, 120000, [0.95,0.95,1]],adv_mortarFlare_scriptfnc_setLight] remoteExec ["call",0];
+		
+		private _flareSize = getNumber (configFile >> "CfgAmmo" >> _ammo >> "flareSize");
+		private _brightness = getNumber (configFile >> "CfgAmmo" >> _ammo >> "brightness");
+		private _intensity = getNumber (configFile >> "CfgAmmo" >> _ammo >> "intensity");
+		
+		[[_light, _projectile, _ammo, _flareSize, _brightness, _intensity, [0.95,0.95,1]],adv_mortarFlare_scriptfnc_setLight] remoteExec ["call",0];
 	}];
 	_index
 };
