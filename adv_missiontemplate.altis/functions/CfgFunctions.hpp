@@ -49,6 +49,7 @@ class adv
 	{
 		class CPInit {};
 		class jammer {};
+		class mortarFlare {};
 		class radioRelay {};
 		class weather {};
 	};
