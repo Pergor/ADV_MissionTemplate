@@ -20,7 +20,7 @@
  * Public: Yes/No
  */
 
-if !(isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {};
+if !( isClass (configFile >> "CfgPatches" >> "task_force_radio") || isClass(configFile >> "CfgPatches" >> "tfar_core") ) exitWith {};
 
 _handle = _this spawn {
 	params [
@@ -145,7 +145,7 @@ _handle = _this spawn {
 			adv_radioRelay_terminals = [];
 			{ adv_radioRelay_terminals pushBack _x; } forEach (allMissionObjects "Land_DataTerminal_01_F");
 			missionNamespace setVariable [format ["ADV_var_relayScriptHasRun_%1",_side],true,true];
-			private _originalInterception = tfar_terrain_interception_coefficient;
+			private _originalInterception = if ( isClass(configFile >> "CfgPatches" >> "tfar_core") ) then {tfar_terrain_interception_coefficient} else {tf_terrain_interception_coefficient};
 			while {true} do {
 				waitUntil { sleep 2; {_x getVariable [format ["adv_var_isRelay_%1",_side],false]} count (vehicles+adv_radioRelay_terminals) > 0 };
 				{
@@ -154,6 +154,7 @@ _handle = _this spawn {
 					};
 				} forEach allPlayers;
 				tfar_terrain_interception_coefficient = _originalInterception / 3;
+				tf_terrain_interception_coefficient = _originalInterception / 3;
 				waitUntil { sleep 2; {_x getVariable [format ["adv_var_isRelay_%1",_side],false]} count (vehicles+adv_radioRelay_terminals) == 0 };
 				{
 					if ( (side _x) == _side || (side _x) == sideEnemy ) then {
@@ -161,6 +162,7 @@ _handle = _this spawn {
 					};
 				} forEach allPlayers;
 				tfar_terrain_interception_coefficient = _originalInterception;
+				tf_terrain_interception_coefficient = _originalInterception;
 			};
 		};
 	};
