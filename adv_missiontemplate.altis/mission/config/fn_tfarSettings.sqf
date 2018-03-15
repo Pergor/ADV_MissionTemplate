@@ -7,8 +7,8 @@
 
 if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	//general:
-	tfar_terrain_interception_coefficient = 3.0;
-	tfar_speakerDistance = 20;
+	tf_terrain_interception_coefficient = 3.0;
+	tf_speakerDistance = 20;
 
 	//radios:
 	TFAR_DefaultRadio_Personal_West = "tfar_anprc152";
