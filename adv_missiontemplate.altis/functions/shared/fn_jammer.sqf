@@ -209,9 +209,6 @@ _handle = _this spawn {
 			if ( isClass(configFile >> "CfgPatches" >> "acre_main") ) exitWith {
 				missionNamespace getVariable ["acre_sys_signal_terrainScaling",3];
 			};
-			if ( isClass(configFile >> "CfgPatches" >> "tfar_core") ) exitWith {
-				missionNamespace getVariable ["tfar_terrain_interception_coefficient",3];
-			};
 			missionNamespace getVariable ["tf_terrain_interception_coefficient",3];
 		};
 		private _originalInterference = player getVariable ["tf_sendingDistanceMultiplicator",1];
@@ -229,13 +226,11 @@ _handle = _this spawn {
 					adv_debug_jammerVars = [_target,_nearestJammer,_interference,_distance];
 					player setVariable ["tf_receivingDistanceMultiplicator", _interference];
 					player setVariable ["tf_sendingDistanceMultiplicator", _interference];
-					missionNamespace setVariable ["tfar_terrain_interception_coefficient",_interception];
 					missionNamespace setVariable ["tf_terrain_interception_coefficient",_interception];
 					if ( isClass(configFile >> "CfgPatches" >> "acre_main") ) then {
 						[_interception] call acre_api_fnc_setLossModelScale;
 					};
 				};
-				missionNamespace setVariable ["tfar_terrain_interception_coefficient",_originalInterception];
 				missionNamespace setVariable ["tf_terrain_interception_coefficient",_originalInterception];
 				player setVariable ["tf_receivingDistanceMultiplicator", _originalInterference];
 				player setVariable ["tf_sendingDistanceMultiplicator", _originalInterference];
