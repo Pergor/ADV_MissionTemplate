@@ -20,7 +20,7 @@
  * Public: Yes/No
  */
 
-if !(isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {};
+if !( isClass (configFile >> "CfgPatches" >> "task_force_radio") || isClass(configFile >> "CfgPatches" >> "tfar_core") ) exitWith {};
 
 _handle = _this spawn {
 	params [
@@ -68,20 +68,29 @@ _handle = _this spawn {
 				("<t color=""#00FF00"">" + ("ACTIVATE RADIO REPEATER") + "</t>"),
 				"",
 				{
-					[_this select 0, (_this select 2) select 0] call adv_radioRelay_scriptfnc_turnOn;
+					params ["_relay","_caller","_arguments"];
+					_arguments params ["_side","_minHeight"];
+					if ( (getPosASL _relay select 2) < _minHeight ) exitWith {
+						systemChat (format ["Radio repeater not activated: Below minimal height of %1 meters above MSL.",_minHeight]);
+					};
+					
+					[_relay, _side] call adv_radioRelay_scriptfnc_turnOn;
 				},
 				{ [_this select 0, _this select 1, (_this select 2) select 0] call adv_radioRelay_condition },
-				nil,[_side]
+				nil,[_side,_minHeight]
 			] call ace_interact_menu_fnc_createAction;
 			_ace_relayActionOFF = [
 				"relayActionOff",
 				("<t color=""#FF0000"">" + ("DEACTIVATE RADIO REPEATER") + "</t>"),
 				"",
 				{
-					[_this select 0, (_this select 2) select 0] call adv_radioRelay_scriptfnc_turnOff;
+					params ["_relay","_caller","_arguments"];
+					_arguments params ["_side","_minHeight"];
+					
+					[_relay, _side] call adv_radioRelay_scriptfnc_turnOff;
 				},
 				{ !([_this select 0, _this select 1, (_this select 2) select 0] call adv_radioRelay_condition) },
-				nil,[_side]
+				nil,[_side,_minHeight]
 			] call ace_interact_menu_fnc_createAction;
 		
 			//adding the actions to the relay:
@@ -95,8 +104,8 @@ _handle = _this spawn {
 			
 		} else {
 			//if ace is not present, we have to add actions the vanilla way:
-			[_relay,_side] spawn {
-				params ["_relay","_side"];
+			[_relay,_side,_minHeight] spawn {
+				params ["_relay","_side","_minHeight"];
 				while { alive _relay } do {
 					waitUntil { sleep 1; (damage _relay) < 0.6 };
 					
@@ -104,19 +113,26 @@ _handle = _this spawn {
 					
 					adv_handle_relayActionOn = _relay addAction [("<t color=""#00FF00"">" + ("Activate Radio Repeater") + "</t>"), {
 						
-						params ["_relay","_caller","_action","_side"];
+						params ["_relay","_caller","_action","_arguments"];
+						_arguments params ["_side","_minHeight"];
+						
+						if ( (getPosASL _relay select 2) < _minHeight ) exitWith {
+							systemChat (format ["Radio repeater not activated: Below minimal height of %1 meters above MSL.",_minHeight]);
+						};
+						
 						[_relay, _side] call adv_radioRelay_scriptfnc_turnOn;
 						_relay removeAction _action;
 
 						adv_handle_relayActionOff = _relay addAction [("<t color=""#FF0000"">" + ("Deactivate Radio Repeater") + "</t>"), {
 							
-							params ["_relay","_caller","_action","_side"];
+							params ["_relay","_caller","_action","_arguments"];
+							_arguments params ["_side","_minHeight"];
 							[_relay, _side] call adv_radioRelay_scriptfnc_turnOff;
 							_relay removeAction _action;
 							
-						},_side,6,false,true,"","true",5];
+						},[_side,_minHeight],6,false,true,"","true",5];
 						
-					},_side,6,false,true,"","true",5];
+					},[_side,_minHeight],6,false,true,"","true",5];
 					waitUntil { sleep 1; _relay getVariable (format ["adv_var_isRelay_%1",_side]) };
 					waitUntil { sleep 1; ((damage _relay) > 0.6 || !alive _relay) || !(_relay getVariable (format ["adv_var_isRelay_%1",_side])) };
 					if (!isNil "adv_handle_relayActionOff") then { _relay removeAction adv_handle_relayActionOff; };
@@ -133,6 +149,11 @@ _handle = _this spawn {
 			params ["_relay","_side","_minHeight"];
 				while {alive _relay} do {
 					waitUntil { sleep 2; damage _relay > 0.6 || !alive _relay || getTerrainHeightASL (getPos _relay) < _minHeight || !((speed _relay) == 0) };
+					if ( _relay getVariable (format ["adv_var_isRelay_%1",_side]) ) then {
+						{
+							systemChat "Radio repeater deactivated.";
+						} remoteExec ["call",driver _relay];
+					};
 					_relay setVariable ["adv_var_isRelay_WEST",false,true];
 					_relay setVariable ["adv_var_isRelay_EAST",false,true];
 					_relay setVariable ["adv_var_isRelay_INDEPENDENT",false,true];
