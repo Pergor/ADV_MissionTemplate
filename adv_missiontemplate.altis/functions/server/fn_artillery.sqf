@@ -9,7 +9,7 @@
  * 2: delay between shots, will be a random number between the two given values (optional) - <ARRAY> of two <NUMBERS>
  * 3: height above ground for the artillery shell to spawn (optional) - <NUMBER>
  * 4: amount of artillery shells to be fired with given delay (optional) - <NUMBER>
- * 5: area around target position that will be coverd with given amount of artillery shells with given delay, spread (optional) - <NUMBER>
+ * 5: area around target position that will be covered with given amount of artillery shells with given delay, spread (optional) - <NUMBER>
  *
  * Return Value:
  * Script handle - <HANDLE>
