@@ -6,8 +6,10 @@
  * Arguments:
  * 0: target positions - <ARRAY> of <POSITIONS>, <OBJECTS>, <STRINGS>
  * 1: class of artillery shell (optional) - <STRING>
- * 2: class of attack plane (optional) - <STRING>
- * 3: type of attack run - 0 = gun only, 1 = rockets only, 2 = gun and rockets (optional) - <NUMBER>
+ * 2: delay between shots, will be a random number between the two given values (optional) - <ARRAY> of two <NUMBERS>
+ * 3: height above ground for the artillery shell to spawn (optional) - <NUMBER>
+ * 4: amount of artillery shells to be fired with given delay (optional) - <NUMBER>
+ * 5: area around target position that will be coverd with given amount of artillery shells with given delay, spread (optional) - <NUMBER>
  *
  * Return Value:
  * Script handle - <HANDLE>
