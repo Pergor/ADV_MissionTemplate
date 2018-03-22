@@ -20,7 +20,7 @@
  * Public: Yes
  */
 
-if !(isServer || hasInterface) exitWith {};
+if (!isServer) exitWith {};
  
 _handle = _this spawn {
 
