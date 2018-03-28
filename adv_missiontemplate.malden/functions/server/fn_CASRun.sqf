@@ -4,7 +4,7 @@
  * Creats CAS run on target
  *
  * Arguments:
- * 0: target position - <ARRAY>, <OBJECT>, <STRING>
+ * 0: target position, can be position, object or marker - <ARRAY>, <OBJECT>, <STRING>
  * 1: direction of attack (optional) - <NUMBER>
  * 2: class of attack plane (optional) - <STRING>
  * 3: type of attack run - 0 = gun only, 1 = rockets only, 2 = gun and rockets (optional) - <NUMBER>
@@ -18,7 +18,7 @@
  * Public: Yes
  */
 
-if !(isServer || hasInterface) exitWith {};
+if (!isServer && hasInterface) exitWith {};
 
 params [
 	["_position", [0,0,0], [[],"",objNull]],

@@ -59,14 +59,11 @@ private _variables = {
 	
 	[] call adv_fnc_aceParams;
 	
-	adv_aceCPR_onlyDoctors = missionNamespace getVariable ["adv_par_adv_aceCPR_onlyDoctors",0];
-	if ( isClass(configFile >> "CfgWeapons" >> "adv_aceCPR_AED") && missionNamespace getVariable ["adv_par_adv_aceCPR_AED",1] isEqualTo 2 ) then {
-		adv_aceCPR_probabilities = [30,10,5,85];
-	};
-
+	//adv_aceCPR:
 	if ( isClass(configFile >> "CfgPatches" >> "adv_aceCPR") ) then {
 		missionNamespace setVariable ["ace_medical_useCondition_PAK",0];
 	};
+	
 };
 
 call _variables;

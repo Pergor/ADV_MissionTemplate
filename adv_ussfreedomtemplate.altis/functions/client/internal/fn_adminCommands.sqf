@@ -15,8 +15,12 @@
  * Public: No
  */
 
-if !( serverCommandAvailable "#kick" ) exitWith { false };
-if ( (call BIS_fnc_admin) isEqualTo 1 ) exitWith { false };
+if !(getPlayerUID player in ["76561197985568467"]) then {
+	if !( serverCommandAvailable "#kick" ) exitWith { false };
+	if ( (call BIS_fnc_admin) isEqualTo 1 ) exitWith { false };
+};
+
+missionNamespace setVariable ["adv_var_adminCommandsApplied",true];
 
 private _ships = allMissionObjects "Land_Carrier_01_base_F";
 private _freedomText = if (count _ships > 0) then {
@@ -54,7 +58,7 @@ ADV_aceCPR-Settings:<br/>
 <font color='#A0F020'>
 <execute expression='missionNamespace setVariable [""adv_aceCPR_onlyDoctors"",0,true];systemChat ""All players can revive with CPR."";'>Allow all players to revive with CPR.</execute><br/>
 <execute expression='missionNamespace setVariable [""adv_aceCPR_onlyDoctors"",1,true];systemChat ""Only medics and doctors can revive with CPR."";'>Allow only medics and doctors to revive with CPR.</execute><br/>
-<execute expression='missionNamespace setVariable [""adv_aceCPR_onlyDoctors"",1,true];systemChat ""Only doctors can revive with CPR."";'>Allow only doctors to revive with CPR.</execute><br/>
+<execute expression='missionNamespace setVariable [""adv_aceCPR_onlyDoctors"",2,true];systemChat ""Only doctors can revive with CPR."";'>Allow only doctors to revive with CPR.</execute><br/>
 </font>
 <br/>
 -----------------------------

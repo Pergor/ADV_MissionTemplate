@@ -23,3 +23,5 @@ if (hasInterface) then {
 	[] spawn adv_fnc_initPlayerLocal;
 };
 [] spawn adv_fnc_init;
+
+nil

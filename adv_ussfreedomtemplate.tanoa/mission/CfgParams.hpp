@@ -75,7 +75,7 @@ class param_day
 };
 class param_randomWeather
 {
-	title="Dynamisches Wetter";
+	title="Dynamisches Wetter (derzeit deaktiviert)";
 	values[] = {99,1,2,3,4,5,6,7,8,9};
 	texts[] = {"Kein dynamisches Wetter","Klar","Bewölkt","Leichter Regen","Mittlerer Regen","Schwerer Regen","Leichter Nebel","Mittlerer Nebel","Dichter Nebel","Zufälliges Wetter"};
 	default = 99;

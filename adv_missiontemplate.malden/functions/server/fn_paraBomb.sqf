@@ -17,7 +17,7 @@
  * Public: Yes
  */
 
-if !(isServer || hasInterface) exitWith {};
+if (!isServer && hasInterface) exitWith {};
 
 params [
 	["_target", objNull, [objNull,"",[]]],

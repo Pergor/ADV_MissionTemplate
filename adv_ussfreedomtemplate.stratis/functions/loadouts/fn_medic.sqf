@@ -486,7 +486,6 @@ switch (_par_customUni) do {
 		_vest = ["V_PlateCarrierL_CTRG","V_PlateCarrierH_CTRG"];
 		if (worldName == "TANOA") then {
 			_uniform = ["U_B_CTRG_Soldier_F","U_B_CTRG_Soldier_2_F","U_B_CTRG_Soldier_3_F"];
-			_vest = ["V_PlateCarrier1_rgr_noflag_F","V_PlateCarrier2_rgr_noflag_F"];
 			_headgear = ["H_HelmetB_TI_tna_F"];
 		};
 	};

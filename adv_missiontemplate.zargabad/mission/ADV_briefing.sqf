@@ -45,7 +45,13 @@ private _respawnHandling = switch _par_moveMarker do {
 	default { "Teleport zum Gruppenführer über Flagge am Start.
 		<br/>Es steht alternativ auch Fallschirmabwurf zur Verfügung. Nur für Gruppenführer ist es möglich, einen Fallschirmabwurf für die ganze Gruppe auszuwählen. (Vorsicht, alle Gruppenmitglieder werden per Fallschirm abgeworfen!)" };
 };
+
 private _ace_reviveTime = format ["%1",(["ace_medical_maxReviveTime",1200] call BIS_fnc_getParamValue)/60];
+private _advACECPR_maxTimeSTR = "";
+if (missionNamespace getVariable ["adv_aceCPR_maxTime",1200] < ["ace_medical_maxReviveTime",1200] call BIS_fnc_getParamValue) then {
+	_advACECPR_maxTimeSTR = format ["<br/>- CPR ist ~ %1 Minuten nach Beginn der Revive-Zeit nicht mehr möglich.",round ((missionNamespace getVariable ["adv_aceCPR_maxTime",1200])/60)];
+};
+
 private _ace_PAKLocation = switch ( missionNamespace getVariable ["ace_medical_useLocation_PAK",0] ) do {
 	case 1: {"nur in Sanitätsfahrzeugen"};
 	case 2: {"nur im Lazarett"};
@@ -56,11 +62,17 @@ private _ace_pakConsume = switch ( missionNamespace getVariable ["ace_medical_co
 	case 1: {""};
 	default {" nicht"};
 };
+
 private _ace_advancedWounds = if ( (["ace_medical_enableAdvancedWounds",0] call BIS_fnc_getParamValue) isEqualTo 0 ) then {
 	"öffnen sich nicht."
 } else {
 	"müssen vernäht werden."
 };
+private _advACESplint = "";
+if ( isClass(configFile >> "CfgPatches" >> "adv_aceSplint") && (["ace_medical_healHitPointAfterAdvBandage",1] call BIS_fnc_getParamValue) isEqualTo 0 ) then {
+	_advACESplint = format ["<br/>- Verletzte Gliedmaße müssen geschient werden."];
+};
+
 private _param_advancedFatigue = missionNamespace getVariable ["ace_advanced_fatigue_enabled",1];
 private _ace_advancedFatigue = switch _param_advancedFatigue do {
 	case 0: { "Standard-Ausdauersystem" };
@@ -83,10 +95,10 @@ private _ace_repairLocation = switch ( missionNamespace getVariable ["ace_repair
 			("Vor dem Aufbruch nicht vergessen:
 			") + _par_respWithGear + ("
 			<br/><br/>- ") + _respawnHandling + ("
-			<br/><br/>- Revive-Zeit: ") + _ace_reviveTime + (" Minuten.
+			<br/><br/>- Revive-Zeit: ") + _ace_reviveTime + (" Minuten.") + _advACECPR_maxTimeSTR + ("
 			<br/>- Revive durch PAK ist ") + _ace_pakLocation + (" möglich.
 			<br/>- PAKs verbrauchen sich") + _ace_pakConsume + (".
-			<br/>- Wunden ") + _ace_advancedWounds + ("
+			<br/>- Wunden ") + _ace_advancedWounds + _advACESplint + ("
 			<br/>- Es wird das ") + _ace_advancedFatigue + (" verwendet.
 			<br/><br/>- Reparatur nur für Pioniere und Logistiker mit Werkzeugkasten.
 			<br/>- Vollständige Reparatur ist für Pioniere und Logistiker ") + _ace_repairLocation + (" moglich.

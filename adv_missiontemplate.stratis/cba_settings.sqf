@@ -108,6 +108,19 @@ asr_ai3_main_debug_reveal = false;
 //NIArms:
 niarms_magSwitch = true;
 
+//ADV-ACE CPR:
+adv_aceCPR_chance_2 = 40;
+adv_aceCPR_chance_1 = 15;
+adv_aceCPR_chance_0 = 5;
+adv_aceCPR_chance_aed = 85;
+adv_aceCPR_timeAdd = 20;
+adv_aceCPR_maxTime = 1200;
+
+//ADV-ACE Splint:
+adv_aceSplint_reopenChance = 0;
+adv_aceSplint_reopenTime = 600;
+adv_aceSplint_reuseChance = 80;
+
 //ACE:
 
 ace_advanced_ballistics_ammoTemperatureEnabled = true;

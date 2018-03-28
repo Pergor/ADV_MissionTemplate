@@ -7,6 +7,7 @@
 #include "mission\ADV_defines.hpp"
 //#include "scripts\taw_vd\dialog.hpp"
 #include "scripts\taw_vd\GUI.h"
+cba_settings_hasSettingsFile = 1;
 
 //-------------------------------------------MISSION INFO--------------------------------------------------------------------
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -160,7 +161,7 @@ class ACE_Settings
 
 class CfgDebriefingSections {
 	class acex_killTracker {
-		title = "Acex Killed Events";
+		title = "ACEX Killed Events";
 		variable = "acex_killTracker_outputText";
 	};
 };

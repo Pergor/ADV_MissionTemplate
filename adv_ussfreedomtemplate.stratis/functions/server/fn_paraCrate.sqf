@@ -4,10 +4,10 @@
  * Spawns a crate mid air that will slide down hanging from a parachute.
  *
  * Arguments:
- * 0: Target position, can be position, object or marker - <ARRAY>, <OBJECT>, <STRING>
+ * 0: target position, can be position, object or marker - <ARRAY>, <OBJECT>, <STRING>
  * 1: Height (optional) - <NUMBER>
  * 2: Smoke shell attached to crate upon landing (optional) - <STRING>
- * 3: Functions or code to be executed. Crate is (_this select 0) inside code. (optional) - <ARRAY>, <STRING>
+ * 3: Functions or code to be executed. Crate is _this inside code (optional) - <ARRAY>, <STRING>
  * 4: Classname of crate (optional) - <STRING>
  * 5: Classname of parachute (optional) - <STRING>
  *
@@ -50,9 +50,9 @@ _crate attachTo [_chute, [0, 0, -1.3]];
 _chute setVelocity [0,0,-50];
 { _x addCuratorEditableObjects [[_crate],false] } forEach allCurators;
 if (_codeType == "STRING") then {
-	[_crate] spawn compile _code;
+	_crate spawn compile _code;
 } else {
-	{[_crate] call _x} forEach _code;
+	{_crate call _x} forEach _code;
 };
 _smokeType = switch (toUpper _smokeColor) do {
 	case "WHITE": {"G_40mm_Smoke"};

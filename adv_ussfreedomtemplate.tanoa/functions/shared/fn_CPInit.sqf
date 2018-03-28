@@ -276,7 +276,7 @@ if (isServer) then {
 	};
 	
 	// --- respawn position setup (group leader)
-	
+	/*
 	_mrkr = createMarker ["respawn_leader", position leader BIS_CP_grpMain];
 	_null = [BIS_CP_grpMain, "respawn_leader", groupId BIS_CP_grpMain] call BIS_fnc_addRespawnPosition;
 	
@@ -293,6 +293,7 @@ if (isServer) then {
 			sleep 5;
 		};
 	};
+	*/
 	
 	// --- apply selected daytime & weather
 	
@@ -886,6 +887,7 @@ if (isServer) then {
 	
 	// --- move the squad to the insertion
 
+	/*
 	{
 		_x allowDamage FALSE;
 		_pos = BIS_finalInsertionPosArr select _forEachIndex;
@@ -912,6 +914,7 @@ if (isServer) then {
 			_unit allowDamage TRUE;
 		};
 	} forEach units BIS_CP_grpMain;
+	*/
 	
 	// --- respawn tickets
 	
@@ -936,35 +939,35 @@ if (isServer) then {
 	["Spawning garrison groups:"] call BIS_fnc_CPLog;
 	
 	if (_playersNo >= 8) then {
-		[BIS_CP_enemyGrp_sentry, {random 600}, 12] call BIS_fnc_CPSpawnGarrisonGrp;
+		[BIS_CP_enemyGrp_sentry, {random 600}, 8] call BIS_fnc_CPSpawnGarrisonGrp;
 		if (BIS_CP_preset_garrison == 0) then {
-			[BIS_CP_enemyGrp_sentry, {random 400}, 6] call BIS_fnc_CPSpawnGarrisonGrp;
+			[BIS_CP_enemyGrp_sentry, {random 400}, 4] call BIS_fnc_CPSpawnGarrisonGrp;
 		} else {
-			[BIS_CP_enemyGrp_fireTeam, {random 400}, 6] call BIS_fnc_CPSpawnGarrisonGrp;
+			[BIS_CP_enemyGrp_fireTeam, {random 400}, 4] call BIS_fnc_CPSpawnGarrisonGrp;
 		};
 		if (BIS_CP_preset_garrison == 2) then {
-			[BIS_CP_enemyGrp_rifleSquad, {random 200}, 3] call BIS_fnc_CPSpawnGarrisonGrp;
+			[BIS_CP_enemyGrp_rifleSquad, {random 200}, 2] call BIS_fnc_CPSpawnGarrisonGrp;
 		};
 	} else {
 		if (_playersNo >= 4) then {
-			[BIS_CP_enemyGrp_sentry, {random 600}, 12] call BIS_fnc_CPSpawnGarrisonGrp;
+			[BIS_CP_enemyGrp_sentry, {random 600}, 6] call BIS_fnc_CPSpawnGarrisonGrp;
 			if (BIS_CP_preset_garrison == 0) then {
-				[BIS_CP_enemyGrp_sentry, {random 400}, 4] call BIS_fnc_CPSpawnGarrisonGrp;
+				[BIS_CP_enemyGrp_sentry, {random 400}, 3] call BIS_fnc_CPSpawnGarrisonGrp;
 			} else {
-				[BIS_CP_enemyGrp_fireTeam, {random 400}, 4] call BIS_fnc_CPSpawnGarrisonGrp;
-			};
-			if (BIS_CP_preset_garrison == 2) then {
-				[BIS_CP_enemyGrp_rifleSquad, {random 200}, 2] call BIS_fnc_CPSpawnGarrisonGrp;
-			};
-		} else {
-			[BIS_CP_enemyGrp_sentry, {random 600}, 8] call BIS_fnc_CPSpawnGarrisonGrp;
-			if (BIS_CP_preset_garrison == 0) then {
-				[BIS_CP_enemyGrp_sentry, {random 400}, 4] call BIS_fnc_CPSpawnGarrisonGrp;
-			} else {
-				[BIS_CP_enemyGrp_fireTeam, {random 400}, 4] call BIS_fnc_CPSpawnGarrisonGrp;
+				[BIS_CP_enemyGrp_fireTeam, {random 400}, 3] call BIS_fnc_CPSpawnGarrisonGrp;
 			};
 			if (BIS_CP_preset_garrison == 2) then {
 				[BIS_CP_enemyGrp_rifleSquad, {random 200}, 1] call BIS_fnc_CPSpawnGarrisonGrp;
+			};
+		} else {
+			[BIS_CP_enemyGrp_sentry, {random 600}, 5] call BIS_fnc_CPSpawnGarrisonGrp;
+			if (BIS_CP_preset_garrison == 0) then {
+				[BIS_CP_enemyGrp_sentry, {random 400}, 3] call BIS_fnc_CPSpawnGarrisonGrp;
+			} else {
+				[BIS_CP_enemyGrp_fireTeam, {random 400}, 3] call BIS_fnc_CPSpawnGarrisonGrp;
+			};
+			if (BIS_CP_preset_garrison == 2) then {
+				//[BIS_CP_enemyGrp_rifleSquad, {random 200}, 0] call BIS_fnc_CPSpawnGarrisonGrp;
 			};
 		};
 	};
@@ -1327,7 +1330,34 @@ _null = [] spawn {
 	} else {
 		[{(missionNamespace getVariable ["BIS_CP_ending", 0]) > 0}, 1] call BIS_fnc_CPWaitUntil;
 	};
-	if !(isDedicated) then {setPlayerRespawnTime 9999};
+	//if !(isDedicated) then {setPlayerRespawnTime 9999};
+	/*
+	switch (BIS_CP_ending) do {
+		case 1: {playSound selectRandom ["cp_exfil_successful_primary_done_1", "cp_exfil_successful_primary_done_2", "cp_exfil_successful_primary_done_3"];};
+		case 2: {playSound selectRandom ["cp_exfil_successful_primary_failed_1", "cp_exfil_successful_primary_failed_2", "cp_exfil_successful_primary_failed_3"];};
+		case 3: {playSound selectRandom ["cp_exfil_successful_primary_done_1", "cp_exfil_successful_primary_done_2", "cp_exfil_successful_primary_done_3"];};
+		case 4: {playSound selectRandom ["cp_exfil_successful_primary_failed_1", "cp_exfil_successful_primary_failed_2", "cp_exfil_successful_primary_failed_3"];};
+		case 5: {playSound selectRandom ["cp_exfil_successful_primary_failed_1", "cp_exfil_successful_primary_failed_2", "cp_exfil_successful_primary_failed_3"];};
+	};
+	missionNamespace setVariable ["BIS_CP_ending",nil];
+	missionNamespace setVariable ["BIS_CP_objectiveDone",nil];
+	missionNamespace setVariable ["BIS_CP_objectiveFailed",nil];
+	missionNamespace setVariable ["BIS_CP_missionFail_death",nil];
+	missionNamespace setVariable ["BIS_CP_objectiveTimeout",nil];
+	missionNamespace setVariable ["BIS_CP_voting_countdown_end",nil];
+	missionNamespace setVariable ["BIS_CP_targetLocationPos",nil];
+	missionNamespace setVariable ["BIS_CP_targetLocationID",nil];
+	missionNamespace setVariable ["BIS_CP_alarm",nil];
+	missionNamespace setVariable ["BIS_forcerInsertionDir",nil];
+	missionNamespace setVariable ["BIS_CP_initDone",nil];
+	missionNamespace setVariable ["BIS_CP_death",nil];
+	sleep 3;
+	if (hasInterface) then {
+		player setVariable ["BIS_CP_votedFor",nil];
+		forceRespawn player;
+	};
+	*/
+
 	switch (BIS_CP_ending) do {
 		case 1: {playSound selectRandom ["cp_exfil_successful_primary_done_1", "cp_exfil_successful_primary_done_2", "cp_exfil_successful_primary_done_3"]; sleep 3; ["CPEndTotalVictory"] call BIS_fnc_endMission};
 		case 2: {playSound selectRandom ["cp_exfil_successful_primary_failed_1", "cp_exfil_successful_primary_failed_2", "cp_exfil_successful_primary_failed_3"]; sleep 3; ["CPEndFullExfil"] call BIS_fnc_endMission};

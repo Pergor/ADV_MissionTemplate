@@ -45,11 +45,16 @@ class adv
 		class briefing { file = "mission\ADV_briefing.sqf";preInit = 1; };
 		class leaderBriefing { file = "mission\ADV_leaderBriefing.sqf"; preInit = 1; };
 	};
+	class postInit {
+		class postInitVariables { postInit = 1; };
+	};
 	class shared
 	{
 		class CPInit {};
 		class jammer {};
+		class mortarFlare {};
 		class radioRelay {};
+		class radioRelay_new {};
 		class weather {};
 	};
 	class server_internal
@@ -123,6 +128,7 @@ class adv
 		class dialogTeleport {};
 		class execTeleport {};
 		class moveRespMarker {};
+		class privateDebug {};
 	};
 	class client
 	{

@@ -237,6 +237,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_overheating") && missionNamespac
 //variable for preload-check:
 //[{time > 40},{adv_var_preloadFinished = true}] call cba_fnc_waitUntilAndExecute;
 waitUntil {adv_var_preloadFinished};
+[] call adv_fnc_privateDebug;
 
 if (leader (group player) isEqualTo player) then {
 	["RegisterGroup", [group player, leader (group player), [player call BIS_fnc_getUnitInsignia,groupId (group player),false]]] call BIS_fnc_dynamicGroups;
