@@ -11,6 +11,24 @@ class param_adv_aceCPR_onlyDoctors
 	default = 0;
 	texts[] =  {"Jeder", "Medics & Doctors", "Doctors only"};
 };
+class param_adv_aceCPR_maxTime
+{
+	title = "ACE-Medical: Soll die Zeit, in der CPR erfolgreich wiederbeleben kann, auf einen Prozentanteil der maximalen Revive-Zeit gesetzt werden? (CPR verhindert immer noch das Ablaufen des Revive-Timers)";
+	values[] = {0, 10, 20, 30, 40, 50, 60, 70, 80, 90};
+	default = 0;
+	texts[] =  {
+		"Nein"
+		, "10% (bei maxReviveTime von 10 Minuten wird CPR nur 1 Minute lang erfolgreich ausführbar sein)"
+		, "20%"
+		, "30%"
+		, "40%"
+		, "50% (bei maxReviveTime von 10 Minuten wird CPR nur 5 Minuten lang erfolgreich ausführbar sein)"
+		, "60%"
+		, "70%"
+		, "80%"
+		, "90% (bei maxReviveTime von 10 Minuten wird CPR nur 9 Minuten lang erfolgreich ausführbar sein)"
+	};
+};
 class param_adv_aceCPR_AED
 {
 	title = "ACE-Medical: Sollen PAKs durch Defibrillatoren ausgetauscht werden? (Nur mit adv_aceCPR)";
