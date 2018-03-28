@@ -16,16 +16,15 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={15230.029,44.944405,17279.684};
-		dir[]={-0.51113057,-0.66177559,0.54847389};
-		up[]={-0.45117968,0.74969304,0.48414081};
-		aside[]={0.73157936,-2.7864007e-007,0.68177295};
+		pos[]={15174.846,80.955917,17391.336};
+		dir[]={-0.12100819,-0.59696841,-0.79311663};
+		up[]={-0.090039395,0.80225134,-0.59014744};
+		aside[]={-0.98858106,7.6528522e-008,0.15082742};
 	};
 };
 binarizationWanted=0;
 addons[]=
 {
-	"cba_xeh"
 };
 class AddonsMetaData
 {
@@ -596,6 +595,7 @@ class Mission
 			};
 			id=44;
 			type="B_MRAP_01_hmg_F";
+			atlOffset=0.00018310547;
 		};
 		class Item39
 		{
@@ -614,7 +614,7 @@ class Mission
 			};
 			id=45;
 			type="B_MRAP_01_hmg_F";
-			atlOffset=-0.00013923645;
+			atlOffset=4.3869019e-005;
 		};
 		class Item40
 		{
@@ -652,7 +652,7 @@ class Mission
 			};
 			id=47;
 			type="B_MRAP_01_hmg_F";
-			atlOffset=-2.2888184e-005;
+			atlOffset=0.00016021729;
 		};
 		class Item42
 		{
@@ -950,11 +950,11 @@ class Mission
 			class Attributes
 			{
 				skill=0.60000002;
-				name="air_a164_1";
+				name="air_cas_1";
 			};
 			id=65;
 			type="B_Plane_CAS_01_F";
-			atlOffset=-0.20041084;
+			atlOffset=-0.20028877;
 		};
 		class Item58
 		{
@@ -969,11 +969,11 @@ class Mission
 			class Attributes
 			{
 				skill=0.60000002;
-				name="air_a164_2";
+				name="air_cas_2";
 			};
 			id=66;
 			type="B_Plane_CAS_01_F";
-			atlOffset=-0.20041466;
+			atlOffset=-0.20029449;
 		};
 		class Item59
 		{
@@ -1150,8 +1150,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={15156.438,20.199005,17279.121};
-				angles[]={0.0013372133,3.9095376,0.0053265258};
+				position[]={15157.076,20.302734,17278.893};
+				angles[]={0,3.9095376,0};
 			};
 			side="Empty";
 			flags=4;
@@ -1162,7 +1162,7 @@ class Mission
 			};
 			id=93;
 			type="B_Truck_01_Repair_F";
-			atlOffset=-2.2888184e-005;
+			atlOffset=0.10000038;
 		};
 		class Item69
 		{
@@ -2035,7 +2035,7 @@ class Mission
 			class Attributes
 			{
 				skill=0.60000002;
-				name="opf_air_a164_1";
+				name="opf_air_cas_1";
 			};
 			id=141;
 			type="O_Plane_CAS_02_F";
@@ -2054,7 +2054,7 @@ class Mission
 			class Attributes
 			{
 				skill=0.60000002;
-				name="opf_air_a164_2";
+				name="opf_air_cas_2";
 			};
 			id=142;
 			type="O_Plane_CAS_02_F";
@@ -2509,6 +2509,7 @@ class Mission
 			};
 			id=208;
 			type="B_T_VTOL_01_infantry_blue_F";
+			atlOffset=0.15839195;
 		};
 		class Item143
 		{
@@ -3609,7 +3610,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				createAsSimpleObject=1;
 			};
 			id=1843;
 			type="Land_HBarrier_Big_F";
@@ -3626,7 +3626,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				createAsSimpleObject=1;
 			};
 			id=1844;
 			type="Land_HBarrier_Big_F";
@@ -3644,7 +3643,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				createAsSimpleObject=1;
 			};
 			id=1845;
 			type="Land_HBarrier_Big_F";
@@ -3662,7 +3660,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				createAsSimpleObject=1;
 			};
 			id=1846;
 			type="Land_HBarrier_Big_F";
@@ -3679,7 +3676,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				createAsSimpleObject=1;
 			};
 			id=1847;
 			type="Land_HBarrier_Big_F";
@@ -3696,7 +3692,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				createAsSimpleObject=1;
 			};
 			id=1848;
 			type="Land_HBarrier_Big_F";
@@ -3714,7 +3709,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				createAsSimpleObject=1;
 			};
 			id=1849;
 			type="Land_HBarrier_Big_F";
@@ -3732,7 +3726,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				createAsSimpleObject=1;
 			};
 			id=1850;
 			type="Land_HBarrier_Big_F";
@@ -3750,7 +3743,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				createAsSimpleObject=1;
 			};
 			id=1851;
 			type="Land_HBarrier_Big_F";
@@ -4191,7 +4183,7 @@ class Mission
 			};
 			id=1943;
 			type="B_MRAP_01_hmg_F";
-			atlOffset=-2.0980835e-005;
+			atlOffset=0.00016212463;
 		};
 		class Item193
 		{
