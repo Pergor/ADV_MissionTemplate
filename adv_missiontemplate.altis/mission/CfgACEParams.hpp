@@ -16,7 +16,7 @@ class param_adv_aceCPR_AED
 	title = "ACE-Medical: Sollen PAKs durch Defibrillatoren ausgetauscht werden? (Nur mit adv_aceCPR)";
 	values[] = {0, 1, 2};
 	default = 2;
-	texts[] =  {"Es werden nur PAKs ausgegeben","Es werden PAKs UND Defibrillatoren ausgegeben","Es werden nur Defibrillatoren ausgegeben (reduziert die Wahrscheinlichkeiten für erfolgreiche CPR!)"};
+	texts[] =  {"Es werden nur PAKs ausgegeben","Es werden PAKs UND Defibrillatoren ausgegeben","Es werden nur Defibrillatoren ausgegeben"};
 };
 class dummy_settings_ace {
 	title = "---------------------- ACE-Settings ----------------------";
