@@ -16,13 +16,15 @@ private _handle = ["ace_unconscious", {
 		if (_state) then {
 		
 			while { (_unit getVariable "adv_var_belboIsUnconscious") } do {
-				hint "";
+				hintSilent "";
 				
 				private _RS = _unit getVariable ["ace_medical_inReviveState",false];
 				private _CA = _unit getVariable ["ace_medical_inCardiacArrest",false];
 				private _BV = _unit getVariable ["ace_medical_bloodVolume",100];
 				private _HR = _unit getVariable ["ace_medical_heartRate",60];
 				private _PN = _unit getVariable ["ace_medical_pain",0];
+				private _BP = _unit getVariable ["ace_medical_bloodPressure",[80,120]];
+				_BP params ["_BP_2","_BP_1"];
 				
 				private _RT = "N/A";
 				if (_RS) then {
@@ -49,17 +51,18 @@ private _handle = ["ace_unconscious", {
 					\n Dein Revive State ist %1.
 					\n Dein Cardiac Arrest State ist %2.
 					\n Dein Blood Volume liegt bei %3%4.
-					\n Deine Herzrate liegt bei %5 bpm.
-					\n Du bist noch %6 Sekunden im Revive State.
-					\n Dir bleiben noch %7 Sekunden für CPR.
-					\n Dein Bloodloss beträgt %8.
-					\n Du hast Schmerzen in Höhe von %9."
-				,_RS,_CA,round _BV,"%",round _HR,_RT,_CT,_BL,_PN];
+					\n Dein Blutdruck liegt bei %5 zu %6.
+					\n Deine Herzrate liegt bei %7 bpm.
+					\n Du bist noch %8 Sekunden im Revive State.
+					\n Dir bleiben noch %9 Sekunden für CPR.
+					\n Dein Bloodloss beträgt %10.
+					\n Du hast Schmerzen in Höhe von %11."
+				,_RS,_CA,round _BV,"%",round _BP_1,round _BP_2,round _HR,_RT,_CT,_BL,_PN];
 				
-				hint format _format;
+				hintSilent format _format;
 				
 				sleep 5;
-				hint "";
+				hintSilent "";
 				
 			};
 			
