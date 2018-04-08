@@ -17,16 +17,20 @@
  */
 
 //settings for tfar 1.0:
-force TFAR_giveLongRangeRadioToGroupLeaders = false;
-force TFAR_givePersonalRadioToRegularSoldier = false;
-force TFAR_giveMicroDagrToSoldier = false;
-force force TFAR_SameSRFrequenciesForSide = true;
-force force TFAR_SameLRFrequenciesForSide = true;
-force TFAR_fullDuplex = false;
+force TFAR_AICanHearPlayer = true;
+force TFAR_AICanHearSpeaker = true;
 force TFAR_enableIntercom = true;
+force TFAR_fullDuplex = false;
+force TFAR_giveLongRangeRadioToGroupLeaders = false;
+force TFAR_giveMicroDagrToSoldier = false;
+force TFAR_givePersonalRadioToRegularSoldier = false;
 force TFAR_objectInterceptionEnabled = false;
+force TFAR_radioCodesDisabled = false;
+force TFAR_SameLRFrequenciesForSide = true;
+force TFAR_SameSRFrequenciesForSide = true;
 force TFAR_spectatorCanHearEnemyUnits = true;
 force TFAR_spectatorCanHearFriendlies = true;
+force TFAR_takingRadio = 2;
 /*
 TFAR_default_radioVolume = 7;
 TFAR_volumeModifier_forceSpeech = false;

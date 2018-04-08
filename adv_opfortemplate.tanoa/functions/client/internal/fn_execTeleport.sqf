@@ -32,13 +32,16 @@ if ( (toUpper _selection) isEqualTo "PARAJUMP") exitWith {
 	closeDialog 1;
 	openmap true;
 	[_unit] onMapSingleClick "openmap false; [(_this select 0),[(_pos select 0)+20+(random 20),(_pos select 1)+20+(random 20),(_pos select 2)+10+(random 10)]] call adv_fnc_paraJump; onmapsingleclick '';";
+	true
 };
 if ( (toUpper _selection) isEqualTo "PARAJUMP_GROUP") exitWith {
 	closeDialog 1;
 	openmap true;
 	[_unit] onMapSingleClick "openmap false; params [""_unit""]; { [_x,[(_pos select 0)+20+(random 20),(_pos select 1)+20+(random 20),(_pos select 2)+10+(random 10)]] remoteExec ['adv_fnc_paraJump',0]; nil; } count ( (units (group _unit)) select { ((group _x) isEqualTo (group _unit)) && ((_x distance _unit) < 100) } ); onmapsingleclick '';";
+	true
 	//[_unit] onMapSingleClick "openmap false; { ['adv_teleport_evh', [_x,[(_pos select 0)+20+(random 20),(_pos select 1)+20+(random 20),(_pos select 2)+10+(random 10)]], _x] call CBA_fnc_targetEvent; nil;} count (units (group (_this select 0))); onmapsingleclick '';";
 	//[_unit] onMapSingleClick "openmap false; { { [_x,[(_pos select 0)+20+(random 20),(_pos select 1)+20+(random 20),(_pos select 2)+10+(random 10)]] call adv_fnc_paraJump; } remoteExec ['bis_fnc_call', 0]; nil;} count (units (group (_this select 0))); onmapsingleclick '';";
+
 };
 
 _target = switch (toUpper _selection) do {
@@ -80,17 +83,17 @@ _target = switch (toUpper _selection) do {
 	default {nil};
 };
 
-if (isNil "_target") exitWith {};
+if (isNil "_target") exitWith {false};
 
 closeDialog 1;
 if (vehicle _target != _target) then {
 	_vehicle = vehicle _target;
-	_unit moveInCargo _vehicle;
+	_unit moveInAny _vehicle;
 } else {
 	_unit setPosATL (getPosATL _target);
 };
 
-true;
+true
 
 /*
 

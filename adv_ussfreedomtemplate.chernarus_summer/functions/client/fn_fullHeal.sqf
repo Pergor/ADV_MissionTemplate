@@ -22,6 +22,8 @@ params [
 _target setDamage 0;
 
 if (isClass(configFile >> "CfgPatches" >> "ace_medical")) exitWith {
+	_target setVariable ["adv_aceSplint_reopenUndo",true];
+	
 	if (isNull player) then {
 		[objNull,_target] call ACE_medical_fnc_treatmentAdvanced_fullHealLocal;
 	} else {

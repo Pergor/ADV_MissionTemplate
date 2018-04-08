@@ -27,6 +27,17 @@ if (isClass(configFile >> "CfgPatches" >> "ace_cookoff")) then {
 	["B_APC_Tracked_01_base_F", "init", { (_this select 0) setVariable ["ace_cookoff_enable", false, true]; }, true, ["B_APC_Tracked_01_AA_F"], true] call CBA_fnc_addClassEventHandler;
 };
 */
+/*
+adv_var_removeMagazinesDead = false;
+["CAManBase", "Killed", {
+	params ["_unit"];
+	if (!isPlayer _unit && adv_var_removeMagazinesDead) then {
+		{_unit removeMagazine _x} count magazines _unit;
+		_unit setAmmo [handgunWeapon _unit, 0];
+		_unit setAmmo [primaryWeapon _unit, 0];
+	};
+}, true, [], true] call CBA_fnc_addClassEventHandler;
+*/
 
 /*
 adv_par_customUni = missionNamespace getVariable ["adv_par_customUni", ["param_customUni",0] call BIS_fnc_getParamValue];

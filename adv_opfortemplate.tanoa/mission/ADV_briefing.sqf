@@ -46,19 +46,22 @@ private _respawnHandling = switch _par_moveMarker do {
 		<br/>Es steht alternativ auch Fallschirmabwurf zur Verfügung. Nur für Gruppenführer ist es möglich, einen Fallschirmabwurf für die ganze Gruppe auszuwählen. (Vorsicht, alle Gruppenmitglieder werden per Fallschirm abgeworfen!)" };
 };
 
-private _ace_reviveTime = format ["%1",(["ace_medical_maxReviveTime",1200] call BIS_fnc_getParamValue)/60];
+private _ace_reviveTime = ["ace_medical_maxReviveTime",1200] call BIS_fnc_getParamValue;
+private _ace_reviveTimeSTR = format ["%1",_ace_reviveTime/60];
 private _advACECPR_maxTimeSTR = "";
-if (missionNamespace getVariable ["adv_aceCPR_maxTime",1200] < ["ace_medical_maxReviveTime",1200] call BIS_fnc_getParamValue) then {
-	_advACECPR_maxTimeSTR = format ["<br/>- CPR ist ~ %1 Minuten nach Beginn der Revive-Zeit nicht mehr möglich.",round ((missionNamespace getVariable ["adv_aceCPR_maxTime",1200])/60)];
+private _advACECPR_maxTime = ["param_adv_aceCPR_maxTime",100] call BIS_fnc_getParamValue;
+if (_advACECPR_maxTime < 100 ) then {
+	private _maxTime_mp = (_ace_reviveTime*(_advACECPR_maxTime/100))/60;
+	_advACECPR_maxTimeSTR = format ["<br/>- CPR ist ~%1 Minuten nach Beginn der Revive-Zeit nicht mehr möglich.",round _maxTime_mp];
 };
 
-private _ace_PAKLocation = switch ( missionNamespace getVariable ["ace_medical_useLocation_PAK",0] ) do {
+private _ace_PAKLocation = switch ( ["ace_medical_useLocation_PAK",0] call BIS_fnc_getParamValue ) do {
 	case 1: {"nur in Sanitätsfahrzeugen"};
 	case 2: {"nur im Lazarett"};
 	case 3: {"nur in Sanitätsfahrzeugen oder im Lazarett"};
 	default {"überall"};
 };
-private _ace_pakConsume = switch ( missionNamespace getVariable ["ace_medical_consumeItem_PAK",0] ) do {
+private _ace_pakConsume = switch ( ["ace_medical_consumeItem_PAK",0] call BIS_fnc_getParamValue ) do {
 	case 1: {""};
 	default {" nicht"};
 };
@@ -95,7 +98,7 @@ private _ace_repairLocation = switch ( missionNamespace getVariable ["ace_repair
 			("Vor dem Aufbruch nicht vergessen:
 			") + _par_respWithGear + ("
 			<br/><br/>- ") + _respawnHandling + ("
-			<br/><br/>- Revive-Zeit: ") + _ace_reviveTime + (" Minuten.") + _advACECPR_maxTimeSTR + ("
+			<br/><br/>- Revive-Zeit: ~") + _ace_reviveTimeSTR + (" Minuten.") + _advACECPR_maxTimeSTR + ("
 			<br/>- Revive durch PAK ist ") + _ace_pakLocation + (" möglich.
 			<br/>- PAKs verbrauchen sich") + _ace_pakConsume + (".
 			<br/>- Wunden ") + _ace_advancedWounds + _advACESplint + ("

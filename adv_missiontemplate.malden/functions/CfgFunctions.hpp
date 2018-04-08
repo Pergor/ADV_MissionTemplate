@@ -108,6 +108,7 @@ class adv
 	class AI
 	{
 		class aiTask {};
+		class changeName {};
 		class findNearestEnemy {};
 		class setSafe {};
 		class setSide {};
@@ -133,7 +134,6 @@ class adv
 	class client
 	{
 		class aceMine {};		
-		class changeName {};
 		class changeUnit {};
 		class disableInput {};
 		class dispLaunch {};

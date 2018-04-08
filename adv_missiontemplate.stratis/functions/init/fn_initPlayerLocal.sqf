@@ -91,7 +91,8 @@ if ( (toUpper (goggles player)) in ["MASK_M40_OD","MASK_M40","MASK_M50","G_BALAC
 waitUntil {time > 0};
 
 //disableUserInput on mission start:
-[true] call adv_fnc_disableInput;
+//[true] call adv_fnc_disableInput;
+adv_handle_disableShooting = player addAction ["", {true}, [], 0, false, false, "DefaultAction", "true"];
 
 //logistics menu:
 if ( (missionNamespace getVariable ["ADV_par_logisticAmount",99]) > 0 ) then {
@@ -251,7 +252,9 @@ sleep 1;
 titleFadeOut 3;
 sleep 2;
 //disableUserInput false on mission start:
-[false] call adv_fnc_disableInput;
+//[false] call adv_fnc_disableInput;
+player removeAction adv_handle_disableShooting;
+
 //hint if cba is not run:
 if !( isClass(configFile >> "CfgPatches" >> "cba_main") ) then {
 	hintC "This mission needs CBA_A3 in order to run properly.";

@@ -46,6 +46,9 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 	_target addMagazineCargoGlobal ["APERSMine_Range_Mag",8];
 	_target addMagazineCargoGlobal ["APERSTripMine_Wire_Mag",8];
 	_target addMagazineCargoGlobal ["ClaymoreDirectionalMine_Remote_Mag",8];
+	if ( isClass(configFile >> "CfgMagazines" >> "AMP_Breaching_Charge_Mag") ) then {
+		_target addMagazineCargoGlobal ["AMP_Breaching_Charge_Mag",8]
+	};
 	
 	if !( isClass(configFile >> "CfgPatches" >> "ACE_minedetector") ) then {
 		_target addItemCargoGlobal ["MineDetector",1];

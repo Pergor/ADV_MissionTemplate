@@ -11,12 +11,30 @@ class param_adv_aceCPR_onlyDoctors
 	default = 0;
 	texts[] =  {"Jeder", "Medics & Doctors", "Doctors only"};
 };
+class param_adv_aceCPR_maxTime
+{
+	title = "ACE-Medical: Soll die Zeit, in der CPR erfolgreich wiederbeleben kann, auf einen Prozentanteil der maximalen Revive-Zeit gesetzt werden? (CPR verhindert immer noch das Ablaufen des Revive-Timers)";
+	values[] = {0, 10, 20, 30, 40, 50, 60, 70, 80, 90};
+	default = 0;
+	texts[] =  {
+		"Nein"
+		, "10% (bei maxReviveTime von 10 Minuten wird CPR nur 1 Minute lang erfolgreich ausführbar sein)"
+		, "20%"
+		, "30%"
+		, "40%"
+		, "50% (bei maxReviveTime von 10 Minuten wird CPR nur 5 Minuten lang erfolgreich ausführbar sein)"
+		, "60%"
+		, "70%"
+		, "80%"
+		, "90% (bei maxReviveTime von 10 Minuten wird CPR nur 9 Minuten lang erfolgreich ausführbar sein)"
+	};
+};
 class param_adv_aceCPR_AED
 {
 	title = "ACE-Medical: Sollen PAKs durch Defibrillatoren ausgetauscht werden? (Nur mit adv_aceCPR)";
 	values[] = {0, 1, 2};
 	default = 2;
-	texts[] =  {"Es werden nur PAKs ausgegeben","Es werden PAKs UND Defibrillatoren ausgegeben","Es werden nur Defibrillatoren ausgegeben (reduziert die Wahrscheinlichkeiten für erfolgreiche CPR!)"};
+	texts[] =  {"Es werden nur PAKs ausgegeben","Es werden PAKs UND Defibrillatoren ausgegeben","Es werden nur Defibrillatoren ausgegeben"};
 };
 class dummy_settings_ace {
 	title = "---------------------- ACE-Settings ----------------------";
@@ -33,7 +51,7 @@ class param_ace_medical_GivePAK
 };
 class param_jamChance
 {
-	title="ACE-Overheating: Soll die Jamming-Wahrscheinlichkeit für aufgehobene Feindwaffen erhöht werden? (Betrifft nur OPFOR- und BLUFOR-Spieler)";
+	title="ACE-Overheating: Soll die Jamming-Wahrscheinlichkeit für aufgehobene Feindwaffen erhöht werden? (Betrifft nur OPFOR- und BLUFOR-Spieler - es gilt NICHT für INDFOR-Spieler!)";
 	values[] = {1,0};
 	texts[] = {"Ja","Nein"};
 	default = 1;
@@ -59,6 +77,14 @@ class ace_medical_consumeItem_PAK
 	values[] = {0, 1};
 	default = 0;
 	texts[] =  {"Disabled", "Enabled"};
+};
+class ace_medical_useLocation_PAK
+{
+	title = "ACE-Medical Use Location PAK";
+	ACE_setting = 1;
+	values[] = {0, 1, 2, 3};
+	default = 0;
+	texts[] =  {"Anywhere", "Medical vehicles", "Medical facility (not present in non-edited version of ADV - Template!)", "Vehicles & facilities (facilities not present in non-edited version of ADV - Template!)"};
 };
 class ace_medical_enableAdvancedWounds
 {
