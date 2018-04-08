@@ -51,7 +51,7 @@ class param_ace_medical_GivePAK
 };
 class param_jamChance
 {
-	title="ACE-Overheating: Soll die Jamming-Wahrscheinlichkeit für aufgehobene Feindwaffen erhöht werden? (Betrifft nur OPFOR- und BLUFOR-Spieler)";
+	title="ACE-Overheating: Soll die Jamming-Wahrscheinlichkeit für aufgehobene Feindwaffen erhöht werden? (Betrifft nur OPFOR- und BLUFOR-Spieler - es gilt NICHT für INDFOR-Spieler!)";
 	values[] = {1,0};
 	texts[] = {"Ja","Nein"};
 	default = 1;
@@ -77,6 +77,14 @@ class ace_medical_consumeItem_PAK
 	values[] = {0, 1};
 	default = 0;
 	texts[] =  {"Disabled", "Enabled"};
+};
+class ace_medical_useLocation_PAK
+{
+	title = "ACE-Medical Use Location PAK";
+	ACE_setting = 1;
+	values[] = {0, 1, 2, 3};
+	default = 0;
+	texts[] =  {"Anywhere", "Medical vehicles", "Medical facility (not present in non-edited version of ADV - Template!)", "Vehicles & facilities (facilities not present in non-edited version of ADV - Template!)"};
 };
 class ace_medical_enableAdvancedWounds
 {
