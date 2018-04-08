@@ -47,6 +47,19 @@ private _handle = ["ace_unconscious", {
 					};
 				};
 				
+				private _NP = objNull;
+				private _NP_A = "N/A";
+				private _NP_D = 200;
+				{
+					_dist = (vehicle _x) distance _unit;
+					if ( !(_x isEqualTo _unit) && isPlayer _x && _dist < _NP_D && !(_x getVariable ["ACE_isUnconscious",false]) ) then {
+						_NP = _x;
+						_NP_D = _dist;
+						_NP_A = _dist;
+					};
+				} forEach playableUnits;
+				
+				
 				private _format = ["Hey Belbo! Es sieht schlecht aus:
 					\n Dein Revive State ist %1.
 					\n Dein Cardiac Arrest State ist %2.
@@ -56,8 +69,10 @@ private _handle = ["ace_unconscious", {
 					\n Du bist noch %8 Sekunden im Revive State.
 					\n Dir bleiben noch %9 Sekunden für CPR.
 					\n Dein Bloodloss beträgt %10.
-					\n Du hast Schmerzen in Höhe von %11."
-				,_RS,_CA,round _BV,"%",round _BP_1,round _BP_2,round _HR,_RT,_CT,_BL,_PN];
+					\n Du hast Schmerzen in Höhe von %11.
+					\n\n Der nächste Spieler ist %12,
+					\n in %13 Metern Entfernung."
+				,_RS,_CA,round _BV,"%",round _BP_1,round _BP_2,round _HR,_RT,_CT,_BL,_PN,name _NP, _NP_A];
 				
 				hintSilent format _format;
 				
