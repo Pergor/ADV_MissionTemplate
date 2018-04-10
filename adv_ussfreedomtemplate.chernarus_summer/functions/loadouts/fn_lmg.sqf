@@ -50,13 +50,13 @@ if (worldName == "TANOA") then {
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 //_primaryweaponAmmo = [3,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
-_primaryweaponAmmo = [3,0];
+_primaryweaponAmmo = [7,0];
 _additionalAmmo = [3,1,true];
 if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) then {
 	_primaryWeapon = ["LMG_Mk200_F"];
 	_optic = ["optic_ACO","optic_Holosight","optic_Holosight_smg","optic_Aco_smg"];
 	_primaryweaponAmmo = if (isClass(configFile >> "CfgPatches" >> "ace_ballistics")) then {[3,4]} else {[3,3]};
-	_additionalAmmo = if (isClass(configFile >> "CfgPatches" >> "ace_ballistics")) then {[3,3,true]} else {[3,2,true]};
+	_additionalAmmo = if (isClass(configFile >> "CfgPatches" >> "ace_ballistics")) then {[2,3,true]} else {[2,2,true]};
 };
 
 //40mm Grenades - (integer)
@@ -320,7 +320,8 @@ switch (_par_customWeap) do {
 		_primaryWeapon = "LMG_03_F";
 		_optic = ["optic_ACO","optic_Holosight_blk_f","optic_Holosight_smg_blk_F","optic_Aco_smg"];
 		_silencer = "";
-		_primaryweaponAmmo = [3,1];
+		_primaryweaponAmmo set [1,3];
+		_additionalAmmo set [1,1];
 	};
 	default {};
 };

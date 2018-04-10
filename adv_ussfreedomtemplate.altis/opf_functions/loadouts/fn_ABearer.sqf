@@ -274,7 +274,6 @@ switch (_par_opfWeap) do {
 		_primaryWeapon = "arifle_AK12_F";
 		_silencer = "muzzle_snds_B";
 		_additionalAmmo set [1,"30Rnd_762x39_Mag_F"];
-		_additionalAmmo1 = [4,"100Rnd_580x42_Mag_F",true];
 	};
 	default {};
 };

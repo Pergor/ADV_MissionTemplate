@@ -178,24 +178,28 @@ if (isClass(configFile >> "CfgPatches" >> "murshun_cigs")) then {
 	_unit linkitem _x;
 } count _itemslink;
 //weapons
+//binoculars
 if ( _binocular isEqualType [] ) then { _binocular = selectRandom _binocular; };
 [_unit,_binocular,1] call BIS_fnc_addWeapon;
+//handgun
 if ( _handgun isEqualType [] ) then { _handgun = selectRandom _handgun; };
-[_unit,_handgun,_handgunAmmo select 0,_handgunAmmo select 1] call BIS_fnc_addWeapon;
+_handgunAmmo params ["_hgC","_hgI"];
+[_unit,_handgun,_hgC,_hgI] call BIS_fnc_addWeapon;
+//handgunItems
 if ( (side (group _unit) isEqualTo west && _par_Silencers > 0) || (side (group _unit) isEqualTo east && _par_opfSilencers > 0) ) then { _itemsHandgun pushback _handgunSilencer; };
 { _unit addHandgunItem _x } count _itemsHandgun;
+//launcher
 if ( _launcher isEqualType [] ) then { _launcher = selectRandom _launcher; };
+_launcherAmmo params ["_laC","_laI"];
 if ( (toUpper _launcher) in _disposableLaunchers ) then {
-	_launcherAmmo set [0,1];
+	_laI = 1;
 };
-[_unit,_launcher,_launcherAmmo select 0,_launcherAmmo select 1] call BIS_fnc_addWeapon;
+[_unit,_launcher,_laC,_laI] call BIS_fnc_addWeapon;
+//primaryWeapon
 if ( _primaryWeapon isEqualType [] ) then { _primaryWeapon = selectRandom _primaryWeapon; };
-if (_primaryweaponAmmo select 0 > 0) then {
-	[_unit,_primaryWeapon,1,_primaryweaponAmmo select 1] call BIS_fnc_addWeapon;
-	[_unit,(_primaryweaponAmmo select 0)-1,0,_primaryweaponAmmo select 1] call ADV_fnc_addMagazine;
-} else {
-	[_unit,_primaryWeapon,_primaryweaponAmmo select 0,_primaryweaponAmmo select 1] call BIS_fnc_addWeapon;
-};
+_primaryWeaponAmmo params ["_pwC","_pwI"];
+[_unit,_primaryWeapon,_pwC,_pwI] call BIS_fnc_addWeapon;
+//optics
 if ( _optic isEqualType [] ) then { _optic = selectRandom _optic; };
 if ( (!(side (group _unit) isEqualTo east) && _par_optics isEqualTo 2) || ((side (group _unit) isEqualTo east) && _par_opfOptics isEqualTo 2) ) then {
 	if (!(leader _unit isEqualTo _unit) || (count units group _unit isEqualTo 1)) then {

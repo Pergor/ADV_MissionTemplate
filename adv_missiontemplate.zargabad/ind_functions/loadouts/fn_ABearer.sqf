@@ -46,7 +46,7 @@ _silencer = ["muzzle_snds_M"];
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [10,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 _additionalAmmo = [12,"30rnd_556x45_STANAG",true];
-_additionalAmmo1 = [2,"200Rnd_65x39_cased_Box",true];
+_additionalAmmo1 = [2,"200Rnd_65x39_cased_Box_Tracer",true];
 _additionalAmmo2 = [12,"1Rnd_HE_Grenade_shell",true];
 
 //40mm Grenades - (integer)
@@ -252,7 +252,7 @@ switch (_par_indWeap) do {
 		if ( _par_NVGs == 2 ) then { _attachments = _attachments-["acc_pointer_IR"]; };
 		_silencer = "";
 		_additionalAmmo set [1,"30Rnd_762x39_Mag_F"];
-		_additionalAmmo1 set [1,"200Rnd_556x45_Box_F"];
+		_additionalAmmo1 set [1,"200Rnd_556x45_Box_Tracer_F"];
 	};
 	default {};
 };

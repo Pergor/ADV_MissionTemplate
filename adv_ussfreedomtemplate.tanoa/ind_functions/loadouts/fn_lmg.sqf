@@ -44,8 +44,8 @@ if ( _par_NVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "muzzle_snds_H_MG";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [3,3];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
-_additionalAmmo = [3,2,true];
+_primaryweaponAmmo = [3,1];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_additionalAmmo = [2,0,true];
 
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;
@@ -226,6 +226,8 @@ switch (_par_indWeap) do {
 	case 20: {
 		//APEX HK416
 		_primaryWeapon = "LMG_03_F";
+		_primaryweaponAmmo set [1,2];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+		_additionalAmmo set [1,0];
 		_silencer = "";
 		_optic = ["optic_ACO","optic_Holosight_blk_F"];
 	};

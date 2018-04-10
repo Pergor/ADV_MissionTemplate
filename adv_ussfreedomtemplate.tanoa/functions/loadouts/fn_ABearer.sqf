@@ -358,7 +358,7 @@ switch (_par_customWeap) do {
 		_primaryweaponAmmo set [1,2];
 		_optic = ["optic_ACO","optic_Holosight_blk_F"];
 		_additionalAmmo = [12,"30Rnd_556x45_Stanag_red",true];
-		_additionalAmmo1 = [2,"200Rnd_556x45_Box_Red_F",true];
+		_additionalAmmo1 = [2,"200Rnd_556x45_Box_Tracer_Red_F",true];
 		_additionalAmmo2 = [12,"1Rnd_HE_Grenade_shell",true];
 	};
 	default {};

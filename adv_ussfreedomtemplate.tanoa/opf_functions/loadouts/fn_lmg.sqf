@@ -45,12 +45,14 @@ if ( _par_opfNVGs == 2 ) then { _attachments pushback "acc_pointer_IR"; };
 _silencer = "";		//if silencer is added
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-_primaryweaponAmmo = [5,0];
-if (worldName == "TANOA" || _par_opfWeap == 20 || _par_opfWeap == 21) then {
+_primaryweaponAmmo = [4,1];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+_additionalAmmo = [2,0,true];
+if (worldName == "TANOA" || _par_opfWeap == 20) then {
 	_primaryweapon = ["arifle_CTARS_blk_F"];
 	_optic = ["optic_ACO_grn","optic_Holosight_blk_f"];
 	_silencer = "muzzle_snds_58_blk_F";
-	_primaryweaponAmmo = [5,0];
+	_primaryweaponAmmo set [0,7];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
+	_additionalAmmo set [0,3];
 };
 
 //40mm Grenades - (integer)
