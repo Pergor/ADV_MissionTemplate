@@ -477,6 +477,7 @@ switch (_par_customUni) do {
 		//APEX NATO
 		_uniform = ["U_B_T_Soldier_SL_F"];
 		_vest = ["V_PlateCarrier1_tna_F","V_PlateCarrier2_tna_F"];
+		_headgear = ["H_HelmetB_Enh_tna_F"];
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	case 30: {
