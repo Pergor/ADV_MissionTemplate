@@ -53,9 +53,9 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		};
 	};
 	_target addMagazineCargoGlobal ["1Rnd_HE_Grenade_shell",20];
-	_target addMagazineCargoGlobal ["1Rnd_SmokeRed_Grenade_shell",5];
-	_target addMagazineCargoGlobal ["1Rnd_SmokePurple_Grenade_shell",5];
-	_target addMagazineCargoGlobal ["1Rnd_SmokeYellow_Grenade_shell",5];
+	_target addMagazineCargoGlobal ["1Rnd_SmokeRed_Grenade_shell",3];
+	_target addMagazineCargoGlobal ["1Rnd_SmokePurple_Grenade_shell",3];
+	_target addMagazineCargoGlobal ["1Rnd_SmokeYellow_Grenade_shell",3];
 	_target addMagazineCargoGlobal ["UGL_FlareYellow_F",10];
 
 	if ( _par_NVGs == 2 && !(isClass (configFile >> "CfgPatches" >> "ACE_attach")) ) then {
