@@ -6,6 +6,11 @@
  */
 
 if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
+
+	if (!isNil "TFAR_setting_defaultFrequencies_lr_east") exitWith {
+		//With version 1.0.274 you have to set all this in cba_settings.sqf... :(
+	};
+	
 	//general:
 	tf_terrain_interception_coefficient = 3.0;
 	tf_speakerDistance = 20;
@@ -22,16 +27,18 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	//tfar serious mode channel name and password:
 	call {
 		if ( ("param_seriousMode" call BIS_fnc_getParamValue) isEqualTo 0 ) exitWith {
-			tf_radio_channel_name = "NONE";
-			tf_radio_channel_password = "NONE";
+			TFAR_Teamspeak_Channel_Name = "NONE";
+			TFAR_Teamspeak_Channel_Password = "NONE";
 		};
 		if !( ["SPEZIALEINHEIT LUCHS", serverName] call BIS_fnc_inString ) exitWith {
-			tf_radio_channel_name = "TaskForceRadio";
-			tf_radio_channel_password = "123";			
+			TFAR_Teamspeak_Channel_Name = "TaskForceRadio";
+			TFAR_Teamspeak_Channel_Password = "123";
 		};
-		tf_radio_channel_name = "Arma3-TFAR";
-		tf_radio_channel_password = "123";
+		TFAR_Teamspeak_Channel_Name = "Arma3-TFAR";
+		TFAR_Teamspeak_Channel_Name = "123";
 	};
+	tf_radio_channel_name = TFAR_Teamspeak_Channel_Name;
+	tf_radio_channel_password = TFAR_Teamspeak_Channel_Password;
 	
 	//update the plugin settings:
 	call TFAR_fnc_sendPluginConfig;
@@ -74,23 +81,29 @@ if (isClass(configFile >> "CfgPatches" >> "tfar_core")) exitWith {
 	_settingsSRWest set [2, _defaultFrequencies_sr_west];
 	_settingsSRWest set [4, _west_code];
 	TFAR_freq_sr_west = _settingsSRWest;
+	//TFAR_setting_defaultFrequencies_sr_west = _defaultFrequencies_sr_west;
 	
 	_settingsLrWest set [2, _defaultFrequencies_lr_west];
 	_settingsLrWest set [4, _west_code];
 	TFAR_freq_lr_west = _settingsLrWest;
+	//TFAR_setting_defaultFrequencies_lr_west = _defaultFrequencies_lr_west;
 	
 	_settingsSREast set [2, _defaultFrequencies_sr_east];
 	_settingsSREast set [4, _east_code];
 	TFAR_freq_sr_east = _settingsSREast;
+	//TFAR_setting_defaultFrequencies_sr_east = _defaultFrequencies_sr_east;
 	
 	_settingsLrEast set [2, _defaultFrequencies_lr_east];
 	_settingsLrEast set [4, _east_code];
 	TFAR_freq_lr_east = _settingsLrEast;
+	//TFAR_setting_defaultFrequencies_lr_east = _defaultFrequencies_lr_east;
 	
 	_settingsSRGuer set [2, _defaultFrequencies_sr_independent];
 	_settingsLrGuer set [2, _defaultFrequencies_lr_independent];
 	TFAR_freq_sr_independent = _settingsSRGuer;
+	//TFAR_setting_defaultFrequencies_sr_independent = _defaultFrequencies_sr_independent;
 	TFAR_freq_lr_independent = _settingsLrGuer;
+	//TFAR_setting_defaultFrequencies_lr_independent = _defaultFrequencies_lr_independent;
 	
 	if ( _ind_code isEqualTo "" ) then {
 		_ind_code = call {
