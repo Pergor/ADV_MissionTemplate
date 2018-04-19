@@ -342,7 +342,7 @@ switch (_par_customWeap) do {
 			default {};
 		};
 		_optic = ["optic_ACO","optic_Holosight_blk_F"];
-		_silencer = ["muzzle_snds_M"];
+		_silencer = "muzzle_snds_M";
 		_primaryweaponAmmo set [1,2];
 	};
 	default {};

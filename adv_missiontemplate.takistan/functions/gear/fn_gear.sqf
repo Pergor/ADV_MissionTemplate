@@ -211,6 +211,7 @@ if ( (!(side (group _unit) isEqualTo east) && _par_optics > 0) || (side (group _
 	_attachments pushBack _optic;
 	if ( (toUpper _primaryWeapon) in _bwmodG36 ) then { _attachments pushBack "BWA3_optic_G36C_Ironsight_100"; };
 };
+if ( _silencer isEqualType [] ) then { _silencer = selectRandom _silencer; };
 if ( (!(side (group _unit) isEqualTo east) && _par_Silencers isEqualTo 1) || (side (group _unit) isEqualTo east && _par_opfSilencers isEqualTo 1) ) then { _attachments pushback _silencer; };
 if ( (!(side (group _unit) isEqualTo east) && _par_Silencers isEqualTo 2) || (side (group _unit) isEqualTo east && _par_opfSilencers isEqualTo 2) ) then {
 	_unit addItem _silencer;
