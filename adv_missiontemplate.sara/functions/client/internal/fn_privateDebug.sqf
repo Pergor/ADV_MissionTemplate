@@ -59,6 +59,7 @@ private _handle = ["ace_unconscious", {
 					};
 				} forEach playableUnits;
 				
+				_NP = if (isNull _NP) then {"N/A"} else {name _NP};
 				
 				private _format = ["Hey Belbo! Es sieht schlecht aus:
 					\n Dein Revive State ist %1.
@@ -72,7 +73,7 @@ private _handle = ["ace_unconscious", {
 					\n Du hast Schmerzen in Höhe von %11.
 					\n\n Der nächste Spieler ist %12,
 					\n in %13 Metern Entfernung."
-				,_RS,_CA,round _BV,"%",round _BP_1,round _BP_2,round _HR,_RT,_CT,_BL,_PN,name _NP, _NP_A];
+				,_RS,_CA,round _BV,"%",round _BP_1,round _BP_2,round _HR,_RT,_CT,_BL,_PN,_NP, _NP_A];
 				
 				hintSilent format _format;
 				

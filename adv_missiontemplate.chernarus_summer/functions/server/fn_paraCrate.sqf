@@ -7,7 +7,9 @@
  * 0: target position, can be position, object or marker - <ARRAY>, <OBJECT>, <STRING>
  * 1: Height (optional) - <NUMBER>
  * 2: Smoke shell attached to crate upon landing (optional) - <STRING>
- * 3: Functions or code to be executed. Crate is _this inside code (optional) - <ARRAY>, <STRING>
+ * 3: Function, array of functions or code to be executed. Cargo is _this inside code if STRING is provided, _this select 0 in function.
+ *    If array is provided, functions inside array will be executed from first to last.
+ *    Code will be executed scheduled, function and functions will be called. (optional) - <FUNCTION>, <ARRAY>, <STRING>
  * 4: Classname of crate (optional) - <STRING>
  * 5: Classname of parachute (optional) - <STRING>
  *
@@ -49,10 +51,14 @@ _crate = createVehicle [_crateType, _targetpos, [], 0, "NONE"];
 _crate attachTo [_chute, [0, 0, -1.3]];
 _chute setVelocity [0,0,-50];
 { _x addCuratorEditableObjects [[_crate],false] } forEach allCurators;
-if (_codeType == "STRING") then {
+if (_code isEqualType "") then {
 	_crate spawn compile _code;
-} else {
-	{_crate call _x} forEach _code;
+};
+if (_code isEqualType objNull) then {
+	[_crate] call _code;
+};
+if (_code isEqualType []) then {
+	{[_crate] call _x} forEach _code;
 };
 _smokeType = switch (toUpper _smokeColor) do {
 	case "WHITE": {"G_40mm_Smoke"};

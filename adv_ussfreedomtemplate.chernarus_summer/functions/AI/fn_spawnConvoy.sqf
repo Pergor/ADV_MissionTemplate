@@ -62,6 +62,8 @@ private _grp = [
 	,_side
 ] call ADV_fnc_spawnGroup;
 [_grp,10] call adv_fnc_setSafe;
+_grp allowFleeing 0;
+_grp deleteGroupWhenEmpty true;
 
 //adds waypoints for way stations:
 if !(_stations isEqualTo []) then {
@@ -92,6 +94,8 @@ _wpFollow setWaypointStatements ["true", "driver (vehicle this) enableAi 'FSM'; 
 
 //get all vehicles of vehicle group:
 private _allVehiclesConvoy = [_grp] call adv_fnc_getGroupVehicles;
+//set driver's skill to 1:
+{ (driver _x) setSkill 1; nil } count _allVehiclesConvoy;
 //get all vehicles that can fit a whole group of _units:
 private _size = count _units;
 private _vehiclesConvoy = [];

@@ -95,6 +95,7 @@ class adv
 		class respawnVeh {};
 		class retexture {};
 		class setRating {};
+		class slingloadSupply {};
 		class zeusObjects {};
 	};
 	class serverGear

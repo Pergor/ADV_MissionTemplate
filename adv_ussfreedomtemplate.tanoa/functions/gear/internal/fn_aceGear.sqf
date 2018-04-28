@@ -136,7 +136,9 @@ if ( ( !(side (group _unit) isEqualTo east) && _par_NVGs isEqualTo 2) || (side (
 			if ( _x in (_itemsBackpack apply {toUpper _x;}) ) then { _unit addItemToBackpack "ACE_NVG_Wide"; };
 			nil;
 		} count _NVGoggles;
-		ppEffectDestroy ace_nightvision_ppEffectFilmGrain;
+		if (!isNil "ace_nightvision_ppEffectFilmGrain") then {
+			ppEffectDestroy ace_nightvision_ppEffectFilmGrain;
+		};
 	};
 	if ( isClass(configFile >> "CfgPatches" >> "ACE_Vector") && (toUpper _binocular) isEqualTo "RANGEFINDER" ) then {
 		[_unit,"ACE_Vector",1] call BIS_fnc_addWeapon;

@@ -15,13 +15,17 @@
  * Public: Yes
  */
 
-if (count _this == 0) exitWith {};
+private _targets = _this;
+if (_targets isEqualType objNull) then {_targets = [_targets]};
+
+if (count _targets isEqualTo 0) exitWith {};
+
 //removes all content from the target:
 {
 	if !(_x isEqualTo objNull) then {
 		private _target = _x;
 		clearWeaponCargoGlobal _target;clearMagazineCargoGlobal _target;clearBackpackCargoGlobal _target;clearItemCargoGlobal _target;
 	};
-} count _this;
+} count _targets;
 
 true;
