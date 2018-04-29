@@ -40,12 +40,10 @@ private _heading = call {
 };
 
 private _skill = [0.7,0.7];
-if ( _side isEqualTo civilian ) then { _skill = [0.0,0.0]; };
-
-//get side, if side ID is provided:
 if (_side isEqualType 0) then {
 	_side = _side call BIS_fnc_sideType;
 };
+if ( _side isEqualTo civilian ) then { _skill = [0.0,0.0]; };
 
 private _withVehicles = 0;
 private _vehicles = [];
