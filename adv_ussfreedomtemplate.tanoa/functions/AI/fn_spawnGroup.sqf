@@ -9,7 +9,7 @@
  * Arguments:
  * 0: spawn location (can be position, object or marker) - <ARRAY>, <OBJECT>, <STRING>
  * 1: unit classnames array - <ARRAY> of <STRINGS>
- * 2: side of the units - <SIDE>
+ * 2: side of the units - <SIDE> or <NUMBER>
  *
  * Return Value:
  * spawned group - <GROUP>
@@ -25,7 +25,7 @@ if (!isServer && hasInterface) exitWith {};
 params [
 	["_location", [0,0,0], [[],"",objNull]]
 	,["_units", ["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"], [[],configNull]]
-	,["_side", east, [west]]
+	,["_side", east, [west,0]]
 	,"_grp"
 ];
 
@@ -40,6 +40,9 @@ private _heading = call {
 };
 
 private _skill = [0.7,0.7];
+if (_side isEqualType 0) then {
+	_side = _side call BIS_fnc_sideType;
+};
 if ( _side isEqualTo civilian ) then { _skill = [0.0,0.0]; };
 
 private _withVehicles = 0;

@@ -5,7 +5,7 @@
  *
  * Arguments:
  * 0: group/units - <GROUP> or <ARRAY> of <OBJECTS>
- * 1: new side - <SIDE>
+ * 1: new side - <SIDE> or <NUMBER>
  *
  * Return Value:
  * new group - <GROUP>
@@ -21,6 +21,10 @@ params [
 	["_side", west, [west]],
 	"_newgrp"
 ];
+
+if (_side isEqualType 0) then {
+	_side = _side call BIS_fnc_sideType;
+};
 
 _newgrp = createGroup _side;
 call {

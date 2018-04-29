@@ -8,7 +8,7 @@
  *
  * Arguments:
  * 0: target to become relay - <OBJECT>
- * 1: side for which relay should be available (optional) - <SIDE>
+ * 1: side for which relay should be available (optional) - <SIDE> or <NUMBER>
  * 2: minimum height (over NN) above which the relay can be switched on (optional) - <NUMBER>
  *
  * Return Value:
@@ -29,6 +29,9 @@ _handle = _this spawn {
 		["_minHeight", 10, [0]]
 	];
 
+	if (_side isEqualType 0) then {
+		_side = _side call BIS_fnc_sideType;
+	};	 
 	//if ( _relay getVariable [format ["adv_var_isRelay_%1",_side],false] ) exitWith {};
 
 	//switches for turning the relay on and off (the code that's being executed locally by the activator:

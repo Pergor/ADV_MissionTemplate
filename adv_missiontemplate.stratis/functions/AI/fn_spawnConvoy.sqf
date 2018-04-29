@@ -12,7 +12,7 @@
  * 1: target destination (can be position, object or marker) - <ARRAY>, <OBJECT>, <STRING>
  * 2: vehicles classnames array - <ARRAY> of <STRINGS>
  * 3: units classnames array - <ARRAY> of <STRINGS>
- * 4: side of all units in convoy - <SIDE>
+ * 4: side of all units in convoy - <SIDE> or <NUMBER>
  * 5: Parameters for convoy: - <ARRAY> of <STRINGS> (optional)
  *		1: Speed, can be "LIMITED", "NORMAL", "FULL" - <STRING>
  *		2: Behaviour, can be "CARELESS", "SAFE", "AWARE", "COMBAT", "STEALTH" - <STRING>
@@ -36,7 +36,7 @@ params [
 	,["_targetLocation", [0,0,0], [[],"",objNull]]
 	,["_vehicles", ["O_MRAP_02_hmg_F","O_Truck_02_transport_F","O_Truck_02_transport_F","O_Truck_02_transport_F","O_MRAP_02_hmg_F"], [[],configNull]]
 	,["_units", ["O_Soldier_SL_F","O_Soldier_AR_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_LAT_F","O_Soldier_F","O_Soldier_A_F","O_medic_F"], [[],configNull]]
-	,["_side", east, [west]]
+	,["_side", east, [west,0]]
 	,["_modifiers",["LIMITED","AWARE","GREEN","COLUMN"],[[]]]
 	,["_stations",[],[[]]]
 ];
@@ -54,6 +54,11 @@ _modifiers params [
 ];
 //get positions for given stations:
 private _stationsPos = _stations apply { [_x] call adv_fnc_getPos };
+
+//get side, if side ID is provided:
+if (_side isEqualType 0) then {
+	_side = _side call BIS_fnc_sideType;
+};
 
 //create group of vehicles first:
 private _grp = [
@@ -87,15 +92,15 @@ _wp setWaypointBehaviour _behaviour;
 _wp setWaypointCombatMode _combatMode;
 _wp setWaypointSpeed _speed;
 _wp setWaypointFormation _formation;
-_wp setWaypointStatements ["true", "vehicle this land 'GET OUT'; driver (vehicle this) disableAi 'FSM'; driver (vehicle this) disableAi 'AUTOTARGET';"];
+_wp setWaypointStatements ["true", "vehicle this land 'GET OUT';{(driver (vehicle this)) enableAI _x} forEach ['TARGET', 'AUTOTARGET','AUTOCOMBAT'];"];
 
 private _wpFollow = _grp addWaypoint [getWPPos _wp, 0];
-_wpFollow setWaypointStatements ["true", "driver (vehicle this) enableAi 'FSM'; driver (vehicle this) enableAi 'AUTOTARGET';"];
 
 //get all vehicles of vehicle group:
 private _allVehiclesConvoy = [_grp] call adv_fnc_getGroupVehicles;
 //set driver's skill to 1:
-{ (driver _x) setSkill 1; nil } count _allVehiclesConvoy;
+_grp allowFleeing 0;
+{ (driver _x) setSkill 1; {(driver _x) disableAI _x} forEach ['TARGET', 'AUTOTARGET','AUTOCOMBAT']; nil } count _allVehiclesConvoy;
 //get all vehicles that can fit a whole group of _units:
 private _size = count _units;
 private _vehiclesConvoy = [];
