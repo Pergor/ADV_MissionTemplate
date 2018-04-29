@@ -5,6 +5,7 @@ class adv_ai
 	{
 		file = "adv_ai";
 		class aiTask {};
+		class slingloadSupply {};
 		class spawnConvoy {};
 		class spawnGroup {};
 	};
@@ -13,6 +14,7 @@ class adv_ai
 		file = "adv_ai\internal";
 		class findNearestEnemy {};
 		class getGroupVehicles {};
+		class getOppPos {};
 		class getPos {};
 		class setSafe {};
 		class setSide {};

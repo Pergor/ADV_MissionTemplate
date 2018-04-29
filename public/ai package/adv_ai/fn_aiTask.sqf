@@ -7,7 +7,7 @@
  * Arguments:
  * 0: location for spawn (can be position, object or marker) - <ARRAY>, <OBJECT>, <STRING>
  * 1: unit classnames array - <ARRAY> of <STRINGS>
- * 2: side of the units - <SIDE>
+ * 2: side of the units - <SIDE> or <NUMBER>
  * 3: behaviour mode - <NUMBER>
  * 		0 = regular patrol.
  *		1 = patrol with units searching buildings near waypoints.
@@ -34,7 +34,7 @@ if (!isServer && hasInterface) exitWith {};
 params [
 	["_location", [0,0,0], [[],"",objNull]]
 	,["_units", ["O_Soldier_TL_F","O_Soldier_GL_F","O_Soldier_F","O_Soldier_F","O_soldier_AR_F","O_medic_F"], [[],configNull]]
-	,["_side", east, [west]]
+	,["_side", east, [west,0]]
 	,["_mode", 0, [0]]
 	,["_radius", -1, [0]]
 	,["_attack", [objNull,100], [[]]]
@@ -62,6 +62,9 @@ private _pos = [_start, _radius] call CBA_fnc_randPos;
 private _spawn = [_pos,5,30,3,0,20,0,[],[_start,_start]] call BIS_fnc_findSafePos;
 
 //spawn a group
+if (_side isEqualType 0) then {
+	_side = _side call BIS_fnc_sideType;
+};
 private _grp = [_spawn,_units,_side] call adv_ai_fnc_spawnGroup;
 [units _grp,10] call adv_ai_fnc_setSafe;
 
