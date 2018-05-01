@@ -31,6 +31,9 @@ if (!isServer) exitWith {};
 		case (str _x in ADV_opf_veh_logistic_medic+ADV_opf_veh_airContainerMedic): {
 			[_x,true,false,4] call ADV_opf_fnc_vehicleLoad;
 		};
+		case (str _x in ADV_opf_veh_airContainerTransport): {
+			[_x,false,true,0] call ADV_opf_fnc_vehicleLoad;
+		};
 		case (str _x in ADV_opf_veh_air && !(str _x in ADV_opf_veh_airLogistic)): {
 			[_x,false,false,0] call ADV_opf_fnc_vehicleLoad;
 		};
