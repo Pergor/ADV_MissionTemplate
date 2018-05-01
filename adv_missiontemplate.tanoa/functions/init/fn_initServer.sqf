@@ -115,4 +115,30 @@ if ( (missionNamespace getVariable ["ADV_par_logisticTeam",1]) > 1 ) then {
 	};
 };
 
+//medical tents:
+private _tentForAll = {
+	params ["_target"];
+	_target animateSource ["Door_Hide",1];
+	_target setVariable ["ACE_medical_isMedicalFacility", true];
+	[_target] call adv_fnc_clearCargo;
+};
+{
+	[_x] call _tentForAll;
+	[_x] call adv_fnc_crateMedic;
+	[_x] call adv_fnc_crateMedic;
+	nil
+} count adv_objects_westTents;
+{
+	[_x] call _tentForAll;
+	[_x] call adv_opf_fnc_crateMedic;
+	[_x] call adv_opf_fnc_crateMedic;
+	nil
+} count adv_objects_eastTents;
+{
+	[_x] call _tentForAll;
+	[_x] call adv_ind_fnc_crateMedic;
+	[_x] call adv_ind_fnc_crateMedic;
+	nil
+} count adv_objects_indTents;
+
 //end of initServer.
