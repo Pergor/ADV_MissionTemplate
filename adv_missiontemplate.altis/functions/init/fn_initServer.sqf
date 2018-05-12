@@ -121,6 +121,7 @@ private _tentForAll = {
 	_target animateSource ["Door_Hide",1];
 	_target setVariable ["ACE_medical_isMedicalFacility", true];
 	[_target] call adv_fnc_clearCargo;
+	_target addItemCargoGlobal ["adv_aceRefill_FAK",20];
 };
 {
 	[_x] call _tentForAll;
