@@ -25,7 +25,6 @@ force TFAR_giveLongRangeRadioToGroupLeaders = false;
 force TFAR_giveMicroDagrToSoldier = false;
 force TFAR_givePersonalRadioToRegularSoldier = false;
 force TFAR_objectInterceptionEnabled = false;
-force TFAR_radioCodesDisabled = false;
 force TFAR_SameLRFrequenciesForSide = true;
 force TFAR_SameSRFrequenciesForSide = true;
 force TFAR_spectatorCanHearEnemyUnits = true;
