@@ -43,6 +43,8 @@ _ACE_salineIV_250 = if !(isNil "_ACE_salineIV_250") then {_ACE_salineIV_250} els
 _ACE_bodyBag = if !(isNil "_ACE_bodyBag") then {_ACE_bodyBag} else {0};
 _ACE_surgicalKit = if !(isNil "_ACE_surgicalKit") then {_ACE_surgicalKit} else {0};
 _ACE_personalAidKit = if !(isNil "_ACE_personalAidKit") then {_ACE_personalAidKit} else {0};
+_ACE_advACERefillMK = if !(isNil "_ACE_advACERefillMK") then {_ACE_advACERefillMK} else {0};
+_ACE_advACERefillFAK = if !(isNil "_ACE_advACERefillFAK") then {_ACE_advACERefillFAK} else {0};
 
 _ACE_advACESplint =	if !(isNil "_ACE_advACESplint") then {_ACE_advACESplint} else {0};
 
@@ -138,6 +140,16 @@ if ( isClass(configFile >> "CfgPatches" >> "ACE_medical") ) exitWith {
 			for "_i" from 1 to _ACE_bloodIV_500+_ACE_plasmaIV_500+_ACE_salineIV_500 do { _unit addItem "ACE_bloodIV_500"; };
 			for "_i" from 1 to _ACE_bloodIV_250+_ACE_plasmaIV_250+_ACE_salineIV_250 do { _unit addItem "ACE_bloodIV_250"; };
 			for "_i" from 1 to _ACE_bodyBag do { _unit addItem "ACE_bodyBag"; };
+		};
+	};
+	if ( isClass(configFile >> "CfgPatches" >> "adv_aceRefill") ) then {
+		if !( backpack _unit isEqualTo "" )then {
+			_mediBack = unitBackpack _unit;
+			_mediBack addItemCargoGlobal ["adv_aceRefill_manualKit", _ACE_advACERefillMK];
+			_mediBack addItemCargoGlobal ["adv_aceRefill_FAK", _ACE_advACERefillFAK];
+		} else {
+			for "_i" from 1 to _ACE_advACERefillFAK do { _unit addItem "adv_aceRefill_FAK"; };
+			for "_i" from 1 to _ACE_advACERefillMK do { _unit addItem "adv_aceRefill_manualKit"; };
 		};
 	};
 };

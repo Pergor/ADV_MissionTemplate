@@ -58,6 +58,8 @@ _ACE_bodyBag = 0;
 _ACE_surgicalKit = 0;
 _ACE_personalAidKit = 0;
 _ACE_advACESplint = 0;
+_ACE_advACERefillMK = 0;
+_ACE_advACERefillFAK = 0;
 
 _mediKit = 0;
 _FirstAidKits = 0;
@@ -149,6 +151,10 @@ switch _FAKtype do {
 
 if ( !(backpack _unit == "") && _FAKtype > 1 ) then {
 	_mediKit = 1;
+};
+if (_FAKtype < 2 && isClass(configFile >> "CfgPatches" >> "adv_aceRefill")) exitWith {
+	_unit addItem "adv_aceRefill_FAK";
+	true
 };
 
 [_unit] call adv_fnc_aceMedicalItems;
