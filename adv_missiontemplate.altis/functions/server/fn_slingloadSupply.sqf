@@ -11,7 +11,7 @@
  * 1: starting position, can be position, object or marker - <ARRAY>, <OBJECT>, <STRING>
  * 3: Side of the helicopter and the crew (side ID can be provided) - <SIDE>, <NUMBER>
  * 4: Classname of the aircraft - <STRING>
- * 5: Classname of the cargo - <STRING>
+ * 5: Classname of the cargo or object that will be transported and dropped - <STRING> or <OBJECT>
  * 6: Function, array of functions or code to be executed. Cargo is _this inside code if STRING is provided, _this select 0 in function.
  *    If array is provided, functions inside array will be executed from first to last.
  *    Code will be executed scheduled, function and functions will be called. (optional) - <FUNCTION>, <ARRAY>, <STRING>
@@ -154,7 +154,7 @@ if ( _mode isEqualTo 2 && !(getVehicleCargo _veh isEqualTo []) ) then {
 			private _IRlight = "B_IRStrobe" createVehicle (getPosWorld _cargo);
 			private _signals = [_smoke,_IRlight];
 			if (sunOrMoon < 1) then {
-				private _lightType = if (isClass(configFile >> "CfgPatches" >> "ace_grenades")) then { "ACE_F_Hand_Red" } else { "Chemlight_red" };
+				private _lightType = if ( isClass(configFile >> "CfgPatches" >> "ace_grenades") && ((missionNamespace getVariable ["adv_par_NVGs",0] < 2) || (missionNamespace getVariable ["adv_par_opfNVGs",0] < 2)) ) then { "ACE_F_Hand_Red" } else { "Chemlight_red" };
 				private _light = _lightType createVehicle (getPosWorld _cargo);
 				_signals pushBack _light;
 			};
