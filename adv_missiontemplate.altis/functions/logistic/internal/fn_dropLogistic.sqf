@@ -32,11 +32,22 @@ ADV_sriptfnc_dropLogistic = {
 	_IRlight = createVehicle ["B_IRStrobe", (getPosATL _crate), [], 0, "NONE"];
 	{_x attachTo [_crate, [0, 0, 0]];} forEach [_light,_IRlight];
 	[_crate,"G_40mm_SmokeGreen"] spawn {
-		waitUntil {sleep 1; ((getPos (_this select 0)) select 2) < 40};
-		_smoke = createVehicle [(_this select 1), (getPos (_this select 0)), [], 0, "NONE"];
-		_smoke attachTo [(_this select 0), [0, 0, -1]];
-		waitUntil {sleep 1; ((getPos (_this select 0)) select 2) < 2};
-		detach (_this select 0);
+		params ["_cargo","_smokeType"];
+		
+		waitUntil {sleep 1; ((getPos _cargo) select 2) < 40};
+		
+		private _smoke = _smokeType createVehicle (getPosWorld _cargo);
+		private _IRlight = "B_IRStrobe" createVehicle (getPosWorld _cargo);
+		private _signals = [_smoke,_IRlight];
+		if (sunOrMoon < 1) then {
+			private _lightType = if (isClass(configFile >> "CfgPatches" >> "ace_grenades")) then { "ACE_F_Hand_Red" } else { "Chemlight_red" };
+			private _light = _lightType createVehicle (getPosWorld _cargo);
+			_signals pushBack _light;
+		};
+		{_x attachTo [_cargo, [0, 0, 0.82]]; nil} count _signals;
+
+		waitUntil {sleep 1; ((getPos _crate) select 2) < 2};
+		detach _crate;
 	};
 };
 
@@ -45,10 +56,10 @@ ADV_sriptfnc_dropLogistic = {
 		("<t color=""#FFFFFF"">" + ("Abwurf vorbereiten") + "</t>"), 
 		{
 			openmap true;
-			if !((_this select 0) getVariable ["adv_var_isCrateLarge",false]) then {
+			if !((_this select 0) getVariable ["adv_var_logistic_isSlingload",false]) then {
 				[_this select 0] onMapSingleClick "openmap false; [_this select 0,_pos] spawn ADV_sriptfnc_dropLogistic; onmapsingleclick '';";
 			} else {
-				[_this select 0] onMapSingleClick "openmap false;private _start = [[_pos, 6000, 6000, 0, false],true] call CBA_fnc_randPosArea; [_pos,_start,1,'B_T_VTOL_01_vehicle_F',(_this select 0)] call adv_fnc_slingloadSupply; onmapsingleclick '';";
+				[_this select 0] onMapSingleClick "openmap false;private _start = [[_pos, 6000, 6000, 0, false],true] call CBA_fnc_randPosArea; [_pos, _start, 1, (missionNamespace getVariable ['adv_logistic_var_dropType','B_T_VTOL_01_vehicle_F']), (_this select 0)] call adv_fnc_slingloadSupply; onmapsingleclick '';";
 			};
 			(_this select 0) removeAction (_this select 2);
 		},

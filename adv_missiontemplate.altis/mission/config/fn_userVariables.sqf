@@ -17,3 +17,6 @@ tawvd_maxRange = 12000;
 
 //sthud:
 STHud_ShowBearingInVehicle = false;
+
+//The vehicle type that will drop the slingload crates prepared for air drop. Has to be able to slingload or carry as cargo at least "B_CargoNet_01_ammo_F", can be plane, helicopter or VTOL:
+adv_logistic_var_dropType = "B_T_VTOL_01_vehicle_F";

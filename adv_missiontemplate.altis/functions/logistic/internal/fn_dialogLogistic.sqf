@@ -300,8 +300,8 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 				};
 				_function = format ["adv_%1%2",_prefix,"fnc_crateLarge"];
 				[_box] remoteExecCall [_function,2];
-				if ( _drop isEqualTo 1 ) then {
-					_box setVariable ["adv_var_isCrateLarge",true,true];
+				_box setVariable ["adv_var_logistic_isSlingload",true,true];
+				if ( _drop > 0 ) then {
 					[_box] call adv_fnc_dropLogistic;
 				};
 			};
@@ -430,6 +430,18 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 		case "ADV_LOGISTIC_CRATEEMPTY": {
 			_box = createVehicle [ADV_logistic_crateTypeNormal,_position,[],0,"CAN_COLLIDE"];
 			[_box,_position] call _functionForAll;
+		};
+		case "ADV_LOGISTIC_CRATELARGEEMPTY": {
+			_box = createVehicle [ADV_logistic_crateTypeLarge,_position,[],0,"NONE"];
+			_box allowDamage false;
+			[_box] call ADV_fnc_clearCargo;
+			if ( _par_customLoad isEqualTo 1 ) then {
+				[_box] remoteExec ["adv_fnc_gearsaving",0,true];
+			};
+			_box setVariable ["adv_var_logistic_isSlingload",true,true];
+			if ( _par_logisticDrop > 0 ) then {
+				[_box] call adv_fnc_dropLogistic;
+			};
 		};
 		default {};
 	};
