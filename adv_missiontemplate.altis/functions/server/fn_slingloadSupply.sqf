@@ -36,16 +36,16 @@ params [
 	["_target", objNull, [objNull,"",[]]]
 	,["_start", objNull, [objNull,"",[]]]
 	,["_side", west, [west,0]]
-	,["_vehicleType", "B_Heli_Transport_03_F", [""]]
+	,["_vehType", "B_Heli_Transport_03_F", [""]]
 	,["_cargoType", "B_CargoNet_01_ammo_F", ["",objNull]]
 	,["_code", [], [[],"",objNull]]
 ];
 
 //just some small code to delete Vehicle later
 private _deleteVehicle = {
-	params ["_vehicle","_crew","_cargo"];
+	params ["_veh","_crew","_cargo"];
 	{deleteVehicle _x} forEach _crew;
-	deleteVehicle _vehicle;
+	deleteVehicle _veh;
 	deleteVehicle _cargo;
 };
 
@@ -55,8 +55,8 @@ if (_isReady) then {_cargoType = "B_CargoNet_01_ammo_F"};
 
 //make sure classnames are provided:
 //always revert to B_Heli_Transport_03_F, if no classname is given:
-if !(isClass (configFile >> "CfgVehicles" >> _vehicleType)) then {
-	_vehicleType = "B_Heli_Transport_03_F";
+if !(isClass (configFile >> "CfgVehicles" >> _vehType)) then {
+	_vehType = "B_Heli_Transport_03_F";
 };
 if !(isClass (configFile >> "CfgVehicles" >> _cargoType)) then {
 	_cargoType = "B_CargoNet_01_ammo_F";
@@ -81,64 +81,84 @@ if (_side isEqualType 0) then {
 };
 
 //spawn the heli:
-private _spawnedArr = [_startPos, _startPos getDir _targetPos, _vehicleType, _side] call BIS_fnc_spawnVehicle;
-_spawnedArr params ["_vehicle","_crew","_group"];
+private _spawnedArr = [_startPos, _startPos getDir _targetPos, _vehType, _side] call BIS_fnc_spawnVehicle;
+_spawnedArr params ["_veh","_crew","_group"];
 //make it invincible for the approach:
-_vehicle allowDamage false;
+_veh allowDamage false;
 {_x allowDamage false} count _crew;
+//other vehicle parameters:
+_group setBehaviour "CARELESS";
+_veh setCollisionLight true;
+_veh setPilotLight true;
+_veh enableDynamicSimulation false;
+_veh setFeatureType 2;
+_veh setVehicleReportOwnPosition true;
 
 //give the crew some edge:
-private _pilot = driver _vehicle;
+private _pilot = driver _veh;
 _pilot setSkill 1;
 {_pilot disableAI _x} forEach ["TARGET", "AUTOTARGET","AUTOCOMBAT"];
 _group allowFleeing 0;
 _group deleteGroupWhenEmpty true;
-if (_vehicle isKindOf "PLANE") then {
-	_vehicle flyInHeight 200;
+if (_veh isKindOf "PLANE") then {
+	_veh flyInHeight 200;
 };
+//add an onEachFram-EVH for the frickin' lights:
+private _evhID = [format ["adv_evh_logistic_lightsOn_%1",(missionNamespace getVariable ["adv_evh_logistic_lightsOn_NR",0])], "onEachFrame", {params ["_veh","_pilot"];_pilot action ["lightOn",_veh];}, [_veh,_pilot]] call BIS_fnc_addStackedEventHandler;
+_veh setVariable ["adv_evh_logistic_lightsOn_EVH",_evhID];
+missionNamespace setVariable ["adv_evh_logistic_lightsOn_NR",(missionNamespace getVariable ["adv_evh_logistic_lightsOn_NR",0])+1,true];
+[(vehicle this) getVariable ['adv_evh_logistic_lightsOn_EVH',''],'onEachFrame'] call BIS_fnc_removeStackedEventHandler;
+[{ !alive (_this select 0) }, { params ["_veh"];[_veh getVariable ['adv_evh_logistic_lightsOn_EVH',''],'onEachFrame'] call BIS_fnc_removeStackedEventHandler; }, [_veh]] call CBA_fnc_waitUntilAndExecute;
 
 //create or get the cargo:
 private _cargo = if (!_isReady) then { _cargoType createVehicle _startPos } else {_readyCargo};
 
 //delete and exit if not slingloadable:
-private _canSling = _vehicle canSlingLoad _cargo;
-private _canCargo = (_vehicle canVehicleCargo _cargo) select 0;
+private _canSling = _veh canSlingLoad _cargo;
+private _canCargo = (_veh canVehicleCargo _cargo) select 0;
 if (!_isReady && !(_canSling || _canCargo)) exitWith {
-	[_vehicle,_crew,_cargo] call _deleteVehicle;
+	[_veh,_crew,_cargo] call _deleteVehicle;
 	false
 };
 
 //slingload the cargo:
 private _mode = 0;
 if ( _canSling ) then {
-	_vehicle setSlingLoad _cargo;
+	_veh setSlingLoad _cargo;
 	_mode = 1;
 };
 //or load it:
 if ( _canCargo && _mode isEqualTo 0 ) then {
-	_vehicle setVehicleCargo _cargo;
+	_veh setVehicleCargo _cargo;
 	_mode = 2;
 };
 
 //add everything to curator:
-{ _x addCuratorEditableObjects [[_cargo,_vehicle]+_crew,false] } forEach allCurators;
+{ _x addCuratorEditableObjects [[_cargo,_veh]+_crew,false] } forEach allCurators;
 
 //create target waypoint:
 private _targetWP = _group addWaypoint [_targetPos, 20];
 _group setSpeedMode "FULL";
-if (_mode isEqualTo 1 && !((getSlingLoad _vehicle) isEqualTo objNull) ) then {
+if (_mode isEqualTo 1 && !((getSlingLoad _veh) isEqualTo objNull) ) then {
 	_targetWP setWaypointType "UNHOOK";
 	//make vehicle and crew destructable again:
-	_targetWP setWaypointStatements ["true", "(vehicle this) allowDamage true; {_x allowDamage true} foreach thisList;"];
+	_targetWP setWaypointStatements ["true", "(vehicle this) allowDamage true; {_x allowDamage true} foreach thisList; [(vehicle this) getVariable ['adv_evh_logistic_lightsOn_EVH',''],'onEachFrame'] call BIS_fnc_removeStackedEventHandler;"];
 };
-if ( _mode isEqualTo 2 && !(getVehicleCargo _vehicle isEqualTo []) ) then {
-	_targetWP setWaypointStatements ["true", "objNull setVehicleCargo ((getVehicleCargo (vehicle this)) select 0);(vehicle this) allowDamage true; {_x allowDamage true} foreach thisList;"];
+if ( _mode isEqualTo 2 && !(getVehicleCargo _veh isEqualTo []) ) then {
+	_targetWP setWaypointStatements ["true", "objNull setVehicleCargo ((getVehicleCargo (vehicle this)) select 0);(vehicle this) allowDamage true; {_x allowDamage true} foreach thisList; [(vehicle this) getVariable ['adv_evh_logistic_lightsOn_EVH',''],'onEachFrame'] call BIS_fnc_removeStackedEventHandler;"];
 	if (_cargo isKindOf "ReammoBox_F" || _cargo isKindOf "ReammoBox") then {
 		[_cargo] spawn {
 			params ["_cargo"];
 			waitUntil {sleep 1; ((getPosATL _cargo) select 2) < 30};
-			_smoke = "G_40mm_SmokeOrange" createVehicle (getPosWorld _cargo);
-			_smoke attachTo [_cargo, [0, 0, -1]];
+			private _smoke = "G_40mm_SmokeOrange" createVehicle (getPosWorld _cargo);
+			private _IRlight = "B_IRStrobe" createVehicle (getPosWorld _cargo);
+			private _signals = [_smoke,_IRlight];
+			if (sunOrMoon < 1) then {
+				private _lightType = if (isClass(configFile >> "CfgPatches" >> "ace_grenades")) then { "ACE_F_Hand_Red" } else { "Chemlight_red" };
+				private _light = _lightType createVehicle (getPosWorld _cargo);
+				_signals pushBack _light;
+			};
+			{_x attachTo [_cargo, [0, 0, 0.82]]; nil} count _signals;
 			waitUntil {sleep 1; ((getPosATL _cargo) select 2) < 2};
 			detach _cargo;
 		};
@@ -146,7 +166,7 @@ if ( _mode isEqualTo 2 && !(getVehicleCargo _vehicle isEqualTo []) ) then {
 };
 
 //create return waypoint:
-private _returnPos = if ( _vehicle isKindOf "PLANE" ) then {[_startPos,_targetPos,false] call adv_fnc_getOppPos} else {_startPos};
+private _returnPos = if ( _veh isKindOf "PLANE" ) then {[_startPos,_targetPos,false] call adv_fnc_getOppPos} else {_startPos};
 private _returnWP = _group addWaypoint [_returnPos, 0];
 _returnWP setWaypointTimeout [2, 2, 2];
 _returnWP setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} foreach thisList;"];
@@ -163,5 +183,5 @@ if (_code isEqualType []) then {
 };
 
 //return:
-private _return = [_vehicle,_crew,_group,_cargo];
+private _return = [_veh,_crew,_group,_cargo];
 _return
