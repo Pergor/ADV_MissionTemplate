@@ -254,9 +254,9 @@ class param_logisticTeam
 class param_logisticDrop
 {
 	title="Soll der Logistik-Nachschub per Mapclick in der Luft abgeworfen werden können?";
-	values[] = {1,0};
-	texts[] = {"Ja","Nein"};
-	default = 1;
+	values[] = {2,1,0};
+	texts[] = {"Nur Slingload-Kisten","Ja","Nein"};
+	default = 2;
 };
 class dummy_blu_equipment {
 	title = "---------------------- BLUFOR-Ausrüstung ----------------------";
