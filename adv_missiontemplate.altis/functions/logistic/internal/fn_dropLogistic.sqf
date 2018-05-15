@@ -40,7 +40,7 @@ ADV_sriptfnc_dropLogistic = {
 		private _IRlight = "B_IRStrobe" createVehicle (getPosWorld _cargo);
 		private _signals = [_smoke,_IRlight];
 		if (sunOrMoon < 1) then {
-			private _lightType = if (isClass(configFile >> "CfgPatches" >> "ace_grenades")) then { "ACE_F_Hand_Red" } else { "Chemlight_red" };
+			private _lightType = if ( isClass(configFile >> "CfgPatches" >> "ace_grenades") && ((missionNamespace getVariable ["adv_par_NVGs",0] < 2) || (missionNamespace getVariable ["adv_par_opfNVGs",0] < 2)) ) then { "ACE_F_Hand_Red" } else { "Chemlight_red" };
 			private _light = _lightType createVehicle (getPosWorld _cargo);
 			_signals pushBack _light;
 		};
