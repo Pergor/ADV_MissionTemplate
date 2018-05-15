@@ -37,7 +37,7 @@ params [
 	,["_start", objNull, [objNull,"",[]]]
 	,["_side", west, [west,0]]
 	,["_vehicleType", "B_Heli_Transport_03_F", [""]]
-	,["_cargoType", "B_CargoNet_01_ammo_F", [""]]
+	,["_cargoType", "B_CargoNet_01_ammo_F", ["",objNull]]
 	,["_code", [], [[],"",objNull]]
 ];
 
@@ -48,6 +48,10 @@ private _deleteVehicle = {
 	deleteVehicle _vehicle;
 	deleteVehicle _cargo;
 };
+
+private _isReady = if (_cargoType isEqualType objNull) then {true} else {false};
+private _readyCargo = if (_cargoType isEqualType objNull) then {_cargoType} else {objNull};
+if (_isReady) then {_cargoType = "B_CargoNet_01_ammo_F"};
 
 //make sure classnames are provided:
 //always revert to B_Heli_Transport_03_F, if no classname is given:
@@ -66,9 +70,9 @@ if !(_targetPosEmpty distance _targetPos > 81 || _targetPosEmpty isEqualTo []) t
 };
 
 //start position:
-private _startPos = [_start] call adv_fnc_getPos;
+private _startPos = [_start,nil,nil,false] call adv_fnc_getPos;
 if (_targetPos distance2D _startPos < 500) then {
-	_startPos = [0,0,50];
+	_startPos = [[_startPos, 7000, 7000, 0, false],true] call CBA_fnc_randPosArea;
 };
 
 //get side, if side ID is provided:
@@ -93,13 +97,13 @@ if (_vehicle isKindOf "PLANE") then {
 	_vehicle flyInHeight 200;
 };
 
-//create the cargo:
-private _cargo = _cargoType createVehicle _startPos;
+//create or get the cargo:
+private _cargo = if (!_isReady) then { _cargoType createVehicle _startPos } else {_readyCargo};
 
 //delete and exit if not slingloadable:
 private _canSling = _vehicle canSlingLoad _cargo;
 private _canCargo = (_vehicle canVehicleCargo _cargo) select 0;
-if !(_canSling || _canCargo) exitWith {
+if (!_isReady && !(_canSling || _canCargo)) exitWith {
 	[_vehicle,_crew,_cargo] call _deleteVehicle;
 	false
 };

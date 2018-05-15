@@ -45,7 +45,11 @@ ADV_sriptfnc_dropLogistic = {
 		("<t color=""#FFFFFF"">" + ("Abwurf vorbereiten") + "</t>"), 
 		{
 			openmap true;
-			[_this select 0] onMapSingleClick "openmap false; [_this select 0,_pos] spawn ADV_sriptfnc_dropLogistic; onmapsingleclick '';";
+			if !((_this select 0) getVariable ["adv_var_isCrateLarge",false]) then {
+				[_this select 0] onMapSingleClick "openmap false; [_this select 0,_pos] spawn ADV_sriptfnc_dropLogistic; onmapsingleclick '';";
+			} else {
+				[_this select 0] onMapSingleClick "openmap false;private _start = [[_pos, 6000, 6000, 0, false],true] call CBA_fnc_randPosArea; [_pos,_start,1,'B_T_VTOL_01_vehicle_F',(_this select 0)] call adv_fnc_slingloadSupply; onmapsingleclick '';";
+			};
 			(_this select 0) removeAction (_this select 2);
 		},
 		nil,3,false,true,"","player distance cursortarget <5"
