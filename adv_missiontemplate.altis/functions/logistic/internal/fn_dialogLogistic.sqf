@@ -302,7 +302,7 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 				[_box] remoteExecCall [_function,2];
 				_box setVariable ["adv_var_logistic_isSlingload",true,true];
 				if ( _drop > 0 ) then {
-					[_box] call adv_fnc_dropLogistic;
+					[_box] call adv_fnc_dropAction;
 				};
 			};
 		};		
@@ -438,9 +438,8 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 			if ( _par_customLoad isEqualTo 1 ) then {
 				[_box] remoteExec ["adv_fnc_gearsaving",0,true];
 			};
-			_box setVariable ["adv_var_logistic_isSlingload",true,true];
 			if ( _par_logisticDrop > 0 ) then {
-				[_box] call adv_fnc_dropLogistic;
+				[_box] call adv_fnc_dropAction;
 			};
 		};
 		default {};

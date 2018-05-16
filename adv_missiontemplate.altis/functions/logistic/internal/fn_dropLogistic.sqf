@@ -52,19 +52,28 @@ ADV_sriptfnc_dropLogistic = {
 };
 
 {
-	ADV_action_dropLogistic = _x addAction [
+	private _target = _x;
+	private _id = _x addAction [
 		("<t color=""#FFFFFF"">" + ("Abwurf vorbereiten") + "</t>"), 
 		{
 			openmap true;
-			if !((_this select 0) getVariable ["adv_var_logistic_isSlingload",false]) then {
-				[_this select 0] onMapSingleClick "openmap false; [_this select 0,_pos] spawn ADV_sriptfnc_dropLogistic; onmapsingleclick '';";
-			} else {
-				[_this select 0] onMapSingleClick "openmap false;private _start = [[_pos, 6000, 6000, 0, false],true] call CBA_fnc_randPosArea; [_pos, _start, 1, (missionNamespace getVariable ['adv_logistic_var_dropType','B_T_VTOL_01_vehicle_F']), (_this select 0)] call adv_fnc_slingloadSupply; onmapsingleclick '';";
+			params ["_target","_caller","_id","_args"];
+			private _side = side (group _caller);
+			private _respMarker = call {
+				if (_side isEqualTo west) exitWith {"respawn_west"};
+				if (_side isEqualTo east) exitWith {"respawn_east"};
+				if (_side isEqualTo independent) exitWith {"respawn_guerrila"};
+				""
 			};
-			(_this select 0) removeAction (_this select 2);
+			if ( !(_respMarker isEqualTo "") && {_target distance _respMarker > 500}) exitWith { (_target) removeAction _id; ["Zu weit vom Start entfernt",5] call adv_fnc_timedHint; };
+			[_target] onMapSingleClick "openmap false; [_pos, nil, 1, (missionNamespace getVariable ['adv_logistic_var_dropType','B_T_VTOL_01_vehicle_F']), (_this select 0)] call adv_fnc_slingloadSupply; onmapsingleclick '';";
+			_target setVariable ["adv_handle_dropLogistic",_nil,true];
+			(_target) removeAction _id;
 		},
-		nil,3,false,true,"","player distance cursortarget <5"
+		nil,3,false,true,"","true",5
 	];
-} forEach _this;
+	_target setVariable ["adv_handle_dropLogistic",_id,true];
+	nil
+} count _this;
 
 true;
