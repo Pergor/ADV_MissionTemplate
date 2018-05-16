@@ -34,7 +34,7 @@ if (!isServer && hasInterface) exitWith {};
 
 params [
 	["_target", objNull, [objNull,"",[]]]
-	,["_start", objNull, [objNull,"",[]]]
+	,["_start", [999,999,999], [objNull,"",[]]]
 	,["_side", west, [west,0]]
 	,["_vehType", "B_Heli_Transport_03_F", [""]]
 	,["_cargoType", "B_CargoNet_01_ammo_F", ["",objNull]]
@@ -70,7 +70,11 @@ if !(_targetPosEmpty distance _targetPos > 81 || _targetPosEmpty isEqualTo []) t
 };
 
 //start position:
-private _startPos = [_start,nil,nil,false] call adv_fnc_getPos;
+private _startPos = if ( _start isEqualType [] && {_start isEqualTo [999,999,999]} ) then {
+	[[_targetPos, 6000, 6000, 0, false],true] call CBA_fnc_randPosArea;
+} else {
+	[_start,nil,nil,false] call adv_fnc_getPos;
+};
 if (_targetPos distance2D _startPos < 500) then {
 	_startPos = [[_startPos, 7000, 7000, 0, false],true] call CBA_fnc_randPosArea;
 };
@@ -109,9 +113,15 @@ _veh setVariable ["adv_evh_logistic_lightsOn_EVH",_evhID];
 missionNamespace setVariable ["adv_evh_logistic_lightsOn_NR",(missionNamespace getVariable ["adv_evh_logistic_lightsOn_NR",0])+1,true];
 [(vehicle this) getVariable ['adv_evh_logistic_lightsOn_EVH',''],'onEachFrame'] call BIS_fnc_removeStackedEventHandler;
 [{ !alive (_this select 0) }, { params ["_veh"];[_veh getVariable ['adv_evh_logistic_lightsOn_EVH',''],'onEachFrame'] call BIS_fnc_removeStackedEventHandler; }, [_veh]] call CBA_fnc_waitUntilAndExecute;
+//add a getOut-EVH in case the vehicle comes under attack:
+_veh addEventHandler ["GetOut", {
+	params ["_vehicle", "_role", "_unit", "_turret"];
+	_unit setDamage 1;
+}];
 
 //create or get the cargo:
 private _cargo = if (!_isReady) then { _cargoType createVehicle _startPos } else {_readyCargo};
+_cargo enableDynamicSimulation false;
 
 //delete and exit if not slingloadable:
 private _canSling = _veh canSlingLoad _cargo;
