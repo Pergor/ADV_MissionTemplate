@@ -144,6 +144,10 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 	_FAKs = 20;
 	_mediKit = 1;
 	
+	if (isClass(configFile >> "CfgPatches" >> "adv_aceRefill")) then {
+		_target addItemCargoGlobal ["adv_aceRefill_manualKit",2];
+	};
+	
 	if !(isClass (configFile >> "CfgPatches" >> "ACE_Medical")) then {
 		_target addItemCargoGlobal ["FirstAidKit",_FAKs];
 		_target addItemCargoGlobal ["MediKit",_mediKit];	

@@ -19,25 +19,20 @@
  */
 
 params [
-	["_spawn", [], [[]]],
-	["_color", "YELLOW", [""]],
-	["_spread", 0 , [0]],
-	["_height", 160, [0]],
-	"_object","_spawnType", "_spawnPos", "_colorType", "_flare", "_sound", "_soundFile"
+	["_spawn", [], [[]]]
+	,["_color", "YELLOW", [""]]
+	,["_spread", 0 , [0]]
+	,["_height", 160, [0]]
 ];
 
 {
-	_object = _x;
-	_spawnType = typeName (_object);
+	private _object = _x;
 	if (count _spawn > 1) then {_height = _height + random 3;};
-	_spawnPos = nil;
-	if (_spawnType == "STRING") then {
-		_spawnPos = [getMarkerPos _object select 0, getMarkerPos _object select 1, _height];
-	};
-	if (_spawnType == "OBJECT") then {
-		_spawnPos = [getPosATL _object select 0, getPosATL _object select 1, (getPosATL _object select 2)+_height];
-	};
-	_colorType = switch (toUpper _color) do {
+	
+	private _spawnPos = [_object] call adv_fnc_getPos;
+	_spawnPos set [2,(_spawnPos select 2)+_height];
+	
+	private _colorType = switch (toUpper _color) do {
 		case "WHITE": {"F_40mm_White"};
 		case "GREEN": {"F_40mm_Green"};
 		case "RED": {"F_40mm_red"};
@@ -48,10 +43,10 @@ params [
 		case "NONE": {str objNull};
 		default {_color};
 	};
-	_flare = createVehicle [_colorType, _spawnPos, [], _spread, "NONE"];
+	private _flare = createVehicle [_colorType, _spawnPos, [], _spread, "NONE"];
 	_flare setVelocity [0,0,-0.2];
-	_sound = selectRandom ["flaregun_1.wss","flaregun_2.wss","flaregun_3.wss","flaregun_4.wss"];
-	_soundFile = format ["a3\missions_f_beta\data\sounds\Showcase_Night\%1",_sound];
+	private _sound = selectRandom ["flaregun_1.wss","flaregun_2.wss","flaregun_3.wss","flaregun_4.wss"];
+	private _soundFile = format ["a3\missions_f_beta\data\sounds\Showcase_Night\%1",_sound];
 	playSound3d [_soundFile,_flare];
 	nil;
 } count _spawn;

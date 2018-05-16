@@ -153,6 +153,18 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 	_FAKs = 8;
 	_mediKit = 0;
 	
+	if (isClass(configFile >> "CfgPatches" >> "adv_aceRefill")) then {
+		_ACE_fieldDressing = 0;
+		_ACE_packingBandage = 0;
+		_ACE_elasticBandage = 0;
+		_ACE_quikclot = 0;
+		_ACE_epinephrine = 0;
+		_ACE_morphine = 0;
+		_ACE_tourniquet = 0;
+		_target addItemCargoGlobal ["adv_aceRefill_manualKit",1];
+		_target addItemCargoGlobal ["adv_aceRefill_FAK",4];
+	};
+	
 	if !(isClass (configFile >> "CfgPatches" >> "ACE_Medical")) then {
 		_target addItemCargoGlobal ["FirstAidKit",_FAKs];
 		_target addItemCargoGlobal ["MediKit",_mediKit];

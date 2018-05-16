@@ -206,6 +206,12 @@ _ACE_advACEsplint_splint = 4;
 
 _FAKs = 5;
 _mediKit = 0;
+
+if (isClass(configFile >> "CfgPatches" >> "adv_aceRefill")) then {
+	_target addItemCargoGlobal ["adv_aceRefill_FAK",5];
+	_ACE_fieldDressing = 10;
+	_ACE_morphine = 2;
+};
 	
 //medical items:
 if (_isMedic) then {
@@ -243,6 +249,11 @@ if (_isMedic) then {
 	
 	_FAKs = 30;
 	_mediKit = 2;
+	
+	if (isClass(configFile >> "CfgPatches" >> "adv_aceRefill")) then {
+		_target addItemCargoGlobal ["adv_aceRefill_manualKit",2];
+		_target addItemCargoGlobal ["adv_aceRefill_FAK",15];
+	};
 	
 	_target setVariable ["ACE_medical_medicClass", 2, true];
 	

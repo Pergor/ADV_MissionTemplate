@@ -7,6 +7,7 @@
  *
  * Arguments:
  * 0: object, position or marker to turn into posATL - <ARRAY>, <OBJECT>, <STRING>, <GROUP>
+ * 1: should world anchor be fallback position for position [0,0,0]? (optional - default true) - <BOOL>
  *
  * Return Value:
  * Position ATL - <ARRAY>
@@ -21,6 +22,7 @@ params [
 	["_pos", [0,0,0], [[], "", objNull,grpNull,0]]
 	,["_pos1", 0, [0]]
 	,["_pos2", 0, [0]]
+	,["_getAnchor",true,[true]]
 ];
 
 private _worldAnchor = getArray (configFile >> "CfgWorlds" >> worldName >> "safePositionAnchor");
@@ -46,7 +48,7 @@ private _base = call {
 	_anchorPos
 };
 
-if ( _base isEqualTo [0,0,0] ) then {
+if ( (_base select 0) isEqualTo 0 && (_base select 1) isEqualTo 0 && _getAnchor ) then {
 	_base = _anchorPos
 };
 

@@ -283,11 +283,12 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 		case "ADV_LOGISTIC_CRATELARGE": {
 			if (_locationCrateLarge isEqualTo [0,0,0]) exitWith {false};
 			{deleteVehicle _x} count (nearestObjects [_locationCrateLarge, ["ReammoBox_F"], 8, true]);
-			[ADV_logistic_crateTypeLarge, _locationCrateLarge, ADV_logistic_var_sidePrefix] spawn {
+			[ADV_logistic_crateTypeLarge, _locationCrateLarge, ADV_logistic_var_sidePrefix,_par_logisticDrop] spawn {
 				params [
 					["_type", "", [""]]
 					,["_location", [0,0,0], [[]]]
 					,["_prefix", "", [""]]
+					,["_drop", 1, [0]]
 				];
 				sleep 1;
 				_box = createVehicle [_type,_location,[],0,"CAN_COLLIDE"];
@@ -299,6 +300,10 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 				};
 				_function = format ["adv_%1%2",_prefix,"fnc_crateLarge"];
 				[_box] remoteExecCall [_function,2];
+				_box setVariable ["adv_var_logistic_isSlingload",true,true];
+				if ( _drop > 0 ) then {
+					[_box] call adv_fnc_dropAction;
+				};
 			};
 		};		
 		case "ADV_LOGISTIC_CRATEGRENADES": {
@@ -425,6 +430,17 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 		case "ADV_LOGISTIC_CRATEEMPTY": {
 			_box = createVehicle [ADV_logistic_crateTypeNormal,_position,[],0,"CAN_COLLIDE"];
 			[_box,_position] call _functionForAll;
+		};
+		case "ADV_LOGISTIC_CRATELARGEEMPTY": {
+			_box = createVehicle [ADV_logistic_crateTypeLarge,_position,[],0,"NONE"];
+			_box allowDamage false;
+			[_box] call ADV_fnc_clearCargo;
+			if ( _par_customLoad isEqualTo 1 ) then {
+				[_box] remoteExec ["adv_fnc_gearsaving",0,true];
+			};
+			if ( _par_logisticDrop > 0 ) then {
+				[_box] call adv_fnc_dropAction;
+			};
 		};
 		default {};
 	};

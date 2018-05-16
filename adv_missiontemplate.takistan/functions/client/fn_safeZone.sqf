@@ -29,14 +29,16 @@ adv_safezone_scriptfnc = {
 		["_object", [0,0,0], [[]]],
 		["_radius", 100, [0]],
 		["_grenade", objNull, [objNull]],
-		["_grenadeType", "", [""]],
-		["_isAce", false, [true]]
+		["_grenadeType", "", [""]]
 	];
 	if ( ((getPosWorld _target) distance2D _object) < _radius ) then {
-		if (!_isAce) then {
+		if !(isClass(configFile >> "CfgPatches" >> "ace_advanced_throwing")) then {
 			deleteVehicle _grenade;
 		} else {
 			_grenade setPos [0,0,0];
+			while { !( (currentThrowable player) select 0 == _mag ) } do {
+				[_target] call ace_weaponselect_fnc_selectNextGrenade;
+			};
 		};
 		_target addMagazine [_grenadeType,1];
 		systemChat "Safezone caught the grenade. Don't throw grenades here.";
@@ -53,18 +55,28 @@ adv_safezone_targetPos = switch (typeName _object) do {
 
 adv_safezone_radius = _radius;
 
-_handle = _target addEventhandler [
-	"fired",
-	{
-		if (_this select 1 == "THROW") then {
-			[_this select 0,adv_safezone_targetPos,adv_safezone_radius,_this select 6,_this select 5,false] call adv_safezone_scriptfnc;
+_handle = if !(isClass(configFile >> "CfgPatches" >> "ace_advanced_throwing")) then {
+	_target addEventhandler ["fired",{
+		params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_mag", "_projectile"];
+		if ( _weapon == "Throw" ) then {
+			[_unit,adv_safezone_targetPos,adv_safezone_radius,_projectile,_mag] call adv_safezone_scriptfnc;
 		};
-	}
-];
+	}];
+} else {
+	["ace_firedPlayer", {
+		params ["_unit","_weapon","_muzzle","_mode","_ammo","_mag","_projectile"];
+		if ( _weapon == "Throw" ) then {
+			[_unit,adv_safezone_targetPos,adv_safezone_radius,_projectile,_mag] call adv_safezone_scriptfnc;
+		};
+	}] call CBA_fnc_addEventHandler;
+};
 
+
+/*
 _handle_ace = ["ace_throwableThrown", {
 	params ["_unit","_activeThrowable"];
 	[_unit,adv_safezone_targetPos,adv_safezone_radius,_activeThrowable,ace_advanced_throwing_ammoMagLookup getVariable [(typeOf _activeThrowable),"MiniGrenade"],true] call adv_safezone_scriptfnc;
 }] call CBA_fnc_addEventHandler;
+*/
 
 _handle;

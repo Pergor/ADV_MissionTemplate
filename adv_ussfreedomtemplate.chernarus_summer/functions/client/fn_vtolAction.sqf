@@ -20,13 +20,13 @@ params [
 ];
 
 if (_target isKindOf 'B_T_VTOL_01_vehicle_F' || _target isKindOf 'B_T_VTOL_01_infantry_F') then {
-	_target setFuel (missionNamespace getVariable ["adv_vtolAction_fuel",fuel _target]);
-	private _hitPoints = (missionNamespace getVariable ["adv_vtolAction_hitPoints",(getAllHitPointsDamage _target) select 0]);
-	private _hitPointDamage = (missionNamespace getVariable ["adv_vtolAction_hitPointsDamage",(getAllHitPointsDamage _target) select 2]);
+	_target setFuel (_target getVariable ["adv_vtolAction_fuel",fuel _target]);
+	private _hitPoints = (_target getVariable ["adv_vtolAction_hitPoints",(getAllHitPointsDamage _target) select 0]);
+	private _hitPointDamage = (_target getVariable ["adv_vtolAction_hitPointsDamage",(getAllHitPointsDamage _target) select 2]);
 	{ _target setHitPointDamage [_x,(_hitPointDamage select _forEachIndex),false]; } forEach _hitPoints;
 	/*
 	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") ) then {
-		private _cargoLoad = (missionNamespace getVariable ["adv_vtolAction_ace_cargo_loaded",_target getVariable ["ace_cargo_loaded",[objNull]]]);
+		private _cargoLoad = (_target getVariable ["adv_vtolAction_ace_cargo_loaded",_target getVariable ["ace_cargo_loaded",[objNull]]]);
 		{ detach _x; nil; } count _cargoLoad;
 		_target setVariable ["ace_cargo_loaded",[],true];
 		{[_x,_target] call ace_cargo_fnc_loadItem; nil;} count _cargoLoad;
@@ -38,13 +38,13 @@ adv_scriptFNC_vtolAction = {
 	params ["_target","_caller","_id","_args"];
 	_args params ["_vehType","_text"];
 	[_target,clientOwner] remoteExec ["setOwner",2];
-	missionNamespace setVariable ["adv_vtolAction_fuel",(fuel _target)];
-	missionNamespace setVariable ["adv_vtolAction_hitPoints",(getAllHitPointsDamage _target) select 0];
-	missionNamespace setVariable ["adv_vtolAction_hitPointsDamage",(getAllHitPointsDamage _target) select 2];
+	_target setVariable ["adv_vtolAction_fuel",(fuel _target)];
+	_target setVariable ["adv_vtolAction_hitPoints",(getAllHitPointsDamage _target) select 0];
+	_target setVariable ["adv_vtolAction_hitPointsDamage",(getAllHitPointsDamage _target) select 2];
 	/*
 	if ( isClass (configFile >> "CfgPatches" >> "ACE_cargo") ) then {
-		missionNamespace setVariable [ "adv_vtolAction_ace_cargo_loaded",_target getVariable ["ace_cargo_loaded",[objNull]] ];
-		private _cargoLoad = missionNamespace getVariable "adv_vtolAction_ace_cargo_loaded";
+		_target setVariable [ "adv_vtolAction_ace_cargo_loaded",_target getVariable ["ace_cargo_loaded",[objNull]] ];
+		private _cargoLoad = _target getVariable "adv_vtolAction_ace_cargo_loaded";
 		{ detach _x; nil; } count _cargoLoad;
 		_target setVariable ["ace_cargo_loaded",[],true];
 	};

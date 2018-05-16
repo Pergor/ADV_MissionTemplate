@@ -5,7 +5,7 @@ private [
 	,"_loadoutVariables"
 ];
 if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
-params ["_player","_special"];
+params ["_player",["_special",""]];
 /*
  * Author: Belbo
  *

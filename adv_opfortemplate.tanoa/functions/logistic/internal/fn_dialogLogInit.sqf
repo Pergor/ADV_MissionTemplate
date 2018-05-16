@@ -34,6 +34,7 @@ if ( missionNamespace getVariable ["ace_mk6mortar_useAmmoHandling",false] ) then
 };
 _loadoutList append [
 	"Leere Kiste"
+	,"Leere Slingloading-Kiste"
 	,""
 	,"Kisten in der Nähe löschen"
 	,""
@@ -74,6 +75,8 @@ if ( missionNamespace getVariable ["ace_mk6mortar_useAmmoHandling",false] ) then
 };
 _lbSetDataCount = _lbSetDataCount+1;
 lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATEEMPTY"];
+_lbSetDataCount = _lbSetDataCount+1;
+lbSetData [7377, _lbSetDataCount, "ADV_LOGISTIC_CRATELARGEEMPTY"];
 _lbSetDataCount = _lbSetDataCount+1;
 lbSetData [7377, _lbSetDataCount, "ADV_FNC_NIL"];
 _lbSetDataCount = _lbSetDataCount+1;

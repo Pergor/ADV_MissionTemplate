@@ -268,4 +268,17 @@ call {
 	["Have Fun!", "Datum:" + str (date select 2) + "/" + str (date select 1) + "/" + str (date select 0)] spawn BIS_fnc_infoText;
 };
 
+/*
+if ( isClass(configFile >> "CfgPatches" >> "adv_aceRefill") ) then {
+	private _news = (parseText "<t align='center'><t size='1.5'><t color='#00B2EE'>Was gibt es neues?</t><br/>_____________<br/><br/>
+	<t size='1'><t color='#00FF33'>
+	""[ADV] Individual First Aid Kit""/""[ADV] Persönliche Sanitätsausstattung"" lässt sich über das ACE-Selbstinteraktionsmenü-> Equipment ""öffnen"".
+	<br/>Dadurch werden eure Medic-Items aufgefrischt.
+	<br/><br/>Für Sanitäter steht das ""[ADV] Medical Refill Kit""/""[ADV] Sanitätsnachfüllpack"" zur Verfügung.
+	<br/><br/>Jeder Schütze hat am Anfang wenigstens ein ""[ADV] Individual First Aid Kit"". Denkt daran, es auszupacken!
+	</t>");
+	hint _news;
+};
+*/
+
 //end of initPlayerLocal.

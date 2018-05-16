@@ -18,6 +18,7 @@
 // JIP Check (This code should be placed first line of init.sqf file)
 isJIP = if (!isServer && isNull player) then {true} else {false};
 enableSaving [false, false];
+enableCamShake true;
 
 //waitUntil param variables are defined:
 waitUntil {!isNil "ADV_params_defined"};

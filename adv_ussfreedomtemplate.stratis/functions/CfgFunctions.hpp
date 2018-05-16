@@ -242,6 +242,7 @@ class adv
 		file = "functions\logistic\internal";
 		class dialogLogInit {};
 		class dialogLogistic {};
+		class dropAction {};
 		class dropLogistic {};
 	};
 	class logistic

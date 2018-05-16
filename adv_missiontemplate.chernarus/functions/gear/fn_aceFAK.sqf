@@ -58,6 +58,8 @@ _ACE_bodyBag = 0;
 _ACE_surgicalKit = 0;
 _ACE_personalAidKit = 0;
 _ACE_advACESplint = 0;
+_ACE_advACERefillMK = 0;
+_ACE_advACERefillFAK = 0;
 
 _mediKit = 0;
 _FirstAidKits = 0;
@@ -69,19 +71,15 @@ switch _FAKtype do {
 	//rifleman equipment:
 	default {
 		if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 ) then {
-			call {
-				if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) exitWith {
-					_ACE_elasticBandage = 4;
-					_ACE_packingBandage = 10;
-				};
-				_ACE_fieldDressing = 10;
-				_ACE_elasticBandage = 2;
+			_ACE_fieldDressing = 10;
+			_ACE_elasticBandage = 2;
+			if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) then {
+				_ACE_elasticBandage = 4;
+				_ACE_packingBandage = 10;
 			};
 			_ACE_morphine = 1;
 			_ACE_tourniquet = 2;
-			if ( isClass(configFile >> "CfgPatches" >> "adv_aceCPR") ) then {
-				_ACE_salineIV_500 = 1;
-			};
+			_ACE_salineIV_500 = 1;
 		} else {
 			_ACE_fieldDressing = 12;
 			_ACE_morphine = 1;
@@ -90,12 +88,10 @@ switch _FAKtype do {
 	//medium equipment (CLS):
 	case 2: {
 		if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 || (missionnamespace getVariable ["ace_medical_medicSetting",2]) > 1 ) then {
-			call {
-				if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) exitWith {
-					_ACE_fieldDressing = 6;
-					_ACE_elasticBandage = 24;
-					_ACE_packingBandage = 24;
-				};
+			_ACE_fieldDressing = 6;
+			_ACE_elasticBandage = 24;
+			_ACE_packingBandage = 24;
+			if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) then {
 				_ACE_fieldDressing = 6;
 				_ACE_elasticBandage = 24;
 				_ACE_packingBandage = 24;
@@ -119,16 +115,14 @@ switch _FAKtype do {
 	//medic equipment (medic):
 	case 3: {
 		if ( (missionnamespace getVariable ["ace_medical_level",2]) > 1 || (missionnamespace getVariable ["ace_medical_medicSetting",2]) > 1 ) then {
-			call {
-				if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) exitWith {
-					_ACE_fieldDressing = 12;
-					_ACE_elasticBandage = 32;
-					_ACE_packingBandage = 32;
-					_ACE_quikclot = 12;
-				};
-				_ACE_fieldDressing = 32;
+			_ACE_fieldDressing = 32;
+			_ACE_elasticBandage = 32;
+			_ACE_packingBandage = 24;
+			if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) then {
+				_ACE_fieldDressing = 12;
 				_ACE_elasticBandage = 32;
-				_ACE_packingBandage = 24;
+				_ACE_packingBandage = 32;
+				_ACE_quikclot = 12;
 			};
 			_ACE_epinephrine = 12;
 			_ACE_morphine = 12;
@@ -157,6 +151,10 @@ switch _FAKtype do {
 
 if ( !(backpack _unit == "") && _FAKtype > 1 ) then {
 	_mediKit = 1;
+};
+if (_FAKtype < 2 && isClass(configFile >> "CfgPatches" >> "adv_aceRefill")) exitWith {
+	_unit addItem "adv_aceRefill_FAK";
+	true
 };
 
 [_unit] call adv_fnc_aceMedicalItems;

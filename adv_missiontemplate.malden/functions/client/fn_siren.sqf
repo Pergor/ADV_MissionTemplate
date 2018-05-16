@@ -1,7 +1,7 @@
 /*
  * Author: Belbo
  *
- * Adds an action to a vehicle that switches a siren onf/off and beacons on/off.
+ * Adds an action to a vehicle that switches a siren on/off and beacons on/off.
  *
  * Arguments:
  * 0: object the action should be attached to. - <OBJECT>

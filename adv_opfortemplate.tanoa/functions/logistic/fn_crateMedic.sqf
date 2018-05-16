@@ -44,6 +44,11 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		_target addMagazineCargoGlobal ["B_IR_Grenade",1];
 	};
 	
+	if (isClass(configFile >> "CfgPatches" >> "adv_aceRefill")) then {
+		_target addItemCargoGlobal ["adv_aceRefill_manualKit",1];
+		_target addItemCargoGlobal ["adv_aceRefill_FAK",5];
+	};
+	
 	_ACE_fieldDressing = 32;
 	_ACE_packingBandage = 32;
 	_ACE_elasticBandage = 32;

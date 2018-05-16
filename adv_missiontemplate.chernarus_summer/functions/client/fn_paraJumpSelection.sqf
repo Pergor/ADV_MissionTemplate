@@ -21,7 +21,8 @@ params [
 
 if (_unit isEqualTo leader group _unit) then {
 	openmap true;
-	[_unit] onMapSingleClick "openmap false; { [_x,[(_pos select 0)+20+(random 20),(_pos select 1)+20+(random 20),(_pos select 2)+10+(random 10)]] remoteExec ['ADV_fnc_paraJump',0]; nil;} count (units (group (_this select 0))); onmapsingleclick '';";
+	//[_unit] onMapSingleClick "openmap false; { [_x,[(_pos select 0)+20+(random 20),(_pos select 1)+20+(random 20),(_pos select 2)+10+(random 10)]] remoteExec ['ADV_fnc_paraJump',0]; nil;} count (units (group (_this select 0))); onmapsingleclick '';";
+	[_unit] onMapSingleClick "openmap false; { [_x, ([[_pos, 40, 40, 0, false],false] call CBA_fnc_randPosArea) ] remoteExec ['ADV_fnc_paraJump',0]; nil;} count (units (group (_this select 0))); onmapsingleclick '';";
 /*
 } else {
 	[_unit] spawn {

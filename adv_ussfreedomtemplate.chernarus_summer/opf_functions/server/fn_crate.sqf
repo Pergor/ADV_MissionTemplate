@@ -270,6 +270,11 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			
 			_adv_aceCPR_AED = 5;
 			_ACE_advACEsplint_splint = 20;
+			
+			if (isClass(configFile >> "CfgPatches" >> "adv_aceRefill")) then {
+				_target addItemCargoGlobal ["adv_aceRefill_manualKit",5];
+				_target addItemCargoGlobal ["adv_aceRefill_FAK",20];
+			};
 
 			_ACE_SpareBarrel = 5;
 			_ACE_tacticalLadder = 3;
