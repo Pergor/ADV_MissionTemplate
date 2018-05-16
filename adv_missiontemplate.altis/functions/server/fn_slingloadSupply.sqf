@@ -71,8 +71,9 @@ if !(_targetPosEmpty distance _targetPos > 81 || _targetPosEmpty isEqualTo []) t
 
 //start position:
 private _startPos = [_start,nil,nil,false] call adv_fnc_getPos;
+private _dist = if (_vehType isKindOf 'PLANE') then {6000} else {4000};
 if ( _targetPos distance2D _startPos < 500 || _startPos isEqualTo [999,999,999] ) then {
-	_startPos = [[_targetPos, 6000, 6000, 0, false],true] call CBA_fnc_randPosArea;
+	_startPos = [[_targetPos, _dist, _dist, 0, false],true] call CBA_fnc_randPosArea;
 };
 
 //get side, if side ID is provided:
@@ -118,11 +119,12 @@ _veh addEventHandler ["GetOut", {
 //create or get the cargo:
 private _cargo = if (!_isReady) then { _cargoType createVehicle _startPos } else {_readyCargo};
 _cargo enableDynamicSimulation false;
+_cargo setFeatureType 2;
 
 //delete and exit if not slingloadable:
 private _canSling = _veh canSlingLoad _cargo;
 private _canCargo = (_veh canVehicleCargo _cargo) select 0;
-if (!_isReady && !(_canSling || _canCargo)) exitWith {
+if (!_canSling || !_canCargo) exitWith {
 	[_veh,_crew,_cargo] call _deleteVehicle;
 	false
 };
