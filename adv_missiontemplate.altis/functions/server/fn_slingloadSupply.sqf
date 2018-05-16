@@ -72,7 +72,7 @@ if !(_targetPosEmpty distance _targetPos > 81 || _targetPosEmpty isEqualTo []) t
 //start position:
 private _startPos = [_start,nil,nil,false] call adv_fnc_getPos;
 if ( _targetPos distance2D _startPos < 500 || _startPos isEqualTo [999,999,999] ) then {
-	_startPos = [[_startPos, 6000, 6000, 0, false],true] call CBA_fnc_randPosArea;
+	_startPos = [[_targetPos, 6000, 6000, 0, false],true] call CBA_fnc_randPosArea;
 };
 
 //get side, if side ID is provided:
