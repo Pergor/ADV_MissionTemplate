@@ -433,6 +433,7 @@ if ( ADV_var_logistic_isBoxAvailable > 0 ) then {
 		};
 		case "ADV_LOGISTIC_CRATELARGEEMPTY": {
 			_box = createVehicle [ADV_logistic_crateTypeLarge,_position,[],0,"NONE"];
+			_box setPosASL _position;
 			_box allowDamage false;
 			[_box] call ADV_fnc_clearCargo;
 			if ( _par_customLoad isEqualTo 1 ) then {

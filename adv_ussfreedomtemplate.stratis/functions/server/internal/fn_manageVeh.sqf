@@ -97,7 +97,8 @@ ADV_veh_fixedWing = ADV_veh_airCAS+ADV_veh_airC130+ADV_veh_UAVs;
 ADV_veh_air = ADV_veh_helis+ADV_veh_fixedWing;
 ADV_veh_armored = ADV_veh_heavys+ADV_veh_tanks+ADV_veh_artys;
 ADV_veh_car = ADV_veh_MRAPS+ADV_veh_MRAPsHMG+ADV_veh_MRAPsGMG;
-ADV_veh_light = ADV_veh_ATVs+ADV_veh_UGVs+ADV_veh_UGVs_repair+ADV_veh_car+ADV_veh_transport+ADV_veh_logistic_fuel+ADV_veh_logistic_ammo+ADV_veh_logistic_repair+ADV_veh_logistic_medic;
+ADV_veh_logistic = ADV_veh_transport+ADV_veh_logistic_fuel+ADV_veh_logistic_ammo+ADV_veh_logistic_repair+ADV_veh_logistic_medic;
+ADV_veh_light = ADV_veh_ATVs+ADV_veh_UGVs+ADV_veh_UGVs_repair+ADV_veh_car+ADV_veh_logistic;
 
 ADV_veh_all = ADV_veh_light+ADV_veh_armored+ADV_veh_air+ADV_veh_boats;
 publicVariable "ADV_veh_all";
@@ -176,6 +177,13 @@ adv_manageVeh_codeForAll = {
 	if !( (missionNamespace getVariable ["ADV_par_vehicleRespawn",300]) isEqualTo 9999 ) then {
 		[_veh, missionNamespace getVariable ["ADV_par_vehicleRespawn",300], west] call ADV_fnc_respawnVeh;
 	};
+	if ( str _veh in ADV_veh_armored+ADV_veh_logistic && !(_veh isKindOf "LT_01_AT_base_F") ) then {
+		_veh forceFlagTexture "img\flag.paa";
+		if ( str _veh in ADV_veh_logistic_medic && (isClass(configFile >> "CfgPatches" >> "adv_insignia"))) then {
+			_veh forceFlagTexture "";
+			_veh forceFlagTexture "\adv_insignia\img\adv_medic.paa";
+		};
+	};
 	if (_veh isKindOf 'AIR') then {
 		_veh setCollisionLight true;
 		if (_veh isKindOf 'PLANE') then {
@@ -238,6 +246,20 @@ switch ( _par_modCarAssets ) do {
 		};
 		//[ADV_veh_MRAPsHMG,["BW_Dingo_Des"],west] call ADV_fnc_changeVeh;[ADV_veh_MRAPsGMG,["BW_Dingo_GL_Des"],west] call ADV_fnc_changeVeh;
 	};
+	//BW-Fahrzeuge + Redd & Tank TPZ Fuchs
+	case 11: {
+		[] call {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
+				[ADV_veh_MRAPs,["Fennek_Tropen","BWA3_Eagle_Tropen"],west] call ADV_fnc_changeVeh;
+				[ADV_veh_MRAPsHMG,["Redd_Tank_Fuchs_1A4_Jg_Tropentarn","Redd_Tank_Fuchs_1A4_Jg_Tropentarn","CUP_B_Dingo_Ger_Des"],west] call ADV_fnc_changeVeh;
+				[ADV_veh_MRAPsGMG,["CUP_B_Dingo_GL_Ger_Des"],west] call ADV_fnc_changeVeh;
+			};
+			[ADV_veh_MRAPs,["Fennek_Flecktarn","BWA3_Eagle_Fleck"],west] call ADV_fnc_changeVeh;
+			[ADV_veh_MRAPsHMG,["Redd_Tank_Fuchs_1A4_Jg_Flecktarn","Redd_Tank_Fuchs_1A4_Jg_Flecktarn","CUP_B_Dingo_Ger_Wdl"],west] call ADV_fnc_changeVeh;
+			[ADV_veh_MRAPsGMG,["CUP_B_Dingo_GL_Ger_Wdl"],west] call ADV_fnc_changeVeh;
+		};
+		//[ADV_veh_MRAPsHMG,["BW_Dingo_Des"],west] call ADV_fnc_changeVeh;[ADV_veh_MRAPsGMG,["BW_Dingo_GL_Des"],west] call ADV_fnc_changeVeh;
+	};
 	//RHS ARMY
 	case 20: {
 		[] call {
@@ -272,10 +294,12 @@ switch ( _par_modCarAssets ) do {
 		[] call {
 			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_MRAPs,["CUP_B_LR_Transport_GB_D"],west] call ADV_fnc_changeVeh;
-				[ADV_veh_MRAPsHMG,["CUP_B_LR_Special_M2_GB_D","CUP_B_Jackal2_L2A1_GB_D","CUP_B_BAF_Coyote_L2A1_D","CUP_B_Ridgback_LMG_GB_D"],west] call ADV_fnc_changeVeh;
+				[ADV_veh_MRAPsHMG,["CUP_B_LR_Special_M2_GB_D","CUP_B_Jackal2_L2A1_GB_D","CUP_B_BAF_Coyote_L2A1_D","CUP_B_Ridgback_LMG_GB_D","CUP_B_Ridgback_HMG_GB_D"],west] call ADV_fnc_changeVeh;
+				[ADV_veh_MRAPsGMG,["CUP_B_Ridgback_GMG_GB_D"],west] call ADV_fnc_changeVeh;
 			};
 			[ADV_veh_MRAPs,["CUP_B_LR_Transport_GB_W"],west] call ADV_fnc_changeVeh;
-			[ADV_veh_MRAPsHMG,["CUP_B_LR_Special_M2_GB_W","CUP_B_LR_MG_GB_W","CUP_B_Jackal2_L2A1_GB_W","CUP_B_BAF_Coyote_L2A1_W","CUP_B_Ridgback_LMG_GB_W"],west] call ADV_fnc_changeVeh;
+			[ADV_veh_MRAPsHMG,["CUP_B_LR_Special_M2_GB_W","CUP_B_LR_MG_GB_W","CUP_B_Jackal2_L2A1_GB_W","CUP_B_BAF_Coyote_L2A1_W","CUP_B_Ridgback_LMG_GB_W","CUP_B_Ridgback_HMG_GB_W"],west] call ADV_fnc_changeVeh;
+			[ADV_veh_MRAPsGMG,["CUP_B_Ridgback_GMG_GB_W"],west] call ADV_fnc_changeVeh;
 		};
 		//[ADV_veh_MRAPs,["BAF_Offroad_D"],west] call ADV_fnc_changeVeh;
 		//[ADV_veh_MRAPsHMG,["UK3CB_BAF_Jackal2_L2A1_D","UK3CB_BAF_Coyote_Passenger_L111A1_D"],west] call ADV_fnc_changeVeh;
@@ -294,13 +318,21 @@ switch ( _par_modTruckAssets ) do {
 			[ADV_veh_logistic_fuel,["BW_LKW_TREIBSTOFF_TROPEN"],west] call ADV_fnc_changeVeh;
 			[ADV_veh_logistic_repair,["BW_LKW_REPARATUR_TROPEN"],west] call ADV_fnc_changeVeh;
 			[ADV_veh_logistic_ammo,["BW_LKW_MUNITION_TROPEN"],west] call ADV_fnc_changeVeh;
-			[ADV_veh_logistic_medic,["BW_LKW_MEDIC_TROPEN"],west] call ADV_fnc_changeVeh;
+			if ( _par_modCarAssets isEqualTo 11 || _par_modHeavyAssets isEqualTo 11 ) then {
+				[ADV_veh_logistic_medic,["Redd_Tank_Fuchs_1A4_San_Tropentarn"],west] call ADV_fnc_changeVeh;
+			} else {
+				[ADV_veh_logistic_medic,["BW_LKW_MEDIC_TROPEN"],west] call ADV_fnc_changeVeh;
+			};
 		};
 		[ADV_veh_transport,["BW_LKW_TRANSPORT_FLECK","BW_LKW_TRANSPORT_OFFEN_FLECK"],west] call ADV_fnc_changeVeh;
 		[ADV_veh_logistic_fuel,["BW_LKW_TREIBSTOFF_FLECK"],west] call ADV_fnc_changeVeh;
 		[ADV_veh_logistic_repair,["BW_LKW_REPARATUR_FLECK"],west] call ADV_fnc_changeVeh;
 		[ADV_veh_logistic_ammo,["BW_LKW_MUNITION_FLECK"],west] call ADV_fnc_changeVeh;
-		[ADV_veh_logistic_medic,["BW_LKW_MEDIC_FLECK"],west] call ADV_fnc_changeVeh;
+		if ( _par_modCarAssets isEqualTo 11 || _par_modHeavyAssets isEqualTo 11 ) then {
+			[ADV_veh_logistic_medic,["Redd_Tank_Fuchs_1A4_San_Flecktarn"],west] call ADV_fnc_changeVeh;
+		} else {
+			[ADV_veh_logistic_medic,["BW_LKW_MEDIC_FLECK"],west] call ADV_fnc_changeVeh;
+		};
 	};
 	//RHS Army
 	case 20: {
@@ -308,13 +340,13 @@ switch ( _par_modTruckAssets ) do {
 			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
 				[ADV_veh_transport,["rhsusf_M1083A1P2_d_fmtv_usarmy","rhsusf_M1083A1P2_B_d_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_d_fmtv_usarmy"],west] call ADV_fnc_changeVeh;
 				[ADV_veh_logistic_repair,["rhsusf_M977A4_REPAIR_usarmy_d","rhsusf_M977A4_REPAIR_BKIT_usarmy_d","rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_d"],west] call ADV_fnc_changeVeh;
-				//[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_usarmy_d","rhsusf_M977A4_AMMO_BKIT_usarmy_d","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_d"],west] call ADV_fnc_changeVeh;
+				[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_usarmy_d","rhsusf_M977A4_AMMO_BKIT_usarmy_d","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_d"],west] call ADV_fnc_changeVeh;
 				[ADV_veh_logistic_fuel,["rhsusf_M978A4_usarmy_d","rhsusf_M978A4_BKIT_usarmy_d"],west] call ADV_fnc_changeVeh;
 				[ADV_veh_logistic_medic,["rhsusf_M1085A1P2_B_D_Medical_fmtv_usarmy"],west] call ADV_fnc_changeVeh;
 			};
 			[ADV_veh_transport,["rhsusf_M1083A1P2_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy"],west] call ADV_fnc_changeVeh;
 			[ADV_veh_logistic_repair,["rhsusf_M977A4_REPAIR_usarmy_wd","rhsusf_M977A4_REPAIR_BKIT_usarmy_wd","rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_wd"],west] call ADV_fnc_changeVeh;
-			//[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd"],west] call ADV_fnc_changeVeh;
+			[ADV_veh_logistic_ammo,["rhsusf_M977A4_AMMO_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd"],west] call ADV_fnc_changeVeh;
 			[ADV_veh_logistic_fuel,["rhsusf_M978A4_usarmy_wd","rhsusf_M978A4_BKIT_usarmy_wd"],west] call ADV_fnc_changeVeh;
 			[ADV_veh_logistic_medic,["rhsusf_M1085A1P2_B_WD_Medical_fmtv_usarmy"],west] call ADV_fnc_changeVeh;
 		};
@@ -389,6 +421,24 @@ switch ( _par_modHeavyAssets ) do {
 			[ADV_veh_heavys,["BWA3_Puma_Fleck"],west] call ADV_fnc_changeVeh;
 		};
 	};
+	//Redd Fuchs
+	case 11: {
+		[] call {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
+				[ADV_veh_heavys,["Redd_Tank_Fuchs_1A4_Jg_Tropentarn","Redd_Tank_Fuchs_1A4_Jg_Tropentarn","Redd_Tank_Fuchs_1A4_Pi_Tropentarn"],west] call ADV_fnc_changeVeh;
+			};
+			[ADV_veh_heavys,["Redd_Tank_Fuchs_1A4_Jg_Flecktarn","Redd_Tank_Fuchs_1A4_Jg_Flecktarn","Redd_Tank_Fuchs_1A4_Pi_Flecktarn"],west] call ADV_fnc_changeVeh;
+		};
+	};
+	//Redd Marder
+	case 12: {
+		[] call {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
+				[ADV_veh_heavys,["Redd_Marder_1A5_Tropentarn"],west] call ADV_fnc_changeVeh;
+			};
+			[ADV_veh_heavys,["Redd_Marder_1A5_Flecktarn"],west] call ADV_fnc_changeVeh;
+		};
+	};
 	//RHS Bradleys
 	case 20: {
 		[] call {
@@ -457,13 +507,22 @@ switch ( _par_modHeavyAssets ) do {
 	case 32: {
 		[ADV_veh_heavys,["CUP_B_AAV_USMC"],west] call ADV_fnc_changeVeh;
 	};
-	//CUP BAF
-	case 30: {
+	//CUP BAF APCs
+	case 33: {
 		call {
 			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
-				[ADV_veh_tanks,["CUP_B_FV432_Bulldog_GB_D_RWS","CUP_B_FV432_Bulldog_GB_D","CUP_B_FV510_GB_D_SLAT"],west] call ADV_fnc_changeVeh;
+				[ADV_veh_heavys,["CUP_B_FV432_Bulldog_GB_D_RWS","CUP_B_FV432_Bulldog_GB_D","CUP_B_FV510_GB_D_SLAT","CUP_B_MCV80_GB_D_SLAT"],west] call ADV_fnc_changeVeh;
 			};
-			[ADV_veh_tanks,["CUP_B_FV432_Bulldog_GB_W_RWS","CUP_B_FV432_Bulldog_GB_W","CUP_B_FV510_GB_W_SLAT"],west] call ADV_fnc_changeVeh;
+			[ADV_veh_heavys,["CUP_B_FV432_Bulldog_GB_W_RWS","CUP_B_FV432_Bulldog_GB_W","CUP_B_FV510_GB_W","CUP_B_MCV80_GB_W"],west] call ADV_fnc_changeVeh;
+		};
+	};
+	//CUP BAF MRAPs
+	case 34: {
+		call {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
+				[ADV_veh_heavys,["CUP_B_Ridgback_LMG_GB_D","CUP_B_Ridgback_HMG_GB_D","CUP_B_Ridgback_GMG_GB_D","CUP_B_Mastiff_LMG_GB_D","CUP_B_Mastiff_LMG_GB_D","CUP_B_Mastiff_HMG_GB_D","CUP_B_Mastiff_HMG_GB_D","CUP_B_Mastiff_GMG_GB_D"],west] call ADV_fnc_changeVeh;
+			};
+			[ADV_veh_heavys,["CUP_B_Ridgback_LMG_GB_W","CUP_B_Ridgback_HMG_GB_W","CUP_B_Ridgback_GMG_GB_W","CUP_B_Mastiff_LMG_GB_W","CUP_B_Mastiff_LMG_GB_W","CUP_B_Mastiff_HMG_GB_W","CUP_B_Mastiff_HMG_GB_W","CUP_B_Mastiff_GMG_GB_W"],west] call ADV_fnc_changeVeh;
 		};
 	};
 	//DAR MaxxPro MRAP
@@ -494,6 +553,15 @@ switch ( _par_modTankAssets ) do {
 			[ADV_veh_tanks,["BWA3_Leopard2A6M_Fleck"],west] call ADV_fnc_changeVeh;
 		};
 	};
+	//Redd Marder
+	case 11: {
+		[] call {
+			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
+				[ADV_veh_tanks,["Redd_Marder_1A5_Tropentarn"],west] call ADV_fnc_changeVeh;
+			};
+			[ADV_veh_tanks,["Redd_Marder_1A5_Flecktarn"],west] call ADV_fnc_changeVeh;
+		};
+	};
 	//RHS m109
 	case 20: {
 		[] call {
@@ -520,7 +588,7 @@ switch ( _par_modTankAssets ) do {
 	case 30: {
 		call {
 			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
-				[ADV_veh_tanks,["CUP_B_Challenger2_Desert_BAF"],west] call ADV_fnc_changeVeh;
+				[ADV_veh_tanks,["CUP_B_Challenger2_Desert_BAF","CUP_B_Challenger2_Desert_BAF","CUP_B_Challenger2_2CD_BAF"],west] call ADV_fnc_changeVeh;
 			};
 			[ADV_veh_tanks,["CUP_B_Challenger2_2CW_BAF","CUP_B_Challenger2_Woodland_BAF"],west] call ADV_fnc_changeVeh;
 		};

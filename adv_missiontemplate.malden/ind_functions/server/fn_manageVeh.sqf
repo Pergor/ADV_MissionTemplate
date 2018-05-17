@@ -94,7 +94,8 @@ ADV_ind_veh_fixedWing = ADV_ind_veh_airCAS+ADV_ind_veh_airC130+ADV_ind_veh_UAVs;
 ADV_ind_veh_air = ADV_ind_veh_helis+ADV_ind_veh_fixedWing;
 ADV_ind_veh_armored = ADV_ind_veh_heavys+ADV_ind_veh_tanks+ADV_ind_veh_artys;
 ADV_ind_veh_car = ADV_ind_veh_MRAPs+ADV_ind_veh_MRAPsHMG+ADV_ind_veh_MRAPsGMG;
-ADV_ind_veh_light = ADV_ind_veh_ATVs+ADV_ind_veh_UGVs+ADV_ind_veh_UGVs_repair+ADV_ind_veh_car+ADV_ind_veh_transport+ADV_ind_veh_logistic_repair+ADV_ind_veh_logistic_fuel+ADV_ind_veh_logistic_ammo+ADV_ind_veh_logistic_medic;
+ADV_ind_veh_logistic = ADV_ind_veh_transport+ADV_ind_veh_logistic_repair+ADV_ind_veh_logistic_fuel+ADV_ind_veh_logistic_ammo+ADV_ind_veh_logistic_medic;
+ADV_ind_veh_light = ADV_ind_veh_ATVs+ADV_ind_veh_UGVs+ADV_ind_veh_UGVs_repair+ADV_ind_veh_car+ADV_ind_veh_logistic;
 
 ADV_ind_veh_all = ADV_ind_veh_light+ADV_ind_veh_armored+ADV_ind_veh_air;
 publicVariable "ADV_ind_veh_all";
@@ -167,6 +168,13 @@ adv_ind_manageVeh_codeForAll = {
 	};
 	if !( (missionNamespace getVariable ["ADV_par_vehicleRespawn",300]) isEqualTo 9999 ) then {
 		[_veh,ADV_par_vehicleRespawn, independent] call ADV_fnc_respawnVeh;
+	};
+	if ( str _veh in ADV_ind_veh_armored+ADV_ind_veh_logistic && !(_veh isKindOf "LT_01_AT_base_F") ) then {
+		_veh forceFlagTexture "img\flag.paa";
+		if ( str _veh in ADV_ind_veh_logistic_medic && (isClass(configFile >> "CfgPatches" >> "adv_insignia"))) then {
+			_veh forceFlagTexture "";
+			_veh forceFlagTexture "\adv_insignia\img\adv_medic.paa";
+		};
 	};
 	if (_veh isKindOf 'AIR') then {
 		_veh setCollisionLight true;

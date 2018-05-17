@@ -75,6 +75,9 @@ private _dist = if (_vehType isKindOf 'PLANE') then {6000} else {4000};
 if ( _targetPos distance2D _startPos < 500 || _startPos isEqualTo [999,999,999] ) then {
 	_startPos = [[_targetPos, _dist, _dist, 0, false],true] call CBA_fnc_randPosArea;
 };
+_startPos set [2,100];
+private _dir = _startPos getDir _targetPos;
+
 
 //get side, if side ID is provided:
 if (_side isEqualType 0) then {
@@ -82,8 +85,10 @@ if (_side isEqualType 0) then {
 };
 
 //spawn the heli:
-private _spawnedArr = [_startPos, _startPos getDir _targetPos, _vehType, _side] call BIS_fnc_spawnVehicle;
+//private _veh = createVehicle ['CUP_B_C130J_Cargo_GB', position player, [], 0, "FLY"];
+private _spawnedArr = [_startPos, _dir, _vehType, _side] call BIS_fnc_spawnVehicle;
 _spawnedArr params ["_veh","_crew","_group"];
+_veh engineOn true;
 //make it invincible for the approach:
 _veh allowDamage false;
 {_x allowDamage false} count _crew;
@@ -103,6 +108,7 @@ _group allowFleeing 0;
 _group deleteGroupWhenEmpty true;
 if (_veh isKindOf "PLANE") then {
 	_veh flyInHeight 200;
+	_veh setvelocity [100 * (sin _dir),100 * (cos _dir),0];
 };
 //add an onEachFram-EVH for the frickin' lights:
 private _evhID = [format ["adv_evh_logistic_lightsOn_%1",(missionNamespace getVariable ["adv_evh_logistic_lightsOn_NR",0])], "onEachFrame", {params ["_veh","_pilot"];_pilot action ["lightOn",_veh];}, [_veh,_pilot]] call BIS_fnc_addStackedEventHandler;
@@ -124,21 +130,25 @@ _cargo setFeatureType 2;
 //delete and exit if not slingloadable:
 private _canSling = _veh canSlingLoad _cargo;
 private _canCargo = (_veh canVehicleCargo _cargo) select 0;
-if (!_canSling || !_canCargo) exitWith {
-	[_veh,_crew,_cargo] call _deleteVehicle;
+if !(_canSling || _canCargo) exitWith {
+	if (_isReady) then {
+		[_veh,_crew,objNull] call _deleteVehicle;
+	} else {
+		[_veh,_crew,_cargo] call _deleteVehicle;
+	};
 	false
 };
 
 //slingload the cargo:
 private _mode = 0;
-if ( _canSling ) then {
-	_veh setSlingLoad _cargo;
-	_mode = 1;
-};
-//or load it:
-if ( _canCargo && _mode isEqualTo 0 ) then {
+if ( _canCargo ) then {
 	_veh setVehicleCargo _cargo;
 	_mode = 2;
+};
+//or load it:
+if ( _canSling && _mode isEqualTo 0 ) then {
+	_veh setSlingLoad _cargo;
+	_mode = 1;
 };
 
 //add everything to curator:

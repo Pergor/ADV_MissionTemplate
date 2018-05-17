@@ -480,13 +480,13 @@ class param_modCarAssets
 	values[] = {99
 		,30
 		,21,20
-		,10
+		,11,10
 		,2,1,0
 	};
 	texts[] = {"Keine leichten Fahrzeuge"
 		,"CUP BAF"
 		,"RHS Marines","RHS Army"
-		,"BW-Fahrzeuge"
+		,"BW-Fahrzeuge + Redd & Tank TPZ Fuchs","BW-Fahrzeuge (benötigt CUP, BWmod und German PzSpw Fennek Pack)"
 		,"ADV-Retex Fenneks","Apex Prowler","Nein"
 	};
 	default = 0;
@@ -515,16 +515,16 @@ class param_modHeavyAssets
 	title="Sollen schwere Fahrzeuge durch AddOn-Fahrzeuge ersetzt werden?";
 	values[] = {99
 		,40
-		,31,30
+		,34,33,32,31,30
 		,22,21,20
-		,10
+		,12,11,10
 		,3,2,1,0
 	};
 	texts[] = {"Keine schweren Fahrzeuge"
 		,"DAR MaxxPro"
-		,"CUP LAV25","CUP Stryker"
+		,"CUP BAF MRAPs","CUP BAF APCs","CUP AAV7","CUP LAV25","CUP Stryker"
 		,"RHS MRAPs","RHS M113","RHS Bradleys"
-		,"BWmod Puma"
+		,"Redd & Tank SPZ Marder","Redd & Tank TPZ Fuchs","BWmod Puma"
 		,"stv retexture/ADV-Retex - Marid","stv retexture/ADV-Retex - Warrior/Mora","ADV-Retex - Gorgon","Nein"
 	};
 	default = 0;
@@ -534,14 +534,16 @@ class param_modTankAssets
 	title="Sollen Panzer durch AddOn-Fahrzeuge ersetzt werden?";
 	values[] = {99
 		,40
+		,30
 		,21,20
-		,10
+		,11,10
 		,1,0
 	};
 	texts[] = {"Keine Panzer/Artillerie"
 		,"Burne's M1A2"
+		,"CUP BAF"
 		,"RHS (mit M119-Artillerie)","RHS (mit M109A6-Artillerie)"
-		,"BWmod Leopard"
+		,"Redd & Tank SPZ Marder","BWmod Leopard"
 		,"stv retexture/ADV-Retex - Leopard/Kuma","Nein"
 	};
 	default = 0;
