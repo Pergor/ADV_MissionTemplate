@@ -75,7 +75,7 @@ private _grp = [
 	_location
 	,_vehicles
 	,_side
-] call ADV_fnc_spawnGroup;
+] call adv_fnc_spawnGroup;
 [_grp,10] call adv_fnc_setSafe;
 _grp allowFleeing 0;
 _grp deleteGroupWhenEmpty true;
@@ -102,7 +102,7 @@ _wp setWaypointBehaviour _behaviour;
 _wp setWaypointCombatMode _combatMode;
 _wp setWaypointSpeed _speed;
 _wp setWaypointFormation _formation;
-_wp setWaypointStatements ["true", "vehicle this land 'GET OUT';{(driver (vehicle this)) enableAI _x} forEach ['TARGET', 'AUTOTARGET','AUTOCOMBAT'];"];
+_wp setWaypointStatements ["true", "vehicle this land 'GET OUT';{(driver (vehicle this)) enableAI _x} forEach ['TARGET', 'AUTOTARGET', 'AUTOCOMBAT', 'MINEDETECTION'];"];
 
 private _wpFollow = _grp addWaypoint [getWPPos _wp, 0];
 
@@ -110,7 +110,7 @@ private _wpFollow = _grp addWaypoint [getWPPos _wp, 0];
 private _allVehiclesConvoy = [_grp] call adv_fnc_getGroupVehicles;
 //set driver's skill to 1:
 _grp allowFleeing 0;
-{ private _driver = driver _x; _driver setSkill 1; {_driver disableAI _x} forEach ['TARGET', 'AUTOTARGET','AUTOCOMBAT']; nil } count _allVehiclesConvoy;
+{ private _driver = driver _x; _driver setSkill 1; {_driver disableAI _x} forEach ['TARGET', 'AUTOTARGET', 'AUTOCOMBAT', 'MINEDETECTION']; nil } count _allVehiclesConvoy;
 //get all vehicles that can fit a whole group of _units:
 private _size = count _units;
 private _vehiclesConvoy = [];
@@ -143,7 +143,7 @@ private _infantryGroups = [];
 		[(_start select 0),(_start select 1)-50,0]
 		,_units
 		,_side
-	] call ADV_fnc_spawnGroup;
+	] call adv_fnc_spawnGroup;
 	[_grp_inf,10] call adv_fnc_setSafe;
 	[_grp_inf,_x] call _moveInCargo;
 	_infantryGroups pushback _grp_inf;
