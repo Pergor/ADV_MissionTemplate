@@ -115,7 +115,6 @@ _returnWP setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteV
 private _allVehiclesConvoy = [_grp] call adv_fnc_getGroupVehicles;
 private _size = count _units;
 private _vehiclesConvoy = [];
-_grp allowFleeing 0;
 {
 	private _driver = driver _x;
 	//give driver some edge:
