@@ -108,7 +108,7 @@ if ((toUpper worldname) isEqualTo "TANOA") then {
 	if ( (missionNamespace getVariable ["adv_par_opfUni", 0]) isEqualTo 0 ) then { ADV_par_opfUni = 20 };
 };
 
-if (isClass(configFile >> "CfgPatches" >> "ace_rearm") && ( (missionNamespace getVariable ["ADV_par_modTankAssets",0]) isEqualTo 1 || (missionNamespace getVariable ["ADV_par_modTankAssets",0]) isEqualTo 2 )) then {
+if ( isClass(configFile >> "CfgPatches" >> "ace_rearm") && { (missionNamespace getVariable ["ADV_par_modTankAssets",0]) isEqualTo 1 || (missionNamespace getVariable ["ADV_par_modTankAssets",0]) isEqualTo 2 } ) then {
 	missionNamespace setVariable ["ace_rearm_level",0];
 };
 
