@@ -88,12 +88,27 @@ switch ( missionNamespace getVariable ["adv_par_customUni", ["param_customUni",0
 	default {};
 };
 */
+
+private _westFlag = call {
+	if ( (missionNamespace getVariable ["adv_par_customUni", 0]) in [6,12,30] || (missionNamespace getVariable ["adv_par_customWeap", 0]) in [7,8] ) exitWith { "\A3\Data_F\Flags\Flag_uk_CO.paa" };
+	if ( (missionNamespace getVariable ["adv_par_customUni", 0]) in [1,2] || (missionNamespace getVariable ["adv_par_customWeap", 0]) in [1] ) exitWith { "\A3\ui_f\data\map\markers\flags\Germany_ca.paa" };
+	"img\flag.paa";
+}; 
+private _eastFlag = "img\flag.paa";
+private _indFlag = call {
+	if ( (missionNamespace getVariable ["adv_par_indUni", 0]) in [20] ) exitWith { "\A3\Ui_f\data\Map\Markers\Flags\syndicat_ca.paa" };
+	"img\flag.paa";
+};
+missionNamespace setVariable ["adv_var_vehicleFlag_west",_westFlag];
+missionNamespace setVariable ["adv_var_vehicleFlag_east",_eastFlag];
+missionNamespace setVariable ["adv_var_vehicleFlag_ind",_indFlag];
+
 if ((toUpper worldname) isEqualTo "TANOA") then {
 	if ( (missionNamespace getVariable ["adv_par_customUni", 0]) isEqualTo 0 ) then { ADV_par_customUni = 20 };
 	if ( (missionNamespace getVariable ["adv_par_opfUni", 0]) isEqualTo 0 ) then { ADV_par_opfUni = 20 };
 };
 
-if (isClass(configFile >> "CfgPatches" >> "ace_rearm") && ( (missionNamespace getVariable ["ADV_par_modTankAssets",0]) isEqualTo 1 || (missionNamespace getVariable ["ADV_par_modTankAssets",0]) isEqualTo 2 )) then {
+if ( isClass(configFile >> "CfgPatches" >> "ace_rearm") && { (missionNamespace getVariable ["ADV_par_modTankAssets",0]) isEqualTo 1 || (missionNamespace getVariable ["ADV_par_modTankAssets",0]) isEqualTo 2 } ) then {
 	missionNamespace setVariable ["ace_rearm_level",0];
 };
 

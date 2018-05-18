@@ -18,13 +18,14 @@
  *		2: Behaviour, can be "CARELESS", "SAFE", "AWARE", "COMBAT", "STEALTH" - <STRING>
  *		3: Combat Mode, can be "BLUE", "GREEN", "WHITE", "YELLOW", "RED" - <STRING>
  *		4: Formation, can be "COLUMN", "STAG COLUMN", "WEDGE", "ECH LEFT", "ECH RIGHT", "VEE", "LINE", "FILE", "DIAMOND" - <STRING>
- * 6: stations along the way )has to be an array of positions, objects or markers) - <ARRAY> of <ARRAYS, <OBJECTS> or <STRINGS>  (optional)
+ * 6: stations along the way (has to be an array of positions, objects or markers) - <ARRAY> of <ARRAYS, <OBJECTS> or <STRINGS> (optional)
+ * 7: Fixed speed limit, for LAND-vehicles only. Relates to Waypoint-Speed given in Parameters for convoy. <NUMBER> (optional)
  *
  * Return Value:
  * Array containing spawned group of vehicles, followed by an array of the groups on the vehicles - <ARRAY> in format: [<GROUP>,[<GROUP>, <GROUP>, ...]]
  *
  * Example:
- * [spawnLogic,destinationLogic,["O_MRAP_02_hmg_F","O_Truck_02_transport_F","O_Truck_02_transport_F","O_Truck_02_transport_F","O_MRAP_02_hmg_F"],["O_Soldier_SL_F","O_Soldier_AR_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_LAT_F","O_medic_F"],east,["LIMITED","SAFE","GREEN","COLUMN"],[stationLogic_1,stationLogic_2]] call ADV_fnc_spawnConvoy;
+ * [spawnLogic,destinationLogic,["O_MRAP_02_hmg_F","O_Truck_02_transport_F","O_Truck_02_transport_F","O_Truck_02_transport_F","O_MRAP_02_hmg_F"],["O_Soldier_SL_F","O_Soldier_AR_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_LAT_F","O_medic_F"],east,["NORMAL","SAFE","GREEN","COLUMN"],[stationLogic_1,stationLogic_2],50] call ADV_fnc_spawnConvoy;
  *
  * Public: Yes
  */
@@ -37,8 +38,9 @@ params [
 	,["_vehicles", ["O_MRAP_02_hmg_F","O_Truck_02_transport_F","O_Truck_02_transport_F","O_Truck_02_transport_F","O_MRAP_02_hmg_F"], [[],configNull]]
 	,["_units", ["O_Soldier_SL_F","O_Soldier_AR_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_LAT_F","O_Soldier_F","O_Soldier_A_F","O_medic_F"], [[],configNull]]
 	,["_side", east, [west,0]]
-	,["_modifiers",["LIMITED","AWARE","GREEN","COLUMN"],[[]]]
+	,["_modifiers",["NORMAL","AWARE","GREEN","COLUMN"],[[]]]
 	,["_stations",[],[[]]]
+	,["_speedLimitGiven","",["",0]]
 ];
 
 //select target pos depending on given parameter:
@@ -47,11 +49,19 @@ private _destination = [_targetLocation] call adv_fnc_getPos;
 private _start = [_location] call adv_fnc_getPos;
 //different standards for the _modifiers array:
 _modifiers params [
-	["_speed","LIMITED",[""]]
+	["_speed","NORMAL",[""]]
 	,["_behaviour","AWARE",[""]]
 	,["_combatMode","GREEN",[""]]
 	,["_formation","COLUMN",[""]]
 ];
+//get SpeedLimit for land vehicles:
+private _speedLimit = call {
+	if !(_speedLimitGiven isEqualTo "") exitWith {_speedLimitGiven};
+	if (_speed == "LIMITED") exitWith {40};
+	if (_speed == "NORMAL") exitWith {60};
+	if (_speed == "FULL") exitWith {90};
+	50
+};
 //get positions for given stations:
 private _stationsPos = _stations apply { [_x] call adv_fnc_getPos };
 
@@ -100,7 +110,7 @@ private _wpFollow = _grp addWaypoint [getWPPos _wp, 0];
 private _allVehiclesConvoy = [_grp] call adv_fnc_getGroupVehicles;
 //set driver's skill to 1:
 _grp allowFleeing 0;
-{ (driver _x) setSkill 1; {(driver _x) disableAI _x} forEach ['TARGET', 'AUTOTARGET','AUTOCOMBAT']; nil } count _allVehiclesConvoy;
+{ private _driver = driver _x; _driver setSkill 1; {_driver disableAI _x} forEach ['TARGET', 'AUTOTARGET','AUTOCOMBAT']; nil } count _allVehiclesConvoy;
 //get all vehicles that can fit a whole group of _units:
 private _size = count _units;
 private _vehiclesConvoy = [];
@@ -108,7 +118,11 @@ private _vehiclesConvoy = [];
 	if ( (_x emptyPositions "cargo") >= _size ) then {
 		_vehiclesConvoy pushBackUnique _x;
 	};
-} forEach _allVehiclesConvoy;
+	if ( _x isKindOf 'LAND' ) then {
+		_x limitSpeed _speedLimit;
+	};
+	nil
+} count _allVehiclesConvoy;
 
 //assignAsCargo and moveInCargo in one:
 private _moveInCargo = {

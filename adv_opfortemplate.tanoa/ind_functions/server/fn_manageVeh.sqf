@@ -169,11 +169,15 @@ adv_ind_manageVeh_codeForAll = {
 	if !( (missionNamespace getVariable ["ADV_par_vehicleRespawn",300]) isEqualTo 9999 ) then {
 		[_veh,ADV_par_vehicleRespawn, independent] call ADV_fnc_respawnVeh;
 	};
-	if ( str _veh in ADV_ind_veh_armored+ADV_ind_veh_logistic && !(_veh isKindOf "LT_01_AT_base_F") ) then {
-		_veh forceFlagTexture "img\flag.paa";
-		if ( str _veh in ADV_ind_veh_logistic_medic && (isClass(configFile >> "CfgPatches" >> "adv_insignia"))) then {
+	if ( str _veh in ADV_ind_veh_armored+ADV_ind_veh_logistic && !(_veh isKindOf "LT_01_base_F") ) then {
+		_veh forceFlagTexture (missionNamespace getVariable ["adv_var_vehicleFlag_ind","img\flag.paa"]);
+		if ( str _veh in ADV_ind_veh_logistic_medic ) then {
 			_veh forceFlagTexture "";
-			_veh forceFlagTexture "\adv_insignia\img\adv_medic.paa";
+			if ( isClass(configFile >> "CfgPatches" >> "adv_insignia") ) then {
+				_veh forceFlagTexture "\adv_insignia\img\adv_medic.paa";
+			} else {
+				_veh forceFlagTexture "\A3\Data_F\Flags\Flag_rcrystal_CO.paa";
+			};
 		};
 	};
 	if (_veh isKindOf 'AIR') then {
