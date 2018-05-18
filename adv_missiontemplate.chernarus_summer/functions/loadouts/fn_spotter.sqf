@@ -32,8 +32,8 @@ _vest = ["V_PlateCarrier1_rgr","V_PlateCarrier2_rgr"];
 _headgear = ["H_Watchcap_blk"];
 _backpack = ["B_AssaultPack_rgr"];
 _insignium = "";
-_useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
-_goggles = "";
+_useProfileGoggles = 0;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
+_goggles = if (395180 in (getDLCs 1)) then {"G_Balaclava_TI_blk_F"} else {"G_Balaclava_oli"};
 _unitTraits = [["medic",true],["engineer",true],["explosiveSpecialist",true],["UAVHacker",true],["camouflageCoef",1.5],["audibleCoef",0.5]];
 
 //weapons - primary weapon - (string)
@@ -144,16 +144,16 @@ _tfar_microdagr = 0;		//adds the tfar microdagr to set the channels for a riflem
 //ACE items (if ACE is running on the server) - (integers)
 _ACE_EarPlugs = 1;
 
-_ace_FAK = 0;		//Adds a standard amount of medical items. Defined in fn_aceFAK.sqf
-_ACE_fieldDressing = 4;
-_ACE_packingBandage = 8;
-_ACE_elasticBandage = 8;
-_ACE_quikclot = 6;
+_ace_FAK = 1;		//Adds a standard amount of medical items. Defined in fn_aceFAK.sqf
+_ACE_fieldDressing = 0;
+_ACE_packingBandage = 0;
+_ACE_elasticBandage = 6;
+_ACE_quikclot = if (missionnamespace getVariable ["ace_medical_enableAdvancedWounds",false]) then { 6 } else { 0 };
 _ACE_atropine = 0;
 _ACE_adenosine = 0;
 _ACE_epinephrine = 2;
 _ACE_morphine = 2;
-_ACE_tourniquet = 2;
+_ACE_tourniquet = 0;
 _ACE_bloodIV = 0;
 _ACE_bloodIV_500 = 0;
 _ACE_bloodIV_250 = 0;
@@ -161,7 +161,7 @@ _ACE_plasmaIV = 0;
 _ACE_plasmaIV_500 = 0;
 _ACE_plasmaIV_250 = 0;
 _ACE_salineIV = 0;
-_ACE_salineIV_500 = 0;
+_ACE_salineIV_500 = 3;
 _ACE_salineIV_250 = 0;
 _ACE_bodyBag = 0;
 _ACE_personalAidKit = 0;
@@ -483,8 +483,15 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_spottingscope") ) then { _items 
 
 //LRRadios
 if (missionNamespace getVariable ["_par_noLRRadios",false]) then { _giveBackpackRadio = false };
-if ( (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
-	_backpack = [_player] call adv_fnc_LRBackpack;
+if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") && (_par_Radios == 1 || _par_Radios == 3) && _giveBackpackRadio ) then {
+	_backpack = switch (_par_opfUni) do {
+		case 1: {["tfar_mr3000_rhs"]};
+		case 2: {["tfar_mr3000_rhs"]};
+		case 3: {["tfar_mr3000_rhs"]};
+		case 4: {["tfar_mr3000_rhs"]};
+		case 5: {[""]};
+		default {["tfar_mr3000"]};
+	};
 };
 
 ///// No editing necessary below this line /////
