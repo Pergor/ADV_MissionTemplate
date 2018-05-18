@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=2701;
+		nextID=2704;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=46;
+		nextID=63;
 	};
 	class Camera
 	{
-		pos[]={15272.191,41.639725,17280.182};
-		dir[]={-0.77021444,-0.59727412,0.22377156};
-		up[]={-0.57356238,0.80202621,0.16663665};
-		aside[]={0.27900022,-7.7518052e-007,0.96030927};
+		pos[]={15217.3,46.010612,17237.92};
+		dir[]={-0.53613424,-0.60934478,0.58417886};
+		up[]={-0.41201794,0.79290265,0.44894069};
+		aside[]={0.7367577,1.1525117e-008,0.67616427};
 	};
 };
 binarizationWanted=0;
@@ -5227,12 +5227,12 @@ class Mission
 							{
 								name="medical_tent_1";
 							};
-							id=2362;
-							type="Land_MedicalTent_01_MTP_closed_F";
+							id=2701;
+							type="Land_MedicalTent_01_tropic_closed_F";
 						};
 					};
 					id=2680;
-					atlOffset=-0.0080337524;
+					atlOffset=-0.0046100616;
 				};
 				class Item1
 				{
@@ -5262,6 +5262,7 @@ class Mission
 							};
 							id=2345;
 							type="B_Plane_CAS_01_dynamicLoadout_F";
+							atlOffset=0.00014305115;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -5336,7 +5337,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={15136.226,20.449385,17261.578};
-								angles[]={-0,0.76794487,0};
+								angles[]={0,0.76794487,0};
 							};
 							side="Empty";
 							flags=4;
@@ -5415,6 +5416,7 @@ class Mission
 							};
 							id=56;
 							type="B_APC_Wheeled_01_cannon_F";
+							atlOffset=-3.2424927e-005;
 						};
 						class Item6
 						{
@@ -6099,7 +6101,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={15163.021,19.832951,17270.131};
-								angles[]={-0,3.9095376,0.0012918708};
+								angles[]={0,3.9095376,0.0012918708};
 							};
 							side="Empty";
 							flags=4;
@@ -6117,7 +6119,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={15169.951,19.826004,17263.201};
-								angles[]={-0,3.9095376,0};
+								angles[]={0,3.9095376,0};
 							};
 							side="Empty";
 							flags=4;
@@ -6135,7 +6137,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={15176.93,20.122597,17256.398};
-								angles[]={-0,3.9095376,0};
+								angles[]={0,3.9095376,0};
 							};
 							side="Empty";
 							flags=4;
@@ -7048,6 +7050,7 @@ class Mission
 							};
 							id=60;
 							type="B_Heli_Transport_01_F";
+							atlOffset=-0.0031394958;
 						};
 						class Item45
 						{
@@ -7066,6 +7069,7 @@ class Mission
 							};
 							id=61;
 							type="B_Heli_Transport_01_F";
+							atlOffset=-0.0028743744;
 						};
 						class Item46
 						{
@@ -7084,6 +7088,7 @@ class Mission
 							};
 							id=62;
 							type="B_Heli_Transport_01_F";
+							atlOffset=-0.0001373291;
 						};
 						class Item47
 						{
@@ -7152,7 +7157,7 @@ class Mission
 						};
 					};
 					id=2689;
-					atlOffset=-0.67980003;
+					atlOffset=-1.371685;
 				};
 				class Item2
 				{
@@ -7734,8 +7739,8 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={20800.477,29.145508,7272.5864};
-								angles[]={0.029324362,4.1364303,6.276526};
+								position[]={20800.477,29.145521,7272.5859};
+								angles[]={0.029321531,4.1364303,6.2765183};
 							};
 							side="Empty";
 							flags=4;
@@ -7743,13 +7748,13 @@ class Mission
 							{
 								name="opf_medical_tent_1";
 							};
-							id=2364;
-							type="Land_MedicalTent_01_brownhex_closed_F";
+							id=2703;
+							type="Land_MedicalTent_01_tropic_closed_F";
 							atlOffset=1.9073486e-006;
 						};
 					};
 					id=2683;
-					atlOffset=-0.041881561;
+					atlOffset=-0.0538311;
 				};
 				class Item1
 				{
@@ -10243,6 +10248,7 @@ class Mission
 							};
 							id=2351;
 							type="O_Plane_CAS_02_dynamicLoadout_F";
+							atlOffset=-0.0012264252;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -10288,7 +10294,7 @@ class Mission
 							};
 							id=2693;
 							type="O_Plane_Fighter_02_F";
-							atlOffset=3.8146973e-006;
+							atlOffset=-0.002614975;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -10315,7 +10321,7 @@ class Mission
 						};
 					};
 					id=2688;
-					atlOffset=0.15531349;
+					atlOffset=0.62877464;
 				};
 				class Item2
 				{
@@ -10455,7 +10461,7 @@ class Mission
 				};
 			};
 			id=2387;
-			atlOffset=-0.56651497;
+			atlOffset=-0.6050148;
 		};
 		class Item5
 		{
