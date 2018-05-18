@@ -106,20 +106,32 @@ _wp setWaypointStatements ["true", "vehicle this land 'GET OUT';{(driver (vehicl
 
 private _wpFollow = _grp addWaypoint [getWPPos _wp, 0];
 
+//create return waypoint:
+private _returnWP = _group addWaypoint [_start, 0];
+_returnWP setWaypointTimeout [2, 2, 2];
+_returnWP setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} foreach thisList;"];
+
 //get all vehicles of vehicle group:
 private _allVehiclesConvoy = [_grp] call adv_fnc_getGroupVehicles;
-//set driver's skill to 1:
-_grp allowFleeing 0;
-{ private _driver = driver _x; _driver setSkill 1; {_driver disableAI _x} forEach ['TARGET', 'AUTOTARGET', 'AUTOCOMBAT', 'MINEDETECTION']; nil } count _allVehiclesConvoy;
-//get all vehicles that can fit a whole group of _units:
 private _size = count _units;
 private _vehiclesConvoy = [];
+_grp allowFleeing 0;
 {
-	if ( (_x emptyPositions "cargo") >= _size ) then {
-		_vehiclesConvoy pushBackUnique _x;
-	};
+	private _driver = driver _x;
+	//give driver some edge:
+	//_driver setSkill 1;
+	{_driver disableAI _x} forEach ['TARGET', 'AUTOTARGET', 'AUTOCOMBAT', 'MINEDETECTION'];
+	_driver addEventHandler ["GetOutMan", {
+		params ["_unit", "_role", "_vehicle", "_turret"];
+		{_unit enableAI _x} forEach ['TARGET', 'AUTOTARGET', 'AUTOCOMBAT', 'MINEDETECTION'];
+	}];
+	//set speed limit
 	if ( _x isKindOf 'LAND' ) then {
 		_x limitSpeed _speedLimit;
+	};
+	//get all vehicles that can fit a whole group of _units:
+	if ( (_x emptyPositions "cargo") >= _size ) then {
+		_vehiclesConvoy pushBackUnique _x;
 	};
 	nil
 } count _allVehiclesConvoy;
