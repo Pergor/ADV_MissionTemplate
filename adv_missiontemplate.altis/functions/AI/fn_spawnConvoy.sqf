@@ -102,7 +102,7 @@ _wp setWaypointBehaviour _behaviour;
 _wp setWaypointCombatMode _combatMode;
 _wp setWaypointSpeed _speed;
 _wp setWaypointFormation _formation;
-_wp setWaypointStatements ["true", "vehicle this land 'GET OUT';{(driver (vehicle this)) enableAI _x} forEach ['TARGET', 'AUTOTARGET', 'AUTOCOMBAT', 'MINEDETECTION'];"];
+_wp setWaypointStatements ["true", "vehicle this land 'GET OUT'"];
 
 private _wpFollow = _grp addWaypoint [getWPPos _wp, 0];
 
