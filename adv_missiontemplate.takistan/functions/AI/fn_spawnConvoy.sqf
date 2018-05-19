@@ -2,10 +2,11 @@
  * Author: Belbo
  *
  * Creates a convoy.
- * The convoy will be spawned at the provided location and move to a target location with combat mode "SAFE" and "LIMITED" speed. Upon arrival all carried units will be unloaded.
- * Make SURE the first vehicle has enough space to start moving (eg. no houses blocking a whole turning circcle of the vehicle).
+ * The convoy will be spawned at the provided location and move to a target location. Upon arrival all carried units will be unloaded.
+ * Vehicles from convoy will return to start and despawn.
+ * Make SURE the first vehicle has enough space to start moving (eg. no houses blocking a whole turning circle of the vehicle).
  * The first array of units contains the vehicles that make up the convoy.
- * Second array of units contains the units each vehicle with at least as many free cargo spaces will carry. If there are more units in the array than free cargo spaces, no group will spawn!
+ * Second array of units contains the units each vehicle with at least as many free cargo spaces will carry. If there are more units in the array than free cargo  spaces, no group will spawn!
  *
  * Arguments:
  * 0: spawn location (can be position, object or marker) - <ARRAY>, <OBJECT>, <STRING>
@@ -75,7 +76,7 @@ private _grp = [
 	_location
 	,_vehicles
 	,_side
-] call ADV_fnc_spawnGroup;
+] call adv_fnc_spawnGroup;
 [_grp,10] call adv_fnc_setSafe;
 _grp allowFleeing 0;
 _grp deleteGroupWhenEmpty true;
@@ -102,24 +103,35 @@ _wp setWaypointBehaviour _behaviour;
 _wp setWaypointCombatMode _combatMode;
 _wp setWaypointSpeed _speed;
 _wp setWaypointFormation _formation;
-_wp setWaypointStatements ["true", "vehicle this land 'GET OUT';{(driver (vehicle this)) enableAI _x} forEach ['TARGET', 'AUTOTARGET','AUTOCOMBAT'];"];
+_wp setWaypointStatements ["true", "vehicle this land 'GET OUT'"];
 
 private _wpFollow = _grp addWaypoint [getWPPos _wp, 0];
 
+//create return waypoint:
+private _returnWP = _group addWaypoint [_start, 0];
+_returnWP setWaypointTimeout [2, 2, 2];
+_returnWP setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} foreach thisList;"];
+
 //get all vehicles of vehicle group:
 private _allVehiclesConvoy = [_grp] call adv_fnc_getGroupVehicles;
-//set driver's skill to 1:
-_grp allowFleeing 0;
-{ private _driver = driver _x; _driver setSkill 1; {_driver disableAI _x} forEach ['TARGET', 'AUTOTARGET','AUTOCOMBAT']; nil } count _allVehiclesConvoy;
-//get all vehicles that can fit a whole group of _units:
 private _size = count _units;
 private _vehiclesConvoy = [];
 {
-	if ( (_x emptyPositions "cargo") >= _size ) then {
-		_vehiclesConvoy pushBackUnique _x;
-	};
+	private _driver = driver _x;
+	//give driver some edge:
+	//_driver setSkill 1;
+	{_driver disableAI _x} forEach ['TARGET', 'AUTOTARGET', 'AUTOCOMBAT', 'MINEDETECTION'];
+	_driver addEventHandler ["GetOutMan", {
+		params ["_unit", "_role", "_vehicle", "_turret"];
+		{_unit enableAI _x} forEach ['TARGET', 'AUTOTARGET', 'AUTOCOMBAT', 'MINEDETECTION'];
+	}];
+	//set speed limit
 	if ( _x isKindOf 'LAND' ) then {
 		_x limitSpeed _speedLimit;
+	};
+	//get all vehicles that can fit a whole group of _units:
+	if ( (_x emptyPositions "cargo") >= _size ) then {
+		_vehiclesConvoy pushBackUnique _x;
 	};
 	nil
 } count _allVehiclesConvoy;
@@ -143,7 +155,7 @@ private _infantryGroups = [];
 		[(_start select 0),(_start select 1)-50,0]
 		,_units
 		,_side
-	] call ADV_fnc_spawnGroup;
+	] call adv_fnc_spawnGroup;
 	[_grp_inf,10] call adv_fnc_setSafe;
 	[_grp_inf,_x] call _moveInCargo;
 	_infantryGroups pushback _grp_inf;

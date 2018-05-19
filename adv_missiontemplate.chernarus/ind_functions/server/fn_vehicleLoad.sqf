@@ -164,9 +164,6 @@ if (_isRepairVehicle) then { (firstBackpack _target) addItemCargoGlobal ["Toolki
 //radios
 if (_par_Radios == 1 || _par_Radios == 3) then {
 	_target addItemCargoGlobal ["ItemRadio",2];
-	if ( isClass (configFile >> "CfgPatches" >> "acre_main") ) then {
-		_target addItemCargoGlobal [acre_guerBackpackRadio,1];
-	};
 };
 
 _ACE_fieldDressing = 30;

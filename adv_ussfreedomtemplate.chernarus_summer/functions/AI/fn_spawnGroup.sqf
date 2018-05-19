@@ -81,7 +81,13 @@ call {
 	
 	private _vehIsLeader = false;
 	{
+		if (_x isKindOf "PLANE") then {
+			_start set [2,100];
+		};
 		private _newVehArray = [_start, _heading, _x, _grp] call bis_fnc_spawnVehicle;
+		if (_x isKindOf "PLANE") then {
+			_x setvelocity [100 * (sin _dir),100 * (cos _dir),0];
+		};
 		_newVehArray params ["_newVeh","_crew","_group"];
 		_yVers=(-8*(sin _heading))+(10*(cos _heading));
 		_xVers=(-8*(cos _heading))-(10*(sin _heading));

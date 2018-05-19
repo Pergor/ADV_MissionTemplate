@@ -68,18 +68,22 @@ TFAR_showTransmittingHint = true;
 TFAR_showChannelChangedHint = true;
 */
 
-//settings for acre:
-force acre_sys_core_unmuteClients = true;
-force acre_sys_core_interference = true;
-force acre_sys_core_fullDuplex = false;
-force acre_sys_core_ignoreAntennaDirection = true;
-force acre_sys_core_terrainLoss = 0.35;
-force acre_sys_core_revealToAI = true;
+// ACRE2
+acre_sys_core_fullDuplex = false;
+acre_sys_core_ignoreAntennaDirection = true;
+acre_sys_core_interference = true;
+acre_sys_core_revealToAI = true;
+acre_sys_core_terrainLoss = 0.35;
+acre_sys_core_ts3ChannelName = "Arma3-TFAR";
+acre_sys_core_ts3ChannelPassword = "123";
+acre_sys_core_ts3ChannelSwitch = true;
+acre_sys_core_unmuteClients = true;
 /*
 acre_sys_core_postmixGlobalVolume = 1;
 acre_sys_core_premixGlobalVolume = 1;
 acre_sys_core_spectatorVolume = 1;
 */
+
 
 //settings for stHud:
 force STHud_Settings_Occlusion = true;
@@ -149,7 +153,6 @@ adv_aceSplint_reopenTime = 600;
 adv_aceSplint_reuseChance = 80;
 
 //ACE:
-
 ace_advanced_ballistics_ammoTemperatureEnabled = true;
 ace_advanced_ballistics_barrelLengthInfluenceEnabled = true;
 ace_advanced_ballistics_bulletTraceEnabled = true;
