@@ -12,21 +12,22 @@
  *
  * Example:
  * [(group this), west] call adv_fnc_setSide;
+ * or
+ * [_unit, 1] call adv_fnc_setSide;
  *
  * Public: Yes
  */
 
 params [
 	["_units", [], [[],grpNull]],
-	["_side", west, [west]],
-	"_newgrp"
+	["_side", west, [west,0]]
 ];
 
 if (_side isEqualType 0) then {
 	_side = _side call BIS_fnc_sideType;
 };
 
-_newgrp = createGroup _side;
+private _newgrp = createGroup _side;
 call {
 	if (_units isEqualType []) exitWith {
 		{[_x] joinSilent _newgrp} count _units;
