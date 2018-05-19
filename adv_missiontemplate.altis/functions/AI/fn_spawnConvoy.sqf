@@ -2,7 +2,8 @@
  * Author: Belbo
  *
  * Creates a convoy.
- * The convoy will be spawned at the provided location and move to a target location with combat mode "SAFE" and "LIMITED" speed. Upon arrival all carried units will be unloaded.
+ * The convoy will be spawned at the provided location and move to a target location. Upon arrival all carried units will be unloaded.
+ * Vehicles from convoy will return to start and despawn.
  * Make SURE the first vehicle has enough space to start moving (eg. no houses blocking a whole turning circcle of the vehicle).
  * The first array of units contains the vehicles that make up the convoy.
  * Second array of units contains the units each vehicle with at least as many free cargo spaces will carry. If there are more units in the array than free cargo spaces, no group will spawn!
