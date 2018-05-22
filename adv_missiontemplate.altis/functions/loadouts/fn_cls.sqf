@@ -31,7 +31,10 @@ _backpack = ["B_FieldPack_khk","B_FieldPack_oli","B_FieldPack_cbr"];
 if ( 571710 in (getDLCs 1) ) then {
 	_backpack = ["B_Messenger_Coyote_F","B_Messenger_Olive_F"];
 };
-_insignium = "";
+if (isClass(configFile >> "CfgPatches" >> "adv_retex")) then {
+	_backpack = ["B_AssaultPack_rgr_Medic","B_AssaultPack_rgr_Medic","B_AssaultPack_blk_Medic"];
+};
+_insignium = if (isClass(configFile >> "CfgPatches" >> "adv_insignia")) then {"ADV_insignia_medic"} else {""};
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "G_Combat";
 _unitTraits = [["medic",true]];
@@ -477,7 +480,6 @@ switch (_par_customUni) do {
 		_uniform = ["U_B_T_Soldier_AR_F","U_B_T_Soldier_SL_F","U_B_T_Soldier_F","U_B_T_Soldier_F"];
 		_vest = ["V_PlateCarrier1_tna_F","V_PlateCarrier2_tna_F"];
 		_headgear = ["H_HelmetB_tna_F","H_HelmetB_Enh_tna_F","H_HelmetB_Light_tna_F"];
-		_backpack = ["B_FieldPack_oli"];
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	case 30: {
