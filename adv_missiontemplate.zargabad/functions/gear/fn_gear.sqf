@@ -364,6 +364,7 @@ if !( ["diver",_fnc_scriptNameParent] call BIS_fnc_inString || ["pilot",_fnc_scr
 if (_insignium isEqualTo "") then {
 	[_unit] call ADV_fnc_insignia;
 } else {
+	[_unit,""] call BIS_fnc_setUnitInsignia;
 	[_unit,_insignium] call BIS_fnc_setUnitInsignia;
 };
 if (toLower (uniform _unit) isEqualTo "rhs_uniform_acu_ucp" && isClass (configFile >> "CfgPatches" >> "adv_insignia")) then {

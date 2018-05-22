@@ -27,8 +27,8 @@ params ["_player",["_special",""]];
 _uniform = ["U_B_CombatUniform_mcam_vest"];
 _vest = ["V_PlateCarrier2_rgr","V_PlateCarrier1_rgr"];
 _headgear = ["H_HelmetSpecB"];
-_backpack = ["B_Kitbag_rgr"];
-_insignium = "";
+_backpack = if (isClass(configFile >> "CfgPatches" >> "adv_retex")) then {["B_Kitbag_rgr_medic","B_Kitbag_rgr_medic","B_Kitbag_blk_medic"]} else {["B_Kitbag_rgr"]};
+_insignium = if (isClass(configFile >> "CfgPatches" >> "adv_insignia")) then {"ADV_insignia_medic"} else {""};
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
 _unitTraits = [["medic",true],["engineer",false],["explosiveSpecialist",false],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0]];
@@ -477,7 +477,6 @@ switch (_par_customUni) do {
 		_uniform = ["U_B_T_Soldier_SL_F"];
 		_vest = ["V_PlateCarrier1_tna_F","V_PlateCarrier2_tna_F"];
 		_headgear = ["H_HelmetB_tna_F","H_HelmetB_Enh_tna_F","H_HelmetB_Light_tna_F"];
-		_backpack = ["B_Kitbag_rgr"];
 		_itemsLink = _itemsLink-["NVGoggles_OPFOR"]+["NVGoggles_tna_F"];
 	};
 	case 30: {

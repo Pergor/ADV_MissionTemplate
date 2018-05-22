@@ -32,7 +32,10 @@ _backpack = ["B_FieldPack_oli"];
 if ( 571710 in (getDLCs 1) ) then {
 	_backpack = ["B_Messenger_Olive_F"];
 };
-_insignium = "";
+if (isClass(configFile >> "CfgPatches" >> "adv_retex")) then {
+	_backpack = ["B_AssaultPack_dgtl_medic"];
+};
+_insignium = if (isClass(configFile >> "CfgPatches" >> "adv_insignia")) then {"ADV_insignia_medic"} else {""};
 _useProfileGoggles = 1;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "G_Combat";
 _unitTraits = [["medic",true],["engineer",false],["explosiveSpecialist",false],["UAVHacker",false],["camouflageCoef",1.0],["audibleCoef",1.0]];

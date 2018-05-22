@@ -17,6 +17,7 @@
 
 params [
 	["_target", player, [objNull]],
+	["_isMedic", false, [true]],
 	"_insigniaArray"
 ];
 
@@ -66,7 +67,7 @@ if ( side (group _target) isEqualTo west && (isClass (configFile >> "CfgPatches"
 
 //adv insignia
 if (isClass (configFile >> "CfgPatches" >> "adv_insignia")) exitWith {
-	if ( !(["fnc_gear",_fnc_scriptNameParent] call BIS_fnc_inString) && (["medic",str _target] call BIS_fnc_inString || ["cls",str _target] call BIS_fnc_inString) ) exitWith {
+	if ( (["medic",str _target] call BIS_fnc_inString || ["cls",str _target] call BIS_fnc_inString) || _isMedic) exitWith {
 		[_target,"ADV_insignia_medic"] call BIS_fnc_setUnitInsignia;
 	};
 	if ( ( side (group _target) isEqualTo west && !(_par_customUni isEqualTo 1 || _par_customUni isEqualTo 2 || _par_customUni isEqualTo 9) ) || ( (side (group _target) isEqualTo independent) && _par_indUni isEqualTo 1 ) ) exitWith {
