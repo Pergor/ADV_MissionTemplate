@@ -48,6 +48,7 @@ params [
 			};
 		}];
 		[_curator] call adv_fnc_zeusEVH;
+		[] remoteExec ["adv_fnc_aresModules",_unit];
 		/*
 		_curator addEventHandler ["CuratorObjectRegistered",{
 			disableSerialization;

@@ -35,6 +35,9 @@ _unitTraits = [["medic",false],["engineer",true],["explosiveSpecialist",true],["
 if (_special isEqualTo "EOD") then {
 	_vest = "V_EOD_olive_F";
 	_headgear = ["H_HelmetB"];
+	if (isClass(configFile >> "CfgPatches" >> "adv_retex")) then {
+		_headgear = ["H_PASGT_neckprot_black_F","H_PASGT_neckprot_olive_F"];
+	};
 	_backpack = ["B_Messenger_Coyote_F"];
 	_useProfileGoggles = 0;
 	(_unitTraits select 1) set [1,false];
@@ -532,6 +535,16 @@ switch (_par_customUni) do {
 		if (_special isEqualTo "EOD") then {
 			_vest = "V_EOD_olive_F";
 			_backpack = ["B_Messenger_Olive_F"];
+		};
+	};
+	case 31: {
+		//adv_retex WDL
+		if (isClass(configFile >> "CfgPatches" >> "adv_retex")) then {
+			_uniform = ["adv_retex_u_CombatUniform_wdl_vest","adv_retex_u_CombatUniform_i_wdl_shortsleeve"];
+			if !(_special in ["EOD","REPAIR"]) then {
+				_headgear = ["H_HelmetIA_wdl"];
+				_backpack = ["B_Carryall_oli"];
+			};
 		};
 	};
 	default {};

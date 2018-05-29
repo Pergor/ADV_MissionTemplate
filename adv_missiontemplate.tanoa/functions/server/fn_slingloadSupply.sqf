@@ -114,7 +114,6 @@ if (_veh isKindOf "PLANE") then {
 private _evhID = [format ["adv_evh_logistic_lightsOn_%1",(missionNamespace getVariable ["adv_evh_logistic_lightsOn_NR",0])], "onEachFrame", {params ["_veh","_pilot"];_pilot action ["lightOn",_veh];}, [_veh,_pilot]] call BIS_fnc_addStackedEventHandler;
 _veh setVariable ["adv_evh_logistic_lightsOn_EVH",_evhID];
 missionNamespace setVariable ["adv_evh_logistic_lightsOn_NR",(missionNamespace getVariable ["adv_evh_logistic_lightsOn_NR",0])+1,true];
-[(vehicle this) getVariable ['adv_evh_logistic_lightsOn_EVH',''],'onEachFrame'] call BIS_fnc_removeStackedEventHandler;
 [{ !alive (_this select 0) }, { params ["_veh"];[_veh getVariable ['adv_evh_logistic_lightsOn_EVH',''],'onEachFrame'] call BIS_fnc_removeStackedEventHandler; }, [_veh]] call CBA_fnc_waitUntilAndExecute;
 //add a getOut-EVH in case the vehicle comes under attack:
 _veh addEventHandler ["GetOut", {

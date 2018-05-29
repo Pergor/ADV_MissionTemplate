@@ -420,6 +420,15 @@ switch (_par_customUni) do {
 			_uniform = ["U_B_CTRG_Soldier_F","U_B_CTRG_Soldier_2_F","U_B_CTRG_Soldier_3_F"];
 		};
 	};
+	case 31: {
+		//adv_retex WDL
+		if (isClass(configFile >> "CfgPatches" >> "adv_retex")) then {
+			_uniform = ["adv_retex_u_CombatUniform_wdl","adv_retex_u_CombatUniform_wdl_vest","adv_retex_u_CombatUniform_wdl_tshirt","adv_retex_u_CombatUniform_i_wdl","adv_retex_u_CombatUniform_i_wdl_shortsleeve"];
+			_vest = ["V_I_G_resistanceLeader_F"];
+			_headgear = ["H_HelmetB"];
+			_backpack = if ( 571710 in (getDLCs 1) ) then { ["B_LegStrapBag_black_F"] } else { ["B_Assaultpack_rgr"] };
+		};
+	};
 	default {};
 };
 

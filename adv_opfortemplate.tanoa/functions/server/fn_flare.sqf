@@ -21,7 +21,7 @@
 params [
 	["_spawn", [], [[]]]
 	,["_color", "YELLOW", [""]]
-	,["_spread", 0 , [0]]
+	,["_spread", 50 , [0]]
 	,["_height", 160, [0]]
 ];
 
@@ -30,7 +30,8 @@ params [
 	if (count _spawn > 1) then {_height = _height + random 3;};
 	
 	private _spawnPos = [_object] call adv_fnc_getPos;
-	_spawnPos set [2,(_spawnPos select 2)+_height];
+	//_spawnPos set [2,(_spawnPos select 2)+_height];
+	_spawnPos set [2,_height];
 	
 	private _colorType = switch (toUpper _color) do {
 		case "WHITE": {"F_40mm_White"};

@@ -63,6 +63,7 @@ class adv
 		class addACEItems {};
 		class addVehicleLoad {};
 		class changeVeh {};
+		class createAresLogic {};
 		class disableVehSelector {};
 		class enableInfoComponent {};
 		class manageVeh {};
@@ -108,6 +109,7 @@ class adv
 	};
 	class AI
 	{
+		class aceHostage {};
 		class aiTask {};
 		class changeName {};
 		class findNearestEnemy {};
@@ -127,6 +129,7 @@ class adv
 	{
 		file = "functions\client\internal";
 		class adminCommands {};
+		class aresModules {};
 		class dialogTeleport {};
 		class execTeleport {};
 		class moveRespMarker {};
@@ -134,7 +137,7 @@ class adv
 	};
 	class client
 	{
-		class aceMine {};		
+		class aceMine {};	
 		class changeUnit {};
 		class disableInput {};
 		class dispLaunch {};

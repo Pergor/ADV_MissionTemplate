@@ -26,6 +26,9 @@ params ["_player",["_special",""]];
 _uniform = ["U_C_ConstructionCoverall_Blue_F","U_C_ConstructionCoverall_Black_F"];
 _vest = ["V_EOD_blue_F","V_EOD_olive_F"];
 _headgear = ["H_PASGT_basic_blue_F"];
+if (isClass(configFile >> "CfgPatches" >> "adv_retex")) then {
+	_headgear = ["H_PASGT_neckprot_black_F","H_PASGT_neckprot_blue_F"];
+};
 _backpack = ["B_Messenger_Black_F","B_Messenger_Gray_F","B_Messenger_Olive_F"];
 _insignium = "";
 _useProfileGoggles = 0;		//If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).

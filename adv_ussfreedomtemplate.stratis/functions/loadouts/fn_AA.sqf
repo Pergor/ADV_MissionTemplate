@@ -485,6 +485,14 @@ switch (_par_customUni) do {
 			_headgear = ["H_HelmetB_TI_tna_F"];
 		};
 	};
+	case 31: {
+		//adv_retex WDL
+		if (isClass(configFile >> "CfgPatches" >> "adv_retex")) then {
+			_uniform = ["adv_retex_u_CombatUniform_wdl","adv_retex_u_CombatUniform_wdl_vest","adv_retex_u_CombatUniform_wdl_tshirt","adv_retex_u_CombatUniform_i_wdl","adv_retex_u_CombatUniform_i_wdl_shortsleeve"];
+			_headgear = ["H_HelmetIA_wdl"];
+			_backpack = ["B_Kitbag_rgr"];
+		};
+	};
 	default {};
 };
 

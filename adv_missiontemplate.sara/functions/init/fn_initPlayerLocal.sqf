@@ -182,6 +182,7 @@ if ( toUpper (str player) in ["Z1","Z2","Z3","Z4","Z5","OPF_Z1","OPF_Z2","OPF_Z3
 	private _loadoutHandle = player addAction [("<t color='#00FF00'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,-2,false,true,"","vehicle player isEqualTo player",5];
 	player setVariable ["adv_handle_loadoutAction",_loadoutHandle];
 	if ( isNull (getAssignedCuratorLogic player) ) then { [str player, 3] remoteExecCall ["adv_fnc_createZeus",2]; };
+	[] call adv_fnc_aresModules;
 	if ( isNil "adv_evh_zeusRespawn" ) then {
 		adv_evh_zeusRespawn = player addEventhandler ["RESPAWN",{
 			private _loadoutHandle = player addAction [("<t color='#00FF00'>" + ("Loadout-Menü") + "</t>"), {createDialog "adv_loadouts_mainDialog";},nil,-2,false,true,"","vehicle player isEqualTo player",5];

@@ -15,7 +15,7 @@
  * Public: Yes
  */
 
-if !(isClass(configFile >> "CfgPatches" >> "rhs_main")) exitWith {};
+if !(isClass(configFile >> "CfgPatches" >> "rhsusf_main")) exitWith {};
 
 params [
 	["_veh", objNull, [objNull]]

@@ -102,8 +102,8 @@ Sonstige Server-Funktionen:<br/>
 <font color='#A0F020'>
 <execute expression='{[98] call adv_fnc_weather} remoteExec [""call"",0];systemChat ""Zufälliges Wetter eingestellt."";'>Zufälliges, konstantes Wetter einstellen (wechselt ohne Übergang!)</execute><br/>
 <br/>") + _freedomText + ("
-<execute expression='missionNamespace setVariable [""adv_par_logisticDrop"",1,true];systemChat ""Automatic logistic drop activated."";'>Activate automatic logistic drop</execute><br/>
-<execute expression='missionNamespace setVariable [""adv_par_logisticDrop"",0,true];systemChat ""Automatic logistic drop deactivated."";'>Deactivate automatic logistic drop</execute><br/>
+<execute expression='missionNamespace setVariable [""adv_par_logisticDrop"",1,true];systemChat ""Automatic logistic drop activated."";'>Activate logistic drop option on crates</execute><br/>
+<execute expression='missionNamespace setVariable [""adv_par_logisticDrop"",0,true];systemChat ""Automatic logistic drop deactivated."";'>Deactivate logistic drop option on crates</execute><br/>
 <br/>
 </font>")]];
 

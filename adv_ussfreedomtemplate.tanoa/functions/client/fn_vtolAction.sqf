@@ -10,7 +10,7 @@
  * Function executed - <BOOL>
  *
  * Example:
- * [target] spawn adv_fnc_vtolAction;
+ * [target] call adv_fnc_vtolAction;
  *
  * Public: No
  */

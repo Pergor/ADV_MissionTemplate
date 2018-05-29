@@ -450,6 +450,12 @@ switch (_par_customUni) do {
 			_uniform = ["U_B_CTRG_Soldier_F"];
 		};
 	};
+	case 31: {
+		//adv_retex WDL
+		if (isClass(configFile >> "CfgPatches" >> "adv_retex")) then {
+			_uniform = ["adv_retex_u_CombatUniform_wdl"];
+		};
+	};
 	default {};
 };
 

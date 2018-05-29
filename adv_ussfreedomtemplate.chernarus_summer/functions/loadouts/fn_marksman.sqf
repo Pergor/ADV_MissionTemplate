@@ -24,7 +24,7 @@ params ["_player",["_special",""]];
  */
 
 //clothing - (string)
-_uniform = ["U_B_SpecopsUniform_sgg"];
+_uniform = ["U_B_CombatUniform_mcam_vest"];
 _vest = ["V_PlateCarrier2_rgr","V_PlateCarrier1_rgr"];
 _headgear = ["H_HelmetSpecB_paint1","H_HelmetSpecB_paint2","H_HelmetB_desert","H_HelmetB_grass","H_HelmetB_paint"];
 _backpack = [""];
@@ -484,6 +484,13 @@ switch (_par_customUni) do {
 			_uniform = ["U_B_CTRG_Soldier_F","U_B_CTRG_Soldier_2_F","U_B_CTRG_Soldier_3_F"];
 			_vest = ["V_PlateCarrier1_rgr_noflag_F","V_PlateCarrier2_rgr_noflag_F"];
 			_headgear = ["H_HelmetB_TI_tna_F"];
+		};
+	};
+	case 31: {
+		//adv_retex WDL
+		if (isClass(configFile >> "CfgPatches" >> "adv_retex")) then {
+			_uniform = ["adv_retex_u_CombatUniform_wdl_vest","adv_retex_u_CombatUniform_i_wdl_shortsleeve"];
+			_headgear = ["H_HelmetIA_wdl"];
 		};
 	};
 	default {};

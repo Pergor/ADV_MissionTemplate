@@ -1,4 +1,4 @@
-if !( missionNamespace getVariable ["adv_par_civilians",0] isEqualTo 2 || missionNamespace getVariable ["adv_par_civilians",0] isEqualTo 3 ) exitWith {};
+if ( !(_this isEqualTo []) && {!(missionNamespace getVariable ["adv_par_civilians",0] isEqualTo 2 || missionNamespace getVariable ["adv_par_civilians",0] isEqualTo 3)} ) exitWith {};
 
 call compile preprocessFileLineNumbers "scripts\Engima\Traffic\Common\Common.sqf";
 call compile preprocessFileLineNumbers "scripts\Engima\Traffic\Common\Debug.sqf";

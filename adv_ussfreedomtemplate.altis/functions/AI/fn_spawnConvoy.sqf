@@ -108,9 +108,9 @@ _wp setWaypointStatements ["true", "vehicle this land 'GET OUT'"];
 private _wpFollow = _grp addWaypoint [getWPPos _wp, 0];
 
 //create return waypoint:
-private _returnWP = _group addWaypoint [_start, 0];
+private _returnWP = _grp addWaypoint [_start, 0];
 _returnWP setWaypointTimeout [2, 2, 2];
-_returnWP setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} foreach thisList;"];
+_returnWP setWaypointStatements ["true", "{deleteVehicle _x} forEach ([group _this ] call adv_fnc_getGroupVehicles); {deleteVehicle _x} foreach thisList;"];
 
 //get all vehicles of vehicle group:
 private _allVehiclesConvoy = [_grp] call adv_fnc_getGroupVehicles;
@@ -164,7 +164,7 @@ private _infantryGroups = [];
 		sleep 20;
 		[
 			{ {vehicle _x isEqualTo _x} count (units (_this select 0)) > ((count units (_this select 0))/3) || !alive (leader (_this select 0)) }
-			,{ params ["_grp_inf"];[_grp_inf, getPos (leader _grp_inf), 150, 2, true] call CBA_fnc_taskDefend; }
+			,{ params ["_grp_inf"];[_grp_inf, getPos (leader _grp_inf), 200, 2, true] call CBA_fnc_taskDefend; }
 			,[_grp_inf]
 		] call CBA_fnc_waitUntilAndExecute;
 	};

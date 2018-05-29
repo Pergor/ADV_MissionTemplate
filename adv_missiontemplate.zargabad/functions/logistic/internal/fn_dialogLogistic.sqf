@@ -21,7 +21,7 @@
 params [
 	["_crateSelection", "", [""]],
 	["_forcePlacement", false, [true]],
-	["_side", side (group player), [west]],
+	["_side", side (group player), [west,0]],
 	["_position", getPosASL player, []],
 	"_box"
 ];
@@ -82,6 +82,10 @@ if (isNil "ADV_logistic_maxAmount_crateGrenades") then {
 			ADV_logistic_maxAmount_crateShells = 999;
 		};
 	};
+};
+
+if (_side isEqualType 0) then {
+	_side = _side call BIS_fnc_sideType;
 };
 
 switch ( _side ) do {

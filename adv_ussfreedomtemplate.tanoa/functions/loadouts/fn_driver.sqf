@@ -417,6 +417,14 @@ switch (_par_customUni) do {
 			_uniform = ["U_B_CTRG_Soldier_F"];
 		};
 	};
+	case 31: {
+		//adv_retex WDL
+		if (isClass(configFile >> "CfgPatches" >> "adv_retex")) then {
+			_uniform = ["adv_retex_u_CombatUniform_sgg"];
+			_vest = ["V_TacVest_oli"];
+			_headgear = if (isClass(configFile >> "CfgPatches" >> "ace_hearing") && !isClass(configFile >> "CfgPatches" >> "adv_damnYouAceHearing")) then { ["H_HelmetB"] } else { ["H_HelmetCrew_I"] };
+		};
+	};
 	default {};
 };
 
