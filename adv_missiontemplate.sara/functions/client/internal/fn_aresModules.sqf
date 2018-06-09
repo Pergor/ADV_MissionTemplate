@@ -33,9 +33,13 @@ adv_scriptfnc_aresModules_getLocations = {
 ["ADV MissionTemplate - Common", "Create Location/Target", 
 	{
 		params [["_pos", [0,0,0], [[]], 3], ["_target", objNull, [objNull]]];
-		
-		private _return = [_pos] call adv_fnc_createAresLogic;
-		systemChat (format ["Location %1 created at %2",_return, _pos]);
+		if (isnil "adv_locationsGroup") then {
+			private _center = createCenter sideLogic;
+			adv_locationsGroup = createGroup _center;
+			adv_locationsGroup setGroupIDGlobal ["Locations"];
+		};		
+		private _return = [_pos,adv_locationsGroup] call adv_fnc_createAresLogic;
+		systemChat (format ["%1 created at %2",_return select 1, _pos]);
 	}
 ] call Ares_fnc_RegisterCustomModule;
 
@@ -125,6 +129,55 @@ adv_scriptfnc_aresModules_getLocations = {
 	}
 ] call Ares_fnc_RegisterCustomModule;
 
+["ADV MissionTemplate - Misc", "Start Combat Patrol", 
+	{
+		params [["_pos", [0,0,0], [[]], 3], ["_target", objNull, [objNull]]];
+		private _dialogResult = [
+			"Combat Patrol",
+			[
+				["CP Mission", ["RANDOM","SABOTAGE VEHICLES","SABOTAGE COMMS","ELIMINATE HVT"]]
+			]
+		] call Ares_fnc_showChooseDialog;
+		if (_dialogResult isEqualTo []) exitWith {};
+		_dialogResult params ["_type"];
+		if (_type < 1) then {_type = -1;};
+		[_type] remoteExec ["adv_fnc_cpinit",0];
+		"Combat Patrol startet..." remoteExec ["systemChat",0];
+	}
+] call Ares_fnc_RegisterCustomModule;
+
+if ( isClass(configFile >> "CfgPatches" >> "tfar_core") ) then {
+	["ADV MissionTemplate - Misc", "Turn Vehicle into Relay", 
+		{
+			params [["_pos", [0,0,0], [[]], 3], ["_target", objNull, [objNull]]];
+			
+			if ( isNull _target ) exitWith {
+				["No object was selected!"] call Achilles_fnc_showZeusErrorMessage;
+			};
+			
+			//Dialog:
+			private _dialogResult = [
+				"Settings for Relay",
+				[
+					["Height above NN", "", "50"]
+					,["Range", "", "20000"]
+				]
+			] call Ares_fnc_showChooseDialog;
+			
+			if (_dialogResult isEqualTo []) exitWith {};
+			_dialogResult params ["_height","_range"];
+			_height = parseNumber _height;
+			_range = parseNumber _range;
+			if ( _range isEqualTo 0 || _height isEqualTo 0 ) exitWith {
+				["Provided values aren't correct."] call Achilles_fnc_showZeusErrorMessage;
+			};
+			
+			[_target, _height, _range] remoteExec ["adv_fnc_radioRelay",0];
+			systemChat (format ["%1 is now a radio relay.",_target]);
+		}
+	] call Ares_fnc_RegisterCustomModule;
+};
+
 ["ADV MissionTemplate - Player", "Set Rating", 
 	{
 		params [["_pos", [0,0,0], [[]], 3], ["_target", objNull, [objNull]]];
@@ -151,6 +204,14 @@ adv_scriptfnc_aresModules_getLocations = {
 		};
 		
 		[_target,_rating] call adv_fnc_setRating;
+	}
+] call Ares_fnc_RegisterCustomModule;
+
+["ADV MissionTemplate - Player", "Teleport Yourself", 
+	{
+		params [["_pos", [0,0,0], [[]], 3], ["_target", objNull, [objNull]]];
+		
+		(vehicle player) setVehiclePosition [_pos,[],0,"NONE"];
 	}
 ] call Ares_fnc_RegisterCustomModule;
 
@@ -281,34 +342,6 @@ adv_scriptfnc_aresModules_getLocations = {
 	}
 ] call Ares_fnc_RegisterCustomModule;
 
-/*
-//Logistic
-["ADV MissionTemplate - Logistic", "Spawn Slingload Supply", 
-	{
-		params [["_pos", [0,0,0], [[]], 3], ["_target", objNull, [objNull]]];
-		
-		//Dialog:
-		private _dialogResult = [
-			"Settings for Slingload Supply",
-			[
-				["Side of the supply aircraft", "SIDE", 2]
-				,["Classname of the supply aircraft", "", "B_T_VTOL_01_vehicle_F"]
-				,["Classname of the cargo", "", "B_CargoNet_01_ammo_F"]
-				,["Code to be executed on cargo (cargo is _this)", "", "[_this] call adv_fnc_clearCargo; [_this] call adv_fnc_crateLarge;"]
-			]
-		] call Ares_fnc_showChooseDialog;
-
-		// If the dialog was closed.
-		if (_dialogResult isEqualTo []) exitWith {};
-		_dialogResult params ["_side","_vehicle","_cargo","_code"];
-		
-		_side = _side-1;
-		
-		[_pos,nil,_side,_vehicle,_cargo,_code] remoteExec ["adv_fnc_slingloadSupply",2];
-	}
-] call Ares_fnc_RegisterCustomModule;
-*/
-
 adv_scriptfnc_aresModules_slingLoad = {
 	params [["_pos", [0,0,0], [[]], 3], ["_target", objNull, [objNull]], "_mode"];
 
@@ -329,7 +362,7 @@ adv_scriptfnc_aresModules_slingLoad = {
 	private _dialogResult = [
 		"Settings for Slingload Supply",
 		[
-			["Target Destination", _selectionArray]
+			["Target Destination", _selectionArray, (count _selectionArray)]
 			,["Side of supply aircraft", "SIDE", 2]
 			//,["Aircraft (leave empty for standard)", "", "B_T_VTOL_01_vehicle_F"]
 		]
@@ -483,23 +516,65 @@ adv_scriptfnc_aresModules_slingLoad = {
 		private _dialogResult = [
 			"Spawn Convoy",
 			[
-				["Destination", _selectionArray]
+				["Destination", _selectionArray,(count _selectionArray)]
 				,["Side of the convoy", "SIDE", 0]
 				,["Vehicle classes (in order of convoy, no """")", "", "O_MRAP_02_hmg_F,O_Truck_02_transport_F,O_Truck_02_transport_F,O_Truck_02_transport_F,O_MRAP_02_hmg_F"]
 				,["Units that are transported in convoy (no """")", "", "O_Soldier_SL_F,O_Soldier_AR_F,O_Soldier_GL_F,O_Soldier_F,O_soldier_LAT_F,O_Soldier_F,O_Soldier_A_F,O_medic_F"]
+				,["Add additional waypoint stations (Needs additional locations)?",["No","Yes"]]
 			]
 		] call Ares_fnc_showChooseDialog;
-
-		// If the dialog was closed.
+		
 		if (_dialogResult isEqualTo []) exitWith {};
-		_dialogResult params ["_destNR","_side","_vehsSTR","_unitsSTR"];
+		_dialogResult params ["_destNR","_side","_vehsSTR","_unitsSTR","_wpAdd"];
 		
 		private _dest = _objectArray select _destNR;
 		private _vehs = _vehsSTR splitString ", ";
+		if (count _vehs isEqualTo 0) then {
+			_vehs = ["O_MRAP_02_hmg_F","O_Truck_02_transport_F","O_Truck_02_transport_F","O_Truck_02_transport_F","O_MRAP_02_hmg_F"];
+		};
 		private _units = _unitsSTR splitString ", ";
+		if (count _units isEqualTo 0) then {
+			_units = ["O_Soldier_SL_F","O_Soldier_AR_F","O_Soldier_GL_F","O_Soldier_F","O_soldier_LAT_F","O_Soldier_F","O_Soldier_A_F","O_medic_F"];
+		};
 		_side = _side-1;
+		private _array = [_pos,_dest,_vehs,_units,_side,["NORMAL","SAFE","GREEN","COLUMN"]];
+		// If the dialog was closed.
 		
-		[_pos,_dest,_vehs,_units,_side,["NORMAL","SAFE","GREEN","COLUMN"]] remoteExec ["ADV_fnc_spawnConvoy",2];
+		if (_wpAdd > 0) then {
+			private _finder = _objectArray find _dest;
+			_objectArray deleteAt _finder;
+			_selectionArray deleteAt _finder;
+			if (count _objectArray < 1) exitWith {
+				["Create at least two locations first! Find it under ADV MissionTemplate - Common"] call Achilles_fnc_showZeusErrorMessage;
+			};
+			private _counter = 1;
+			private _dialogArray = [];
+			{
+				private _array = [(format ["Waypoint %1",_counter]), _selectionArray, _counter];
+				_counter = _counter + 1;
+				_dialogArray pushBack _array;
+				nil
+			} count _objectArray;
+			private _dialogWPs = [
+				"Spawn Convoy",
+				_dialogArray
+			] call Ares_fnc_showChooseDialog;
+			if (_dialogWPs isEqualTo []) exitWith {
+				["Convoy creation aborted."] call Achilles_fnc_showZeusErrorMessage;
+			};
+			//_dialogWPs params ["_wp1","_wp2","_wp3","_wp4"];
+			private _WPs = [];
+			{
+				private _wp = _objectArray select _x;
+				if !(_wp isEqualTo _dest) then {
+					_WPs pushBackUnique _wp;
+				};
+				nil
+			} count _dialogWPs;
+			_array pushBack _WPs;
+		};
+		
+		_array remoteExec ["ADV_fnc_spawnConvoy",2];
 		
 	}
 ] call Ares_fnc_RegisterCustomModule;

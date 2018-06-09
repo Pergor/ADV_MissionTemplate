@@ -103,7 +103,7 @@ _wp setWaypointBehaviour _behaviour;
 _wp setWaypointCombatMode _combatMode;
 _wp setWaypointSpeed _speed;
 _wp setWaypointFormation _formation;
-_wp setWaypointStatements ["true", "vehicle this land 'GET OUT'"];
+_wp setWaypointStatements ["true", "vehicle this land 'GET OUT'; this setVariable ['adv_var_spawnConvoy',true];"];
 
 private _wpFollow = _grp addWaypoint [getWPPos _wp, 0];
 
@@ -159,13 +159,13 @@ private _infantryGroups = [];
 	[_grp_inf,10] call adv_fnc_setSafe;
 	[_grp_inf,_x] call _moveInCargo;
 	_infantryGroups pushback _grp_inf;
-	[_grp_inf] spawn {
-		params ["_grp_inf"];
+	[_grp_inf,_grp] spawn {
+		params ["_grp_inf","_grp"];
 		sleep 20;
 		[
-			{ {vehicle _x isEqualTo _x} count (units (_this select 0)) > ((count units (_this select 0))/3) || !alive (leader (_this select 0)) }
-			,{ params ["_grp_inf"];[_grp_inf, getPos (leader _grp_inf), 200, 2, true] call CBA_fnc_taskDefend; }
-			,[_grp_inf]
+			{ {vehicle _x isEqualTo _x} count (units (_this select 0)) > ((count units (_this select 0))/3) || (leader (_this select 1) getVariable ['adv_var_spawnConvoy',false]) }
+			,{ params ["_grp_inf","_grp"]; [_grp_inf, getPos (leader _grp_inf), 200, 2, 1, 0.2] call CBA_fnc_taskDefend; _grp_inf setBehaviour "AWARE"; }
+			,[_grp_inf,_grp]
 		] call CBA_fnc_waitUntilAndExecute;
 	};
 	nil;

@@ -102,11 +102,14 @@ adv_evh_jamchance_entitykilled = addMissionEventHandler [
 adv_jamchance_scriptfnc_addEVH = {
 	adv_jamchance_evh_fired = player addEventhandler ["fired", {
 		params ["_unit","_weapon","_muzzle","_mode","_ammo","_magazine"];
-		if (floor random 25 < 1) then {
+		if (floor random 20 < 1) then {
 			[_unit, currentWeapon _unit] call ace_overheating_fnc_jamWeapon;
 		};
 	}];
-	[ { !(player getVariable ["adv_jc_hasWrongWeapon",false]) }, {player removeEventHandler ["fired",adv_jamchance_evh_fired]}, []] call CBA_fnc_waitUntilAndExecute;
+	[ { !(player getVariable ["adv_jc_hasWrongWeapon",false]) }, {
+		player removeEventHandler ["fired",adv_jamchance_evh_fired];
+		["You now have taken a weapon from your side again.", 2] call ace_common_fnc_displayTextStructured;
+	}, []] call CBA_fnc_waitUntilAndExecute;
 };
 
 //player eventhandler:
