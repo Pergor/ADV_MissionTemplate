@@ -251,7 +251,7 @@ ace_map_mapShake = true;
 ace_map_mapShowCursorCoordinates = true;
 
 ace_markers_movableMarkersEnabled = false;
-ace_markers_moveRestriction = 1;
+ace_markers_moveRestriction = 3;
 
 ace_medical_AIDamageThreshold = 1;
 ace_medical_ai_enabledFor = 2;
@@ -277,8 +277,8 @@ ace_medical_healHitPointAfterAdvBandage = true;
 ace_medical_increaseTrainingInLocations = true;
 ace_medical_keepLocalSettingsSynced = true;
 ace_medical_level = 2;
-ace_medical_litterCleanUpDelay = 300;
-ace_medical_litterSimulationDetail = 1;
+//ace_medical_litterCleanUpDelay = 300;
+//ace_medical_litterSimulationDetail = 1;
 ace_medical_maxReviveTime = 900;
 ace_medical_medicSetting = 2;
 ace_medical_medicSetting_PAK = 2;
@@ -308,24 +308,24 @@ ace_mk6mortar_allowCompass = true;
 ace_mk6mortar_allowComputerRangefinder = false;
 ace_mk6mortar_useAmmoHandling = false;
 
-ace_nametags_playerNamesMaxAlpha = 0.8;
+//ace_nametags_playerNamesMaxAlpha = 0.8;
 ace_nametags_playerNamesViewDistance = 10;
-ace_nametags_showCursorTagForVehicles = false;
+//ace_nametags_showCursorTagForVehicles = false;
 
 ace_nightvision_aimDownSightsBlur = 0.2;
 ace_nightvision_disableNVGsWithSights = false;
 ace_nightvision_effectScaling = 0.2;
-ace_nightvision_fogScaling = 1.5;
-ace_nightvision_noiseScaling = 0.3;
+ace_nightvision_fogScaling = 0.5;
+ace_nightvision_noiseScaling = 1.0;
 ace_nightvision_shutterEffects = true;
 
 ace_noradio_enabled = true;
 
-ace_overheating_displayTextOnJam = true;
+//ace_overheating_displayTextOnJam = true;
 ace_overheating_enabled = true;
 ace_overheating_overheatingDispersion = true;
-ace_overheating_showParticleEffects = true;
-ace_overheating_showParticleEffectsForEveryone = false;
+//ace_overheating_showParticleEffects = true;
+//ace_overheating_showParticleEffectsForEveryone = false;
 ace_overheating_unJamFailChance = 0.1;
 ace_overheating_unJamOnreload = false;
 
@@ -376,9 +376,7 @@ ace_scopes_zeroReferenceBarometricPressure = 1013.25;
 ace_scopes_zeroReferenceHumidity = 0;
 ace_scopes_zeroReferenceTemperature = 15;
 
-ace_spectator_enableAI = false;
-ace_spectator_filterSides = 0;
-ace_spectator_filterUnits = 2;
+ace_spectator_enableAI = true;
 ace_spectator_restrictModes = 0;
 ace_spectator_restrictVisions = 0;
 
@@ -392,6 +390,7 @@ ace_switchunits_switchToWest = false;
 
 ace_ui_allowSelectiveUI = false;
 ace_ui_ammoCount = false;
+ace_ui_groupBar = false;
 ace_ui_gunnerAmmoCount = true;
 ace_ui_gunnerZeroing = true;
 
@@ -402,15 +401,14 @@ ace_vehiclelock_vehicleStartingLockState = -1;
 ace_viewdistance_enabled = false;
 ace_viewdistance_limitViewDistance = 10000;
 
-ace_weather_enableServerController = false;
 ace_weather_enabled = false;
+ace_weather_enableServerController = false;
 ace_weather_serverUpdateInterval = 60;
 ace_weather_syncMisc = false;
 ace_weather_syncRain = false;
 ace_weather_syncWind = false;
 ace_weather_updateInterval = 60;
-ace_weather_useACEWeather = false;
-ace_weather_windSimulation = false;
+ace_weather_windSimulation = true;
 
 ace_winddeflection_enabled = true;
 ace_winddeflection_simulationInterval = 0.05;

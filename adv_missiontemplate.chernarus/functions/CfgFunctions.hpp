@@ -54,7 +54,7 @@ class adv
 		class jammer {};
 		class mortarFlare {};
 		class radioRelay {};
-		class radioRelay_new {};
+		//class radioRelay_new {};
 		class weather {};
 	};
 	class server_internal
