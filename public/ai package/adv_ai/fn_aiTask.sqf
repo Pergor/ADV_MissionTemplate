@@ -61,10 +61,12 @@ if (_location isEqualType "" && _radius isEqualTo -1) then {
 private _pos = [_start, _radius] call CBA_fnc_randPos;
 private _spawn = [_pos,5,30,3,0,20,0,[],[_start,_start]] call BIS_fnc_findSafePos;
 
-//spawn a group
+//get side, if side ID is provided:
 if (_side isEqualType 0) then {
 	_side = _side call BIS_fnc_sideType;
 };
+
+//spawn a group
 private _grp = [_spawn,_units,_side] call adv_ai_fnc_spawnGroup;
 [units _grp,10] call adv_ai_fnc_setSafe;
 
