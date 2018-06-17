@@ -23,8 +23,12 @@ params [
 	,["_pos2", 0, [0]]
 ];
 
-private _worldAnchor = getArray (configFile >> "CfgWorlds" >> worldName >> "safePositionAnchor");
-private _anchorPos = [_worldAnchor select 0,_worldAnchor select 1,0];
+private _worldAnchor = (configFile >> "CfgWorlds" >> worldName >> "safePositionAnchor") call BIS_fnc_getCfgData;
+private _anchorPos = if (!isNil "_worldAnchor") then {
+	[_worldAnchor select 0,_worldAnchor select 1,0];
+} else {
+	[0,0,0]
+};
 
 private _base = call {
 	if ( _pos isEqualType "" ) exitWith { getMarkerPos _pos };

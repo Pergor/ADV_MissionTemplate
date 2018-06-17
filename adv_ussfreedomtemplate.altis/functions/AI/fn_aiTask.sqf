@@ -17,12 +17,15 @@
  *			If no enemy is found within 5000 meters, safePositionAnchor of map will be used.
  * 4: radius around the spawn position for the group task. If spawn location is an area marker and no radius provided, the radius will be the geometric mean of the marker's radiuses (optional) - <NUMBER>
  * 5: attack position/object/marker with radius. If a unit is provided, ai will continually stalk the unit. (optional - only necessary with behaviour mode 4) - <ARRAY> in format [position, <NUMBER>]
+ * 6: Code. Will be executed after spawn. Spawned group is _this in code. (optional) - <STRING>
  *
  * Return Value:
  * Spawned group - <GROUP>
  *
  * Example:
  * ["spawnMarker",["O_Soldier_TL_F","O_Soldier_GL_F"],east,0,200] call adv_fnc_aiTask;
+ * or
+ * ["spawnMarker",["O_Soldier_TL_F","O_Soldier_GL_F"],east,0,200,nil,"{_x unlinkItem (hmd _x)} forEach (units _this)"] call adv_fnc_aiTask;
  * or
  * ["spawnMarker",["O_Soldier_TL_F","O_Soldier_GL_F"],east,4,200,[attackLogic,50]] call adv_fnc_aiTask;
  *
@@ -38,6 +41,7 @@ params [
 	,["_mode", 0, [0]]
 	,["_radius", -1, [0]]
 	,["_attack", [objNull,100], [[]]]
+	,["_code", "", [""]]
 ];
 
 //Default fall back if one of the necessary positions isn't found:
@@ -127,6 +131,8 @@ call {
 	};
 	[_grp, _start, _radius, 7, "MOVE", "SAFE", "GREEN", "LIMITED", "STAG COLUMN", "", [1,1.5,2]] call CBA_fnc_taskPatrol;
 };
+
+_grp call compile _code;
 
 if !(_mode isEqualTo 4 || _mode isEqualTo 3) then {
 	_grp enableDynamicSimulation true;
