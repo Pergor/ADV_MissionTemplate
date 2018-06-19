@@ -50,7 +50,7 @@ private _ace_reviveTime = ["ace_medical_maxReviveTime",1200] call BIS_fnc_getPar
 private _ace_reviveTimeSTR = format ["%1",_ace_reviveTime/60];
 private _advACECPR_maxTimeSTR = "";
 private _advACECPR_maxTime = ["param_adv_aceCPR_maxTime",100] call BIS_fnc_getParamValue;
-if (_advACECPR_maxTime < 100 ) then {
+if (_advACECPR_maxTime > 0 ) then {
 	private _maxTime_mp = (_ace_reviveTime*(_advACECPR_maxTime/100))/60;
 	_advACECPR_maxTimeSTR = format ["<br/>- CPR ist ~%1 Minuten nach Beginn der Revive-Zeit nicht mehr möglich.",round _maxTime_mp];
 };
