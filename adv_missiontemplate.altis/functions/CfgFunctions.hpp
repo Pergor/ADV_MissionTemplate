@@ -86,6 +86,7 @@ class adv
 		class getBaseClass {};
 		class getClassNames {};
 		class getGroupVehicles {};
+		class getList {};
 		class getOppPos {};
 		class getPos {};
 		class HCobjects {};
