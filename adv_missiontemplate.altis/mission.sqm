@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=2704;
+		nextID=2722;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=63;
+		nextID=97;
 	};
 	class Camera
 	{
-		pos[]={15217.3,46.010612,17237.92};
-		dir[]={-0.53613424,-0.60934478,0.58417886};
-		up[]={-0.41201794,0.79290265,0.44894069};
-		aside[]={0.7367577,1.1525117e-008,0.67616427};
+		pos[]={15218.627,49.601692,17256.006};
+		dir[]={-0.13898079,-0.74442422,0.65308601};
+		up[]={-0.15494825,0.66770583,0.72811973};
+		aside[]={0.97809958,-5.3958502e-008,0.20814562};
 	};
 };
 binarizationWanted=0;
@@ -110,7 +110,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=9;
+		items=25;
 		class Item0
 		{
 			dataType="Layer";
@@ -5232,7 +5232,7 @@ class Mission
 						};
 					};
 					id=2680;
-					atlOffset=-0.0046100616;
+					atlOffset=-0.0080337524;
 				};
 				class Item1
 				{
@@ -7754,7 +7754,7 @@ class Mission
 						};
 					};
 					id=2683;
-					atlOffset=-0.0538311;
+					atlOffset=-0.041875839;
 				};
 				class Item1
 				{
@@ -10461,7 +10461,7 @@ class Mission
 				};
 			};
 			id=2387;
-			atlOffset=-0.6050148;
+			atlOffset=-0.59520912;
 		};
 		class Item5
 		{
@@ -13996,6 +13996,267 @@ class Mission
 			};
 			id=2608;
 			atlOffset=0.10418892;
+		};
+		class Item9
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15197.091,18.351553,17283.287};
+				angles[]={0,2.3736477,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2704;
+			type="Land_CampingTable_white_F";
+		};
+		class Item10
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15197.438,18.828472,17283.641};
+				angles[]={0,0.80285144,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2705;
+			type="Land_Defibrillator_F";
+		};
+		class Item11
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15196.763,18.818386,17283.033};
+				angles[]={0,5.5602059,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2706;
+			type="Land_FirstAidKit_01_open_F";
+		};
+		class Item12
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15195.343,18.871395,17281.537};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2707;
+			type="Land_IntravenStand_01_1bag_F";
+		};
+		class Item13
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15194.333,18.87084,17281.006};
+				angles[]={0,0,0.0012918708};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2708;
+			type="Land_IntravenStand_01_1bag_F";
+			atlOffset=0.00033187866;
+		};
+		class Item14
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15194.652,18.871267,17282.125};
+				angles[]={0,0,0.0012918708};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2709;
+			type="Land_IntravenStand_01_1bag_F";
+			atlOffset=0.00033378601;
+		};
+		class Item15
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15196.994,18.77178,17283.391};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2712;
+			type="Land_Stethoscope_01_F";
+			atlOffset=0.00040245056;
+		};
+		class Item16
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15197.285,18.779554,17283.367};
+				angles[]={0,2.2340214,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2713;
+			type="Land_IntravenBag_01_full_F";
+			atlOffset=0.00040245056;
+		};
+		class Item17
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20799.061,28.123569,7274.9229};
+				angles[]={0.029324362,5.7066374,6.276526};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2714;
+			type="Land_CampingTable_white_F";
+		};
+		class Item18
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20798.648,28.609755,7274.6177};
+				angles[]={0.02932233,4.1358409,6.276526};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=2715;
+			type="Land_Defibrillator_F";
+			atlOffset=0.81334877;
+		};
+		class Item19
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20799.426,28.582623,7275.0854};
+				angles[]={0.02932233,2.6100099,6.276526};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=2716;
+			type="Land_FirstAidKit_01_open_F";
+			atlOffset=0.81324768;
+		};
+		class Item20
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20801.105,28.623127,7276.3213};
+				angles[]={0.0066682254,3.3329895,6.2765174};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2717;
+			type="Land_IntravenStand_01_1bag_F";
+			atlOffset=0.0046691895;
+		};
+		class Item21
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20802.195,28.613998,7276.6514};
+				angles[]={0.0066682254,3.3329895,6.2765174};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2718;
+			type="Land_IntravenStand_01_1bag_F";
+			atlOffset=0.0050048828;
+		};
+		class Item22
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20801.67,28.624422,7275.6128};
+				angles[]={0.0066682254,3.3329895,6.2765174};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2719;
+			type="Land_IntravenStand_01_1bag_F";
+			atlOffset=0.0049991608;
+		};
+		class Item23
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20799.131,28.547155,7274.7788};
+				angles[]={0.02932233,3.3329895,6.276526};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=2720;
+			type="Land_Stethoscope_01_F";
+			atlOffset=0.81578064;
+		};
+		class Item24
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20798.85,28.553743,7274.8574};
+				angles[]={0.02932233,5.5670109,6.276526};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=2721;
+			type="Land_IntravenBag_01_full_F";
+			atlOffset=0.81502342;
 		};
 	};
 };
