@@ -44,6 +44,6 @@ private _targetPos = call {
 _chute = createVehicle ["B_Parachute_02_F", _targetPos, [], 0, "NONE"];
 _bomb = createVehicle [_bombType, _targetpos, [], 0, "NONE"];
 _bomb attachTo [_chute, [0, 0, 0]];
-_chute setVelocity [0,0,-50];
+_chute setVelocity [0,0,-70];
 
 _bomb;

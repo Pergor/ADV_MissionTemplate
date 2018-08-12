@@ -65,7 +65,7 @@ ADV_sriptfnc_dropLogistic = {
 				if (_side isEqualTo independent) exitWith {"respawn_guerrila"};
 				""
 			};
-			if ( !(_respMarker isEqualTo "") && {_target distance _respMarker > 500}) exitWith { (_target) removeAction _id; ["Zu weit vom Start entfernt",5] call adv_fnc_timedHint; };
+			if ( !(_respMarker isEqualTo "") && {_target distance _respMarker > 200}) exitWith { (_target) removeAction _id; ["Zu weit vom Start entfernt",5] call adv_fnc_timedHint; };
 			[_target] onMapSingleClick "openmap false; [_pos, nil, 1, (missionNamespace getVariable ['adv_logistic_var_dropType','B_T_VTOL_01_vehicle_F']), (_this select 0)] call adv_fnc_slingloadSupply; onmapsingleclick '';";
 			_target setVariable ["adv_handle_dropLogistic",_nil,true];
 			(_target) removeAction _id;

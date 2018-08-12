@@ -76,7 +76,13 @@ _handgunSilencer = "muzzle_snds_acp";
 _handgunAmmo = [2,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 
 //weapons - launcher - (string)
-_launcher = if (_special isEqualTo "AT") then {"launch_NLAW_F"} else {""};
+_launcher = if (_special isEqualTo "AT") then {
+	if (798390 in (getDLCs 1)) then {
+		["launch_NLAW_F","launch_NLAW_F","launch_MRAWS_green_F","launch_MRAWS_olive_F"]
+	} else {
+		"launch_NLAW_F"
+	};
+} else {""};
 
 //launcher ammo (if a launcher is given) - (integer) 
 _launcherAmmo = if (_special isEqualTo "AT") then {[1,0]} else {[0,0]};		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
@@ -344,6 +350,12 @@ switch (_par_customWeap) do {
 		_optic = ["optic_ACO","optic_Holosight_blk_F"];
 		_silencer = "muzzle_snds_M";
 		_primaryweaponAmmo set [1,2];
+	};
+	case 31: {
+		//Vanilla TRG
+		_primaryWeapon = ["arifle_TRG21_F","arifle_TRG20_F"];
+		_silencer = ["muzzle_snds_M"];
+		_primaryweaponAmmo set [1,4];
 	};
 	default {};
 };

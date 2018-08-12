@@ -288,6 +288,12 @@ switch (true) do {
 		_primaryweapon = "SMG_05_F";
 		_silencer = "muzzle_snds_L";
 	};
+	case (_par_customWeap == 31): {
+		//Vanilla TRG
+		_primaryWeapon = ["arifle_TRG20_F"];
+		_silencer = ["muzzle_snds_M"];
+		_primaryweaponAmmo set [1,4];
+	};
 	default {};
 };
 switch (_par_customUni) do {

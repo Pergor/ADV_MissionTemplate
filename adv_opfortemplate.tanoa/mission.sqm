@@ -8,18 +8,18 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=4290;
+		nextID=4298;
 	};
 	class LayerIndexProvider
 	{
-		nextID=570;
+		nextID=572;
 	};
 	class Camera
 	{
-		pos[]={11658.536,89.798279,3074.3013};
-		dir[]={0.37046713,-0.65994012,0.65375656};
-		up[]={0.3253918,0.75125736,0.57421565};
-		aside[]={0.87009007,3.3588731e-007,-0.4930571};
+		pos[]={11689.057,6.9164257,3175.1545};
+		dir[]={0.86356556,-0.39148447,-0.31806272};
+		up[]={0.36746767,0.92012697,-0.13534205};
+		aside[]={-0.34564215,1.3666577e-006,-0.93845558};
 	};
 };
 binarizationWanted=0;
@@ -105,7 +105,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=138;
+		items=146;
 		class Item0
 		{
 			dataType="Marker";
@@ -1599,6 +1599,7 @@ class Mission
 			};
 			id=3497;
 			type="O_Heli_Light_02_F";
+			atlOffset=-0.0017638206;
 		};
 		class Item54
 		{
@@ -1636,6 +1637,7 @@ class Mission
 			};
 			id=3508;
 			type="O_Heli_Transport_04_F";
+			atlOffset=-0.00025653839;
 		};
 		class Item56
 		{
@@ -3035,7 +3037,7 @@ class Mission
 			};
 			id=3774;
 			type="O_Heli_Light_02_unarmed_F";
-			atlOffset=0.19999981;
+			atlOffset=0.19050884;
 		};
 		class Item112
 		{
@@ -6299,6 +6301,7 @@ class Mission
 			};
 			id=4288;
 			type="O_Plane_CAS_02_dynamicLoadout_F";
+			atlOffset=4.7683716e-007;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -6364,6 +6367,140 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item138
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11692.979,5.2734246,3174.7251};
+				angles[]={6.2778587,0.68045515,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=4290;
+			type="Land_CampingTable_white_F";
+		};
+		class Item139
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11692.59,5.7530451,3175.0276};
+				angles[]={6.2778587,5.3928442,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=4291;
+			type="Land_Defibrillator_F";
+			atlOffset=0.0010828972;
+		};
+		class Item140
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11693.274,5.738452,3174.4319};
+				angles[]={6.2778587,3.8670135,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=4292;
+			type="Land_FirstAidKit_01_open_F";
+			atlOffset=0.81536055;
+		};
+		class Item141
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11694.921,5.7866468,3173.1914};
+				angles[]={6.2778587,4.589993,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=4293;
+			type="Land_IntravenStand_01_1bag_F";
+			atlOffset=0.0015797615;
+		};
+		class Item142
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11695.577,5.7762537,3172.2539};
+				angles[]={6.259192,4.589993,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=4294;
+			type="Land_IntravenStand_01_1bag_F";
+			atlOffset=0.00057888031;
+		};
+		class Item143
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11694.422,5.781951,3172.4343};
+				angles[]={6.259192,4.589993,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=4295;
+			type="Land_IntravenStand_01_1bag_F";
+			atlOffset=0.0019135475;
+		};
+		class Item144
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11692.892,5.6932225,3174.6179};
+				angles[]={6.2778587,4.589993,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=4296;
+			type="Land_Stethoscope_01_F";
+			atlOffset=0.00053834915;
+		};
+		class Item145
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11692.88,5.7028122,3174.9097};
+				angles[]={6.2778587,0.54082888,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=4297;
+			type="Land_IntravenBag_01_full_F";
+			atlOffset=0.0007982254;
 		};
 	};
 };

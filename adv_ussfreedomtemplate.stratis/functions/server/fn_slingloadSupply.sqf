@@ -108,7 +108,8 @@ _group allowFleeing 0;
 _group deleteGroupWhenEmpty true;
 if (_veh isKindOf "PLANE") then {
 	_veh flyInHeight 200;
-	_veh setvelocity [100 * (sin _dir),100 * (cos _dir),0];
+	//_veh setvelocity [100 * (sin _dir),100 * (cos _dir),0];
+	_veh setVelocityModelSpace [0, 80, 0];
 };
 //add an onEachFram-EVH for the frickin' lights:
 private _evhID = [format ["adv_evh_logistic_lightsOn_%1",(missionNamespace getVariable ["adv_evh_logistic_lightsOn_NR",0])], "onEachFrame", {params ["_veh","_pilot"];_pilot action ["lightOn",_veh];}, [_veh,_pilot]] call BIS_fnc_addStackedEventHandler;

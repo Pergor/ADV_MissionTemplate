@@ -48,6 +48,10 @@ _primaryweaponAmmo = [8,0];		//first number: Amount of magazines, second number:
 _additionalAmmo = [4,"130Rnd_338_Mag",true];
 _additionalAmmo2 = [0,0,false];
 
+if !(332350 in (getDLCs 1)) then {
+	systemChat "You have taken a slot that that requires MARKSMAN DLC!";
+};
+
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;
 _40mmSmokeGrenadesWhite = 0;

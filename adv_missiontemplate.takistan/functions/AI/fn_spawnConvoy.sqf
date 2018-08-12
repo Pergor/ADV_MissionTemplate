@@ -128,6 +128,8 @@ private _vehiclesConvoy = [];
 	//set speed limit
 	if ( _x isKindOf 'LAND' ) then {
 		_x limitSpeed _speedLimit;
+		_x forceFollowRoad true;
+		_x setConvoySeparation _speedLimit;
 	};
 	//get all vehicles that can fit a whole group of _units:
 	if ( (_x emptyPositions "cargo") >= _size ) then {

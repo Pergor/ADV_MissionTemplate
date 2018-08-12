@@ -323,6 +323,13 @@ switch (_par_customWeap) do {
 		_primaryweaponAmmo set [1,3];
 		_additionalAmmo set [1,1];
 	};
+	case 31: {
+		//Vanilla TRG
+		_primaryWeapon = ["LMG_Mk200_F"];
+		_optic = ["optic_ACO","optic_Holosight","optic_Holosight_smg","optic_Aco_smg"];
+		_primaryweaponAmmo = if (isClass(configFile >> "CfgPatches" >> "ace_ballistics")) then {[3,4]} else {[3,3]};
+		_additionalAmmo = if (isClass(configFile >> "CfgPatches" >> "ace_ballistics")) then {[2,3,true]} else {[2,2,true]};
+	};
 	default {};
 };
 switch (_par_customUni) do {

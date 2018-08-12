@@ -361,6 +361,14 @@ switch (_par_customWeap) do {
 		_additionalAmmo1 = [2,"200Rnd_556x45_Box_Tracer_Red_F",true];
 		_additionalAmmo2 = [12,"1Rnd_HE_Grenade_shell",true];
 	};
+	case 31: {
+		//Vanilla TRG
+		_primaryWeapon = ["arifle_TRG21_F","arifle_TRG20_F"];
+		_silencer = ["muzzle_snds_M"];
+		_primaryweaponAmmo set [1,4];
+		_additionalAmmo = [12,"30Rnd_556x45_Stanag_red",true];
+		_additionalAmmo2 = [12,"1Rnd_HE_Grenade_shell",true];
+	};
 	default {};
 };
 switch (_par_customUni) do {

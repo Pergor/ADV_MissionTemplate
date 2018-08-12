@@ -82,6 +82,9 @@ _launcher = "launch_O_Titan_short_F";
 if (worldName == "TANOA" || _par_opfWeap == 20) then {
 	_launcher = "launch_O_Titan_short_ghex_F";
 };
+if (798390 in (getDLCs 1)) then {
+	_launcher = ["launch_O_Vorona_green_F","launch_O_Vorona_green_F","launch_O_Vorona_green_F","launch_O_Vorona_brown_F"];
+};
 
 //launcher ammo (if a launcher is given) - (integer) 
 _launcherAmmo = [2,0];

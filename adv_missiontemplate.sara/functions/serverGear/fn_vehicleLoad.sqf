@@ -167,6 +167,15 @@ if (_withWeapons) then {
 					_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
 					_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Red_F",2];
 				};
+				if (_par_customWeap == 31) exitWith {
+					_target addWeaponCargoGlobal ["arifle_TRG20_F",1];
+					_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_red",20];
+					_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_Tracer_Red",10];
+					if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) exitWith {
+						_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box_Tracer_red",2];
+					};
+					_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",2];
+				};
 				_target addWeaponCargoGlobal ["arifle_MXC_Black_F",1];
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",20];
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag_Tracer",10];

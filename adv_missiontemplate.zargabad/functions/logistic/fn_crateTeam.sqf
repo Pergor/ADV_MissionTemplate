@@ -124,6 +124,13 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 					_target addMagazineCargoGlobal ["30rnd_556x45_STANAG",30];
 					_target addMagazineCargoGlobal ["200Rnd_556x45_Box_Red_F",4];
 				};
+				if (_par_customWeap == 31) exitWith {
+					_target addMagazineCargoGlobal ["30Rnd_556x45_Stanag_red",30];
+					if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) exitWith {
+						_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box_Tracer_red",4];
+					};
+					_target addMagazineCargoGlobal ["200Rnd_65x39_cased_Box",4];
+				};
 				_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_mag",30];
 				call {
 					if (isClass(configFile >> "CfgPatches" >> "adv_configsVanilla")) exitWith {

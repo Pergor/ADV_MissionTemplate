@@ -146,6 +146,26 @@ adv_scriptfnc_aresModules_getLocations = {
 	}
 ] call Ares_fnc_RegisterCustomModule;
 
+if ( isClass(configFile >> "CfgPatches" >> "ace_trenches") ) then {
+
+	["ADV MissionTemplate - Misc", "Clean Up ACE-Trenches", 
+		{
+			params [["_pos", [0,0,0], [[]], 3], ["_target", objNull, [objNull]]];
+
+			private _trenches = (allMissionObjects "ACE_envelope_big")+(allMissionObjects "ACE_envelope_small");
+			{
+				private _nearestPlayer = [_x,500] call adv_fnc_findNearestPlayer;
+				if (isNull _nearestPlayer) then {
+					deleteVehicle _x;
+				};
+				nil
+			} count _trenches;
+			["All ACE-Trenches with no player in 500m radius have been removed!"] call Achilles_fnc_showZeusErrorMessage;
+		}
+	] call Ares_fnc_RegisterCustomModule;
+
+};
+
 if ( isClass(configFile >> "CfgPatches" >> "tfar_core") ) then {
 	["ADV MissionTemplate - Misc", "Turn Vehicle into Relay", 
 		{

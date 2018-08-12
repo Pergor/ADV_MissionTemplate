@@ -306,7 +306,7 @@ class param_customWeap
 		,7,6,5
 		,4,3,2
 		,1
-		,20,0
+		,20,31,0
 	};
 	texts[] = {
 		"FAL, G3 und M60 - größtenteils ohne Optiken, keine Schalldämpfer (benötigt HLC_FAL, HLC_G3, HLC_MP5, HLC_M60)"
@@ -314,9 +314,9 @@ class param_customWeap
 		,"CUP BAF (benötigt CUP)","CUP Arma 2 (benötigt CUP)","CUP Operation Arrowhead (benötigt CUP)"
 		,"RHS SOF (benötigt RHSUSF)","RHS Marines (benötigt RHSUSF, optional HLC_MP5, HLC_M60)","RHS Army (benötigt RHSUSF, optional HLC_MP5)"
 		,"BWmod (benötigt BWmod, optional HLC_G36)"
-		,"Apex - NATO","Vanilla - NATO"
+		,"Apex - NATO","Vanilla - TRG","Vanilla - NATO"
 	};
-	default = 20;
+	default = 0;
 };
 class dummy_ind_equipment {
 	title = "---------------------- INDFOR-Parameter ----------------------";

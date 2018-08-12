@@ -46,6 +46,10 @@ _silencer = "muzzle_snds_93mmg";		//if silencer is added
 _primaryweaponAmmo = [1,0];
 _additionalAmmo = [3,0,false];
 
+if !(332350 in (getDLCs 1)) then {
+	systemChat "You have taken a slot that that requires MARKSMAN DLC!";
+};
+
 //40mm Grenades - (integer)
 _40mmHeGrenadesAmmo = 0;
 _40mmSmokeGrenadesWhite = 0;

@@ -54,6 +54,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			
 			_target addMagazineCargoGlobal ["RPG32_F",2];
 			_target addMagazineCargoGlobal ["Titan_AT",3];
+			_target addMagazineCargoGlobal ["Vorona_HEAT",3];
 		};
 	};
 	//grenades

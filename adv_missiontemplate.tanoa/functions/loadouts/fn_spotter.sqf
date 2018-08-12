@@ -350,6 +350,12 @@ switch (_par_customWeap) do {
 		_optic = ["optic_Holosight_blk_F"];
 		_binocular = "Laserdesignator_01_khk_F";
 	};
+	case 31: {
+		//Vanilla TRG
+		_primaryWeapon = ["arifle_TRG21_GL_F"];
+		_silencer = ["muzzle_snds_M"];
+		_primaryweaponAmmo set [1,4];
+	};
 	default {};
 };
 switch (_par_customUni) do {

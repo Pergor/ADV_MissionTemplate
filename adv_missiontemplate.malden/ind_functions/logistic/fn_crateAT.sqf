@@ -51,6 +51,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			_target addWeaponCargoGlobal ["launch_NLAW_F",2];
 			//ammo
 			if !(isClass(configFile >> "CfgPatches" >> "ace_disposable")) then { _target addMagazineCargoGlobal ["NLAW_F",2]; };
+			_target addMagazineCargoGlobal ["MRAWS_HEAT_F",3];
 			_target addMagazineCargoGlobal ["Titan_AT",3];
 		};
 	};

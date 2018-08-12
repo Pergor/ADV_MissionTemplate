@@ -331,6 +331,12 @@ switch (_par_customWeap) do {
 		_primaryweaponAmmo set [1,2];
 		_optic = ["optic_Arco_blk_F","optic_MRCO","optic_MRCO"];
 	};
+	case 31: {
+		//Vanilla TRG
+		_primaryWeapon = ["arifle_TRG21_F","arifle_TRG20_F"];
+		_silencer = ["muzzle_snds_M"];
+		_primaryweaponAmmo set [1,4];
+	};
 	default {};
 };
 switch (_par_customUni) do {

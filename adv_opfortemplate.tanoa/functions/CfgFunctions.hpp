@@ -82,14 +82,17 @@ class adv
 		class disableTI {};
 		class disableVeh {};
 		class findNearestObject {};
+		class findNearestPlayer {};
 		class flare {};
 		class getBaseClass {};
 		class getClassNames {};
 		class getGroupVehicles {};
+		class getList {};
 		class getOppPos {};
 		class getPos {};
 		class HCobjects {};
 		class IEDhandler {};
+		class isCfg {};
 		class lockVeh {};
 		class paraBomb {};
 		class paraCrate {};

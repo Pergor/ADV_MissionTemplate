@@ -47,6 +47,10 @@ _silencer = "muzzle_snds_338_black";		//if silencer is added
 if ( (304400 in (getDLCs 1) || 332350 in (getDLCs 1)) && (missionNamespace getVariable ["adv_par_DLCContent",1]) > 0 ) then {
 };
 
+if !(332350 in (getDLCs 1)) then {
+	systemChat "You have taken a slot that that requires MARKSMAN DLC!";
+};
+
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _primaryweaponAmmo = [1,0];		//first number: Amount of magazines, second number: config index of magazine or classname of magazine type.
 _additionalAmmo = [3,0,false];
