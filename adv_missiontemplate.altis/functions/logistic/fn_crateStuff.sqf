@@ -30,6 +30,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 	//makes the crates indestructible:
 	_target allowDamage false;
 
+	/*
 	if (isClass(configFile >> "CfgPatches" >> "scorch_invitems")) then {
 		_target addItemCargoGlobal ["sc_waterbottle",20];
 		_target addItemCargoGlobal ["sc_mre",20];
@@ -44,9 +45,16 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			_target addItemCargoGlobal ["sc_lighter",2];
 		};
 	};
+	*/
+	/*
 	if (isClass(configFile >> "CfgPatches" >> "murshun_cigs")) then {
 		_target addItemCargoGlobal ["murshun_cigs_matches",10];
 		_target addItemCargoGlobal ["murshun_cigs_cigpack",20];
+	};
+	*/
+	if (isClass(configFile >> "CfgPatches" >> "mgm_foods")) then {
+		_target addItemCargoGlobal ["mgm_item_mre",20];
+		_target addItemCargoGlobal ["mgm_item_redgull",20];
 	};
 	
 	_ACE_fieldDressing = 0;
