@@ -203,12 +203,21 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar",""
 switch (true) do {
 	case (_par_customWeap == 1): {
 		//BWmod
-		_primaryweapon = [""];
-		_optic = [""];
-		_primaryweaponAmmo = [0,0];
-		_handgun = "BWA3_MP7";
-		if ( _par_optics == 1 ) then { _itemsHandgun = ["BWA3_optic_RSAS"]; } else { _itemsHandgun = [""]; };
-		_handgunAmmo = [5,0];
+		_primaryWeapon = ["BWA3_G36A1"];
+		_optic = "";
+		_silencer = "";
+		if ( _par_NVGs > 0 ) then { _attachments = ["BWA3_acc_LLM01_irlaser"]; };
+		if ((toUpper worldname) in _var_aridMaps) then {
+			_primaryWeapon = selectRandom ["BWA3_G36A1","BWA3_G36A1","BWA3_G36A1_TAN"];
+		};
+		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) exitWith {
+			_primaryWeapon = ["hlc_rifle_G36A1"];
+			_optic = ["HLC_Optic_G36dualoptic35x"];
+			_attachments = [""];
+		};
+		_handgun = "BWA3_P8";
+		_itemsHandgun = [];
+		_handgunSilencer = "";
 	};
 	case (_par_customWeap == 2 || _par_customWeap == 3): {
 		//RHS Army & Marines
@@ -288,7 +297,7 @@ switch (true) do {
 switch (_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
-		_uniform = ["BWA3_Uniform_Crew_Tropen"];
+		_uniform = ["BWA3_Uniform2_Tropen"];
 		_vest = ["BWA3_Vest_Tropen"];
 		_headgear = ["BWA3_CrewmanKSK_Tropen_Headset"];
 		_backpack = ["BWA3_Assaultpack_Tropen"];
@@ -300,7 +309,7 @@ switch (_par_customUni) do {
 	};
 	case 2: {
 		//BWmod Fleck
-		_uniform = ["BWA3_Uniform_Crew_Fleck"];
+		_uniform = ["BWA3_Uniform2_Fleck"];
 		_vest = ["BWA3_Vest_Fleck"];
 		_headgear = ["BWA3_CrewmanKSK_Fleck_Headset"];
 		_backpack = ["BWA3_Assaultpack_Fleck"];
