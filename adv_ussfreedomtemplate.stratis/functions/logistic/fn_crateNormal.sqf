@@ -117,7 +117,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		case 1: {
 			_target addMagazineCargoGlobal ["BWA3_DM51A1",4];
 			_target addMagazineCargoGlobal ["BWA3_DM25",4];
-			_target addMagazineCargoGlobal ["BWA3_DM32_Orange",4];
+			_target addMagazineCargoGlobal ["BWA3_DM32_Green",4];
 		};
 		case 2: {
 			_target addMagazineCargoGlobal ["rhs_mag_m67",4];

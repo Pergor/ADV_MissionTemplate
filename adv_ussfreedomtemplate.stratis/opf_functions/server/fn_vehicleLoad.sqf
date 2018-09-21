@@ -88,30 +88,35 @@ if (_withWeapons) then {
 		};
 		case (_par_opfWeap == 4): { };
 		default {
+			private _launcher = "launch_RPG32_F";
 			switch (true) do {
 				case (_par_opfWeap == 21): {
 					_target addWeaponCargoGlobal ["arifle_AK12_F",1];
-					_target addWeaponCargoGlobal ["launch_RPG32_ghex_F",2];
+					_launcher = "launch_RPG32_ghex_F";
 					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",20];
 					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_Tracer_F",10];
 					_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",4];
 				};
 				case (worldName == "TANOA" || _par_opfWeap == 20): {
 					_target addWeaponCargoGlobal ["arifle_CTAR_blk_F",1];
-					_target addWeaponCargoGlobal ["launch_RPG32_ghex_F",2];
+					_launcher = "launch_RPG32_ghex_F";
 					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_F",20];
 					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_Tracer_F",10];
 					_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",4];
 				};
 				default {
 					_target addWeaponCargoGlobal ["arifle_Katiba_C_F",1];
-					_target addWeaponCargoGlobal ["launch_RPG32_F",2];
 					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",20];
 					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",10];
 					_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",2];
 				};
 			};
-			_target addMagazineCargoGlobal ["RPG32_F",2];
+			if ( isClass(configFile >> "CfgPatches" >> "adv_disposableRPG") ) then {
+				_launcher = format ["adv_%1",_launcher];
+			} else {
+				_target addMagazineCargoGlobal ["RPG32_F",2];
+			};
+			_target addWeaponCargoGlobal [_launcher,2];
 
 			_target addMagazineCargoGlobal ["150Rnd_93x64_Mag",2];
 			_target addMagazineCargoGlobal ["10Rnd_762x51_Mag",4];

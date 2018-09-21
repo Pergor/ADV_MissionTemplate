@@ -44,12 +44,12 @@ if (_withWeapons) then {
 	switch (true) do {
 		case (_par_customWeap == 1): {
 			call {
-				if !(isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) exitWith {
-					_target addWeaponCargoGlobal ["BWA3_G36",1];
+				if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) exitWith {
+					_target addWeaponCargoGlobal ["hlc_rifle_G36A1",1];
 				};
-				_target addWeaponCargoGlobal ["hlc_rifle_G36A1",1];
+				_target addWeaponCargoGlobal ["BWA3_G36A1",1];
 			};
-			_target addWeaponCargoGlobal ["BWA3_Pzf3_Loaded",2];
+			_target addWeaponCargoGlobal ["BWA3_Pzf3_Tandem_Loaded",2];
 			
 			if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36") && !(isClass(configFile >> "CfgPatches" >> "adv_hlcG36_bwmod"))) then {
 				_target addMagazineCargoGlobal ["hlc_30rnd_556x45_EPR_G36",30];
@@ -62,13 +62,13 @@ if (_withWeapons) then {
 			if (isClass(configFile >> "CfgPatches" >> "hlcweapons_MG3s")) then {
 				_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_M_MG3",2];
 			} else {
-				_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51_Tracer",2];
+				_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51_Tracer_soft",2];
 			};
 			
 			_target addMagazineCargoGlobal ["BWA3_DM51A1",5];
 			_target addMagazineCargoGlobal ["BWA3_DM25",10];
-			_target addMagazineCargoGlobal ["BWA3_DM32_Orange",5];
-			_target addMagazineCargoGlobal ["BWA3_DM32_Yellow",5];
+			_target addMagazineCargoGlobal ["BWA3_DM32_Green",5];
+			_target addMagazineCargoGlobal ["BWA3_DM32_Red",5];
 		};
 		case (_par_customWeap == 2 || _par_customWeap == 3 || _par_customWeap == 4): {
 			_target addWeaponCargoGlobal ["rhs_weap_m4_carryhandle",1];

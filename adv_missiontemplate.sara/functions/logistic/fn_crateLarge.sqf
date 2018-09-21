@@ -33,7 +33,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		//BWmod
 		case (_par_customWeap == 1): {
 			//weapons
-			_target addWeaponCargoGlobal ["BWA3_Pzf3_Loaded",5];
+			_target addWeaponCargoGlobal ["BWA3_Pzf3_Tandem_Loaded",5];
 			//ammo
 			if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36") && !(isClass(configFile >> "CfgPatches" >> "adv_hlcG36_bwmod"))) then {
 				_target addMagazineCargoGlobal ["hlc_30rnd_556x45_EPR_G36",60];
@@ -45,8 +45,8 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			if (isClass(configFile >> "CfgPatches" >> "hlcweapons_MG3s")) then {
 				_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_M_MG3",12];
 			} else {
-				_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51",6];
-				_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51_Tracer",6];
+				_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51_soft",6];
+				_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51_Tracer_soft",6];
 			};
 			_target addMagazineCargoGlobal ["BWA3_15Rnd_9x19_P8",20];
 			_target addMagazineCargoGlobal ["BWA3_10Rnd_762x51_G28_LR",30];
@@ -173,8 +173,8 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		case (_par_customWeap == 1): {
 			_target addMagazineCargoGlobal ["BWA3_DM51A1",20];		
 			_target addMagazineCargoGlobal ["BWA3_DM25",30];		
-			_target addMagazineCargoGlobal ["BWA3_DM32_Orange",10];		
-			_target addMagazineCargoGlobal ["BWA3_DM32_Yellow",10];		
+			_target addMagazineCargoGlobal ["BWA3_DM32_Green",10];		
+			_target addMagazineCargoGlobal ["BWA3_DM32_Red",10];		
 		};
 		case (_par_customWeap == 2 || _par_customWeap == 3 || _par_customWeap == 4): {
 			_target addMagazineCargoGlobal ["rhs_mag_m67",20];

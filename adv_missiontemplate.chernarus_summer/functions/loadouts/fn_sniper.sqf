@@ -210,8 +210,9 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar",""
 switch (_par_customWeap) do {
 	case 1: {
 		//BWmod
-		_primaryweapon = "BWA3_G82_equipped";
-		_attachments = ["BWA3_optic_24x72_NSV"];
+		_primaryweapon = "BWA3_G82";
+		_attachments = ["BWA3_optic_Hensoldt"];
+		if ( _par_NVGs > 1 ) then { _attachments = ["BWA3_optic_Hensoldt_nsv"]; };
 		_handgun = "BWA3_P8";
 		_itemsHandgun = [];
 	};
@@ -347,7 +348,7 @@ switch (_par_customWeap) do {
 switch (_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
-		_uniform = ["BWA3_Uniform_Ghillie_idz_Tropen"];
+		_uniform = ["BWA3_Uniform_Ghillie_Tropen","BWA3_Uniform2_Ghillie_Tropen"];
 		_vest = ["BWA3_Vest_Marksman_Tropen"];
 		_backpack = ["BWA3_PatrolPack_Tropen"];
 		_headgear = ["BWA3_Booniehat_Tropen"];
@@ -359,7 +360,7 @@ switch (_par_customUni) do {
 	};
 	case 2: {
 		//BWmod Fleck
-		_uniform = ["BWA3_Uniform_Ghillie_idz_Fleck"];
+		_uniform = ["BWA3_Uniform_Ghillie_Fleck","BWA3_Uniform2_Ghillie_Fleck"];
 		_vest = ["BWA3_Vest_Marksman_Fleck"];
 		_backpack = ["BWA3_PatrolPack_Fleck"];
 		_headgear = ["BWA3_Booniehat_Fleck"];

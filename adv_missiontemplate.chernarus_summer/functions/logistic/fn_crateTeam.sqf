@@ -33,7 +33,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		//BWmod
 		case (_par_customWeap == 1): {
 			//weapons
-			_target addWeaponCargoGlobal ["BWA3_Pzf3_Loaded",1];
+			_target addWeaponCargoGlobal ["BWA3_Pzf3_Tandem_Loaded",1];
 			//ammo
 			if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36") && !(isClass(configFile >> "CfgPatches" >> "adv_hlcG36_bwmod"))) then {
 				_target addMagazineCargoGlobal ["hlc_30rnd_556x45_EPR_G36",30];
@@ -42,7 +42,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			};
 			_target addMagazineCargoGlobal ["BWA3_200Rnd_556x45",4];
 			_target addMagazineCargoGlobal ["BWA3_15Rnd_9x19_P8",8];
-			_target addMagazineCargoGlobal ["BWA3_10Rnd_762x51_G28_LR",10];
+			_target addMagazineCargoGlobal ["BWA3_10Rnd_762x51_G28_LR",8];
 		};
 		//SeL RHS
 		case (_par_customWeap == 2 || _par_customWeap == 3 || _par_customWeap == 4): {

@@ -90,9 +90,11 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			};
 			default {
 				//weapons
+				private _launcher = "launch_RPG32_F";
 				switch (true) do {
 					case (_par_opfWeap == 21): {
 						_target addWeaponCargoGlobal ["launch_RPG32_ghex_F",5];
+						_launcher = "launch_RPG32_ghex_F";
 						_target addWeaponCargoGlobal ["launch_O_Titan_ghex_F",5];
 						_target addWeaponCargoGlobal ["launch_O_Titan_short_ghex_F",5];
 						//ammo
@@ -101,6 +103,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 						_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",20];
 					};
 					case (worldName == "TANOA" || _par_opfWeap == 20): {
+						_launcher = "launch_RPG32_ghex_F";
 						_target addWeaponCargoGlobal ["launch_RPG32_ghex_F",5];
 						_target addWeaponCargoGlobal ["launch_O_Titan_ghex_F",5];
 						_target addWeaponCargoGlobal ["launch_O_Titan_short_ghex_F",5];
@@ -118,6 +121,14 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 						_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",40];
 					};
 				};
+				if ( isClass(configFile >> "CfgPatches" >> "adv_disposableRPG") ) then {
+					_launcher = format ["adv_%1",_launcher];
+					_target addWeaponCargoGlobal [format ["%1_HE_F",([_launcher,0,-2] call bis_fnc_trimString)],5];
+				};
+				_target addWeaponCargoGlobal [_launcher,5];
+				_target addMagazineCargoGlobal ["RPG32_F",5];
+				_target addMagazineCargoGlobal ["RPG32_HE_F",5];
+				
 				_target addMagazineCargoGlobal ["5Rnd_127x108_Mag",10];
 				_target addMagazineCargoGlobal ["5Rnd_127x108_APDS_Mag",10];
 				_target addMagazineCargoGlobal ["16Rnd_9x21_Mag",20];
@@ -131,7 +142,6 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 				_target addMagazineCargoGlobal ["Titan_AA",5];
 				_target addMagazineCargoGlobal ["Titan_AT",5];
 				_target addMagazineCargoGlobal ["Titan_AP",5];
-				_target addMagazineCargoGlobal ["RPG32_F",5];
 				//items
 				if (_par_opfOptics > 0) then {
 					_target addItemCargoGlobal ["optic_Yorris",5];

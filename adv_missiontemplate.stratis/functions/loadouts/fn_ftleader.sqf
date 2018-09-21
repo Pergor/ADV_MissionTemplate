@@ -209,11 +209,19 @@ switch (_par_customWeap) do {
 				_optic = ["HLC_Optic_G36dualoptic35x"];
 				_attachments = [""];
 			};
-			_primaryweapon = ["BWA3_G36"];
-			_optic = ["BWA3_optic_ZO4x30"];
+			_primaryWeapon = "BWA3_G36A2";
+			_optic = ["BWA3_optic_RSAS_G36A2","BWA3_optic_RSAS_G36A2","BWA3_optic_RSAS_brown_G36A2"];
+			_silencer = "BWA3_muzzle_snds_Rotex_IIIC";
 			if ( _par_NVGs > 0 ) then { _attachments = ["BWA3_acc_LLM01_irlaser"]; };
+			if ((toUpper worldname) in _var_aridMaps) then {
+				_primaryWeapon = selectRandom ["BWA3_G36A2","BWA3_G36A2_TAN","BWA3_G36A2_TAN"];
+				if (_primaryWeapon isEqualTo "BWA3_G36A2_TAN") then {
+					_optic = ["BWA3_optic_RSAS_brown_G36A2","BWA3_optic_RSAS_sand_G36A2","BWA3_optic_RSAS_tan_G36A2","BWA3_optic_RSAS_tan_G36A2"];
+					_silencer = "BWA3_muzzle_snds_Rotex_IIIC_tan";
+					if ( _par_NVGs > 0 ) then { _attachments = ["BWA3_acc_LLM01_irlaser_tan"]; };
+				};
+			};
 		};
-		_silencer = "BWA3_muzzle_snds_G36";
 		_handgun = "BWA3_P8";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";
@@ -342,7 +350,7 @@ switch (_par_customWeap) do {
 switch (_par_customUni) do {
 	case 1: {
 		//BWmod
-		_uniform = ["BWA3_Uniform_idz_Tropen"];
+		_uniform = ["BWA3_Uniform_Tropen"];
 		_vest = ["BWA3_Vest_Leader_Tropen","BWA3_Vest_Leader_Tropen","BWA3_Vest_JPC_Leader_Tropen","BWA3_Vest_JPC_Radioman_Tropen"];
 		_headgear = ["BWA3_OpsCore_Tropen_Camera"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
@@ -354,7 +362,7 @@ switch (_par_customUni) do {
 	};
 	case 2: {
 		//BWmod
-		_uniform = ["BWA3_Uniform_idz_Fleck"];
+		_uniform = ["BWA3_Uniform_Fleck"];
 		_vest = ["BWA3_Vest_Leader_Fleck","BWA3_Vest_Leader_Fleck","BWA3_Vest_JPC_Leader_Fleck","BWA3_Vest_JPC_Radioman_Fleck"];
 		_headgear = ["BWA3_OpsCore_Fleck_Camera"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
@@ -494,7 +502,7 @@ switch (_par_customUni) do {
 ///// No editing necessary below this line /////
 
 if (_special in ["CSW","ACSW","TOW","ATOW"]) then {
-	_optic = [""];
+	if !(_par_customWeap in [1]) then { _optic = [""]; };
 	_binocular = "";
 	_givePersonalRadio = false;
 	_ACE_sprayPaintColor = "NONE";
@@ -502,7 +510,7 @@ if (_special in ["CSW","ACSW","TOW","ATOW"]) then {
 	_ACE_MapTools = 0;
 };
 if (_special in ["MORTAR","AMORTAR"]) then {
-	_optic = [""];
+	if !(_par_customWeap in [1]) then { _optic = [""]; };
 	_binocular = "RANGEFINDER";
 	_ACE_sprayPaintColor = "NONE";
 	_ACE_kestrel = 1;

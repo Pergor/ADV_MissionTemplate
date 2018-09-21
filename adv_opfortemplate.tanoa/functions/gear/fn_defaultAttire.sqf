@@ -20,8 +20,8 @@ private _isArid = (toUpper worldname) in (missionNamespace getVariable ["adv_var
 private _isLush = (toUpper worldname) in (missionNamespace getVariable ["adv_var_lushMaps",[]]);
 
 private _helmet = switch _par_customUni do {
-	case 1: { "BWA3_MICH_Tropen" };
-	case 2: { "BWA3_MICH_Fleck" };
+	case 1: { "BWA3_M92_Tropen" };
+	case 2: { "BWA3_M92_Fleck" };
 	case 6: {
 		if (_isArid) then {
 			"CUP_H_BAF_Helmet_1_DDPM"
@@ -52,8 +52,8 @@ private _helmet = switch _par_customUni do {
 };
 
 private _uniform = switch _par_customUni do {
-	case 1: { "BWA3_Uniform_idz_Tropen" };
-	case 2: { "BWA3_Uniform_idz_Fleck" };
+	case 1: { "BWA3_Uniform_Tropen" };
+	case 2: { "BWA3_Uniform_Fleck" };
 	case 6: {
 		if (_isArid) then {
 			"CUP_U_B_BAF_DDPM_S2_UnRolled"
@@ -84,8 +84,8 @@ private _uniform = switch _par_customUni do {
 };
 
 private _vest = switch _par_customUni do {
-	case 1: { "BWA3_Vest_Rifleman1_Tropen" };
-	case 2: { "BWA3_Vest_Rifleman1_Fleck" };
+	case 1: { "BWA3_Vest_Rifleman_Tropen" };
+	case 2: { "BWA3_Vest_Rifleman_Fleck" };
 	case 6: {
 		if (_isArid) then {
 			"CUP_V_BAF_Osprey_Mk2_DDPM_Soldier1"

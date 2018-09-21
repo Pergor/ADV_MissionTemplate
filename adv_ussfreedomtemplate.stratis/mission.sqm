@@ -8,14 +8,14 @@ class EditorData
 	toggles=2;
 	class ItemIDProvider
 	{
-		nextID=209;
+		nextID=237;
 	};
 	class Camera
 	{
-		pos[]={5398.9668,72.900429,94.515648};
-		dir[]={0.28949282,-0.40799755,-0.865973};
-		up[]={0.12938696,0.9129324,-0.38703433};
-		aside[]={-0.94847828,-2.0023435e-008,-0.31707865};
+		pos[]={4753.8755,16.490341,-256.66278};
+		dir[]={-0.13123514,-0.66604835,0.73444587};
+		up[]={-0.11717676,0.74580532,0.65575081};
+		aside[]={0.98449957,-1.6558315e-006,0.17592275};
 	};
 };
 binarizationWanted=0;
@@ -102,7 +102,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=75;
+		items=97;
 		class Item0
 		{
 			dataType="Marker";
@@ -748,8 +748,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5809.8218,-1.6206999,-54.34906};
-				angles[]={0,4.5777888,0};
+				position[]={5809.8218,-1.6205463,-54.348866};
+				angles[]={0,4.5378561,0};
 			};
 			side="Empty";
 			class Attributes
@@ -758,15 +758,15 @@ class Mission
 			};
 			id=90;
 			type="Submarine_01_F";
-			atlOffset=103.01785;
+			atlOffset=103.018;
 		};
 		class Item26
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4968.7236,-0.50686836,224.53946};
-				angles[]={0,4.5777888,0};
+				position[]={4968.7241,-0.50673866,224.53914};
+				angles[]={0,4.5378561,0};
 			};
 			side="Empty";
 			class Attributes
@@ -775,7 +775,7 @@ class Mission
 			};
 			id=91;
 			type="Submarine_01_F";
-			atlOffset=103.17582;
+			atlOffset=103.176;
 		};
 		class Item27
 		{
@@ -4001,6 +4001,803 @@ class Mission
 					};
 				};
 				nAttributes=5;
+			};
+		};
+		class Item75
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5923.5049,-6.1035156e-005,383.81601};
+				angles[]={0,4.5378561,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=209;
+			type="Land_Destroyer_01_base_F";
+			atlOffset=116.50201;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ShipHangarDoorState";
+					expression="[([_this, 'Land_Destroyer_01_hull_04_F'] call bis_fnc_destroyer01GetShipPart), _value, true] spawn bis_fnc_destroyer01AnimateHangarDoors;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="CustomShipNumber1";
+					expression="[([_this, 'Land_Destroyer_01_hull_01_F'] call bis_fnc_destroyer01GetShipPart), _value, 0] spawn bis_fnc_destroyer01InitHullNumbers;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=5;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="CustomShipNumber2";
+					expression="[([_this, 'Land_Destroyer_01_hull_01_F'] call bis_fnc_destroyer01GetShipPart), _value, 1] spawn bis_fnc_destroyer01InitHullNumbers;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="CustomShipNumber3";
+					expression="[([_this, 'Land_Destroyer_01_hull_01_F'] call bis_fnc_destroyer01GetShipPart), _value, 2] spawn bis_fnc_destroyer01InitHullNumbers;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=7;
+						};
+					};
+				};
+				nAttributes=4;
+			};
+		};
+		class Item76
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4761.3862,6.1035156e-005,-228.10001};
+				angles[]={0,4.5378561,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=210;
+			type="Land_Destroyer_01_base_F";
+			atlOffset=112.79699;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ShipHangarDoorState";
+					expression="[([_this, 'Land_Destroyer_01_hull_04_F'] call bis_fnc_destroyer01GetShipPart), _value, true] spawn bis_fnc_destroyer01AnimateHangarDoors;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="CustomShipNumber1";
+					expression="[([_this, 'Land_Destroyer_01_hull_01_F'] call bis_fnc_destroyer01GetShipPart), _value, 0] spawn bis_fnc_destroyer01InitHullNumbers;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=7;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="CustomShipNumber2";
+					expression="[([_this, 'Land_Destroyer_01_hull_01_F'] call bis_fnc_destroyer01GetShipPart), _value, 1] spawn bis_fnc_destroyer01InitHullNumbers;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="CustomShipNumber3";
+					expression="[([_this, 'Land_Destroyer_01_hull_01_F'] call bis_fnc_destroyer01GetShipPart), _value, 2] spawn bis_fnc_destroyer01InitHullNumbers;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=5;
+						};
+					};
+				};
+				nAttributes=4;
+			};
+		};
+		class Item77
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4839.5635,12.101919,-214.20599};
+						angles[]={0,1.3962634,0};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=213;
+					type="B_UAV_AI";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=213;
+						item1=212;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+				};
+			};
+			id=211;
+			atlOffset=0.00093173981;
+		};
+		class Item78
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4839.4932,14.838449,-214.2684};
+				angles[]={0,1.3962634,0};
+			};
+			side="West";
+			flags=6;
+			class Attributes
+			{
+				receiveRemoteTargets=1;
+			};
+			id=212;
+			type="B_Ship_Gun_01_F";
+			atlOffset=0.00093173981;
+		};
+		class Item79
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4711.395,15.786923,-236.649};
+						angles[]={0,6.1086521,0};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=216;
+					type="B_UAV_AI";
+					atlOffset=0.00044059753;
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=216;
+						item1=215;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+				};
+			};
+			id=214;
+			atlOffset=0.00044441223;
+		};
+		class Item80
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4711.3945,17.541958,-236.69908};
+				angles[]={0,6.1086521,0};
+			};
+			side="West";
+			flags=6;
+			class Attributes
+			{
+				reportRemoteTargets=1;
+				receiveRemoteTargets=1;
+				reportOwnPosition=1;
+				aiRadarUsage=1;
+			};
+			id=215;
+			type="B_SAM_System_01_F";
+			atlOffset=0.00044441223;
+		};
+		class Item81
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4822.853,10.525203,-217.1577};
+						angles[]={0,1.3962634,0};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=219;
+					type="B_UAV_AI";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=219;
+						item1=218;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+				};
+			};
+			id=217;
+			atlOffset=3.1471252e-005;
+		};
+		class Item82
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4822.853,11.897268,-217.21178};
+				angles[]={0,1.3962634,0};
+			};
+			side="West";
+			flags=6;
+			class Attributes
+			{
+				receiveRemoteTargets=1;
+			};
+			id=218;
+			type="B_Ship_MRLS_01_F";
+			atlOffset=3.1471252e-005;
+		};
+		class Item83
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5873.542,15.786687,375.74399};
+						angles[]={0,6.1086521,0};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=222;
+					type="B_UAV_AI";
+					atlOffset=0.00032615662;
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=222;
+						item1=221;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+				};
+			};
+			id=220;
+			atlOffset=0.0020313263;
+		};
+		class Item84
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5873.542,18.291004,375.694};
+				angles[]={0,6.1086521,0};
+			};
+			side="West";
+			flags=6;
+			class Attributes
+			{
+				reportRemoteTargets=1;
+				receiveRemoteTargets=1;
+				reportOwnPosition=1;
+				aiRadarUsage=1;
+			};
+			id=221;
+			type="B_AAA_System_01_F";
+			atlOffset=0.0020313263;
+		};
+		class Item85
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6001.4575,12.0955,397.59366};
+						angles[]={6.2786646,1.3962634,0.025691247};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=225;
+					type="B_UAV_AI";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=225;
+						item1=224;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+				};
+			};
+			id=223;
+			atlOffset=0.018046379;
+		};
+		class Item86
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6001.3872,14.832029,397.53128};
+				angles[]={6.2786646,1.3962634,0.025691247};
+			};
+			side="West";
+			flags=6;
+			class Attributes
+			{
+				receiveRemoteTargets=1;
+			};
+			id=224;
+			type="B_Ship_Gun_01_F";
+			atlOffset=0.018046379;
+		};
+		class Item87
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5984.9561,10.524785,394.60425};
+						angles[]={0,1.3962634,0};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=228;
+					type="B_UAV_AI";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=228;
+						item1=227;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+				};
+			};
+			id=226;
+		};
+		class Item88
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5985.0381,11.889824,394.66632};
+				angles[]={0,1.3962634,0};
+			};
+			side="West";
+			flags=6;
+			class Attributes
+			{
+				receiveRemoteTargets=1;
+			};
+			id=227;
+			type="B_Ship_MRLS_01_F";
+		};
+		class Item89
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5912.9946,6.754972,370.61896};
+				angles[]={0,4.5378561,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=229;
+			type="Land_Destroyer_01_Boat_Rack_01_F";
+			atlOffset=122.283;
+		};
+		class Item90
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5912.6499,9.3883247,370.58871};
+				angles[]={0,1.4203398,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=230;
+			type="B_Boat_Transport_01_F";
+			atlOffset=0.87644339;
+		};
+		class Item91
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5908.7046,9.3904762,392.83981};
+				angles[]={0,1.4203398,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=231;
+			type="B_Boat_Transport_01_F";
+			atlOffset=0.8785944;
+		};
+		class Item92
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5909.0493,6.7571239,392.87006};
+				angles[]={0,4.5378561,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=232;
+			type="Land_Destroyer_01_Boat_Rack_01_F";
+			atlOffset=123.01646;
+		};
+		class Item93
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4746.5615,9.3884468,-219.10335};
+				angles[]={0,1.4203398,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=233;
+			type="B_Boat_Transport_01_F";
+			atlOffset=0.87644291;
+		};
+		class Item94
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4746.9063,6.7550945,-219.07312};
+				angles[]={0,4.5378561,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=234;
+			type="Land_Destroyer_01_Boat_Rack_01_F";
+			atlOffset=120.05927;
+		};
+		class Item95
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4750.436,9.3884544,-241.89511};
+				angles[]={0,1.4203398,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=235;
+			type="B_Boat_Transport_01_F";
+			atlOffset=0.87645102;
+		};
+		class Item96
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4750.7808,6.7551017,-241.86488};
+				angles[]={0,4.5378561,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=236;
+			type="Land_Destroyer_01_Boat_Rack_01_F";
+			atlOffset=120.0732;
+		};
+	};
+	class VehicleInVehicleLinks
+	{
+		class LinkIDProvider
+		{
+			nextID=4;
+		};
+		class Links
+		{
+			items=4;
+			class Item0
+			{
+				linkID=0;
+				item0=230;
+				item1=229;
+				class CustomData
+				{
+					role=4;
+				};
+			};
+			class Item1
+			{
+				linkID=1;
+				item0=231;
+				item1=232;
+				class CustomData
+				{
+					role=4;
+				};
+			};
+			class Item2
+			{
+				linkID=2;
+				item0=233;
+				item1=234;
+				class CustomData
+				{
+					role=4;
+				};
+			};
+			class Item3
+			{
+				linkID=3;
+				item0=235;
+				item1=236;
+				class CustomData
+				{
+					role=4;
+				};
 			};
 		};
 	};

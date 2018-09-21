@@ -206,10 +206,10 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar",""
 switch (_par_customWeap) do {
 	case 1: {
 		//BWmod 
-		_primaryweapon = ["BWA3_G28_Standard"];
-		_optic = ["BWA3_optic_Shortdot"];
+		_primaryweapon = ["BWA3_G28"];
+		_optic = ["BWA3_optic_PMII_ShortdotCC","BWA3_optic_PMII_ShortdotCC","BWA3_optic_PMII_ShortdotCC","BWA3_optic_M5Xi_Tremor3_MicroT2","BWA3_optic_M5Xi_MSR_MicroT2","BWA3_optic_PMII_DMR_MicroT1_rear"];
 		if ( _par_NVGs > 0 ) then { _attachments = ["BWA3_acc_VarioRay_irlaser"]; };
-		_silencer = "BWA3_muzzle_snds_G28";
+		_silencer = "BWA3_muzzle_snds_Rotex_II";
 		_ace_gunbag = 0;
 		_primaryweaponAmmo = [10,5];
 		_handgun = "BWA3_P8";
@@ -328,9 +328,9 @@ switch (_par_customWeap) do {
 switch (_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
-		_uniform = ["BWA3_Uniform_idz_Tropen"];
+		_uniform = ["BWA3_Uniform_Tropen"];
 		_vest = ["BWA3_Vest_Marksman_Tropen"];
-		_headgear = ["BWA3_MICH_Tropen"];
+		_headgear = ["BWA3_M92_Tropen"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_tropen","PBW_Uniform3_tropen","PBW_Uniform3K_tropen"];
 			_headgear = ["PBW_Helm4_tropen_HBO","PBW_Helm1_tropen_HBO"];
@@ -340,9 +340,9 @@ switch (_par_customUni) do {
 	};
 	case 2: {
 		//BWmod Fleck
-		_uniform = ["BWA3_Uniform_idz_Fleck"];
+		_uniform = ["BWA3_Uniform_Fleck"];
 		_vest = ["BWA3_Vest_Marksman_Fleck"];
-		_headgear = ["BWA3_MICH_Fleck"];
+		_headgear = ["BWA3_M92_Fleck"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_fleck","PBW_Uniform3_fleck","PBW_Uniform3K_fleck"];
 			_vest = ["pbw_koppel_grpfhr","pbw_splitter_grpfhr"];

@@ -213,15 +213,23 @@ switch (_par_customWeap) do {
 				_optic = ["HLC_Optic_G36dualoptic35x"];
 				_attachments = [""];
 			};
-			_primaryweapon = ["BWA3_G36"];
-			_optic = ["BWA3_optic_ZO4x30"];
+			_primaryWeapon = ["BWA3_G36A1","BWA3_G36A1","BWA3_G36A2"];
+			_optic = ["BWA3_optic_RSAS_G36A2","BWA3_optic_RSAS_G36A2","BWA3_optic_RSAS_brown_G36A2"];
+			_silencer = "BWA3_muzzle_snds_Rotex_IIIC";
 			if ( _par_NVGs > 0 ) then { _attachments = ["BWA3_acc_LLM01_irlaser"]; };
+			if ((toUpper worldname) in _var_aridMaps) then {
+				_primaryWeapon = selectRandom ["BWA3_G36A1","BWA3_G36A1_TAN","BWA3_G36A1_TAN","BWA3_G36A2","BWA3_G36A2_TAN","BWA3_G36A2_TAN"];
+				if (_primaryWeapon in ["BWA3_G36A1_TAN","BWA3_G36A2_TAN"]) then {
+					_optic = ["BWA3_optic_RSAS_brown_G36A2","BWA3_optic_RSAS_sand_G36A2","BWA3_optic_RSAS_tan_G36A2","BWA3_optic_RSAS_tan_G36A2"];
+					_silencer = "BWA3_muzzle_snds_Rotex_IIIC_tan";
+					if ( _par_NVGs > 0 ) then { _attachments = ["BWA3_acc_LLM01_irlaser_tan"]; };
+				};
+			};
 		};
-		_silencer = "BWA3_muzzle_snds_G36";		//if silencer is added
 		_handgun = "BWA3_P8";
 		_itemsHandgun = [];
 		_handgunSilencer = "";		//if silencer is added
-		_launcher = "BWA3_RGW90";
+		_launcher = "BWA3_RGW90_Loaded";
 		_launcherAmmo = [1,0];
 		_additionalAmmo = nil;
 	};
@@ -350,9 +358,9 @@ switch (_par_customWeap) do {
 switch (_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
-		_uniform = ["BWA3_Uniform_idz_Tropen"];
-		_vest = ["BWA3_Vest_Grenadier_Tropen","BWA3_Vest_JPC_Rifleman_Tropen"];
-		_headgear = ["BWA3_MICH_Tropen"];
+		_uniform = ["BWA3_Uniform_Tropen"];
+		_vest = ["BWA3_Vest_Rifleman_Tropen","BWA3_Vest_JPC_Rifleman_Tropen"];
+		_headgear = ["BWA3_M92_Tropen"];
 		_backpack = ["BWA3_AssaultPack_Tropen"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_tropen","PBW_Uniform3_tropen","PBW_Uniform3K_tropen"];
@@ -363,9 +371,9 @@ switch (_par_customUni) do {
 	};
 	case 2: {
 		//BWmod Fleck
-		_uniform = ["BWA3_Uniform_idz_Fleck"];
-		_vest = ["BWA3_Vest_Grenadier_Fleck","BWA3_Vest_JPC_Rifleman_Fleck"];
-		_headgear = ["BWA3_MICH_Fleck"];
+		_uniform = ["BWA3_Uniform_Fleck"];
+		_vest = ["BWA3_Vest_Rifleman_Fleck","BWA3_Vest_JPC_Rifleman_Fleck"];
+		_headgear = ["BWA3_M92_Fleck"];
 		_backpack = ["BWA3_AssaultPack_Fleck"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_fleck","PBW_Uniform3_fleck","PBW_Uniform3K_fleck"];

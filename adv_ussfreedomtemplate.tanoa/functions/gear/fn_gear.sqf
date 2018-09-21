@@ -50,7 +50,9 @@ if ( isClass(configFile >> "CfgPatches" >> "CUP_Weapons_NVG") ) then { _NVGoggle
 //if ( isClass (configFile >> "CfgPatches" >> "task_force_radio") ) then { [] call adv_fnc_tfarSettings };
 private _disposableLaunchers = [];
 if ( isClass(configFile >> "CfgPatches" >> "ACE_disposable") ) then { _disposableLaunchers pushBack "LAUNCH_NLAW_F"; };
-_disposableLaunchers append ["BWA3_PZF3","BWA3_RGW90","STI_M136","CUP_LAUNCH_M136","RHS_WEAP_M136","RHS_WEAP_M136_HEDP","RHS_WEAP_M136_HP","RHS_WEAP_M72A7","RHS_WEAP_RPG26","RHS_WEAP_RSHG2","RHS_WEAP_RPG18"];
+_disposableLaunchers append ["ADV_LAUNCH_RPG32_F","ADV_LAUNCH_RPG32_HE_F","ADV_LAUNCH_RPG32_GHEX_F","ADV_LAUNCH_RPG32_GHEX_HE_F"
+,"BWA3_PZF3","BWA3_PZF3_TANDEM_LOADED","BWA3_RGW90","BWA3_RGW90_LOADED","STI_M136","CUP_LAUNCH_M136"
+,"RHS_WEAP_M136","RHS_WEAP_M136_HEDP","RHS_WEAP_M136_HP","RHS_WEAP_M72A7","RHS_WEAP_RPG26","RHS_WEAP_RSHG2","RHS_WEAP_RPG18","RHS_WEAP_RPG75","RHS_WEAP_PANZERFAUST60"];
 
 if ( [_unit,"command"] call adv_fnc_findInGroup ) then {
 	if ( isClass(configFile >> "CfgPatches" >> "task_force_radio") ) then {
@@ -193,6 +195,9 @@ if ( _launcher isEqualType [] ) then { _launcher = selectRandom _launcher; };
 _launcherAmmo params ["_laC","_laI"];
 if ( (toUpper _launcher) in _disposableLaunchers ) then {
 	_laI = 1;
+};
+if ( isClass(configFile >> "CfgPatches" >> "adv_disposableRPG") && {(toUpper _launcher) in ["LAUNCH_RPG32_F","LAUNCH_RPG32_GHEX_F"] && _laI isEqualTo 1} ) then {
+	_launcher = format ["adv_%1",_launcher];
 };
 [_unit,_launcher,_laC,_laI] call BIS_fnc_addWeapon;
 //primaryWeapon

@@ -552,9 +552,9 @@ switch ( _par_modTankAssets ) do {
 	case 10: {
 		[] call {
 			if ( (toUpper worldname) in (missionNamespace getVariable ["ADV_var_aridMaps",[]]) ) exitWith {
-				[ADV_veh_tanks,["BWA3_Leopard2A6M_Tropen"],west] call ADV_fnc_changeVeh;
+				[ADV_veh_tanks,["BWA3_Leopard2_Tropen"],west] call ADV_fnc_changeVeh;
 			};
-			[ADV_veh_tanks,["BWA3_Leopard2A6M_Fleck"],west] call ADV_fnc_changeVeh;
+			[ADV_veh_tanks,["BWA3_Leopard2_Fleck"],west] call ADV_fnc_changeVeh;
 		};
 	};
 	//Redd Marder

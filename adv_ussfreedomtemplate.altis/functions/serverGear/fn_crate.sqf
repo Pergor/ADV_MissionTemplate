@@ -37,7 +37,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 			case (_par_customWeap == 1): {
 				//weapons
 				_target addWeaponCargoGlobal ["BWA3_Fliegerfaust",5];
-				_target addWeaponCargoGlobal ["BWA3_Pzf3_Loaded",5];
+				_target addWeaponCargoGlobal ["BWA3_Pzf3_Tandem_Loaded",5];
 				_target addWeaponCargoGlobal ["BWA3_RGW90_Loaded",5];
 				//ammo
 				_target addMagazineCargoGlobal ["BWA3_Fliegerfaust_Mag",6];
@@ -62,17 +62,24 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 					_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_M_MG3",20];
 					_target addMagazineCargoGlobal ["hlc_100Rnd_762x51_Barrier_MG3",20];
 				} else {
-					_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51",20];
-					_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51_Tracer",20];
+					_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51_soft",20];
+					_target addMagazineCargoGlobal ["BWA3_120Rnd_762x51_Tracer_soft",20];
 				};				
 				_target addMagazineCargoGlobal ["BWA3_15Rnd_9x19_P8",20];
 				_target addMagazineCargoGlobal ["BWA3_10Rnd_762x51_G28_LR",30];
 				_target addMagazineCargoGlobal ["BWA3_10Rnd_127x99_G82",10];
 				//items
 				_target addItemCargoGlobal ["BWA3_acc_LLM01_irlaser",5];
+				_target addItemCargoGlobal ["BWA3_acc_VarioRay_irlaser",5];
+				_target addItemCargoGlobal ["BWA3_bipod_MG3",5];
 				if (_par_optics == 1) then {
-					_target addItemCargoGlobal ["BWA3_optic_RSAS",5];
-					_target addItemCargoGlobal ["BWA3_optic_ZO4x30",5];
+					_target addItemCargoGlobal ["BWA3_optic_RSAS_G36A2",5];
+					_target addItemCargoGlobal ["BWA3_optic_ZO4x30_RSAS",5];
+					_target addItemCargoGlobal ["BWA3_optic_EOTech552",5];
+					_target addItemCargoGlobal ["BWA3_optic_MicroT2",5];
+					_target addItemCargoGlobal ["BWA3_optic_M5Xi_MSR_MicroT2",5];
+					_target addItemCargoGlobal ["BWA3_optic_PMII_ShortdotCC",5];
+					_target addItemCargoGlobal ["BWA3_optic_PMII_DMR_MicroT1_rear",5];
 				};
 			};
 			//SeL RHS

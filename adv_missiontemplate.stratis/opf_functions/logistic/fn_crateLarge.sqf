@@ -57,22 +57,31 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		};
 		//case (ADV_par_opfWeap == 4): {};
 		default {
+			private _launcher = "launch_RPG32_F";
 			switch (true) do {
 				case (_par_opfWeap == 21): {
 					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_F",40];
 					_target addMagazineCargoGlobal ["30Rnd_762x39_Mag_Tracer_F",20];
 					_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",24];
+					_launcher = "launch_RPG32_ghex_F";
 				};
 				case (worldName == "TANOA" || _par_opfWeap == 20): {
 					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_F",40];
 					_target addMagazineCargoGlobal ["30Rnd_580x42_Mag_Tracer_F",20];
 					_target addMagazineCargoGlobal ["100Rnd_580x42_Mag_F",24];
+					_launcher = "launch_RPG32_ghex_F";
 				};
 				default {
 					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green",40];
 					_target addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer",20];
 					_target addMagazineCargoGlobal ["150Rnd_762x54_Box_Tracer",12];
 				};
+			};
+			if ( isClass(configFile >> "CfgPatches" >> "adv_disposableRPG") ) then {
+				_launcher = format ["adv_%1",_launcher];
+				_target addWeaponCargoGlobal [_launcher,5];
+			} else {
+				_target addMagazineCargoGlobal ["RPG32_F",5];
 			};
 			_target addMagazineCargoGlobal ["150Rnd_93x64_Mag",12];
 			//_target addMagazineCargoGlobal ["150Rnd_762x54_Box",6];

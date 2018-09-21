@@ -34,7 +34,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		case (_par_customWeap == 1): {
 			//weapons
 			_target addWeaponCargoGlobal ["BWA3_RGW90_Loaded",2];
-			_target addWeaponCargoGlobal ["BWA3_Pzf3_Loaded",3];
+			_target addWeaponCargoGlobal ["BWA3_Pzf3_Tandem_Loaded",3];
 		};
 		//SeL RHS
 		case ( _par_customWeap == 2 || _par_customWeap == 3 || _par_customWeap == 4 || ( _par_customWeap == 9 && isClass(configFile >> "CfgPatches" >> "rhsusf_main") ) ): {

@@ -64,7 +64,9 @@ adv_speedLimiter_fnc_speedlimiter = {
 		_actualSpeed = _vehicle setVariable ["adv_speedlimiter_actualSpeed", _maxSpeed];
 
 		if (_speed > _maxSpeed) then {
-			_vehicle setVelocity ((velocity _vehicle) vectorMultiply ((_maxSpeed / _speed) - 0.00001));
+			//_vehicle setVelocity ((velocity _vehicle) vectorMultiply ((_maxSpeed / _speed) - 0.00001));
+			_vehicle setVelocityModelSpace [0,((_maxSpeed/_speed) - 0.000001),0];
+			
 		};
 
 	} , 0, [_driver, _vehicle, _maxSpeed]] call CBA_fnc_addPerFrameHandler;

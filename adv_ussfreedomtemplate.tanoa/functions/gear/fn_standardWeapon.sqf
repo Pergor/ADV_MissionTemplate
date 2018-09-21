@@ -35,7 +35,7 @@ if ( _side == west ) exitWith {
 			if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) then {
 				["hlc_rifle_G36A1", "hlc_30rnd_556x45_EPR_G36", "", "HLC_Optic_G36dualoptic35x2d"];
 			} else {
-				["BWA3_G36", "BWA3_30Rnd_556x45_G36", "BWA3_muzzle_snds_G36", "BWA3_optic_ZO4x30"];
+				["BWA3_G36A1", "BWA3_30Rnd_556x45_G36", "BWA3_muzzle_snds_Rotex_IIIC", ""];
 			};
 		};
 		//rhs army

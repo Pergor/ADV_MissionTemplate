@@ -220,15 +220,19 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_chips","sc_charms","sc_candybar",""
 switch (_par_customWeap) do {
 	case 1: {
 		//BWmod
+		_primaryweapon = "BWA3_G38C";
+		_primaryweaponAmmo set [1,3];
+		_optic = ["BWA3_optic_EOTech552"];
+		_attachments = ["BWA3_muzzle_snds_Rotex_IIIC"];
+		if ((toUpper worldname) in _var_aridMaps) then {
+			_primaryweapon = "BWA3_G38C_tan";
+			_optic = ["BWA3_optic_EOTech552_tan"];
+			_attachments = ["BWA3_muzzle_snds_Rotex_IIIC_tan","BWA3_optic_EOTech552_tan"];
+		};
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) then {
 			_primaryWeapon = ["hlc_rifle_g36KTac"];
 			if (isClass(configFile >> "CfgPatches" >> "adv_hlcG36_bwmod")) then { _primaryweaponAmmo set [1,4] };
-		} else {
-			_primaryweapon = "BWA3_G38C";
-			_primaryweaponAmmo set [1,4];
 		};
-		_optic = ["BWA3_optic_EOTech_Mag_Off"];
-		_attachments = ["BWA3_muzzle_snds_G36"];
 		if ( _par_NVGs > 0 ) then { _attachments pushBack "BWA3_acc_VarioRay_irlaser"; };
 		_additionalAmmo = [5,"BWA3_10Rnd_127x99_G82",true];
 		_handgun = "BWA3_P8";
@@ -361,7 +365,7 @@ switch (_par_customWeap) do {
 switch (_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
-		_uniform = ["BWA3_Uniform_Ghillie_idz_Tropen"];
+		_uniform = ["BWA3_Uniform_Ghillie_Tropen","BWA3_Uniform2_Ghillie_Tropen"];
 		_vest = ["BWA3_Vest_Marksman_Tropen","BWA3_Vest_JPC_Rifleman_Tropen"];
 		_backpack = ["BWA3_PatrolPack_Tropen"];
 		_headgear = ["BWA3_Booniehat_Tropen"];
@@ -373,7 +377,7 @@ switch (_par_customUni) do {
 	};
 	case 2: {
 		//BWmod Fleck
-		_uniform = ["BWA3_Uniform_Ghillie_idz_Fleck"];
+		_uniform = ["BWA3_Uniform_Ghillie_Fleck","BWA3_Uniform2_Ghillie_Fleck"];
 		_vest = ["BWA3_Vest_Marksman_Fleck","BWA3_Vest_JPC_Rifleman_Fleck"];
 		_backpack = ["BWA3_PatrolPack_Fleck"];
 		_headgear = ["BWA3_Booniehat_Fleck"];

@@ -208,9 +208,11 @@ switch (_par_customWeap) do {
 	case 1: {
 		//BWmod
 		_primaryweapon = "BWA3_MG3";
-		_optic = ["BWA3_optic_ZO4x30"];
+		_optic = "";
+		_attachments = ["BWA3_bipod_MG3"];
+		_silencer = "";
 		_additionalAmmo set [0,4];
-		_silencer = "BWA3_muzzle_snds_MG5";
+		_additionalAmmo set [2,true];
 		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_MG3s")) then {
 			call {
 				if ((toUpper worldname) in _var_aridMaps) exitWith {
@@ -218,12 +220,10 @@ switch (_par_customWeap) do {
 				};
 					_primaryweapon = "hlc_lmg_MG3KWS_b";
 			};
-			_optic = ["BWA3_optic_Shortdot"];
+			_optic = "BWA3_optic_PMII_ShortdotCC";
 			_primaryweaponAmmo = [1,"hlc_100Rnd_762x51_M_MG3"];
 			_additionalAmmo = [5,"hlc_100Rnd_762x51_M_MG3",true];
-			_silencer = "";
 		};
-		if ( _par_NVGs > 0 ) then { _attachments = ["BWA3_acc_VarioRay_irlaser"]; };
 		_handgun = "BWA3_P8";
 		_itemsHandgun = [];
 		_handgunSilencer = "";		//if silencer is added
@@ -341,9 +341,9 @@ switch (_par_customWeap) do {
 switch (_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
-		_uniform = ["BWA3_Uniform_idz_Tropen"];
-		_vest = ["BWA3_Vest_Autorifleman_Tropen"];
-		_headgear = ["BWA3_MICH_Tropen"];
+		_uniform = ["BWA3_Uniform_Tropen"];
+		_vest = ["BWA3_Vest_MachineGunner_Tropen"];
+		_headgear = ["BWA3_M92_Tropen"];
 		_backpack = ["BWA3_PatrolPack_Tropen"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_tropen","PBW_Uniform3_tropen","PBW_Uniform3K_tropen"];
@@ -354,9 +354,9 @@ switch (_par_customUni) do {
 	};
 	case 2: {
 		//BWmod Fleck
-		_uniform = ["BWA3_Uniform_idz_Fleck"];
-		_vest = ["BWA3_Vest_Autorifleman_Fleck"];
-		_headgear = ["BWA3_MICH_Fleck"];
+		_uniform = ["BWA3_Uniform_Fleck"];
+		_vest = ["BWA3_Vest_MachineGunner_Fleck"];
+		_headgear = ["BWA3_M92_Fleck"];
 		_backpack = ["BWA3_PatrolPack_Fleck"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
 			_uniform = ["PBW_Uniform1_fleck","PBW_Uniform3_fleck","PBW_Uniform3K_fleck"];

@@ -206,8 +206,8 @@ switch (true) do {
 		_silencer = "";
 		_primaryweaponAmmo = [0,0];
 		_handgun = "BWA3_MP7";
-		if ( _par_optics == 1 ) then { _itemsHandgun = ["BWA3_optic_RSAS"]; } else { _itemsHandgun = [""]; };
-		_handgunSilencer = "BWA3_muzzle_snds_MP7";
+		if ( _par_optics == 1 ) then { _itemsHandgun = ["BWA3_optic_CompM2","BWA3_optic_MicroT2"]; } else { _itemsHandgun = [""]; };
+		_handgunSilencer = "BWA3_muzzle_snds_Rotex_II";
 		_handgunAmmo = [5,0];
 	};
 	case (_par_customWeap == 2 || _par_customWeap == 3): {

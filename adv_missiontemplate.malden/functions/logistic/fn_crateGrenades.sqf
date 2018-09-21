@@ -33,7 +33,8 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		case (_par_customWeap == 1): {
 			_target addMagazineCargoGlobal ["BWA3_DM51A1",20];
 			_target addMagazineCargoGlobal ["BWA3_DM25",20];
-			_target addMagazineCargoGlobal ["BWA3_DM32_Orange",20];
+			_target addMagazineCargoGlobal ["BWA3_DM32_Green",20];
+			_target addMagazineCargoGlobal ["BWA3_DM32_Red",10];
 			_target addMagazineCargoGlobal ["BWA3_DM32_Yellow",10];
 		};
 		case (_par_customWeap == 2 || _par_customWeap == 3 || _par_customWeap == 4): {

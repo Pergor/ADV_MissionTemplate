@@ -202,16 +202,17 @@ _scorchItemsRandom = ["sc_cigarettepack","sc_charms","sc_candybar","","",""];
 switch (_par_customWeap) do {
 	case 1: {
 		//BWmod
-		if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) then {
-			_primaryWeapon = ["hlc_rifle_G36A1"];
-			_optic = ["HLC_Optic_G36dualoptic35x"];
-			_attachments = [""];
-		} else {
-			_primaryweapon = ["BWA3_G36"];
-			_optic = ["BWA3_optic_ZO4x30","BWA3_optic_EOTech"];
-			_attachments = [""];
+		call {
+			if (isClass(configFile >> "CfgPatches" >> "hlcweapons_g36")) exitWith {
+				_primaryWeapon = ["hlc_rifle_G36A1"];
+				_optic = ["HLC_Optic_G36dualoptic35x"];
+				_attachments = [""];
+			};
+			_primaryWeapon = ["BWA3_G36A1","BWA3_G36A1","BWA3_G36A2"];
+			_optic = ["BWA3_optic_RSAS_G36A2","BWA3_optic_RSAS_G36A2","BWA3_optic_RSAS_brown_G36A2"];
+			_silencer = "BWA3_muzzle_snds_Rotex_IIIC";
+			if ( _par_NVGs > 0 ) then { _attachments = ["BWA3_acc_LLM01_irlaser"]; };
 		};
-		_silencer = "BWA3_muzzle_snds_G36";		//if silencer is added
 		_handgun = "BWA3_P8";
 		_itemsHandgun = [""];
 		_handgunSilencer = "";		//if silencer is added
@@ -324,7 +325,7 @@ switch (_par_customWeap) do {
 switch (_par_customUni) do {
 	case 1: {
 		//BWmod Tropen
-		_uniform = ["BWA3_Uniform_idz_Tropen"];
+		_uniform = ["BWA3_Uniform_Tropen"];
 		_vest = ["BWA3_Vest_Leader_Tropen"];
 		_headgear = ["BWA3_Beret_Jaeger"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {
@@ -335,7 +336,7 @@ switch (_par_customUni) do {
 	};
 	case 2: {
 		//BWmod Fleck
-		_uniform = ["BWA3_Uniform_idz_Fleck"];
+		_uniform = ["BWA3_Uniform_Fleck"];
 		_vest = ["BWA3_Vest_Leader_Fleck"];
 		_headgear = ["BWA3_Beret_Jaeger"];
 		if (isClass(configFile >> "CfgPatches" >> "PBW_German_Common")) then {

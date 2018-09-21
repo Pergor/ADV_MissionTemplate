@@ -46,13 +46,17 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		};
 		case (_par_opfWeap == 4): {};
 		default {
+			private _launcher = "launch_RPG32_F";
 			if (worldName == "TANOA" || _par_opfWeap == 20 || _par_opfWeap == 21) then {
-				_target addWeaponCargoGlobal ["launch_RPG32_ghex_F",1];
-			} else {
-				_target addWeaponCargoGlobal ["launch_RPG32_F",1];
+				_launcher = "launch_RPG32_ghex_F";
 			};
+			if ( isClass(configFile >> "CfgPatches" >> "adv_disposableRPG") ) then {
+				_launcher = format ["adv_%1",_launcher];
+			} else {
+				_target addMagazineCargoGlobal ["RPG32_F",2];
+			};
+			_target addWeaponCargoGlobal [_launcher,2];
 			
-			_target addMagazineCargoGlobal ["RPG32_F",2];
 			_target addMagazineCargoGlobal ["Titan_AT",3];
 			_target addMagazineCargoGlobal ["Vorona_HEAT",3];
 		};

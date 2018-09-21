@@ -84,10 +84,12 @@ if (_grenSet > 0) then {
 private _grenArray = call {
 	if ( _par_customWeap isEqualTo 1 && ( side ( group _unit ) isEqualTo west ) ) exitWith {
 		[
-			["BWA3_DM51A1",_grenHE],
-			["BWA3_DM25", _grenSmkWht],
-			["BWA3_DM32_Orange", _grenSmkOrng+_grenSmkGrn+_grenSmkRd],
-			["BWA3_DM32_Yellow", _grenSmkYlw+_grenSmkPrpl+_grenSmkBl]
+			["BWA3_DM51A1",_grenHE]
+			,["BWA3_DM25", _grenSmkWht]
+			,["BWA3_DM32_Orange", _grenSmkOrng+_grenSmkRd]
+			,["BWA3_DM32_Green", _grenSmkGrn]
+			,["BWA3_DM32_Purple", _grenSmkPrpl+_grenSmkBl]
+			,["BWA3_DM32_Yellow", _grenSmkYlw]
 		]
 	};
 	if ( ((_par_customWeap isEqualTo 2 || _par_customWeap isEqualTo 3 || _par_customWeap isEqualTo 4) && ( side ( group _unit ) isEqualTo west )) || (_par_indWeap isEqualTo 2 && ( side ( group _unit ) isEqualTo independent )) ) exitWith {
