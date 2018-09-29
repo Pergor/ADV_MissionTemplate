@@ -139,6 +139,7 @@ adv_scriptfnc_aresModules_getLocations = {
 			]
 		] call Ares_fnc_showChooseDialog;
 		if (_dialogResult isEqualTo []) exitWith {};
+		findDisplay 312 closeDisplay 2;
 		_dialogResult params ["_type"];
 		if (_type < 1) then {_type = -1;};
 		[_type] remoteExec ["adv_fnc_cpinit",0];
@@ -259,6 +260,7 @@ if ( isClass(configFile >> "CfgPatches" >> "tfar_core") ) then {
 		};
 		private _logic = getAssignedCuratorLogic _target;
 		[_logic] remoteExec ["unassignCurator",2];
+		{findDisplay 312 closeDisplay 2} remoteExec ["call",_target];
 		deleteVehicle _logic;
 	}
 ] call Ares_fnc_RegisterCustomModule;

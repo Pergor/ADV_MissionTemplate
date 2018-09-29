@@ -31,7 +31,23 @@ call adv_fnc_collectFlags;
 waitUntil {!isNil "ADV_params_defined"};
 
 //date:
-setDate [2017, 8, missionNamespace getVariable ["ADV_par_day",23], missionNamespace getVariable ["ADV_par_hour",6] , missionNamespace getVariable ["ADV_par_minute",0]];
+private _hour = missionNamespace getVariable ["adv_par_hour",6];
+private _randomHour = if ( _hour < 24 ) then {
+	_hour
+} else {
+	call {
+		if (_hour isEqualTo 97) exitWith { 6+(floor (random 11)) };
+		if (_hour isEqualTo 98) exitWith { 3-(floor (random 8)) };
+		floor (random 24);
+	};
+};
+private _minutes = missionNamespace getVariable ["adv_par_minute",0];
+private _randomMinutes = if ( _minutes > 60 ) then {
+	floor (random 60)
+} else {
+	_minutes
+};
+setDate [2017, 8, missionNamespace getVariable ["adv_par_day",23], _randomHour, _randomMinutes];
 
 //stops the blabbering of AI units and players
 if ( isMultiplayer ) then {
