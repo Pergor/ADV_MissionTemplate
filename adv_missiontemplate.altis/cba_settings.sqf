@@ -84,7 +84,6 @@ acre_sys_core_premixGlobalVolume = 1;
 acre_sys_core_spectatorVolume = 1;
 */
 
-
 //settings for stHud:
 force STHud_Settings_Occlusion = true;
 STHud_Settings_SquadBar = false;
@@ -139,16 +138,40 @@ asr_ai3_main_debug_reveal = false;
 //NIArms:
 niarms_magSwitch = true;
 
-//ADV-ACE CPR:
-adv_aceCPR_chance_2 = 40;
-adv_aceCPR_chance_1 = 15;
-adv_aceCPR_chance_0 = 5;
-adv_aceCPR_chance_aed = 85;
-adv_aceCPR_timeAdd = 20;
-adv_aceCPR_maxTime = 1200;
+// MRHSatellite Options
+MRH_SAT_allowFullscreen = true;
+MRH_SAT_allowLasering = true;
+MRH_SAT_allowTargetDetection = true;
+MRH_SAT_allowTargetTracking = true;
+MRH_SAT_MaxSatAltitude = 300;
 
-//ADV-ACE Splint:
-adv_aceSplint_reopenChance = 0;
+// Diwako Stalker Like Anomalies
+ANOMALY_DEBUG = false;
+ANOMALY_DETECTION_RANGE = 20;
+ANOMALY_DETECTOR_ITEM = "AnomalyDetector";
+ANOMALY_GAS_MASKS = "GP5_RaspiratorPS,GP5Filter_RaspiratorPS,GP7_RaspiratorPS,GP21_GasmaskPS,SE_S10,G_Respirator_white_F,MASK_M40_OD,MASK_M40,MASK_M50";
+ANOMALY_IDLE_DISTANCE = 350;
+diwako_anomalies_enable = false;
+
+// ADV - ACE CPR
+adv_aceCPR_enable = true;
+adv_aceCPR_useLocation_AED = 0;
+adv_aceCPR_AED_stationType = """Land_Defibrillator_F""";
+adv_aceCPR_chance_0 = 5;
+adv_aceCPR_chance_1 = 15;
+adv_aceCPR_chance_2 = 40;
+adv_aceCPR_chance_aed = 85;
+adv_aceCPR_maxTime = 1200;
+adv_aceCPR_addTime = 20;
+
+// ADV - ACE Refill
+adv_aceRefill_FAK_minAmount = 3;
+adv_aceRefill_manualKit_minAmount = 10;
+
+// ADV - ACE Splint
+adv_aceSplint_enable = false;
+adv_aceSplint_reopenChance_medic = 0;
+adv_aceSplint_reopenChance_regular = 30;
 adv_aceSplint_reopenTime = 600;
 adv_aceSplint_reuseChance = 80;
 
