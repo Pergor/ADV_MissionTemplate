@@ -53,6 +53,9 @@ adv_undercover_uniforms_independent = [
 	"U_I_COMBATUNIFORM","U_I_OFFICERUNIFORM","U_I_COMBATUNIFORM_SHORTSLEEVE","U_I_GHILLIESUIT","U_I_HELIPILOTCOVERALLS","U_I_PILOTCOVERALLS"
 	,"U_I_C_SOLDIER_PARA_2_F","U_I_C_SOLDIER_PARA_3_F","U_I_C_SOLDIER_PARA_5_F","U_I_C_SOLDIER_PARA_4_F","U_I_C_SOLDIER_PARA_1_F","U_I_C_SOLDIER_CAMO_F"
 ];
+adv_undercover_uniforms_civilian = [
+	"U_RANGEMASTER","U_NIKOSBODY","U_ORESTESBODY","U_COMPETITOR","U_NIKOSAGEDBODY","U_ATTISBODY","U_MARSHAL"
+];
 
 adv_undercover_uniforms = call {
 	if (side (group player) isEqualTo west) exitWith {
@@ -65,6 +68,8 @@ adv_undercover_uniforms = call {
 		adv_undercover_uniforms_west+adv_undercover_uniforms_east
 	};
 };
+
+adv_undercover_uniforms = adv_undercover_uniforms+adv_undercover_uniforms_civilian;
 
 adv_undercover_scriptfnc_setCaptive = {
 	params ["_unit","_captive"];
@@ -111,11 +116,20 @@ adv_undercover_scriptfnc_switch_tooclose = {
 	player setVariable ["adv_undercover_tooClose_applied",true];
 };
 
+adv_undercover_sriptfnc_checkUniform = {
+	params [
+		["_unit", player, [objNull]]
+	];
+	private _uniform = toUpper (uniform _unit);
+	if ((_uniform select [0,3] isEqualTo "U_C_") || (_uniform in adv_undercover_uniforms)) exitWith {true};
+	false
+};
+
 adv_undercover_scriptfnc_switch_uniform = {
 	params [
 		["_unit", player, [objNull]]
 	];
-	if ( toUpper (uniform _unit) in adv_undercover_uniforms && call adv_undercover_scriptfnc_noEnemyClose ) exitWith {
+	if ( [_unit] call adv_undercover_sriptfnc_checkUniform && call adv_undercover_scriptfnc_noEnemyClose ) exitWith {
 		[_unit, true] call adv_undercover_scriptfnc_setCaptive;
 		[_unit] call adv_undercover_scriptfnc_switch_tooclose;
 	};
@@ -148,7 +162,7 @@ adv_undercover_scriptfnc_switch_onFoot = {
 
 	//if ( _isBinocular ) exitWith {};
 
-	if ( toUpper (uniform _unit) in adv_undercover_uniforms ) exitWith {};
+	if ( [_unit] call adv_undercover_sriptfnc_checkUniform ) exitWith {};
 
 	if ( call adv_undercover_scriptfnc_noVisualWeapon && call adv_undercover_scriptfnc_noEnemyClose ) exitWith {
 		[_unit, true] call adv_undercover_scriptfnc_setCaptive;

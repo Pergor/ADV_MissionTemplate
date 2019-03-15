@@ -90,6 +90,10 @@ if ( ["recon",str _unit] call BIS_fnc_inString ) then {
 	_microDAGR = false;
 	[[0,1],false] call adv_fnc_enableChannels;
 	[[2],true] call adv_fnc_enableChannels;
+	if (isClass(configFile >> "CfgPatches" >> "acex_field_rations") && missionNamespace getVariable ["acex_field_rations_enabled",false]) then {
+		_items pushBack (selectRandom ["ACE_MRE_BeefStew","ACE_MRE_ChickenTikkaMasala","ACE_MRE_ChickenHerbDumplings","ACE_MRE_CreamChickenSoup","ACE_MRE_CreamTomatoSoup","ACE_MRE_LambCurry","ACE_MRE_MeatballsPasta","ACE_MRE_SteakVegetables"]);
+		_items pushBack "ACE_Canteen";
+	};
 };
 
 //removals:

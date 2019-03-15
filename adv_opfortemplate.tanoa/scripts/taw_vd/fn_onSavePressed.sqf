@@ -23,4 +23,4 @@ SVAR_PNS [format["tawvd_slot_%1",_saveIndex],
 ];
 
 saveProfileNamespace;
-[] call TAWVD_fnc_openSaveManager;
+[] call TAWVDS_fnc_openSaveManager;

@@ -52,9 +52,14 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		_target addItemCargoGlobal ["murshun_cigs_cigpack",20];
 	};
 	*/
-	if (isClass(configFile >> "CfgPatches" >> "mgm_foods")) then {
-		_target addItemCargoGlobal ["mgm_item_mre",20];
-		_target addItemCargoGlobal ["mgm_item_redgull",20];
+	if (isClass(configFile >> "CfgPatches" >> "acex_field_rations") && missionNamespace getVariable ["acex_field_rations_enabled",false]) then {
+		_target addItemCargoGlobal ["ACE_WaterBottle",24];
+		{ _target addItemCargoGlobal [_x,3]; nil } count ["ACE_MRE_BeefStew","ACE_MRE_ChickenTikkaMasala","ACE_MRE_ChickenHerbDumplings","ACE_MRE_CreamChickenSoup","ACE_MRE_CreamTomatoSoup","ACE_MRE_LambCurry","ACE_MRE_MeatballsPasta","ACE_MRE_SteakVegetables"];
+	} else {
+		if (isClass(configFile >> "CfgPatches" >> "mgm_foods")) then {
+			_target addItemCargoGlobal ["mgm_item_mre",20];
+			_target addItemCargoGlobal ["mgm_item_redgull",20];
+		};
 	};
 	
 	_ACE_fieldDressing = 0;
@@ -87,7 +92,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 	};
 	//medical stuff
 	if (isClass (configFile >> "CfgPatches" >> "ACE_common")) then {
-		_target addItemCargoGlobal ["ACE_Banana",10];
+		_target addItemCargoGlobal ["ACE_Banana",12];
 		_ACE_EarPlugs = 0;
 
 		_ACE_SpareBarrel = 0;
@@ -122,7 +127,7 @@ if (isNil "_loadoutVariables") then {call adv_fnc_loadoutVariables;};
 		_ACE_IR_Strobe = 0;
 		_ACE_M84 = 0;
 		_ACE_HandFlare_Green = 0;
-		_ACE_HandFlare_Red = 1;
+		_ACE_HandFlare_Red = 0;
 		_ACE_HandFlare_White = 0;
 		_ACE_HandFlare_Yellow = 0;
 		[_target] call ADV_fnc_addACEItems;

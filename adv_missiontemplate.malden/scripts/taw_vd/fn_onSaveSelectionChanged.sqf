@@ -24,5 +24,5 @@ SVAR_MNS ["tawvd_object",SEL(_saveData,5)];
 SVAR_MNS ["tawvd_syncObject",SEL(_saveData,6)];
 
 /* Update Menu & View Distance */
-[] call TAWVD_fnc_updateViewDistance;
-[] call TAWVD_fnc_openMenu;
+[] call TAWVDS_fnc_updateViewDistance;
+[] call TAWVDS_fnc_openMenu;

@@ -36,6 +36,6 @@ if (tawvd_syncObject) then {
 };
 
 //Lets disable it..
-if(!isNil "tawvd_disablenone") then {
+if ( missionNamespace getVariable ["tawvd_disablenone",true] ) then {
 	ctrlEnable [TERRAIN_NONE,false];
 };

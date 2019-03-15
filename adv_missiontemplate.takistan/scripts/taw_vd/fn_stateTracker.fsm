@@ -32,11 +32,10 @@ class FSM
     class init
     {
       name = "init";
-      init = /*%FSM<STATEINIT""">*/"private [""_playerState"",""_corpse"",""_actionID"",""_droneState""];" \n
+      init = /*%FSM<STATEINIT""">*/"private [""_playerState"",""_corpse"",""_actionID_ACE"",""_actionID"",""_droneState""];" \n
        "" \n
        "_playerState = vehicle player;" \n
        "_droneState = UAVControl (getConnectedUAV player) select 1;" \n
-       "tawvd_addon_disable = true;" \n
        "" \n
        "if (isNil {profileNamespace getVariable ""tawvd_foot""}) then {" \n
        "	profileNamespace setVariable [""tawvd_foot"",viewDistance];" \n
@@ -55,8 +54,10 @@ class FSM
        "tawvd_object = profileNamespace getVariable [""tawvd_object"",(getObjectViewDistance select 0)];" \n
        "tawvd_syncObject = profileNamespace getVariable [""tawvd_syncObject"",false];" \n
        "" \n
-	   "[] call TAWVD_fnc_updateViewDistance;" \n
-       "_actionID = player addAction[""<t color='#FF0000'>View Settings</t>"",TAWVD_fnc_openMenu,[],-99,false,false,"""",''];"/*%FSM</STATEINIT""">*/;
+	   "[] call TAWVDS_fnc_updateViewDistance;" \n
+       "_actionID_ACE = [""tawvd_menu"",""View Settings"","""",{[] call TAWVDS_fnc_openMenu},{true}] call ace_interact_menu_fnc_createAction;" \n
+       "[typeOf player, 1, [""ACE_SelfActions""], _actionID_ACE] call ace_interact_menu_fnc_addActionToClass;" \n
+       "_actionID = player addAction[""<t color='#FF0000'>View Settings</t>"",TAWVDS_fnc_openMenu,[],-99,false,false,"""",''];"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -130,7 +131,7 @@ class FSM
     class Re_add_my_action
     {
       name = "Re_add_my_action";
-      init = /*%FSM<STATEINIT""">*/"_actionID = player addAction[""<t color='#FF0000'>View Settings</t>"",TAWVD_fnc_openMenu,[],-99,false,false,"""",''];"/*%FSM</STATEINIT""">*/;
+      init = /*%FSM<STATEINIT""">*/"_actionID = player addAction[""<t color='#FF0000'>View Settings</t>"",TAWVDS_fnc_openMenu,[],-99,false,false,"""",''];"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -151,7 +152,7 @@ class FSM
     class Update_me
     {
       name = "Update_me";
-      init = /*%FSM<STATEINIT""">*/"[] call TAWVD_fnc_updateViewDistance;" \n
+      init = /*%FSM<STATEINIT""">*/"[] call TAWVDS_fnc_updateViewDistance;" \n
        "_playerState = vehicle player;" \n
        "_droneState = UAVControl (getConnectedUAV player) select 1;"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
