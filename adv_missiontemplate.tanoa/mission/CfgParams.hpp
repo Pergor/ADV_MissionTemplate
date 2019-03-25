@@ -202,6 +202,20 @@ class dummy_equipment {
 	default = -99999;
 	texts[] = {""};
 };
+class param_customLoad
+{
+	title="Sollen die Spieler mit custom loadouts ausgerüstet werden?";
+	values[] = {2,1,3,0};
+	texts[] = {"Spieler starten und respawnen mit custom loadouts.","Spieler starten mit custom loadouts (mit gearsaving).","Spieler starten mit custom loadouts (ohne gearsaving).","Keine custom loadouts."};
+	default = 1;
+};
+class param_chooseLoad
+{
+	title="Sollen die Spieler am Start ihre Ausrüstung wechseln dürfen?";
+	values[] = {1,0};
+	texts[] = {"Ja","Nein"};
+	default = 1;
+};
 class param_radios
 {
 	title="Sollen die Spieler bei Missionsbeginn mit Funkgeräten ausgerüstet werden?";
@@ -216,19 +230,12 @@ class param_tablets
 	texts[] = {"BWmod Navipad","ACE-GPS","cTab","Nur Vanilla-GPS","Keine"};
 	default = 1;
 };
-class param_customLoad
+class param_gasmasks
 {
-	title="Sollen die Spieler mit custom loadouts ausgerüstet werden?";
+	title="Sollen die Spieler bei Missionsbeginn mit Atemschutzmasken ausgerüstet werden?";
 	values[] = {2,1,0};
-	texts[] = {"Spieler starten und respawnen mit custom loadouts.","Spieler starten mit custom loadouts (nur mit gearsaving).","Keine custom loadouts."};
-	default = 1;
-};
-class param_chooseLoad
-{
-	title="Sollen die Spieler am Start ihre Ausrüstung wechseln dürfen?";
-	values[] = {1,0};
-	texts[] = {"Ja","Nein"};
-	default = 1;
+	texts[] = {"Atemschutzmasken im Inventar","Atemschutzmasken aufgesetzt","Nein"};
+	default = 0;
 };
 class param_logisticAmount
 {

@@ -447,10 +447,10 @@ ace_zeus_zeusBird = false;
 
 acex_field_rations_enabled = false;
 acex_field_rations_affectAdvancedFatigue = true;
-acex_field_rations_hungerSatiated = 3;
-acex_field_rations_thirstQuenched = 3;
+acex_field_rations_hungerSatiated = 5;
+acex_field_rations_thirstQuenched = 5;
 acex_field_rations_timeWithoutFood = 4;
-acex_field_rations_timeWithoutWater = 2;
+acex_field_rations_timeWithoutWater = 2.5;
 
 acex_headless_delay = 15;
 acex_headless_enabled = false;

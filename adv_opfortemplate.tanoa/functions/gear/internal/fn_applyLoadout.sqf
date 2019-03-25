@@ -59,10 +59,6 @@ if (_par_customLoad > 0) then {
 		sleep 1;
 		if (!isNil "ADV_respawn_EVH") then { _target removeEventhandler ["Respawn",ADV_respawn_EVH]; };
 		switch (missionNamespace getVariable ["ADV_par_customLoad",2]) do {
-			case 0: {
-				//No respawn with gear
-				ADV_respawn_EVH = _target addEventhandler ["Respawn", {systemChat "no respawn loadout.";}];
-			};
 			case 1: {
 				//respawn with saved gear
 				sleep 2;
@@ -72,6 +68,10 @@ if (_par_customLoad > 0) then {
 			case 2: {
 				//respawn with starting gear
 				ADV_respawn_EVH = _target addEventhandler ["Respawn", {[(_this select 0)] call ADV_fnc_applyLoadout;systemChat "starting gear applied.";}];
+			};
+			case 3: {
+				//No respawn with gear
+				ADV_respawn_EVH = _target addEventhandler ["Respawn", {systemChat "no respawn loadout.";}];
 			};
 			default {};
 		};

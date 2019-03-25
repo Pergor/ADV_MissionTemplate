@@ -205,8 +205,8 @@ class dummy_equipment {
 class param_customLoad
 {
 	title="Sollen die Spieler mit custom loadouts ausgerüstet werden?";
-	values[] = {2,1,0};
-	texts[] = {"Spieler starten und respawnen mit custom loadouts.","Spieler starten mit custom loadouts (nur mit gearsaving).","Keine custom loadouts."};
+	values[] = {2,1,3,0};
+	texts[] = {"Spieler starten und respawnen mit custom loadouts.","Spieler starten mit custom loadouts (mit gearsaving).","Spieler starten mit custom loadouts (ohne gearsaving).","Keine custom loadouts."};
 	default = 1;
 };
 class param_chooseLoad
